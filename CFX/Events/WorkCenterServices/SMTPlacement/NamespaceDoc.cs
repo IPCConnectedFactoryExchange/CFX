@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices.SMTPlacement
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices.SMTPlacement"/> namespace contains messages
+    /// Contains messages
     /// specific to work centers involved in the placement of SMT components on to printed circuit
     /// boards, known as automated pick and place equipment.
     /// </summary>

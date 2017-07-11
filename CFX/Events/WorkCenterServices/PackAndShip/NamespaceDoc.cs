@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices.PackAndShip
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices.PackAndShip"/> namespace contains messages
+    /// Contains messages
     /// that describe the packing of production units and other materials into product packaging and/or
     /// containers for shipment.
     /// </summary>

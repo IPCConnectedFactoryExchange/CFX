@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices.SMTSolderPasteDispensing
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices.SMTSolderPasteDispensing"/> namespace contains messages
+    /// Contains messages
     /// specific to work centers involved in the printing or dispensing of solder paste on printed circuit
     /// boards, known as stencil printers and solder paste jet dispensers.
     /// </summary>

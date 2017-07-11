@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices.TestAndMeasurement
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices.TestAndMeasurement"/> namespace contains messages
+    /// Contains messages
     /// specific to work centers involved in the testing and inspection of production units.
     /// This include human inspection stations, AOI Equipment (Automated Optical Inspection), In-Circuit Test
     /// Equipment, Functional Test Equipment, etc.

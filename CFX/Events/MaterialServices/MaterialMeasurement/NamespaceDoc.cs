@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.MaterialServices.MaterialMeasurement
 {
     /// <summary>
-    /// The <see cref="CFX.Events.MaterialServices.MaterialMeasurement"/> namespace contains messages
+    /// Contains messages
     /// related to measuring the attributes of raw materials within a factory.  For example, an X-Ray 
     /// electronic component counter might implement this namespace to provide messages related to the quantity
     /// of materials remaining in a particular material instance (container).  Another example would be an

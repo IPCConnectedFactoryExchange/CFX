@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices.THTSoldering
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices.THTSoldering"/> namespace contains messages
+    /// Contains messages
     /// specific to work centers involved in the soldering of through-hole technology (THT) electronic
     /// components on to printed circuit boards (PCB's).  This includes wave solder machines, as well as
     /// selective soldering equipment.

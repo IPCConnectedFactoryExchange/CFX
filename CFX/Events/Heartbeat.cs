@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Events
+namespace CFX
 {
     /// <summary>
     /// A CFX message that is transmitted periodically by all endpoints participating in a CFX mesh.

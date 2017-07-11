@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2016.5.28.0" projectFile="C:\Code\Git\CFX\CFX\Documentation\CFX.Messaging.shfbproj" started="1/12/2017 1:55:32 PM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2016.5.28.0" projectFile="C:\Code\Git\CFX\CFX\Documentation\CFX.Messaging.shfbproj" started="1/20/2017 10:44:10 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -18,26 +18,26 @@ Clearing any prior web/markdown output...
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
-Source: C:\Code\Git\CFX\CFX\bin\Debug\CFX.Messaging.dll
-    Found assembly &#39;C:\Code\Git\CFX\CFX\bin\Debug\CFX.Messaging.dll&#39;
-Source: C:\Code\Git\CFX\CFX\bin\Debug\CFX.Messaging.xml
+Source: C:\Code\Git\CFX\CFX\bin\Debug\CFX.dll
+    Found assembly &#39;C:\Code\Git\CFX\CFX\bin\Debug\CFX.dll&#39;
+Source: C:\Code\Git\CFX\CFX\bin\Debug\CFX.xml
 
 Copying XML comments files
-    C:\Code\Git\CFX\CFX\bin\Debug\CFX.Messaging.XML -&gt; C:\Code\Git\CFX\CFX\Documentation\Help\Working\CFX.Messaging.XML
+    C:\Code\Git\CFX\CFX\bin\Debug\CFX.XML -&gt; C:\Code\Git\CFX\CFX\Documentation\Help\Working\CFX.XML
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0020
+</plugIn>    Last step completed in 00:00:00.0045
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0005
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateRefInfo.proj]
-Build started 1/12/2017 1:55:33 PM.
+Build started 1/20/2017 10:44:10 AM.
 The target &quot;_ConvertPdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\4.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,37)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectPdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\4.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,70)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectMdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\4.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,38)&quot; does not exist in the project, and will be ignored.
@@ -50,7 +50,7 @@ GenerateRefInfo:
   Copyright c 2006-2016, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   Loaded 1 assemblies for reflection and 1 dependency assemblies.
-  Wrote information on 23 namespaces, 42 types, and 53 members
+  Wrote information on 24 namespaces, 43 types, and 61 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2016.5.28.0)
   Copyright c 2006-2016, Microsoft Corporation, All Rights Reserved.
@@ -60,13 +60,13 @@ Done Building Project &quot;C:\Code\Git\CFX\CFX\Documentation\Help\Working\Gener
 
 Build succeeded.
 
-Time Elapsed 00:00:00.55
-    Last step completed in 00:00:00.6606
+Time Elapsed 00:00:00.66
+    Last step completed in 00:00:00.7818
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - TransformManifest.proj]
-Build started 1/12/2017 1:55:33 PM.
+Build started 1/20/2017 10:44:11 AM.
 Project &quot;C:\Code\Git\CFX\CFX\Documentation\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2016.5.28.0)
@@ -86,12 +86,12 @@ Done Building Project &quot;C:\Code\Git\CFX\CFX\Documentation\Help\Working\Trans
 
 Build succeeded.
 
-Time Elapsed 00:00:00.33
-    Last step completed in 00:00:00.4301
+Time Elapsed 00:00:00.43
+    Last step completed in 00:00:00.5405
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0060
+    Last step completed in 00:00:00.0055
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
@@ -105,7 +105,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 1/12/2017 1:55:34 PM.
+Build started 1/20/2017 10:44:12 AM.
 Project &quot;C:\Code\Git\CFX\CFX\Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2016.5.28.0)
@@ -118,24 +118,24 @@ Build succeeded.
 
 Time Elapsed 00:00:00.11
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.2060
+    Last step completed in 00:00:00.2165
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1015
+    Last step completed in 00:00:00.1130
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\Code\Git\CFX\CFX\Documentation\Help\Working\sandcastle.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0025
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - BuildTopics.proj]
-Build started 1/12/2017 1:55:34 PM.
+Build started 1/20/2017 10:44:12 AM.
 Project &quot;C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2016.5.28.0)
@@ -155,19 +155,19 @@ BuildAssembler : warning : ShowMissingComponent: [M:CFX.Command.WorkCenterServic
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Command.WorkCenterServices.LockProcessingResponse.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Command.WorkCenterServices.UnlockProcessingRequest.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Command.WorkCenterServices.UnlockProcessingResponse.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.CFXEnvelope.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.Heartbeat.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.Message.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterStateChange.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Events.WorkCenterStateChange.OldState] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.InformationServices.WorkOrderCreated.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.InformationServices.WorkOrderUpdated.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.InformationServices.QualityServices.CorrectiveActionProcessInitiated.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.MaterialServices.MaterialManagement.MaterialCreated.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.MaterialServices.MaterialStorage.MaterialMoved.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.MaterialServices.MaterialStorage.MaterialRemoved.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.MaterialServices.MaterialTransport.MaterialPickDirective.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [N:CFX.Events.QualityServices.CorrectiveActionManagement] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.QualityServices.CorrectiveActionManagement.CorrectiveActionProcessInitiated.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.UnitIdentificationServices.UnitIdentifierRead.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.UnitsProcessed.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.WorkCenterStateChange.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.WorkStarted.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.EnvironmentalProcessing.EnvironmentSampled.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.EnvironmentalProcessing.UnitsEnvironmentallyProcessed.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
@@ -185,20 +185,34 @@ BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterService
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.TestAndMeasurement.UnitsTested.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.THTInsertion.ComponentInserted.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:CFX.Events.WorkCenterServices.THTSoldering.ZoneConditionSampled.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
-  Processed 116 topic(s)
-  42 warning(s)
+BuildAssembler : warning : ShowMissingComponent: [N:CFX.Utilities] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Utilities.JsonConvert] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject``1(System.String)] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject``1(System.String)] Missing &lt;returns&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject``1(System.String)] Missing &lt;param name=&quot;jsonData&quot;/&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject(System.String,System.Type)] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject(System.String,System.Type)] Missing &lt;returns&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject(System.String,System.Type)] Missing &lt;param name=&quot;jsonData&quot;/&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.DeserializeObject(System.String,System.Type)] Missing &lt;param name=&quot;type&quot;/&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.SerializeObject(System.Object)] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.SerializeObject(System.Object)] Missing &lt;returns&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.Utilities.JsonConvert.SerializeObject(System.Object)] Missing &lt;param name=&quot;o&quot;/&gt; documentation [C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj]
+  Processed 128 topic(s)
+  56 warning(s)
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 2 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
 Done Building Project &quot;C:\Code\Git\CFX\CFX\Documentation\Help\Working\BuildTopics.proj&quot; (default targets).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.95
-    Last step completed in 00:00:06.0861
+Time Elapsed 00:00:06.74
+    Last step completed in 00:00:06.8837
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0015
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -210,11 +224,11 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing website files in C:\Code\Git\CFX\CFX\Documentation\Help\Working\Output\Website
-Processed 116 HTML files
+Processed 128 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Code\Git\CFX\CFX\Documentation\Help\Working\WebKI.xml
 Saving website table of contents to C:\Code\Git\CFX\CFX\Documentation\Help\Working\WebTOC.xml
-    Last step completed in 00:00:00.2240
+    Last step completed in 00:00:00.2440
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -293,32 +307,32 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\icons\TocOpen.gif -&gt; C:\Code\Git\CFX\CFX\Documentation\Help\Working\Output\Website\icons\TocOpen.gif
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\Code\Git\CFX\CFX\Documentation\Help\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\Code\Git\CFX\CFX\Documentation\Help\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.0916
+    Last step completed in 00:00:00.0980
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:00.1145
+</plugIn>    Last step completed in 00:00:00.1710
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
-Copied 285 files for the website content
-    Last step completed in 00:00:00.2738
+Copied 301 files for the website content
+    Last step completed in 00:00:00.3385
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.0969
+    Last step completed in 00:00:00.1145
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 1/12/2017 1:55:41 PM.  Total time: 00:00:08.7549
+Build completed successfully at 1/20/2017 10:44:20 AM.  Total time: 00:00:10.0526
 
 </buildStep>
 </shfbBuild>

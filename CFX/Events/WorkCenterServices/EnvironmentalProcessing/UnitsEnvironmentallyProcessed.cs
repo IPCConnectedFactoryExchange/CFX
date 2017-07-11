@@ -12,5 +12,6 @@ namespace CFX.Events.WorkCenterServices.EnvironmentalProcessing
     /// </summary>
     public class UnitsEnvironmentallyProcessed
     {
+
     }
 }

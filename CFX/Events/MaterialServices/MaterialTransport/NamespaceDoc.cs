@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.MaterialServices.MaterialTransport
 {
     /// <summary>
-    /// The <see cref="CFX.Events.MaterialServices.MaterialTransport"/> namespace contains messages related
+    /// Contains messages related
     /// to picking and transportation of material kits (groupings of materials) to various destinations
     /// within the factory environment.  
     /// </summary>

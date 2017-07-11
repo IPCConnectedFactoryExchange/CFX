@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Events.WorkCenterServices.MaterialTraceability
+namespace CFX.WorkCenterServices.MaterialTraceability
 {
     /// <summary>
     /// Indicates that material has been consumed in the course of processing one or more production units,

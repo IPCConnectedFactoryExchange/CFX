@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices.MaterialTraceability
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices.MaterialTraceability"/> namespace contains messages
+    /// Contains messages
     /// that describe the raw materials and parts that were incorporated into production units  
     /// processed at a work center.
     /// </summary>

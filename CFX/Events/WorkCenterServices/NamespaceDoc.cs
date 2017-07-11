@@ -6,7 +6,7 @@ using System.Text;
 namespace CFX.Events.WorkCenterServices
 {
     /// <summary>
-    /// The <see cref="CFX.Events.WorkCenterServices"/> namespace contains messages that are produced
+    /// Contains messages that are produced
     /// by any location in the factory where production work is perfomed.  This includes but is not
     /// limited to, all automated process machines and equipment in a factory that perform a production
     /// related function, regardless of its individual capabilities or specific function.  Also included

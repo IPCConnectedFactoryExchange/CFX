@@ -6,8 +6,8 @@ using System.Text;
 namespace CFX.Events
 {
     /// <summary>
-    /// <para>The <see cref="CFX.Events"/> namespace is the root namespace.  All endpoints participating in a CFX mesh must
-    /// produce and process the messages contained within the root namespace.</para>
+    /// <para>Root CFX message topic.  All endpoints participating in a CFX network must
+    /// produce and process the messages contained within the root topic.</para>
     /// </summary>
     [System.Runtime.CompilerServices.CompilerGenerated]
     class NamespaceDoc

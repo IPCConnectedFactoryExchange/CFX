@@ -18,8 +18,8 @@
     <HtmlHelpName>CFX.Messaging Help</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\bin\Debug\CFX.Messaging.dll" />
-<DocumentationSource sourceFile="..\bin\Debug\CFX.Messaging.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="..\bin\Debug\CFX.dll" />
+<DocumentationSource sourceFile="..\bin\Debug\CFX.xml" /></DocumentationSources>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <HelpFileFormat>Website</HelpFileFormat>

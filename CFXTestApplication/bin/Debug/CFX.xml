@@ -1,0 +1,518 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CFX</name>
+    </assembly>
+    <members>
+        <member name="T:CFX.Command.DeviceInformationRequest">
+            <summary>
+            Asks a device (participant in a CFX mesh) to provide basic information about itself.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.DeviceInformationResponse">
+            <summary>
+            Response to the <see cref="T:CFX.Command.DeviceInformationRequest"/> command.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.InformationServices.NamespaceDoc">
+            <summary>
+            The <see cref="N:CFX.Command.InformationServices"/> namespace contains commands related to interaction 
+            with higher level level information systems running in the factory, such as ERP (Enterprise Resource Planning) 
+            or MES (Manufacturing Execution Systems).  
+            </summary>
+        </member>
+        <member name="T:CFX.Command.InformationServices.ValidateUnitRequest">
+            <summary>
+            Allows a device to validate with a factory-level system (such as an MES system)
+            that a particular production unit is able to be processed at a particular work center.
+            This will typically includes a variety of validations, such as route validation (ensuring
+            that a unit has completed all necessary steps prior to this operation), unit status validation
+            (ensuring that a unit is not in a failed condition, or contains open defects), etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.InformationServices.ValidateUnitResponse">
+            <summary>
+            Reponse to the <see cref="T:CFX.Command.InformationServices.ValidateUnitRequest"/> command.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.MaterialServices.MaterialTransport.NamespaceDoc">
+            <summary>
+            The <see cref="N:CFX.Command.MaterialServices.MaterialTransport"/> namespace contains commands related
+            to picking materials from stock areas, and transporting those materials to particular destinations
+            within the factory environment.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.MaterialServices.MaterialTransport.RetrieveMaterialsRequest">
+            <summary>
+            Instructs a device (typically an automated stock / material storage and retrieval system)
+            to retrieve a list of materials in the course of generating a material kit that will 
+            subsequently be delivered to a particular destination within the factory.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.MaterialServices.MaterialTransport.RetrieveMaterialsResponse">
+            <summary>
+            Response to the <see cref="T:CFX.Command.MaterialServices.MaterialTransport.RetrieveMaterialsRequest"/> command.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.NamespaceDoc">
+            <summary>
+            The <see cref="N:CFX.Command"/> namespace contains synchronous commands that must be implemented
+            by all participants in a CFX Mesh.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.UnitIdentificationServices.GetLastUnitIdentifierRequest">
+            <summary>
+            Requests the most recently acquired production unit identifier from a device.
+            This allows a device or automated work center that does not have its own internal
+            barcode or RFID reader to acquire unit identifiers from external devices (conveyor
+            mounted scanning device, for example) prior to commencing work on a production unit
+            (thereby allowing the work center to generate its own messages containing real unit
+            identifiers during processing).
+            </summary>
+        </member>
+        <member name="T:CFX.Command.UnitIdentificationServices.GetLastUnitIdentifierResponse">
+            <summary>
+            Response to the <see cref="T:CFX.Command.UnitIdentificationServices.GetLastUnitIdentifierRequest"/> command.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.UnitIdentificationServices.NamespaceDoc">
+            <summary>
+            The <see cref="N:CFX.Command.UnitIdentificationServices"/> namespace contains commands related to interaction 
+            with devices capable of resing and acquiring the unique identifier of production units in a factory
+            (barcode readers, RFID readers, and other devices).
+            </summary>
+        </member>
+        <member name="T:CFX.Command.WorkCenterServices.LockProcessingRequest">
+            <summary>
+            Instructs a work center to halt production.  This might occur for a variety of reasons, such as an 
+            out of control process condition, an invalid material setup was detected, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.WorkCenterServices.LockProcessingResponse">
+            <summary>
+            Response to the <see cref="T:CFX.Command.WorkCenterServices.LockProcessingRequest"/> command.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.WorkCenterServices.NamespaceDoc">
+            <summary>
+            The <see cref="N:CFX.Command.WorkCenterServices"/> namespace contains commands related to interaction 
+            with all work centers participating in a CFX mesh, regardless of their particular function.
+            A work center is any location in the factory where production work is performed (via humans or via
+            automation).  
+            </summary>
+        </member>
+        <member name="T:CFX.Command.WorkCenterServices.UnlockProcessingRequest">
+            <summary>
+            Instructs a work center that a previously issued <see cref="T:CFX.Command.WorkCenterServices.LockProcessingRequest"/> has been 
+            lifted, and production may resume at the work center.
+            </summary>
+        </member>
+        <member name="T:CFX.Command.WorkCenterServices.UnlockProcessingResponse">
+            <summary>
+            Response to the <see cref="T:CFX.Command.WorkCenterServices.UnlockProcessingRequest"/> command.
+            </summary>
+        </member>
+        <member name="T:CFX.Heartbeat">
+            <summary>
+            A CFX message that is transmitted periodically by all endpoints participating in a CFX mesh.
+            The message is used to signal to the CFX mesh that the endpoint is online ane running.
+            </summary>
+        </member>
+        <member name="P:CFX.Heartbeat.ExpectedInterval">
+            <summary>
+            The amount of time that is expected to ellapse between <see cref="T:CFX.Heartbeat"/> messages for this endpoint.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.InformationServices.NamespaceDoc">
+            <summary>
+            Contains messages related to interaction with higher level level information systems running in the factory, 
+            such as ERP (Enterprise Resource Planning) or MES (Manufacturing Execution Systems).  
+            </summary>
+        </member>
+        <member name="T:CFX.Events.InformationServices.WorkOrderCreated">
+            <summary>
+            Generated when a new Work Order has been created within the factory environment
+            (typically by the company's ERP system).
+            </summary>
+        </member>
+        <member name="T:CFX.Events.InformationServices.WorkOrderUpdated">
+            <summary>
+            An existing Work Order has been modified within the factory environment.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.InformationServices.QualityServices.CorrectiveActionProcessInitiated">
+            <summary>
+            Indicates that a new Corrective Action Process (CAPA) has been initiated.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.InformationServices.QualityServices.NamespaceDoc">
+            <summary>
+            Contains messages related
+            performing quality related business processes within the factory environment, such as
+            CAPA (Corrective Action, Preventative Action), FRACAS (Failure Reporting and Corrective Action),
+            and MRB functions (Material Review Board).
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialManagement.MaterialCreated">
+            <summary>
+            A new material handling unit (container or instance of material) has been introduced into the inventory
+            of the factory.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialManagement.NamespaceDoc">
+            <summary>
+            Contains messages related to managing and controlling the inventory of raw materials within the factory.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialMeasurement.MaterialMeasured">
+            <summary>
+            One or more measurements have been made against a particular material handling unit (container of material).
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialMeasurement.NamespaceDoc">
+            <summary>
+            Contains messages
+            related to measuring the attributes of raw materials within a factory.  For example, an X-Ray 
+            electronic component counter might implement this namespace to provide messages related to the quantity
+            of materials remaining in a particular material instance (container).  Another example would be an
+            automated material inspection device that is measuring the physical dimensions of materials
+            during an IQC (Incoming Quality Control) operation.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialStorage.MaterialMoved">
+            <summary>
+            A material handling unit (container of material) has been relocated to a new stock location
+            within the factory.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialStorage.MaterialRemoved">
+            <summary>
+            A material handling unit (container of material) has been removed from a stock location
+            within the factory.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialStorage.NamespaceDoc">
+            <summary>
+            Contains messages related to the storage
+            of materials within the factory.  For example, an automated (robotic) material storage and retrieval system
+            might implement the messages of this namespace.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialTransport.MaterialPickDirective">
+            <summary>
+            A directive has been issued to pick a list of materials from a particular stock
+            area, and transport those materials to a particular destination within the factory. 
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.MaterialTransport.NamespaceDoc">
+            <summary>
+            Contains messages related
+            to picking and transportation of material kits (groupings of materials) to various destinations
+            within the factory environment.  
+            </summary>
+        </member>
+        <member name="T:CFX.Events.MaterialServices.NamespaceDoc">
+            <summary>
+            Contains messages related to the flow of materials within the factory environment.  
+            </summary>
+        </member>
+        <member name="T:CFX.Events.NamespaceDoc">
+            <summary>
+            <para>Root CFX message topic.  All endpoints participating in a CFX network must
+            produce and process the messages contained within the root topic.</para>
+            </summary>
+        </member>
+        <member name="T:CFX.Events.UnitIdentificationServices.NamespaceDoc">
+            <summary>
+            Contains messages related
+            to the identification of production units for tracking and traceability purposes throughout
+            the factory.  It is indended for implementation by devices capable of reading the barcodes/RFID's/other
+            of production units to acquire their unique identification.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.UnitIdentificationServices.UnitIdentifierRead">
+            <summary>
+            Indicates that the unique identifier of a production unit has been read by an identification capture
+            device (barcode reader, RFID reader, etc.).
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.EnvironmentalProcessing.EnvironmentSampled">
+            <summary>
+            An environmental condition within the workcenter was measured (such as a temperature
+            or humidity reading).
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.EnvironmentalProcessing.NamespaceDoc">
+            <summary>
+            Contains messages
+            related to the environmental processing of production units, such as temperature stress tests, 
+            humidity chamber processing, bake processes, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.EnvironmentalProcessing.UnitsEnvironmentallyProcessed">
+            <summary>
+            Indicates that one or more production units have undergone and completed environmental
+            processing at a particular work center.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.MaterialTraceability.NamespaceDoc">
+            <summary>
+            Contains messages
+            that describe the raw materials and parts that were incorporated into production units  
+            processed at a work center.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.MaterialUsage.MaterialsConsumed">
+            <summary>
+            This message is generated when a work center consumes raw material.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.MaterialUsage.NamespaceDoc">
+            <summary>
+            Contains messages
+            that describe the raw materials and parts were consumed at a work center in the course of 
+            its processing.  The materials that are consumed may or may not have been incorporated into
+            production units processed at the work center.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.MaterialUsage.ToolingUsed">
+            <summary>
+            This message is generated whenever a work center uses a piece of tooling in the course of its operation.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.NamespaceDoc">
+            <summary>
+            Contains messages that are produced
+            by any location in the factory where production work is perfomed.  This includes but is not
+            limited to, all automated process machines and equipment in a factory that perform a production
+            related function, regardless of its individual capabilities or specific function.  Also included
+            are unautomated workcenters, where human operators perform production functions.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.PackAndShip.ItemPacked">
+            <summary>
+            Indicates that an item was placed into packaging or a shipping container.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.PackAndShip.NamespaceDoc">
+            <summary>
+            Contains messages
+            that describe the packing of production units and other materials into product packaging and/or
+            containers for shipment.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTPlacement.ComponentMisPick">
+            <summary>
+            An attempt to pick a component from its feeding device was not successful.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTPlacement.ComponentRecognitionError">
+            <summary>
+            Indicates that an error was encountered by the vision and/or component centering system
+            after the component was picked, and installation of the component aborted.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTPlacement.ComponentsInstalled">
+            <summary>
+            Indicates that one or more electronic components were installed on to a particular
+            production unit.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTPlacement.NamespaceDoc">
+            <summary>
+            Contains messages
+            specific to work centers involved in the placement of SMT components on to printed circuit
+            boards, known as automated pick and place equipment.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTReflow.NamespaceDoc">
+            <summary>
+            Contains messages
+            specific to work centers involved in the reflow of SMT components on printed circuit
+            boards, known as reflow ovens.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTReflow.ZoneConditionSampled">
+            <summary>
+            An environmental condition within a particular zone of a reflow oven has been sampled and measured, 
+            such as a temperature, humidity, oxygen content, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTSolderPasteDispensing.NamespaceDoc">
+            <summary>
+            Contains messages
+            specific to work centers involved in the printing or dispensing of solder paste on printed circuit
+            boards, known as stencil printers and solder paste jet dispensers.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTSolderPasteDispensing.SolderPasteDispensed">
+            <summary>
+            Indicates that solder paste has been dispensed on to the surface of one or more
+            production units.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.SMTSolderPasteDispensing.StencilCleaned">
+            <summary>
+            Indicates that the stencil printer has performed an automated stencil cleaning operation
+            on the currently mounted/active stencil.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.TestAndMeasurement.NamespaceDoc">
+            <summary>
+            Contains messages
+            specific to work centers involved in the testing and inspection of production units.
+            This include human inspection stations, AOI Equipment (Automated Optical Inspection), In-Circuit Test
+            Equipment, Functional Test Equipment, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.TestAndMeasurement.UnitsInspected">
+            <summary>
+            Indicates that one or more production units were inspected at a workcenter.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.TestAndMeasurement.UnitsTested">
+            <summary>
+            Indicates that one or more production units were tested on some manner
+            (functional testing, electrical testing, etc.) at a work center.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.THTInsertion.ComponentInserted">
+            <summary>
+            Indicates that a through-hole electronic component was inserted and installed on to 
+            a printed circuit board (PCB).
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.THTInsertion.NamespaceDoc">
+            <summary>
+            Contains messages
+            specific to work centers that insert through-hole technology electronic components (THT) on to
+            printed circuit boards (PCB's).  This includes automated axial, radial, and DIP insertion
+            equipment, as well as semi-automated (human guided) equipment.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.THTSoldering.NamespaceDoc">
+            <summary>
+            Contains messages
+            specific to work centers involved in the soldering of through-hole technology (THT) electronic
+            components on to printed circuit boards (PCB's).  This includes wave solder machines, as well as
+            selective soldering equipment.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterServices.THTSoldering.ZoneConditionSampled">
+            <summary>
+            An environmental condition within a particular zone of a wave solder machine has 
+            been sampled and measured, such as a temperature, humidity, oxygen content, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.WorkCenterStateChange">
+            <summary>
+            Indicates that the current state of a production station has changed (based
+            on the CFX equipment state model).
+            </summary>
+        </member>
+        <member name="P:CFX.Events.WorkCenterStateChange.NewState">
+            <summary>
+            The new state of the production station.
+            </summary>
+        </member>
+        <member name="T:CFX.Events.StationState">
+            <summary>
+            An enumeration indication the current state of a production station.
+            </summary>
+        </member>
+        <member name="F:CFX.Events.StationState.Unknown">
+            <summary>
+            The state of the station is unknown
+            </summary>
+        </member>
+        <member name="F:CFX.Events.StationState.Setup">
+            <summary>
+            The station is being setup, and is not in production.
+            </summary>
+        </member>
+        <member name="F:CFX.Events.StationState.IdleStarved">
+            <summary>
+            The station is in production, but is idle because there are no production units
+            available for processing.
+            </summary>
+        </member>
+        <member name="F:CFX.Events.StationState.IdleBlocked">
+            <summary>
+            The station is in production, but is idle because the station is blocked by a 
+            downstream condition, and cannot move production units downstream.
+            </summary>
+        </member>
+        <member name="F:CFX.Events.StationState.Executing">
+            <summary>
+            The station is in production, and actively proecessing a production unit.
+            </summary>
+        </member>
+        <member name="F:CFX.Events.StationState.Down">
+            <summary>
+            The station is in production, but has been halted by an error condition or fault.
+            </summary>
+        </member>
+        <member name="T:CFX.CFXEnvelope">
+            <summary>
+            The <see cref="T:CFX.CFXEnvelope"/> class is the outer envelope or container in which all CFX messages are enclosed for transmission.
+            Common properties, such as a globally unique identifier (ID) and the timestamp for the message (TimeStamp),
+            are defined by this container class and are included with all CFX message transmissions.
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.MessageID">
+            <summary>
+            An identifier (128-bit GUID) that uniquely identifies this particular message instance.
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.RequestID">
+            <summary>
+            For envelopes involved in asynchronous request/response transactions between endpoints,
+            a unique identifier (128-bit GUID) that uniquely identifies the request/response transaction.
+            The endpoint that initiates the "Request" generates this identifier, and endpoints that respond
+            should include this identifier in their "Response".
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.MessageName">
+            <summary>
+            The name of the enclosed CFX message (the type of message)
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.MessageVersion">
+            <summary>
+            The version number of the enclosed CFX message.
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.EndpointID">
+            <summary>
+            A text field representing the CFX Endpoint ID that published this message. 
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.TimeStamp">
+            <summary>
+            The date/time when the event associated with this message ocurred.
+            </summary>
+        </member>
+        <member name="P:CFX.CFXEnvelope.MessageBody">
+            <summary>
+            The message payload (The CFX message enclosed in this envelope).
+            </summary>
+        </member>
+        <member name="T:CFX.WorkCenterServices.MaterialTraceability.MaterialConsumedByUnits">
+            <summary>
+            Indicates that material has been consumed in the course of processing one or more production units,
+            the material was incorporated into the unit(s), and should be included in the material traceability
+            record of the unit(s).
+            </summary>
+        </member>
+        <member name="T:CFX.UnitCompleted">
+            <summary>
+            Indicates that work has been completed on one or more production units at a particular work center.
+            </summary>
+        </member>
+        <member name="T:CFX.UnitStarted">
+            <summary>
+            Indicates that work has begun on one or more production units at a particular work center.
+            </summary>
+        </member>
+    </members>
+</doc>
