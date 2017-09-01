@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
             this.receivedBox = new System.Windows.Forms.TextBox();
+            this.btnReceive = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSend
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Do Stuff";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSend.Location = new System.Drawing.Point(12, 12);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 0;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // receivedBox
             // 
@@ -51,13 +52,24 @@
             this.receivedBox.Size = new System.Drawing.Size(553, 387);
             this.receivedBox.TabIndex = 1;
             // 
+            // btnReceive
+            // 
+            this.btnReceive.Location = new System.Drawing.Point(104, 12);
+            this.btnReceive.Name = "btnReceive";
+            this.btnReceive.Size = new System.Drawing.Size(75, 23);
+            this.btnReceive.TabIndex = 2;
+            this.btnReceive.Text = "Receive";
+            this.btnReceive.UseVisualStyleBackColor = true;
+            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
+            // 
             // ClientMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 441);
+            this.Controls.Add(this.btnReceive);
             this.Controls.Add(this.receivedBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSend);
             this.Name = "ClientMainForm";
             this.Text = "CFX Test Application";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientMainForm_FormClosing);
@@ -68,8 +80,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox receivedBox;
+        private System.Windows.Forms.Button btnReceive;
     }
 }
 

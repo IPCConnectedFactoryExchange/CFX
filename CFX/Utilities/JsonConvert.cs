@@ -43,6 +43,7 @@ namespace CFX.Utilities
         {
             Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings();
             settings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
+            settings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.None;
             settings.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
             return Newtonsoft.Json.JsonConvert.SerializeObject(o, Newtonsoft.Json.Formatting.Indented, settings);
         }

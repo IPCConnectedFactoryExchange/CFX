@@ -8,3 +8,4 @@ C:\Code\Git\CFX\MQTTBroker\obj\Debug\MQTTBroker.Properties.Resources.resources
 C:\Code\Git\CFX\MQTTBroker\obj\Debug\MQTTBroker.csproj.GenerateResource.Cache
 C:\Code\Git\CFX\MQTTBroker\obj\Debug\MQTTBroker.exe
 C:\Code\Git\CFX\MQTTBroker\obj\Debug\MQTTBroker.pdb
+C:\Code\Git\CFX\MQTTBroker\obj\Debug\MQTTBroker.csprojResolveAssemblyReference.cache

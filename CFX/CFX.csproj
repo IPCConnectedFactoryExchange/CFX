@@ -20,7 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\CFX.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Amqp.Net, Version=2.0.0.0, Culture=neutral, PublicKeyToken=905a7b1e6458e0c3, processorArchitecture=MSIL">
+      <HintPath>..\packages\AMQPNetLite.2.0.0-rc\lib\net45\Amqp.Net.dll</HintPath>
+    </Reference>
     <Reference Include="GnatMQ.Net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GnatMQ.1.1.0.0\lib\net45\GnatMQ.Net.dll</HintPath>
       <Private>True</Private>
@@ -53,79 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\DeviceInformationRequest.cs" />
-    <Compile Include="Command\DeviceInformationResponse.cs" />
-    <Compile Include="Command\InformationServices\NamespaceDoc.cs" />
-    <Compile Include="Command\InformationServices\ValidateUnitRequest.cs" />
-    <Compile Include="Command\InformationServices\ValidateUnitResponse.cs" />
-    <Compile Include="Command\MaterialServices\MaterialTransport\NamespaceDoc.cs" />
-    <Compile Include="Command\MaterialServices\MaterialTransport\RetrieveMaterialsRequest.cs" />
-    <Compile Include="Command\MaterialServices\MaterialTransport\RetrieveMaterialsResponse.cs" />
-    <Compile Include="Command\NamespaceDoc.cs" />
-    <Compile Include="Command\UnitIdentificationServices\GetLastUnitIdentifierRequest.cs" />
-    <Compile Include="Command\UnitIdentificationServices\GetLastUnitIdentifierResponse.cs" />
-    <Compile Include="Command\UnitIdentificationServices\NamespaceDoc.cs" />
-    <Compile Include="Command\WorkCenterServices\LockProcessingRequest.cs" />
-    <Compile Include="Command\WorkCenterServices\LockProcessingResponse.cs" />
-    <Compile Include="Command\WorkCenterServices\NamespaceDoc.cs" />
-    <Compile Include="Command\WorkCenterServices\UnlockProcessingRequest.cs" />
-    <Compile Include="Command\WorkCenterServices\UnlockProcessingResponse.cs" />
+    <Compile Include="Connection\AmqpChannel.cs" />
     <Compile Include="DataObjects\Measurement.cs" />
     <Compile Include="DataObjects\ReflowProcessData.cs" />
+    <Compile Include="DataObjects\UnitLocation.cs" />
     <Compile Include="DataObjects\ZoneReflowProcessData.cs" />
-    <Compile Include="Events\Heartbeat.cs" />
-    <Compile Include="Events\InformationServices\NamespaceDoc.cs" />
-    <Compile Include="Events\InformationServices\WorkOrderCreated.cs" />
-    <Compile Include="Events\InformationServices\WorkOrderUpdated.cs" />
-    <Compile Include="Events\MaterialServices\MaterialManagement\MaterialCreated.cs" />
-    <Compile Include="Events\MaterialServices\MaterialMeasurement\MaterialMeasured.cs" />
-    <Compile Include="Events\MaterialServices\MaterialMeasurement\NamespaceDoc.cs" />
-    <Compile Include="Events\MaterialServices\MaterialStorage\MaterialMoved.cs" />
-    <Compile Include="Events\MaterialServices\MaterialManagement\NamespaceDoc.cs" />
-    <Compile Include="Events\MaterialServices\MaterialStorage\MaterialRemoved.cs" />
-    <Compile Include="Events\MaterialServices\MaterialStorage\NamespaceDoc.cs" />
-    <Compile Include="Events\MaterialServices\MaterialTransport\MaterialPickDirective.cs" />
-    <Compile Include="Events\MaterialServices\MaterialTransport\NamespaceDoc.cs" />
-    <Compile Include="Events\MaterialServices\NamespaceDoc.cs" />
-    <Compile Include="Events\CFXEnvelope.cs" />
-    <Compile Include="Events\NamespaceDoc.cs" />
-    <Compile Include="Events\InformationServices\QualityServices\CorrectiveActionManagement\CorrectiveActionProcessInitiated.cs" />
-    <Compile Include="Events\InformationServices\QualityServices\CorrectiveActionManagement\NamespaceDoc.cs" />
-    <Compile Include="Events\UnitIdentificationServices\NamespaceDoc.cs" />
-    <Compile Include="Events\UnitIdentificationServices\UnitIdentifierRead.cs" />
-    <Compile Include="Events\WorkCenterServices\EnvironmentalProcessing\EnvironmentSampled.cs" />
-    <Compile Include="Events\WorkCenterServices\EnvironmentalProcessing\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\EnvironmentalProcessing\UnitsEnvironmentallyProcessed.cs" />
-    <Compile Include="Events\WorkCenterServices\EnvironmentalProcessing\UnitThermallyProcessed.cs" />
-    <Compile Include="Events\WorkCenterServices\MaterialTraceability\MaterialConsumedByUnits.cs" />
-    <Compile Include="Events\WorkCenterServices\MaterialTraceability\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\MaterialUsage\MaterialsConsumed.cs" />
-    <Compile Include="Events\WorkCenterServices\MaterialUsage\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\MaterialUsage\ToolingUsed.cs" />
-    <Compile Include="Events\WorkCenterServices\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\PackAndShip\ItemPacked.cs" />
-    <Compile Include="Events\WorkCenterServices\PackAndShip\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTPlacement\ComponentMisPick.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTPlacement\ComponentRecognitionError.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTPlacement\ComponentsInstalled.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTPlacement\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTReflow\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTReflow\ZoneConditionSampled.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTSolderPasteDispensing\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTSolderPasteDispensing\SolderPasteDispensed.cs" />
-    <Compile Include="Events\WorkCenterServices\SMTSolderPasteDispensing\StencilCleaned.cs" />
-    <Compile Include="Events\WorkCenterServices\TestAndMeasurement\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\TestAndMeasurement\UnitsInspected.cs" />
-    <Compile Include="Events\WorkCenterServices\TestAndMeasurement\UnitsTested.cs" />
-    <Compile Include="Events\WorkCenterServices\THTInsertion\ComponentInserted.cs" />
-    <Compile Include="Events\WorkCenterServices\THTInsertion\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\THTSoldering\NamespaceDoc.cs" />
-    <Compile Include="Events\WorkCenterServices\THTSoldering\ZoneConditionSampled.cs" />
-    <Compile Include="Events\WorkCenterServices\UnitProcessed.cs" />
-    <Compile Include="Events\WorkCenterServices\UnitStageCompleted.cs" />
-    <Compile Include="Events\WorkCenterServices\WorkCenterStateChange.cs" />
-    <Compile Include="Events\WorkCenterServices\UnitCompleted.cs" />
-    <Compile Include="Events\WorkCenterServices\UnitStarted.cs" />
+    <Compile Include="CFXEnvelope.cs" />
+    <Compile Include="Production\WorkCompleted.cs" />
+    <Compile Include="Production\WorkStageCompleted.cs" />
+    <Compile Include="Production\WorkStagePaused.cs" />
+    <Compile Include="Production\WorkStageResumed.cs" />
+    <Compile Include="Production\WorkStageStarted.cs" />
+    <Compile Include="Production\WorkStarted.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\JsonConvert.cs" />
   </ItemGroup>

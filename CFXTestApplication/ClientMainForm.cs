@@ -9,10 +9,10 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using uPLibrary.Networking.M2Mqtt;
 using CFX;
-using CFX.WorkCenterServices;
+using CFX.Production;
 using CFX.Utilities;
+using CFX.Connection;
 
 namespace CFXTestApplication
 {
@@ -22,138 +22,138 @@ namespace CFXTestApplication
         {
             InitializeComponent();
 
-            gen.EndpointId = "host1.domain1.com/Line1/ReflowOven1";
+            CFXEnvelope env = new CFXEnvelope();
+            DateTime start = env.TimeStamp;
 
-            List<object> messages = gen.CreateReflowWIPMessages();
+            WorkStarted started = new WorkStarted();
+            env.MessageBody = started;
+            env.Source = "MACHINE12345";
+            started.UnitCount = 2;
+            started.Lane = "1";
+            started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "UNIT1112245", LocationIdentifier = "1" });
+            started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "UNIT1112246", LocationIdentifier = "2" });
 
             string jsonData = "";
-            foreach (object o in messages)
-            {
-                jsonData += JsonConvert.SerializeObject(o);
-                jsonData += "\r\n";
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
 
-                object o2 = JsonConvert.DeserializeObject<CFXEnvelope>(JsonConvert.SerializeObject(o));
-            }
+            WorkStageStarted msg2 = new WorkStageStarted();
+            env.MessageBody = msg2;
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(2);
+            env.UniqueID = Guid.NewGuid();
+            msg2.Stage = "Stage1";
+            msg2.TransactionID = started.TransactionID;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+
+            WorkStageCompleted msg3 = new WorkStageCompleted();
+            env.MessageBody = msg3;
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(12);
+            env.UniqueID = Guid.NewGuid();
+            msg3.Stage = "Stage1";
+            msg3.Result = WorkResult.COMPLETED;
+            msg3.TransactionID = started.TransactionID;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+
+            msg2 = new WorkStageStarted();
+            env.MessageBody = msg2;
+            env.UniqueID = Guid.NewGuid();
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(13);
+            msg2.Stage = "Stage2";
+            msg2.TransactionID = started.TransactionID;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+
+            WorkStagePaused msg5 = new WorkStagePaused();
+            env.MessageBody = msg5;
+            env.UniqueID = Guid.NewGuid();
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(16);
+            msg5.Stage = "Stage2";
+            msg5.TransactionID = started.TransactionID;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+
+            WorkStageResumed msg6 = new WorkStageResumed();
+            env.MessageBody = msg6;
+            env.UniqueID = Guid.NewGuid();
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(18);
+            msg6.Stage = "Stage2";
+            msg6.TransactionID = started.TransactionID;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+
+            msg3 = new WorkStageCompleted();
+            env.MessageBody = msg3;
+            env.UniqueID = Guid.NewGuid();
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(24);
+            msg3.Stage = "Stage2";
+            msg3.Result = WorkResult.COMPLETED;
+            msg3.TransactionID = started.TransactionID;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+
+            WorkCompleted msg4 = new WorkCompleted();
+            env.MessageBody = msg4;
+            env.Source = "MACHINE12345";
+            env.TimeStamp = start.AddSeconds(24);
+            env.UniqueID = Guid.NewGuid();
+            msg4.TransactionID = started.TransactionID;
+            msg4.Result = WorkResult.COMPLETED;
+            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
 
             Clipboard.Clear();
             Clipboard.SetText(jsonData);
         }
 
-        private CFXMessageGenerator gen = new CFXMessageGenerator();
-        private MqttClient client1 = null;
+        AmqpChannel receiveChannel;
+        AmqpChannel sendChannel;
         private string client1Name;
-        private MqttClient client2 = null;
-        private Random rnd = new Random();
 
         private Timer timer1 = null;
         private Timer timer2 = null;
-
+        private string address = "amqp://guest:guest@127.0.0.1:5672";
+        private string address2 = "amqp://guest:guest@127.0.0.1:5673";
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (client1 == null)
-            {
-                client1Name = "Client" + rnd.Next(1, 1000);
-                client1 = new MqttClient("jwalls.aiscorp.local");
-                client1.Connect(client1Name);
-                client1.MqttMsgPublishReceived += Client1_MqttMsgPublishReceived;
-                //client1.Subscribe(new string[] { "topic1.subtopic2/#"},  new byte[] { 0x00 });
-                //client1.Subscribe(new string[] { "topic1.subtopic1/#"},  new byte[] { 0x00 });
-                client1.Subscribe(new string[] { "/topic2/#"},  new byte[] { 0x00 });
-
-
-                timer1 = new Timer();
-                timer1.Interval = rnd.Next(2000, 4000);
-                timer1.Tick += Timer1_Tick;
-                timer1.Start();
-            }
-
-            if (client2 == null)
-            {
-                client2 = new MqttClient("jwalls.aiscorp.local");
-                client2.Connect("client2");
-                client2.MqttMsgPublishReceived += Client2_MqttMsgPublishReceived;
-                //client2.Subscribe(new string[] { "topic2/#" }, new byte[] { 0x02 });
-
-                timer2 = new Timer();
-                timer2.Interval = 2000;
-                timer2.Tick += Timer2_Tick;
-                timer2.Start();
-            }
-        }
-
-        private void Client1_MqttMsgPublishReceived(object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
-        {
-            string clientId = (sender as MqttClient).ClientId;
-            clientId = "Client1";
-            string message = Encoding.Unicode.GetString(e.Message);
-            string[] topicParts = e.Topic.Split('/');
-            if (topicParts[1] != client1Name)
-            {
-                this.BeginInvoke((Action)(() => { receivedBox.AppendText(string.Format("{0} Received a message: Topic:{1}\r\n", clientId, e.Topic)); }));
-            }
-        }
-
-        private void Client2_MqttMsgPublishReceived(object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
-        {
-            string clientId = (sender as MqttClient).ClientId;
-            clientId = "Client2";
-            string message = Encoding.Unicode.GetString(e.Message);
-            string[] topicParts = e.Topic.Split('/');
-            if (topicParts[1] != client1Name)
-            {
-                this.BeginInvoke((Action)(() => { receivedBox.AppendText(string.Format("{0} Received a message: Topic:{1}\r\n", clientId, e.Topic)); }));
-            }
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            if (client1 != null)
-            {
-                //string topic = "topic2.test/" + client1Name;
-                //string message = "This is a message from " + client1Name;
-                //client1.Publish(topic, Encoding.Unicode.GetBytes(message));
-                //receivedBox.AppendText(client1Name + " Published a message...\r\n");
-            }
-        }
-
-        private void Timer2_Tick(object sender, EventArgs e)
-        {
-            if (client2 != null)
-            {
-                //client2.Publish("topic1/client2", Encoding.Unicode.GetBytes("This is a message from Client 2"));
-                client2.Publish("/topic1.subtopic2/client2", Encoding.Unicode.GetBytes("This is a message from Client 2"));
-                client2.Publish("/topic2/client2", Encoding.Unicode.GetBytes("This is a message from Client 2"));
-            }
-        }
-
         private void ClientMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (timer1 != null)
+            if (receiveChannel != null)
             {
-                timer1.Stop();
-                timer1 = null;
+                receiveChannel.Close();
+                receiveChannel = null;
             }
 
-            if (client1 != null)
+            if (sendChannel != null)
             {
-                client1.Disconnect();
-                client1 = null;
+                sendChannel.Close();
+                sendChannel = null;
             }
 
-            if (timer2 != null)
+        }
+
+        private async void btnSend_Click(object sender, EventArgs e)
+        {
+            if (sendChannel == null)
             {
-                timer2.Stop();
-                timer2 = null;
+                sendChannel = new AmqpChannel();
+                sendChannel.Connect(receiveChannel.InboundAddress, "JJWClient");
             }
 
-            if (client2 != null)
-            {
-                client2.Disconnect();
-                client2 = null;
-            }
+            CFXEnvelope env = new CFXEnvelope();
+            WorkStarted started = new WorkStarted();
+            started.UnitCount = 2;
+            started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "111112256", LocationIdentifier = "1" });
+            started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "111112257", LocationIdentifier = "2" });
+            env.MessageBody = started;
 
+            sendChannel.Send(env, "JJWClient");
+            sendChannel.Close();
+            sendChannel = null;
+        }
 
+        private void btnReceive_Click(object sender, EventArgs e)
+        {
+            receiveChannel = new AmqpChannel();
+            receiveChannel.Listen("JJWServer");
         }
     }
 }

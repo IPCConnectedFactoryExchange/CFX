@@ -5,7 +5,6 @@ C:\Code\Git\CFX\CFXTestApplication\bin\Debug\CFX.dll
 C:\Code\Git\CFX\CFXTestApplication\bin\Debug\M2Mqtt.Net.dll
 C:\Code\Git\CFX\CFXTestApplication\bin\Debug\Newtonsoft.Json.dll
 C:\Code\Git\CFX\CFXTestApplication\bin\Debug\CFX.pdb
-C:\Code\Git\CFX\CFXTestApplication\bin\Debug\CFX.xml
 C:\Code\Git\CFX\CFXTestApplication\bin\Debug\M2Mqtt.Net.pdb
 C:\Code\Git\CFX\CFXTestApplication\bin\Debug\Newtonsoft.Json.xml
 C:\Code\Git\CFX\CFXTestApplication\obj\Debug\CFXTestApplication.csprojResolveAssemblyReference.cache
@@ -14,3 +13,7 @@ C:\Code\Git\CFX\CFXTestApplication\obj\Debug\CFXTestApplication.Properties.Resou
 C:\Code\Git\CFX\CFXTestApplication\obj\Debug\CFXTestApplication.csproj.GenerateResource.Cache
 C:\Code\Git\CFX\CFXTestApplication\obj\Debug\CFXTestApplication.exe
 C:\Code\Git\CFX\CFXTestApplication\obj\Debug\CFXTestApplication.pdb
+C:\Code\Git\CFX\CFXTestApplication\obj\Debug\CFXTestApplication.csproj.CFXTestApplication.exe.config
+C:\Code\Git\CFX\CFXTestApplication\bin\Debug\Amqp.Net.dll
+C:\Code\Git\CFX\CFXTestApplication\bin\Debug\Amqp.Net.pdb
+C:\Code\Git\CFX\CFXTestApplication\bin\Debug\Amqp.Net.xml
