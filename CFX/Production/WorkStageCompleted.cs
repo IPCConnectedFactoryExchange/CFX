@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using CFX.DataObjects;
 
 namespace CFX.Production
 {
-    public class WorkStageCompleted
+    public class WorkStageCompleted : CFXMessage
     {
         public Guid TransactionID
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CFX.Utilities
 {
-    public class JsonConvert
+    public class CFXJsonSerializer
     {
         //public static string SerializeObject(object o)
         //{

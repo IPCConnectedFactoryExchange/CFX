@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CFX.DataObjects;
 
 namespace CFX.Production
 {
-    public class WorkStagePaused : CFXMessage
+    public class LockStationResponse : CFXMessage
     {
-        public Guid TransactionID
-        {
-            get;
-            set;
-        }
-
-        public string Stage
+        public StatusResult Result
         {
             get;
             set;

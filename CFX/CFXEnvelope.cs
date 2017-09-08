@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using Newtonsoft.Json;
+using CFX.Utilities;
 
 #pragma warning disable 1591
 
@@ -31,16 +32,24 @@ namespace CFX
             MessageBody = Activator.CreateInstance(messageType);
         }
 
+        public CFXEnvelope(CFXMessage message) : this()
+        {
+            MessageBody = message;
+        }
+
+        private string messageName;
+
         [JsonProperty]
         public string MessageName
         {
             get
             {
                 if (MessageBody == null) return null;
-                return MessageBody.GetType().FullName;
+                return messageName;
             }
             private set
             {
+                messageName = value;
             }
         }
 
@@ -94,10 +103,10 @@ namespace CFX
             set
             {
                 messageBody = value;
-                if (messageBody != null)
+                if (messageBody != null && MessageBody.GetType().FullName.StartsWith("CFX."))
                 {
                     MessageName = messageBody.GetType().FullName;
-                    //Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                    Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 }
             }
         }
@@ -105,6 +114,30 @@ namespace CFX
         public T GetMessage<T>()
         {
             return (T)MessageBody;
+        }
+
+        public string ToJson()
+        {
+            return CFXJsonSerializer.SerializeObject(this);
+        }
+
+        public static CFXEnvelope FromJson(string jsonData)
+        {
+            CFXEnvelope env = CFXJsonSerializer.DeserializeObject<CFXEnvelope>(jsonData);
+            Type tp = Type.GetType(env.MessageName);
+            env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
+            return env;
+
+        }
+
+        public byte[] ToBytes()
+        {
+            return Encoding.UTF8.GetBytes(this.ToJson());
+        }
+
+        public static CFXEnvelope FromBytes(byte[] data)
+        {
+            return CFXEnvelope.FromJson(Encoding.UTF8.GetString(data));
         }
     }
 }

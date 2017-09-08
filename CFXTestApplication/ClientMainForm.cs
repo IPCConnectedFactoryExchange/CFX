@@ -10,9 +10,11 @@ using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CFX;
+using CFX.DataObjects;
 using CFX.Production;
 using CFX.Utilities;
-using CFX.Connection;
+using CFX.Transport;
+using System.Diagnostics;
 
 namespace CFXTestApplication
 {
@@ -34,7 +36,7 @@ namespace CFXTestApplication
             started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "UNIT1112246", LocationIdentifier = "2" });
 
             string jsonData = "";
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             WorkStageStarted msg2 = new WorkStageStarted();
             env.MessageBody = msg2;
@@ -43,7 +45,7 @@ namespace CFXTestApplication
             env.UniqueID = Guid.NewGuid();
             msg2.Stage = "Stage1";
             msg2.TransactionID = started.TransactionID;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             WorkStageCompleted msg3 = new WorkStageCompleted();
             env.MessageBody = msg3;
@@ -53,7 +55,7 @@ namespace CFXTestApplication
             msg3.Stage = "Stage1";
             msg3.Result = WorkResult.COMPLETED;
             msg3.TransactionID = started.TransactionID;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             msg2 = new WorkStageStarted();
             env.MessageBody = msg2;
@@ -62,7 +64,7 @@ namespace CFXTestApplication
             env.TimeStamp = start.AddSeconds(13);
             msg2.Stage = "Stage2";
             msg2.TransactionID = started.TransactionID;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             WorkStagePaused msg5 = new WorkStagePaused();
             env.MessageBody = msg5;
@@ -71,7 +73,7 @@ namespace CFXTestApplication
             env.TimeStamp = start.AddSeconds(16);
             msg5.Stage = "Stage2";
             msg5.TransactionID = started.TransactionID;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             WorkStageResumed msg6 = new WorkStageResumed();
             env.MessageBody = msg6;
@@ -80,7 +82,7 @@ namespace CFXTestApplication
             env.TimeStamp = start.AddSeconds(18);
             msg6.Stage = "Stage2";
             msg6.TransactionID = started.TransactionID;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             msg3 = new WorkStageCompleted();
             env.MessageBody = msg3;
@@ -90,7 +92,7 @@ namespace CFXTestApplication
             msg3.Stage = "Stage2";
             msg3.Result = WorkResult.COMPLETED;
             msg3.TransactionID = started.TransactionID;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             WorkCompleted msg4 = new WorkCompleted();
             env.MessageBody = msg4;
@@ -99,15 +101,16 @@ namespace CFXTestApplication
             env.UniqueID = Guid.NewGuid();
             msg4.TransactionID = started.TransactionID;
             msg4.Result = WorkResult.COMPLETED;
-            jsonData += JsonConvert.SerializeObject(env) + "\r\n";
+            jsonData += env.ToJson() + "\r\n";
 
             Clipboard.Clear();
             Clipboard.SetText(jsonData);
         }
 
-        AmqpChannel receiveChannel;
+        AmqpRequestProcessor receiveProcessor;
         AmqpChannel sendChannel;
-        private string client1Name;
+        private string CFXHandle = "JJWClient1";
+        private string ServerCFXHandle = "JJWClient2";
 
         private Timer timer1 = null;
         private Timer timer2 = null;
@@ -116,44 +119,74 @@ namespace CFXTestApplication
         
         private void ClientMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (receiveChannel != null)
+            if (receiveProcessor != null)
             {
-                receiveChannel.Close();
-                receiveChannel = null;
+                receiveProcessor.Close();
+                receiveProcessor = null;
             }
 
             if (sendChannel != null)
             {
-                sendChannel.Close();
+                sendChannel.CloseAll();
                 sendChannel = null;
             }
 
         }
 
-        private async void btnSend_Click(object sender, EventArgs e)
+        private void btnSend_Click(object sender, EventArgs e)
         {
             if (sendChannel == null)
             {
-                sendChannel = new AmqpChannel();
-                sendChannel.Connect(receiveChannel.InboundAddress, "JJWClient");
+                sendChannel = new AmqpChannel()
+                {
+                    CFXHandle = this.CFXHandle
+                };
+
+                sendChannel.AddChannel(receiveProcessor.InboundAddress, ServerCFXHandle);
+                sendChannel.OnCFXMessageReceived += SendChannel_OnCFXMessageReceived;
             }
 
-            CFXEnvelope env = new CFXEnvelope();
-            WorkStarted started = new WorkStarted();
-            started.UnitCount = 2;
-            started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "111112256", LocationIdentifier = "1" });
-            started.UnitLocations.Add(new UnitLocation { UnitIdentifier = "111112257", LocationIdentifier = "2" });
-            env.MessageBody = started;
+            CFXEnvelope env = new CFXEnvelope(new LockStationRequest { ReasonCode = LockReason.QualityIssue });
+            sendChannel.Send(env, "request_receiver");
+            //sendChannel.CloseAll();
+            //sendChannel = null;
+        }
 
-            sendChannel.Send(env, "JJWClient");
-            sendChannel.Close();
-            sendChannel = null;
+        private void SendChannel_OnCFXMessageReceived(CFXEnvelope message)
+        {
+            receivedBox.Text = receivedBox.Text + message.ToJson();
         }
 
         private void btnReceive_Click(object sender, EventArgs e)
         {
-            receiveChannel = new AmqpChannel();
-            receiveChannel.Listen("JJWServer");
+            if (receiveProcessor == null)
+            {
+                receiveProcessor = new AmqpRequestProcessor()
+                {
+                    InboundHostName = "127.0.0.1"
+                };
+
+                receiveProcessor.Open(this.ServerCFXHandle);
+                receiveProcessor.OnRequestReceived += ReceiveProcessor_OnRequestReceived;
+                receiveProcessor.OnMessageReceived += ReceiveProcessor_OnMessageReceived;
+
+            }
+        }
+
+        private bool ReceiveProcessor_OnMessageReceived(CFXEnvelope message)
+        {
+            Debug.WriteLine(message.ToJson());
+            return true;
+        }
+
+        private CFXEnvelope ReceiveProcessor_OnRequestReceived(CFXEnvelope request)
+        {
+            if (request.MessageBody is LockStationRequest)
+            {
+                return new CFXEnvelope(new LockStationResponse {  Result = StatusResult.SUCCESS });
+            }
+
+            return null;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace CFX.Production
     /// <summary>
     /// Indicates that work has begun on one or more production units at a particular work center.
     /// </summary>
-    public class WorkStageStarted
+    public class WorkStageStarted : CFXMessage
     {
         public Guid TransactionID
         {

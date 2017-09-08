@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CFX.Production
 {
-    public class WorkStageResumed
+    public class WorkStageResumed : CFXMessage
     {
         public Guid TransactionID
         {
