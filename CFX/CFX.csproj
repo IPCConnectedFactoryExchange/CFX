@@ -63,7 +63,9 @@
     <Compile Include="DataObjects\WorkResult.cs" />
     <Compile Include="Production\LockStationRequest.cs" />
     <Compile Include="Production\LockStationResponse.cs" />
-    <Compile Include="Transport\AmqpChannel.cs" />
+    <Compile Include="Transport\AmqpChannelAddress.cs" />
+    <Compile Include="Transport\AmqpConnection.cs" />
+    <Compile Include="Transport\AmqpCFXEndpoint.cs" />
     <Compile Include="Transport\AmqpRequestProcessor.cs" />
     <Compile Include="DataObjects\Measurement.cs" />
     <Compile Include="DataObjects\ReflowProcessData.cs" />

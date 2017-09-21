@@ -1,0 +1,16 @@
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFXExampleEndpoint.exe.config
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFXExampleEndpoint.exe
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFXExampleEndpoint.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.csprojResolveAssemblyReference.cache
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.MainForm.resources
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.Properties.Resources.resources
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.csproj.GenerateResource.Cache
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.exe
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFX.dll
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Newtonsoft.Json.dll
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Amqp.Net.dll
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFX.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Amqp.Net.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Amqp.Net.xml
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.AddChannelForm.resources

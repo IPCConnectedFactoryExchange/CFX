@@ -108,7 +108,7 @@ namespace CFXTestApplication
         }
 
         AmqpRequestProcessor receiveProcessor;
-        AmqpChannel sendChannel;
+        AmqpEventChannel sendChannel;
         private string CFXHandle = "JJWClient1";
         private string ServerCFXHandle = "JJWClient2";
 
@@ -137,12 +137,12 @@ namespace CFXTestApplication
         {
             if (sendChannel == null)
             {
-                sendChannel = new AmqpChannel()
+                sendChannel = new AmqpEventChannel()
                 {
                     CFXHandle = this.CFXHandle
                 };
 
-                sendChannel.AddChannel(receiveProcessor.InboundAddress, ServerCFXHandle);
+                sendChannel.AddChannel(receiveProcessor.InboundAddress, receiveProcessor.RequestHandle);
                 sendChannel.OnCFXMessageReceived += SendChannel_OnCFXMessageReceived;
             }
 
@@ -154,7 +154,11 @@ namespace CFXTestApplication
 
         private void SendChannel_OnCFXMessageReceived(CFXEnvelope message)
         {
-            receivedBox.Text = receivedBox.Text + message.ToJson();
+            CFXEnvelope msg = message;
+            this.BeginInvoke((Action)(() =>
+            {
+                receivedBox.Text = receivedBox.Text + msg.ToJson();
+            }));
         }
 
         private void btnReceive_Click(object sender, EventArgs e)

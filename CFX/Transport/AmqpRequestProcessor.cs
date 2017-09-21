@@ -15,28 +15,12 @@ namespace CFX.Transport
     {
         public AmqpRequestProcessor()
         {
-            InboundPort = 5672;
-            InboundHostName = "127.0.0.1";
         }
                 
-        public string InboundAddress
+        public Uri RequestUri
         {
-            get
-            {
-                return string.Format("amqp://guest:guest@{0}:{1}", "127.0.0.1" /*Environment.MachineName*/, InboundPort);
-            }
-        }
-
-        public string InboundHostName
-        {
+            private set;
             get;
-            set;
-        }
-
-        public int InboundPort
-        {
-            get;
-            set;
         }
 
         public TimeSpan SendTimout
@@ -59,30 +43,29 @@ namespace CFX.Transport
             }
         }
 
-        public delegate CFXEnvelope OnRequestHandler(CFXEnvelope request);
-        public delegate bool OnMessageHandler(CFXEnvelope message);
-
         public event OnRequestHandler OnRequestReceived;
-        public event OnMessageHandler OnMessageReceived;
 
         private ContainerHost inboundHost;
         
-        public void Open(string CFXHandle)
+        public void Open(string cfxHandle, Uri requestUri = null)
         {
+            if (string.IsNullOrEmpty(cfxHandle)) throw new ArgumentException("You must supply a CFX Handle");
+
+            this.CFXHandle = cfxHandle;
+
+            if (requestUri != null)
+                RequestUri = requestUri;
+            else
+                RequestUri = new Uri(string.Format("amqp://{0}:5672", Environment.MachineName));
+
             var task = Task.Run(() =>
             {
-                this.CFXHandle = CFXHandle;
-
-                Uri addressUri = new Uri(InboundAddress);
-                inboundHost = new ContainerHost(new Uri[] { addressUri }, null, addressUri.UserInfo);
+                inboundHost = new ContainerHost(new Uri[] { RequestUri }, null, RequestUri.UserInfo);
                 inboundHost.Open();
-                Debug.WriteLine("Container host is listening on {0}:{1}", addressUri.Host, addressUri.Port);
+                Debug.WriteLine("Container host is listening on {0}:{1}", RequestUri.Host, RequestUri.Port);
 
                 inboundHost.RegisterRequestProcessor(RequestHandle, new InternalRequestProcessor(this));
                 Debug.WriteLine("Request processor is registered on {0}", RequestHandle);
-
-                inboundHost.RegisterMessageProcessor(CFXHandle, new InternalMessageProcessor(this));
-                Debug.WriteLine("Message processor is registered on {0}", CFXHandle);
             });
 
             Task.WaitAll(new Task[] { task });
@@ -115,12 +98,6 @@ namespace CFX.Transport
             return null;
         }
 
-        protected bool Fire_OnMessageReceived(CFXEnvelope message)
-        {
-            if (OnMessageReceived != null) return OnMessageReceived(message);
-            return false;
-        }
-
         class InternalRequestProcessor : IRequestProcessor
         {
             public InternalRequestProcessor(AmqpRequestProcessor p)
@@ -144,7 +121,6 @@ namespace CFX.Transport
                     if (response != null)
                     {
                         requestContext.Complete(AmqpUtilities.MessageFromEnvelope(response));
-                        //requestContext.ResponseLink.SendMessage(response);
                     }
                     else
                     {
@@ -172,21 +148,10 @@ namespace CFX.Transport
 
             void IMessageProcessor.Process(MessageContext messageContext)
             {
-                var task = Task.Run(() =>
-                {
-                    CFXEnvelope message = AmqpUtilities.EnvelopeFromMessage(messageContext.Message);
-                    if (processor.Fire_OnMessageReceived(message))
-                    {
-                        messageContext.Complete();
-                    }
-                    else
-                    {
-                        messageContext.Complete(new Error() { Condition = ErrorCode.NotImplemented, Description = "Message was not processed.." });
-                    }
-                });
-
-                Task.WaitAll(new Task[] { task });
+                messageContext.Complete();
             }
         }
     }
+
+    public delegate CFXEnvelope OnRequestHandler(CFXEnvelope request);
 }
