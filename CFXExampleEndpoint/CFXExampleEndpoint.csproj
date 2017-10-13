@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CFX\CFX.csproj">
-      <Project>{f01090d2-d70d-4aea-864f-742af689c203}</Project>
+      <Project>{be632cec-6b4c-49be-8a9a-1bb4d0c1b20f}</Project>
       <Name>CFX</Name>
     </ProjectReference>
   </ItemGroup>

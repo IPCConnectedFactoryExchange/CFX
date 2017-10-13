@@ -27,6 +27,8 @@ namespace CFX
 
         }
 
+        public const string CFXVERSION = "1.0";
+        
         public CFXEnvelope(Type messageType) : this()
         {
             MessageBody = Activator.CreateInstance(messageType);
@@ -106,7 +108,7 @@ namespace CFX
                 if (messageBody != null && MessageBody.GetType().FullName.StartsWith("CFX."))
                 {
                     MessageName = messageBody.GetType().FullName;
-                    Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                    Version = CFXVERSION;
                 }
             }
         }

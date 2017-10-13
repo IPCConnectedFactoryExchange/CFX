@@ -8,6 +8,7 @@ using System.Diagnostics;
 using Amqp;
 using Amqp.Listener;
 using Amqp.Framing;
+using CFX.Utilities;
 
 namespace CFX.Transport
 {
@@ -56,7 +57,7 @@ namespace CFX.Transport
             if (requestUri != null)
                 RequestUri = requestUri;
             else
-                RequestUri = new Uri(string.Format("amqp://{0}:5672", Environment.MachineName));
+                RequestUri = new Uri(string.Format("amqp://{0}:5672", EnvironmentHelper.GetMachineName()));
 
             var task = Task.Run(() =>
             {
