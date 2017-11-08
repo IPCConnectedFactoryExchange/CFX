@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using CFX.DataObjects;
 
-namespace CFX.Production
+namespace CFX.ResourcePerformance
 {
-    public class WorkCompleted : CFXMessage 
+    public class StageStateChanged : CFXMessage
     {
-        public Guid TransactionID
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ResourceState OldState
         {
             get;
             set;
         }
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public WorkResult Result
+        public ResourceState NewState
         {
             get;
             set;
