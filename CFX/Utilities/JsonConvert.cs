@@ -19,6 +19,14 @@ namespace CFX.Utilities
             return Newtonsoft.Json.JsonConvert.SerializeObject(o, Newtonsoft.Json.Formatting.Indented, settings);
         }
 
+        public static string SerializeObjectWithTypes(object o)
+        {
+            Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings();
+            settings.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto;
+            settings.TypeNameAssemblyFormatHandling = Newtonsoft.Json.TypeNameAssemblyFormatHandling.Simple;
+            return Newtonsoft.Json.JsonConvert.SerializeObject(o, Newtonsoft.Json.Formatting.Indented, settings);
+        }
+
         public static T DeserializeObject<T>(string jsonData)
         {
             Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings();

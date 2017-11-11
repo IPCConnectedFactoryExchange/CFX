@@ -10,7 +10,7 @@ namespace CFX
         Active_Starved,
         Active_Blocked,
         Active_Working,
-        Inactive_MaterialEmpty,
+        Inactive_MaterialExhausted,
         Inactive_Setup,
         Down_Planned,
         Down_Unplanned,

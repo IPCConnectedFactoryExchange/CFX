@@ -15,6 +15,12 @@ namespace CFX.ResourcePerformance
             set;
         }
 
+        public TimeSpan OldStateDuration
+        {
+            get;
+            set;
+        }
+
         [JsonConverter(typeof(StringEnumConverter))]
         public ResourceState NewState
         {

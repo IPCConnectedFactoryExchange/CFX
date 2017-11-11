@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\CFX",
-    "\\CFX\\Events",
-    "\\CFX\\Events\\Production",
+    "\\CFX\\DataObjects",
+    "\\CFX\\Materials",
+    "\\CFX\\ResourcePerformance",
+    "\\CFX\\Utilities",
     "\\Discussion Notes"
   ],
+  "SelectedNode": "\\CFX\\Materials",
   "PreviewInSolutionExplorer": false
 }
