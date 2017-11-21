@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace CFX
 {
+    /// <summary>
+    /// A data object identifying a single production unit being processed during production.  A single work transaction
+    /// </summary>
     public class UnitLocation
     {
         [JsonProperty]
