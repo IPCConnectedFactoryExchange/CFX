@@ -4,3 +4,4 @@ C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.pdb
 C:\Code\Git\CFX\CFX\obj\Release\netstandard1.4\CFX.AssemblyInfo.cs
 C:\Code\Git\CFX\CFX\obj\Release\netstandard1.4\CFX.dll
 C:\Code\Git\CFX\CFX\obj\Release\netstandard1.4\CFX.pdb
+C:\Code\Git\CFX\CFX\obj\Release\netstandard1.4\CFX.csprojResolveAssemblyReference.cache

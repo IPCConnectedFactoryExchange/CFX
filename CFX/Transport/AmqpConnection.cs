@@ -12,13 +12,14 @@ using CFX.Utilities;
 
 namespace CFX.Transport
 {
-    class AmqpConnection : IDisposable
+    internal class AmqpConnection : IDisposable
     {
         public AmqpConnection()
         {
             SendTimout = TimeSpan.FromSeconds(5);
             senders = new List<SenderLink>();
             receivers = new List<ReceiverLink>();
+            UseCompression = false;
         }
 
         public TimeSpan SendTimout
@@ -41,6 +42,12 @@ namespace CFX.Transport
             }
         }
 
+        public bool UseCompression
+        {
+            get;
+            set;
+        }
+
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
 
         private Connection connection;
@@ -56,7 +63,8 @@ namespace CFX.Transport
             
             Exception connectException = null;
 
-            var task = Task.Run(() =>
+
+            Task.Run(() =>
             {
                 try
                 {
@@ -69,9 +77,7 @@ namespace CFX.Transport
                     Debug.WriteLine(ex.Message);
                     Cleanup();
                 }
-            });
-
-            Task.WaitAll(new Task[] { task });
+            }).Wait();
 
             if (connectException != null)
             {
@@ -80,17 +86,20 @@ namespace CFX.Transport
             }
         }
 
-        public void AddTransmitChannel(string address)
+        public void OpenPublishChannel(string address)
         {
             if (!IsOpen) throw new Exception("The connection is not open.  Cannot add a transmit channel on a closed connection.");
             Exception addException = null;
 
-            var task = Task.Run(() =>
+            Task.Run(() =>
             {
                 try
                 {
                     SenderLink sender = new SenderLink(session, address, address);
-                    senders.Add(sender);
+                    lock (this)
+                    {
+                        senders.Add(sender);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -98,26 +107,27 @@ namespace CFX.Transport
                     Debug.WriteLine(ex.Message);
                     Cleanup();
                 }
-            });
-
-            Task.WaitAll(new Task[] { task });
+            }).Wait();
 
             if (addException != null) throw addException;
         }
 
 
-        public void AddReceiverChannel(string address)
+        public void OpenSubscribeChannel(string address)
         {
             if (!IsOpen) throw new Exception("The connection is not open.  Cannot add a receive channel on a closed connection.");
             Exception addException = null;
 
-            var task = Task.Run(() =>
+            Task.Run(() =>
             {
                 try
                 {
                     ReceiverLink receiver = new ReceiverLink(session, address, address);
                     receiver.Start(linkCredit, OnMessageReceived);
-                    receivers.Add(receiver);
+                    lock (this)
+                    {
+                        receivers.Add(receiver);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -125,11 +135,35 @@ namespace CFX.Transport
                     Debug.WriteLine(ex.Message);
                     Cleanup();
                 }
-            });
-
-            Task.WaitAll(new Task[] { task });
+            }).Wait();
 
             if (addException != null) throw addException;
+        }
+
+        public void ClosePublishChannel(string address)
+        {
+            SenderLink channel = senders.Where(s => s.Name == address).FirstOrDefault();
+            if (channel == null) throw new ArgumentException("There is no open channel named " + address);
+
+            channel.Close();
+
+            lock (this)
+            {
+                senders.Remove(channel);
+            }
+        }
+
+        public void CloseSubscribeChannel(string address)
+        {
+            ReceiverLink channel = receivers.Where(s => s.Name == address).FirstOrDefault();
+            if (channel == null) throw new ArgumentException("There is no open channel named " + address);
+
+            channel.Close();
+
+            lock (this)
+            {
+                receivers.Remove(channel);
+            }
         }
 
         public void Close()
@@ -137,38 +171,78 @@ namespace CFX.Transport
             Cleanup();
         }
 
-        public void Send(CFXEnvelope env, string replyTo = null)
+        public void Publish(CFXEnvelope env, string replyTo = null)
         {
+            Exception sendException = null;
+
             var task = Task.Run(() =>
             {
                 foreach (SenderLink sender in senders)
                 {
-                    Message msg = AmqpUtilities.MessageFromEnvelope(env);
-                    if (!string.IsNullOrEmpty(replyTo)) msg.Properties.ReplyTo = replyTo;
-                    sender.Send(msg, SendTimout);
+                    try
+                    {
+                        Message msg = AmqpUtilities.MessageFromEnvelope(env, UseCompression);
+                        if (!string.IsNullOrEmpty(replyTo)) msg.Properties.ReplyTo = replyTo;
+                        sender.Send(msg, SendTimout);
+                    }
+                    catch (Exception ex)
+                    {
+                        sendException = ex;
+                        Debug.WriteLine(ex.Message);
+                        Cleanup();
+                    }
                 }
             });
 
             Task.WaitAll(new Task[] { task });
+
+            if (sendException != null) throw sendException;
+        }
+
+        public void PublishMany(IEnumerable<CFXEnvelope> envelopes)
+        {
+            Exception sendException = null;
+
+            var task = Task.Run(() =>
+            {
+                foreach (SenderLink sender in senders)
+                {
+                    try
+                    {
+                        Message msg = AmqpUtilities.MessageFromEnvelopes(envelopes, UseCompression);
+                        sender.Send(msg, SendTimout);
+                    }
+                    catch (Exception ex)
+                    {
+                        sendException = ex;
+                        Debug.WriteLine(ex.Message);
+                        Cleanup();
+                    }
+                }
+            });
+
+            Task.WaitAll(new Task[] { task });
+
+            if (sendException != null) throw sendException;
         }
 
         private void OnMessageReceived(IReceiverLink receiver, Message message)
         {
-            CFXEnvelope env = null;
+            List<CFXEnvelope> envelopes = null;
 
             try
-            {
-                env = AmqpUtilities.EnvelopeFromMessage(message);
+            { 
+               envelopes = AmqpUtilities.EnvelopesFromMessage(message);
             }
             catch (Exception)
             {
-                env = null;
+                envelopes = null;
             }
 
-            if (env != null && OnCFXMessageReceived != null)
+            if (envelopes != null && OnCFXMessageReceived != null)
             {
-                OnCFXMessageReceived(new AmqpChannelAddress() { Uri = NetworkUri, Address = receiver.Name }, env);
                 receiver.Accept(message);
+                envelopes.ForEach(env => OnCFXMessageReceived(new AmqpChannelAddress() { Uri = NetworkUri, Address = receiver.Name }, env));
             }
         }
 
@@ -183,6 +257,7 @@ namespace CFX.Transport
             {
                 receivers.ForEach(r => r.Close());
                 senders.ForEach(s => s.Close());
+
                 if (session != null) session.Close();
                 if (connection != null) connection.Close();
             }
@@ -191,8 +266,12 @@ namespace CFX.Transport
                 Debug.WriteLine(ex.Message);
             }
 
-            receivers.Clear();
-            senders.Clear();
+            lock (this)
+            {
+                receivers.Clear();
+                senders.Clear();
+            }
+
             session = null;
             connection = null;
         }

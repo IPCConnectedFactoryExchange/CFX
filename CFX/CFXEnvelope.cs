@@ -24,7 +24,6 @@ namespace CFX
             UniqueID = Guid.NewGuid();
             Version = "1.0";
             TimeStamp = DateTime.Now;
-
         }
 
         public const string CFXVERSION = "1.0";
@@ -123,13 +122,29 @@ namespace CFX
             return CFXJsonSerializer.SerializeObject(this);
         }
 
+        public static CFXEnvelope FromCFXMessage(CFXMessage msg)
+        {
+            return new CFXEnvelope(msg);
+        }
+
         public static CFXEnvelope FromJson(string jsonData)
         {
             CFXEnvelope env = CFXJsonSerializer.DeserializeObject<CFXEnvelope>(jsonData);
             Type tp = Type.GetType(env.MessageName);
             env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
             return env;
+        }
 
+        public static List<CFXEnvelope> FromJsonList(string jsonData)
+        {
+            List<CFXEnvelope> list = CFXJsonSerializer.DeserializeObject<List<CFXEnvelope>>(jsonData);
+            foreach (CFXEnvelope env in list)
+            {
+                Type tp = Type.GetType(env.MessageName);
+                env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
+            }
+
+            return list;
         }
 
         public byte[] ToBytes()

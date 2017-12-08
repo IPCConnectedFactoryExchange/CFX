@@ -16,6 +16,7 @@ namespace CFX.Transport
         {
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
+            UseCompression = true;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -34,6 +35,12 @@ namespace CFX.Transport
         {
             get;
             private set;
+        }
+
+        public bool UseCompression
+        {
+            get;
+            set;
         }
 
         public bool IsOpen
@@ -94,41 +101,12 @@ namespace CFX.Transport
             return result;
         }
 
-        public void AddTransmitChannel(AmqpChannelAddress address)
+        public void AddPublishChannel(AmqpChannelAddress address)
         {
-            AddTransmitChannel(address.Uri, address.Address);
+            AddPublishChannel(address.Uri, address.Address);
         }
 
-        public void AddTransmitChannel(Uri networkAddress, string address)
-        {
-            if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
-            string key = networkAddress.ToString();
-
-            AmqpConnection channel = null;
-            if (channels.ContainsKey(key))
-            {
-                channel = channels[key];
-            }
-            else
-            {
-                channel = new AmqpConnection();
-                channel.Open(networkAddress);
-                channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
-                channels[key] = channel;
-            }
-
-            if (channel != null)
-            {
-                channel.AddTransmitChannel(address);
-            }
-        }
-
-        public void AddReceiverChannel(AmqpChannelAddress address)
-        {
-            AddReceiverChannel(address.Uri, address.Address);
-        }
-
-        public void AddReceiverChannel(Uri networkAddress, string address)
+        public void AddPublishChannel(Uri networkAddress, string address)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -140,7 +118,11 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection();
+                channel = new AmqpConnection()
+                {
+                    UseCompression = UseCompression
+                };
+
                 channel.Open(networkAddress);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channels[key] = channel;
@@ -148,23 +130,86 @@ namespace CFX.Transport
 
             if (channel != null)
             {
-                channel.AddReceiverChannel(address);
+                channel.OpenPublishChannel(address);
             }
         }
 
-        public void RemoveTransmitEventChannel(Uri networkAddress, string source, string target)
+        public void ClosePublishChannel(AmqpChannelAddress address)
+        {
+            ClosePublishChannel(address.Uri, address.Address);
+        }
+
+        public void ClosePublishChannel(Uri networkAddress, string address)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
-            
-            //if (channels.ContainsKey(key))
-            //{
-            //    AmqpConnection channel;
-            //    channels.TryRemove(key, out channel);
-            //    if (channel != null) channel.Close();
-            //}
+
+            AmqpConnection channel = null;
+            if (channels.ContainsKey(key))
+            {
+                channel = channels[key];
+                channel.ClosePublishChannel(address);
+            }
+            else
+            {
+                throw new ArgumentException("The specified channel does not exist.");
+            }
         }
-        
+
+        public void AddSubscribeChannel(AmqpChannelAddress address)
+        {
+            AddSubscribeChannel(address.Uri, address.Address);
+        }
+
+        public void AddSubscribeChannel(Uri networkAddress, string address)
+        {
+            if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
+            string key = networkAddress.ToString();
+
+            AmqpConnection channel = null;
+            if (channels.ContainsKey(key))
+            {
+                channel = channels[key];
+            }
+            else
+            {
+                channel = new AmqpConnection()
+                {
+                    UseCompression = UseCompression
+                };
+                channel.Open(networkAddress);
+                channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
+                channels[key] = channel;
+            }
+
+            if (channel != null)
+            {
+                channel.OpenSubscribeChannel(address);
+            }
+        }
+
+        public void CloseSubscribeChannel(AmqpChannelAddress address)
+        {
+            CloseSubscribeChannel(address.Uri, address.Address);
+        }
+
+        public void CloseSubscribeChannel(Uri networkAddress, string address)
+        {
+            if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
+            string key = networkAddress.ToString();
+
+            AmqpConnection channel = null;
+            if (channels.ContainsKey(key))
+            {
+                channel = channels[key];
+                channel.CloseSubscribeChannel(address);
+            }
+            else
+            {
+                throw new ArgumentException("The specified channel does not exist.");
+            }
+        }
+
         private void Channel_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
         {
             OnCFXMessageReceived?.Invoke(source, message);
@@ -194,23 +239,49 @@ namespace CFX.Transport
                 requestProcessor = null;
             }
 
+            foreach (AmqpConnection conn in channels.Values)
+            {
+                conn.Dispose();
+            }
+
+            channels.Clear();
             IsOpen = false;
         }
 
-        public void SendMessage(CFXEnvelope env)
+        public void Publish(CFXEnvelope env)
         {
             foreach (AmqpConnection channel in channels.Values)
             {
-                channel.Send(env);
+                channel.Publish(env);
             }
         }
 
-        public void SendMessage(CFXMessage msg)
+        public void Publish(CFXMessage msg)
         {
             CFXEnvelope env = new CFXEnvelope();
             env.MessageBody = msg;
-            SendMessage(env);
+            Publish(env);
         }
 
+        public void PublishMany(IEnumerable<CFXEnvelope> envelopes)
+        {
+            foreach (AmqpConnection channel in channels.Values)
+            {
+                channel.PublishMany(envelopes);
+            }
+        }
+
+        public void PublishMany(IEnumerable<CFXMessage> msgs)
+        {
+            List<CFXEnvelope> envelopes = new List<CFXEnvelope>();
+            foreach (CFXMessage msg in msgs)
+            {
+                CFXEnvelope env = new CFXEnvelope();
+                env.MessageBody = msg;
+                envelopes.Add(env);
+            }
+
+            PublishMany(envelopes);
+        }
     }
 }

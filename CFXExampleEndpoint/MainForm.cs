@@ -22,8 +22,10 @@ namespace CFXExampleEndpoint
             theEndpoint = new AmqpCFXEndpoint();
             txtCFXHandle.Text = Properties.Settings.Default.CFXHandle;
             txtTransmitChannels.Text = Properties.Settings.Default.TransmitChannels;
-            txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
+            //txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
             txtRequestPort.Text = Properties.Settings.Default.RequestPort;
+
+            txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
             
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
@@ -39,12 +41,14 @@ namespace CFXExampleEndpoint
             }
         }
 
+
+
         private List<AmqpChannelAddress> TransmitChannels
         {
             get
             {
                 List<AmqpChannelAddress> result = new List<AmqpChannelAddress>();
-                foreach (string s in txtTransmitChannels.Text.Split(';'))
+                foreach (string s in txtTransmitChannels.Text.Split('\n'))
                 {
                     string [] addr = s.Split(',');
                     if (addr.Length == 2)
@@ -62,7 +66,7 @@ namespace CFXExampleEndpoint
             get
             {
                 List<AmqpChannelAddress> result = new List<AmqpChannelAddress>();
-                foreach (string s in txtReceiveChannels.Text.Split(';'))
+                foreach (string s in txtReceiveChannels.Text.Split('\n'))
                 {
                     string[] addr = s.Split(',');
                     if (addr.Length == 2)
@@ -105,12 +109,12 @@ namespace CFXExampleEndpoint
 
             foreach (AmqpChannelAddress addr in TransmitChannels)
             {
-                theEndpoint.AddTransmitChannel(addr);
+                theEndpoint.AddPublishChannel(addr);
             }
 
             foreach (AmqpChannelAddress addr in ReceiveChannels)
             {
-                theEndpoint.AddReceiverChannel(addr);
+                theEndpoint.AddSubscribeChannel(addr);
             }
         }
 
@@ -215,11 +219,21 @@ namespace CFXExampleEndpoint
         {
             if (!theEndpoint.IsOpen) return;
 
+            List<CFXEnvelope> messages = new List<CFXEnvelope>();
+            
             WorkStarted ws = new WorkStarted();
+            ws.TransactionID = Guid.NewGuid();
             ws.Lane = "Lane1";
             ws.UnitCount = 1;
             ws.UnitLocations.Add(new UnitLocation() { UnitIdentifier = "11122456", LocationIdentifier = "1" });
-            theEndpoint.SendMessage(ws);
+            messages.Add(CFXEnvelope.FromCFXMessage(ws));
+
+            WorkCompleted wc = new WorkCompleted();
+            wc.TransactionID = ws.TransactionID;
+            messages.Add(CFXEnvelope.FromCFXMessage(wc));
+
+            //theEndpoint.Publish(ws);
+            theEndpoint.PublishMany(messages);
         }
 
         private void btnAddReceiveChannel_Click(object sender, EventArgs e)
@@ -244,7 +258,7 @@ namespace CFXExampleEndpoint
 
         private void btnClearReceiveChannels_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtTransmitChannels.Text))
+            if (!string.IsNullOrWhiteSpace(txtReceiveChannels.Text))
             {
                 txtReceiveChannels.Text = "";
                 if (theEndpoint.IsOpen)

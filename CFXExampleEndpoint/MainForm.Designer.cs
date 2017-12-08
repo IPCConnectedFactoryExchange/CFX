@@ -55,17 +55,17 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Transmit Channels:";
+            this.label1.Text = "Publish Channels:";
             // 
             // txtTransmitChannels
             // 
-            this.txtTransmitChannels.Location = new System.Drawing.Point(115, 30);
+            this.txtTransmitChannels.Location = new System.Drawing.Point(137, 30);
             this.txtTransmitChannels.Multiline = true;
             this.txtTransmitChannels.Name = "txtTransmitChannels";
             this.txtTransmitChannels.ReadOnly = true;
-            this.txtTransmitChannels.Size = new System.Drawing.Size(298, 53);
+            this.txtTransmitChannels.Size = new System.Drawing.Size(276, 53);
             this.txtTransmitChannels.TabIndex = 2;
             // 
             // btnAddTransmitChannel
@@ -73,7 +73,7 @@
             this.btnAddTransmitChannel.Location = new System.Drawing.Point(419, 30);
             this.btnAddTransmitChannel.Name = "btnAddTransmitChannel";
             this.btnAddTransmitChannel.Size = new System.Drawing.Size(49, 20);
-            this.btnAddTransmitChannel.TabIndex = 3;
+            this.btnAddTransmitChannel.TabIndex = 0;
             this.btnAddTransmitChannel.Text = "+";
             this.btnAddTransmitChannel.UseVisualStyleBackColor = true;
             this.btnAddTransmitChannel.Click += new System.EventHandler(this.btnAddEventChannel_Click);
@@ -83,7 +83,7 @@
             this.btnClearTransmitChannels.Location = new System.Drawing.Point(474, 30);
             this.btnClearTransmitChannels.Name = "btnClearTransmitChannels";
             this.btnClearTransmitChannels.Size = new System.Drawing.Size(49, 20);
-            this.btnClearTransmitChannels.TabIndex = 4;
+            this.btnClearTransmitChannels.TabIndex = 1;
             this.btnClearTransmitChannels.Text = "Clear";
             this.btnClearTransmitChannels.UseVisualStyleBackColor = true;
             this.btnClearTransmitChannels.Click += new System.EventHandler(this.btnClearEventChannels_Click);
@@ -93,7 +93,7 @@
             this.txtCFXHandle.Location = new System.Drawing.Point(114, 22);
             this.txtCFXHandle.Name = "txtCFXHandle";
             this.txtCFXHandle.Size = new System.Drawing.Size(153, 20);
-            this.txtCFXHandle.TabIndex = 6;
+            this.txtCFXHandle.TabIndex = 0;
             this.txtCFXHandle.Text = "CFXEndpoint1";
             // 
             // label2
@@ -111,7 +111,7 @@
             this.btnClose.Location = new System.Drawing.Point(517, 22);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 20);
-            this.btnClose.TabIndex = 8;
+            this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -121,7 +121,7 @@
             this.btnOpen.Location = new System.Drawing.Point(448, 22);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(63, 20);
-            this.btnOpen.TabIndex = 7;
+            this.btnOpen.TabIndex = 2;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
@@ -129,7 +129,7 @@
             // btnSendMsg
             // 
             this.btnSendMsg.Enabled = false;
-            this.btnSendMsg.Location = new System.Drawing.Point(115, 89);
+            this.btnSendMsg.Location = new System.Drawing.Point(137, 89);
             this.btnSendMsg.Name = "btnSendMsg";
             this.btnSendMsg.Size = new System.Drawing.Size(73, 25);
             this.btnSendMsg.TabIndex = 10;
@@ -142,7 +142,7 @@
             this.txtRequestPort.Location = new System.Drawing.Point(379, 22);
             this.txtRequestPort.Name = "txtRequestPort";
             this.txtRequestPort.Size = new System.Drawing.Size(63, 20);
-            this.txtRequestPort.TabIndex = 12;
+            this.txtRequestPort.TabIndex = 1;
             this.txtRequestPort.Text = "5673";
             // 
             // label3
@@ -159,7 +159,7 @@
             this.btnClearReceiveChannels.Location = new System.Drawing.Point(1020, 28);
             this.btnClearReceiveChannels.Name = "btnClearReceiveChannels";
             this.btnClearReceiveChannels.Size = new System.Drawing.Size(49, 20);
-            this.btnClearReceiveChannels.TabIndex = 16;
+            this.btnClearReceiveChannels.TabIndex = 4;
             this.btnClearReceiveChannels.Text = "Clear";
             this.btnClearReceiveChannels.UseVisualStyleBackColor = true;
             this.btnClearReceiveChannels.Click += new System.EventHandler(this.btnClearReceiveChannels_Click);
@@ -169,28 +169,28 @@
             this.btnAddReceiveChannel.Location = new System.Drawing.Point(965, 28);
             this.btnAddReceiveChannel.Name = "btnAddReceiveChannel";
             this.btnAddReceiveChannel.Size = new System.Drawing.Size(49, 20);
-            this.btnAddReceiveChannel.TabIndex = 15;
+            this.btnAddReceiveChannel.TabIndex = 3;
             this.btnAddReceiveChannel.Text = "+";
             this.btnAddReceiveChannel.UseVisualStyleBackColor = true;
             this.btnAddReceiveChannel.Click += new System.EventHandler(this.btnAddReceiveChannel_Click);
             // 
             // txtReceiveChannels
             // 
-            this.txtReceiveChannels.Location = new System.Drawing.Point(661, 28);
+            this.txtReceiveChannels.Location = new System.Drawing.Point(683, 29);
             this.txtReceiveChannels.Multiline = true;
             this.txtReceiveChannels.Name = "txtReceiveChannels";
             this.txtReceiveChannels.ReadOnly = true;
-            this.txtReceiveChannels.Size = new System.Drawing.Size(298, 53);
-            this.txtReceiveChannels.TabIndex = 14;
+            this.txtReceiveChannels.Size = new System.Drawing.Size(276, 53);
+            this.txtReceiveChannels.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(555, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 13);
+            this.label4.Size = new System.Drawing.Size(104, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Receive Channels:";
+            this.label4.Text = "Subscribe Channels:";
             // 
             // groupBox1
             // 
