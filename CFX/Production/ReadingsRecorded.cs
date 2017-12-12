@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CFX.Production
 {
-    public class ReadingsRecorded
+    public class ReadingsRecorded : CFXMessage
     {
         public ReadingsRecorded()
         {

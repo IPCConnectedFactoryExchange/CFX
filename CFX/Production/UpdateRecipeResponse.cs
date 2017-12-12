@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace CFX.Production
 {
-    public class UpdateRecipeResponse
+    public class UpdateRecipeResponse : CFXMessage
     {
         public UpdateRecipeResponse()
         {

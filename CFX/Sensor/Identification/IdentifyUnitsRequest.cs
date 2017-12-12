@@ -4,10 +4,7 @@ using System.Text;
 
 namespace CFX.Sensor.Identification
 {
-    public class IdentifyUnitsRequest
+    public class IdentifyUnitsRequest : CFXMessage
     {
-        public IdentifyUnitsRequest()
-        {
-        }
     }
 }

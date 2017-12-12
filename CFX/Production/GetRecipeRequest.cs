@@ -4,12 +4,8 @@ using System.Text;
 
 namespace CFX.Production
 {
-    public class GetRecipeRequest
+    public class GetRecipeRequest : CFXMessage
     {
-        public GetRecipeRequest()
-        {
-        }
-
         public string RecipeName
         {
             get;

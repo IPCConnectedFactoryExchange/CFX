@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using CFX;
 
 namespace CFX
@@ -16,6 +18,15 @@ namespace CFX
         /// A name that uniquely describes the test or measurement that was performed.
         /// </summary>
         public string ReadingIdentifier
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The date/time when this Reading was recorded.
+        /// </summary>
+        public DateTime TimeRecorded
         {
             get;
             set;
@@ -50,7 +61,8 @@ namespace CFX
             set;
         }
 
-        // <summary>
+
+        /// <summary>
         /// In the case that this Reading is associated with a particular production unit, and the Reading is associated
         /// with a work transaction, this property contains the position number of the unit as it relates to the transaction.  
         /// If a position number is not specified, it is assumed that the Reading applies to all units associated with the

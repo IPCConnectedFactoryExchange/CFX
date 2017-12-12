@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CFX.Production
 {
-    public class GetRecipeResponse
+    public class GetRecipeResponse : CFXMessage
     {
         public GetRecipeResponse()
         {

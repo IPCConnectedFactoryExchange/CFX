@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CFX
 {
-    public class UnitsArrived
+    public class UnitsArrived : CFXMessage
     {
         public UnitsArrived()
         {

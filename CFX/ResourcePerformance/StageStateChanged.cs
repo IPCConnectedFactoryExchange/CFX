@@ -8,7 +8,6 @@ namespace CFX.ResourcePerformance
 {
     public class StageStateChanged : CFXMessage
     {
-        [JsonConverter(typeof(StringEnumConverter))]
         public ResourceState OldState
         {
             get;
@@ -21,7 +20,6 @@ namespace CFX.ResourcePerformance
             set;
         }
 
-        [JsonConverter(typeof(StringEnumConverter))]
         public ResourceState NewState
         {
             get;

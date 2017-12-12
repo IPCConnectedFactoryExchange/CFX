@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using CFX.DataObjects;
+using CFX;
 
 namespace CFX.Production
 {
@@ -17,7 +17,6 @@ namespace CFX.Production
             set;
         }
 
-        [JsonConverter(typeof(StringEnumConverter))]
         public WorkResult Result
         {
             get;

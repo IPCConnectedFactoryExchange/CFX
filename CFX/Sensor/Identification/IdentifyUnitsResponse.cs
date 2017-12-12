@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CFX.Sensor.Identification
 {
-    public class IdentifyUnitsResponse
+    public class IdentifyUnitsResponse : CFXMessage
     {
         public IdentifyUnitsResponse()
         {

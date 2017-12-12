@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Code\Git\CFX\Documentation\CFX Library.shfbproj" started="12/12/2017 5:13:55 PM">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Locating components in the following folder(s):
+    C:\Code\Git\CFX\Documentation
+    C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins\
+    C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\
+Using framework reflection data for &#39;Cross-platform (.NET Core/.NET Standard)&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\.NETFramework&#39;
+Using presentation style &#39;OpenXML&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML&#39;
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml
+Source: C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.dll
+    Found assembly &#39;C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.dll&#39;
+
+References to include (excluding framework assemblies):
+    Amqp.Net
+    Newtonsoft.Json
+
+Copying XML comments files
+    C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\CFX.xml
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateRefInfo.proj]
+Build started 12/12/2017 5:13:56 PM.
+The target &quot;_ConvertPdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,37)&quot; does not exist in the project, and will be ignored.
+The target &quot;_CollectPdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,70)&quot; does not exist in the project, and will be ignored.
+The target &quot;_CollectMdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,38)&quot; does not exist in the project, and will be ignored.
+The target &quot;_CopyMdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,71)&quot; does not exist in the project, and will be ignored.
+Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateRefInfo:
+  MRefBuilder (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  No source code context base path specified.  Source context information is unavailable.
+  Loaded 1 assemblies for reflection and 56 dependency assemblies.
+  Wrote information on 5 namespaces, 61 types, and 184 members
+  Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
+  XslTransform (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\MergeDuplicates.xsl&#39;.
+Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateRefInfo.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.23
+    Last step completed in 00:00:02.6005
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - TransformManifest.proj]
+Build started 12/12/2017 5:13:59 PM.
+Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
+TransformManifest:
+  XslTransform (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copying file from &quot;reflection.xml&quot; to &quot;reflection.nofilenames&quot;.
+  XslTransform (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\TransformManifest.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.75
+    Last step completed in 00:00:02.1349
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.0216
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateIntermediateTOC.proj]
+Build started 12/12/2017 5:14:01 PM.
+Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
+GenerateIntermediateTOC:
+  XslTransform (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.29
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:01.6779
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00.1315
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\Code\Git\CFX\Documentation\Help\Working\sandcastle.config
+  Updating reference topic configurations.
+  No conceptual content.  Removing conceptual content components.
+    Last step completed in 00:00:00.0156
+</buildStep>
+<buildStep step="BuildTopics">
+Building help topics...
+[C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildTopics.proj]
+Build started 12/12/2017 5:14:03 PM.
+Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
+BuildTopics:
+  BuildAssembler (v2017.5.15.0)
+  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+  Processing topics...
+BuildAssembler : warning : ShowMissingComponent: [N:CFX] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ActorType] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.MessageName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.RequestID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.Source] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.Target] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.TimeStamp] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.UniqueID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.CFXEnvelope.Version] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ConsumedMaterial] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ConsumedMaterial.Material] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.ConsumedMaterial.Material] Unknown reference link target &#39;T:CFX.Material&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ConsumedMaterial.QuantityConsumed] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ConsumedMaterial.RemainingQuantity] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.DataType] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.LockReason] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.MaterialSetupRequirement] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Operator] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Operator.ActorType] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Operator.FirstName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Operator.FullName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Operator.LastName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Operator.LoginName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Reading] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.ExpectedValue] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.ExpectedValueUnits] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.MaxumumAcceptableValue] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.MinimumAcceptableValue] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.Value] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.ValueDataType] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Reading.ValueUnits] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Recipe] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Recipe.Name] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.RequestResult] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.RequestResult.Message] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.RequestResult.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.RequestResult.ResultCode] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ResourceState] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.StationSetupRequirements] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.StationSetupRequirements.MaterialSetupRequirements] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.StatusResult] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.FlipX] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.FlipY] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.PositionName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.PositionNumber] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.Rotation] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.UnitIdentifier] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.X] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitPosition.Y] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.UnitsArrived] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.UnitsArrived] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitsArrived.UnitCount] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.UnitsArrived.Units] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ValidationResult] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ValidationResult.FailureCode] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ValidationResult.Identifier] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ValidationResult.Message] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ValidationResult.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ValidationStatus] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ValidationType] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.WorkResult] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:CFX.InformationSystem.UnitValidation] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.PrimaryIdentifier] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.Units] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.Validations] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.#ctor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.PrimaryResult] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.Results] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:CFX.Production] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.ActivateRecipeRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.ActivateRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.ActivateRecipeRequest.Lane] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.ActivateRecipeRequest.RecipeName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.ActivateRecipeRequest.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.ActivateRecipeResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.ActivateRecipeResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.ActivateRecipeResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.GetActiveRecipeRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetActiveRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetActiveRecipeRequest.Lane] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetActiveRecipeRequest.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.GetActiveRecipeResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetActiveRecipeResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetActiveRecipeResponse.ActiveRecipeName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetActiveRecipeResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.GetRecipeRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetRecipeRequest.RecipeName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.GetRecipeResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetRecipeResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetRecipeResponse.Recipe] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetRecipeResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.GetRequiredSetupRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetRequiredSetupRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.GetRequiredSetupResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetRequiredSetupResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetRequiredSetupResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.GetRequiredSetupResponse.SetupRequirements] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.LockLaneRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.LockLaneRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockLaneRequest.Lane] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockLaneRequest.Reason] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockLaneRequest.Requestor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.LockLaneResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.LockLaneResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockLaneResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.LockStageRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.LockStageRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStageRequest.Reason] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStageRequest.Requestor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStageRequest.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.LockStageResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.LockStageResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStageResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.LockStationRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.LockStationRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStationRequest.Reason] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStationRequest.Requestor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.LockStationResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.LockStationResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.LockStationResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.OperatorActivated] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.OperatorActivated] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.OperatorActivated.Operator] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.OperatorDeactivated] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.OperatorDeactivated] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.OperatorDeactivated.Operator] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.ReadingsRecorded] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.ReadingsRecorded] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.RecipeActivated] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.RecipeActivated] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.RecipeActivated.Lane] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.RecipeActivated.RecipeName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.RecipeActivated.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.RecipeModified] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.RecipeModified] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.RecipeModified.RecipeName] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.SetupRequirementsChanged] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnitsDeparted] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnitsDeparted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnitsDeparted.UnitCount] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnitsDeparted.Units] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnlockLaneRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockLaneRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockLaneRequest.Lane] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockLaneRequest.Requestor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnlockLaneResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockLaneResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockLaneResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnlockStageRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockStageRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockStageRequest.Requestor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockStageRequest.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnlockStageResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockStageResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockStageResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnlockStationRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockStationRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockStationRequest.Requestor] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UnlockStationResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockStationResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UnlockStationResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UpdateRecipeRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UpdateRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.UpdateRecipeResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UpdateRecipeResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.UpdateRecipeResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.WorkCompleted] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkCompleted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkCompleted.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkCompleted.TransactionID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.WorkStageCompleted] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkStageCompleted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageCompleted.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageCompleted.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageCompleted.TransactionID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.WorkStagePaused] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkStagePaused] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStagePaused.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStagePaused.TransactionID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Production.WorkStageResumed] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkStageResumed] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageResumed.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageResumed.TransactionID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkStageStarted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageStarted.Stage] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStageStarted.TransactionID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkStarted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStarted.Lane] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStarted.TransactionID] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStarted.UnitCount] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Production.WorkStarted.Units] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:CFX.ResourcePerformance] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ResourcePerformance.StageStateChanged] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.ResourcePerformance.StageStateChanged] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ResourcePerformance.StageStateChanged.NewState] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ResourcePerformance.StageStateChanged.OldState] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ResourcePerformance.StageStateChanged.OldStateDuration] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.ResourcePerformance.StationStateChanged] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.ResourcePerformance.StationStateChanged] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ResourcePerformance.StationStateChanged.NewState] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ResourcePerformance.StationStateChanged.OldState] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.ResourcePerformance.StationStateChanged.OldStateDuration] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:CFX.Sensor.Identification] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Sensor.Identification.IdentifyUnitsRequest] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Sensor.Identification.IdentifyUnitsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [T:CFX.Sensor.Identification.IdentifyUnitsResponse] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Sensor.Identification.IdentifyUnitsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [P:CFX.Sensor.Identification.IdentifyUnitsResponse.Result] Missing &lt;summary&gt; documentation [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+  Processed 268 topic(s)
+  214 warning(s)
+  CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 3 of 15.
+  CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
+Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.27
+    Last step completed in 00:00:08.7312
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\Content_Types.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\Content_Types.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\docProps\app.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\docProps\app.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\docProps\core.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\docProps\core.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\docProps\custom.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\docProps\custom.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\alert_caution.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\alert_caution.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\alert_note.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\alert_note.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\alert_security.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\alert_security.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\CFW.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\CFW.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\CodeExample.png -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\CodeExample.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privclass.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privdelegate.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privenumeration.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privevent.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privextension.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privfield.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privinterface.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privmethod.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privproperty.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\privstructure.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\privstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protclass.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protdelegate.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protenumeration.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protevent.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protextension.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protfield.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protinterface.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protmethod.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protoperator.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protoperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protproperty.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\protstructure.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\protstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubclass.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubdelegate.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubenumeration.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubevent.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubextension.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubfield.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubinterface.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubmethod.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\puboperator.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\puboperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubproperty.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\pubstructure.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\pubstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\slMobile.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\slMobile.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\static.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\media\xna.gif -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\media\xna.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\document.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\document.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\fontTable.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\fontTable.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\footer1.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\footer1.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\header1.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\header1.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\numbering.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\numbering.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\settings.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\settings.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\styles.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\styles.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\webSettings.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\webSettings.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\theme\theme1.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\theme\theme1.xml
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\word\_rels\document.xml.rels -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\word\_rels\document.xml.rels
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\OpenXML\DocumentParts\_rels\rels.xml.rels -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\OpenXml\_rels\rels.xml.rels
+    Last step completed in 00:00:00.0999
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Executing informational Generate Table of Contents build step for plug-ins (not used for Open XML)
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Executing informational Generate Help Project build step for plug-ins (not used for Open XML)
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Generating Open XML document file...
+[C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildOpenXmlFile.proj]
+  Finished merging 268 topics
+  0 external hyperlink relationship(s) defined
+  4 image relationship(s) defined
+  0 list numbering style override(s) defined
+  Saving C:\Code\Git\CFX\Documentation\Help\Documentation.docx...
+  Finished saving C:\Code\Git\CFX\Documentation\Help\Documentation.docx
+  Compressed 19 files.  Reduced size by 1,980,751 bytes (95%).
+    Last step completed in 00:00:01.3706
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.0999
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 12/12/2017 5:14:13 PM.  Total time: 00:00:17.3327
+
+</buildStep>
+</shfbBuild>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CFX;
 using CFX.Transport;
 using CFX.Production;
+using CFX.InformationSystem.UnitValidation;
 
 namespace CFXExampleEndpoint
 {
@@ -229,6 +230,7 @@ namespace CFXExampleEndpoint
 
             WorkCompleted wc = new WorkCompleted();
             wc.TransactionID = ws.TransactionID;
+            wc.Result = WorkResult.Failed;
             messages.Add(CFXEnvelope.FromCFXMessage(wc));
 
             //theEndpoint.Publish(ws);
