@@ -13,6 +13,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataStructures\**" />
+    <EmbeddedResource Remove="DataStructures\**" />
+    <None Remove="DataStructures\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ConsumedMaterial.cs" />
+    <Compile Remove="DataObjects\UnitLocation.cs" />
+    <Compile Remove="DataObjects\UnitPosition.cs" />
+    <Compile Remove="LockReason.cs" />
+    <Compile Remove="Material.cs" />
+    <Compile Remove="MaterialLocation.cs" />
+    <Compile Remove="Measurement.cs" />
+    <Compile Remove="ReflowProcessData.cs" />
+    <Compile Remove="ResourceState.cs" />
+    <Compile Remove="StatusResult.cs" />
+    <Compile Remove="UnitPosition.cs" />
+    <Compile Remove="WorkResult.cs" />
+    <Compile Remove="ZoneReflowProcessData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AMQPNetLite" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />

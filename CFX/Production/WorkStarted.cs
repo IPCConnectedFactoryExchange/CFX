@@ -15,7 +15,7 @@ namespace CFX.Production
         public WorkStarted()
         {
             TransactionID = Guid.NewGuid();
-            UnitLocations = new List<UnitLocation>();
+            Units = new List<UnitPosition>();
         }
 
         public Guid TransactionID
@@ -32,11 +32,16 @@ namespace CFX.Production
 
         public int UnitCount
         {
-            get;
-            set;
+            get
+            {
+                return Units.Count;
+            }
+            private set
+            {
+            }
         }
 
-        public List<UnitLocation> UnitLocations
+        public List<UnitPosition> Units
         {
             get;
             set;

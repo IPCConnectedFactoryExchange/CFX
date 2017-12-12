@@ -10,7 +10,7 @@ namespace CFX
     /// <summary>
     /// A data object identifying a single production unit being processed during production.  A single work transaction
     /// </summary>
-    public class UnitLocation
+    public class UnitPosition
     {
         [JsonProperty]
         public string UnitIdentifier
@@ -20,7 +20,17 @@ namespace CFX
         }
 
         [JsonProperty]
-        public string LocationIdentifier
+        public int PositionNumber
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty]
+        public string PositionName
         {
             get;
             set;

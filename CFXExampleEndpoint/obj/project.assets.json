@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETFramework,Version=v4.6.2": {
       "AMQPNetLite/2.0.0": {
@@ -324,6 +324,10 @@
           "lib/net46/System.Net.Http.dll": {}
         },
         "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.6/System.Net.Http.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
           "runtimes/win/lib/net46/System.Net.Http.dll": {
             "assetType": "runtime",
             "rid": "win"
@@ -522,6 +526,14 @@
           "lib/net461/System.Security.Cryptography.Algorithms.dll": {}
         },
         "runtimeTargets": {
+          "runtimes/osx/lib/netstandard1.6/System.Security.Cryptography.Algorithms.dll": {
+            "assetType": "runtime",
+            "rid": "osx"
+          },
+          "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.Algorithms.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
           "runtimes/win/lib/net461/System.Security.Cryptography.Algorithms.dll": {
             "assetType": "runtime",
             "rid": "win"
@@ -581,6 +593,10 @@
           "lib/net461/System.Security.Cryptography.X509Certificates.dll": {}
         },
         "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.X509Certificates.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
           "runtimes/win/lib/net461/System.Security.Cryptography.X509Certificates.dll": {
             "assetType": "runtime",
             "rid": "win"
@@ -684,6 +700,12 @@
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
           "System.Runtime.Serialization.Json": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/CFX.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CFX.dll": {}
         }
       }
     },
@@ -1322,6 +1344,12 @@
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
           "System.Runtime.Serialization.Json": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/CFX.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CFX.dll": {}
         }
       }
     },
@@ -1960,6 +1988,12 @@
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
           "System.Runtime.Serialization.Json": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/CFX.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CFX.dll": {}
         }
       }
     },
@@ -2598,6 +2632,12 @@
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
           "System.Runtime.Serialization.Json": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/CFX.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CFX.dll": {}
         }
       }
     }
@@ -5357,7 +5397,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jwalls\\.nuget\\packages\\": {}
+    "C:\\Users\\jwalls\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5365,11 +5406,25 @@
       "projectUniqueName": "C:\\Code\\Git\\CFX\\CFXExampleEndpoint\\CFXExampleEndpoint.csproj",
       "projectName": "CFXExampleEndpoint",
       "projectPath": "C:\\Code\\Git\\CFX\\CFXExampleEndpoint\\CFXExampleEndpoint.csproj",
+      "packagesPath": "C:\\Users\\jwalls\\.nuget\\packages\\",
       "outputPath": "C:\\Code\\Git\\CFX\\CFXExampleEndpoint\\obj\\",
       "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\jwalls\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+      ],
       "originalTargetFrameworks": [
         "net462"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net462": {
           "projectReferences": {

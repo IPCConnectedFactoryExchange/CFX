@@ -224,8 +224,7 @@ namespace CFXExampleEndpoint
             WorkStarted ws = new WorkStarted();
             ws.TransactionID = Guid.NewGuid();
             ws.Lane = "Lane1";
-            ws.UnitCount = 1;
-            ws.UnitLocations.Add(new UnitLocation() { UnitIdentifier = "11122456", LocationIdentifier = "1" });
+            ws.Units.Add(new UnitPosition() { UnitIdentifier = "11122456", PositionNumber = 1, PositionName = "1" });
             messages.Add(CFXEnvelope.FromCFXMessage(ws));
 
             WorkCompleted wc = new WorkCompleted();

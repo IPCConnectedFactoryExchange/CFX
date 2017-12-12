@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETStandard,Version=v1.4": {
       "AMQPNetLite/2.0.0": {
@@ -5284,44 +5284,68 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jwalls\\.nuget\\packages\\": {}
+    "C:\\Users\\jwalls\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\Code\\Git\\CFX\\CFX\\CFX.csproj",
       "projectName": "CFX",
       "projectPath": "C:\\Code\\Git\\CFX\\CFX\\CFX.csproj",
+      "packagesPath": "C:\\Users\\jwalls\\.nuget\\packages\\",
       "outputPath": "C:\\Code\\Git\\CFX\\CFX\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\jwalls\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+      ],
       "originalTargetFrameworks": [
         "netstandard1.4"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netstandard1.4": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
       "netstandard1.4": {
         "dependencies": {
-          "System.Runtime.Serialization.Json": {
+          "AMQPNetLite": {
             "target": "Package",
-            "version": "4.3.0"
+            "version": "[2.0.0, )"
           },
           "NETStandard.Library": {
             "target": "Package",
-            "version": "1.6.1",
+            "version": "[1.6.1, )",
             "autoReferenced": true
-          },
-          "AMQPNetLite": {
-            "target": "Package",
-            "version": "2.0.0"
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "10.0.3"
+            "version": "[10.0.3, )"
+          },
+          "System.Runtime.Serialization.Json": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         }
       }

@@ -83,6 +83,13 @@ namespace CFX
         }
 
         [JsonProperty]
+        public string Target
+        {
+            get;
+            set;
+        }
+
+        [JsonProperty]
         public string RequestID
         {
             get;
