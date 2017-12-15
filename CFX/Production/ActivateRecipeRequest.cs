@@ -12,6 +12,12 @@ namespace CFX.Production
             set;
         }
 
+        public string Revision
+        {
+            get;
+            set;
+        }
+
         public string Lane
         {
             get;

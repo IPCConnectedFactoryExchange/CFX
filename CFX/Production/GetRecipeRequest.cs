@@ -11,5 +11,11 @@ namespace CFX.Production
             get;
             set;
         }
+
+        public string Revision
+        {
+            get;
+            set;
+        }
     }
 }

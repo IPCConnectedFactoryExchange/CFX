@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using CFX;
 using CFX.Transport;
 using CFX.Production;
@@ -25,9 +26,13 @@ namespace CFXExampleEndpoint
             txtTransmitChannels.Text = Properties.Settings.Default.TransmitChannels;
             //txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
             txtRequestPort.Text = Properties.Settings.Default.RequestPort;
-
             txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
-            
+
+            CFXExampleGenerator gen = new CFXExampleGenerator();
+            string result = gen.GenerateAll();
+            File.WriteAllText(@"c:\Code\Git\CFX\Documentation\Finished\Examples.txt", result, Encoding.UTF8);
+            return;
+                        
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
 

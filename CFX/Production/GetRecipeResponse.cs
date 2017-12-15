@@ -14,7 +14,7 @@ namespace CFX.Production
         public RequestResult Result
         {
             get;
-            private set;
+            set;
         }
 
         public Recipe Recipe

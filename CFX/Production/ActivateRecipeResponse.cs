@@ -8,7 +8,7 @@ namespace CFX.Production
 {
     public class ActivateRecipeResponse : CFXMessage
     {
-        ActivateRecipeResponse()
+        public ActivateRecipeResponse()
         {
             Result = new RequestResult();
         }
@@ -16,7 +16,7 @@ namespace CFX.Production
         public RequestResult Result
         {
             get;
-            private set;
+            set;
         }
     }
 }

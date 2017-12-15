@@ -75,22 +75,12 @@ namespace CFX
         }
 
         /// <summary>
-        /// In the case that this Reading is associated with a work transaction, this property contains the TransactionId of
-        /// the transaction.
-        /// </summary>
-        public Guid? TransactionId
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// An optional list of components (instance of a part) on a production unit(s) to be associated with this reading.
         /// </summary>
         public List<ComponentDesignator> Components
         {
             get;
-            private set;
+            set;
         }
 
 

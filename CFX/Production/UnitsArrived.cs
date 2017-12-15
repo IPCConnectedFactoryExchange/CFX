@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX
+namespace CFX.Production
 {
     public class UnitsArrived : CFXMessage
     {

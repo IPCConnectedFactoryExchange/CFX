@@ -16,13 +16,19 @@ namespace CFX.Production
         public RequestResult Result
         {
             get;
-            private set;
+            set;
         }
 
         /// <summary>
         /// The name of the recipe associated with the required setup.
         /// </summary>
         public string RecipeName
+        {
+            get;
+            set;
+        }
+
+        public string RecipeRevision
         {
             get;
             set;

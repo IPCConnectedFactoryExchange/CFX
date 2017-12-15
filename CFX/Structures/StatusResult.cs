@@ -11,6 +11,7 @@ namespace CFX
     [JsonConverter(typeof(StringEnumConverter))]
     public enum StatusResult
     {
+        Unspecified,
         Success,
         Failed,
         Warning

@@ -10,13 +10,19 @@ namespace CFX
         {
         }
 
-        public Material Material
+        public MaterialLocation MaterialLocation
         {
             get;
             set;
         }
 
-        public double QuantityConsumed
+        public double QuantityUsed
+        {
+            get;
+            set;
+        }
+
+        public double QuantitySpoiled
         {
             get;
             set;

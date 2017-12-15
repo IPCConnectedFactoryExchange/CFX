@@ -16,6 +16,12 @@ namespace CFX
             set;
         }
 
+        public string Revision
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// The MIME type of the binary data contained by the RecipeData property.
         /// </summary>

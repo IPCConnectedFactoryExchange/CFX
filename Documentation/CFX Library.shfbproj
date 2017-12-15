@@ -15,7 +15,7 @@
     <!-- SHFB properties -->
     <FrameworkVersion>Cross-platform (.NET Core/.NET Standard)</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
-    <HtmlHelpName>Documentation</HtmlHelpName>
+    <HtmlHelpName>CFX Library</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\CFX\bin\netstandard1.4\CFX.xml" />
@@ -28,7 +28,7 @@
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
     <CleanIntermediates>True</CleanIntermediates>
-    <MissingTags>Summary, Parameter, Returns, Namespace, TypeParameter</MissingTags>
+    <MissingTags>None</MissingTags>
     <WebsiteSdkLinkType>None</WebsiteSdkLinkType>
     <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
     <IncludeFavorites>False</IncludeFavorites>
@@ -36,13 +36,13 @@
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
-    <SyntaxFilters>Standard</SyntaxFilters>
+    <SyntaxFilters>C#, Visual Basic, Managed C++</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <RootNamespaceContainer>False</RootNamespaceContainer>
     <PresentationStyle>OpenXML</PresentationStyle>
     <Preliminary>False</Preliminary>
     <NamingMethod>Guid</NamingMethod>
-    <HelpTitle>A Sandcastle Documented Class Library</HelpTitle>
+    <HelpTitle>IPC Connected Factory Exchange</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <VisibleItems>None</VisibleItems>
     <ApiFilter>
@@ -198,14 +198,7 @@
     <Filter entryType="Constructor" fullName="CFX.Production.WorkStarted.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
 </Filter>
-<Filter entryType="Namespace" fullName="CFX.ResourcePerformance" isExposed="True">
-  <Filter entryType="Class" fullName="CFX.ResourcePerformance.StageStateChanged" filterName="StageStateChanged" isExposed="True">
-    <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.StageStateChanged.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="CFX.ResourcePerformance.StationStateChanged" filterName="StationStateChanged" isExposed="True">
-    <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.StationStateChanged.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
+<Filter entryType="Namespace" fullName="CFX.ResourcePerformance" isExposed="False" />
 <Filter entryType="Namespace" fullName="CFX.Sensor.Identification" isExposed="True">
   <Filter entryType="Class" fullName="CFX.Sensor.Identification.IdentifyUnitsRequest" filterName="IdentifyUnitsRequest" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Sensor.Identification.IdentifyUnitsRequest.#ctor" filterName=".ctor" isExposed="False" />

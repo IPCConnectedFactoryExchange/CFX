@@ -15,7 +15,7 @@ namespace CFX.Sensor.Identification
         public RequestResult Result
         {
             get;
-            private set;
+            set;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace CFX.Sensor.Identification
         public List<UnitPosition> Units
         {
             get;
-            private set;
+            set;
         }
     }
 }

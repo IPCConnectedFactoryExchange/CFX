@@ -19,10 +19,16 @@ namespace CFX.Production
             set;
         }
 
+        public string ActiveRecipeRevision
+        {
+            get;
+            set;
+        }
+
         public RequestResult Result
         {
             get;
-            private set;
+            set;
         }
     }
 }

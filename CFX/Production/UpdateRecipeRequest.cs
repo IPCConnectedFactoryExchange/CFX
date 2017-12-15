@@ -30,5 +30,11 @@ namespace CFX.Production
             get;
             set;
         }
+
+        public RecipeModificationReason? Reason
+        {
+            get;
+            set;
+        }
     }
 }

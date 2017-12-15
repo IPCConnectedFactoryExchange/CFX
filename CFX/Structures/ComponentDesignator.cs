@@ -33,7 +33,7 @@ namespace CFX
         /// <summary>
         /// The internal part number of the designated component.
         /// </summary>
-        public string InternalPartNumber
+        public string PartNumber
         {
             get;
             set;

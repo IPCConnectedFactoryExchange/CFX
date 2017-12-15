@@ -27,7 +27,7 @@ namespace CFX.Production
         public List<Reading> Readings
         {
             get;
-            private set;
+            set;
         }
     }
 }

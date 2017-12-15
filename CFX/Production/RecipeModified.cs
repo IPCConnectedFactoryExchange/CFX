@@ -12,6 +12,12 @@ namespace CFX.Production
             set;
         }
 
+        public string Revision
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// The name of the user who performed the modification.
         /// </summary>
@@ -24,7 +30,7 @@ namespace CFX.Production
         /// <summary>
         /// The reason for the modification.
         /// </summary>
-        public string Reason
+        public RecipeModificationReason Reason
         {
             get;
             set;

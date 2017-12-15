@@ -18,7 +18,7 @@ namespace CFX.InformationSystem.UnitValidation
         public List<ValidationType> Validations
         {
             get;
-            private set;
+            set;
         }
 
         public string PrimaryIdentifier
@@ -30,7 +30,7 @@ namespace CFX.InformationSystem.UnitValidation
         public List<UnitPosition> Units
         {
             get;
-            private set;
+            set;
         }
     }
 }
