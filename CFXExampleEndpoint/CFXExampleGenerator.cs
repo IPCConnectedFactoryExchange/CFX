@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CFX;
 using CFX.Production;
+using CFX.Production.Assembly;
 using CFX.InformationSystem.UnitValidation;
 using CFX.Sensor.Identification;
 using CFX.Materials;
@@ -12,6 +13,10 @@ using CFX.Materials.Storage;
 using CFX.Materials.Management;
 using CFX.Materials.Management.MSDManagement;
 using CFX.Materials.Transport;
+using CFX.ResourcePerformance;
+using CFX.ResourcePerformance.SMTPlacement;
+using CFX.ResourcePerformance.SolderPastePrinting;
+using CFX.ResourcePerformance.THTInsertion;
 
 namespace CFXExampleEndpoint
 {
@@ -19,9 +24,455 @@ namespace CFXExampleEndpoint
     {
         public string GenerateAll()
         {
+            InitializeMaterials();
+
             string result = "";
-            result += GenerateProduction();
-            result += GenerateMaterials();
+            result += GenerateResourcePerformance();
+            //result += GenerateProduction();
+            result += GenerateAssembly();
+            //result += GenerateMaterials();
+            return result;
+        }
+
+        private MaterialPackageDetail m1, m2, m3, m4, m5, m6, m7;
+        private MaterialCarrier c1, c2, c3;
+
+        public string GenerateAssembly()
+        {
+            string result = "";
+            CFXMessage msg = null;
+
+            msg = new MaterialsInstalled()
+            {
+                InstalledMaterials = new List<InstalledMaterial>(new InstalledMaterial[]
+                {
+                    new InstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPosition = 1,
+                        Material = m1.ToMaterialPackage(),
+                        CarrierLocation = new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234893",
+                            LocationName = "SLOT45",
+                            CarrierInformation = c2
+                        },
+                        QuantityInstalled = 3,
+                        InstalledComponents = new List<InstalledComponent>(new InstalledComponent []
+                        {
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R1"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R2"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R3"
+                            }
+                        })
+                         
+                    },
+                    new InstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPosition = 2,
+                        Material = m1.ToMaterialPackage(),
+                        CarrierLocation = new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234893",
+                            LocationName = "SLOT45",
+                            CarrierInformation = c2
+                        },
+                        QuantityInstalled = 3,
+                        InstalledComponents = new List<InstalledComponent>(new InstalledComponent []
+                        {
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R1"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R2"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R3"
+                            }
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            return result;
+        }
+
+        public string GenerateResourcePerformance()
+        {
+            string result = "";
+            CFXMessage msg = null;
+
+            Fault flt = new Fault()
+            {
+                Cause = FaultCause.MechanicalFailure,
+                Severity = FaultSeverity.Error,
+                FaultCode = "ERROR 3943480",
+            };
+
+            msg = new StationStateChanged()
+            {
+                OldState = ResourceState.IdleStarved,
+                OldStateDuration = TimeSpan.FromSeconds(85),
+                NewState = ResourceState.ReadyProcessingActive
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.ResourcePerformance.FaultOccurred()
+            {
+                Fault = flt
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StationStateChanged()
+            {
+                OldState = ResourceState.ReadyProcessingExecuting,
+                OldStateDuration = TimeSpan.FromSeconds(25),
+                NewState = ResourceState.UnplannedDowntime,
+                RelatedFault = flt
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.ResourcePerformance.FaultOccurred()
+            {
+                Fault = flt
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FaultCleared()
+            {
+                FaultOccurrenceId = flt.FaultOccurrenceId
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StationOffline();
+            AppendMessage(msg, ref result);
+
+            msg = new StationOnline()
+            {
+                OfflineDuration = TimeSpan.FromMinutes(23)
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ModifyStationParameterRequest()
+            {
+                ParameterName = "Torque1",
+                ParameterValue = "35.6"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ModifyStationParameterResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    ResultCode = 0,
+                    Message = "OK"
+                },
+                ParameterName = "Torque1",
+                NewParameterValue = "35.6",
+                OldParameterValue = "22.6"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StationParameterModified()
+            {
+                ParameterName = "Torque1",
+                NewParameterValue = "35.6",
+                OldParameterValue = "22.6"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new LogEntryRecorded()
+            {
+                Importance = LogImportance.Information,
+                Message = "Beam 1 Zeroed and Homed",
+                InformationId = "INF21321321",
+                Stage = "STAGE1",
+                Lane = "1"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new MaintenancePerformed()
+            {
+                MaintenanceJobCode = "MNT113334",
+                MaintenanceOrderNumber = "MO676578576",
+                ConsumedMaterials = new List<ConsumedMaterial>(new ConsumedMaterial[]
+                {
+                    new ConsumedMaterial()
+                    {
+                         QuantityUsed = 3,
+                         MaterialLocation = new MaterialLocation()
+                         {
+                              MaterialPackage = new MaterialPackage()
+                              {
+                                  InternalPartNumber = "PN2343243"
+                              }
+                         }
+                    },
+                    new ConsumedMaterial()
+                    {
+                         QuantityUsed = 3,
+                         MaterialLocation = new MaterialLocation()
+                         {
+                              MaterialPackage = new MaterialPackage()
+                              {
+                                  InternalPartNumber = "PN4452",
+                                  UniqueIdentifier = "UID23849854385",
+                              }
+                         }
+                    }
+                }),
+                Tasks = new List<MaintenanceTask>(new MaintenanceTask[]
+                {
+                    new MaintenanceTask()
+                    {
+                        Task = "Changed hydraulic fluid in resovoir 1",
+                        TaskId = "HYD233432432",
+                        ManHoursConsumed = 0.75,
+                        Operator = new Operator()
+                        {
+                            ActorType = ActorType.Human,
+                            FirstName = "Joseph",
+                            LastName = "Smith",
+                            FullName = "Joseph Smith",
+                            LoginName = "joseph.smith@abcdrepairs.com",
+                            OperatorIdentifier = "UID235434324"
+                        }
+                    },
+                    new MaintenanceTask()
+                    {
+                        Task = "Checked torque on main mount bolts",
+                        TaskId = "CHK3432434",
+                        ManHoursConsumed = 0.25,
+                        Operator = new Operator()
+                        {
+                            ActorType = ActorType.Human,
+                            FirstName = "Joseph",
+                            LastName = "Smith",
+                            FullName = "Joseph Smith",
+                            LoginName = "joseph.smith@abcdrepairs.com",
+                            OperatorIdentifier = "UID235434324"
+                        }
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new EnergyConsumed()
+            {
+                StartTime = DateTime.Now - TimeSpan.FromMinutes(5),
+                EndTime = DateTime.Now,
+                EnergyUsed = 0.012,
+                CurrentPower = 122.6,
+                PeakPower = 125.6,
+                MinimumPower = 120.3,
+                MeanPower = 124.6
+            };
+            AppendMessage(msg, ref result);
+
+            SMTPlacementFault smtFlt = new SMTPlacementFault()
+            {
+                FaultOccurrenceId = Guid.NewGuid(),
+                Cause = FaultCause.MechanicalFailure,
+                Severity = FaultSeverity.Error,
+                FaultCode = "ERROR 3943480",
+                Designator = new ComponentDesignator()
+                {
+                    ReferenceDesignator = "R31",
+                    PartNumber = "PN123456"
+                },
+                PlacementFaultType = SMTPlacementFaultType.PickupError,
+                ProgramStep = 56,
+                Lane = "LANE1",
+                Stage = "STAGE2",
+                MaterialLocation = new MaterialLocation()
+                {
+                     LocationIdentifier = "UID23948348324",
+                     LocationName = "SLOT47",
+                     MaterialPackage = new MaterialPackage()
+                     {
+                         UniqueIdentifier = "UID34280923084932849",
+                         InternalPartNumber = "IPN456465465465",
+                         Quantity = 854
+                     },
+                     CarrierInformation = new SMDTapeFeeder()
+                     {
+                          Name = "8MMFDR231",
+                          UniqueIdentifier = "FDR2348934-32890",
+                          Width = SMDTapeWidth.Tape8mm,
+                          Pitch = SMDTapePitch.Pitch8mm,
+                          LaneNumber = 1
+                     }
+                },
+                Nozzle = new SMTNozzle()
+                {
+                    UniqueIdentifier = "UID2389432849",
+                    Name = "NOZZLE3243244",
+                    HeadId = "HEAD1",
+                    HeadNozzleNumber = 3,
+                    NozzleType = "TYPE914"
+                }
+            };
+
+            msg = new CFX.ResourcePerformance.SMTPlacement.FaultOccurred()
+            {
+                Fault = smtFlt
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ToolChanged()
+            {
+                OldNozzle = null,
+                ReturnedToHolder = null,
+                NewNozzle = new SMTNozzle()
+                {
+                    UniqueIdentifier = "UID23890430",
+                    Name = "NOZZLE234324",
+                    NozzleType = "TYPE914",
+                    HeadId = "HEAD1",
+                    HeadNozzleNumber = 1
+                },
+                LoadedFromHolder = new SMTNozzleHolder()
+                {
+                    LocationUniqueIdentifier = "UID238943243243",
+                    LocationName = "HOLDER14",
+                    BaseName = "NEST2"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced()
+            {
+                StartTime = DateTime.Now - TimeSpan.FromMinutes(10),
+                EndTime = DateTime.Now,
+                TotalComponentsPlaced = 875,
+                TotalComponentsNotPlaced = 45
+            };
+            AppendMessage(msg, ref result);
+
+            THTInsertionFault thtFlt = new THTInsertionFault()
+            {
+                FaultOccurrenceId = Guid.NewGuid(),
+                Cause = FaultCause.MechanicalFailure,
+                Severity = FaultSeverity.Error,
+                FaultCode = "ERROR 3943480",
+                Designator = new ComponentDesignator()
+                {
+                    ReferenceDesignator = "R31",
+                    PartNumber = "PN123456"
+                },
+                InsertionFaultType = THTInsertionFaultType.ClinchError,
+                ProgramStep = 56,
+                Lane = "LANE1",
+                Stage = "STAGE2",
+                MaterialLocation = new MaterialLocation()
+                {
+                    LocationIdentifier = "UID23948348324",
+                    LocationName = "SLOT47",
+                    MaterialPackage = new MaterialPackage()
+                    {
+                        UniqueIdentifier = "UID34280923084932849",
+                        InternalPartNumber = "IPN456465465465",
+                        Quantity = 854
+                    },
+                    CarrierInformation = new SMDTapeFeeder()
+                    {
+                        Name = "8MMFDR231",
+                        UniqueIdentifier = "FDR2348934-32890",
+                        Width = SMDTapeWidth.Tape8mm,
+                        Pitch = SMDTapePitch.Pitch8mm,
+                        LaneNumber = 1
+                    }
+                },
+            };
+
+            msg = new CFX.ResourcePerformance.THTInsertion.FaultOccurred()
+            {
+                Fault = thtFlt
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.ResourcePerformance.THTInsertion.ComponentsInserted()
+            {
+                StartTime = DateTime.Now - TimeSpan.FromMinutes(10),
+                EndTime = DateTime.Now,
+                TotalComponentsInserted = 875,
+                TotalComponentsNotInserted = 45
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StencilChanged()
+            {
+                OldStencil = new SMTStencil()
+                {
+                    UniqueIdentifier = "UID23432434",
+                    Name = "STENCIL234343"
+                },
+                NewStencil = new SMTStencil()
+                {
+                    UniqueIdentifier = "UID234344455",
+                    Name = "STENCIL8784322"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StencilCleaned()
+            {
+                Stencil = new SMTStencil()
+                {
+                    UniqueIdentifier = "UID23432434",
+                    Name = "STENCIL234343"
+                },
+                CyclesSinceLastClean = 35,
+                TimeSinceLastClean = TimeSpan.FromMinutes(33),
+                StencilCleanCycles = 2,
+                StencilCleanMode = SMTStencilCleanMode.V,
+                StencilCleanTime = TimeSpan.FromSeconds(38)
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new SqueegeeChanged()
+            {
+                OldSqueegee = new SMTSqueegee()
+                {
+                    UniqueIdentifier = "UID23432434",
+                    Name = "STENCIL234343"
+                },
+                NewSqueegee = new SMTSqueegee()
+                {
+                    UniqueIdentifier = "UID234344455",
+                    Name = "STENCIL8784322"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new SqueegeeCleaned()
+            {
+                Squeegee = new SMTSqueegee()
+                {
+                    UniqueIdentifier = "UID23432434",
+                    Name = "STENCIL234343"
+                },
+                CyclesSinceLastClean = 35,
+                TimeSinceLastClean = TimeSpan.FromMinutes(33),
+                SqueegeeCleanCycles = 2,
+                SqueegeeCleanTime = TimeSpan.FromSeconds(38)
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
 
@@ -30,147 +481,7 @@ namespace CFXExampleEndpoint
             string result = "";
             CFXMessage msg = null;
 
-            MaterialPackageDetail m1 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4566556456",
-                InternalPartNumber = "IPN47788",
-                Manufacturer = "MOTOROLA",
-                ManufacturerPartNumber = "MOT231234",
-                ManufacuterLotCode = "LOT2016110588",
-                ManufactureDate = new DateTime(2016, 11, 5),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG23452442",
-                ReceivedDate = new DateTime(2017, 5, 6),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 1000,
-                Quantity = 887,
-                MaterialData = new MaterialPackageMSDData()
-                {
-                    MSDLevel = MSDLevel.MSL3,
-                    MSDState = MSDState.InDryStorage,
-                    OriginalExposureDateTime = new DateTime(2017, 05, 01, 08, 22, 12),
-                    LastExposureDateTime = new DateTime(2017, 05, 06, 13, 55, 33),
-                    RemainingExposureTime = new TimeSpan(144, 0, 0),
-                }
-            };
-
-            MaterialPackageDetail m2 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4566554543",
-                InternalPartNumber = "IPN48899",
-                Manufacturer = "SAMSUNG",
-                ManufacturerPartNumber = "SAM233243",
-                ManufacuterLotCode = "LOT2016101008",
-                ManufactureDate = new DateTime(2016, 10, 10),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG44543534",
-                ReceivedDate = new DateTime(2017, 9, 9),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 1000,
-                Quantity = 748
-            };
-
-            MaterialPackageDetail m3 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4566553421",
-                InternalPartNumber = "IPN45577",
-                Manufacturer = "FUJITSU",
-                ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
-                ManufactureDate = new DateTime(2017, 08, 3),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG543534537",
-                ReceivedDate = new DateTime(2017, 9, 10),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 500,
-                Quantity = 151,
-                MaterialData = new MaterialPackageMSDData()
-                {
-                    MSDLevel = MSDLevel.MSL2A,
-                    MSDState = MSDState.Exposed,
-                    OriginalExposureDateTime = new DateTime(2017, 05, 01, 08, 22, 12),
-                    LastExposureDateTime = new DateTime(2017, 05, 06, 13, 55, 33),
-                    RemainingExposureTime = new TimeSpan(144, 0, 0),
-                }
-            };
-
-            MaterialPackageDetail m4 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4566555547",
-                InternalPartNumber = "IPN45577",
-                Manufacturer = "FUJITSU",
-                ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
-                ManufactureDate = new DateTime(2017, 08, 3),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG543534537",
-                ReceivedDate = new DateTime(2017, 9, 10),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 500,
-                Quantity = 151
-            };
-
-            MaterialPackageDetail m5 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4566588751",
-                InternalPartNumber = "IPN45577",
-                Manufacturer = "FUJITSU",
-                ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
-                ManufactureDate = new DateTime(2017, 08, 3),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG543534537",
-                ReceivedDate = new DateTime(2017, 9, 10),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 500,
-                Quantity = 151
-            };
-
-            MaterialPackageDetail m6 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4566589856",
-                InternalPartNumber = "IPN45577",
-                Manufacturer = "FUJITSU",
-                ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
-                ManufactureDate = new DateTime(2017, 08, 3),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG543534537",
-                ReceivedDate = new DateTime(2017, 9, 10),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 500,
-                Quantity = 151
-            };
-
-            MaterialPackageDetail m7 = new MaterialPackageDetail()
-            {
-                UniqueIdentifier = "MAT4563453457",
-                InternalPartNumber = "IPN45577",
-                Manufacturer = "FUJITSU",
-                ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
-                ManufactureDate = new DateTime(2017, 08, 3),
-                Vendor = "Digikey",
-                VendorPartNumber = "DIG543534537",
-                ReceivedDate = new DateTime(2017, 9, 10),
-                Status = MaterialStatus.Active,
-                InitialQuantity = 500,
-                Quantity = 151
-            };
-
-            MaterialCarrier c1 = new MaterialCarrier()
-            {
-                UniqueIdentifier = "1233333",
-            };
-
-            MaterialCarrier c2 = new SMDTapeFeeder()
-            {
-                UniqueIdentifier = "1233334",
-                BaseUniqueIdentifier = "123334",
-                Name = "TAPEFEEDER8mm1233334",
-                Width = SMDTapeWidth.Tape8mm,
-                Pitch = SMDTapePitch.Adjustable
-            };
+            
 
 
             msg = new MaterialsLoaded()
@@ -629,7 +940,7 @@ namespace CFXExampleEndpoint
                 LastName = "Smith",
                 FullName = "Bill Smith",
                 LoginName = "bill.smith@domain1.com",
-                OperatorIdentifier = Guid.NewGuid()
+                OperatorIdentifier = Guid.NewGuid().ToString()
             };
 
             Operator o2 = new Operator()
@@ -639,7 +950,7 @@ namespace CFXExampleEndpoint
                 LastName = "Doe",
                 FullName = "John Doe",
                 LoginName = "john.doe@domain1.com",
-                OperatorIdentifier = Guid.NewGuid()
+                OperatorIdentifier = Guid.NewGuid().ToString()
             };
 
             Operator o3 = new Operator()
@@ -649,7 +960,7 @@ namespace CFXExampleEndpoint
                 LastName = "Dolittle",
                 FullName = "Mike Dolittle",
                 LoginName = "mike.dolittle@domain1.com",
-                OperatorIdentifier = Guid.NewGuid()
+                OperatorIdentifier = Guid.NewGuid().ToString()
             };
 
             msg = new MaterialTransportStarted()
@@ -851,7 +1162,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -878,7 +1189,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -904,7 +1215,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -929,7 +1240,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -943,7 +1254,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -1007,7 +1318,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 },
                 Reason = RecipeModificationReason.PositionalCorrection
             };
@@ -1051,7 +1362,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -1077,7 +1388,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -1102,7 +1413,7 @@ namespace CFXExampleEndpoint
                     LastName = "Smith",
                     FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid()
+                    OperatorIdentifier = Guid.NewGuid().ToString()
                 }
             };
             AppendMessage(msg, ref result);
@@ -1303,6 +1614,161 @@ namespace CFXExampleEndpoint
             data += type + "\r\n" + sep + "\r\n";
             data += msg.ToJson();
             data += "\r\n\r\n";
+        }
+
+        public void InitializeMaterials()
+        {
+            m1 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4566556456",
+                InternalPartNumber = "IPN47788",
+                Manufacturer = "MOTOROLA",
+                ManufacturerPartNumber = "MOT231234",
+                ManufacuterLotCode = "LOT2016110588",
+                ManufactureDate = new DateTime(2016, 11, 5),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG23452442",
+                ReceivedDate = new DateTime(2017, 5, 6),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 1000,
+                Quantity = 887,
+                MaterialData = new MaterialPackageMSDData()
+                {
+                    MSDLevel = MSDLevel.MSL3,
+                    MSDState = MSDState.InDryStorage,
+                    OriginalExposureDateTime = new DateTime(2017, 05, 01, 08, 22, 12),
+                    LastExposureDateTime = new DateTime(2017, 05, 06, 13, 55, 33),
+                    RemainingExposureTime = new TimeSpan(144, 0, 0),
+                }
+            };
+
+            m2 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4566554543",
+                InternalPartNumber = "IPN48899",
+                Manufacturer = "SAMSUNG",
+                ManufacturerPartNumber = "SAM233243",
+                ManufacuterLotCode = "LOT2016101008",
+                ManufactureDate = new DateTime(2016, 10, 10),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG44543534",
+                ReceivedDate = new DateTime(2017, 9, 9),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 1000,
+                Quantity = 748
+            };
+
+            m3 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4566553421",
+                InternalPartNumber = "IPN45577",
+                Manufacturer = "FUJITSU",
+                ManufacturerPartNumber = "FJJT234243",
+                ManufacuterLotCode = "LOT2017080355",
+                ManufactureDate = new DateTime(2017, 08, 3),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG543534537",
+                ReceivedDate = new DateTime(2017, 9, 10),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 500,
+                Quantity = 151,
+                MaterialData = new MaterialPackageMSDData()
+                {
+                    MSDLevel = MSDLevel.MSL2A,
+                    MSDState = MSDState.Exposed,
+                    OriginalExposureDateTime = new DateTime(2017, 05, 01, 08, 22, 12),
+                    LastExposureDateTime = new DateTime(2017, 05, 06, 13, 55, 33),
+                    RemainingExposureTime = new TimeSpan(144, 0, 0),
+                }
+            };
+
+            m4 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4566555547",
+                InternalPartNumber = "IPN45577",
+                Manufacturer = "FUJITSU",
+                ManufacturerPartNumber = "FJJT234243",
+                ManufacuterLotCode = "LOT2017080355",
+                ManufactureDate = new DateTime(2017, 08, 3),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG543534537",
+                ReceivedDate = new DateTime(2017, 9, 10),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 500,
+                Quantity = 151
+            };
+
+            m5 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4566588751",
+                InternalPartNumber = "IPN45577",
+                Manufacturer = "FUJITSU",
+                ManufacturerPartNumber = "FJJT234243",
+                ManufacuterLotCode = "LOT2017080355",
+                ManufactureDate = new DateTime(2017, 08, 3),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG543534537",
+                ReceivedDate = new DateTime(2017, 9, 10),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 500,
+                Quantity = 151
+            };
+
+            m6 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4566589856",
+                InternalPartNumber = "IPN45577",
+                Manufacturer = "FUJITSU",
+                ManufacturerPartNumber = "FJJT234243",
+                ManufacuterLotCode = "LOT2017080355",
+                ManufactureDate = new DateTime(2017, 08, 3),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG543534537",
+                ReceivedDate = new DateTime(2017, 9, 10),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 500,
+                Quantity = 151
+            };
+
+            m7 = new MaterialPackageDetail()
+            {
+                UniqueIdentifier = "MAT4563453457",
+                InternalPartNumber = "IPN45577",
+                Manufacturer = "FUJITSU",
+                ManufacturerPartNumber = "FJJT234243",
+                ManufacuterLotCode = "LOT2017080355",
+                ManufactureDate = new DateTime(2017, 08, 3),
+                Vendor = "Digikey",
+                VendorPartNumber = "DIG543534537",
+                ReceivedDate = new DateTime(2017, 9, 10),
+                Status = MaterialStatus.Active,
+                InitialQuantity = 500,
+                Quantity = 151
+            };
+
+            c1 = new MaterialCarrier()
+            {
+                UniqueIdentifier = "1233333",
+            };
+
+            c2 = new SMDTapeFeeder()
+            {
+                UniqueIdentifier = "1233334",
+                BaseUniqueIdentifier = "123334",
+                Name = "TAPEFEEDER8mm1233334",
+                Width = SMDTapeWidth.Tape8mm,
+                Pitch = SMDTapePitch.Adjustable
+            };
+
+            c3 = new SMDTapeFeeder()
+            {
+                UniqueIdentifier = "1233335A",
+                BaseUniqueIdentifier = "123335",
+                Name = "TAPEFEEDER8mm1233335A",
+                BaseName = "MULTILANEFEEDER123335",
+                Width = SMDTapeWidth.Tape8mm,
+                Pitch = SMDTapePitch.Adjustable
+            };
         }
 
     }

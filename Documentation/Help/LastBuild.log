@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Code\Git\CFX\Documentation\CFX Library.shfbproj" started="12/14/2017 1:11:58 PM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Code\Git\CFX\Documentation\CFX Library.shfbproj" started="12/15/2017 2:18:44 PM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -19,28 +19,29 @@ Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
 Source: C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml
-SHFB: Warning BE0006: Unable to locate any documentation sources for &#39;C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml&#39; (Configuration: Debug Platform: AnyCPU)
 Source: C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.dll
     Found assembly &#39;C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.dll&#39;
 
 References to include (excluding framework assemblies):
     Amqp.Net
     Newtonsoft.Json
-SHFB: Warning BE0062: No documentation source XML comments files found.  The help file will not contain any member comments.
+
+Copying XML comments files
+    C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml -&gt; C:\Code\Git\CFX\Documentation\Help\Working\CFX.xml
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0400
+</plugIn>    Last step completed in 00:00:00.0050
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0005
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateRefInfo.proj]
-Build started 12/14/2017 1:11:59 PM.
+Build started 12/15/2017 2:18:45 PM.
 The target &quot;_ConvertPdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,37)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectPdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,70)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectMdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,38)&quot; does not exist in the project, and will be ignored.
@@ -54,7 +55,7 @@ GenerateRefInfo:
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 56 dependency assemblies.
-  Wrote information on 6 namespaces, 83 types, and 331 members
+  Wrote information on 8 namespaces, 110 types, and 441 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2017.5.15.0)
   Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
@@ -64,13 +65,13 @@ Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateR
 
 Build succeeded.
 
-Time Elapsed 00:00:01.18
-    Last step completed in 00:00:01.3995
+Time Elapsed 00:00:01.05
+    Last step completed in 00:00:01.1576
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - TransformManifest.proj]
-Build started 12/14/2017 1:12:01 PM.
+Build started 12/15/2017 2:18:46 PM.
 Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.5.15.0)
@@ -91,11 +92,11 @@ Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\Transform
 Build succeeded.
 
 Time Elapsed 00:00:00.52
-    Last step completed in 00:00:00.6169
+    Last step completed in 00:00:00.6150
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0280
+    Last step completed in 00:00:00.0300
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
@@ -109,7 +110,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 12/14/2017 1:12:01 PM.
+Build started 12/15/2017 2:18:47 PM.
 Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.5.15.0)
@@ -120,14 +121,14 @@ Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\GenerateI
 
 Build succeeded.
 
-Time Elapsed 00:00:00.13
+Time Elapsed 00:00:00.15
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.2415
+    Last step completed in 00:00:00.2458
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.3576
+    Last step completed in 00:00:00.1729
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -139,7 +140,7 @@ C:\Code\Git\CFX\Documentation\Help\Working\sandcastle.config
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildTopics.proj]
-Build started 12/14/2017 1:12:02 PM.
+Build started 12/15/2017 2:18:47 PM.
 Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.5.15.0)
@@ -149,26 +150,46 @@ BuildTopics:
   Processing topics...
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.CFXEnvelope.#ctor(CFX.CFXMessage)] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.CFXEnvelope.FromCFXMessage(CFX.CFXMessage)] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.ConsumedMaterial.MaterialLocation] Unknown reference link target &#39;T:CFX.MaterialLocation&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.StationSetupRequirements.MaterialSetupRequirements] Unknown reference link target &#39;T:CFX.MaterialSetupRequirement&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.BlockMaterialsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.BlockMaterialsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsConsumed] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsEmpty] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.Materials.Management.MaterialsEmpty.EmptyMaterials] Unknown reference link target &#39;T:CFX.MaterialLocation&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsInitialized] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsJoined] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsModified] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsRetired] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MaterialsSplit] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.UnblockMaterialsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MSDManagement.MaterialsExpired] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MSDManagement.MaterialsOpened] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Management.MSDManagement.MaterialsRestored] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.GetLoadedMaterialsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.GetLoadedMaterialsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.Materials.Storage.GetLoadedMaterialsResponse.Materials] Unknown reference link target &#39;T:CFX.MaterialLocation&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.MaterialCarriersLoaded] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.MaterialCarriersUnloaded] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.MaterialsLoaded] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.Materials.Storage.MaterialsLoaded.Materials] Unknown reference link target &#39;T:CFX.MaterialLocation&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.MaterialsUnloaded] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.ValidateStationSetupRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Storage.ValidateStationSetupResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Transport.CheckpointReached] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Transport.GetTransportOrderStatusRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Transport.GetTransportOrderStatusResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Transport.MaterialTransportCompleted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Materials.Transport.MaterialTransportStarted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.ActivateRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.ActivateRecipeResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.BlockMaterialLocationResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.BlockMaterialLocationsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.Production.BlockMaterialLocationsRequest.Locations] Unknown reference link target &#39;T:CFX.MaterialLocation&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetActiveRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetActiveRecipeResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.GetRecipeRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
@@ -187,6 +208,9 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.Rea
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.RecipeActivated] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.RecipeModified] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.SetupRequirementsChanged] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnblockMaterialLocationResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnblockMaterialLocationsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [P:CFX.Production.UnblockMaterialLocationsRequest.Locations] Unknown reference link target &#39;T:CFX.MaterialLocation&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnitsArrived] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnitsDeparted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.UnlockLaneRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
@@ -205,20 +229,20 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.Wor
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Production.WorkStarted] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Sensor.Identification.IdentifyUnitsRequest] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:CFX.Sensor.Identification.IdentifyUnitsResponse] Unknown reference link target &#39;T:CFX.CFXMessage&#39;. [C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj]
-  Processed 420 topic(s)
-  58 warning(s)
+  Processed 561 topic(s)
+  81 warning(s)
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 3 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
 Done Building Project &quot;C:\Code\Git\CFX\Documentation\Help\Working\BuildTopics.proj&quot; (default targets).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.86
-    Last step completed in 00:00:08.0101
+Time Elapsed 00:00:08.01
+    Last step completed in 00:00:08.1459
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0030
+    Last step completed in 00:00:00.0025
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -230,11 +254,11 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing Help 1 files in C:\Code\Git\CFX\Documentation\Help\Working\Output\HtmlHelp1
-Processed 420 HTML files
+Processed 561 HTML files
 Sorting keywords and generating See Also indices
 Saving HTML Help 1 keyword index to C:\Code\Git\CFX\Documentation\Help\Working\CFXLibrary.hhk
 Saving HTML Help 1 table of contents to C:\Code\Git\CFX\Documentation\Help\Working\CFXLibrary.hhc
-    Last step completed in 00:00:00.4191
+    Last step completed in 00:00:00.4412
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -300,7 +324,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; C:\Code\Git\CFX\Documentation\Help\Working\Output\HtmlHelp1\styles\branding.css
-    Last step completed in 00:00:00.2969
+    Last step completed in 00:00:00.1050
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating HTML Help 1 table of contents file...
@@ -312,7 +336,7 @@ Generating HTML Help 1 index file...
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Generating HTML Help 1 project file...
-    Last step completed in 00:00:00.0090
+    Last step completed in 00:00:00.0060
 </buildStep>
 <buildStep step="CompilingHelpFile">
 Compiling HTML Help 1 file...
@@ -327,11 +351,11 @@ Compiling HTML Help 1 file...
   
   
   
-  Compile time: 0 minutes, 1 second
+  Compile time: 0 minutes, 2 seconds
   
-  422	Topics
+  563	Topics
   
-  4,417	Local links
+  5,896	Local links
   
   0	Internet links
   
@@ -341,19 +365,19 @@ Compiling HTML Help 1 file...
   
   
   
-  Created c:\Code\Git\CFX\Documentation\Help\Working\Output\HtmlHelp1\CFXLibrary.chm, 383,603 bytes
+  Created c:\Code\Git\CFX\Documentation\Help\Working\Output\HtmlHelp1\CFXLibrary.chm, 519,775 bytes
   
-  Compression decreased file by 2,526,945 bytes.
+  Compression decreased file by 3,402,188 bytes.
   
-    Last step completed in 00:00:02.5115
+    Last step completed in 00:00:02.7918
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.1920
+    Last step completed in 00:00:00.2136
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 12/14/2017 1:12:13 PM.  Total time: 00:00:15.3519
+Build completed successfully at 12/15/2017 2:18:59 PM.  Total time: 00:00:14.4032
 
 </buildStep>
 </shfbBuild>

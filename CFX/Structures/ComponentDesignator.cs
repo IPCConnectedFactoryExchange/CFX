@@ -12,6 +12,7 @@ namespace CFX
     {
         public ComponentDesignator()
         {
+            UnitPosition = null;
         }
 
         /// <summary>
@@ -25,6 +26,12 @@ namespace CFX
         /// U2.1,2 (component U2, Pin1 1 and 2)
         /// </summary>
         public string ReferenceDesignator
+        {
+            get;
+            set;
+        }
+
+        public UnitPosition UnitPosition
         {
             get;
             set;

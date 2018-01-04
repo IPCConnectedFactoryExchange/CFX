@@ -1,0 +1,443 @@
+﻿CFX.ResourcePerformance.StationStateChanged
+===========================================
+{
+  "OldState": "IdleStarved",
+  "OldStateDuration": "00:01:25",
+  "NewState": "ReadyProcessingActive",
+  "RelatedFault": null
+}
+
+CFX.ResourcePerformance.FaultOccurred
+=====================================
+{
+  "Fault": {
+    "Cause": "MechanicalFailure",
+    "Severity": "Error",
+    "FaultCode": "ERROR 3943480",
+    "FaultOccurrenceId": "d1f3b388-2239-4cc9-ac16-f2c35db6bdeb",
+    "Lane": null,
+    "Stage": null
+  }
+}
+
+CFX.ResourcePerformance.StationStateChanged
+===========================================
+{
+  "OldState": "ReadyProcessingExecuting",
+  "OldStateDuration": "00:00:25",
+  "NewState": "UnplannedDowntime",
+  "RelatedFault": {
+    "Cause": "MechanicalFailure",
+    "Severity": "Error",
+    "FaultCode": "ERROR 3943480",
+    "FaultOccurrenceId": "d1f3b388-2239-4cc9-ac16-f2c35db6bdeb",
+    "Lane": null,
+    "Stage": null
+  }
+}
+
+CFX.ResourcePerformance.FaultOccurred
+=====================================
+{
+  "Fault": {
+    "Cause": "MechanicalFailure",
+    "Severity": "Error",
+    "FaultCode": "ERROR 3943480",
+    "FaultOccurrenceId": "d1f3b388-2239-4cc9-ac16-f2c35db6bdeb",
+    "Lane": null,
+    "Stage": null
+  }
+}
+
+CFX.ResourcePerformance.FaultCleared
+====================================
+{
+  "FaultOccurrenceId": "d1f3b388-2239-4cc9-ac16-f2c35db6bdeb"
+}
+
+CFX.ResourcePerformance.StationOffline
+======================================
+{}
+
+CFX.ResourcePerformance.StationOnline
+=====================================
+{
+  "OfflineDuration": "00:23:00"
+}
+
+CFX.ResourcePerformance.ModifyStationParameterRequest
+=====================================================
+{
+  "ParameterName": "Torque1",
+  "ParameterValue": "35.6"
+}
+
+CFX.ResourcePerformance.ModifyStationParameterResponse
+======================================================
+{
+  "Result": {
+    "Result": "Success",
+    "ResultCode": 0,
+    "Message": "OK"
+  },
+  "ParameterName": "Torque1",
+  "OldParameterValue": "22.6",
+  "NewParameterValue": "35.6"
+}
+
+CFX.ResourcePerformance.StationParameterModified
+================================================
+{
+  "ParameterName": "Torque1",
+  "OldParameterValue": "22.6",
+  "NewParameterValue": "35.6"
+}
+
+CFX.ResourcePerformance.LogEntryRecorded
+========================================
+{
+  "InformationId": "INF21321321",
+  "Message": "Beam 1 Zeroed and Homed",
+  "Importance": "Information",
+  "Lane": "1",
+  "Stage": "STAGE1"
+}
+
+CFX.ResourcePerformance.MaintenancePerformed
+============================================
+{
+  "MaintenanceType": "Preventive",
+  "MaintenanceOrderNumber": "MO676578576",
+  "MaintenanceJobCode": "MNT113334",
+  "ConsumedMaterials": [
+    {
+      "MaterialLocation": {
+        "LocationIdentifier": null,
+        "LocationName": null,
+        "MaterialPackage": {
+          "UniqueIdentifier": null,
+          "InternalPartNumber": "PN2343243",
+          "Quantity": 0.0
+        },
+        "CarrierInformation": null
+      },
+      "QuantityUsed": 3.0,
+      "QuantitySpoiled": 0.0,
+      "RemainingQuantity": 0.0
+    },
+    {
+      "MaterialLocation": {
+        "LocationIdentifier": null,
+        "LocationName": null,
+        "MaterialPackage": {
+          "UniqueIdentifier": "UID23849854385",
+          "InternalPartNumber": "PN4452",
+          "Quantity": 0.0
+        },
+        "CarrierInformation": null
+      },
+      "QuantityUsed": 3.0,
+      "QuantitySpoiled": 0.0,
+      "RemainingQuantity": 0.0
+    }
+  ],
+  "Tasks": [
+    {
+      "Task": "Changed hydraulic fluid in resovoir 1",
+      "TaskId": "HYD233432432",
+      "Operator": {
+        "OperatorIdentifier": "UID235434324",
+        "ActorType": "Human",
+        "FullName": "Joseph Smith",
+        "LastName": "Smith",
+        "FirstName": "Joseph",
+        "LoginName": "joseph.smith@abcdrepairs.com"
+      },
+      "ManHoursConsumed": 0.75
+    },
+    {
+      "Task": "Checked torque on main mount bolts",
+      "TaskId": "CHK3432434",
+      "Operator": {
+        "OperatorIdentifier": "UID235434324",
+        "ActorType": "Human",
+        "FullName": "Joseph Smith",
+        "LastName": "Smith",
+        "FirstName": "Joseph",
+        "LoginName": "joseph.smith@abcdrepairs.com"
+      },
+      "ManHoursConsumed": 0.25
+    }
+  ]
+}
+
+CFX.ResourcePerformance.EnergyConsumed
+======================================
+{
+  "StartTime": "2018-01-04T14:44:26.1833855-05:00",
+  "EndTime": "2018-01-04T14:49:26.1833855-05:00",
+  "EnergyUsed": 0.012,
+  "PeakPower": 125.6,
+  "MinimumPower": 120.3,
+  "CurrentPower": 122.6,
+  "MeanPower": 124.6
+}
+
+CFX.ResourcePerformance.SMTPlacement.FaultOccurred
+==================================================
+{
+  "Fault": {
+    "PlacementFaultType": "PickupError",
+    "ProgramStep": 56,
+    "Designator": {
+      "ReferenceDesignator": "R31",
+      "UnitPosition": null,
+      "PartNumber": "PN123456"
+    },
+    "MaterialLocation": {
+      "LocationIdentifier": "UID23948348324",
+      "LocationName": "SLOT47",
+      "MaterialPackage": {
+        "UniqueIdentifier": "UID34280923084932849",
+        "InternalPartNumber": "IPN456465465465",
+        "Quantity": 854.0
+      },
+      "CarrierInformation": {
+        "$type": "CFX.SMDTapeFeeder, CFX",
+        "BaseUniqueIdentifier": null,
+        "BaseName": null,
+        "LaneNumber": 1,
+        "Width": "Tape8mm",
+        "Pitch": "Pitch8mm",
+        "UniqueIdentifier": "FDR2348934-32890",
+        "Name": "8MMFDR231"
+      }
+    },
+    "Nozzle": {
+      "UniqueIdentifier": "UID2389432849",
+      "Name": "NOZZLE3243244",
+      "NozzleType": "TYPE914",
+      "HeadId": "HEAD1",
+      "HeadNozzleNumber": 3
+    },
+    "Cause": "MechanicalFailure",
+    "Severity": "Error",
+    "FaultCode": "ERROR 3943480",
+    "FaultOccurrenceId": "d46b26a7-65e0-4cf7-be4c-b0382bbf3fa5",
+    "Lane": "LANE1",
+    "Stage": "STAGE2"
+  }
+}
+
+CFX.ResourcePerformance.SMTPlacement.ToolChanged
+================================================
+{
+  "OldNozzle": null,
+  "ReturnedToHolder": null,
+  "NewNozzle": {
+    "UniqueIdentifier": "UID23890430",
+    "Name": "NOZZLE234324",
+    "NozzleType": "TYPE914",
+    "HeadId": "HEAD1",
+    "HeadNozzleNumber": 1
+  },
+  "LoadedFromHolder": {
+    "LocationUniqueIdentifier": "UID238943243243",
+    "LocationName": "HOLDER14",
+    "BaseName": "NEST2"
+  }
+}
+
+CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced
+=====================================================
+{
+  "StartTime": "2018-01-04T14:39:26.2113846-05:00",
+  "EndTime": "2018-01-04T14:49:26.2113846-05:00",
+  "TotalComponentsPlaced": 875,
+  "TotalComponentsNotPlaced": 45
+}
+
+CFX.ResourcePerformance.THTInsertion.FaultOccurred
+==================================================
+{
+  "Fault": {
+    "InsertionFaultType": "ClinchError",
+    "ProgramStep": 56,
+    "Designator": {
+      "ReferenceDesignator": "R31",
+      "UnitPosition": null,
+      "PartNumber": "PN123456"
+    },
+    "MaterialLocation": {
+      "LocationIdentifier": "UID23948348324",
+      "LocationName": "SLOT47",
+      "MaterialPackage": {
+        "UniqueIdentifier": "UID34280923084932849",
+        "InternalPartNumber": "IPN456465465465",
+        "Quantity": 854.0
+      },
+      "CarrierInformation": {
+        "$type": "CFX.SMDTapeFeeder, CFX",
+        "BaseUniqueIdentifier": null,
+        "BaseName": null,
+        "LaneNumber": 1,
+        "Width": "Tape8mm",
+        "Pitch": "Pitch8mm",
+        "UniqueIdentifier": "FDR2348934-32890",
+        "Name": "8MMFDR231"
+      }
+    },
+    "Cause": "MechanicalFailure",
+    "Severity": "Error",
+    "FaultCode": "ERROR 3943480",
+    "FaultOccurrenceId": "d22a2f78-8870-48c9-8e4e-d69688a6c864",
+    "Lane": "LANE1",
+    "Stage": "STAGE2"
+  }
+}
+
+CFX.ResourcePerformance.THTInsertion.ComponentsInserted
+=======================================================
+{
+  "StartTime": "2018-01-04T14:39:26.2173855-05:00",
+  "EndTime": "2018-01-04T14:49:26.2173855-05:00",
+  "TotalComponentsInserted": 875,
+  "TotalComponentsNotInserted": 45
+}
+
+CFX.ResourcePerformance.SolderPastePrinting.StencilChanged
+==========================================================
+{
+  "OldStencil": {
+    "UniqueIdentifier": "UID23432434",
+    "Name": "STENCIL234343"
+  },
+  "NewStencil": {
+    "UniqueIdentifier": "UID234344455",
+    "Name": "STENCIL8784322"
+  }
+}
+
+CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned
+==========================================================
+{
+  "Stencil": {
+    "UniqueIdentifier": "UID23432434",
+    "Name": "STENCIL234343"
+  },
+  "StencilCleanMode": "V",
+  "TimeSinceLastClean": "00:33:00",
+  "CyclesSinceLastClean": 35,
+  "StencilCleanCycles": 2,
+  "StencilCleanTime": "00:00:38"
+}
+
+CFX.ResourcePerformance.SolderPastePrinting.SqueegeeChanged
+===========================================================
+{
+  "OldSqueegee": {
+    "UniqueIdentifier": "UID23432434",
+    "Name": "STENCIL234343"
+  },
+  "NewSqueegee": {
+    "UniqueIdentifier": "UID234344455",
+    "Name": "STENCIL8784322"
+  }
+}
+
+CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned
+===========================================================
+{
+  "Squeegee": {
+    "UniqueIdentifier": "UID23432434",
+    "Name": "STENCIL234343"
+  },
+  "TimeSinceLastClean": "00:33:00",
+  "CyclesSinceLastClean": 35,
+  "SqueegeeCleanCycles": 2,
+  "SqueegeeCleanTime": "00:00:38"
+}
+
+CFX.Production.Assembly.MaterialsInstalled
+==========================================
+{
+  "InstalledMaterials": [
+    {
+      "UnitIdentifier": "PANEL23423432",
+      "UnitPosition": 1,
+      "QuantityInstalled": 3.0,
+      "Material": {
+        "UniqueIdentifier": "MAT4566556456",
+        "InternalPartNumber": "IPN47788",
+        "Quantity": 887.0
+      },
+      "CarrierLocation": {
+        "LocationIdentifier": "UID384234893",
+        "LocationName": "SLOT45",
+        "CarrierInformation": {
+          "$type": "CFX.SMDTapeFeeder, CFX",
+          "BaseUniqueIdentifier": "123334",
+          "BaseName": null,
+          "LaneNumber": 1,
+          "Width": "Tape8mm",
+          "Pitch": "Adjustable",
+          "UniqueIdentifier": "1233334",
+          "Name": "TAPEFEEDER8mm1233334"
+        }
+      },
+      "InstalledComponents": [
+        {
+          "ReferenceDesignator": "R1",
+          "InstallationTime": "2018-01-04T14:49:26.2473917-05:00"
+        },
+        {
+          "ReferenceDesignator": "R2",
+          "InstallationTime": "2018-01-04T14:49:26.2473917-05:00"
+        },
+        {
+          "ReferenceDesignator": "R3",
+          "InstallationTime": "2018-01-04T14:49:26.2473917-05:00"
+        }
+      ]
+    },
+    {
+      "UnitIdentifier": "PANEL23423432",
+      "UnitPosition": 2,
+      "QuantityInstalled": 3.0,
+      "Material": {
+        "UniqueIdentifier": "MAT4566556456",
+        "InternalPartNumber": "IPN47788",
+        "Quantity": 887.0
+      },
+      "CarrierLocation": {
+        "LocationIdentifier": "UID384234893",
+        "LocationName": "SLOT45",
+        "CarrierInformation": {
+          "$type": "CFX.SMDTapeFeeder, CFX",
+          "BaseUniqueIdentifier": "123334",
+          "BaseName": null,
+          "LaneNumber": 1,
+          "Width": "Tape8mm",
+          "Pitch": "Adjustable",
+          "UniqueIdentifier": "1233334",
+          "Name": "TAPEFEEDER8mm1233334"
+        }
+      },
+      "InstalledComponents": [
+        {
+          "ReferenceDesignator": "R1",
+          "InstallationTime": "2018-01-04T14:49:26.2473917-05:00"
+        },
+        {
+          "ReferenceDesignator": "R2",
+          "InstallationTime": "2018-01-04T14:49:26.2473917-05:00"
+        },
+        {
+          "ReferenceDesignator": "R3",
+          "InstallationTime": "2018-01-04T14:49:26.2473917-05:00"
+        }
+      ]
+    }
+  ]
+}
+

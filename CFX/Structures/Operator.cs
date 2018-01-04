@@ -14,7 +14,7 @@ namespace CFX
         /// <summary>
         /// An optional unique identifier for the Operator
         /// </summary>
-        public Guid? OperatorIdentifier
+        public string OperatorIdentifier
         {
             get;
             set;

@@ -25,5 +25,11 @@ namespace CFX.ResourcePerformance
             get;
             set;
         }
+
+        public Fault RelatedFault
+        {
+            get;
+            set;
+        }
     }
 }
