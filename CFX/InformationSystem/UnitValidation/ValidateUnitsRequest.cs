@@ -4,6 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using CFX;
+using CFX.Structures;
 
 namespace CFX.InformationSystem.UnitValidation
 {

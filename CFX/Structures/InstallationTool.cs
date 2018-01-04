@@ -4,20 +4,21 @@ using System.Text;
 
 namespace CFX.Structures
 {
-    public class InstalledComponent
+    public class InstallationTool
     {
-        public InstalledComponent(bool setDateTime = false)
-        {
-            if (setDateTime) InstallationTime = DateTime.Now;
-        }
-
-        public string ReferenceDesignator
+        public string UniqueIdentifier
         {
             get;
             set;
         }
 
-        public DateTime? InstallationTime
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        public string NozzleType
         {
             get;
             set;

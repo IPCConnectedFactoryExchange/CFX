@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX
+namespace CFX.Structures
 {
     public abstract class MaterialPackageData
     {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CFX;
+using CFX.Structures;
 using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.InformationSystem.UnitValidation;
@@ -36,6 +37,7 @@ namespace CFXExampleEndpoint
 
         private MaterialPackageDetail m1, m2, m3, m4, m5, m6, m7;
         private MaterialCarrier c1, c2, c3;
+        private InstallationTool t1, t2;
 
         public string GenerateAssembly()
         {
@@ -44,12 +46,13 @@ namespace CFXExampleEndpoint
 
             msg = new MaterialsInstalled()
             {
+                TransactionId = Guid.NewGuid(),
                 InstalledMaterials = new List<InstalledMaterial>(new InstalledMaterial[]
                 {
                     new InstalledMaterial()
                     {
                         UnitIdentifier = "PANEL23423432",
-                        UnitPosition = 1,
+                        UnitPositionNumber = 1,
                         Material = m1.ToMaterialPackage(),
                         CarrierLocation = new MaterialCarrierLocation()
                         {
@@ -78,7 +81,7 @@ namespace CFXExampleEndpoint
                     new InstalledMaterial()
                     {
                         UnitIdentifier = "PANEL23423432",
-                        UnitPosition = 2,
+                        UnitPositionNumber = 2,
                         Material = m1.ToMaterialPackage(),
                         CarrierLocation = new MaterialCarrierLocation()
                         {
@@ -87,6 +90,60 @@ namespace CFXExampleEndpoint
                             CarrierInformation = c2
                         },
                         QuantityInstalled = 3,
+                        InstalledComponents = new List<InstalledComponent>(new InstalledComponent []
+                        {
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R1"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R2"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R3"
+                            }
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ToolsUsed()
+            {
+                TransactionId = Guid.NewGuid(),
+                UsedTools = new List<ToolUsed>(new ToolUsed[]
+                {
+                    new ToolUsed()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Tool = t1,
+                        UsageCycles = 3,
+                        InstalledComponents = new List<InstalledComponent>(new InstalledComponent []
+                        {
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R1"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R2"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R3"
+                            }
+                        })
+
+                    },
+                    new ToolUsed()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Tool = t2,
+                        UsageCycles = 3,
                         InstalledComponents = new List<InstalledComponent>(new InstalledComponent []
                         {
                             new InstalledComponent(setDateTime:true)
@@ -1769,6 +1826,25 @@ namespace CFXExampleEndpoint
                 Width = SMDTapeWidth.Tape8mm,
                 Pitch = SMDTapePitch.Adjustable
             };
+
+            t1 = new SMTNozzle()
+            {
+                UniqueIdentifier = "UID234213421",
+                Name = "Nozzle45",
+                NozzleType = "409A",
+                HeadId = "HEAD1",
+                HeadNozzleNumber = 2
+            };
+
+            t2 = new SMTNozzle()
+            {
+                UniqueIdentifier = "UID234223422",
+                Name = "Nozzle47",
+                NozzleType = "409A",
+                HeadId = "HEAD2",
+                HeadNozzleNumber = 3
+            };
+
         }
 
     }

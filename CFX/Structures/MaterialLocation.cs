@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CFX
+namespace CFX.Structures
 {
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class MaterialLocation

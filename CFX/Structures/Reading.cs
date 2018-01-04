@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using CFX;
 
-namespace CFX
+namespace CFX.Structures
 {
     public class Reading
     {

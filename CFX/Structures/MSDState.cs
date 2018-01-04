@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CFX
+namespace CFX.Structures
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public enum MSDState

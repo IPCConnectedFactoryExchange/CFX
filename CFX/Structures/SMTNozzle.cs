@@ -2,28 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX
+namespace CFX.Structures
 {
-    public class SMTNozzle
+    public class SMTNozzle : InstallationTool
     {
-        public string UniqueIdentifier
-        {
-            get;
-            set;
-        }
-
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        public string NozzleType
-        {
-            get;
-            set;
-        }
-
         public string HeadId
         {
             get;

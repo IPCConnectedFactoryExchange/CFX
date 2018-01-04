@@ -5,11 +5,11 @@ using CFX.Structures;
 
 namespace CFX.Production.Assembly
 {
-    public class MaterialsInstalled : CFXMessage
+    public class ToolsUsed : CFXMessage
     {
-        public MaterialsInstalled()
+        public ToolsUsed()
         {
-            InstalledMaterials = new List<InstalledMaterial>();
+            UsedTools = new List<ToolUsed>();
         }
 
         public Guid TransactionId
@@ -18,7 +18,7 @@ namespace CFX.Production.Assembly
             set;
         }
 
-        public List<InstalledMaterial> InstalledMaterials
+        public List<ToolUsed> UsedTools
         {
             get;
             set;

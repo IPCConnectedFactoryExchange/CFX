@@ -5,9 +5,10 @@ using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
-    public class InstalledMaterial
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+    public class ToolUsed
     {
-        public InstalledMaterial()
+        public ToolUsed()
         {
             InstalledComponents = new List<InstalledComponent>();
         }
@@ -24,19 +25,14 @@ namespace CFX.Structures
             set;
         }
 
-        public double QuantityInstalled
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public InstallationTool Tool
         {
             get;
             set;
         }
 
-        public MaterialPackage Material
-        {
-            get;
-            set;
-        }
-
-        public MaterialCarrierLocation CarrierLocation
+        public int UsageCycles
         {
             get;
             set;
@@ -47,5 +43,6 @@ namespace CFX.Structures
             get;
             set;
         }
+
     }
 }

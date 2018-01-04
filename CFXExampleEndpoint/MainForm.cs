@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using CFX;
+using CFX.Structures;
 using CFX.Transport;
 using CFX.Production;
 using CFX.InformationSystem.UnitValidation;

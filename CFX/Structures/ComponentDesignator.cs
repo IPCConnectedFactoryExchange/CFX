@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX
+namespace CFX.Structures
 {
     /// <summary>
     /// Represents and identifies a particular component (instance of a part) on a production unit, or a particular aspect
