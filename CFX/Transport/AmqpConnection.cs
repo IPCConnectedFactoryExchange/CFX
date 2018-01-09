@@ -14,12 +14,11 @@ namespace CFX.Transport
 {
     internal class AmqpConnection : IDisposable
     {
-        public AmqpConnection()
+        public AmqpConnection(Uri uri)
         {
             SendTimout = TimeSpan.FromSeconds(5);
-            senders = new List<SenderLink>();
-            receivers = new List<ReceiverLink>();
-            UseCompression = false;
+            links = new List<AmqpLink>();
+            NetworkUri = uri;
         }
 
         public TimeSpan SendTimout
@@ -34,42 +33,35 @@ namespace CFX.Transport
             private set;
         }
 
-        public bool IsOpen
+        public bool IsClosed
         {
             get
             {
-                return (connection != null && !connection.IsClosed);
+                return (connection == null || (connection != null && connection.IsClosed));
             }
-        }
-
-        public bool UseCompression
-        {
-            get;
-            set;
         }
 
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
 
         private Connection connection;
         private Session session;
-        private List<ReceiverLink> receivers;
-        private List<SenderLink> senders;
-        private int linkCredit = 300;
+        private List<AmqpLink> links;
+        private bool connecting = false;
 
-        public void Open(Uri networkAddress)
+        public void OpenConnection()
         {
             Cleanup();
-            NetworkUri = networkAddress;
-            
-            Exception connectException = null;
 
+            Exception connectException = null;
 
             Task.Run(() =>
             {
                 try
                 {
                     connection = new Amqp.Connection(new Address(NetworkUri.ToString()));
+                    connection.Closed += AmqpObject_Closed;
                     session = new Session(connection);
+                    session.Closed += AmqpObject_Closed;
                 }
                 catch (Exception ex)
                 {
@@ -86,83 +78,118 @@ namespace CFX.Transport
             }
         }
 
-        public void OpenPublishChannel(string address)
+        private void AmqpObject_Closed(IAmqpObject sender, Error error)
         {
-            if (!IsOpen) throw new Exception("The connection is not open.  Cannot add a transmit channel on a closed connection.");
-            Exception addException = null;
-
-            Task.Run(() =>
-            {
-                try
-                {
-                    SenderLink sender = new SenderLink(session, address, address);
-                    lock (this)
-                    {
-                        senders.Add(sender);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    addException = ex;
-                    Debug.WriteLine(ex.Message);
-                    Cleanup();
-                }
-            }).Wait();
-
-            if (addException != null) throw addException;
+            AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
+            EnsureConnection();
         }
 
-
-        public void OpenSubscribeChannel(string address)
+        protected void EnsureConnection()
         {
-            if (!IsOpen) throw new Exception("The connection is not open.  Cannot add a receive channel on a closed connection.");
-            Exception addException = null;
+            if (NetworkUri == null) return;
 
-            Task.Run(() =>
-            {
-                try
-                {
-                    ReceiverLink receiver = new ReceiverLink(session, address, address);
-                    receiver.Start(linkCredit, OnMessageReceived);
-                    lock (this)
-                    {
-                        receivers.Add(receiver);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    addException = ex;
-                    Debug.WriteLine(ex.Message);
-                    Cleanup();
-                }
-            }).Wait();
-
-            if (addException != null) throw addException;
-        }
-
-        public void ClosePublishChannel(string address)
-        {
-            SenderLink channel = senders.Where(s => s.Name == address).FirstOrDefault();
-            if (channel == null) throw new ArgumentException("There is no open channel named " + address);
-
-            channel.Close();
+            bool madeConnections = false;
+            bool connected = true;
+            int newLinkCount = 0;
 
             lock (this)
             {
-                senders.Remove(channel);
+                if (connecting) return;
+                connecting = true;
+            }
+
+            if (IsClosed)
+            {
+                connected = false;
+
+                try
+                {
+                    AppLog.Info("Connecting to " + NetworkUri.ToString());
+                    OpenConnection();
+                    madeConnections = true;
+                }
+                catch (Exception ex)
+                {
+                    AppLog.Error(ex);
+                }
+            }
+
+            if (!IsClosed)
+            {
+                connected = true;
+
+                if (madeConnections) AppLog.Info("Connected to " + NetworkUri.ToString() + ".  Establishing Links...");
+
+                lock (this)
+                {
+                    foreach (AmqpLink link in links.Where(l => l.IsClosed))
+                    {
+                        try
+                        {
+                            link.CreateLink(session, this.OnMessageReceived);
+                            madeConnections = true;
+                            ++newLinkCount;
+                        }
+                        catch (Exception ex)
+                        {
+                            connected = false;
+                            AppLog.Error(ex);
+                        }
+                    }
+                }
+
+                if (connected && madeConnections) AppLog.Info(string.Format("{0} Links established for {1}", newLinkCount, NetworkUri.ToString()));
+            }
+
+            lock (this)
+            {
+                connecting = false;
+            }
+
+            if (!connected)
+            {
+                AppLog.Info(string.Format("Connection Failed for {0}.  Will attempt again in {1} seconds...", NetworkUri.ToString(), AmqpCFXEndpoint.ReconnectInterval?.TotalSeconds));
+                Task.Run(new Action(() =>
+                {
+                    Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval?.TotalMilliseconds));
+                    EnsureConnection();
+                }));
+            }
+        }
+        public void AddPublishChannel(string address)
+        {
+            lock (this)
+            {
+                if (links.Any(l => l.Address == address)) throw new Exception("A channel already exists for this address");
+
+                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address);
+                links.Add(link);
             }
         }
 
-        public void CloseSubscribeChannel(string address)
+        public void AddSubscribeChannel(string address)
         {
-            ReceiverLink channel = receivers.Where(s => s.Name == address).FirstOrDefault();
-            if (channel == null) throw new ArgumentException("There is no open channel named " + address);
+            lock (this)
+            {
+                if (links.Any(l => l.Address == address)) throw new Exception("A channel already exists for this address");
 
-            channel.Close();
+                AmqpReceiverLink link = new AmqpReceiverLink(address);
+                links.Add(link);
+            }
+
+            EnsureConnection();
+        }
+
+        public void RemoveChannel(string address)
+        {
+            AmqpLink channel = links.Where(s => s.Address == address).FirstOrDefault();
+            if (channel == null) return;
+
+            channel.CloseLink();
 
             lock (this)
             {
-                receivers.Remove(channel);
+                links.Remove(channel);
             }
         }
 
@@ -173,57 +200,33 @@ namespace CFX.Transport
 
         public void Publish(CFXEnvelope env, string replyTo = null)
         {
-            Exception sendException = null;
+            EnsureConnection();
 
-            var task = Task.Run(() =>
+            foreach (AmqpSenderLink sender in links.OfType<AmqpSenderLink>())
             {
-                foreach (SenderLink sender in senders)
-                {
-                    try
-                    {
-                        Message msg = AmqpUtilities.MessageFromEnvelope(env, UseCompression);
-                        if (!string.IsNullOrEmpty(replyTo)) msg.Properties.ReplyTo = replyTo;
-                        sender.Send(msg, SendTimout);
-                    }
-                    catch (Exception ex)
-                    {
-                        sendException = ex;
-                        Debug.WriteLine(ex.Message);
-                        Cleanup();
-                    }
-                }
-            });
-
-            Task.WaitAll(new Task[] { task });
-
-            if (sendException != null) throw sendException;
+                sender.Publish(new CFXEnvelope[] { env });
+            }
         }
 
         public void PublishMany(IEnumerable<CFXEnvelope> envelopes)
         {
-            Exception sendException = null;
+            EnsureConnection();
 
-            var task = Task.Run(() =>
+            foreach (AmqpSenderLink sender in links.OfType<AmqpSenderLink>())
             {
-                foreach (SenderLink sender in senders)
-                {
-                    try
-                    {
-                        Message msg = AmqpUtilities.MessageFromEnvelopes(envelopes, UseCompression);
-                        sender.Send(msg, SendTimout);
-                    }
-                    catch (Exception ex)
-                    {
-                        sendException = ex;
-                        Debug.WriteLine(ex.Message);
-                        Cleanup();
-                    }
-                }
-            });
+                sender.Publish(envelopes.ToArray());
+            }
+        }
 
-            Task.WaitAll(new Task[] { task });
+        private void PublishInternal(CFXEnvelope[] envelopes)
+        {
+            EnsureConnection();
 
-            if (sendException != null) throw sendException;
+            List<AmqpSenderLink> senderLinks = new List<AmqpSenderLink>(links.OfType<AmqpSenderLink>());
+            foreach (AmqpSenderLink sender in senderLinks.OfType<AmqpSenderLink>())
+            {
+                sender.Publish(envelopes);
+            }
         }
 
         private void OnMessageReceived(IReceiverLink receiver, Message message)
@@ -234,9 +237,10 @@ namespace CFX.Transport
             { 
                envelopes = AmqpUtilities.EnvelopesFromMessage(message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 envelopes = null;
+                AppLog.Error(ex);
             }
 
             if (envelopes != null && OnCFXMessageReceived != null)
@@ -255,21 +259,14 @@ namespace CFX.Transport
         {
             try
             {
-                receivers.ForEach(r => r.Close());
-                senders.ForEach(s => s.Close());
+                links.ForEach(l => l.CloseLink());
 
-                if (session != null) session.Close();
-                if (connection != null) connection.Close();
+                if (session != null && !session.IsClosed) session.Close();
+                if (connection != null && !connection.IsClosed) connection.Close();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-            }
-
-            lock (this)
-            {
-                receivers.Clear();
-                senders.Clear();
             }
 
             session = null;

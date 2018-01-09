@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using CFX;
 using CFX.Structures;
+using CFX.Structures.SMTPlacement;
+using CFX.Structures.SolderPastePrinting;
+using CFX.Structures.THTInsertion;
 using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.InformationSystem.UnitValidation;
@@ -37,7 +40,7 @@ namespace CFXExampleEndpoint
 
         private MaterialPackageDetail m1, m2, m3, m4, m5, m6, m7;
         private MaterialCarrier c1, c2, c3;
-        private InstallationTool t1, t2;
+        private InstallationTool t1, t2, t3;
 
         public string GenerateAssembly()
         {
@@ -110,6 +113,12 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            (msg as MaterialsInstalled).InstalledMaterials[0].InstalledComponents.Clear();
+            (msg as MaterialsInstalled).InstalledMaterials[1].InstalledComponents.Clear();
+            (msg as MaterialsInstalled).InstalledMaterials[0].CarrierLocation.CarrierInformation = c1;
+            (msg as MaterialsInstalled).InstalledMaterials[1].CarrierLocation.CarrierInformation = c1;
+            AppendMessage(msg, ref result);
+
             msg = new ToolsUsed()
             {
                 TransactionId = Guid.NewGuid(),
@@ -162,6 +171,12 @@ namespace CFXExampleEndpoint
                     }
                 })
             };
+            AppendMessage(msg, ref result);
+
+            (msg as ToolsUsed).UsedTools[0].InstalledComponents.Clear();
+            (msg as ToolsUsed).UsedTools[1].InstalledComponents.Clear();
+            (msg as ToolsUsed).UsedTools[0].Tool = t3;
+            (msg as ToolsUsed).UsedTools[1].Tool = t3;
             AppendMessage(msg, ref result);
 
             return result;
@@ -357,22 +372,22 @@ namespace CFXExampleEndpoint
                 Stage = "STAGE2",
                 MaterialLocation = new MaterialLocation()
                 {
-                     LocationIdentifier = "UID23948348324",
-                     LocationName = "SLOT47",
-                     MaterialPackage = new MaterialPackage()
-                     {
-                         UniqueIdentifier = "UID34280923084932849",
-                         InternalPartNumber = "IPN456465465465",
-                         Quantity = 854
-                     },
-                     CarrierInformation = new SMDTapeFeeder()
-                     {
-                          Name = "8MMFDR231",
-                          UniqueIdentifier = "FDR2348934-32890",
-                          Width = SMDTapeWidth.Tape8mm,
-                          Pitch = SMDTapePitch.Pitch8mm,
-                          LaneNumber = 1
-                     }
+                    LocationIdentifier = "UID23948348324",
+                    LocationName = "SLOT47",
+                    MaterialPackage = new MaterialPackage()
+                    {
+                        UniqueIdentifier = "UID34280923084932849",
+                        InternalPartNumber = "IPN456465465465",
+                        Quantity = 854
+                    },
+                    CarrierInformation = new SMDTapeFeeder()
+                    {
+                        Name = "8MMFDR231",
+                        UniqueIdentifier = "FDR2348934-32890",
+                        Width = SMDTapeWidth.Tape8mm,
+                        Pitch = SMDTapePitch.Pitch8mm,
+                        LaneNumber = 1
+                    }
                 },
                 Nozzle = new SMTNozzle()
                 {
@@ -384,7 +399,7 @@ namespace CFXExampleEndpoint
                 }
             };
 
-            msg = new CFX.ResourcePerformance.SMTPlacement.FaultOccurred()
+            msg = new CFX.ResourcePerformance.FaultOccurred()
             {
                 Fault = smtFlt
             };
@@ -456,7 +471,7 @@ namespace CFXExampleEndpoint
                 },
             };
 
-            msg = new CFX.ResourcePerformance.THTInsertion.FaultOccurred()
+            msg = new CFX.ResourcePerformance.FaultOccurred()
             {
                 Fault = thtFlt
             };
@@ -528,6 +543,19 @@ namespace CFXExampleEndpoint
                 SqueegeeCleanCycles = 2,
                 SqueegeeCleanTime = TimeSpan.FromSeconds(38)
             };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.ResourcePerformance.FaultOccurred()
+            {
+                Fault = new SMTSolderPastePrintingFault()
+                {
+                    FaultOccurrenceId = Guid.NewGuid(),
+                    Cause = FaultCause.MechanicalFailure,
+                    Severity = FaultSeverity.Error,
+                    FaultCode = "ERROR 234333",
+                    PrintingFaultType = SMTSolderPastePrintingFaultType.SqueegeeError
+                }
+            }; 
             AppendMessage(msg, ref result);
 
             return result;
@@ -1845,7 +1873,11 @@ namespace CFXExampleEndpoint
                 HeadNozzleNumber = 3
             };
 
+            t3 = new InstallationTool()
+            {
+                UniqueIdentifier = "UID234228874",
+                Name = "Hammer 45",
+            };
         }
-
     }
 }

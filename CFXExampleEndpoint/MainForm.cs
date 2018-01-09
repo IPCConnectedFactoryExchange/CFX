@@ -29,10 +29,10 @@ namespace CFXExampleEndpoint
             txtRequestPort.Text = Properties.Settings.Default.RequestPort;
             txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
 
-            CFXExampleGenerator gen = new CFXExampleGenerator();
-            string result = gen.GenerateAll();
-            File.WriteAllText(@"c:\Code\Git\CFX\Documentation\Finished\JSON CFX Examples.txt", result, Encoding.UTF8);
-            return;
+            //CFXExampleGenerator gen = new CFXExampleGenerator();
+            //string result = gen.GenerateAll();
+            //File.WriteAllText(@"c:\Code\Git\CFX\Documentation\Finished\JSON CFX Examples.txt", result, Encoding.UTF8);
+            //return;
                         
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();

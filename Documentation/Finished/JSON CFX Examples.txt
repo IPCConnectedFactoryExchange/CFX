@@ -14,7 +14,7 @@ CFX.ResourcePerformance.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "6cff3068-568d-4b39-9fa3-e48f9e312919",
+    "FaultOccurrenceId": "7493978a-d121-4f49-a925-194cf25370fe",
     "Lane": null,
     "Stage": null
   }
@@ -30,7 +30,7 @@ CFX.ResourcePerformance.StationStateChanged
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "6cff3068-568d-4b39-9fa3-e48f9e312919",
+    "FaultOccurrenceId": "7493978a-d121-4f49-a925-194cf25370fe",
     "Lane": null,
     "Stage": null
   }
@@ -43,7 +43,7 @@ CFX.ResourcePerformance.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "6cff3068-568d-4b39-9fa3-e48f9e312919",
+    "FaultOccurrenceId": "7493978a-d121-4f49-a925-194cf25370fe",
     "Lane": null,
     "Stage": null
   }
@@ -52,7 +52,7 @@ CFX.ResourcePerformance.FaultOccurred
 CFX.ResourcePerformance.FaultCleared
 ====================================
 {
-  "FaultOccurrenceId": "6cff3068-568d-4b39-9fa3-e48f9e312919"
+  "FaultOccurrenceId": "7493978a-d121-4f49-a925-194cf25370fe"
 }
 
 CFX.ResourcePerformance.StationOffline
@@ -174,8 +174,8 @@ CFX.ResourcePerformance.MaintenancePerformed
 CFX.ResourcePerformance.EnergyConsumed
 ======================================
 {
-  "StartTime": "2018-01-04T17:01:05.7265873-05:00",
-  "EndTime": "2018-01-04T17:06:05.7275868-05:00",
+  "StartTime": "2018-01-05T12:04:17.9281363-05:00",
+  "EndTime": "2018-01-05T12:09:17.9281363-05:00",
   "EnergyUsed": 0.012,
   "PeakPower": 125.6,
   "MinimumPower": 120.3,
@@ -183,10 +183,11 @@ CFX.ResourcePerformance.EnergyConsumed
   "MeanPower": 124.6
 }
 
-CFX.ResourcePerformance.SMTPlacement.FaultOccurred
-==================================================
+CFX.ResourcePerformance.FaultOccurred
+=====================================
 {
   "Fault": {
+    "$type": "CFX.Structures.SMTPlacement.SMTPlacementFault, CFX",
     "PlacementFaultType": "PickupError",
     "ProgramStep": 56,
     "Designator": {
@@ -203,7 +204,7 @@ CFX.ResourcePerformance.SMTPlacement.FaultOccurred
         "Quantity": 854.0
       },
       "CarrierInformation": {
-        "$type": "CFX.Structures.SMDTapeFeeder, CFX",
+        "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
         "BaseUniqueIdentifier": null,
         "BaseName": null,
         "LaneNumber": 1,
@@ -223,7 +224,7 @@ CFX.ResourcePerformance.SMTPlacement.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "79927a09-b772-4827-8b79-7929eba71ce8",
+    "FaultOccurrenceId": "658db7e4-318e-404a-a8ea-dc0d7d181578",
     "Lane": "LANE1",
     "Stage": "STAGE2"
   }
@@ -251,16 +252,17 @@ CFX.ResourcePerformance.SMTPlacement.ToolChanged
 CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced
 =====================================================
 {
-  "StartTime": "2018-01-04T16:56:05.7525875-05:00",
-  "EndTime": "2018-01-04T17:06:05.7525875-05:00",
+  "StartTime": "2018-01-05T11:59:17.9531489-05:00",
+  "EndTime": "2018-01-05T12:09:17.9536497-05:00",
   "TotalComponentsPlaced": 875,
   "TotalComponentsNotPlaced": 45
 }
 
-CFX.ResourcePerformance.THTInsertion.FaultOccurred
-==================================================
+CFX.ResourcePerformance.FaultOccurred
+=====================================
 {
   "Fault": {
+    "$type": "CFX.Structures.THTInsertion.THTInsertionFault, CFX",
     "InsertionFaultType": "ClinchError",
     "ProgramStep": 56,
     "Designator": {
@@ -277,7 +279,7 @@ CFX.ResourcePerformance.THTInsertion.FaultOccurred
         "Quantity": 854.0
       },
       "CarrierInformation": {
-        "$type": "CFX.Structures.SMDTapeFeeder, CFX",
+        "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
         "BaseUniqueIdentifier": null,
         "BaseName": null,
         "LaneNumber": 1,
@@ -290,7 +292,7 @@ CFX.ResourcePerformance.THTInsertion.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "253f8f11-6da1-44f8-b2c2-341271624ab0",
+    "FaultOccurrenceId": "8e0a2b3d-2bd9-41cc-83c8-7f275ffdad6f",
     "Lane": "LANE1",
     "Stage": "STAGE2"
   }
@@ -299,8 +301,8 @@ CFX.ResourcePerformance.THTInsertion.FaultOccurred
 CFX.ResourcePerformance.THTInsertion.ComponentsInserted
 =======================================================
 {
-  "StartTime": "2018-01-04T16:56:05.7585877-05:00",
-  "EndTime": "2018-01-04T17:06:05.7585877-05:00",
+  "StartTime": "2018-01-05T11:59:17.9582358-05:00",
+  "EndTime": "2018-01-05T12:09:17.9582358-05:00",
   "TotalComponentsInserted": 875,
   "TotalComponentsNotInserted": 45
 }
@@ -358,10 +360,25 @@ CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned
   "SqueegeeCleanTime": "00:00:38"
 }
 
+CFX.ResourcePerformance.FaultOccurred
+=====================================
+{
+  "Fault": {
+    "$type": "CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault, CFX",
+    "PrintingFaultType": "SqueegeeError",
+    "Cause": "MechanicalFailure",
+    "Severity": "Error",
+    "FaultCode": "ERROR 234333",
+    "FaultOccurrenceId": "1c4de1de-05da-4a4c-9139-69c28dfe2af3",
+    "Lane": null,
+    "Stage": null
+  }
+}
+
 CFX.Production.Assembly.MaterialsInstalled
 ==========================================
 {
-  "TransactionId": "ff61359c-46d7-4c8c-b638-ea35feab5f1d",
+  "TransactionId": "9ffaeb6a-90a9-491c-97d7-85fff41f32fb",
   "InstalledMaterials": [
     {
       "UnitIdentifier": "PANEL23423432",
@@ -376,7 +393,7 @@ CFX.Production.Assembly.MaterialsInstalled
         "LocationIdentifier": "UID384234893",
         "LocationName": "SLOT45",
         "CarrierInformation": {
-          "$type": "CFX.Structures.SMDTapeFeeder, CFX",
+          "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
           "BaseUniqueIdentifier": "123334",
           "BaseName": null,
           "LaneNumber": 1,
@@ -389,15 +406,15 @@ CFX.Production.Assembly.MaterialsInstalled
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-01-04T17:06:05.7775864-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9792402-05:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-01-04T17:06:05.7775864-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9802406-05:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-01-04T17:06:05.7775864-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9802406-05:00"
         }
       ]
     },
@@ -414,7 +431,7 @@ CFX.Production.Assembly.MaterialsInstalled
         "LocationIdentifier": "UID384234893",
         "LocationName": "SLOT45",
         "CarrierInformation": {
-          "$type": "CFX.Structures.SMDTapeFeeder, CFX",
+          "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
           "BaseUniqueIdentifier": "123334",
           "BaseName": null,
           "LaneNumber": 1,
@@ -427,17 +444,63 @@ CFX.Production.Assembly.MaterialsInstalled
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-01-04T17:06:05.7775864-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9802406-05:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-01-04T17:06:05.7775864-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9802406-05:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-01-04T17:06:05.7775864-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9802406-05:00"
         }
       ]
+    }
+  ]
+}
+
+CFX.Production.Assembly.MaterialsInstalled
+==========================================
+{
+  "TransactionId": "9ffaeb6a-90a9-491c-97d7-85fff41f32fb",
+  "InstalledMaterials": [
+    {
+      "UnitIdentifier": "PANEL23423432",
+      "UnitPositionNumber": 1,
+      "QuantityInstalled": 3.0,
+      "Material": {
+        "UniqueIdentifier": "MAT4566556456",
+        "InternalPartNumber": "IPN47788",
+        "Quantity": 887.0
+      },
+      "CarrierLocation": {
+        "LocationIdentifier": "UID384234893",
+        "LocationName": "SLOT45",
+        "CarrierInformation": {
+          "UniqueIdentifier": "1233333",
+          "Name": null
+        }
+      },
+      "InstalledComponents": []
+    },
+    {
+      "UnitIdentifier": "PANEL23423432",
+      "UnitPositionNumber": 2,
+      "QuantityInstalled": 3.0,
+      "Material": {
+        "UniqueIdentifier": "MAT4566556456",
+        "InternalPartNumber": "IPN47788",
+        "Quantity": 887.0
+      },
+      "CarrierLocation": {
+        "LocationIdentifier": "UID384234893",
+        "LocationName": "SLOT45",
+        "CarrierInformation": {
+          "UniqueIdentifier": "1233333",
+          "Name": null
+        }
+      },
+      "InstalledComponents": []
     }
   ]
 }
@@ -445,13 +508,13 @@ CFX.Production.Assembly.MaterialsInstalled
 CFX.Production.Assembly.ToolsUsed
 =================================
 {
-  "TransactionId": "6c8bfc44-b769-4922-882b-cb326d96330e",
+  "TransactionId": "3a03867c-50b6-455f-bd4f-31fed4ddb885",
   "UsedTools": [
     {
       "UnitIdentifier": "PANEL23423432",
       "UnitPositionNumber": 1,
       "Tool": {
-        "$type": "CFX.Structures.SMTNozzle, CFX",
+        "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
         "HeadId": "HEAD1",
         "HeadNozzleNumber": 2,
         "UniqueIdentifier": "UID234213421",
@@ -462,15 +525,15 @@ CFX.Production.Assembly.ToolsUsed
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-01-04T17:06:05.7925908-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9952411-05:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-01-04T17:06:05.7925908-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9952411-05:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-01-04T17:06:05.7925908-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9952411-05:00"
         }
       ]
     },
@@ -478,7 +541,7 @@ CFX.Production.Assembly.ToolsUsed
       "UnitIdentifier": "PANEL23423432",
       "UnitPositionNumber": 2,
       "Tool": {
-        "$type": "CFX.Structures.SMTNozzle, CFX",
+        "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
         "HeadId": "HEAD2",
         "HeadNozzleNumber": 3,
         "UniqueIdentifier": "UID234223422",
@@ -489,17 +552,47 @@ CFX.Production.Assembly.ToolsUsed
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-01-04T17:06:05.7925908-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9952411-05:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-01-04T17:06:05.7925908-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9952411-05:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-01-04T17:06:05.7925908-05:00"
+          "InstallationTime": "2018-01-05T12:09:17.9952411-05:00"
         }
       ]
+    }
+  ]
+}
+
+CFX.Production.Assembly.ToolsUsed
+=================================
+{
+  "TransactionId": "3a03867c-50b6-455f-bd4f-31fed4ddb885",
+  "UsedTools": [
+    {
+      "UnitIdentifier": "PANEL23423432",
+      "UnitPositionNumber": 1,
+      "Tool": {
+        "UniqueIdentifier": "UID234228874",
+        "Name": "Hammer 45",
+        "NozzleType": null
+      },
+      "UsageCycles": 3,
+      "InstalledComponents": []
+    },
+    {
+      "UnitIdentifier": "PANEL23423432",
+      "UnitPositionNumber": 2,
+      "Tool": {
+        "UniqueIdentifier": "UID234228874",
+        "Name": "Hammer 45",
+        "NozzleType": null
+      },
+      "UsageCycles": 3,
+      "InstalledComponents": []
     }
   ]
 }

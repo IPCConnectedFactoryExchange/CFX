@@ -16,7 +16,9 @@ namespace CFX.Transport
         {
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
-            UseCompression = true;
+            if (!UseCompression.HasValue) UseCompression = false;
+            if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
+            if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -37,7 +39,18 @@ namespace CFX.Transport
             private set;
         }
 
-        public bool UseCompression
+        public static bool? UseCompression
+        {
+            get;
+            set;
+        }
+        public static TimeSpan? ReconnectInterval
+        {
+            get;
+            set;
+        }
+
+        public static int? MaxMessagesPerTransmit
         {
             get;
             set;
@@ -87,8 +100,8 @@ namespace CFX.Transport
 
             try
             {
-                AmqpConnection conn = new AmqpConnection();
-                conn.Open(channelUri);
+                AmqpConnection conn = new AmqpConnection(channelUri);
+                conn.OpenConnection();
                 conn.Close();
                 result = true;
             }
@@ -118,19 +131,14 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection()
-                {
-                    UseCompression = UseCompression
-                };
-
-                channel.Open(networkAddress);
+                channel = new AmqpConnection(networkAddress);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channels[key] = channel;
             }
 
             if (channel != null)
             {
-                channel.OpenPublishChannel(address);
+                channel.AddPublishChannel(address);
             }
         }
 
@@ -148,7 +156,7 @@ namespace CFX.Transport
             if (channels.ContainsKey(key))
             {
                 channel = channels[key];
-                channel.ClosePublishChannel(address);
+                channel.RemoveChannel(address);
             }
             else
             {
@@ -173,18 +181,14 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection()
-                {
-                    UseCompression = UseCompression
-                };
-                channel.Open(networkAddress);
+                channel = new AmqpConnection(networkAddress);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channels[key] = channel;
             }
 
             if (channel != null)
             {
-                channel.OpenSubscribeChannel(address);
+                channel.AddSubscribeChannel(address);
             }
         }
 
@@ -202,7 +206,7 @@ namespace CFX.Transport
             if (channels.ContainsKey(key))
             {
                 channel = channels[key];
-                channel.CloseSubscribeChannel(address);
+                channel.RemoveChannel(address);
             }
             else
             {

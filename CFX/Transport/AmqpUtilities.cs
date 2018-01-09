@@ -32,8 +32,13 @@ namespace CFX.Transport
             return msg;
         }
 
-        public static Message MessageFromEnvelopes(IEnumerable<CFXEnvelope> envelopes, bool compressed = false)
+        public static Message MessageFromEnvelopes(CFXEnvelope [] envelopes, bool compressed = false)
         {
+            if (envelopes.Length == 1)
+            {
+                return MessageFromEnvelope(envelopes.First());
+            }
+
             List<CFXEnvelope> container = new List<CFXEnvelope>(envelopes);
             byte[] msgData = Encoding.UTF8.GetBytes(CFXJsonSerializer.SerializeObject(container));
             if (compressed)

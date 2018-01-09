@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.IO;
 using Newtonsoft.Json;
 using CFX.Utilities;
 
@@ -24,6 +25,8 @@ namespace CFX
             UniqueID = Guid.NewGuid();
             Version = "1.0";
             TimeStamp = DateTime.Now;
+            QueueFilePosition = -1;
+            Transmitted = false;
         }
 
         public const string CFXVERSION = "1.0";
@@ -152,6 +155,72 @@ namespace CFX
             }
 
             return list;
+        }
+
+        private long QueueFilePosition
+        {
+            get;
+            set;
+        }
+
+        internal bool Transmitted
+        {
+            get;
+            set;
+        }
+
+        internal static CFXEnvelope ReadRecord(BinaryReader reader)
+        {
+            try
+            {
+                long filePosition = reader.BaseStream.Position;
+                bool transmitted = reader.ReadBoolean();
+                Int32 len = reader.ReadInt32();
+                byte[] data = reader.ReadBytes(len);
+                CFXEnvelope result = FromBytes(data);
+                result.QueueFilePosition = filePosition;
+                result.Transmitted = transmitted;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                AppLog.Error(ex);
+            }
+
+            return null;
+        }
+
+        internal void WriteRecord(BinaryWriter writer)
+        {
+            QueueFilePosition = writer.BaseStream.Position;
+            writer.Write(Transmitted);
+            byte[] data = this.ToBytes();
+            writer.Write((Int32)data.Length);
+            writer.Write(this.ToBytes());
+        }
+
+        internal void SetRecordTransmitted(BinaryWriter writer)
+        {
+            try
+            {
+                Transmitted = true;
+
+                if (QueueFilePosition != -1)
+                {
+                    long curPos = writer.BaseStream.Position;
+                    if (writer.BaseStream.Seek(QueueFilePosition, SeekOrigin.Begin) == QueueFilePosition)
+                    {
+                        writer.Write(Transmitted);
+                        writer.BaseStream.Seek(curPos, SeekOrigin.Begin);
+                    }
+
+                    writer.Flush();
+                }
+            }
+            catch (Exception e)
+            {
+                AppLog.Error(e);
+            }
         }
 
         public byte[] ToBytes()
