@@ -7,6 +7,7 @@ using System.Linq;
 using Amqp;
 using Amqp.Framing;
 using Amqp.Listener;
+using Amqp.Sasl;
 using System.Text;
 using CFX.Utilities;
 
@@ -14,11 +15,12 @@ namespace CFX.Transport
 {
     internal class AmqpConnection : IDisposable
     {
-        public AmqpConnection(Uri uri)
+        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint)
         {
             SendTimout = TimeSpan.FromSeconds(5);
             links = new List<AmqpLink>();
             NetworkUri = uri;
+            Endpoint = endpoint;
         }
 
         public TimeSpan SendTimout
@@ -28,6 +30,12 @@ namespace CFX.Transport
         }
 
         public Uri NetworkUri
+        {
+            get;
+            private set;
+        }
+
+        public AmqpCFXEndpoint Endpoint
         {
             get;
             private set;
@@ -47,6 +55,7 @@ namespace CFX.Transport
         private Session session;
         private List<AmqpLink> links;
         private bool connecting = false;
+        private bool closing = false;
 
         public void OpenConnection()
         {
@@ -58,7 +67,14 @@ namespace CFX.Transport
             {
                 try
                 {
-                    connection = new Amqp.Connection(new Address(NetworkUri.ToString()));
+                    //ConnectionFactory factory = new ConnectionFactory();
+                    //factory.SASL.Profile = SaslProfile.Anonymous;
+                    Open o = new Open()
+                    {
+                        ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
+                    };
+                    //connection = await factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
+                    connection = new Connection(new Address(NetworkUri.ToString()), SaslProfile.Anonymous, o, null);
                     connection.Closed += AmqpObject_Closed;
                     session = new Session(connection);
                     session.Closed += AmqpObject_Closed;
@@ -80,8 +96,11 @@ namespace CFX.Transport
 
         private void AmqpObject_Closed(IAmqpObject sender, Error error)
         {
-            AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
-            EnsureConnection();
+            if (!closing)
+            {
+                if (error != null) AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
+                EnsureConnection();
+            }
         }
 
         protected void EnsureConnection()
@@ -262,7 +281,12 @@ namespace CFX.Transport
                 links.ForEach(l => l.CloseLink());
 
                 if (session != null && !session.IsClosed) session.Close();
-                if (connection != null && !connection.IsClosed) connection.Close();
+                if (connection != null && !connection.IsClosed)
+                {
+                    closing = true;
+                    connection.Close();
+                    closing = false;
+                }
             }
             catch (Exception ex)
             {

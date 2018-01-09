@@ -19,6 +19,7 @@ namespace CFX.Transport
             if (!UseCompression.HasValue) UseCompression = false;
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
+            if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -51,6 +52,12 @@ namespace CFX.Transport
         }
 
         public static int? MaxMessagesPerTransmit
+        {
+            get;
+            set;
+        }
+
+        public static uint? DurableReceiverSetting
         {
             get;
             set;
@@ -93,14 +100,15 @@ namespace CFX.Transport
             }
         }
 
-        public static bool TestChannel(Uri channelUri, out Exception error)
+        public bool TestChannel(Uri channelUri, out Exception error)
         {
             bool result = false;
             error = null;
 
             try
             {
-                AmqpConnection conn = new AmqpConnection(channelUri);
+                CFXHandle = Guid.NewGuid().ToString();
+                AmqpConnection conn = new AmqpConnection(channelUri, this);
                 conn.OpenConnection();
                 conn.Close();
                 result = true;
@@ -131,7 +139,7 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress);
+                channel = new AmqpConnection(networkAddress, this);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channels[key] = channel;
             }
@@ -181,7 +189,7 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress);
+                channel = new AmqpConnection(networkAddress, this);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channels[key] = channel;
             }

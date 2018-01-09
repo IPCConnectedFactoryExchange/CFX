@@ -38,7 +38,13 @@ namespace CFX.Transport
             {
                 try
                 {
-                    receiver = new ReceiverLink(session, Address, Address);
+                    Amqp.Framing.Source s = new Amqp.Framing.Source()
+                    {
+                        Address = this.Address,
+                        Durable = AmqpCFXEndpoint.DurableReceiverSetting.Value
+                    };
+
+                    receiver = new ReceiverLink(session, Address, s, null);
                     receiver.Start(linkCredit, callback);
                 }
                 catch (Exception ex)

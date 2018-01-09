@@ -28,7 +28,8 @@ namespace CFXExampleEndpoint
             Cursor.Current = Cursors.WaitCursor;
 
             Exception ex;
-            if (!AmqpCFXEndpoint.TestChannel(new Uri(txtAddress.Text), out ex))
+            AmqpCFXEndpoint endPoint = new AmqpCFXEndpoint();
+            if (!endPoint.TestChannel(new Uri(txtAddress.Text), out ex))
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

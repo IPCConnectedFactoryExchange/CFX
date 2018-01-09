@@ -25,9 +25,9 @@ namespace CFXExampleEndpoint
             theEndpoint = new AmqpCFXEndpoint();
             txtCFXHandle.Text = Properties.Settings.Default.CFXHandle;
             txtTransmitChannels.Text = Properties.Settings.Default.TransmitChannels;
-            //txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
+            txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
             txtRequestPort.Text = Properties.Settings.Default.RequestPort;
-            txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
+            //txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
 
             //CFXExampleGenerator gen = new CFXExampleGenerator();
             //string result = gen.GenerateAll();
