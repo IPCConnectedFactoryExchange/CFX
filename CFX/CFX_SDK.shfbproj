@@ -79,4 +79,13 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="CFX_JSON_Examples.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CFX_Logo.PNG">
+      <ImageId>CFX_Logo</ImageId>
+      <AlternateText>CFX Logo</AlternateText>
+    </Content>
+  </ItemGroup>
 </Project>

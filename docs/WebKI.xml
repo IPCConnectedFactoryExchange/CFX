@@ -2047,8 +2047,8 @@
   <HelpKINode Title="TrackedBy property" Url="html/e387ea91-1122-38cd-f4c2-59b2b2f3526c.htm" />
   <HelpKINode Title="TrailingMaterialPackage property" Url="html/0929bec3-3d17-2429-d95e-095fa21f7340.htm" />
   <HelpKINode Title="TransactionID property">
-    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/60fe4e0f-a346-ada7-956a-8253b58bb800.htm" />
     <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/b29348bf-fe06-4123-e921-dce447ba6b65.htm" />
+    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/60fe4e0f-a346-ada7-956a-8253b58bb800.htm" />
     <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/b1b9b5bc-1b45-d38e-d751-455fdefbeb43.htm" />
     <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/123972d1-fd00-7ecf-feb3-a90930b4b654.htm" />
     <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/2a21bd59-18f0-f2a7-317c-c722d1fa8dee.htm" />
