@@ -1,0 +1,35 @@
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\APEX CFX Demo App.exe.config
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\APEX CFX Demo App.exe
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\APEX CFX Demo App.pdb
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\Amqp.Net.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\CFX.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\Newtonsoft.Json.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.AppContext.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Console.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Globalization.Calendars.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.IO.Compression.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.IO.FileSystem.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Net.Http.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Net.Sockets.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Xml.ReaderWriter.dll
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\Amqp.Net.pdb
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\Amqp.Net.xml
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\CFX.xml
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\Newtonsoft.Json.xml
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.csprojResolveAssemblyReference.cache
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX_CFX_Demo_App.Form1.resources
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX_CFX_Demo_App.Properties.Resources.resources
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.csproj.GenerateResource.Cache
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.csproj.CoreCompileInputs.cache
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.exe
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.pdb
