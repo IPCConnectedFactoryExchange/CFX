@@ -18,9 +18,8 @@
     <HtmlHelpName>IPC_CFX_SDK</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\CFX\bin\netstandard1.4\CFX.dll" />
-      <DocumentationSource sourceFile="..\CFX\bin\netstandard1.4\CFX.xml" />
-    </DocumentationSources>
+      <DocumentationSource sourceFile="bin\netstandard1.3\CFX.dll" />
+<DocumentationSource sourceFile="bin\netstandard1.3\CFX.xml" /></DocumentationSources>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>

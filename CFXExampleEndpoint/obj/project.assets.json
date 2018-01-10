@@ -692,9 +692,9 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX.CFXSDK/1.0.0": {
+      "CFX.CFXSDK/1.0.1": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
+        "framework": ".NETStandard,Version=v1.3",
         "dependencies": {
           "AMQPNetLite": "2.0.0",
           "NETStandard.Library": "1.6.1",
@@ -1336,9 +1336,9 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX.CFXSDK/1.0.0": {
+      "CFX.CFXSDK/1.0.1": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
+        "framework": ".NETStandard,Version=v1.3",
         "dependencies": {
           "AMQPNetLite": "2.0.0",
           "NETStandard.Library": "1.6.1",
@@ -1980,9 +1980,9 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX.CFXSDK/1.0.0": {
+      "CFX.CFXSDK/1.0.1": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
+        "framework": ".NETStandard,Version=v1.3",
         "dependencies": {
           "AMQPNetLite": "2.0.0",
           "NETStandard.Library": "1.6.1",
@@ -2624,9 +2624,9 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX.CFXSDK/1.0.0": {
+      "CFX.CFXSDK/1.0.1": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
+        "framework": ".NETStandard,Version=v1.3",
         "dependencies": {
           "AMQPNetLite": "2.0.0",
           "NETStandard.Library": "1.6.1",
@@ -5385,7 +5385,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "CFX.CFXSDK/1.0.0": {
+    "CFX.CFXSDK/1.0.1": {
       "type": "project",
       "path": "../CFX/CFX.csproj",
       "msbuildProject": "../CFX/CFX.csproj"
@@ -5393,7 +5393,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.2": [
-      "CFX.CFXSDK >= 1.0.0"
+      "CFX.CFXSDK >= 1.0.1"
     ]
   },
   "packageFolders": {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Code\Git\CFX\CFX\CFX_SDK.shfbproj" started="1/10/2018 9:07:37 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.5.15.0" projectFile="C:\Code\Git\CFX\CFX\CFX_SDK.shfbproj" started="1/10/2018 10:24:00 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -18,30 +18,30 @@ Clearing any prior web/markdown output...
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
-Source: C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.dll
-    Found assembly &#39;C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.dll&#39;
-Source: C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml
+Source: C:\Code\Git\CFX\CFX\bin\netstandard1.3\CFX.dll
+    Found assembly &#39;C:\Code\Git\CFX\CFX\bin\netstandard1.3\CFX.dll&#39;
+Source: C:\Code\Git\CFX\CFX\bin\netstandard1.3\CFX.xml
 
 References to include (excluding framework assemblies):
     Amqp.Net
     Newtonsoft.Json
 
 Copying XML comments files
-    C:\Code\Git\CFX\CFX\bin\netstandard1.4\CFX.xml -&gt; C:\Code\Git\CFX\docs\Working\CFX.xml
+    C:\Code\Git\CFX\CFX\bin\netstandard1.3\CFX.xml -&gt; C:\Code\Git\CFX\docs\Working\CFX.xml
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0156
+</plugIn>    Last step completed in 00:00:00.0210
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0050
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateRefInfo.proj]
-Build started 1/10/2018 9:07:38 AM.
+Build started 1/10/2018 10:24:02 AM.
 The target &quot;_ConvertPdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,37)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectPdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,70)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectMdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,38)&quot; does not exist in the project, and will be ignored.
@@ -55,7 +55,6 @@ GenerateRefInfo:
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 53 dependency assemblies.
-MRefBuilder : warning : Ignoring unresolved assembly reference: System.Diagnostics.Debug (System.Diagnostics.Debug, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a) required by CFX [C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj]
 MRefBuilder : warning : Ignoring unresolved assembly reference: System.Collections (System.Collections, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a) required by CFX [C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj]
 MRefBuilder : warning : Ignoring unresolved assembly reference: System.IO (System.IO, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a) required by CFX [C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj]
 MRefBuilder : warning : Ignoring unresolved assembly reference: System.Collections.Concurrent (System.Collections.Concurrent, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a) required by CFX [C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj]
@@ -71,13 +70,13 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj&qu
 
 Build succeeded.
 
-Time Elapsed 00:00:08.54
-    Last step completed in 00:00:08.7118
+Time Elapsed 00:00:07.47
+    Last step completed in 00:00:07.6346
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - TransformManifest.proj]
-Build started 1/10/2018 9:07:47 AM.
+Build started 1/10/2018 10:24:09 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.5.15.0)
@@ -97,18 +96,18 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\TransformManifest.proj&
 
 Build succeeded.
 
-Time Elapsed 00:00:00.64
-    Last step completed in 00:00:00.7643
+Time Elapsed 00:00:00.63
+    Last step completed in 00:00:00.7524
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0312
+    Last step completed in 00:00:00.0615
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 C:\Code\Git\CFX\CFX\CFX_JSON_Examples.txt -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\CFX_JSON_Examples.txt
 C:\Code\Git\CFX\CFX\CFX_Logo.PNG -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\CFX_Logo.PNG
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0076
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -117,7 +116,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 1/10/2018 9:07:47 AM.
+Build started 1/10/2018 10:24:10 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.5.15.0)
@@ -128,26 +127,26 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\GenerateIntermediateTOC
 
 Build succeeded.
 
-Time Elapsed 00:00:00.16
+Time Elapsed 00:00:00.17
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.2889
+    Last step completed in 00:00:00.2953
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1843
+    Last step completed in 00:00:00.2355
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\Code\Git\CFX\docs\Working\sandcastle.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00.0156
+    Last step completed in 00:00:00.0080
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildTopics.proj]
-Build started 1/10/2018 9:07:48 AM.
+Build started 1/10/2018 10:24:10 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.5.15.0)
@@ -825,12 +824,12 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\BuildTopics.proj&quot; 
 
 Build succeeded.
 
-Time Elapsed 00:00:10.66
-    Last step completed in 00:00:10.8183
+Time Elapsed 00:00:10.63
+    Last step completed in 00:00:10.8054
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0040
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -846,7 +845,7 @@ Processed 929 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Code\Git\CFX\docs\Working\WebKI.xml
 Saving website table of contents to C:\Code\Git\CFX\docs\Working\WebTOC.xml
-    Last step completed in 00:00:00.6858
+    Last step completed in 00:00:00.7673
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -928,18 +927,18 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\clipboard.min.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.1693
+    Last step completed in 00:00:00.1865
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0015
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:00.8802
+</plugIn>    Last step completed in 00:00:01.0822
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
@@ -947,15 +946,15 @@ Copying website files to output folder...
 Copied 500 files
 Copied 1000 files
 Copied 1349 files for the website content
-    Last step completed in 00:00:02.2583
+    Last step completed in 00:00:02.3904
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.5674
+    Last step completed in 00:00:00.5953
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 1/10/2018 9:08:03 AM.  Total time: 00:00:26.4414
+Build completed successfully at 1/10/2018 10:24:26 AM.  Total time: 00:00:26.1791
 
 </buildStep>
 </shfbBuild>

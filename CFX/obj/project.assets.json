@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v1.4": {
+    ".NETStandard,Version=v1.3": {
       "AMQPNetLite/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -1005,17 +1005,11 @@
       "System.Runtime.Serialization.Formatters/4.3.0": {
         "type": "package",
         "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0"
         },
         "compile": {
           "ref/netstandard1.3/System.Runtime.Serialization.Formatters.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll": {}
         }
       },
       "System.Runtime.Serialization.Json/4.3.0": {
@@ -1071,7 +1065,7 @@
           "System.Security.Cryptography.Primitives": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.4/System.Security.Cryptography.Algorithms.dll": {}
+          "ref/netstandard1.3/System.Security.Cryptography.Algorithms.dll": {}
         }
       },
       "System.Security.Cryptography.Encoding/4.3.0": {
@@ -1131,7 +1125,7 @@
           "System.Security.Cryptography.Encoding": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.4/System.Security.Cryptography.X509Certificates.dll": {}
+          "ref/netstandard1.3/System.Security.Cryptography.X509Certificates.dll": {}
         }
       },
       "System.Security.Principal/4.0.1": {
@@ -5276,7 +5270,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v1.4": [
+    ".NETStandard,Version=v1.3": [
       "AMQPNetLite >= 2.0.0",
       "NETStandard.Library >= 1.6.1",
       "Newtonsoft.Json >= 10.0.3",
@@ -5289,7 +5283,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restoreSettings": {
       "hideWarningsAndErrors": true
     },
@@ -5310,14 +5304,14 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
-        "netstandard1.4"
+        "netstandard1.3"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netstandard1.4": {
+        "netstandard1.3": {
           "projectReferences": {}
         }
       },
@@ -5328,7 +5322,7 @@
       }
     },
     "frameworks": {
-      "netstandard1.4": {
+      "netstandard1.3": {
         "dependencies": {
           "AMQPNetLite": {
             "target": "Package",

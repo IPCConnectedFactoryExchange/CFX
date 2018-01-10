@@ -2046,6 +2046,11 @@
   <HelpKINode Title="TotalComponentsPlaced property" Url="html/aea6d421-90dd-b275-4bce-74f9edea2caf.htm" />
   <HelpKINode Title="TrackedBy property" Url="html/e387ea91-1122-38cd-f4c2-59b2b2f3526c.htm" />
   <HelpKINode Title="TrailingMaterialPackage property" Url="html/0929bec3-3d17-2429-d95e-095fa21f7340.htm" />
+  <HelpKINode Title="TransactionId property">
+    <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/570596d4-7b6d-3ad3-56e2-840c184b5756.htm" />
+    <HelpKINode Title="ReadingsRecorded.TransactionId Property " Url="html/50a58fff-44ef-a3a8-87b4-1eb85d97ed78.htm" />
+    <HelpKINode Title="ToolsUsed.TransactionId Property " Url="html/261a5056-0660-77b1-0003-70cd373e9060.htm" />
+  </HelpKINode>
   <HelpKINode Title="TransactionID property">
     <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/b29348bf-fe06-4123-e921-dce447ba6b65.htm" />
     <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/60fe4e0f-a346-ada7-956a-8253b58bb800.htm" />
@@ -2053,11 +2058,6 @@
     <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/123972d1-fd00-7ecf-feb3-a90930b4b654.htm" />
     <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/2a21bd59-18f0-f2a7-317c-c722d1fa8dee.htm" />
     <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/ac203023-a1a2-a5ea-d0c8-d5f16700c8e3.htm" />
-  </HelpKINode>
-  <HelpKINode Title="TransactionId property">
-    <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/570596d4-7b6d-3ad3-56e2-840c184b5756.htm" />
-    <HelpKINode Title="ReadingsRecorded.TransactionId Property " Url="html/50a58fff-44ef-a3a8-87b4-1eb85d97ed78.htm" />
-    <HelpKINode Title="ToolsUsed.TransactionId Property " Url="html/261a5056-0660-77b1-0003-70cd373e9060.htm" />
   </HelpKINode>
   <HelpKINode Title="TransportOrderHistory class">
     <HelpKINode Title="TransportOrderHistory Class" Url="html/1b7f1d87-c023-93f9-3248-46380dc9852e.htm" />
