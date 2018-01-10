@@ -5295,7 +5295,7 @@
     },
     "restore": {
       "projectUniqueName": "C:\\Code\\Git\\CFX\\CFX\\CFX.csproj",
-      "projectName": "CFX",
+      "projectName": "CFX.CFXSDK",
       "projectPath": "C:\\Code\\Git\\CFX\\CFX\\CFX.csproj",
       "packagesPath": "C:\\Users\\jwalls\\.nuget\\packages\\",
       "outputPath": "C:\\Code\\Git\\CFX\\CFX\\obj\\",

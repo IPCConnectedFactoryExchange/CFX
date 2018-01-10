@@ -2,15 +2,30 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
+    <PackageId>CFX.CFXSDK</PackageId>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <Authors>IPC CFX Committee</Authors>
+    <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Initial publication for public consumption</PackageReleaseNotes>
+    <Copyright>Licensed under the terms and conditions Apache Open Source License.</Copyright>
+    <PackageTags>ipc cfx connected factory exchange</PackageTags>
+    <Company>Association of Connecting Electronics Industries</Company>
+    <Product>Connected Factory Exchange Software Development Kit</Product>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/IPCConnectedFactoryExchange/CFX</PackageProjectUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>bin\netstandard1.4\CFX.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\netstandard1.4\CFX.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

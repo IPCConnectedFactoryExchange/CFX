@@ -692,7 +692,7 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX/1.0.0": {
+      "CFX.CFXSDK/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.4",
         "dependencies": {
@@ -702,10 +702,10 @@
           "System.Runtime.Serialization.Json": "4.3.0"
         },
         "compile": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         }
       }
     },
@@ -1336,7 +1336,7 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX/1.0.0": {
+      "CFX.CFXSDK/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.4",
         "dependencies": {
@@ -1346,10 +1346,10 @@
           "System.Runtime.Serialization.Json": "4.3.0"
         },
         "compile": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         }
       }
     },
@@ -1980,7 +1980,7 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX/1.0.0": {
+      "CFX.CFXSDK/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.4",
         "dependencies": {
@@ -1990,10 +1990,10 @@
           "System.Runtime.Serialization.Json": "4.3.0"
         },
         "compile": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         }
       }
     },
@@ -2624,7 +2624,7 @@
           "lib/net45/_._": {}
         }
       },
-      "CFX/1.0.0": {
+      "CFX.CFXSDK/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.4",
         "dependencies": {
@@ -2634,10 +2634,10 @@
           "System.Runtime.Serialization.Json": "4.3.0"
         },
         "compile": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CFX.dll": {}
+          "bin/placeholder/CFX.CFXSDK.dll": {}
         }
       }
     }
@@ -5385,7 +5385,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "CFX/1.0.0": {
+    "CFX.CFXSDK/1.0.0": {
       "type": "project",
       "path": "../CFX/CFX.csproj",
       "msbuildProject": "../CFX/CFX.csproj"
@@ -5393,7 +5393,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.2": [
-      "CFX >= 1.0.0"
+      "CFX.CFXSDK >= 1.0.0"
     ]
   },
   "packageFolders": {

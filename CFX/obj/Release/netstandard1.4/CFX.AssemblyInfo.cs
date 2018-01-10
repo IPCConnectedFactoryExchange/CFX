@@ -11,12 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CFX")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Association of Connecting Electronics Industries")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("Package Description")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Licensed under the terms and conditions Apache Open Source License.")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("IPC Connected Factory Exchange Open Source Software Development Kit")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("CFX")]
+[assembly: System.Reflection.AssemblyProductAttribute("Connected Factory Exchange Software Development Kit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CFX")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

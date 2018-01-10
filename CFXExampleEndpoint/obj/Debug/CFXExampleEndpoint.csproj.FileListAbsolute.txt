@@ -38,3 +38,4 @@ C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.csproj.GenerateR
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.csproj.CoreCompileInputs.cache
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.exe
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFX.xml

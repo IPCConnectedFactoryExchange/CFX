@@ -32,9 +32,9 @@ namespace CFXExampleEndpoint
 
             string result = "";
             result += GenerateResourcePerformance();
-            //result += GenerateProduction();
+            result += GenerateProduction();
             result += GenerateAssembly();
-            //result += GenerateMaterials();
+            result += GenerateMaterials();
             return result;
         }
 
