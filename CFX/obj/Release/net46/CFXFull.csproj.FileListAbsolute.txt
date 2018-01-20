@@ -1,0 +1,10 @@
+C:\Code\Git\CFX\CFX\bin\net46\CFXFull.dll
+C:\Code\Git\CFX\CFX\bin\net46\CFXFull.pdb
+C:\Code\Git\CFX\CFX\bin\net46\CFX.xml
+C:\Code\Git\CFX\CFX\bin\net46\Amqp.Net.dll
+C:\Code\Git\CFX\CFX\bin\net46\Newtonsoft.Json.dll
+C:\Code\Git\CFX\CFX\obj\Release\net46\CFXFull.csproj.CoreCompileInputs.cache
+C:\Code\Git\CFX\CFX\obj\Release\net46\CFXFull.AssemblyInfoInputs.cache
+C:\Code\Git\CFX\CFX\obj\Release\net46\CFXFull.AssemblyInfo.cs
+C:\Code\Git\CFX\CFX\obj\Release\net46\CFXFull.dll
+C:\Code\Git\CFX\CFX\obj\Release\net46\CFXFull.pdb

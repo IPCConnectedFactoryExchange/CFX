@@ -1,0 +1,5 @@
+{
+  "LoggingEnabled": true,
+  "LogFilePath": null,
+  "LoggingLevel": "Info, Error"
+}

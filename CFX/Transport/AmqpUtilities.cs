@@ -112,47 +112,53 @@ namespace CFX.Transport
 
         private static byte[] Compress(byte[] data)
         {
-            byte [] compressedData = null;
-            using (MemoryStream zip = new MemoryStream())
-            {
-                using (ZipArchive archive = new ZipArchive(zip, ZipArchiveMode.Update))
-                {
-                    ZipArchiveEntry entry = archive.CreateEntry("CFXMessages.json");
-                    using (BinaryWriter writer = new BinaryWriter(entry.Open()))
-                    {
-                        writer.Write(data);
-                    }
-                }
+            // JJW:  No Compression for now.
+            return data;
+            
+            //byte [] compressedData = null;
+            //using (MemoryStream zip = new MemoryStream())
+            //{
+            //    using (ZipArchive archive = new ZipArchive(zip, ZipArchiveMode.Update))
+            //    {
+            //        ZipArchiveEntry entry = archive.CreateEntry("CFXMessages.json");
+            //        using (BinaryWriter writer = new BinaryWriter(entry.Open()))
+            //        {
+            //            writer.Write(data);
+            //        }
+            //    }
 
-                compressedData = zip.ToArray();
-            }
+            //    compressedData = zip.ToArray();
+            //}
 
-            return compressedData;
+            //return compressedData;
         }
 
         private static byte[] Decompress(byte[] data)
         {
-            byte[] uncompressedData = null;
-            using (MemoryStream zip = new MemoryStream(data))
-            {
-                using (ZipArchive archive = new ZipArchive(zip, ZipArchiveMode.Read))
-                {
-                    ZipArchiveEntry entry = archive.Entries.FirstOrDefault();
-                    if (entry != null)
-                    {
-                        using (MemoryStream dataFile = new MemoryStream())
-                        {
-                            using (Stream s = entry.Open())
-                            {
-                                s.CopyTo(dataFile);
-                                uncompressedData = dataFile.ToArray();
-                            }
-                        }
-                    }
-                }
-            }
+            // JJW:  No compression for now.
+            return data;
+            
+            //byte[] uncompressedData = null;
+            //using (MemoryStream zip = new MemoryStream(data))
+            //{
+            //    using (ZipArchive archive = new ZipArchive(zip, ZipArchiveMode.Read))
+            //    {
+            //        ZipArchiveEntry entry = archive.Entries.FirstOrDefault();
+            //        if (entry != null)
+            //        {
+            //            using (MemoryStream dataFile = new MemoryStream())
+            //            {
+            //                using (Stream s = entry.Open())
+            //                {
+            //                    s.CopyTo(dataFile);
+            //                    uncompressedData = dataFile.ToArray();
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
-            return uncompressedData;
+            //return uncompressedData;
         }
 
         private static byte[] Compress2(byte[] data)

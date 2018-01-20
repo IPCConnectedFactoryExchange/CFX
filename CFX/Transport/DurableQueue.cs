@@ -7,7 +7,7 @@ using CFX.Utilities;
 
 namespace CFX.Transport
 {
-    public class DurableQueue
+    internal class DurableQueue
     {
         public DurableQueue(string name)
             : base()

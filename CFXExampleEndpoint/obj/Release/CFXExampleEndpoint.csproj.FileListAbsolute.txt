@@ -26,11 +26,12 @@ C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\System.Security.Cryptography.Algo
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\System.Security.Cryptography.Encoding.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\System.Security.Cryptography.Primitives.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\System.Security.Cryptography.X509Certificates.dll
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\System.Threading.Thread.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\System.Xml.ReaderWriter.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\CFX.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\CFX.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\CFX.xml
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.csprojResolveAssemblyReference.cache
-C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.exe.config
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.AddChannelForm.resources
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.MainForm.resources
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.Properties.Resources.resources
@@ -38,4 +39,3 @@ C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.csproj.Generat
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.csproj.CoreCompileInputs.cache
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.exe
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Release\CFXExampleEndpoint.pdb
-C:\Code\Git\CFX\CFXExampleEndpoint\bin\Release\CFX.xml

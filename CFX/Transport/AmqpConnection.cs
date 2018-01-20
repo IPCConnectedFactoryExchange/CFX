@@ -94,12 +94,33 @@ namespace CFX.Transport
             }
         }
 
+        private Timer keepAliveTimer = null;
+        private object keepAliveLock = new object();
+        
+        private void KeepAliveTimer(object o)
+        {
+            AppLog.Info(string.Format("Keep Alive Timer Firing for endpoint {0} ...", NetworkUri.ToString()));
+
+            lock (this)
+            {
+                foreach (AmqpReceiverLink link in links.OfType<AmqpReceiverLink>())
+                {
+                    link.CloseLink();
+                }
+            }
+
+            EnsureConnection();
+        }
+
         private void AmqpObject_Closed(IAmqpObject sender, Error error)
         {
             if (!closing)
             {
-                if (error != null) AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
-                EnsureConnection();
+                if (error != null)
+                {
+                    AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
+                    EnsureConnection();
+                }
             }
         }
 
@@ -167,12 +188,26 @@ namespace CFX.Transport
 
             if (!connected)
             {
-                AppLog.Info(string.Format("Connection Failed for {0}.  Will attempt again in {1} seconds...", NetworkUri.ToString(), AmqpCFXEndpoint.ReconnectInterval?.TotalSeconds));
+                AppLog.Error(string.Format("Connection Failed for {0}.  Will attempt again in {1} seconds...", NetworkUri.ToString(), AmqpCFXEndpoint.ReconnectInterval?.TotalSeconds));
                 Task.Run(new Action(() =>
                 {
                     Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval?.TotalMilliseconds));
                     EnsureConnection();
                 }));
+            }
+            else
+            {
+                if (AmqpCFXEndpoint.KeepAliveEnabled.Value)
+                {
+                    lock (keepAliveLock)
+                    {
+                        if (keepAliveTimer == null)
+                        {
+                            int interval = Convert.ToInt32(AmqpCFXEndpoint.KeepAliveInterval.Value.TotalMilliseconds);
+                            keepAliveTimer = new Timer(new TimerCallback(KeepAliveTimer), null, 0, interval);
+                        }
+                    }
+                }
             }
         }
         public void AddPublishChannel(string address)
@@ -214,6 +249,7 @@ namespace CFX.Transport
 
         public void Close()
         {
+            StopKeepAliveTimer();
             Cleanup();
         }
 
@@ -264,14 +300,31 @@ namespace CFX.Transport
 
             if (envelopes != null && OnCFXMessageReceived != null)
             {
-                receiver.Accept(message);
-                envelopes.ForEach(env => OnCFXMessageReceived(new AmqpChannelAddress() { Uri = NetworkUri, Address = receiver.Name }, env));
+                try
+                {
+                    receiver.Accept(message);
+                    envelopes.ForEach(env => OnCFXMessageReceived(new AmqpChannelAddress() { Uri = NetworkUri, Address = receiver.Name }, env));
+                }
+                catch (Exception ex)
+                {
+                    AppLog.Error(ex);
+                }
             }
         }
 
         public void Dispose()
         {
+            StopKeepAliveTimer();
             Cleanup();
+        }
+
+        private void StopKeepAliveTimer()
+        {
+            lock (keepAliveLock)
+            {
+                if (keepAliveTimer != null) keepAliveTimer.Dispose();
+                keepAliveTimer = null;
+            }
         }
 
         private void Cleanup()
@@ -293,6 +346,7 @@ namespace CFX.Transport
                 Debug.WriteLine(ex.Message);
             }
 
+            
             session = null;
             connection = null;
         }

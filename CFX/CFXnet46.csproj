@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <PackageId>CFX.CFXSDK.Beta</PackageId>
+    <PackageVersion>1.0.3</PackageVersion>
+    <Authors>IPC CFX Committee</Authors>
+    <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Initial publication for public consumption</PackageReleaseNotes>
+    <Copyright>Licensed under the terms and conditions Apache Open Source License.</Copyright>
+    <PackageTags>ipc cfx connected factory exchange</PackageTags>
+    <Company>Association of Connecting Electronics Industries</Company>
+    <Product>Connected Factory Exchange Software Development Kit</Product>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/IPCConnectedFactoryExchange/CFX</PackageProjectUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
+    <PackageIconUrl>https://ipcconnectedfactoryexchange.github.io/CFX/CFX_Logo.PNG</PackageIconUrl>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\netstandard1.3\CFX.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DataStructures\**" />
+    <EmbeddedResource Remove="DataStructures\**" />
+    <None Remove="DataStructures\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ConsumedMaterial.cs" />
+    <Compile Remove="DataObjects\UnitLocation.cs" />
+    <Compile Remove="DataObjects\UnitPosition.cs" />
+    <Compile Remove="LockReason.cs" />
+    <Compile Remove="Material.cs" />
+    <Compile Remove="MaterialLocation.cs" />
+    <Compile Remove="Measurement.cs" />
+    <Compile Remove="ReflowProcessData.cs" />
+    <Compile Remove="ResourceState.cs" />
+    <Compile Remove="StatusResult.cs" />
+    <Compile Remove="UnitPosition.cs" />
+    <Compile Remove="WorkResult.cs" />
+    <Compile Remove="ZoneReflowProcessData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="CFX_JSON_Examples.txt" />
+    <None Remove="CFX_Logo.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AMQPNetLite" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

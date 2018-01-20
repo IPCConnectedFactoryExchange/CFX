@@ -17,7 +17,8 @@ namespace CFX.Transport
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
             if (!UseCompression.HasValue) UseCompression = false;
-            if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
+            if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
+            if (!KeepAliveInterval.HasValue) KeepAliveInterval = TimeSpan.FromSeconds(60);
             if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
         }
@@ -40,12 +41,25 @@ namespace CFX.Transport
             private set;
         }
 
-        public static bool? UseCompression
+        // JJW:  Compression not fully implemented yet.  Private for now and not enabled.
+        internal static bool? UseCompression
         {
             get;
             set;
         }
         public static TimeSpan? ReconnectInterval
+        {
+            get;
+            set;
+        }
+
+        public static bool? KeepAliveEnabled
+        {
+            get;
+            set;
+        }
+
+        public static TimeSpan? KeepAliveInterval
         {
             get;
             set;
@@ -262,6 +276,7 @@ namespace CFX.Transport
 
         public void Publish(CFXEnvelope env)
         {
+            FillSource(env);
             foreach (AmqpConnection channel in channels.Values)
             {
                 channel.Publish(env);
@@ -272,11 +287,13 @@ namespace CFX.Transport
         {
             CFXEnvelope env = new CFXEnvelope();
             env.MessageBody = msg;
+            FillSource(env);
             Publish(env);
         }
 
         public void PublishMany(IEnumerable<CFXEnvelope> envelopes)
         {
+            FillSource(envelopes);
             foreach (AmqpConnection channel in channels.Values)
             {
                 channel.PublishMany(envelopes);
@@ -290,10 +307,24 @@ namespace CFX.Transport
             {
                 CFXEnvelope env = new CFXEnvelope();
                 env.MessageBody = msg;
+                FillSource(env);
                 envelopes.Add(env);
             }
 
             PublishMany(envelopes);
+        }
+
+        private void FillSource(CFXEnvelope env)
+        {
+            if (env.Source == null) env.Source = this.CFXHandle;
+        }
+
+        private void FillSource(IEnumerable<CFXEnvelope> envelopes)
+        {
+            foreach (CFXEnvelope env in envelopes)
+            {
+                FillSource(env);
+            }
         }
     }
 }

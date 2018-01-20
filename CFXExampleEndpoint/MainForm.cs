@@ -12,6 +12,7 @@ using CFX;
 using CFX.Structures;
 using CFX.Transport;
 using CFX.Production;
+using CFX.ResourcePerformance;
 using CFX.InformationSystem.UnitValidation;
 
 namespace CFXExampleEndpoint
@@ -33,11 +34,18 @@ namespace CFXExampleEndpoint
             //string result = gen.GenerateAll();
             //File.WriteAllText(@"c:\Code\Git\CFX\Documentation\Help\CFX_JSON_Examples.txt", result, Encoding.UTF8);
             //return;
-                        
+
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
 
             RefreshControls();
+
+            //CFX.Utilities.AppLog.LoggingEnabled = true;
+            //CFX.Utilities.AppLog.LogFilePath = @"c:\jjwtemp\CFXDiagLog.txt";
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info
+            //                                    | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
+
+
         }
 
         public string CFXHandle
@@ -222,23 +230,51 @@ namespace CFXExampleEndpoint
             }
         }
 
+        private ResourceState lastState;
+        private DateTime lastStateChange = DateTime.Now;
+
         private void btnSendMsg_Click(object sender, EventArgs e)
         {
             if (!theEndpoint.IsOpen) return;
 
             List<CFXEnvelope> messages = new List<CFXEnvelope>();
+
+            //WorkStarted ws = new WorkStarted();
+            //ws.TransactionID = Guid.NewGuid();
+            //ws.Lane = "Lane1";
+            //ws.Units.Add(new UnitPosition() { UnitIdentifier = "11122456", PositionNumber = 1, PositionName = "1" });
+            //messages.Add(CFXEnvelope.FromCFXMessage(ws));
+
+            //WorkCompleted wc = new WorkCompleted();
+            //wc.TransactionID = ws.TransactionID;
+            //wc.Result = WorkResult.Failed;
+            //messages.Add(CFXEnvelope.FromCFXMessage(wc));
+
+            ResourceState[] states = new ResourceState []
+            {
+                ResourceState.Setup,
+                ResourceState.ReadyProcessingExecuting,
+                ResourceState.Idle
+            };
+
+            ResourceState newState = lastState;
+            Random r = new Random();
+            while (newState == lastState)
+            {
+                newState = states[r.Next(0, 2)];
+            }
+
+            CFXEnvelope env = new CFXEnvelope(new StationStateChanged()
+            {
+                NewState = newState,
+                OldState = lastState,
+                OldStateDuration = DateTime.Now - lastStateChange
+            });
+            messages.Add(env);
+
+            lastState = (env.MessageBody as StationStateChanged).NewState;
+            lastStateChange = DateTime.Now;
             
-            WorkStarted ws = new WorkStarted();
-            ws.TransactionID = Guid.NewGuid();
-            ws.Lane = "Lane1";
-            ws.Units.Add(new UnitPosition() { UnitIdentifier = "11122456", PositionNumber = 1, PositionName = "1" });
-            messages.Add(CFXEnvelope.FromCFXMessage(ws));
-
-            WorkCompleted wc = new WorkCompleted();
-            wc.TransactionID = ws.TransactionID;
-            wc.Result = WorkResult.Failed;
-            messages.Add(CFXEnvelope.FromCFXMessage(wc));
-
             //theEndpoint.Publish(ws);
             theEndpoint.PublishMany(messages);
         }

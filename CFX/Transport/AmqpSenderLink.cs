@@ -47,6 +47,17 @@ namespace CFX.Transport
             set;
         }
 
+        private void LogInfo(string message)
+        {
+            AppLog.Info(string.Format("sender-{0}  {1}", Address, message));
+        }
+
+        private void LogError(Exception ex)
+        {
+            AppLog.Error(string.Format("sender-{0}  {1}", Address, ex.Message));
+            AppLog.Error(ex);
+        }
+
         private Task processingTask = null;
 
         private bool Processing
@@ -62,6 +73,7 @@ namespace CFX.Transport
 
         public void Publish(CFXEnvelope [] envelopes)
         {
+            LogInfo(string.Format("Enqueuing {0} messages.", envelopes.Length));
             foreach (CFXEnvelope env in envelopes) Queue.Enqueue(env);
             TriggerProcessing();
         }
@@ -72,6 +84,7 @@ namespace CFX.Transport
             {
                 if (!Processing)
                 {
+                    LogInfo("Triggering Processing...");
                     processingTask = Task.Run(() =>
                     {
                         Process();
@@ -84,6 +97,8 @@ namespace CFX.Transport
         {
             while (!Queue.IsEmpty)
             {
+                LogInfo("Attempting to process queued messages...");
+
                 bool success = false;
                 if (!IsClosed)
                 {
@@ -98,6 +113,7 @@ namespace CFX.Transport
                         }
                         catch (Exception ex)
                         {
+                            LogError(ex);
                             AppLog.Error(ex);
                         }
 
@@ -107,14 +123,17 @@ namespace CFX.Transport
                         }
 
                         int remainingCount = Queue.Count;
-                        if (remainingCount > 0) AppLog.Info(string.Format("{0} messages transmitted.  {1} messages remaining in spool.", messages.Length, Queue.Count));
+                        if (success)
+                            LogInfo(string.Format("{0} messages transmitted.  {1} messages remaining in spool.", messages.Length, Queue.Count));
+                        else
+                            LogInfo(string.Format("Messages NOT transmitted.  {1} messages remaining in spool.", Queue.Count));
                     }
                 }
                 else
                 {
                     Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval.Value.TotalMilliseconds));
                     int remainingCount = Queue.Count;
-                    if (remainingCount > 0) AppLog.Info(string.Format("No Connection.  {0} messages remaining in spool.", Queue.Count));
+                    if (remainingCount > 0) LogInfo(string.Format("Connection Bad or Error.  {0} messages remaining in spool.", Queue.Count));
                 }
             }
         }
