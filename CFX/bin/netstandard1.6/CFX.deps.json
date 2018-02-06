@@ -1,15 +1,15 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.6/",
-    "signature": "f6fcef82c273ffdcc688cb77e46eb3170d9f95cc"
+    "signature": "ee45e2feccd2976a10f0b6707b4c86e67afd09b5"
   },
   "compilationOptions": {},
   "targets": {
     ".NETStandard,Version=v1.6": {},
     ".NETStandard,Version=v1.6/": {
-      "CFX/1.0.3": {
+      "CFX/1.0.4": {
         "dependencies": {
-          "AMQPNetLite": "2.0.0",
+          "AMQPNetLite": "2.1.1",
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
           "System.Threading.Thread": "4.3.0"
@@ -18,12 +18,12 @@
           "CFX.dll": {}
         }
       },
-      "AMQPNetLite/2.0.0": {
+      "AMQPNetLite/2.1.1": {
         "dependencies": {
-          "AMQPNetLite.Core": "2.0.0"
+          "AMQPNetLite.Core": "2.1.1"
         }
       },
-      "AMQPNetLite.Core/2.0.0": {
+      "AMQPNetLite.Core/2.1.1": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Collections.Concurrent": "4.3.0",
@@ -1069,24 +1069,24 @@
     }
   },
   "libraries": {
-    "CFX/1.0.3": {
+    "CFX/1.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "AMQPNetLite/2.0.0": {
+    "AMQPNetLite/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tkXHS1rb4r6ruu8K4D04RUkCodiQOGjogLtT5FNyI8y3z6c/QzV4XsSxkSJcVaUnyWwDO43pmFenEVPBE5DmpA==",
-      "path": "amqpnetlite/2.0.0",
-      "hashPath": "amqpnetlite.2.0.0.nupkg.sha512"
+      "sha512": "sha512-5YSj+QUhtj4ZdvfANdHhZ/XTvRGoz+QbCLoeIDP51P5W3bgpK4AsL/qbnKQ/k6LWUCNMPY8vMhBIndP3Iz1EAw==",
+      "path": "amqpnetlite/2.1.1",
+      "hashPath": "amqpnetlite.2.1.1.nupkg.sha512"
     },
-    "AMQPNetLite.Core/2.0.0": {
+    "AMQPNetLite.Core/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CNl8pD649pRaA+qtMZUyj7nZl4/McZR1ShmzrdePILayGwvDRDPvyYJClMjRYMqVhYKFJlEKR1+jSk6omiTHsA==",
-      "path": "amqpnetlite.core/2.0.0",
-      "hashPath": "amqpnetlite.core.2.0.0.nupkg.sha512"
+      "sha512": "sha512-p274kP7i5QTKuR9kp5mtOfZmrRuK9DaOjragzHSmyQ+6+in9JxLPVnlXkKGFWzNlKWENt3AVHcEEb5ZEC6QSuw==",
+      "path": "amqpnetlite.core/2.1.1",
+      "hashPath": "amqpnetlite.core.2.1.1.nupkg.sha512"
     },
     "Microsoft.CSharp/4.3.0": {
       "type": "package",
