@@ -13,20 +13,22 @@ namespace CFX.Utilities
     {
         static AppLog()
         {
+            settingsPath = null;
             loadInterval = TimeSpan.FromSeconds(30);
             lastLoad = DateTime.Now - (loadInterval + TimeSpan.FromSeconds(10));
 
             settings = new AppLogSettings();
-            settings.LogFilePath = "c:\\jjwtemp\\cfxlog.txt";
-            string test = CFXJsonSerializer.SerializeObject(settings);
-
             LoggingEnabled = true;
             LogFilePath = null;
             LoggingLevel = LogMessageType.Error;
             LoadSettings();
+
+            //LoggingLevel = LogMessageType.Error | LogMessageType.Info;
+            //File.WriteAllText("c:\\jjwtemp\\AppLogSettings.json", CFXJsonSerializer.SerializeObject(settings));
         }
 
         private static AppLogSettings settings;
+        private static string settingsPath;
         private static TimeSpan loadInterval;
         private static DateTime lastLoad;
         private static object settingsLockObject = new object();
@@ -36,6 +38,8 @@ namespace CFX.Utilities
 
         private static void LoadSettings()
         {
+            if (string.IsNullOrWhiteSpace(SettingsPath)) return;
+
             lock (settingsLockObject)
             {
                 if ((DateTime.Now - lastLoad) < loadInterval) return;
@@ -43,16 +47,32 @@ namespace CFX.Utilities
 
                 try
                 {
-                    string path = System.AppContext.BaseDirectory;
-                    string[] files = Directory.GetFiles(path, "AppLogSettings.json");
-                    if (files != null && files.Length > 0)
+                    if (File.Exists(SettingsPath))
                     {
-                        settings = CFXJsonSerializer.DeserializeObject<AppLogSettings>(File.ReadAllText(files[0]));
+                        settings = CFXJsonSerializer.DeserializeObject<AppLogSettings>(File.ReadAllText(SettingsPath));
+                        settings.LogFilePath = Environment.ExpandEnvironmentVariables(settings.LogFilePath);
                     }
                 }
                 catch (Exception ex)
                 {
                     Error(ex);
+                }
+            }
+        }
+
+        public static string SettingsPath
+        {
+            get
+            {
+                return settingsPath;
+            }
+            set
+            {
+                settingsPath = value;
+                if (!string.IsNullOrWhiteSpace(settingsPath))
+                {
+                    lastLoad = DateTime.Now - (loadInterval + TimeSpan.FromSeconds(10));
+                    LoadSettings();
                 }
             }
         }
