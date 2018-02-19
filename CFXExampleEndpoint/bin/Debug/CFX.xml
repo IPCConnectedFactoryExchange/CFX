@@ -144,6 +144,20 @@
             Indicates that work has begun on one or more production units at a particular work center.
             </summary>
         </member>
+        <member name="P:CFX.Sensor.Identification.IdentifiersRead.PrimaryIdentifier">
+            <summary>
+            The barcode, RFID, etc. that was most recently acquired by the scanner / reader.  If a single production unit is moving through the
+            process, this would be the actual unique identifier of that individual unition unit.  However, if multiple production units are moving
+            through the process as a group (as in the case of a PCB panel, a fixture, or any sort of carrier), this would be an identifier that
+            represents the entire group of units, such as a carrier UID, a PCB panel UID, etc.
+            </summary>
+        </member>
+        <member name="P:CFX.Sensor.Identification.IdentifiersRead.Units">
+            <summary>
+            An optional list of actual production unit identifiers, in the case that multiple production units are moving through the 
+            process, and the sensor is capable if reading multiple identifiers. 
+            </summary>
+        </member>
         <member name="P:CFX.Sensor.Identification.IdentifyUnitsResponse.PrimaryIdentifier">
             <summary>
             The barcode, RFID, etc. that was most recently acquired by the scanner / reader.  If a single production unit is moving through the

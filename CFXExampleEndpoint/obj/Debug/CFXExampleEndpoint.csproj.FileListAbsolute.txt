@@ -7,6 +7,11 @@ C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.csproj.CoreCompi
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFXExampleEndpoint.exe.config
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFXExampleEndpoint.exe
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFXExampleEndpoint.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.exe
+C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Amqp.Net.dll
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Amqp.Net.pdb
+C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Newtonsoft.Json.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\netstandard.dll
@@ -107,5 +112,3 @@ C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFX.dll
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFX.pdb
 C:\Code\Git\CFX\CFXExampleEndpoint\bin\Debug\CFX.xml
 C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.exe.config
-C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.exe
-C:\Code\Git\CFX\CFXExampleEndpoint\obj\Debug\CFXExampleEndpoint.pdb

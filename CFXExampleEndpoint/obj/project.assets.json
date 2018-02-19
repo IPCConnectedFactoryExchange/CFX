@@ -1,14 +1,170 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.6.2": {},
-    ".NETFramework,Version=v4.6.2/win": {},
-    ".NETFramework,Version=v4.6.2/win-x64": {},
-    ".NETFramework,Version=v4.6.2/win-x86": {}
+    ".NETFramework,Version=v4.6.2": {
+      "AMQPNetLite/2.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Amqp.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Amqp.Net.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win": {
+      "AMQPNetLite/2.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Amqp.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Amqp.Net.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win-x64": {
+      "AMQPNetLite/2.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Amqp.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Amqp.Net.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win-x86": {
+      "AMQPNetLite/2.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Amqp.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Amqp.Net.dll": {}
+        }
+      },
+      "Newtonsoft.Json/10.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AMQPNetLite/2.1.1": {
+      "sha512": "5YSj+QUhtj4ZdvfANdHhZ/XTvRGoz+QbCLoeIDP51P5W3bgpK4AsL/qbnKQ/k6LWUCNMPY8vMhBIndP3Iz1EAw==",
+      "type": "package",
+      "path": "amqpnetlite/2.1.1",
+      "files": [
+        "amqpnetlite.2.1.1.nupkg.sha512",
+        "amqpnetlite.nuspec",
+        "lib/net35/Amqp.Net.XML",
+        "lib/net35/Amqp.Net.dll",
+        "lib/net35/Amqp.Net.pdb",
+        "lib/net40/Amqp.Net.XML",
+        "lib/net40/Amqp.Net.dll",
+        "lib/net40/Amqp.Net.dll.config",
+        "lib/net40/Amqp.Net.pdb",
+        "lib/net45/Amqp.Net.XML",
+        "lib/net45/Amqp.Net.dll",
+        "lib/net45/Amqp.Net.pdb",
+        "lib/netcore451/Amqp.Net.XML",
+        "lib/netcore451/Amqp.Net.dll",
+        "lib/netcore451/Amqp.Net.pdb",
+        "lib/netcore451/Amqp.Net.pri",
+        "lib/netmf42/Amqp.NetMF.XML",
+        "lib/netmf42/Amqp.NetMF.dll",
+        "lib/netmf42/Amqp.NetMF.pdb",
+        "lib/netmf42/be/Amqp.NetMF.pdbx",
+        "lib/netmf42/be/Amqp.NetMF.pe",
+        "lib/netmf42/le/Amqp.NetMF.pdbx",
+        "lib/netmf42/le/Amqp.NetMF.pe",
+        "lib/netmf43/Amqp.NetMF.XML",
+        "lib/netmf43/Amqp.NetMF.dll",
+        "lib/netmf43/Amqp.NetMF.pdb",
+        "lib/netmf43/be/Amqp.NetMF.pdbx",
+        "lib/netmf43/be/Amqp.NetMF.pe",
+        "lib/netmf43/le/Amqp.NetMF.pdbx",
+        "lib/netmf43/le/Amqp.NetMF.pe",
+        "lib/netmf44/Amqp.NetMF.XML",
+        "lib/netmf44/Amqp.NetMF.dll",
+        "lib/netmf44/Amqp.NetMF.pdb",
+        "lib/netmf44/be/Amqp.NetMF.pdbx",
+        "lib/netmf44/be/Amqp.NetMF.pe",
+        "lib/netmf44/le/Amqp.NetMF.pdbx",
+        "lib/netmf44/le/Amqp.NetMF.pe",
+        "lib/netstandard1.3/_._",
+        "lib/uap10.0/Amqp.Net.XML",
+        "lib/uap10.0/Amqp.Net.dll",
+        "lib/uap10.0/Amqp.Net.pdb",
+        "lib/uap10.0/Amqp.Net.pri"
+      ]
+    },
+    "Newtonsoft.Json/10.0.3": {
+      "sha512": "wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
+      "type": "package",
+      "path": "newtonsoft.json/10.0.3",
+      "files": [
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.10.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "tools/install.ps1"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.6.2": []
+    ".NETFramework,Version=v4.6.2": [
+      "AMQPNetLite >= 2.1.1",
+      "Newtonsoft.Json >= 10.0.3"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\jwalls\\.nuget\\packages\\": {},
@@ -46,7 +202,18 @@
       }
     },
     "frameworks": {
-      "net462": {}
+      "net462": {
+        "dependencies": {
+          "AMQPNetLite": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[10.0.3, )"
+          }
+        }
+      }
     },
     "runtimes": {
       "win": {

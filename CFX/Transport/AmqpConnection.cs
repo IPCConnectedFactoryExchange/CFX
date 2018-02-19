@@ -15,12 +15,13 @@ namespace CFX.Transport
 {
     internal class AmqpConnection : IDisposable
     {
-        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint)
+        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, AuthenticationMode authMode)
         {
             SendTimout = TimeSpan.FromSeconds(5);
             links = new List<AmqpLink>();
             NetworkUri = uri;
             Endpoint = endpoint;
+            AuthenticationMode = authMode;
         }
 
         public TimeSpan SendTimout
@@ -49,13 +50,19 @@ namespace CFX.Transport
             }
         }
 
+        public AuthenticationMode AuthenticationMode
+        {
+            get;
+            set;
+        }
+
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
 
         private Connection connection;
         private Session session;
         private List<AmqpLink> links;
         private bool connecting = false;
-        private bool closing = false;
+        private bool isAsync = false;
 
         public void OpenConnection()
         {
@@ -67,14 +74,44 @@ namespace CFX.Transport
             {
                 try
                 {
-                    //ConnectionFactory factory = new ConnectionFactory();
-                    //factory.SASL.Profile = SaslProfile.Anonymous;
+                    bool anonymous = false;
+                    if (AuthenticationMode == AuthenticationMode.Anonymous)
+                    {
+                        anonymous = true;
+                    }
+                    else if (AuthenticationMode == AuthenticationMode.Auto)
+                    {
+                        if (!NetworkUri.ToString().Contains("@")) anonymous = true;
+                    }
+
                     Open o = new Open()
                     {
                         ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
                     };
-                    //connection = await factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
-                    connection = new Connection(new Address(NetworkUri.ToString()), SaslProfile.Anonymous, o, null);
+
+                    if (!anonymous)
+                    {
+                        isAsync = true;
+
+                        ConnectionFactory factory = new ConnectionFactory();
+                        if (anonymous)
+                            factory.SASL.Profile = SaslProfile.Anonymous;
+                        else
+                            factory.SASL.Profile = SaslProfile.External;
+
+                        Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
+                        t.Wait(5000);
+                        if (t.IsCanceled) throw new Exception("Timeout on CreateAsync");
+
+                        connection = t.Result;
+                    }
+                    else
+                    {
+                        isAsync = false;
+
+                        connection = new Connection(new Address(NetworkUri.ToString()), SaslProfile.Anonymous, o, null);
+                    }
+                    
                     connection.Closed += AmqpObject_Closed;
                     session = new Session(connection);
                     session.Closed += AmqpObject_Closed;
@@ -114,13 +151,10 @@ namespace CFX.Transport
 
         private void AmqpObject_Closed(IAmqpObject sender, Error error)
         {
-            if (!closing)
+            if (error != null)
             {
-                if (error != null)
-                {
-                    AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
-                    EnsureConnection();
-                }
+                AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
+                EnsureConnection();
             }
         }
 
@@ -327,25 +361,41 @@ namespace CFX.Transport
             }
         }
 
-        private void Cleanup()
+        private async void Cleanup()
         {
             try
             {
                 links.ForEach(l => l.CloseLink());
 
-                if (session != null && !session.IsClosed) session.Close();
-                if (connection != null && !connection.IsClosed)
+                if (isAsync)
                 {
-                    closing = true;
-                    connection.Close();
-                    closing = false;
+                    if (session != null && !session.IsClosed)
+                    {
+                        await session.CloseAsync();
+                    }
+
+                    if (connection != null && !connection.IsClosed)
+                    {
+                        await connection.CloseAsync();
+                    }
+                }
+                else
+                {
+                    if (session != null && !session.IsClosed)
+                    {
+                        session.Close();
+                    }
+
+                    if (connection != null && !connection.IsClosed)
+                    {
+                        connection.Close();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-
             
             session = null;
             connection = null;
@@ -353,4 +403,11 @@ namespace CFX.Transport
     }
 
     public delegate void CFXMessageReceivedHandler(AmqpChannelAddress source, CFXEnvelope message);
+
+    public enum AuthenticationMode
+    {
+        Auto,
+        Anonymous,
+        External
+    }
 }

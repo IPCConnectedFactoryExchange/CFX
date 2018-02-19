@@ -151,6 +151,7 @@ namespace CFX.Utilities
         public static void Error(Exception ex)
         {
             Message(LogMessageType.Error, ex.Message);
+            Message(LogMessageType.Error, ex.StackTrace);
         }
 
         public static void Error(string message)

@@ -126,7 +126,7 @@ namespace CFX.Transport
                         if (success)
                             LogInfo(string.Format("{0} messages transmitted.  {1} messages remaining in spool.", messages.Length, Queue.Count));
                         else
-                            LogInfo(string.Format("Messages NOT transmitted.  {1} messages remaining in spool.", Queue.Count));
+                            LogInfo(string.Format("Messages NOT transmitted.  {0} messages remaining in spool.", Queue.Count));
                     }
                 }
                 else

@@ -14,6 +14,7 @@ using CFX.Transport;
 using CFX.Production;
 using CFX.ResourcePerformance;
 using CFX.InformationSystem.UnitValidation;
+using CFX.Sensor.Identification;
 
 namespace CFXExampleEndpoint
 {
@@ -28,6 +29,10 @@ namespace CFXExampleEndpoint
             txtTransmitChannels.Text = Properties.Settings.Default.TransmitChannels;
             txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
             txtRequestPort.Text = Properties.Settings.Default.RequestPort;
+            reqUri.Text = Properties.Settings.Default.RequestTargetUri;
+            reqHandle.Text = Properties.Settings.Default.RequestTargetHandle;
+            reqUsername.Text = Properties.Settings.Default.RequestUsername;
+            reqPassword.Text = Properties.Settings.Default.RequestPassword;
             //txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
 
             //CFXExampleGenerator gen = new CFXExampleGenerator();
@@ -109,7 +114,10 @@ namespace CFXExampleEndpoint
         {
             get
             {
-                return new Uri(string.Format("amqp://{0}:{1}", Environment.MachineName, RequestPort));
+                if (!string.IsNullOrWhiteSpace(reqUsername.Text))
+                    return new Uri(string.Format("amqp://{0}:{1}@{2}:{3}", reqUsername.Text, reqPassword.Text, Environment.MachineName, RequestPort));
+                else
+                    return new Uri(string.Format("amqp://{0}:{1}", Environment.MachineName, RequestPort));
             }
         }
 
@@ -121,6 +129,8 @@ namespace CFXExampleEndpoint
             theEndpoint.Open(CFXHandle, RequestUri);
             theEndpoint.OnCFXMessageReceived -= TheEndpoint_OnCFXMessageReceived;
             theEndpoint.OnCFXMessageReceived += TheEndpoint_OnCFXMessageReceived;
+            theEndpoint.OnRequestReceived -= TheEndpoint_OnRequestReceived;
+            theEndpoint.OnRequestReceived += TheEndpoint_OnRequestReceived;
 
             foreach (AmqpChannelAddress addr in TransmitChannels)
             {
@@ -131,6 +141,45 @@ namespace CFXExampleEndpoint
             {
                 theEndpoint.AddSubscribeChannel(addr);
             }
+        }
+
+        private CFXEnvelope TheEndpoint_OnRequestReceived(CFXEnvelope request)
+        {
+            CFXMessage response = null;
+
+            if (request.MessageBody is IdentifyUnitsRequest)
+            {
+                response = new IdentifyUnitsResponse()
+                {
+                    Result = new RequestResult()
+                    {
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    PrimaryIdentifier = "UNIT-235445989494",
+                    Units = new List<UnitPosition>(new UnitPosition[]
+                    {
+                        new UnitPosition()
+                        {
+                            UnitIdentifier = "UNIT-235445989494-A",
+                            PositionNumber = 1
+                        },
+                        new UnitPosition()
+                        {
+                            UnitIdentifier = "UNIT-235445989494-B",
+                            PositionNumber = 1
+                        }
+                    })
+                };
+            }
+
+            if (response != null)
+            {
+                CFXEnvelope env = new CFXEnvelope(response);
+                return env;
+            }
+            
+            return null;
         }
 
         private const int maxResults = 10000;
@@ -202,6 +251,10 @@ namespace CFXExampleEndpoint
             Properties.Settings.Default.TransmitChannels = txtTransmitChannels.Text;
             Properties.Settings.Default.ReceiveChannels = txtReceiveChannels.Text;
             Properties.Settings.Default.RequestPort = txtRequestPort.Text;
+            Properties.Settings.Default.RequestTargetUri = reqUri.Text;
+            Properties.Settings.Default.RequestTargetHandle = reqHandle.Text;
+            Properties.Settings.Default.RequestUsername = reqUsername.Text;
+            Properties.Settings.Default.RequestPassword = reqPassword.Text;
             Properties.Settings.Default.Save();
         }
 
@@ -310,6 +363,28 @@ namespace CFXExampleEndpoint
                     OpenEndpoint();
                 }
             }
+        }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            IdentifyUnitsRequest iur = new IdentifyUnitsRequest();
+            CFXEnvelope request = new CFXEnvelope(iur);
+            request.Source = CFXHandle;
+            request.Target = reqHandle.Text;
+
+            string target = reqUri.Text;
+
+            CFXEnvelope response = null;
+            try
+            {
+                response = theEndpoint.ExecuteRequest(target, request);
+            }
+            catch (Exception ex)
+            {
+                lstResults.Items.Insert(0, "Exception during request process:  " + ex.Message);
+            }
+
+            if (response != null) response.ToJson().Split(new string[] { "\r\n" }, StringSplitOptions.None).Reverse().ToList().ForEach(s => lstResults.Items.Insert(0, s));
         }
     }
 }

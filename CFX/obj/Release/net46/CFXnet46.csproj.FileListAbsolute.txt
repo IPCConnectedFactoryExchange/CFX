@@ -3,7 +3,6 @@ C:\Code\Git\CFX\CFX\bin\net46\CFXnet46.pdb
 C:\Code\Git\CFX\CFX\bin\net46\CFX.xml
 C:\Code\Git\CFX\CFX\bin\net46\Amqp.Net.dll
 C:\Code\Git\CFX\CFX\bin\net46\Newtonsoft.Json.dll
-C:\Code\Git\CFX\CFX\obj\Release\net46\CFXnet46.csprojResolveAssemblyReference.cache
 C:\Code\Git\CFX\CFX\obj\Release\net46\CFXnet46.csproj.CoreCompileInputs.cache
 C:\Code\Git\CFX\CFX\obj\Release\net46\CFXnet46.AssemblyInfoInputs.cache
 C:\Code\Git\CFX\CFX\obj\Release\net46\CFXnet46.AssemblyInfo.cs

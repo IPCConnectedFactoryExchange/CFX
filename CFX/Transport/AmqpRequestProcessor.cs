@@ -40,7 +40,7 @@ namespace CFX.Transport
         {
             get
             {
-                return CFXHandle + "-REQUEST";
+                return CFXHandle;
             }
         }
 
@@ -59,17 +59,19 @@ namespace CFX.Transport
             else
                 RequestUri = new Uri(string.Format("amqp://{0}:5672", EnvironmentHelper.GetMachineName()));
 
-            var task = Task.Run(() =>
+            Task.Run(() =>
             {
-                inboundHost = new ContainerHost(new Uri[] { RequestUri }, null, RequestUri.UserInfo);
+                if (!string.IsNullOrWhiteSpace(RequestUri.UserInfo))
+                    inboundHost = new ContainerHost(new Uri[] { RequestUri }, null, RequestUri.UserInfo);
+                else
+                    inboundHost = new ContainerHost(RequestUri);
+
                 inboundHost.Open();
-                Debug.WriteLine("Container host is listening on {0}:{1}", RequestUri.Host, RequestUri.Port);
+                Debug.WriteLine("Container host is listening on {0}:{1}.  User {2}", RequestUri.Host, RequestUri.Port, requestUri.UserInfo);
 
                 inboundHost.RegisterRequestProcessor(RequestHandle, new InternalRequestProcessor(this));
                 Debug.WriteLine("Request processor is registered on {0}", RequestHandle);
-            });
-
-            Task.WaitAll(new Task[] { task });
+            }).Wait();
         }
 
         public void Close()
@@ -121,11 +123,19 @@ namespace CFX.Transport
                     CFXEnvelope response = processor.Fire_OnRequestReceived(request);
                     if (response != null)
                     {
+                        response.Source = processor.CFXHandle;
+                        response.Target = request.Source;
+                        response.RequestID = request.RequestID;
                         requestContext.Complete(AmqpUtilities.MessageFromEnvelope(response));
                     }
                     else
                     {
-                        requestContext.Complete(new Message("NO REQUEST"));
+                        requestContext.Complete(AmqpUtilities.MessageFromEnvelope(new CFXEnvelope(new CFX.NotSupportedResponse())
+                        {
+                            Source = processor.CFXHandle,
+                            Target = request.Source,
+                            RequestID = request.RequestID
+                        }));
                     }
                 });
 
