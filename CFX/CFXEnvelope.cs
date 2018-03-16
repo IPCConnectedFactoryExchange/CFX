@@ -36,9 +36,19 @@ namespace CFX
             MessageBody = Activator.CreateInstance(messageType);
         }
 
+        public CFXEnvelope(string messageType) : this()
+        {
+            MessageBody = Activator.CreateInstance(Type.GetType(messageType));
+        }
+
         public CFXEnvelope(CFXMessage message) : this()
         {
             MessageBody = message;
+        }
+
+        public static CFXEnvelope FromTypeName(string messageType)
+        {
+            return new CFXEnvelope(messageType);
         }
 
         private string messageName;

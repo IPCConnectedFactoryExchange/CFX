@@ -16,6 +16,12 @@ namespace CFX
             return CFXJsonSerializer.SerializeObject(this);
         }
 
+        public static CFXMessage FromTypeName(string messageType)
+        {
+            Type type = Type.GetType(messageType);
+            return Activator.CreateInstance(type) as CFXMessage;
+        }
+
         public static T FromJson<T>(string jsonData) where T : CFXMessage
         {
             return CFXJsonSerializer.DeserializeObject<T>(jsonData);

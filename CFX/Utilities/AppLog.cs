@@ -21,7 +21,9 @@ namespace CFX.Utilities
             LoggingEnabled = true;
             LogFilePath = null;
             LoggingLevel = LogMessageType.Error;
+
             LoadSettings();
+            SetupAmqpLogging();
 
             //LoggingLevel = LogMessageType.Error | LogMessageType.Info;
             //File.WriteAllText("c:\\jjwtemp\\AppLogSettings.json", CFXJsonSerializer.SerializeObject(settings));
@@ -35,6 +37,8 @@ namespace CFX.Utilities
         private static object logLockObject = new object();
         private static object queueLockObject = new object();
         private static Queue<string> logEntries = new Queue<string>();
+
+        public static event TraceListenerHandler OnTraceMessage;
 
         private static void LoadSettings()
         {
@@ -51,6 +55,7 @@ namespace CFX.Utilities
                     {
                         settings = CFXJsonSerializer.DeserializeObject<AppLogSettings>(File.ReadAllText(SettingsPath));
                         settings.LogFilePath = Environment.ExpandEnvironmentVariables(settings.LogFilePath);
+                        SetupAmqpLogging();
                     }
                 }
                 catch (Exception ex)
@@ -58,6 +63,31 @@ namespace CFX.Utilities
                     Error(ex);
                 }
             }
+        }
+
+        private static void SetupAmqpLogging()
+        {
+            if (!settings.AmqpTraceEnabled)
+            {
+                Amqp.Trace.TraceLevel = 0;
+                Amqp.Trace.TraceListener = null;
+                return;
+            }
+
+            Amqp.TraceLevel level = 0;
+            if ((settings.LoggingLevel & LogMessageType.Debug) != 0) level |= (Amqp.TraceLevel.Frame | Amqp.TraceLevel.Verbose | Amqp.TraceLevel.Output);
+            if ((settings.LoggingLevel & LogMessageType.Warn) != 0) level |= Amqp.TraceLevel.Warning;
+            if ((settings.LoggingLevel & LogMessageType.Error) != 0) level |= Amqp.TraceLevel.Error;
+            if ((settings.LoggingLevel & LogMessageType.Info) != 0) level |= Amqp.TraceLevel.Information;
+
+            Amqp.Trace.TraceLevel = level;
+            if (level != 0) Amqp.Trace.TraceListener = (l, f, a) =>
+            {
+                string msg = string.Format(f, a);
+                OnTraceMessage?.Invoke(LogMessageType.Debug, msg);
+                System.Diagnostics.Debug.WriteLine(msg);
+                WriteMessageToLog(msg);
+            };
         }
 
         public static string SettingsPath
@@ -119,6 +149,25 @@ namespace CFX.Utilities
                 {
                     settings.LoggingLevel = value;
                 }
+
+                SetupAmqpLogging();
+            }
+        }
+
+        public static bool AmqpTraceEnabled
+        {
+            get
+            {
+                return settings.AmqpTraceEnabled;
+            }
+            set
+            {
+                lock (settingsLockObject)
+                {
+                    settings.AmqpTraceEnabled = value;
+                }
+
+                SetupAmqpLogging();
             }
         }
 
@@ -140,8 +189,10 @@ namespace CFX.Utilities
         private static void Message(LogMessageType type, string message)
         {
             LoadSettings();
+
             if ((LoggingLevel & type) == 0) return;
             System.Diagnostics.Debug.WriteLine(string.Format("{0}  {1}", type, message));
+            OnTraceMessage?.Invoke(type, message);
 
             if (!LoggingEnabled) return;
             string msg = FormatMessage(type, message);
@@ -217,4 +268,5 @@ namespace CFX.Utilities
         Error = 8
     }
 
+    public delegate void TraceListenerHandler(LogMessageType type, string traceMessage);
 }

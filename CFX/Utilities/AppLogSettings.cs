@@ -11,6 +11,7 @@ namespace CFX.Utilities
             LoggingEnabled = true;
             LogFilePath = null;
             LoggingLevel = LogMessageType.Error | LogMessageType.Info;
+            AmqpTraceEnabled = false;
         }
 
         public bool LoggingEnabled
@@ -26,6 +27,12 @@ namespace CFX.Utilities
         }
 
         public LogMessageType LoggingLevel
+        {
+            get;
+            set;
+        }
+
+        public bool AmqpTraceEnabled
         {
             get;
             set;

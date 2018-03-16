@@ -15,6 +15,7 @@ using CFX.Production;
 using CFX.ResourcePerformance;
 using CFX.InformationSystem.UnitValidation;
 using CFX.Sensor.Identification;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CFXExampleEndpoint
 {
@@ -35,10 +36,10 @@ namespace CFXExampleEndpoint
             reqPassword.Text = Properties.Settings.Default.RequestPassword;
             //txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
 
-            //CFXExampleGenerator gen = new CFXExampleGenerator();
-            //string result = gen.GenerateAll();
-            //File.WriteAllText(@"c:\Code\Git\CFX\Documentation\Help\CFX_JSON_Examples.txt", result, Encoding.UTF8);
-            //return;
+            CFXExampleGenerator gen = new CFXExampleGenerator();
+            string result = gen.GenerateAll();
+            File.WriteAllText(@"c:\Code\Git\CFX\docs\CFX_JSON_Examples.txt", result, Encoding.UTF8);
+            return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
@@ -125,6 +126,11 @@ namespace CFXExampleEndpoint
         {
             CloseEndpoint();
 
+            CFX.Utilities.AppLog.LoggingEnabled = true;
+            CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Warn;
+            CFX.Utilities.AppLog.AmqpTraceEnabled = true;
+            //AmqpCFXEndpoint.MaxMessagesPerTransmit = 1;
+            
             theEndpoint = new AmqpCFXEndpoint();
             theEndpoint.Open(CFXHandle, RequestUri);
             theEndpoint.OnCFXMessageReceived -= TheEndpoint_OnCFXMessageReceived;
@@ -132,14 +138,17 @@ namespace CFXExampleEndpoint
             theEndpoint.OnRequestReceived -= TheEndpoint_OnRequestReceived;
             theEndpoint.OnRequestReceived += TheEndpoint_OnRequestReceived;
 
+            //X509Certificate cert = AmqpUtilities.GetCertificate("aishqcfx01v");
+            X509Certificate cert = null;
+
             foreach (AmqpChannelAddress addr in TransmitChannels)
             {
-                theEndpoint.AddPublishChannel(addr);
+                theEndpoint.AddPublishChannel(addr, AuthenticationMode.Auto, cert);
             }
 
             foreach (AmqpChannelAddress addr in ReceiveChannels)
             {
-                theEndpoint.AddSubscribeChannel(addr);
+                theEndpoint.AddSubscribeChannel(addr, AuthenticationMode.Auto, cert);
             }
         }
 
@@ -367,8 +376,7 @@ namespace CFXExampleEndpoint
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            IdentifyUnitsRequest iur = new IdentifyUnitsRequest();
-            CFXEnvelope request = new CFXEnvelope(iur);
+            CFXEnvelope request = new CFXEnvelope("CFX.Sensor.Identification.IdentifyUnitsRequest");
             request.Source = CFXHandle;
             request.Target = reqHandle.Text;
 

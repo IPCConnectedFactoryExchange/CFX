@@ -45,7 +45,7 @@ namespace CFX.Structures
         /// <summary>
         /// An enumeration indicating whether or not this reading is considered acceptable.
         /// </summary>
-        public StatusResult Result
+        public TestResult Result
         {
             get;
             set;
@@ -82,7 +82,6 @@ namespace CFX.Structures
             get;
             set;
         }
-
 
         public DataType ValueDataType
         {
@@ -140,7 +139,7 @@ namespace CFX.Structures
             set;
         }
 
-        public string MaxumumAcceptableValue
+        public string MaximumAcceptableValue
         {
             get;
             set;

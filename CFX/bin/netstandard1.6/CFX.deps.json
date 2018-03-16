@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v1.6": {},
     ".NETStandard,Version=v1.6/": {
-      "CFX/1.0.4": {
+      "CFX/1.0.5": {
         "dependencies": {
           "AMQPNetLite": "2.1.1",
           "NETStandard.Library": "1.6.1",
@@ -1069,7 +1069,7 @@
     }
   },
   "libraries": {
-    "CFX/1.0.4": {
+    "CFX/1.0.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

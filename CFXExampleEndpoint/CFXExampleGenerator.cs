@@ -10,6 +10,7 @@ using CFX.Structures.SolderPastePrinting;
 using CFX.Structures.THTInsertion;
 using CFX.Production;
 using CFX.Production.Assembly;
+using CFX.Production.TestAndInspection;
 using CFX.InformationSystem.UnitValidation;
 using CFX.Sensor.Identification;
 using CFX.Materials;
@@ -31,9 +32,11 @@ namespace CFXExampleEndpoint
             InitializeMaterials();
 
             string result = "";
+            result += GenerateRoot();
             result += GenerateResourcePerformance();
             result += GenerateProduction();
             result += GenerateAssembly();
+            result += GenerateTest();
             result += GenerateMaterials();
             return result;
         }
@@ -113,10 +116,58 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            (msg as MaterialsInstalled).InstalledMaterials[0].InstalledComponents.Clear();
-            (msg as MaterialsInstalled).InstalledMaterials[1].InstalledComponents.Clear();
-            (msg as MaterialsInstalled).InstalledMaterials[0].CarrierLocation.CarrierInformation = c1;
-            (msg as MaterialsInstalled).InstalledMaterials[1].CarrierLocation.CarrierInformation = c1;
+            msg = new MaterialsUninstalled()
+            {
+                TransactionId = Guid.NewGuid(),
+                InstalledMaterials = new List<UninstalledMaterial>(new UninstalledMaterial[]
+                {
+                    new UninstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityUninstalled = 3,
+                        UninstalledComponents = new List<InstalledComponent>(new InstalledComponent []
+                        {
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R1"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R2"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R3"
+                            }
+                        })
+
+                    },
+                    new UninstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityUninstalled = 3,
+                        UninstalledComponents = new List<InstalledComponent>(new InstalledComponent []
+                        {
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R1"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R2"
+                            },
+                            new InstalledComponent(setDateTime:true)
+                            {
+                                ReferenceDesignator = "R3"
+                            }
+                        })
+                    }
+                })
+            };
             AppendMessage(msg, ref result);
 
             msg = new ToolsUsed()
@@ -177,6 +228,460 @@ namespace CFXExampleEndpoint
             (msg as ToolsUsed).UsedTools[1].InstalledComponents.Clear();
             (msg as ToolsUsed).UsedTools[0].Tool = t3;
             (msg as ToolsUsed).UsedTools[1].Tool = t3;
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsPersonalized()
+            {
+                TransactionId = Guid.NewGuid(),
+                PersonalizedUnits = new List<PersonalizedUnit>(new PersonalizedUnit[]
+                {
+                    new PersonalizedUnit()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Characteristics = new List<Characteristic>(new Characteristic []
+                        {
+                            new Characteristic()
+                            {
+                                Name = "MAC Address",
+                                Value = "C0-15-B9-2D-0F-3B"
+                            }
+                        })
+                    },
+                    new PersonalizedUnit()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Characteristics = new List<Characteristic>(new Characteristic []
+                        {
+                            new Characteristic()
+                            {
+                                Name = "MAC Address",
+                                Value = "C0-15-B9-2D-0F-3C"
+                            }
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            return result;
+        }
+
+        public string GenerateTest()
+        {
+            string result = "";
+
+            Operator op1 = new Operator()
+            {
+                ActorType = ActorType.Human,
+                FirstName = "Joseph",
+                LastName = "Smith",
+                FullName = "Joseph Smith",
+                LoginName = "joseph.smith@abcdrepairs.com",
+                OperatorIdentifier = "UID235434324"
+            };
+
+            CFXMessage msg = new UnitsInspected()
+            {
+                TransactionId = Guid.NewGuid(),
+                Inspector = op1,
+                InspectionMethod = TestMethod.Automated,
+                InspectedUnits = new List<InspectedUnit>(new InspectedUnit[]
+                {
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 1,
+                        OverallResult = TestResult.Passed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_R21",
+                                Result = TestResult.Passed,
+                            },
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_R22",
+                                Result = TestResult.Passed
+                            }
+                        })
+                    },
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 2,
+                        OverallResult = TestResult.Failed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_R21",
+                                Result = TestResult.Passed
+                            },
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_R22",
+                                Result = TestResult.Failed,
+                                DefectsFound = new List<Defect>(new Defect []
+                                {
+                                    new Defect()
+                                    {
+                                        DefectCode = "ISFSLD112",
+                                        DefectCategory = "Solder Problems",
+                                        Description = "Insuffiecient Solder on R22, Lead 1",
+                                        ComponentOfInterest = new ComponentDesignator()
+                                        {
+                                            ReferenceDesignator = "R22.1",
+                                            PartNumber = "11123-8897"
+                                        },
+                                        DefectImages = new List<Image>(new Image []
+                                        {
+                                            new Image () {ImageData = new byte[] {0xac,0x54,0x56,0x77,0xd8,0x99} }
+                                        })
+                                       
+                                    },
+                                    new Defect()
+                                    {
+                                        DefectCode = "TMBSTN211",
+                                        DefectCategory = "Solder Problems",
+                                        Description = "Tombston on R22",
+                                        ComponentOfInterest = new ComponentDesignator()
+                                        {
+                                            ReferenceDesignator = "R22",
+                                            PartNumber = "11123-8897"
+                                        },
+                                        DefectImages = new List<Image>(new Image []
+                                        {
+                                            new Image () {ImageData = new byte[] {0x5d,0x28,0xe3,0x87,0xc8,0xb9} }
+                                        })
+                                    }
+                                })
+                            },
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "COSMETIC_INSPECTION",
+                                Result = TestResult.Failed,
+                                DefectsFound = new List<Defect>(new Defect []
+                                {
+                                    new Defect()
+                                    {
+                                        DefectCode = "SCR23443",
+                                        DefectCategory = "Cosmetic Problems",
+                                        Description = "Scratch Detected on PCB substrate",
+                                        RegionOfInterest = new Region()
+                                        {
+                                            StartPointX = 2.3,
+                                            StartPointY = 4.0,
+                                            RegionSegments = new List<Segment>(new Segment []
+                                            {
+                                                new Segment()
+                                                {
+                                                    X = 5.6, Y = 4.0
+                                                },
+                                                new Segment()
+                                                {
+                                                    X = 5.6, Y = 1.6
+                                                },
+                                                new Segment()
+                                                {
+                                                    X = 2.3, Y = 1.6
+                                                },
+                                                new Segment()
+                                                {
+                                                    X = 2.3, Y = 4.0
+                                                },
+                                            })
+                                        }
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsTested()
+            {
+                TransactionId = Guid.NewGuid(),
+                Tester = op1,
+                TestMethod = TestMethod.Automated,
+                TestedUnits = new List<TestedUnit>(new TestedUnit[]
+                {
+                    new TestedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 1,
+                        OverallResult = TestResult.Passed,
+                        Tests = new List<Test>(new Test []
+                        {
+                            new Test()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                TestName = "RESISTANCE_CHECK_R21",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new Measurement()
+                                    {
+                                        UniqueIdentifier = Guid.NewGuid().ToString(),
+                                        MeasurementName = "RESISTANCE_MEASUREMENT_R21",
+                                        ValueDataType = DataType.Numeric,
+                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
+                                        {
+                                            new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
+                                        }),
+                                        ExpectedValue = "28.2",
+                                        ExpectedValueUnits = "kOhm",
+                                        MaximumAcceptableValue = "28.4",
+                                        MinimumAcceptableValue = "28.0",
+                                        Value = "28300",
+                                        ValueUnits = "Ohm",
+                                        Result = TestResult.Passed,
+                                    }
+                                })
+                            },
+                            new Test()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                TestName = "RESISTANCE_CHECK_R22",
+                                Result = TestResult.Failed,
+                                SymptomsFound = new List<Symptom>(new Symptom []
+                                {
+                                    new Symptom ()
+                                    {
+                                        UniqueIdentifier = Guid.NewGuid().ToString(),
+                                        SymptomCode = "RESFAIL2",
+                                        SymptomCategory = "Electrical Tests",
+                                        Description = "Resistance Value Out of Tolerance",
+                                        ComponentsOfInterest = new List<ComponentDesignator>(new ComponentDesignator []
+                                        {
+                                            new ComponentDesignator()
+                                            {
+                                                ReferenceDesignator = "R22.1",
+                                                PartNumber = "41234-8897"
+                                            },
+                                            new ComponentDesignator()
+                                            {
+                                                ReferenceDesignator = "R22.2",
+                                                PartNumber = "41234-8897"
+                                            }
+                                        }),
+                                        RelatedMeasurements = new List<Measurement>(new Measurement []
+                                        {
+                                            new Measurement()
+                                            {
+                                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                                MeasurementName = "RESISTANCE_MEASUREMENT_R22",
+                                                ValueDataType = DataType.Numeric,
+                                                Components = new List<ComponentDesignator>(new ComponentDesignator []
+                                                {
+                                                    new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
+                                                }),
+                                                ExpectedValue = "28.2",
+                                                ExpectedValueUnits = "kOhm",
+                                                MaximumAcceptableValue = "28.4",
+                                                MinimumAcceptableValue = "28.0",
+                                                Value = "28.52",
+                                                ValueUnits = "kOhm",
+                                                Result = TestResult.Passed,
+                                            }
+                                        })
+                                    }
+                                }),
+                            }
+                        })
+                    },
+                    new TestedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 2,
+                        OverallResult = TestResult.Passed,
+                        Tests = new List<Test>(new Test []
+                        {
+                            new Test()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                TestName = "RESISTANCE_CHECK_R21",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new Measurement()
+                                    {
+                                        UniqueIdentifier = Guid.NewGuid().ToString(),
+                                        MeasurementName = "RESISTANCE_MEASUREMENT_R21",
+                                        ValueDataType = DataType.Numeric,
+                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
+                                        {
+                                            new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
+                                        }),
+                                        ExpectedValue = "28.2",
+                                        ExpectedValueUnits = "kOhm",
+                                        MaximumAcceptableValue = "28.4",
+                                        MinimumAcceptableValue = "28.0",
+                                        Value = "28300",
+                                        ValueUnits = "Ohm",
+                                        Result = TestResult.Passed,
+                                    }
+                                })
+                            },
+                            new Test()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                TestName = "RESISTANCE_CHECK_R22",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new Measurement()
+                                    {
+                                        UniqueIdentifier = Guid.NewGuid().ToString(),
+                                        MeasurementName = "RESISTANCE_MEASUREMENT_R22",
+                                        ValueDataType = DataType.Numeric,
+                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
+                                        {
+                                            new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
+                                        }),
+                                        ExpectedValue = "28.2",
+                                        ExpectedValueUnits = "kOhm",
+                                        MaximumAcceptableValue = "28.4",
+                                        MinimumAcceptableValue = "28.0",
+                                        Value = "28300",
+                                        ValueUnits = "Ohm",
+                                        Result = TestResult.Passed,
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsTested()
+            {
+                TransactionId = Guid.NewGuid(),
+                Tester = op1,
+                TestMethod = TestMethod.Automated,
+                TestedUnits = new List<TestedUnit>(new TestedUnit[]
+                {
+                    new TestedUnit()
+                    {
+                        UnitIdentifier = "UNIT123456789",
+                        UnitPositionNumber = 1,
+                        OverallResult = TestResult.Passed,
+                        Tests = new List<Test>(new Test []
+                        {
+                            new Test()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                TestName = "HOT_TEST",
+                                Result = TestResult.Passed,
+                                TestStartTime = DateTime.Now - TimeSpan.FromSeconds(32),
+                                TestCompletionTime = DateTime.Now,
+                                TestConditions = new List<EnvironmentalCondition>(new EnvironmentalCondition []
+                                {
+                                    new Temperature() { MeanValue = 45.2, MaxValue = 45.8, MinValue = 44.9 },
+                                    new Humidity() { MeanValue = 85.5, MaxValue = 85.7, MinValue = 85.4 },
+                                })
+                            },
+                            new Test()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                TestName = "COLD_TEST",
+                                Result = TestResult.Passed,
+                                TestStartTime = DateTime.Now - TimeSpan.FromSeconds(32),
+                                TestCompletionTime = DateTime.Now,
+                                TestConditions = new List<EnvironmentalCondition>(new EnvironmentalCondition []
+                                {
+                                    new Temperature() { MeanValue = -6.5, MaxValue = -6.4, MinValue = -6.7 },
+                                    new Humidity() { MeanValue = 22.5, MaxValue = 22.7, MinValue = 22.4 },
+                                })
+                            }
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            return result;
+        }
+
+        public string GenerateRoot()
+        {
+            string result = "";
+
+            CFXMessage msg = new WhoIsThereRequest();
+            AppendMessage(msg, ref result);
+
+            msg = new WhoIsThereResponse()
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123",
+                RequestNetworkUri = "amqp://host33/",
+                RequestTargetAddress = "/queue/SN23123"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new AreYouThereRequest()
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123",
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new AreYouThereResponse()
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123",
+                RequestNetworkUri = "amqp://host33/",
+                RequestTargetAddress = "/queue/SN23123"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetEndpointInformationRequest
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetEndpointInformationResponse
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123",
+                RequestNetworkUri = "amqp://host33:5688/",
+                RequestTargetAddress = "/queue/SN23123",
+                UniqueIdentifier = "UID564545645645656564",
+                FriendlyName = "SMD Placer 23123",
+                Vendor = "SMT Plus",
+                ModelNumber = "Model_21232",
+                SerialNumber = "SN23123",
+                SupportedTopics = new List<SupportedTopic>(new SupportedTopic [] 
+                {
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.Production"
+                    },
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.Production.Assembly"
+                    },
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.ResourcePerformance"
+                    },
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new EndpointConnected()
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123",
+                RequestNetworkUri = "amqp://host33/",
+                RequestTargetAddress = "/queue/SN23123"
+            };
             AppendMessage(msg, ref result);
 
             return result;
@@ -1349,15 +1854,15 @@ namespace CFXExampleEndpoint
                 TransactionId = Guid.NewGuid(),
                 Readings = new List<Reading>(new Reading[] {
                     new Reading() { ReadingIdentifier = "CHIPTEMP1", ReadingSequence = 1, ValueDataType = DataType.Numeric, Value = "18.1", ValueUnits = "C",
-                                    ExpectedValue = "17.5", ExpectedValueUnits = "C", MaxumumAcceptableValue = "18.9", MinimumAcceptableValue = "11.5",
-                                    Result = StatusResult.Success, TimeRecorded = DateTime.Now, UnitPositionNumber = 1,
+                                    ExpectedValue = "17.5", ExpectedValueUnits = "C", MaximumAcceptableValue = "18.9", MinimumAcceptableValue = "11.5",
+                                    Result = TestResult.Passed, TimeRecorded = DateTime.Now, UnitPositionNumber = 1,
                                     Components = new List<ComponentDesignator>(new ComponentDesignator []
                                     {
                                         new ComponentDesignator() { ReferenceDesignator = "U22", PartNumber = "IPN11234" }
                                     }) },
                    new Reading() { ReadingIdentifier = "VOLTAGE1", ReadingSequence = 2, ValueDataType = DataType.Numeric, Value = "220.56", ValueUnits = "VDC",
-                                    ExpectedValue = "221.50", ExpectedValueUnits = "VDC", MaxumumAcceptableValue = "223.0", MinimumAcceptableValue = "220.0",
-                                    Result = StatusResult.Success, TimeRecorded = DateTime.Now, UnitPositionNumber = 1,
+                                    ExpectedValue = "221.50", ExpectedValueUnits = "VDC", MaximumAcceptableValue = "223.0", MinimumAcceptableValue = "220.0",
+                                    Result = TestResult.Passed, TimeRecorded = DateTime.Now, UnitPositionNumber = 1,
                                     Components = new List<ComponentDesignator>(new ComponentDesignator []
                                     {
                                         new ComponentDesignator() { ReferenceDesignator = "R11", PartNumber = "IPN11222" },
@@ -1365,15 +1870,15 @@ namespace CFXExampleEndpoint
                                         new ComponentDesignator() { ReferenceDesignator = "R56", PartNumber = "IPN11222" }
                                     }) },
                    new Reading() { ReadingIdentifier = "CHIPTEMP1", ReadingSequence = 1, ValueDataType = DataType.Numeric, Value = "18.9", ValueUnits = "C",
-                                    ExpectedValue = "17.5", ExpectedValueUnits = "C", MaxumumAcceptableValue = "18.9", MinimumAcceptableValue = "11.5",
-                                    Result = StatusResult.Success, TimeRecorded = DateTime.Now, UnitPositionNumber = 2,
+                                    ExpectedValue = "17.5", ExpectedValueUnits = "C", MaximumAcceptableValue = "18.9", MinimumAcceptableValue = "11.5",
+                                    Result = TestResult.Passed, TimeRecorded = DateTime.Now, UnitPositionNumber = 2,
                                     Components = new List<ComponentDesignator>(new ComponentDesignator []
                                     {
                                         new ComponentDesignator() { ReferenceDesignator = "U22", PartNumber = "IPN11234" }
                                     }) },
                    new Reading() { ReadingIdentifier = "VOLTAGE1", ReadingSequence = 2, ValueDataType = DataType.Numeric, Value = "221.56", ValueUnits = "VDC",
-                                    ExpectedValue = "221.50", ExpectedValueUnits = "VDC", MaxumumAcceptableValue = "223.0", MinimumAcceptableValue = "220.0",
-                                    Result = StatusResult.Success, TimeRecorded = DateTime.Now, UnitPositionNumber = 2,
+                                    ExpectedValue = "221.50", ExpectedValueUnits = "VDC", MaximumAcceptableValue = "223.0", MinimumAcceptableValue = "220.0",
+                                    Result = TestResult.Passed, TimeRecorded = DateTime.Now, UnitPositionNumber = 2,
                                     Components = new List<ComponentDesignator>(new ComponentDesignator []
                                     {
                                         new ComponentDesignator() { ReferenceDesignator = "R11", PartNumber = "IPN11222" },
@@ -1427,6 +1932,17 @@ namespace CFXExampleEndpoint
             AppendMessage(msg, ref result);
 
             msg = new UnitsDeparted()
+            {
+                Units = new List<UnitPosition>(
+                    new UnitPosition[]
+                    {
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                    })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsDisqualified()
             {
                 Units = new List<UnitPosition>(
                     new UnitPosition[]

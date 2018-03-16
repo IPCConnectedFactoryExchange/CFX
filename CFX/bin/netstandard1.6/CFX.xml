@@ -4,6 +4,11 @@
         <name>CFX</name>
     </assembly>
     <members>
+        <member name="P:CFX.AreYouThereResponse.RequestTargetAddress">
+            <summary>
+            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            </summary>
+        </member>
         <member name="T:CFX.CFXEnvelope">
             <summary>
             The <see cref="T:CFX.CFXEnvelope"/> class is the outer envelope or container in which all CFX messages are enclosed for transmission.
@@ -14,6 +19,21 @@
         <member name="P:CFX.CFXEnvelope.MessageBody">
             <summary>
             The message payload (The CFX message enclosed in this envelope).
+            </summary>
+        </member>
+        <member name="P:CFX.EndpointConnected.RequestTargetAddress">
+            <summary>
+            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.RequestTargetAddress">
+            <summary>
+            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.UniqueIdentifier">
+            <summary>
+            The barcode, RFID, or other unique identifier that is used to identify this machine / endpoint.
             </summary>
         </member>
         <member name="P:CFX.Materials.Storage.GetLoadedMaterialsRequest.LocationIdentifiers">
@@ -172,6 +192,41 @@
             process, and the sensor is capable if reading multiple identifiers. 
             </summary>
         </member>
+        <member name="T:CFX.Structures.ActorType">
+            <summary>
+            Types of Operators
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ActorType.Human">
+            <summary>
+            A human being is performing the operation
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ActorType.Robot">
+            <summary>
+            A robotic / automated device is performing the operation
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.BlockReason">
+            <summary>
+            Reasons why a unit is blocked
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.BlockReason.Unspecified">
+            <summary>
+            No reason specified
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.BlockReason.SuspectedProblem">
+            <summary>
+            There exists suspicion that the unit may be defective or otherwise problematic
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.BlockReason.Defective">
+            <summary>
+            The unit is known to be defective.
+            </summary>
+        </member>
         <member name="T:CFX.Structures.ComponentDesignator">
             <summary>
             Represents and identifies a particular component (instance of a part) on a production unit, or a particular aspect
@@ -195,11 +250,276 @@
             The internal part number of the designated component.
             </summary>
         </member>
+        <member name="T:CFX.Structures.DataType">
+            <summary>
+            Types of data
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.String">
+            <summary>
+            Text based data
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.StringList">
+            <summary>
+            A list of test based data
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.Numeric">
+            <summary>
+            Numeric data (floating point)
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.Integer">
+            <summary>
+            Numeric data (integer / non-floating point)
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.Boolean">
+            <summary>
+            True or False data
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.Enumeration">
+            <summary>
+            A single value selected from a list of possibilities
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.Binary">
+            <summary>
+            An array of bytes
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.DataType.Guid">
+            <summary>
+            A 128-bit globallyt unique integer based numeric value
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Defect.Priority">
+            <summary>
+            The priority of this defect as compared to other defects discovered for this unit.
+            A priority of 1 indicates the highest priority.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Defect.ConfidenceLevel">
+            <summary>
+            A floating point number from 1 to 100 indicating the level of confidence
+            in the validity of this defect.  Intended to be used by humans that screen
+            the results of inspections made by automated inspection equipment, 
+            which may produce false defects from time to time.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.FaultCause">
+            <summary>
+            Possible causes of a fault that causes a stoppage in production
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.LoadError">
+            <summary>
+            A problem occurred loading a unit
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.UnloadError">
+            <summary>
+            A problem occurred unloading a unit
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.AutoSafetyStop">
+            <summary>
+            A safety stop was automatically triggered by automation
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.SafetyStop">
+            <summary>
+            A safety stop was manually triggered by a human being
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.QualityCheck">
+            <summary>
+            A stop was triggered due to a quality related problem
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.RemoteStop">
+            <summary>
+            A stop was triggered remotely
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.MechanicalFailure">
+            <summary>
+            A stop was induced by a mechanical failure
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.SoftwareFailure">
+            <summary>
+            A stop was induced by a software failure
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.PowerFailure">
+            <summary>
+            A stop was induced by a power failure
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultCause.MissingDocumentation">
+            <summary>
+            A stop was induced because required documentation was missing
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.FaultSeverity">
+            <summary>
+            The severity of a fault
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultSeverity.Information">
+            <summary>
+            Informational purposes.  No stoppage.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultSeverity.Warning">
+            <summary>
+            Warning.  No stoppage
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultSeverity.Error">
+            <summary>
+            Error.  Stoppage.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.FaultSeverity.Alarm">
+            <summary>
+            Safety related Error.  Stoppage.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Image.MimeType">
+            <summary>
+            The MIME type of the binary image data contained by the ImageData property.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Image.ImageData">
+            <summary>
+            A binary representation of the image.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Inspection.UniqueIdentifier">
+            <summary>
+            A unique indentifier describing a particular instance of an inspection was made.
+            Each new occurrence or recurrence of this same inspection gets a new unique identifier.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Inspection.TestProcedure">
+            <summary>
+            Procedure to be followed to perform this inspection (primarily for human driven inspection).
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Inspection.Error">
+            <summary>
+            In the case that the inspection cannot be completed, the error that was the cause of this outcome.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.LockReason">
+            <summary>
+            Reason for a production lock condition
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LockReason.QualityIssue">
+            <summary>
+            Production locked due to quality related issue
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LockReason.PreventativeMaintenance">
+            <summary>
+            Production locked due to preventative maintenance
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LockReason.UnscheduledMaintenance">
+            <summary>
+            Production locked due to unscheduled maintenance
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LockReason.GeneralLock">
+            <summary>
+            Production locked for unspecified reason
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.LogImportance">
+            <summary>
+            Importance of an event log entry
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LogImportance.Debug">
+            <summary>
+            Useful for debugging purposes
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LogImportance.Information">
+            <summary>
+            General information
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LogImportance.Warning">
+            <summary>
+            Warning
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LogImportance.Error">
+            <summary>
+            Recoverable error
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.LogImportance.Fatal">
+            <summary>
+            Error that caused an unrecoverable condition
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaintenanceType">
+            <summary>
+            Types of Maintenance
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaintenanceType.Preventive">
+            <summary>
+            Maintenance intended to prevent breakdowns that have not yet occurred
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaintenanceType.Inspection">
+            <summary>
+            Inspection intended to prevent breakdowns that have not yet occurred
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaintenanceType.Repair">
+            <summary>
+            Repair of a breakdown that has occurred.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaintenanceType.Test">
+            <summary>
+            Testing of repairs made
+            </summary>
+        </member>
         <member name="P:CFX.Structures.MaterialLocation.LocationIdentifier">
             <summary>
             The unique identifier of the location on the Endpoint where the MaterialPackage is to be loaded.
             If this property is left empty, the MaterialPackage will only be loaded to the carrier specified
             by the CarrierInformation property, and not to an Endpoint.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialModifyReason">
+            <summary>
+            Reason why the attributes of a material package were modified
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaterialModifyReason.Unspecified">
+            <summary>
+            No reason specified
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaterialModifyReason.InformationWasIncorrect">
+            <summary>
+            Correction of incorrect information
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaterialModifyReason.ManualCountAndQuantityUpdate">
+            <summary>
+            Quantity updated after manual count / measurement
             </summary>
         </member>
         <member name="P:CFX.Structures.MaterialSetupRequirement.Position">
@@ -226,6 +546,150 @@
             a part will only be acceptable if both its internal part number matches the PartNumber property (or Alternates), 
             AND its manufacturer part number matches one of the parts specified in the ApprovedManufacturerParts property.
             
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialStatus">
+            <summary>
+            Status of a material package
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaterialStatus.Active">
+            <summary>
+            Material is available for use in production
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaterialStatus.Blocked">
+            <summary>
+            Material has been blocked, and should not be used in production
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MaterialStatus.Depleted">
+            <summary>
+            Material has been exhausted, and can no longer be used in production
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.UniqueIdentifier">
+            <summary>
+            A unique identifier that for this particular measurement instance
+            (new and unique each time a new measurement is made or repeated).
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.MeasurementName">
+            <summary>
+            A name that uniquely describes the test or measurement that was performed.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.TimeRecorded">
+            <summary>
+            The date/time when this Measurement was recorded.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.Sequence">
+            <summary>
+            An optional positive integer describing the sequence in which the tests or measurements were performed
+            that resulted in this Reading.
+            /// </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.Result">
+            <summary>
+            An enumeration indicating whether or not this reading is considered acceptable.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.Components">
+            <summary>
+            An optional list of components (instance of a part) on a production unit(s) to be associated with this reading.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.ValueMimeType">
+            <summary>
+            If the Reading is of type DataType.Binary, this property contains the MIME type
+            of the binary data contained in the BinaryValue property.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Measurement.BinaryValue">
+            <summary>
+            If the Reading is of type DataType.Binary, this property contains the binary
+            representation of the value.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MSDLevel">
+            <summary>
+            Levels of Moisture Sensitivity (for electronic devices)
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.Unspecified">
+            <summary>
+            Unknown sensitivity
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL1">
+            <summary>
+            Sensitivity Level 1
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL2">
+            <summary>
+            Sensitivity Level 1
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL2A">
+            <summary>
+            Sensitivity Level 2
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL3">
+            <summary>
+            Sensitivity Level 2A
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL4">
+            <summary>
+            Sensitivity Level 3
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL5">
+            <summary>
+            Sensitivity Level 4
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL5A">
+            <summary>
+            Sensitivity Level 5
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDLevel.MSL6">
+            <summary>
+            Sensitivity Level 6
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MSDState">
+            <summary>
+            Possible states of packages of moisture sensitive devices
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDState.Unspecified">
+            <summary>
+            Unspecified state
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDState.NeverOpened">
+            <summary>
+            Sealed and never opened.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDState.Exposed">
+            <summary>
+            Open and exposed to the atmosphere
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDState.InDryStorage">
+            <summary>
+            Open but stored in low humidity environment
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.MSDState.Expired">
+            <summary>
+            Exposed to atmosphere/moisture beyond acceptable limits.
             </summary>
         </member>
         <member name="P:CFX.Structures.Operator.OperatorIdentifier">
@@ -295,6 +759,156 @@
             A binary representation of the recipe data.
             </summary>
         </member>
+        <member name="T:CFX.Structures.RecipeModificationReason">
+            <summary>
+            Reasons why a recipe was modified at an endpoint
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.Unspecified">
+            <summary>
+            Unspecified reason
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.NewRecipe">
+            <summary>
+            Newly created recipe
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.NewRevision">
+            <summary>
+            New revision of an existing recipe
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.UpdatedGeometry">
+            <summary>
+            Geometric information was updated
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.UpdatedBOM">
+            <summary>
+            Bill of Materials information was updated
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.PositionalCorrection">
+            <summary>
+            Correction to positional information
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.RotationalCorrection">
+            <summary>
+            Correction to rotational information
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.RecipeModificationReason.VisionSystemCorrection">
+            <summary>
+            Correction to information needed by vision system.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.ResourceState">
+            <summary>
+            Endpoint state model
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.Off">
+            <summary>
+            Endpoint is Off (Shutdown)
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.On">
+            <summary>
+            Endpoint is on but not engaged in any activity
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.Setup">
+            <summary>
+            Endpoint is being set up for production
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.ScheduledDowntime">
+            <summary>
+            Endpoint is down (scheduled / planned)
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.ScheduledMaintenance">
+            <summary>
+            Endpoint is undergoing maintenance
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.Engineering">
+            <summary>
+            Endpoint is being used by engineering for experimental / development purposes
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.ReadyProcessingActive">
+            <summary>
+            Endpoint is performing non-value added work during production
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.ReadyProcessingExecuting">
+            <summary>
+            Endpoint is performing value added work during production
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.Idle">
+            <summary>
+            Endpoint is ready for production, but not performing any work
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.IdleBlocked">
+            <summary>
+            Endpoint is ready for production, but cannot perform work because downstream process is blocking
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.IdleStarved">
+            <summary>
+            Endpoint is ready for production, but cannot perform work because no units are available form upstream process
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.Bypass">
+            <summary>
+            Endpoint is ready for production, but intentionally skipped or left unutilized because it is unecessary
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.UnplannedDowntime">
+            <summary>
+            Endpoint is down (unscheduled / unplanned)
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ResourceState.Sleep">
+            <summary>
+            Endpoint is idle and in low power mode
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SamplingMethod.NoSampling">
+            <summary>
+            No sampling.  All units are inspected (100% Inspection).
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SamplingMethod.ANSI_Z14">
+            <summary>
+            Units sampled according to ANSI/ASQ Z1.4 AQL methods.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SamplingMethod.MIL_STD_105">
+            <summary>
+            Units sampled according to MIL-STD-105 mil standard.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SamplingMethod.MIL_STD_1916">
+            <summary>
+            Units sampled according to MIL-STD-1916 mil standard.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SamplingMethod.Squeglia">
+            <summary>
+            Units sampled according to the Squeglia AQL method.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SamplingMethod.FixedSample">
+            <summary>
+            A fixed number of units were sampled (lot size disregarded).
+            </summary>
+        </member>
         <member name="P:CFX.Structures.SMTPlacement.SMDTapeFeeder.BaseUniqueIdentifier">
             <summary>
             For multi-lane feeders, the unique identifier of the base.  The UniqueIdentifier
@@ -315,6 +929,116 @@
             of the lane within the feeder.
             </summary>
         </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMDTapePitch">
+            <summary>
+            Pitch of Tape Feeder
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.NotSpecified">
+            <summary>
+            Unknown Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Adjustable">
+            <summary>
+            Adjustable Pitch Feeder
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch2mm">
+            <summary>
+            2mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch4mm">
+            <summary>
+            4mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch8mm">
+            <summary>
+            8mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch12mm">
+            <summary>
+            12mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch16mm">
+            <summary>
+            16mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch24mm">
+            <summary>
+            24mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch32mm">
+            <summary>
+            32mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch36mm">
+            <summary>
+            36mm Pitch
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMDTapeType">
+            <summary>
+            Tape type for Package of Taped SMD's
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeType.Embossed">
+            <summary>
+            Embossed Tape
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeType.PunchedPaper">
+            <summary>
+            Punched Paper Tape
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMDTapeWidth">
+            <summary>
+            Width of Taped SMD's
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape8mm">
+            <summary>
+            8mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape12mm">
+            <summary>
+            12mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape16mm">
+            <summary>
+            16mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape24mm">
+            <summary>
+            24mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape32mm">
+            <summary>
+            32mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape44mm">
+            <summary>
+            44mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape79mm">
+            <summary>
+            79mm Width
+            </summary>
+        </member>
         <member name="P:CFX.Structures.SMTPlacement.SMDTubeFeeder.BaseUniqueIdentifier">
             <summary>
             The unique identifier of the vibratoryb tube feeder base of which this
@@ -333,6 +1057,131 @@
             The position number of this tube feeder position within its base.
             </summary>
         </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMTPlacementFaultType">
+            <summary>
+            Types of SMT Placement Faults
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.VacuumError">
+            <summary>
+            Insufficient vacuum to manipulate part.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.XAxisError">
+            <summary>
+            Problem with the x motion axis
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.YAxisError">
+            <summary>
+            Problem with the y motion axis
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.ZAxisError">
+            <summary>
+            Problem with the z motion axis
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.RecognitionError">
+            <summary>
+            Part not recognized by vision system
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.PickupError">
+            <summary>
+            Part not picked up properly
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.PlacementError">
+            <summary>
+            Part not place properly
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.LightingError">
+            <summary>
+            Insufficient or incorrect lighting.  Vision system not able to characterize part
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.HeadError">
+            <summary>
+            Error with placement head
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.NozzleError">
+            <summary>
+            Error with placement nozzle
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.ComponentDropped">
+            <summary>
+            Component dropped in transit
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.PartsExhaust">
+            <summary>
+            Material supply exhausted
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMTPlacementFaultType.FiducialError">
+            <summary>
+            Error decoding fiducial reference mark
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTCleanType">
+            <summary>
+            Types of SMT stencil cleans
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Normal">
+            <summary>
+            A typical clean
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Deep">
+            <summary>
+            A more involved, deeper clean
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Quick">
+            <summary>
+            A fast, light clean
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFaultType">
+            <summary>
+            Types of SMT printing faults
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFaultType.SqueegeeError">
+            <summary>
+            A squeegee related error
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFaultType.PasteError">
+            <summary>
+            A paste related error
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTStencilCleanMode">
+            <summary>
+            Modes of stencil cleaning
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTStencilCleanMode.W">
+            <summary>
+            Clean mode W
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTStencilCleanMode.V">
+            <summary>
+            Clean mode V
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTStencilCleanMode.D">
+            <summary>
+            Clean mode D
+            </summary>
+        </member>
         <member name="P:CFX.Structures.StationSetupRequirements.Lane">
             <summary>
             An optional property designating the applicable Lane.
@@ -348,9 +1197,283 @@
             An optional name for this particular setup.
             </summary>
         </member>
+        <member name="T:CFX.Structures.StatusResult">
+            <summary>
+            Result of an operation
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.StatusResult.Unspecified">
+            <summary>
+            Unknown result
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.StatusResult.Success">
+            <summary>
+            Successful completion of operation
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.StatusResult.Failed">
+            <summary>
+            Operation was not completed successfully
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.StatusResult.Warning">
+            <summary>
+            Operation successful but with warning(s)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SupportedTopic.SupportedMessages">
+            <summary>
+            If an endpoint does not support ALL CFX messages that have been defined for a given CFX topic,
+            then it must explicitly list which messages is does support.  An empty list implies that the 
+            endpoint supports ALL messages of this topic.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Symptom.Priority">
+            <summary>
+            The priority of this symptom as compared to other symptom discovered for this unit.
+            A priority of 1 indicates the highest priority.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Test.UniqueIdentifier">
+            <summary>
+            A unique indentifier describing a particular instance of a test that was undertaken.
+            Each new occurrence or recurrence of this same inspection gets a new unique identifier.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Test.TestProcedure">
+            <summary>
+            Procedure to be followed to perform this test (primarily for human driven test).
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Test.Error">
+            <summary>
+            In the case that the test cannot be completed, the error that was the cause of this outcome.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.TestMethod">
+            <summary>
+            Method of testing
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TestMethod.Human">
+            <summary>
+            The test was performed by a human being
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TestMethod.Automated">
+            <summary>
+            The test was performed by automated equipment / device
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.TestResult">
+            <summary>
+            The result of a test
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TestResult.Passed">
+            <summary>
+            The test passed
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TestResult.Failed">
+            <summary>
+            The test failed
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TestResult.Error">
+            <summary>
+            The test could not be completed because an error occurred.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TestResult.Aborted">
+            <summary>
+            The test was aborted by the operator / user.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.THTInsertion.THTInsertionFaultType">
+            <summary>
+            Types of Through Hold Device Insertion Faults
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.XAxisError">
+            <summary>
+            Error in x motion axis
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.YAxisError">
+            <summary>
+            Error in y motion axis
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.ZAxisError">
+            <summary>
+            Error in z motion axis
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.InsertionError">
+            <summary>
+            Part not inserted properly
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.AlignmentError">
+            <summary>
+            Part cannot be properly aligned with PCB hole
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.PickupError">
+            <summary>
+            Part could not be picked
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.PartsExhaustedError">
+            <summary>
+            Material supply exhausted
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.AnvilError">
+            <summary>
+            Anvil related problem
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.ClinchError">
+            <summary>
+            Clinch related problem
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.PanelLocationError">
+            <summary>
+            PCB not properly aligned in fixture / transport
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.AirSupplyDown">
+            <summary>
+            Insufficient pressurized air supply
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.TransportOrderStatus">
+            <summary>
+            The status of an order to transport goods
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TransportOrderStatus.Unspecified">
+            <summary>
+            The status is unknown
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TransportOrderStatus.Pending">
+            <summary>
+            The order is awaiting fulfillment
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TransportOrderStatus.Kitting">
+            <summary>
+            The ordered items are being gathered and readied for transport
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TransportOrderStatus.Kitted">
+            <summary>
+            The ordered items are ready to be transported, but have not yet departed the point of origination
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TransportOrderStatus.InTransit">
+            <summary>
+            The ordered items are in transit
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TransportOrderStatus.Delivered">
+            <summary>
+            The ordered items have been delivered to their final destination
+            </summary>
+        </member>
         <member name="T:CFX.Structures.UnitPosition">
             <summary>
             A data object identifying a single production unit being processed during production.  A single work transaction
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.ValidationStatus">
+            <summary>
+            The result of a validation operation
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ValidationStatus.Passed">
+            <summary>
+            The validation has succeeded
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ValidationStatus.Failed">
+            <summary>
+            The validation has failed (not succeeded)
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.ValidationType">
+            <summary>
+            Types of validations
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ValidationType.UnitRouteValidation">
+            <summary>
+            A validation that ensures a unit is at the proper step in the route, and has completed all
+            pre-requisite steps.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ValidationType.UnitStatusValidation">
+            <summary>
+            A validation that ensures a unit is not in a failed or error condition
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ValidationType.UnitAndSubsStatusValidation">
+            <summary>
+            A validation that ensures a unit and ALL of its sub-assemblies are not in a failed or error condition
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.ValidationType.All">
+            <summary>
+            All known validations should be performed
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.WorkResult">
+            <summary>
+            The result of an operation where work was performed on a production unit
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkResult.Completed">
+            <summary>
+            The work was completed successfully
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkResult.Failed">
+            <summary>
+            The work was completed, but with an undesireable result
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkResult.Aborted">
+            <summary>
+            Work was not completed
+            </summary>
+        </member>
+        <member name="T:CFX.Transport.SHA">
+            <summary> 
+              Static class providing Secure Hashing Algorithm (SHA-1, SHA-224, SHA-256) 
+            </summary> 
+        </member>
+        <member name="M:CFX.Transport.SHA.computeHMAC_SHA256(System.Byte[],System.Byte[])">
+            <summary> 
+              Compute HMAC SHA-256 
+            </summary> 
+            <param name = "secret">Secret</param> 
+            <param name = "value">Password</param> 
+            <returns>32 byte HMAC_SHA256</returns> 
+        </member>
+        <member name="M:CFX.Transport.SHA.computeSHA256(System.Byte[])">
+            <summary> 
+              Compute SHA-256 digest 
+            </summary> 
+            <param name = "input">Input array</param> 
+        </member>
+        <member name="P:CFX.WhoIsThereResponse.RequestTargetAddress">
+            <summary>
+            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
             </summary>
         </member>
     </members>

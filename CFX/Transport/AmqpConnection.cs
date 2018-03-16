@@ -10,18 +10,21 @@ using Amqp.Listener;
 using Amqp.Sasl;
 using System.Text;
 using CFX.Utilities;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace CFX.Transport
 {
     internal class AmqpConnection : IDisposable
     {
-        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, AuthenticationMode authMode)
+        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, AuthenticationMode authMode, X509Certificate certificate = null)
         {
             SendTimout = TimeSpan.FromSeconds(5);
             links = new List<AmqpLink>();
             NetworkUri = uri;
             Endpoint = endpoint;
             AuthenticationMode = authMode;
+            Certificate = certificate;
         }
 
         public TimeSpan SendTimout
@@ -56,7 +59,14 @@ namespace CFX.Transport
             set;
         }
 
+        public X509Certificate Certificate
+        {
+            get;
+            set;
+        }
+
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
+        public event ValidateServerCertificateHandler OnValidateCertificate;
 
         private Connection connection;
         private Session session;
@@ -89,15 +99,20 @@ namespace CFX.Transport
                         ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
                     };
 
-                    if (!anonymous)
+                    if (!anonymous || Certificate != null)
                     {
                         isAsync = true;
 
                         ConnectionFactory factory = new ConnectionFactory();
                         if (anonymous)
-                            factory.SASL.Profile = SaslProfile.Anonymous;
-                        else
+                        {
                             factory.SASL.Profile = SaslProfile.External;
+                        }
+                        else
+                        {
+                            factory.SASL.Profile = SaslProfile.Anonymous;
+                        }
+                        //if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
 
                         Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
                         t.Wait(5000);
@@ -108,7 +123,6 @@ namespace CFX.Transport
                     else
                     {
                         isAsync = false;
-
                         connection = new Connection(new Address(NetworkUri.ToString()), SaslProfile.Anonymous, o, null);
                     }
                     
@@ -129,6 +143,28 @@ namespace CFX.Transport
                 Cleanup();
                 throw connectException;
             }
+        }
+
+        protected bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            AppLog.Debug(string.Format("Validating remote certificate. Subject: {0}, Policy errors: {1}", certificate.Subject, sslPolicyErrors));
+
+            if (OnValidateCertificate != null)
+            {
+                // Validate Certificate Externally
+                ValidateCertificateResult result = OnValidateCertificate(NetworkUri, certificate, chain, sslPolicyErrors);
+                if (result == ValidateCertificateResult.Valid) return true;
+                if (result == ValidateCertificateResult.Invalid) return false;
+            }
+
+            if (certificate != null && Certificate != null)
+            {
+                byte[] key1 = certificate.GetPublicKey();
+                byte[] key2 = Certificate.GetPublicKey();
+                if (key1.SequenceEqual(key2)) return true;
+            }
+
+            return false;
         }
 
         private Timer keepAliveTimer = null;
@@ -250,7 +286,7 @@ namespace CFX.Transport
             {
                 if (links.Any(l => l.Address == address)) throw new Exception("A channel already exists for this address");
 
-                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address);
+                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle);
                 links.Add(link);
             }
         }
@@ -332,7 +368,19 @@ namespace CFX.Transport
                 AppLog.Error(ex);
             }
 
-            if (envelopes != null && OnCFXMessageReceived != null)
+            if (envelopes == null || (envelopes != null && envelopes.Count < 1))
+            {
+                try
+                {
+                    receiver.Accept(message);
+                    AppLog.Error(string.Format("Malformed Message Received:  {0}", AmqpUtilities.MessagePreview(message)));
+                }
+                catch (Exception ex)
+                {
+                    AppLog.Error(ex);
+                }
+            }
+            else if (envelopes != null && OnCFXMessageReceived != null)
             {
                 try
                 {
@@ -403,11 +451,19 @@ namespace CFX.Transport
     }
 
     public delegate void CFXMessageReceivedHandler(AmqpChannelAddress source, CFXEnvelope message);
-
+    public delegate ValidateCertificateResult ValidateServerCertificateHandler(Uri source, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors);
+    
     public enum AuthenticationMode
     {
         Auto,
         Anonymous,
         External
+    }
+
+    public enum ValidateCertificateResult
+    {
+        Valid,
+        Invalid,
+        NotValidated
     }
 }

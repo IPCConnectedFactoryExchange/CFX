@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Amqp;
@@ -24,6 +25,7 @@ namespace CFX.Transport
             if (!KeepAliveInterval.HasValue) KeepAliveInterval = TimeSpan.FromSeconds(60);
             if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
+            if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(5);
         }
 
@@ -32,6 +34,7 @@ namespace CFX.Transport
 
         public event OnRequestHandler OnRequestReceived;
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
+        public event ValidateServerCertificateHandler OnValidateCertificate;
 
         public string CFXHandle
         {
@@ -81,6 +84,12 @@ namespace CFX.Transport
             set;
         }
 
+        public static bool? DurableMessages
+        {
+            get;
+            set;
+        }
+
         public static uint? DurableReceiverSetting
         {
             get;
@@ -111,9 +120,9 @@ namespace CFX.Transport
                 else
                     this.RequestUri = new Uri(string.Format("amqp://{0}:5672", EnvironmentHelper.GetMachineName()));
 
-                requestProcessor = new AmqpRequestProcessor();
-                requestProcessor.Open(this.CFXHandle, this.RequestUri);
-                requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
+                //requestProcessor = new AmqpRequestProcessor();
+                //requestProcessor.Open(this.CFXHandle, this.RequestUri);
+                //requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
 
                 IsOpen = true;
             }
@@ -146,12 +155,12 @@ namespace CFX.Transport
             return result;
         }
 
-        public void AddPublishChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto)
+        public void AddPublishChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
         {
-            AddPublishChannel(address.Uri, address.Address);
+            AddPublishChannel(address.Uri, address.Address, authMode, certificate);
         }
 
-        public void AddPublishChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto)
+        public void AddPublishChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -163,8 +172,9 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress, this, authMode);
+                channel = new AmqpConnection(networkAddress, this, authMode, certificate);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
+                channel.OnValidateCertificate += Channel_OnValidateCertificate;
                 channels[key] = channel;
             }
 
@@ -196,12 +206,12 @@ namespace CFX.Transport
             }
         }
 
-        public void AddSubscribeChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto)
+        public void AddSubscribeChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
         {
-            AddSubscribeChannel(address.Uri, address.Address);
+            AddSubscribeChannel(address.Uri, address.Address, authMode, certificate);
         }
 
-        public void AddSubscribeChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto)
+        public void AddSubscribeChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -213,8 +223,9 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress, this, authMode);
+                channel = new AmqpConnection(networkAddress, this, authMode, certificate);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
+                channel.OnValidateCertificate += Channel_OnValidateCertificate;
                 channels[key] = channel;
             }
 
@@ -249,6 +260,16 @@ namespace CFX.Transport
         private void Channel_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
         {
             OnCFXMessageReceived?.Invoke(source, message);
+        }
+
+        private ValidateCertificateResult Channel_OnValidateCertificate(Uri source, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            if (OnValidateCertificate != null)
+            {
+                return OnValidateCertificate(source, certificate, chain, sslPolicyErrors);
+            }
+
+            return ValidateCertificateResult.NotValidated;
         }
 
         private CFXEnvelope RequestProcessor_OnRequestReceived(CFXEnvelope request)

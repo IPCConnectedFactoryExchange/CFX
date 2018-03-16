@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>CFX</name>
+        <name>CFXnet46</name>
     </assembly>
     <members>
         <member name="T:CFX.CFXEnvelope">
@@ -352,6 +352,25 @@
             <summary>
             A data object identifying a single production unit being processed during production.  A single work transaction
             </summary>
+        </member>
+        <member name="T:CFX.Transport.SHA">
+            <summary> 
+              Static class providing Secure Hashing Algorithm (SHA-1, SHA-224, SHA-256) 
+            </summary> 
+        </member>
+        <member name="M:CFX.Transport.SHA.computeHMAC_SHA256(System.Byte[],System.Byte[])">
+            <summary> 
+              Compute HMAC SHA-256 
+            </summary> 
+            <param name = "secret">Secret</param> 
+            <param name = "value">Password</param> 
+            <returns>32 byte HMAC_SHA256</returns> 
+        </member>
+        <member name="M:CFX.Transport.SHA.computeSHA256(System.Byte[])">
+            <summary> 
+              Compute SHA-256 digest 
+            </summary> 
+            <param name = "input">Input array</param> 
         </member>
     </members>
 </doc>

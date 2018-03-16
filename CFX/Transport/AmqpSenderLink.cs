@@ -11,19 +11,20 @@ namespace CFX.Transport
 {
     internal class AmqpSenderLink : AmqpLink, IDisposable
     {
-        public AmqpSenderLink(Uri uri, string address) : base(address)
+        public AmqpSenderLink(Uri uri, string address, string sourceHandle) : base(address)
         {
-            Queue = new DurableQueue(GetLinkFileName(uri, address));
+            Queue = new DurableQueue(GetLinkFileName(uri, address, sourceHandle));
             LinkType = LinkType.Sender;
         }
 
         protected static readonly char[] invalidFileNameChars = System.IO.Path.GetInvalidFileNameChars();
 
-        protected static string GetLinkFileName(Uri uri, string address)
+        protected static string GetLinkFileName(Uri uri, string address, string sourceHandle)
         {
             string result = uri.Host;
             if (uri.Port != 0) result += string.Format("-{0}", uri.Port);
             result += "-" + address;
+            result += "-" + sourceHandle;
 
             result = new string(result.Select(ch => invalidFileNameChars.Contains(ch) ? '_' : ch).ToArray());
             return result;
@@ -52,6 +53,16 @@ namespace CFX.Transport
             AppLog.Info(string.Format("sender-{0}  {1}", Address, message));
         }
 
+        private void LogDebug(string message)
+        {
+            AppLog.Debug(string.Format("sender-{0}  {1}", Address, message));
+        }
+
+        private void LogWarn(string message)
+        {
+            AppLog.Warn(string.Format("sender-{0}  {1}", Address, message));
+        }
+
         private void LogError(Exception ex)
         {
             AppLog.Error(string.Format("sender-{0}  {1}", Address, ex.Message));
@@ -73,7 +84,7 @@ namespace CFX.Transport
 
         public void Publish(CFXEnvelope [] envelopes)
         {
-            LogInfo(string.Format("Enqueuing {0} messages.", envelopes.Length));
+            LogDebug(string.Format("Enqueuing {0} messages.", envelopes.Length));
             foreach (CFXEnvelope env in envelopes) Queue.Enqueue(env);
             TriggerProcessing();
         }
@@ -84,7 +95,7 @@ namespace CFX.Transport
             {
                 if (!Processing)
                 {
-                    LogInfo("Triggering Processing...");
+                    LogDebug("Triggering Processing...");
                     processingTask = Task.Run(() =>
                     {
                         Process();
@@ -97,7 +108,7 @@ namespace CFX.Transport
         {
             while (!Queue.IsEmpty)
             {
-                LogInfo("Attempting to process queued messages...");
+                LogDebug("Attempting to process queued messages...");
 
                 bool success = false;
                 if (!IsClosed)
@@ -124,16 +135,18 @@ namespace CFX.Transport
 
                         int remainingCount = Queue.Count;
                         if (success)
-                            LogInfo(string.Format("{0} messages transmitted.  {1} messages remaining in spool.", messages.Length, Queue.Count));
+                            LogDebug(string.Format("{0} messages transmitted.  {1} messages remaining in spool.", messages.Length, Queue.Count));
                         else
-                            LogInfo(string.Format("Messages NOT transmitted.  {0} messages remaining in spool.", Queue.Count));
+                            LogDebug(string.Format("Messages NOT transmitted.  {0} messages remaining in spool.", Queue.Count));
+
+                        if (remainingCount > 90) LogWarn(string.Format("Warning.  Spool has {0} buffered messages.", remainingCount));
                     }
                 }
                 else
                 {
                     Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval.Value.TotalMilliseconds));
                     int remainingCount = Queue.Count;
-                    if (remainingCount > 0) LogInfo(string.Format("Connection Bad or Error.  {0} messages remaining in spool.", Queue.Count));
+                    if (remainingCount > 0) LogWarn(string.Format("Connection Bad or Error.  {0} messages remaining in spool.", Queue.Count));
                 }
             }
         }
