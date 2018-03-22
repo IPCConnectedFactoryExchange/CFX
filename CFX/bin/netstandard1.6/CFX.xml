@@ -1795,6 +1795,11 @@
             A fixed number of units were sampled (lot size disregarded).
             </summary>
         </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMDTapeFeeder">
+            <summary>
+            Describes an SMT Tape feeder.
+            </summary>
+        </member>
         <member name="P:CFX.Structures.SMTPlacement.SMDTapeFeeder.BaseUniqueIdentifier">
             <summary>
             For multi-lane feeders, the unique identifier of the base.  The UniqueIdentifier
@@ -1930,6 +1935,16 @@
             Some width other than those specified in this enumeration
             </summary>
         </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMDTrayFeeder">
+            <summary>
+            Describes and SMT Tray Feeder
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMDTubeFeeder">
+            <summary>
+            Describes and SMT Tube Feeder
+            </summary>
+        </member>
         <member name="P:CFX.Structures.SMTPlacement.SMDTubeFeeder.BaseUniqueIdentifier">
             <summary>
             The unique identifier of the vibratoryb tube feeder base of which this
@@ -1946,6 +1961,42 @@
         <member name="P:CFX.Structures.SMTPlacement.SMDTubeFeeder.LaneNumber">
             <summary>
             The position number of this tube feeder position within its base.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTNozzle.HeadId">
+            <summary>
+            The name or identifier of the SMT head associated with this SMT Nozzle.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTNozzle.HeadNozzleNumber">
+            <summary>
+            The spindle number on the head to which this SMT Nozzle is attached
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTNozzle.NozzleType">
+            <summary>
+            The type or model name of this SMT Nozzle
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SMTPlacement.SMTNozzleHolder">
+            <summary>
+            Desctibes a location on an SMT placement machine where a nozzle/tool may be stored.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.LocationUniqueIdentifier">
+            <summary>
+            Unique identifier of the nozzle holder (barcode, RFID, etc.)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.LocationName">
+            <summary>
+            The name of the nozzle holder location
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.BaseName">
+            <summary>
+            If this nozzle holder is part of a nest or group of nozzle holders, 
+            this is the nest or group name.
             </summary>
         </member>
         <member name="T:CFX.Structures.SMTPlacement.SMTPlacementFaultType">
@@ -2245,6 +2296,21 @@
         <member name="F:CFX.Structures.THTInsertion.THTInsertionFaultType.AirSupplyDown">
             <summary>
             Insufficient pressurized air supply
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.Tool">
+            <summary>
+            Describes a tool that is used in production
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Tool.UniqueIdentifier">
+            <summary>
+            The unique identifier of the Tool (barcode, RFID, etc.)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Tool.Name">
+            <summary>
+            The name of the tool
             </summary>
         </member>
         <member name="T:CFX.Structures.TopicSupportType">
