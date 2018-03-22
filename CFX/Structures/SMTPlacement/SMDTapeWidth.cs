@@ -39,6 +39,10 @@ namespace CFX.Structures.SMTPlacement
         /// <summary>
         /// 79mm Width
         /// </summary>
-        Tape79mm
+        Tape79mm,
+        /// <summary>
+        /// Some width other than those specified in this enumeration
+        /// </summary>
+        Other
     }
 }

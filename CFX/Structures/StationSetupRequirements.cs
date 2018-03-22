@@ -12,7 +12,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// An optional property designating the applicable Lane.
+        /// The production lane to which this setup applies (when applicable)
         /// </summary>
         public string Lane
         {
@@ -21,7 +21,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// An optional property designating the applicable Stage.
+        /// The stage to which this setup applies (when applicable)
         /// </summary>
         public string Stage
         {

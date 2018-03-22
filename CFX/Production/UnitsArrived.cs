@@ -5,6 +5,9 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Sent when production units physically arrives at a process endpoint, prior to any work or other activity commencing.
+    /// </summary>
     public class UnitsArrived : CFXMessage
     {
         public UnitsArrived()
@@ -12,6 +15,9 @@ namespace CFX.Production
             Units = new List<UnitPosition>();
         }
 
+        /// <summary>
+        /// The number of individual production units
+        /// </summary>
         public int UnitCount
         {
             get
@@ -23,6 +29,9 @@ namespace CFX.Production
             }
         }
 
+        /// <summary>
+        /// List of structures that identify each specific instance of production unit that arrived (could be within a carrier or panel). 
+        /// </summary>
         public List<UnitPosition> Units
         {
             get;

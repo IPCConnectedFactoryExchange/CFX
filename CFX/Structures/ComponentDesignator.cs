@@ -23,7 +23,7 @@ namespace CFX.Structures
         /// C34
         /// U2.11  (component U2, Pin 11)
         /// U2.1-45 (component U2, Pins 1 to 45)
-        /// U2.1,2 (component U2, Pin1 1 and 2)
+        /// U2.1,2 (component U2, Pins 1 and 2)
         /// </summary>
         public string ReferenceDesignator
         {
@@ -31,6 +31,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Identifies the related production unit
+        /// </summary>
         public UnitPosition UnitPosition
         {
             get;

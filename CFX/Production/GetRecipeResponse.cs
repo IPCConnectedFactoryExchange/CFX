@@ -5,6 +5,11 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// This message is used to request a process endpoint for the details of a named
+    /// recipe. The response includes details of the recipe, depending on the 
+    /// classification of the process.
+    /// </summary>
     public class GetRecipeResponse : CFXMessage
     {
         public GetRecipeResponse()
@@ -12,12 +17,18 @@ namespace CFX.Production
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The recipe
+        /// </summary>
         public Recipe Recipe
         {
             get;

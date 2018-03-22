@@ -5,9 +5,12 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
-    public class UnblockMaterialLocationResponse : CFXMessage
+    /// <summary>
+    /// Response to UnblockMaterialLocationsRequest
+    /// </summary>
+    public class UnblockMaterialLocationsResponse : CFXMessage
     {
-        public UnblockMaterialLocationResponse()
+        public UnblockMaterialLocationsResponse()
         {
             Result = new RequestResult();
         }

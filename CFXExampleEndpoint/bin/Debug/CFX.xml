@@ -4,9 +4,38 @@
         <name>CFX</name>
     </assembly>
     <members>
+        <member name="T:CFX.AreYouThereRequest">
+            <summary>
+            Allows any CFX endpoint to determine if another particular CFX endpoint is present on a CFX network.
+            The response sends basic information about the endpoint, including its CFX Handle, and network
+            hostname / address.
+            </summary>
+        </member>
+        <member name="P:CFX.AreYouThereRequest.CFXHandle">
+            <summary>
+            The handle of the endpoint to which the request is directed
+            </summary>
+        </member>
+        <member name="T:CFX.AreYouThereResponse">
+            <summary>
+            Allows any CFX endpoint to determine if another particular CFX endpoint is present on a CFX network.
+            The response sends basic information about the endpoint, including its CFX Handle, and network
+            hostname / address.
+            </summary>
+        </member>
+        <member name="P:CFX.AreYouThereResponse.CFXHandle">
+            <summary>
+            The handle of the endpoint that is responding
+            </summary>
+        </member>
+        <member name="P:CFX.AreYouThereResponse.RequestNetworkUri">
+            <summary>
+            The network address / Uri to be used for requests to this endpoint
+            </summary>
+        </member>
         <member name="P:CFX.AreYouThereResponse.RequestTargetAddress">
             <summary>
-            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            The AMQP 1.0 target address to be used for requests to this endpoint
             </summary>
         </member>
         <member name="T:CFX.CFXEnvelope">
@@ -21,19 +50,162 @@
             The message payload (The CFX message enclosed in this envelope).
             </summary>
         </member>
+        <member name="T:CFX.EndpointConnected">
+            <summary>
+            Sent when an Endpoint joins a CFX network after it has been established. 
+            Provides the same information as the response to the AreYouThereRequest 
+            message. Need not be used for short-term machine to machine connection, 
+            where for example only a simple request / response message is being exchanged.
+            </summary>
+        </member>
+        <member name="P:CFX.EndpointConnected.CFXHandle">
+            <summary>
+            The handle of the endpoint that is responding
+            </summary>
+        </member>
+        <member name="P:CFX.EndpointConnected.RequestNetworkUri">
+            <summary>
+            The network address / Uri to be used for requests to this endpoint
+            </summary>
+        </member>
         <member name="P:CFX.EndpointConnected.RequestTargetAddress">
             <summary>
-            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            The AMQP 1.0 target address to be used for requests to this endpoint
+            </summary>
+        </member>
+        <member name="T:CFX.EndpointShuttingDown">
+            <summary>
+            Sent when an endpoint is about to shut down and disconnect from a CFX network
+            </summary>
+        </member>
+        <member name="P:CFX.EndpointShuttingDown.CFXHandle">
+            <summary>
+            The handle of the endpoint that is shutting down
+            </summary>
+        </member>
+        <member name="T:CFX.GetEndpointInformationRequest">
+            <summary>
+            Requests detailed information about a single specified of a specified endpoint. 
+            The response includes information regarding the endpoint’s capabilities
+            (CFX topic and message support), as well as a generic model of its
+            physical layout (zones, lanes, etc).
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationRequest.CFXHandle">
+            <summary>
+            The handle of the endpoint about which the sender wishes to obtain information.
+            </summary>
+        </member>
+        <member name="T:CFX.GetEndpointInformationResponse">
+            <summary>
+            Allows any CFX endpoint to request the capabilities of a specified single endpoint. The response
+            sends basic information about the endpoint, including its CFX Handle, and network hostname / address.
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.CFXHandle">
+            <summary>
+            The handle of the endpoint that is responding
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.RequestNetworkUri">
+            <summary>
+            The network address / Uri to be used for requests to this endpoint
             </summary>
         </member>
         <member name="P:CFX.GetEndpointInformationResponse.RequestTargetAddress">
             <summary>
-            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            The AMQP 1.0 target address to be used for requests to this endpoint
             </summary>
         </member>
         <member name="P:CFX.GetEndpointInformationResponse.UniqueIdentifier">
             <summary>
             The barcode, RFID, or other unique identifier that is used to identify this machine / endpoint.
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.FriendlyName">
+            <summary>
+            The name of the endpoint to be used in GUIs or reporting
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.Vendor">
+            <summary>
+            The name of the vendor of the endpoint.
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.ModelNumber">
+            <summary>
+            The model number of the endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.SerialNumber">
+            <summary>
+            The serial number of the endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.NumberOfStages">
+            <summary>
+            The number of stages (zones) of the endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.NumberOfLanes">
+            <summary>
+            The number of production lanes of the endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.GetEndpointInformationResponse.SupportedTopics">
+            <summary>
+            A list of the topics that the endpoint supports
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest">
+            <summary>
+            Sent from a process endpoint in order to validate the identifier of the next production unit.  
+            Process endpoints, where configured, should send this request before allowing the next unit
+            to enter the process. Configuration must be provided to identify the endpoint that implements 
+            CFX.InformationSystem.UnitValidation Identification and is responsible to provide the response.
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.Validations">
+            <summary>
+            List of validations to be performed”. Options are: UnitRouteValidation", "UnitStatusValidation"
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.PrimaryIdentifier">
+            <summary>
+            Identification used for the carrier (or the unit itself if no carrier)
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.Units">
+            <summary>
+            List of structures that identify each specific instance of production unit that arrived (could be within a carrier or panel). 
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse">
+            <summary>
+            Sent from a process endpoint in order to validate the identifier of the next production unit.  
+            Process endpoints, where configured, should send this request before allowing the next unit
+            to enter the process. Configuration must be provided to identify the endpoint that implements 
+            CFX.InformationSystem.UnitValidation Identification and is responsible to provide the response.
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.Result">
+            <summary>
+            Result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.PrimaryResult">
+            <summary>
+            Overall result of the validation request
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.Results">
+            <summary>
+            Individual results of the validation request (for multiple units in a carrier or PCB Panel)
             </summary>
         </member>
         <member name="P:CFX.Materials.Storage.GetLoadedMaterialsRequest.LocationIdentifiers">
@@ -74,6 +246,212 @@
             List of material packages to be unloaded.  
             </summary>
         </member>
+        <member name="T:CFX.Production.ActivateRecipeRequest">
+            <summary>
+            Used to activate a named recipe at the process endpoint. 
+            The response indicates whether this was successful or not.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.ActivateRecipeRequest.RecipeName">
+            <summary>
+            The name of the recipe
+            </summary>
+        </member>
+        <member name="P:CFX.Production.ActivateRecipeRequest.Revision">
+            <summary>
+            The version indicator for the recipe
+            </summary>
+        </member>
+        <member name="P:CFX.Production.ActivateRecipeRequest.Lane">
+            <summary>
+            The optional name or number of the production lane where 
+            the recipe should be activated
+            </summary>
+        </member>
+        <member name="P:CFX.Production.ActivateRecipeRequest.Stage">
+            <summary>
+            The optional name or number of the stage where
+            the recipe should be activated
+            </summary>
+        </member>
+        <member name="T:CFX.Production.ActivateRecipeResponse">
+            <summary>
+            Used to activate a named recipe at the process endpoint. 
+            The response indicates whether this was successful or not.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.ActivateRecipeResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.Production.Assembly.MaterialsInstalled">
+            <summary>
+            Sent by a process endpoint when one or more materials (see note) are installed on to a production unit. 
+            This message is typically sent at the completion of production on a unit or group of units at the
+            endpoint, or, at the end of each stage.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.MaterialsInstalled.TransactionId">
+            <summary>
+            The id of the work transaction with which this installation is associated.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.MaterialsInstalled.InstalledMaterials">
+            <summary>
+            A list of the specific materials which were installed.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.Assembly.MaterialsUninstalled">
+            <summary>
+            Sent by a process endpoint when one or more materials (see note) are removed from a production unit.
+            This message is typically sent at the completion of a production unit or group of units at the
+            endpoint, or, at the end of each stage.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.MaterialsUninstalled.TransactionId">
+            <summary>
+            The id of the work transaction with which this uninstallation is associated.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.MaterialsUninstalled.UninstalledMaterials">
+            <summary>
+            A list of materials which have been uninstalled.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.Assembly.ToolsUsed">
+            <summary>
+            Sent by a process endpoint when one or more tools are used in the course of performing an assembly operation.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.ToolsUsed.TransactionId">
+            <summary>
+            The id of the work transaction with which this installation is associated.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.ToolsUsed.UsedTools">
+            <summary>
+            A list of the tools that were used
+            </summary>
+        </member>
+        <member name="T:CFX.Production.Assembly.UnitsPersonalized">
+            <summary>
+            Sent by a process endpoint when a configuration or assignment is made (example MAC Address) 
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.UnitsPersonalized.TransactionId">
+            <summary>
+            The id of the work transaction with which this installation is associated.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.Assembly.UnitsPersonalized.PersonalizedUnits">
+            <summary>
+            A list of production units that have been personalized, including
+            the personalization characteristics of each.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.BlockMaterialLocationsRequest">
+            <summary>
+            Sent to a process endpoint to block or disable a particular material setup location. 
+            This is typically used where a loaded material may become unsuitable for use, 
+            for example MSD expiry of an SMT material.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.BlockMaterialLocationsRequest.Locations">
+            <summary>
+            A list of locations to be blocked
+            </summary>
+        </member>
+        <member name="T:CFX.Production.BlockMaterialLocationsResponse">
+            <summary>
+            Sent to a process endpoint to block or disable a particular material setup location. 
+            This is typically used where a loaded material may become unsuitable for use, 
+            for example MSD expiry of an SMT material.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.BlockMaterialLocationsResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.Production.GetActiveRecipeRequest">
+            <summary>
+            Used to request the name of the recipe that is activated at a process
+            endpoint. The response indicates the name of the recipe.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetActiveRecipeRequest.Lane">
+            <summary>
+            The optional name or number of the production lane
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetActiveRecipeRequest.Stage">
+            <summary>
+            The optional name or number of the stage
+            </summary>
+        </member>
+        <member name="T:CFX.Production.GetActiveRecipeResponse">
+            <summary>
+            Used to request the name of the recipe that is activated at a process
+            endpoint. The response indicates the name of the recipe.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetActiveRecipeResponse.ActiveRecipeName">
+            <summary>
+            The name of the active recipe
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetActiveRecipeResponse.ActiveRecipeRevision">
+            <summary>
+            Version number, e.g. “2.0”
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetActiveRecipeResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.Production.GetRecipeRequest">
+            <summary>
+            This message is used to request a process endpoint for the details of a named
+            recipe. The response includes details of the recipe, depending on the 
+            classification of the process.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetRecipeRequest.RecipeName">
+            <summary>
+            The name of the recipe to be retrieved
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetRecipeRequest.Revision">
+            <summary>
+            Version number, e.g. “2.0”
+            </summary>
+        </member>
+        <member name="T:CFX.Production.GetRecipeResponse">
+            <summary>
+            This message is used to request a process endpoint for the details of a named
+            recipe. The response includes details of the recipe, depending on the 
+            classification of the process.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetRecipeResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.Production.GetRecipeResponse.Recipe">
+            <summary>
+            The recipe
+            </summary>
+        </member>
+        <member name="T:CFX.Production.GetRequiredSetupRequest">
+            <summary>
+            Sent to a process endpoint to request the setup requirements of the active recipe.
+            The response lists the required materials and tools, along with the locations where 
+            the materials/tools must be loaded.
+            </summary>
+        </member>
         <member name="P:CFX.Production.GetRequiredSetupRequest.Lane">
             <summary>
             An optional property designating the specific Lane.
@@ -82,6 +460,12 @@
         <member name="P:CFX.Production.GetRequiredSetupRequest.Stage">
             <summary>
             An optional property designating the specific Stage.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:CFX.Production.GetRequiredSetupResponse" -->
+        <member name="P:CFX.Production.GetRequiredSetupResponse.Result">
+            <summary>
+            Result of the request
             </summary>
         </member>
         <member name="P:CFX.Production.GetRequiredSetupResponse.RecipeName">
@@ -99,6 +483,75 @@
             An optional property designating the specific Stage associated with this setup.
             </summary>
         </member>
+        <member name="T:CFX.Production.LockStationRequest">
+            <summary>
+            Request that the endpoint cease active operation (locked) as soon as practically possible
+            at a process endpoint.  A specific production lane or stage may be optionally specified.
+            Includes a reason, and applies to all operations. The response indicates that the process
+            has stopped.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.LockStationRequest.Lane">
+            <summary>
+            An optional production lane.  When specified, only that production lane shall be locked.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.LockStationRequest.Stage">
+            <summary>
+            An optional stage.  When specified, only that stage shall be locked.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.LockStationRequest.Reason">
+            <summary>
+            Reason for the request to lock the station.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.LockStationRequest.Requestor">
+            <summary>
+            Identifies the originator of the request.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.LockStationResponse">
+            <summary>
+            Response to a request that the endpoint cease active operation (locked) as soon as practically possible
+            at a process endpoint.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.LockStationResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.Production.OperatorActivated">
+            <summary>
+            Indicates that an operator is now active at or responsible for a process endpoint. 
+            Having multiple operators (each needs to be activated and deactivated separately) or 
+            an absence of an operator is possible. 
+            </summary>
+        </member>
+        <member name="P:CFX.Production.OperatorActivated.Operator">
+            <summary>
+            A structure which defines the Operator
+            </summary>
+        </member>
+        <member name="T:CFX.Production.OperatorDeactivated">
+            <summary>
+            Indicates that an activated operator is no longer active or responsible at a process endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.Production.OperatorDeactivated.Operator">
+            <summary>
+            A structure which defines the Operator
+            </summary>
+        </member>
+        <member name="T:CFX.Production.ReadingsRecorded">
+            <summary>
+            A process endpoint uses this message to send a data object that has been acquired
+            for example from a sensor or a reading taken during processing of the unit. This
+            data is typically used as a traceability record. Where no unit ID is provided, 
+            the measurement is applicable to the process in terms of time only.
+            </summary>
+        </member>
         <member name="P:CFX.Production.ReadingsRecorded.TransactionId">
             <summary>
             If the readings related to this message are associated with a work transaction, this property
@@ -107,12 +560,52 @@
         </member>
         <member name="P:CFX.Production.ReadingsRecorded.Readings">
             <summary>
-            A collection of readings to be recorded.
+            A list of readings to be recorded.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.RecipeActivated">
+            <summary>
+            Sent by a process endpoint to indicate the activation of a recipe by its name
+            </summary>
+        </member>
+        <member name="P:CFX.Production.RecipeActivated.RecipeName">
+            <summary>
+            THe name of the recipe
+            </summary>
+        </member>
+        <member name="P:CFX.Production.RecipeActivated.Revision">
+            <summary>
+            Version number, e.g. “2.0”
+            </summary>
+        </member>
+        <member name="P:CFX.Production.RecipeActivated.Lane">
+            <summary>
+            Name or number of the production lane
+            </summary>
+        </member>
+        <member name="P:CFX.Production.RecipeActivated.Stage">
+            <summary>
+            Name or number of the stage
+            </summary>
+        </member>
+        <member name="T:CFX.Production.RecipeModified">
+            <summary>
+            Sent by a process endpoint to indicate that a change has been made to a specified named recipe.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.RecipeModified.RecipeName">
+            <summary>
+            The name of the recipe
+            </summary>
+        </member>
+        <member name="P:CFX.Production.RecipeModified.Revision">
+            <summary>
+            Version number, e.g. “2.0”
             </summary>
         </member>
         <member name="P:CFX.Production.RecipeModified.ModifiedBy">
             <summary>
-            The name of the user who performed the modification.
+            The operator who performed the modification.
             </summary>
         </member>
         <member name="P:CFX.Production.RecipeModified.Reason">
@@ -127,9 +620,11 @@
         </member>
         <member name="T:CFX.Production.SetupRequirementsChanged">
             <summary>
-            Indicates that the setup requirements of a particular Endpoint have changed.  If the Lane and Stage
-            properties are left empty, the setup requirements of the entire Endpoint have been impacted.  Otherwise,
-            only the specified Lane and/or Stage is impacted.
+            Sent whenever the setup requirement of materials, tools, etc. are changed for any reason at a process endpoint. 
+            This message contains a detailed listing of the required items, and their designated positions. 
+            This message is typically used for example, whenever a new recipe is activated which requires a different setup.
+            If the Lane and Stage properties are left empty, the setup requirements of the entire Endpoint have been impacted.
+            Otherwise, only the specified Lane and/or Stage is impacted.
             </summary>
         </member>
         <member name="P:CFX.Production.SetupRequirementsChanged.Lane">
@@ -140,6 +635,76 @@
         <member name="P:CFX.Production.SetupRequirementsChanged.Stage">
             <summary>
             An optional property designating the affected Stage.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UnblockMaterialLocationsRequest">
+            <summary>
+            Sent to a process endpoint to release a material locations block which was put
+            into place by a previously sent BlockMaterialLocationsRequest
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnblockMaterialLocationsRequest.Locations">
+            <summary>
+            A list of locations to be unblocked
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UnblockMaterialLocationsResponse">
+            <summary>
+            Response to UnblockMaterialLocationsRequest
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UnitsArrived">
+            <summary>
+            Sent when production units physically arrives at a process endpoint, prior to any work or other activity commencing.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnitsArrived.UnitCount">
+            <summary>
+            The number of individual production units
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnitsArrived.Units">
+            <summary>
+            List of structures that identify each specific instance of production unit that arrived (could be within a carrier or panel). 
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UnitsDeparted">
+            <summary>
+            Sent by a process endpoint when units physically depart from a process endpoint. 
+            This does not imply any information about any activity that may have taken place.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnitsDeparted.UnitCount">
+            <summary>
+            The number of individual production units
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnitsDeparted.Units">
+            <summary>
+            List of structures that identify each specific instance of production unit that departed (could be within a carrier or panel). 
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UnitsDisqualified">
+            <summary>
+            Sent by a process endpoint to identify that a specific production unit is disqualified or scrapped.
+            This includes logical disqualification in the case that a unit is abandoned during manufacturing
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnitsDisqualified.UnitCount">
+            <summary>
+            The number of individual production units
+            </summary>
+        </member>
+        <member name="P:CFX.Production.UnitsDisqualified.Units">
+            <summary>
+            List of structures that identify each specific instance of production unit to be disqualified (could be within a carrier or panel). 
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UpdateRecipeRequest">
+            <summary>
+            This message is used to send a named recipe to a process endpoint. The message
+            includes details of the recipe, depending on the classification of the process. 
+            The response indicates whether the recipe has been received correctly or not.
             </summary>
         </member>
         <member name="P:CFX.Production.UpdateRecipeRequest.Overwrite">
@@ -154,14 +719,111 @@
             The new Recipe to be sent to the Endpoint.
             </summary>
         </member>
+        <member name="P:CFX.Production.UpdateRecipeRequest.Reason">
+            <summary>
+            The reason for the update
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UpdateRecipeResponse">
+            <summary>
+            This message is used to send a named recipe to a process endpoint. The message
+            includes details of the recipe, depending on the classification of the process. 
+            The response indicates whether the recipe has been received correctly or not.
+            </summary>
+        </member>
+        <member name="T:CFX.Production.WorkCompleted">
+            <summary>
+            Sent by a process endpoint when all work has been completed at a process endpoint.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkCompleted.TransactionID">
+            <summary>
+            Related Transaction ID specified previously by WorkStarted Message
+            </summary>
+        </member>
+        <member name="T:CFX.Production.WorkStageCompleted">
+            <summary>
+            Sent by a process endpoint to indicate that a stage has been completed.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStageCompleted.TransactionID">
+            <summary>
+            Related Transaction ID specified previously by WorkStarted Message
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStageCompleted.Stage">
+            <summary>
+            The stage name or number
+            </summary>
+        </member>
+        <member name="T:CFX.Production.WorkStagePaused">
+            <summary>
+            Sent when activity pauses for some reason at a stage of the process endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStagePaused.TransactionID">
+            <summary>
+            Related Transaction ID specified previously by WorkStarted Message
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStagePaused.Stage">
+            <summary>
+            The stage name or number
+            </summary>
+        </member>
+        <member name="T:CFX.Production.WorkStageResumed">
+            <summary>
+            Sent when activity recommences at a stage within a process endpoint, following a WorkStagePaused message
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStageResumed.TransactionID">
+            <summary>
+            Related Transaction ID specified previously by WorkStarted Message
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStageResumed.Stage">
+            <summary>
+            The stage name or number
+            </summary>
+        </member>
         <member name="T:CFX.Production.WorkStageStarted">
             <summary>
-            Indicates that work has begun on one or more production units at a particular work center.
+            Sent by a process endpoint when the work-stage for a unit or group of units starts
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStageStarted.TransactionID">
+            <summary>
+            Related Transaction ID specified previously by WorkStarted Message
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStageStarted.Stage">
+            <summary>
+            The stage name or number
             </summary>
         </member>
         <member name="T:CFX.Production.WorkStarted">
             <summary>
-            Indicates that work has begun on one or more production units at a particular work center.
+            Sent by a process endpoint when the work-cycle for a unit or group of units starts
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStarted.TransactionID">
+            <summary>
+            Transaction ID used to attach events and data during subsequent processing, until WorkCompleted
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStarted.Lane">
+            <summary>
+            Lane number (1 – 99), or 0 if no specific lane
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStarted.UnitCount">
+            <summary>
+            The number of individual production units associated with this transaction.  May be more than 1 in the case of a carrier or panel of multiple PCB’s.
+            </summary>
+        </member>
+        <member name="P:CFX.Production.WorkStarted.Units">
+            <summary>
+            Data that identifies each specific instance of production unit with a carrier or panel. 
             </summary>
         </member>
         <member name="P:CFX.Sensor.Identification.IdentifiersRead.PrimaryIdentifier">
@@ -227,6 +889,21 @@
             The unit is known to be defective.
             </summary>
         </member>
+        <member name="T:CFX.Structures.Characteristic">
+            <summary>
+            A singular characteristic that has been applied to a production unit
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Characteristic.Name">
+            <summary>
+            The name of the characteristic
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Characteristic.Value">
+            <summary>
+            The value of the characteristic
+            </summary>
+        </member>
         <member name="T:CFX.Structures.ComponentDesignator">
             <summary>
             Represents and identifies a particular component (instance of a part) on a production unit, or a particular aspect
@@ -242,7 +919,12 @@
             C34
             U2.11  (component U2, Pin 11)
             U2.1-45 (component U2, Pins 1 to 45)
-            U2.1,2 (component U2, Pin1 1 and 2)
+            U2.1,2 (component U2, Pins 1 and 2)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ComponentDesignator.UnitPosition">
+            <summary>
+            Identifies the related production unit
             </summary>
         </member>
         <member name="P:CFX.Structures.ComponentDesignator.PartNumber">
@@ -262,7 +944,7 @@
         </member>
         <member name="F:CFX.Structures.DataType.StringList">
             <summary>
-            A list of test based data
+            A list of text based data
             </summary>
         </member>
         <member name="F:CFX.Structures.DataType.Numeric">
@@ -415,6 +1097,59 @@
             In the case that the inspection cannot be completed, the error that was the cause of this outcome.
             </summary>
         </member>
+        <member name="T:CFX.Structures.InstalledComponent">
+            <summary>
+            Describes a particular location on a production unit where materials / parts were installed.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledComponent.ReferenceDesignator">
+            <summary>
+            Location on production unit where material / parts were installed
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledComponent.InstallationTime">
+            <summary>
+            The specific time when this material / part was installed on the production unit (optional, when known)
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.InstalledMaterial">
+            <summary>
+            Describes a single lot of material that was installed on a production unit, possibly
+            in specific locations on the production unit.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledMaterial.UnitIdentifier">
+            <summary>
+            Unique ID of Production Unit, Panel, or Carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledMaterial.UnitPositionNumber">
+            <summary>
+            Logical reference of production unit as defined by CFX position rule (see CFX standard).
+            Position information is only required where the endpoint is unaware of each production
+            unit’s true unique identifier.  
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledMaterial.QuantityInstalled">
+            <summary>
+            The total quantity of parts or material installed of this particular MaterialPackage (lot)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledMaterial.Material">
+            <summary>
+            The material package that was installed
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledMaterial.CarrierLocation">
+            <summary>
+            Carrier and Location on the endpoint from which the material was dispensed (when applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.InstalledMaterial.InstalledComponents">
+            <summary>
+            A list of where the on the production unit the materials / parts were installed.
+            </summary>
+        </member>
         <member name="T:CFX.Structures.LockReason">
             <summary>
             Reason for a production lock condition
@@ -495,11 +1230,44 @@
             Testing of repairs made
             </summary>
         </member>
+        <member name="T:CFX.Structures.MaterialCarrierLocation">
+            <summary>
+            Describes a specific location on an endpoint where a material carrier may be loaded.
+            When applicable, also contains information about the currently loaded carrier, and
+            the material package(s) loaded to that carrer.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialCarrierLocation.LocationIdentifier">
+            <summary>
+            The unique identifier of the carrier location (barcode or RFID value)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialCarrierLocation.LocationName">
+            <summary>
+            The name of the carrier location
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialCarrierLocation.CarrierInformation">
+            <summary>
+            Dynamic structure that defines the carrier that is presently loaded at the carrier location
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialLocation">
+            <summary>
+            Describes a specific location on an endpoint where material may be loaded.
+            Also includes information about the current contents of this location (if applicable).
+            </summary>
+        </member>
         <member name="P:CFX.Structures.MaterialLocation.LocationIdentifier">
             <summary>
-            The unique identifier of the location on the Endpoint where the MaterialPackage is to be loaded.
+            The unique identifier (barcode) of the location on the Endpoint where the MaterialPackage is to be loaded.
             If this property is left empty, the MaterialPackage will only be loaded to the carrier specified
             by the CarrierInformation property, and not to an Endpoint.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialLocation.LocationName">
+            <summary>
+            Name of the Location
             </summary>
         </member>
         <member name="T:CFX.Structures.MaterialModifyReason">
@@ -520,6 +1288,28 @@
         <member name="F:CFX.Structures.MaterialModifyReason.ManualCountAndQuantityUpdate">
             <summary>
             Quantity updated after manual count / measurement
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialPackage">
+            <summary>
+            Describes a specific, single handling unit of a material, such as a reel of SMT parts,
+            a bag of parts, bin of parts, etc.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackage.UniqueIdentifier">
+            <summary>
+            The Unique identifier of the material package (barcode/RFID that identifies
+            this specific material package.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackage.InternalPartNumber">
+            <summary>
+            The internal part number of the material package
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackage.Quantity">
+            <summary>
+            The quantity of parts or material contained within this material package.
             </summary>
         </member>
         <member name="P:CFX.Structures.MaterialSetupRequirement.Position">
@@ -692,9 +1482,60 @@
             Exposed to atmosphere/moisture beyond acceptable limits.
             </summary>
         </member>
+        <member name="T:CFX.Structures.Operator">
+            <summary>
+            Represents an operator who performs a function
+            </summary>
+        </member>
         <member name="P:CFX.Structures.Operator.OperatorIdentifier">
             <summary>
             An optional unique identifier for the Operator
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Operator.ActorType">
+            <summary>
+            The nature of the operator
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Operator.FullName">
+            <summary>
+            The Full Name of the Operator
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Operator.LastName">
+            <summary>
+            The Family Name of the Operator
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Operator.FirstName">
+            <summary>
+            The Given Name of the Operator
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Operator.LoginName">
+            <summary>
+            The Login Name for this Operator
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.PersonalizedUnit">
+            <summary>
+            Describes how a particular production unit has been personalized
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.PersonalizedUnit.UnitIdentifier">
+            <summary>
+            Unique ID of Production Unit, Panel, or Carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.PersonalizedUnit.UnitPositionNumber">
+            <summary>
+            Logical reference of production unit as defined by CFX position rule (refer to CFX standard).
+            Position information is only required where each production unit has a specific production ID.  
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.PersonalizedUnit.Characteristics">
+            <summary>
+            A list of personalized characteristics that have been applied to the production unit
             </summary>
         </member>
         <member name="P:CFX.Structures.Reading.ReadingIdentifier">
@@ -737,16 +1578,61 @@
             An optional list of components (instance of a part) on a production unit(s) to be associated with this reading.
             </summary>
         </member>
+        <member name="P:CFX.Structures.Reading.ValueDataType">
+            <summary>
+            An enumeration describing the type of value contained in the Value or BinaryValue properties.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Reading.ValueUnits">
+            <summary>
+            The units of the value (must be a valid SI unit)
+            </summary>
+        </member>
         <member name="P:CFX.Structures.Reading.ValueMimeType">
             <summary>
             If the Reading is of type DataType.Binary, this property contains the MIME type
             of the binary data contained in the BinaryValue property.
             </summary>
         </member>
+        <member name="P:CFX.Structures.Reading.Value">
+            <summary>
+            The value of the reading
+            </summary>
+        </member>
         <member name="P:CFX.Structures.Reading.BinaryValue">
             <summary>
             If the Reading is of type DataType.Binary, this property contains the binary
             representation of the value.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Reading.ExpectedValue">
+            <summary>
+            The expected value
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Reading.ExpectedValueUnits">
+            <summary>
+            The units of the expected value (must be a valid SI unit)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Reading.MinimumAcceptableValue">
+            <summary>
+            The minimum acceptable value
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Reading.MaximumAcceptableValue">
+            <summary>
+            The maximum acceptable value
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Recipe.Name">
+            <summary>
+            The name of the recipe
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Recipe.Revision">
+            <summary>
+            Version number, e.g. “2.0”
             </summary>
         </member>
         <member name="P:CFX.Structures.Recipe.MimeType">
@@ -934,11 +1820,6 @@
             Pitch of Tape Feeder
             </summary>
         </member>
-        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.NotSpecified">
-            <summary>
-            Unknown Pitch
-            </summary>
-        </member>
         <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Adjustable">
             <summary>
             Adjustable Pitch Feeder
@@ -982,6 +1863,11 @@
         <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Pitch36mm">
             <summary>
             36mm Pitch
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapePitch.Other">
+            <summary>
+            Pitch other than those specified in this enumeration
             </summary>
         </member>
         <member name="T:CFX.Structures.SMTPlacement.SMDTapeType">
@@ -1037,6 +1923,11 @@
         <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Tape79mm">
             <summary>
             79mm Width
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SMTPlacement.SMDTapeWidth.Other">
+            <summary>
+            Some width other than those specified in this enumeration
             </summary>
         </member>
         <member name="P:CFX.Structures.SMTPlacement.SMDTubeFeeder.BaseUniqueIdentifier">
@@ -1184,12 +2075,12 @@
         </member>
         <member name="P:CFX.Structures.StationSetupRequirements.Lane">
             <summary>
-            An optional property designating the applicable Lane.
+            The production lane to which this setup applies (when applicable)
             </summary>
         </member>
         <member name="P:CFX.Structures.StationSetupRequirements.Stage">
             <summary>
-            An optional property designating the applicable Stage.
+            The stage to which this setup applies (when applicable)
             </summary>
         </member>
         <member name="P:CFX.Structures.StationSetupRequirements.SetupName">
@@ -1200,11 +2091,6 @@
         <member name="T:CFX.Structures.StatusResult">
             <summary>
             Result of an operation
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.StatusResult.Unspecified">
-            <summary>
-            Unknown result
             </summary>
         </member>
         <member name="F:CFX.Structures.StatusResult.Success">
@@ -1220,6 +2106,16 @@
         <member name="F:CFX.Structures.StatusResult.Warning">
             <summary>
             Operation successful but with warning(s)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SupportedTopic.TopicName">
+            <summary>
+            TheIf not supporting all messages, then a list of supported messages
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SupportedTopic.TopicSupportType">
+            <summary>
+            Indicates the type of support the endpoint has for this topic.
             </summary>
         </member>
         <member name="P:CFX.Structures.SupportedTopic.SupportedMessages">
@@ -1351,6 +2247,23 @@
             Insufficient pressurized air supply
             </summary>
         </member>
+        <member name="T:CFX.Structures.TopicSupportType">
+            <summary>
+            Indicates the type of support an endpoint has for a particular topic.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:CFX.Structures.TopicSupportType.Publisher" -->
+        <member name="F:CFX.Structures.TopicSupportType.Consumer">
+            <summary>
+            The endpoint consumes the messages of this topic that are produced by other endpoints
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.TopicSupportType.PublisherConsumer">
+            <summary>
+            The endpoint publishes outbound messages for this topic, responds to inbound request, and
+            consumes the messages of this topic that are produced by other endpoints
+            </summary>
+        </member>
         <member name="T:CFX.Structures.TransportOrderStatus">
             <summary>
             The status of an order to transport goods
@@ -1386,9 +2299,89 @@
             The ordered items have been delivered to their final destination
             </summary>
         </member>
+        <member name="T:CFX.Structures.UninstalledMaterial">
+            <summary>
+            Describes when single lot of material that is uninstalled from a production unit, 
+            possibly from specific locations on the production unit.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UninstalledMaterial.UnitIdentifier">
+            <summary>
+            Unique ID of Production Unit, Panel, or Carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UninstalledMaterial.UnitPositionNumber">
+            <summary>
+            Logical reference of production unit as defined by CFX position rule (see CFX standard).
+            Position information is only required where the endpoint is unaware of each production
+            unit’s true unique identifier.  
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UninstalledMaterial.QuantityUninstalled">
+            <summary>
+            The total quantity of parts or material uninstalled of this particular MaterialPackage (lot)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UninstalledMaterial.Material">
+            <summary>
+            The material package that was uninstalled (if known)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UninstalledMaterial.UninstalledComponents">
+            <summary>
+            A list of the components that were uninstalled
+            </summary>
+        </member>
         <member name="T:CFX.Structures.UnitPosition">
             <summary>
-            A data object identifying a single production unit being processed during production.  A single work transaction
+            This structure contains information about a one of a set of production units that are processed simultaneously under a single transaction by an endpoint.
+            Units may be identified in one of two ways:
+                1.  The UnitIdentifier property represents the actual unique identifier of the production unit.
+                2.  The UnitIdentifier property represents the unique identifier of the "carrier" or "PCB panel"
+                    AND the PositionNumber property represents the position of the unit within the carrier/panel.
+                    PositionNumber's are established as defined in the CFX Standard.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.UnitIdentifier">
+            <summary>
+            Unique ID of Production Unit, Panel, or Carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.PositionNumber">
+            <summary>
+            Logical reference of production unit as defined by CFX position rule (refer to section 5.6). 
+            Position information is only required where the endpoint is unaware of each production
+            unit’s true unique identifier.    
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.PositionName">
+            <summary>
+            Optional name of position
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.X">
+            <summary>
+            X coordinate of Production unit origin, as it is known to the endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.Y">
+            <summary>
+            Y coordinate of Production unit origin, as it is known to the endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.Rotation">
+            <summary>
+            Original rotation of Production unit, as it is known to the endpoint (in degrees)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.FlipX">
+            <summary>
+            Is production unit flipped in X-direction
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.UnitPosition.FlipY">
+            <summary>
+            Is production unit flipped in Y-direction
             </summary>
         </member>
         <member name="T:CFX.Structures.ValidationStatus">
@@ -1471,9 +2464,40 @@
             </summary> 
             <param name = "input">Input array</param> 
         </member>
+        <member name="T:CFX.WhoIsThereRequest">
+            <summary>
+            Allows any CFX endpoint to discover all of the other endpoints participating in this CFX network, 
+            and their capabilities. All other CFX endpoints must then respond to this broadcast, providing
+            information about themselves.  The response provides basic information about the endpoint, 
+            including its CFX Handle and network hostname / address.
+            </summary>
+        </member>
+        <member name="T:CFX.WhoIsThereResponse">
+            <summary>
+            Allows any CFX endpoint to discover all of the other endpoints participating in this CFX network, 
+            and their capabilities. All other CFX endpoints must then respond to this broadcast, providing
+            information about themselves.  The response provides basic information about the endpoint, 
+            including its CFX Handle and network hostname / address.
+            </summary>
+        </member>
+        <member name="P:CFX.WhoIsThereResponse.Result">
+            <summary>
+            Result of the request.
+            </summary>
+        </member>
+        <member name="P:CFX.WhoIsThereResponse.CFXHandle">
+            <summary>
+            The handle of the endpoint that is responding
+            </summary>
+        </member>
+        <member name="P:CFX.WhoIsThereResponse.RequestNetworkUri">
+            <summary>
+            The network address / Uri to be used for requests to this endpoint
+            </summary>
+        </member>
         <member name="P:CFX.WhoIsThereResponse.RequestTargetAddress">
             <summary>
-            Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+            The AMQP 1.0 target address to be used for requests to this endpoint
             </summary>
         </member>
     </members>

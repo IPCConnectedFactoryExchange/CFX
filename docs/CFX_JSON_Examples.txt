@@ -6,7 +6,7 @@ CFX.WhoIsThereResponse
 ======================
 {
   "Result": {
-    "Result": "Unspecified",
+    "Result": "Success",
     "ResultCode": 0,
     "Message": null
   },
@@ -25,7 +25,7 @@ CFX.AreYouThereResponse
 =======================
 {
   "Result": {
-    "Result": "Unspecified",
+    "Result": "Success",
     "ResultCode": 0,
     "Message": null
   },
@@ -44,7 +44,7 @@ CFX.GetEndpointInformationResponse
 ==================================
 {
   "Result": {
-    "Result": "Unspecified",
+    "Result": "Success",
     "ResultCode": 0,
     "Message": null
   },
@@ -56,17 +56,22 @@ CFX.GetEndpointInformationResponse
   "Vendor": "SMT Plus",
   "ModelNumber": "Model_21232",
   "SerialNumber": "SN23123",
+  "NumberOfStages": 4,
+  "NumberOfLanes": 1,
   "SupportedTopics": [
     {
       "TopicName": "CFX.Production",
+      "TopicSupportType": "PublisherConsumer",
       "SupportedMessages": []
     },
     {
       "TopicName": "CFX.Production.Assembly",
+      "TopicSupportType": "Publisher",
       "SupportedMessages": []
     },
     {
       "TopicName": "CFX.ResourcePerformance",
+      "TopicSupportType": "Publisher",
       "SupportedMessages": []
     }
   ]
@@ -78,6 +83,12 @@ CFX.EndpointConnected
   "CFXHandle": "SMTPlus.Model_21232.SN23123",
   "RequestNetworkUri": "amqp://host33/",
   "RequestTargetAddress": "/queue/SN23123"
+}
+
+CFX.EndpointShuttingDown
+========================
+{
+  "CFXHandle": "SMTPlus.Model_21232.SN23123"
 }
 
 CFX.ResourcePerformance.StationStateChanged
@@ -96,7 +107,7 @@ CFX.ResourcePerformance.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "7e202a2f-eda6-47a7-819b-1b27973fd442",
+    "FaultOccurrenceId": "229bdc42-99c0-4206-9156-d9c4d9af2dd2",
     "Lane": null,
     "Stage": null
   }
@@ -112,7 +123,7 @@ CFX.ResourcePerformance.StationStateChanged
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "7e202a2f-eda6-47a7-819b-1b27973fd442",
+    "FaultOccurrenceId": "229bdc42-99c0-4206-9156-d9c4d9af2dd2",
     "Lane": null,
     "Stage": null
   }
@@ -125,7 +136,7 @@ CFX.ResourcePerformance.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "7e202a2f-eda6-47a7-819b-1b27973fd442",
+    "FaultOccurrenceId": "229bdc42-99c0-4206-9156-d9c4d9af2dd2",
     "Lane": null,
     "Stage": null
   }
@@ -134,7 +145,7 @@ CFX.ResourcePerformance.FaultOccurred
 CFX.ResourcePerformance.FaultCleared
 ====================================
 {
-  "FaultOccurrenceId": "7e202a2f-eda6-47a7-819b-1b27973fd442"
+  "FaultOccurrenceId": "229bdc42-99c0-4206-9156-d9c4d9af2dd2"
 }
 
 CFX.ResourcePerformance.StationOffline
@@ -256,8 +267,8 @@ CFX.ResourcePerformance.MaintenancePerformed
 CFX.ResourcePerformance.EnergyConsumed
 ======================================
 {
-  "StartTime": "2018-03-16T14:42:20.9762645-04:00",
-  "EndTime": "2018-03-16T14:47:20.9762645-04:00",
+  "StartTime": "2018-03-22T14:28:21.6076686-04:00",
+  "EndTime": "2018-03-22T14:33:21.6076686-04:00",
   "EnergyUsed": 0.012,
   "PeakPower": 125.6,
   "MinimumPower": 120.3,
@@ -299,14 +310,14 @@ CFX.ResourcePerformance.FaultOccurred
     "Nozzle": {
       "HeadId": "HEAD1",
       "HeadNozzleNumber": 3,
+      "NozzleType": "TYPE914",
       "UniqueIdentifier": "UID2389432849",
-      "Name": "NOZZLE3243244",
-      "NozzleType": "TYPE914"
+      "Name": "NOZZLE3243244"
     },
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "1c6b669c-412f-4ff7-ae01-83e683760b90",
+    "FaultOccurrenceId": "67abd733-df48-4775-81dc-ed2288bdf1a4",
     "Lane": "LANE1",
     "Stage": "STAGE2"
   }
@@ -320,9 +331,9 @@ CFX.ResourcePerformance.SMTPlacement.ToolChanged
   "NewNozzle": {
     "HeadId": "HEAD1",
     "HeadNozzleNumber": 1,
+    "NozzleType": "TYPE914",
     "UniqueIdentifier": "UID23890430",
-    "Name": "NOZZLE234324",
-    "NozzleType": "TYPE914"
+    "Name": "NOZZLE234324"
   },
   "LoadedFromHolder": {
     "LocationUniqueIdentifier": "UID238943243243",
@@ -334,8 +345,8 @@ CFX.ResourcePerformance.SMTPlacement.ToolChanged
 CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced
 =====================================================
 {
-  "StartTime": "2018-03-16T14:37:21.0107786-04:00",
-  "EndTime": "2018-03-16T14:47:21.011277-04:00",
+  "StartTime": "2018-03-22T14:23:21.6346646-04:00",
+  "EndTime": "2018-03-22T14:33:21.6346646-04:00",
   "TotalComponentsPlaced": 875,
   "TotalComponentsNotPlaced": 45
 }
@@ -374,7 +385,7 @@ CFX.ResourcePerformance.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 3943480",
-    "FaultOccurrenceId": "f342df52-59fa-4866-adca-6887179efa19",
+    "FaultOccurrenceId": "33aad4d3-12ca-4ea9-b031-498c426405c9",
     "Lane": "LANE1",
     "Stage": "STAGE2"
   }
@@ -383,8 +394,8 @@ CFX.ResourcePerformance.FaultOccurred
 CFX.ResourcePerformance.THTInsertion.ComponentsInserted
 =======================================================
 {
-  "StartTime": "2018-03-16T14:37:21.0252765-04:00",
-  "EndTime": "2018-03-16T14:47:21.0252765-04:00",
+  "StartTime": "2018-03-22T14:23:21.6481787-04:00",
+  "EndTime": "2018-03-22T14:33:21.6481787-04:00",
   "TotalComponentsInserted": 875,
   "TotalComponentsNotInserted": 45
 }
@@ -451,7 +462,7 @@ CFX.ResourcePerformance.FaultOccurred
     "Cause": "MechanicalFailure",
     "Severity": "Error",
     "FaultCode": "ERROR 234333",
-    "FaultOccurrenceId": "66df0046-1639-4417-a0b6-5572a34c84e2",
+    "FaultOccurrenceId": "a21c4ca2-1a7f-4782-803e-b129a4f75203",
     "Lane": null,
     "Stage": null
   }
@@ -506,7 +517,7 @@ CFX.Production.GetRecipeResponse
 ================================
 {
   "Result": {
-    "Result": "Unspecified",
+    "Result": "Success",
     "ResultCode": 0,
     "Message": null
   },
@@ -570,62 +581,14 @@ CFX.Production.GetRequiredSetupResponse
   }
 }
 
-CFX.Production.LockLaneRequest
-==============================
-{
-  "Reason": "QualityIssue",
-  "Lane": "1",
-  "Requestor": {
-    "OperatorIdentifier": "46a48d68-e437-486c-8059-2e7415655805",
-    "ActorType": "Human",
-    "FullName": "Bill Smith",
-    "LastName": "Smith",
-    "FirstName": "Bill",
-    "LoginName": "bill.smith@domain1.com"
-  }
-}
-
-CFX.Production.LockLaneResponse
-===============================
-{
-  "Result": {
-    "Result": "Success",
-    "ResultCode": 0,
-    "Message": "OK"
-  }
-}
-
-CFX.Production.LockStageRequest
-===============================
-{
-  "Reason": "QualityIssue",
-  "Stage": "STAGE1",
-  "Requestor": {
-    "OperatorIdentifier": "15744f74-e017-4a41-82e9-2c865a7e240c",
-    "ActorType": "Human",
-    "FullName": "Bill Smith",
-    "LastName": "Smith",
-    "FirstName": "Bill",
-    "LoginName": "bill.smith@domain1.com"
-  }
-}
-
-CFX.Production.LockStageResponse
-================================
-{
-  "Result": {
-    "Result": "Success",
-    "ResultCode": 0,
-    "Message": "OK"
-  }
-}
-
 CFX.Production.LockStationRequest
 =================================
 {
+  "Lane": "1",
+  "Stage": "5",
   "Reason": "QualityIssue",
   "Requestor": {
-    "OperatorIdentifier": "314a581e-5e33-4dc2-87c7-6a692b9e0626",
+    "OperatorIdentifier": "7235ea68-0b3e-44bf-9f39-ba5e5dd21ac0",
     "ActorType": "Human",
     "FullName": "Bill Smith",
     "LastName": "Smith",
@@ -648,7 +611,7 @@ CFX.Production.OperatorActivated
 ================================
 {
   "Operator": {
-    "OperatorIdentifier": "e9ef36f5-8336-4315-b2a1-4e00e38668d8",
+    "OperatorIdentifier": "f491229a-0be1-4a1d-8ec4-4d6fd5591a20",
     "ActorType": "Human",
     "FullName": "Bill Smith",
     "LastName": "Smith",
@@ -661,7 +624,7 @@ CFX.Production.OperatorDeactivated
 ==================================
 {
   "Operator": {
-    "OperatorIdentifier": "afb23c48-ced0-4d36-912d-dc5aedfa41c2",
+    "OperatorIdentifier": "0bee2e14-a322-4d80-8d66-7e8498d276d5",
     "ActorType": "Human",
     "FullName": "Bill Smith",
     "LastName": "Smith",
@@ -673,11 +636,11 @@ CFX.Production.OperatorDeactivated
 CFX.Production.ReadingsRecorded
 ===============================
 {
-  "TransactionId": "cc9d2cb0-a03a-4f28-8b11-5be887652aae",
+  "TransactionId": "3f58ea5b-27bb-4fa7-953d-08598e86f677",
   "Readings": [
     {
       "ReadingIdentifier": "CHIPTEMP1",
-      "TimeRecorded": "2018-03-16T14:47:21.0792875-04:00",
+      "TimeRecorded": "2018-03-22T14:33:21.6931849-04:00",
       "ReadingSequence": 1,
       "Result": "Passed",
       "UnitIdentifier": null,
@@ -701,7 +664,7 @@ CFX.Production.ReadingsRecorded
     },
     {
       "ReadingIdentifier": "VOLTAGE1",
-      "TimeRecorded": "2018-03-16T14:47:21.0792875-04:00",
+      "TimeRecorded": "2018-03-22T14:33:21.6931849-04:00",
       "ReadingSequence": 2,
       "Result": "Passed",
       "UnitIdentifier": null,
@@ -735,7 +698,7 @@ CFX.Production.ReadingsRecorded
     },
     {
       "ReadingIdentifier": "CHIPTEMP1",
-      "TimeRecorded": "2018-03-16T14:47:21.0792875-04:00",
+      "TimeRecorded": "2018-03-22T14:33:21.6931849-04:00",
       "ReadingSequence": 1,
       "Result": "Passed",
       "UnitIdentifier": null,
@@ -759,7 +722,7 @@ CFX.Production.ReadingsRecorded
     },
     {
       "ReadingIdentifier": "VOLTAGE1",
-      "TimeRecorded": "2018-03-16T14:47:21.0792875-04:00",
+      "TimeRecorded": "2018-03-22T14:33:21.6931849-04:00",
       "ReadingSequence": 2,
       "Result": "Passed",
       "UnitIdentifier": null,
@@ -809,7 +772,7 @@ CFX.Production.RecipeModified
   "RecipeName": "RECIPE3234",
   "Revision": "D",
   "ModifiedBy": {
-    "OperatorIdentifier": "19189139-9dc1-4f52-be64-dc6cdb5cc642",
+    "OperatorIdentifier": "10036899-56c3-410d-a2f0-83f7bed419a4",
     "ActorType": "Human",
     "FullName": "Bill Smith",
     "LastName": "Smith",
@@ -838,7 +801,9 @@ CFX.Production.UnitsArrived
       "PositionName": "CIRCUIT1",
       "X": 0.254,
       "Y": 0.556,
-      "Rotation": 0.0
+      "Rotation": 0.0,
+      "FlipX": false,
+      "FlipY": false
     },
     {
       "UnitIdentifier": "CARRIER5566",
@@ -846,7 +811,9 @@ CFX.Production.UnitsArrived
       "PositionName": "CIRCUIT2",
       "X": 6.254,
       "Y": 0.556,
-      "Rotation": 90.0
+      "Rotation": 90.0,
+      "FlipX": false,
+      "FlipY": false
     }
   ]
 }
@@ -862,7 +829,9 @@ CFX.Production.UnitsDeparted
       "PositionName": "CIRCUIT1",
       "X": 0.254,
       "Y": 0.556,
-      "Rotation": 0.0
+      "Rotation": 0.0,
+      "FlipX": false,
+      "FlipY": false
     },
     {
       "UnitIdentifier": "CARRIER5566",
@@ -870,7 +839,9 @@ CFX.Production.UnitsDeparted
       "PositionName": "CIRCUIT2",
       "X": 6.254,
       "Y": 0.556,
-      "Rotation": 90.0
+      "Rotation": 90.0,
+      "FlipX": false,
+      "FlipY": false
     }
   ]
 }
@@ -886,7 +857,9 @@ CFX.Production.UnitsDisqualified
       "PositionName": "CIRCUIT1",
       "X": 0.254,
       "Y": 0.556,
-      "Rotation": 0.0
+      "Rotation": 0.0,
+      "FlipX": false,
+      "FlipY": false
     },
     {
       "UnitIdentifier": "CARRIER5566",
@@ -894,64 +867,20 @@ CFX.Production.UnitsDisqualified
       "PositionName": "CIRCUIT2",
       "X": 6.254,
       "Y": 0.556,
-      "Rotation": 90.0
+      "Rotation": 90.0,
+      "FlipX": false,
+      "FlipY": false
     }
   ]
-}
-
-CFX.Production.UnlockLaneRequest
-================================
-{
-  "Lane": "1",
-  "Requestor": {
-    "OperatorIdentifier": "a97cc6db-7b1b-4b02-8473-a55622209e77",
-    "ActorType": "Human",
-    "FullName": "Bill Smith",
-    "LastName": "Smith",
-    "FirstName": "Bill",
-    "LoginName": "bill.smith@domain1.com"
-  }
-}
-
-CFX.Production.UnlockLaneResponse
-=================================
-{
-  "Result": {
-    "Result": "Success",
-    "ResultCode": 0,
-    "Message": "OK"
-  }
-}
-
-CFX.Production.UnlockStageRequest
-=================================
-{
-  "Stage": "STAGE1",
-  "Requestor": {
-    "OperatorIdentifier": "c50e7b0f-4427-49bb-ae11-b4e165344935",
-    "ActorType": "Human",
-    "FullName": "Bill Smith",
-    "LastName": "Smith",
-    "FirstName": "Bill",
-    "LoginName": "bill.smith@domain1.com"
-  }
-}
-
-CFX.Production.UnlockStageResponse
-==================================
-{
-  "Result": {
-    "Result": "Success",
-    "ResultCode": 0,
-    "Message": "OK"
-  }
 }
 
 CFX.Production.UnlockStationRequest
 ===================================
 {
+  "Lane": null,
+  "Stage": null,
   "Requestor": {
-    "OperatorIdentifier": "b2dfc597-c385-45c9-8b77-ad90a6884418",
+    "OperatorIdentifier": "cb1ed315-66da-4ade-b7d8-616c2272aafd",
     "ActorType": "Human",
     "FullName": "Bill Smith",
     "LastName": "Smith",
@@ -978,9 +907,9 @@ CFX.Production.UpdateRecipeRequest
     "Name": "RECIPE234324",
     "Revision": "C",
     "MimeType": "application/octet-stream",
-    "RecipeData": null
+    "RecipeData": "//w0"
   },
-  "Reason": null
+  "Reason": "NewRevision"
 }
 
 CFX.Production.WorkCompleted
@@ -1032,7 +961,9 @@ CFX.Production.WorkStarted
       "PositionName": "CIRCUIT1",
       "X": 0.254,
       "Y": 0.556,
-      "Rotation": 0.0
+      "Rotation": 0.0,
+      "FlipX": false,
+      "FlipY": false
     },
     {
       "UnitIdentifier": "CARRIER5566",
@@ -1040,7 +971,9 @@ CFX.Production.WorkStarted
       "PositionName": "CIRCUIT2",
       "X": 6.254,
       "Y": 0.556,
-      "Rotation": 90.0
+      "Rotation": 90.0,
+      "FlipX": false,
+      "FlipY": false
     }
   ]
 }
@@ -1060,7 +993,9 @@ CFX.InformationSystem.UnitValidation.ValidateUnitsRequest
       "PositionName": "CIRCUIT1",
       "X": 0.254,
       "Y": 0.556,
-      "Rotation": 0.0
+      "Rotation": 0.0,
+      "FlipX": false,
+      "FlipY": false
     },
     {
       "UnitIdentifier": "CARRIER5566",
@@ -1068,7 +1003,9 @@ CFX.InformationSystem.UnitValidation.ValidateUnitsRequest
       "PositionName": "CIRCUIT2",
       "X": 6.254,
       "Y": 0.556,
-      "Rotation": 90.0
+      "Rotation": 90.0,
+      "FlipX": false,
+      "FlipY": false
     }
   ]
 }
@@ -1076,21 +1013,29 @@ CFX.InformationSystem.UnitValidation.ValidateUnitsRequest
 CFX.InformationSystem.UnitValidation.ValidateUnitsResponse
 ==========================================================
 {
+  "Result": {
+    "Result": "Success",
+    "ResultCode": 0,
+    "Message": null
+  },
   "PrimaryResult": {
-    "Identifier": "CARRIER5566",
+    "UniqueIdentifier": "CARRIER5566",
+    "PositionNumber": 0,
     "Result": "Passed",
     "FailureCode": 0,
     "Message": "OK"
   },
   "Results": [
     {
-      "Identifier": "UNIT1123",
+      "UniqueIdentifier": "CARRIER5566",
+      "PositionNumber": 1,
       "Result": "Passed",
       "FailureCode": 0,
       "Message": "OK"
     },
     {
-      "Identifier": "UNIT1124",
+      "UniqueIdentifier": "CARRIER5566",
+      "PositionNumber": 2,
       "Result": "Passed",
       "FailureCode": 0,
       "Message": "OK"
@@ -1118,7 +1063,9 @@ CFX.Sensor.Identification.IdentifyUnitsResponse
       "PositionName": "CIRCUIT1",
       "X": 0.254,
       "Y": 0.556,
-      "Rotation": 0.0
+      "Rotation": 0.0,
+      "FlipX": false,
+      "FlipY": false
     },
     {
       "UnitIdentifier": "CARRIER5566",
@@ -1126,7 +1073,9 @@ CFX.Sensor.Identification.IdentifyUnitsResponse
       "PositionName": "CIRCUIT2",
       "X": 6.254,
       "Y": 0.556,
-      "Rotation": 90.0
+      "Rotation": 90.0,
+      "FlipX": false,
+      "FlipY": false
     }
   ]
 }
@@ -1150,8 +1099,8 @@ CFX.Production.BlockMaterialLocationsRequest
   ]
 }
 
-CFX.Production.BlockMaterialLocationResponse
-============================================
+CFX.Production.BlockMaterialLocationsResponse
+=============================================
 {
   "Result": {
     "Result": "Success",
@@ -1179,8 +1128,8 @@ CFX.Production.UnblockMaterialLocationsRequest
   ]
 }
 
-CFX.Production.UnblockMaterialLocationResponse
-==============================================
+CFX.Production.UnblockMaterialLocationsResponse
+===============================================
 {
   "Result": {
     "Result": "Success",
@@ -1192,7 +1141,7 @@ CFX.Production.UnblockMaterialLocationResponse
 CFX.Production.Assembly.MaterialsInstalled
 ==========================================
 {
-  "TransactionId": "251acaf7-89d3-45e4-bcec-599bb64ca1ed",
+  "TransactionId": "bb041a60-5405-4bea-a061-32424d310136",
   "InstalledMaterials": [
     {
       "UnitIdentifier": "PANEL23423432",
@@ -1220,15 +1169,15 @@ CFX.Production.Assembly.MaterialsInstalled
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-03-16T14:47:21.1573087-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7737499-04:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-03-16T14:47:21.1573087-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7737499-04:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-03-16T14:47:21.1573087-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7737499-04:00"
         }
       ]
     },
@@ -1258,15 +1207,15 @@ CFX.Production.Assembly.MaterialsInstalled
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-03-16T14:47:21.1573087-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7747509-04:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-03-16T14:47:21.1573087-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7747509-04:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-03-16T14:47:21.1573087-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7747509-04:00"
         }
       ]
     }
@@ -1276,8 +1225,8 @@ CFX.Production.Assembly.MaterialsInstalled
 CFX.Production.Assembly.MaterialsUninstalled
 ============================================
 {
-  "TransactionId": "543d715e-9a52-417a-b7cc-1dba2246fb56",
-  "InstalledMaterials": [
+  "TransactionId": "a498872b-a88b-48c6-aa1a-d628cd1f7bc0",
+  "UninstalledMaterials": [
     {
       "UnitIdentifier": "PANEL23423432",
       "UnitPositionNumber": 1,
@@ -1290,15 +1239,15 @@ CFX.Production.Assembly.MaterialsUninstalled
       "UninstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-03-16T14:47:21.1823093-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7927554-04:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-03-16T14:47:21.1823093-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7927554-04:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-03-16T14:47:21.1823093-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7927554-04:00"
         }
       ]
     },
@@ -1314,15 +1263,15 @@ CFX.Production.Assembly.MaterialsUninstalled
       "UninstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-03-16T14:47:21.1823093-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7927554-04:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-03-16T14:47:21.1823093-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7927554-04:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-03-16T14:47:21.1823093-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7927554-04:00"
         }
       ]
     }
@@ -1332,7 +1281,7 @@ CFX.Production.Assembly.MaterialsUninstalled
 CFX.Production.Assembly.ToolsUsed
 =================================
 {
-  "TransactionId": "d8f574c0-d243-4967-a6f5-ad2b07be99f7",
+  "TransactionId": "5847d349-a1c7-4dc4-92b2-f162c35f3280",
   "UsedTools": [
     {
       "UnitIdentifier": "PANEL23423432",
@@ -1341,23 +1290,23 @@ CFX.Production.Assembly.ToolsUsed
         "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
         "HeadId": "HEAD1",
         "HeadNozzleNumber": 2,
+        "NozzleType": "409A",
         "UniqueIdentifier": "UID234213421",
-        "Name": "Nozzle45",
-        "NozzleType": "409A"
+        "Name": "Nozzle45"
       },
       "UsageCycles": 3,
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-03-16T14:47:21.188309-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7997509-04:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-03-16T14:47:21.188309-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7997509-04:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-03-16T14:47:21.188309-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7997509-04:00"
         }
       ]
     },
@@ -1368,23 +1317,23 @@ CFX.Production.Assembly.ToolsUsed
         "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
         "HeadId": "HEAD2",
         "HeadNozzleNumber": 3,
+        "NozzleType": "409A",
         "UniqueIdentifier": "UID234223422",
-        "Name": "Nozzle47",
-        "NozzleType": "409A"
+        "Name": "Nozzle47"
       },
       "UsageCycles": 3,
       "InstalledComponents": [
         {
           "ReferenceDesignator": "R1",
-          "InstallationTime": "2018-03-16T14:47:21.188309-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7997509-04:00"
         },
         {
           "ReferenceDesignator": "R2",
-          "InstallationTime": "2018-03-16T14:47:21.188309-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7997509-04:00"
         },
         {
           "ReferenceDesignator": "R3",
-          "InstallationTime": "2018-03-16T14:47:21.188309-04:00"
+          "InstallationTime": "2018-03-22T14:33:21.7997509-04:00"
         }
       ]
     }
@@ -1394,15 +1343,14 @@ CFX.Production.Assembly.ToolsUsed
 CFX.Production.Assembly.ToolsUsed
 =================================
 {
-  "TransactionId": "d8f574c0-d243-4967-a6f5-ad2b07be99f7",
+  "TransactionId": "5847d349-a1c7-4dc4-92b2-f162c35f3280",
   "UsedTools": [
     {
       "UnitIdentifier": "PANEL23423432",
       "UnitPositionNumber": 1,
       "Tool": {
         "UniqueIdentifier": "UID234228874",
-        "Name": "Hammer 45",
-        "NozzleType": null
+        "Name": "Hammer 45"
       },
       "UsageCycles": 3,
       "InstalledComponents": []
@@ -1412,8 +1360,7 @@ CFX.Production.Assembly.ToolsUsed
       "UnitPositionNumber": 2,
       "Tool": {
         "UniqueIdentifier": "UID234228874",
-        "Name": "Hammer 45",
-        "NozzleType": null
+        "Name": "Hammer 45"
       },
       "UsageCycles": 3,
       "InstalledComponents": []
@@ -1424,7 +1371,7 @@ CFX.Production.Assembly.ToolsUsed
 CFX.Production.Assembly.UnitsPersonalized
 =========================================
 {
-  "TransactionId": "2ddc7dea-409a-4934-938c-f4f59a279915",
+  "TransactionId": "2e0544de-3b25-4b5a-b28d-92e328dbf533",
   "PersonalizedUnits": [
     {
       "UnitIdentifier": "PANEL23423432",
@@ -1452,7 +1399,7 @@ CFX.Production.Assembly.UnitsPersonalized
 CFX.Production.TestAndInspection.UnitsInspected
 ===============================================
 {
-  "TransactionId": "d34b918c-7257-4ec7-94ed-82f17302689d",
+  "TransactionId": "96425042-5757-4369-9eb5-c3dd37014cb1",
   "InspectionMethod": "Automated",
   "SamplingInformation": {
     "SamplingMethod": "NoSampling",
@@ -1474,7 +1421,7 @@ CFX.Production.TestAndInspection.UnitsInspected
       "OverallResult": "Passed",
       "Inspections": [
         {
-          "UniqueIdentifier": "898a0531-da2a-4c94-aa1d-f89aa3a6de8e",
+          "UniqueIdentifier": "a5bdfffc-c35a-4793-afa3-f4d0dc073b5b",
           "InspectionName": "INSPECT_R21",
           "InspectionTime": null,
           "TestProcedure": null,
@@ -1485,7 +1432,7 @@ CFX.Production.TestAndInspection.UnitsInspected
           "Measurements": []
         },
         {
-          "UniqueIdentifier": "b1eecae8-8868-4aaa-8a65-fd158fe02dec",
+          "UniqueIdentifier": "d42c467c-0bba-4d01-b1d6-08f6490dface",
           "InspectionName": "INSPECT_R22",
           "InspectionTime": null,
           "TestProcedure": null,
@@ -1503,7 +1450,7 @@ CFX.Production.TestAndInspection.UnitsInspected
       "OverallResult": "Failed",
       "Inspections": [
         {
-          "UniqueIdentifier": "a9ddd508-5fa4-4127-868c-9972ac387f62",
+          "UniqueIdentifier": "c0e2271e-820a-45d5-8deb-80449208ed3f",
           "InspectionName": "INSPECT_R21",
           "InspectionTime": null,
           "TestProcedure": null,
@@ -1514,7 +1461,7 @@ CFX.Production.TestAndInspection.UnitsInspected
           "Measurements": []
         },
         {
-          "UniqueIdentifier": "5c6254b6-40fa-4d1c-b7ef-36bd1eb36066",
+          "UniqueIdentifier": "0f08c667-ca32-42b5-af3c-c6f7513bdc63",
           "InspectionName": "INSPECT_R22",
           "InspectionTime": null,
           "TestProcedure": null,
@@ -1580,7 +1527,7 @@ CFX.Production.TestAndInspection.UnitsInspected
           "Measurements": []
         },
         {
-          "UniqueIdentifier": "67e8da9b-2dfc-4cb7-a63e-7ee35da3d7e7",
+          "UniqueIdentifier": "4928f862-7eb2-4172-8ba8-20529457d909",
           "InspectionName": "COSMETIC_INSPECTION",
           "InspectionTime": null,
           "TestProcedure": null,
@@ -1638,7 +1585,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 CFX.Production.TestAndInspection.UnitsTested
 ============================================
 {
-  "TransactionId": "89a082b8-5be1-4775-aa75-507be9834e94",
+  "TransactionId": "40290f77-ffea-4182-8db7-e91219796c33",
   "Tester": {
     "OperatorIdentifier": "UID235434324",
     "ActorType": "Human",
@@ -1660,7 +1607,7 @@ CFX.Production.TestAndInspection.UnitsTested
       "OverallResult": "Passed",
       "Tests": [
         {
-          "UniqueIdentifier": "2c85e9d1-4f6f-41a1-abb7-155b915ca6ac",
+          "UniqueIdentifier": "e1b2d166-7238-4f3a-9f1c-ad7031c4f5d7",
           "TestName": "RESISTANCE_CHECK_R21",
           "TestStartTime": null,
           "TestCompletionTime": null,
@@ -1673,7 +1620,7 @@ CFX.Production.TestAndInspection.UnitsTested
           "DefectsFound": [],
           "Measurements": [
             {
-              "UniqueIdentifier": "824e686a-1f12-40a4-aec6-5eb91c60e763",
+              "UniqueIdentifier": "5965331a-354f-407c-a201-7150aa2693d3",
               "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
               "TimeRecorded": "0001-01-01T00:00:00",
               "Sequence": 0,
@@ -1698,7 +1645,7 @@ CFX.Production.TestAndInspection.UnitsTested
           ]
         },
         {
-          "UniqueIdentifier": "0ab20f5c-0e7e-4895-b197-4231edcd560c",
+          "UniqueIdentifier": "d62b25d1-e6a0-4b45-8b53-e78a4d3607aa",
           "TestName": "RESISTANCE_CHECK_R22",
           "TestStartTime": null,
           "TestCompletionTime": null,
@@ -1709,7 +1656,7 @@ CFX.Production.TestAndInspection.UnitsTested
           "Error": null,
           "SymptomsFound": [
             {
-              "UniqueIdentifier": "1b7749e4-954a-475c-8195-3b5d3bec5f3c",
+              "UniqueIdentifier": "f0324e94-303e-4a00-ad74-e2cf95944c08",
               "SymptomCode": "RESFAIL2",
               "SymptomCategory": "Electrical Tests",
               "Description": "Resistance Value Out of Tolerance",
@@ -1731,7 +1678,7 @@ CFX.Production.TestAndInspection.UnitsTested
               "Priority": 0,
               "RelatedMeasurements": [
                 {
-                  "UniqueIdentifier": "1582eef8-b56c-4e69-b7e1-007012afd3ee",
+                  "UniqueIdentifier": "c5e56d0c-fe65-4fa6-9660-119e20b035e1",
                   "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
                   "TimeRecorded": "0001-01-01T00:00:00",
                   "Sequence": 0,
@@ -1767,7 +1714,7 @@ CFX.Production.TestAndInspection.UnitsTested
       "OverallResult": "Passed",
       "Tests": [
         {
-          "UniqueIdentifier": "2eff9f66-4e31-42fa-936a-d9c5fd868cf6",
+          "UniqueIdentifier": "cd239a8e-1d1c-472d-8e83-c554d97395b2",
           "TestName": "RESISTANCE_CHECK_R21",
           "TestStartTime": null,
           "TestCompletionTime": null,
@@ -1780,7 +1727,7 @@ CFX.Production.TestAndInspection.UnitsTested
           "DefectsFound": [],
           "Measurements": [
             {
-              "UniqueIdentifier": "9e31a986-f5ba-443e-b08c-a3624369cd11",
+              "UniqueIdentifier": "ff1ae383-e535-4a52-b10c-bf14333cadcb",
               "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
               "TimeRecorded": "0001-01-01T00:00:00",
               "Sequence": 0,
@@ -1805,7 +1752,7 @@ CFX.Production.TestAndInspection.UnitsTested
           ]
         },
         {
-          "UniqueIdentifier": "9454a61f-c936-4658-9e0a-bc86346d163b",
+          "UniqueIdentifier": "f32ad921-8a96-420f-a7bf-89390dcd1665",
           "TestName": "RESISTANCE_CHECK_R22",
           "TestStartTime": null,
           "TestCompletionTime": null,
@@ -1818,7 +1765,7 @@ CFX.Production.TestAndInspection.UnitsTested
           "DefectsFound": [],
           "Measurements": [
             {
-              "UniqueIdentifier": "39fd181a-64e9-4f6a-859b-067e279bf5a7",
+              "UniqueIdentifier": "fe868118-9f48-4514-8eab-e6617ba099c8",
               "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
               "TimeRecorded": "0001-01-01T00:00:00",
               "Sequence": 0,
@@ -1850,7 +1797,7 @@ CFX.Production.TestAndInspection.UnitsTested
 CFX.Production.TestAndInspection.UnitsTested
 ============================================
 {
-  "TransactionId": "3817bbdb-9339-4a1a-8087-2a11a9047c0d",
+  "TransactionId": "1836c7c2-1760-4987-8be1-c266fa33aa1c",
   "Tester": {
     "OperatorIdentifier": "UID235434324",
     "ActorType": "Human",
@@ -1872,10 +1819,10 @@ CFX.Production.TestAndInspection.UnitsTested
       "OverallResult": "Passed",
       "Tests": [
         {
-          "UniqueIdentifier": "ebc9206c-34ee-48a0-80a7-c14e704e4188",
+          "UniqueIdentifier": "60bba974-18d9-46b7-a2b5-285fe7fa4414",
           "TestName": "HOT_TEST",
-          "TestStartTime": "2018-03-16T14:46:49.2793323-04:00",
-          "TestCompletionTime": "2018-03-16T14:47:21.2793323-04:00",
+          "TestStartTime": "2018-03-22T14:32:49.8982718-04:00",
+          "TestCompletionTime": "2018-03-22T14:33:21.8982718-04:00",
           "TestConditions": [
             {
               "$type": "CFX.Structures.Temperature, CFX",
@@ -1905,10 +1852,10 @@ CFX.Production.TestAndInspection.UnitsTested
           "Measurements": []
         },
         {
-          "UniqueIdentifier": "4fbaf318-5c89-405b-bf2d-0c05c3fdb906",
+          "UniqueIdentifier": "245cee87-a1ed-48e0-8a84-f50c2e4ca322",
           "TestName": "COLD_TEST",
-          "TestStartTime": "2018-03-16T14:46:49.2793323-04:00",
-          "TestCompletionTime": "2018-03-16T14:47:21.2793323-04:00",
+          "TestStartTime": "2018-03-22T14:32:49.8982718-04:00",
+          "TestCompletionTime": "2018-03-22T14:33:21.8982718-04:00",
           "TestConditions": [
             {
               "$type": "CFX.Structures.Temperature, CFX",
@@ -2274,7 +2221,7 @@ CFX.Materials.Management.MaterialsInitialized
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2299,7 +2246,7 @@ CFX.Materials.Management.MaterialsInitialized
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG44543534",
       "ManufacuterLotCode": "LOT2016101008",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2016-10-10T00:00:00",
       "ReceivedDate": "2017-09-09T00:00:00",
       "Units": null,
@@ -2339,7 +2286,7 @@ CFX.Materials.Management.MaterialsModified
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2364,7 +2311,7 @@ CFX.Materials.Management.MaterialsModified
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG44543534",
       "ManufacuterLotCode": "LOT2016101008",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2016-10-10T00:00:00",
       "ReceivedDate": "2017-09-09T00:00:00",
       "Units": null,
@@ -2381,7 +2328,7 @@ CFX.Materials.Management.MaterialsModified
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG543534537",
       "ManufacuterLotCode": "LOT2017080355",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2017-08-03T00:00:00",
       "ReceivedDate": "2017-09-10T00:00:00",
       "Units": null,
@@ -2550,7 +2497,7 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2559,9 +2506,9 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-22T14:47:21.3353537-04:00",
+        "ExpirationDateTime": "2018-03-28T14:33:21.978298-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3353537-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.978298-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL3",
         "MSDState": "Exposed"
@@ -2575,7 +2522,7 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG543534537",
       "ManufacuterLotCode": "LOT2017080355",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2017-08-03T00:00:00",
       "ReceivedDate": "2017-09-10T00:00:00",
       "Units": null,
@@ -2584,9 +2531,9 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-22T14:47:21.3353537-04:00",
+        "ExpirationDateTime": "2018-03-28T14:33:21.978298-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3353537-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.978298-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL2A",
         "MSDState": "Exposed"
@@ -2607,7 +2554,7 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2616,9 +2563,9 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-16T14:47:21.3363535-04:00",
+        "ExpirationDateTime": "2018-03-22T14:33:21.9822966-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3353537-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.978298-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL3",
         "MSDState": "Expired"
@@ -2632,7 +2579,7 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG543534537",
       "ManufacuterLotCode": "LOT2017080355",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2017-08-03T00:00:00",
       "ReceivedDate": "2017-09-10T00:00:00",
       "Units": null,
@@ -2641,9 +2588,9 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-16T14:47:21.3363535-04:00",
+        "ExpirationDateTime": "2018-03-22T14:33:21.9822966-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3353537-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.978298-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL2A",
         "MSDState": "Expired"
@@ -2664,7 +2611,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2675,7 +2622,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
         "ExpirationDateTime": null,
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3353537-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.978298-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL3",
         "MSDState": "InDryStorage"
@@ -2689,7 +2636,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG543534537",
       "ManufacuterLotCode": "LOT2017080355",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2017-08-03T00:00:00",
       "ReceivedDate": "2017-09-10T00:00:00",
       "Units": null,
@@ -2700,7 +2647,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
         "ExpirationDateTime": null,
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3353537-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.978298-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL2A",
         "MSDState": "InDryStorage"
@@ -2721,7 +2668,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2730,9 +2677,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-22T14:47:21.3393538-04:00",
+        "ExpirationDateTime": "2018-03-28T14:33:21.9862973-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3393538-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.9862973-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL3",
         "MSDState": "Exposed"
@@ -2746,7 +2693,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG543534537",
       "ManufacuterLotCode": "LOT2017080355",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2017-08-03T00:00:00",
       "ReceivedDate": "2017-09-10T00:00:00",
       "Units": null,
@@ -2755,9 +2702,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-22T14:47:21.3393538-04:00",
+        "ExpirationDateTime": "2018-03-28T14:33:21.9862973-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3393538-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.9862973-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL2A",
         "MSDState": "Exposed"
@@ -2778,7 +2725,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG23452442",
       "ManufacuterLotCode": "LOT2016110588",
-      "Created": "2018-03-16T14:47:20.4206488-04:00",
+      "Created": "2018-03-22T14:33:21.3498156-04:00",
       "ManufactureDate": "2016-11-05T00:00:00",
       "ReceivedDate": "2017-05-06T00:00:00",
       "Units": null,
@@ -2787,9 +2734,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-22T14:47:21.3403542-04:00",
+        "ExpirationDateTime": "2018-03-28T14:33:21.9982973-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3403542-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.9982973-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL3",
         "MSDState": "Exposed"
@@ -2803,7 +2750,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
       "Vendor": "Digikey",
       "VendorPartNumber": "DIG543534537",
       "ManufacuterLotCode": "LOT2017080355",
-      "Created": "2018-03-16T14:47:20.4226487-04:00",
+      "Created": "2018-03-22T14:33:21.3513168-04:00",
       "ManufactureDate": "2017-08-03T00:00:00",
       "ReceivedDate": "2017-09-10T00:00:00",
       "Units": null,
@@ -2812,9 +2759,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
       "Status": "Active",
       "MaterialData": {
         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-        "ExpirationDateTime": "2018-03-22T14:47:21.3403542-04:00",
+        "ExpirationDateTime": "2018-03-28T14:33:21.9982973-04:00",
         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-        "LastExposureDateTime": "2018-03-16T14:47:21.3403542-04:00",
+        "LastExposureDateTime": "2018-03-22T14:33:21.9982973-04:00",
         "RemainingExposureTime": "6.00:00:00",
         "MSDLevel": "MSL2A",
         "MSDState": "Exposed"
@@ -2828,7 +2775,7 @@ CFX.Materials.Transport.MaterialTransportStarted
 {
   "TransportOrderNumber": "TR329483249830000",
   "StartedBy": {
-    "OperatorIdentifier": "a261ad46-57d2-4f93-afb5-4e6465135e57",
+    "OperatorIdentifier": "4078de4f-59f2-4e8b-80c8-f21851c95309",
     "ActorType": "Human",
     "FullName": "Bill Smith",
     "LastName": "Smith",
@@ -2848,7 +2795,7 @@ CFX.Materials.Transport.CheckpointReached
   "TransportOrderNumber": "TR329483249830000",
   "Comments": null,
   "TrackedBy": {
-    "OperatorIdentifier": "017d7893-ca93-46db-adcd-32d04a0e80df",
+    "OperatorIdentifier": "5ad93506-661c-443e-9c20-18212630cd64",
     "ActorType": "Human",
     "FullName": "John Doe",
     "LastName": "Doe",
@@ -2867,7 +2814,7 @@ CFX.Materials.Transport.MaterialTransportCompleted
   "TransportOrderNumber": "TR329483249830000",
   "Comments": null,
   "AcceptedBy": {
-    "OperatorIdentifier": "6ddf676c-d1e6-4d3b-af5d-d7e478f8ce32",
+    "OperatorIdentifier": "fdaeca68-8029-48ff-9c7b-5c651df608c3",
     "ActorType": "Human",
     "FullName": "Mike Dolittle",
     "LastName": "Dolittle",
@@ -2900,7 +2847,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
       "EventDateTime": "2017-11-01T11:55:00",
       "Status": "Kitting",
       "Operator": {
-        "OperatorIdentifier": "a261ad46-57d2-4f93-afb5-4e6465135e57",
+        "OperatorIdentifier": "4078de4f-59f2-4e8b-80c8-f21851c95309",
         "ActorType": "Human",
         "FullName": "Bill Smith",
         "LastName": "Smith",
@@ -2914,7 +2861,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
       "EventDateTime": "2017-11-01T14:25:00",
       "Status": "Kitted",
       "Operator": {
-        "OperatorIdentifier": "a261ad46-57d2-4f93-afb5-4e6465135e57",
+        "OperatorIdentifier": "4078de4f-59f2-4e8b-80c8-f21851c95309",
         "ActorType": "Human",
         "FullName": "Bill Smith",
         "LastName": "Smith",
@@ -2928,7 +2875,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
       "EventDateTime": "2017-11-01T15:45:00",
       "Status": "InTransit",
       "Operator": {
-        "OperatorIdentifier": "a261ad46-57d2-4f93-afb5-4e6465135e57",
+        "OperatorIdentifier": "4078de4f-59f2-4e8b-80c8-f21851c95309",
         "ActorType": "Human",
         "FullName": "Bill Smith",
         "LastName": "Smith",
@@ -2942,7 +2889,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
       "EventDateTime": "2017-11-01T16:55:00",
       "Status": "InTransit",
       "Operator": {
-        "OperatorIdentifier": "017d7893-ca93-46db-adcd-32d04a0e80df",
+        "OperatorIdentifier": "5ad93506-661c-443e-9c20-18212630cd64",
         "ActorType": "Human",
         "FullName": "John Doe",
         "LastName": "Doe",
@@ -2956,7 +2903,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
       "EventDateTime": "2017-11-01T17:22:00",
       "Status": "Delivered",
       "Operator": {
-        "OperatorIdentifier": "6ddf676c-d1e6-4d3b-af5d-d7e478f8ce32",
+        "OperatorIdentifier": "fdaeca68-8029-48ff-9c7b-5c651df608c3",
         "ActorType": "Human",
         "FullName": "Mike Dolittle",
         "LastName": "Dolittle",

@@ -7,6 +7,10 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Used to request the name of the recipe that is activated at a process
+    /// endpoint. The response indicates the name of the recipe.
+    /// </summary>
     public class GetActiveRecipeResponse : CFXMessage
     {
         public GetActiveRecipeResponse()
@@ -14,18 +18,27 @@ namespace CFX.Production
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The name of the active recipe
+        /// </summary>
         public string ActiveRecipeName
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Version number, e.g. “2.0”
+        /// </summary>
         public string ActiveRecipeRevision
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

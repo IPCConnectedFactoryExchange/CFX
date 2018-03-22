@@ -26,7 +26,7 @@ namespace CFX.Structures
         }
 
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
-        public InstallationTool Tool
+        public Tool Tool
         {
             get;
             set;

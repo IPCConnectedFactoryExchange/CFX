@@ -9,9 +9,22 @@ namespace CFX.Structures
         public SupportedTopic()
         {
             SupportedMessages = new List<string>();
+            TopicSupportType = TopicSupportType.Publisher;
         }
 
+        /// <summary>
+        /// TheIf not supporting all messages, then a list of supported messages
+        /// </summary>
         public string TopicName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Indicates the type of support the endpoint has for this topic.
+        /// </summary>
+        public TopicSupportType TopicSupportType
         {
             get;
             set;

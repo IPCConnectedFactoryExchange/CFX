@@ -5,12 +5,21 @@ using System.Text;
 namespace CFX.Structures
 {
     /// <summary>
-    /// A singular characteristic that has been applied to a production unit
+    /// Describes a tool that is used in production
     /// </summary>
-    public class Characteristic
+    public class Tool
     {
         /// <summary>
-        /// The name of the characteristic
+        /// The unique identifier of the Tool (barcode, RFID, etc.)
+        /// </summary>
+        public string UniqueIdentifier
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The name of the tool
         /// </summary>
         public string Name
         {
@@ -18,13 +27,6 @@ namespace CFX.Structures
             set;
         }
 
-        /// <summary>
-        /// The value of the characteristic
-        /// </summary>
-        public string Value
-        {
-            get;
-            set;
-        }
+        
     }
 }

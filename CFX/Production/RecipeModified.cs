@@ -5,14 +5,23 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Sent by a process endpoint to indicate that a change has been made to a specified named recipe.
+    /// </summary>
     public class RecipeModified : CFXMessage
     {
+        /// <summary>
+        /// The name of the recipe
+        /// </summary>
         public string RecipeName
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Version number, e.g. “2.0”
+        /// </summary>
         public string Revision
         {
             get;
@@ -20,7 +29,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The name of the user who performed the modification.
+        /// The operator who performed the modification.
         /// </summary>
         public Operator ModifiedBy
         {

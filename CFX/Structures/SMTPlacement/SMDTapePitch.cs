@@ -13,10 +13,6 @@ namespace CFX.Structures.SMTPlacement
     public enum SMDTapePitch
     {
         /// <summary>
-        /// Unknown Pitch
-        /// </summary>
-        NotSpecified,
-        /// <summary>
         /// Adjustable Pitch Feeder
         /// </summary>
         Adjustable,
@@ -52,5 +48,9 @@ namespace CFX.Structures.SMTPlacement
         /// 36mm Pitch
         /// </summary>
         Pitch36mm,
+        /// <summary>
+        /// Pitch other than those specified in this enumeration
+        /// </summary>
+        Other,
     }
 }

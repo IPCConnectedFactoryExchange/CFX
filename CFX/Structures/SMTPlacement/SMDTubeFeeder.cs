@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CFX.Structures.SMTPlacement
 {
+    /// <summary>
+    /// Describes and SMT Tube Feeder
+    /// </summary>
     public class SMDTubeFeeder : MaterialCarrier
     {
         /// <summary>

@@ -5,6 +5,10 @@ using CFX.Structures;
 
 namespace CFX
 {
+    /// <summary>
+    /// Allows any CFX endpoint to request the capabilities of a specified single endpoint. The response
+    /// sends basic information about the endpoint, including its CFX Handle, and network hostname / address.
+    /// </summary>
     public class GetEndpointInformationResponse : CFXMessage
     {
         public GetEndpointInformationResponse()
@@ -13,18 +17,27 @@ namespace CFX
             SupportedTopics = new List<SupportedTopic>();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The handle of the endpoint that is responding
+        /// </summary>
         public string CFXHandle
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The network address / Uri to be used for requests to this endpoint
+        /// </summary>
         public string RequestNetworkUri
         {
             get;
@@ -32,7 +45,7 @@ namespace CFX
         }
 
         /// <summary>
-        /// Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+        /// The AMQP 1.0 target address to be used for requests to this endpoint
         /// </summary>
         public string RequestTargetAddress
         {
@@ -49,30 +62,63 @@ namespace CFX
             set;
         }
 
+        /// <summary>
+        /// The name of the endpoint to be used in GUIs or reporting
+        /// </summary>
         public string FriendlyName
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The name of the vendor of the endpoint.
+        /// </summary>
         public string Vendor
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The model number of the endpoint
+        /// </summary>
         public string ModelNumber
         {
             get;
             set;
         }
-
+        
+        /// <summary>
+        /// The serial number of the endpoint
+        /// </summary>
         public string SerialNumber
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The number of stages (zones) of the endpoint
+        /// </summary>
+        public int NumberOfStages
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The number of production lanes of the endpoint
+        /// </summary>
+        public int NumberOfLanes
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// A list of the topics that the endpoint supports
+        /// </summary>
         public List<SupportedTopic> SupportedTopics
         {
             get;

@@ -5,6 +5,12 @@ using CFX.Structures;
 
 namespace CFX
 {
+    /// <summary>
+    /// Allows any CFX endpoint to discover all of the other endpoints participating in this CFX network, 
+    /// and their capabilities. All other CFX endpoints must then respond to this broadcast, providing
+    /// information about themselves.  The response provides basic information about the endpoint, 
+    /// including its CFX Handle and network hostname / address.
+    /// </summary>
     public class WhoIsThereResponse : CFXMessage
     {
         public WhoIsThereResponse()
@@ -12,26 +18,35 @@ namespace CFX
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// Result of the request.
+        /// </summary>
         public RequestResult Result
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The handle of the endpoint that is responding
+        /// </summary>
         public string CFXHandle
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The network address / Uri to be used for requests to this endpoint
+        /// </summary>
         public string RequestNetworkUri
         {
             get;
             set;
         }
-        
+
         /// <summary>
-        /// Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+        /// The AMQP 1.0 target address to be used for requests to this endpoint
         /// </summary>
         public string RequestTargetAddress
         {

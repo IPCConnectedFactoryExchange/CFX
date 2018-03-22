@@ -10,8 +10,15 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Response to a request that the endpoint cease active operation (locked) as soon as practically possible
+    /// at a process endpoint.
+    /// </summary>
     public class LockStationResponse : CFXMessage
     {
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

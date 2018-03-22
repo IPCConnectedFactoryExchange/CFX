@@ -5,6 +5,10 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Sent by a process endpoint to identify that a specific production unit is disqualified or scrapped.
+    /// This includes logical disqualification in the case that a unit is abandoned during manufacturing
+    /// </summary>
     public class UnitsDisqualified : CFXMessage
     {
         public UnitsDisqualified()
@@ -12,6 +16,9 @@ namespace CFX.Production
             Units = new List<UnitPosition>();
         }
 
+        /// <summary>
+        /// The number of individual production units
+        /// </summary>
         public int UnitCount
         {
             get
@@ -23,6 +30,9 @@ namespace CFX.Production
             }
         }
 
+        /// <summary>
+        /// List of structures that identify each specific instance of production unit to be disqualified (could be within a carrier or panel). 
+        /// </summary>
         public List<UnitPosition> Units
         {
             get;

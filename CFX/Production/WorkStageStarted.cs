@@ -8,16 +8,22 @@ using Newtonsoft.Json;
 namespace CFX.Production
 {
     /// <summary>
-    /// Indicates that work has begun on one or more production units at a particular work center.
+    /// Sent by a process endpoint when the work-stage for a unit or group of units starts
     /// </summary>
     public class WorkStageStarted : CFXMessage
     {
+        /// <summary>
+        /// Related Transaction ID specified previously by WorkStarted Message
+        /// </summary>
         public Guid TransactionID
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The stage name or number
+        /// </summary>
         public string Stage
         {
             get;

@@ -83,12 +83,18 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// An enumeration describing the type of value contained in the Value or BinaryValue properties.
+        /// </summary>
         public DataType ValueDataType
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The units of the value (must be a valid SI unit)
+        /// </summary>
         public string ValueUnits
         {
             get;
@@ -105,6 +111,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The value of the reading
+        /// </summary>
         public string Value
         {
             get;
@@ -121,24 +130,36 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The expected value
+        /// </summary>
         public string ExpectedValue
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The units of the expected value (must be a valid SI unit)
+        /// </summary>
         public string ExpectedValueUnits
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The minimum acceptable value
+        /// </summary>
         public string MinimumAcceptableValue
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The maximum acceptable value
+        /// </summary>
         public string MaximumAcceptableValue
         {
             get;

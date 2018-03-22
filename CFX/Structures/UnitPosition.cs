@@ -8,10 +8,18 @@ using Newtonsoft.Json;
 namespace CFX.Structures
 {
     /// <summary>
-    /// A data object identifying a single production unit being processed during production.  A single work transaction
+    /// This structure contains information about a one of a set of production units that are processed simultaneously under a single transaction by an endpoint.
+    /// Units may be identified in one of two ways:
+    ///     1.  The UnitIdentifier property represents the actual unique identifier of the production unit.
+    ///     2.  The UnitIdentifier property represents the unique identifier of the "carrier" or "PCB panel"
+    ///         AND the PositionNumber property represents the position of the unit within the carrier/panel.
+    ///         PositionNumber's are established as defined in the CFX Standard.
     /// </summary>
     public class UnitPosition
     {
+        /// <summary>
+        /// Unique ID of Production Unit, Panel, or Carrier
+        /// </summary>
         [JsonProperty]
         public string UnitIdentifier
         {
@@ -19,6 +27,11 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Logical reference of production unit as defined by CFX position rule (refer to section 5.6). 
+        /// Position information is only required where the endpoint is unaware of each production
+        /// unit’s true unique identifier.    
+        /// </summary>
         [JsonProperty]
         public int PositionNumber
         {
@@ -26,11 +39,18 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Optional name of position
+        /// </summary>
         public string PositionName
         {
             get;
             set;
         }
+
+        /// <summary>
+        /// X coordinate of Production unit origin, as it is known to the endpoint
+        /// </summary>
 
         public double X
         {
@@ -38,13 +58,37 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Y coordinate of Production unit origin, as it is known to the endpoint
+        /// </summary>
         public double Y
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Original rotation of Production unit, as it is known to the endpoint (in degrees)
+        /// </summary>
         public double Rotation
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Is production unit flipped in X-direction
+        /// </summary>
+        public bool FlipX
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Is production unit flipped in Y-direction
+        /// </summary>
+        public bool FlipY
         {
             get;
             set;

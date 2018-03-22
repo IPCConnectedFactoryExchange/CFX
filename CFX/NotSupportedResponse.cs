@@ -11,7 +11,7 @@ namespace CFX
         {
             RequestResult = new RequestResult()
             {
-                Result = StatusResult.Unspecified
+                Result = StatusResult.Success
             };
         }
 

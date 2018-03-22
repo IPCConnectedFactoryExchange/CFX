@@ -6,6 +6,9 @@ using Newtonsoft.Json.Converters;
 
 namespace CFX.Structures.SMTPlacement
 {
+    /// <summary>
+    /// Describes an SMT Tape feeder.
+    /// </summary>
     public class SMDTapeFeeder : MaterialCarrier
     {
         public SMDTapeFeeder()

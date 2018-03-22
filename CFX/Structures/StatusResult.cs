@@ -15,10 +15,6 @@ namespace CFX.Structures
     public enum StatusResult
     {
         /// <summary>
-        /// Unknown result
-        /// </summary>
-        Unspecified,
-        /// <summary>
         /// Successful completion of operation
         /// </summary>
         Success,

@@ -6,11 +6,15 @@ using Newtonsoft.Json.Converters;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a specific location on an endpoint where material may be loaded.
+    /// Also includes information about the current contents of this location (if applicable).
+    /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class MaterialLocation
     {
         /// <summary>
-        /// The unique identifier of the location on the Endpoint where the MaterialPackage is to be loaded.
+        /// The unique identifier (barcode) of the location on the Endpoint where the MaterialPackage is to be loaded.
         /// If this property is left empty, the MaterialPackage will only be loaded to the carrier specified
         /// by the CarrierInformation property, and not to an Endpoint.
         /// </summary>
@@ -20,6 +24,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Name of the Location
+        /// </summary>
         public string LocationName
         {
             get;

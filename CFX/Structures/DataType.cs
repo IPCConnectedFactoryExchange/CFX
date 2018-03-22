@@ -17,7 +17,7 @@ namespace CFX.Structures
         /// </summary>
         String,
         /// <summary>
-        /// A list of test based data
+        /// A list of text based data
         /// </summary>
         StringList,
         /// <summary>

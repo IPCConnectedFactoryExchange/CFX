@@ -55,6 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="CFXnet46.csproj.bak" />
     <None Remove="CFX_JSON_Examples.txt" />
     <None Remove="CFX_Logo.PNG" />
   </ItemGroup>

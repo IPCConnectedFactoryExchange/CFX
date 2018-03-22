@@ -9,7 +9,7 @@ using CFX.Structures;
 namespace CFX.Production
 {
     /// <summary>
-    /// Indicates that work has begun on one or more production units at a particular work center.
+    /// Sent by a process endpoint when the work-cycle for a unit or group of units starts
     /// </summary>
     public class WorkStarted : CFXMessage
     {
@@ -19,18 +19,27 @@ namespace CFX.Production
             Units = new List<UnitPosition>();
         }
 
+        /// <summary>
+        /// Transaction ID used to attach events and data during subsequent processing, until WorkCompleted
+        /// </summary>
         public Guid TransactionID
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Lane number (1 – 99), or 0 if no specific lane
+        /// </summary>
         public string Lane
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The number of individual production units associated with this transaction.  May be more than 1 in the case of a carrier or panel of multiple PCB’s.
+        /// </summary>
         public int UnitCount
         {
             get
@@ -42,11 +51,13 @@ namespace CFX.Production
             }
         }
 
+        /// <summary>
+        /// Data that identifies each specific instance of production unit with a carrier or panel. 
+        /// </summary>
         public List<UnitPosition> Units
         {
             get;
             set;
         }
-        
     }
 }

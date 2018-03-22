@@ -10,12 +10,18 @@ namespace CFX.Structures
         {
         }
 
+        /// <summary>
+        /// The name of the recipe
+        /// </summary>
         public string Name
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Version number, e.g. “2.0”
+        /// </summary>
         public string Revision
         {
             get;
@@ -39,6 +45,5 @@ namespace CFX.Structures
             get;
             set;
         }
-
     }
 }

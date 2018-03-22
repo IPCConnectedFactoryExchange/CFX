@@ -5,6 +5,10 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Sent by a process endpoint when units physically depart from a process endpoint. 
+    /// This does not imply any information about any activity that may have taken place.
+    /// </summary>
     public class UnitsDeparted : CFXMessage
     {
         public UnitsDeparted()
@@ -12,6 +16,9 @@ namespace CFX.Production
             Units = new List<UnitPosition>();
         }
 
+        /// <summary>
+        /// The number of individual production units
+        /// </summary>
         public int UnitCount
         {
             get
@@ -24,6 +31,9 @@ namespace CFX.Production
             }
         }
 
+        /// <summary>
+        /// List of structures that identify each specific instance of production unit that departed (could be within a carrier or panel). 
+        /// </summary>
         public List<UnitPosition> Units
         {
             get;

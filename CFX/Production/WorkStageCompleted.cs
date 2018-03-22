@@ -10,14 +10,23 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Sent by a process endpoint to indicate that a stage has been completed.
+    /// </summary>
     public class WorkStageCompleted : CFXMessage
     {
+        /// <summary>
+        /// Related Transaction ID specified previously by WorkStarted Message
+        /// </summary>
         public Guid TransactionID
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The stage name or number
+        /// </summary>
         public string Stage
         {
             get;

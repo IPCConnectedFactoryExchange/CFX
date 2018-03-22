@@ -12,12 +12,17 @@ namespace CFX.Structures
         {
         }
 
-        public string Identifier
+        public string UniqueIdentifier
         {
             get;
             set;
         }
 
+        public int PositionNumber
+        {
+            get;
+            set;
+        }
 
         public ValidationStatus Result
         {

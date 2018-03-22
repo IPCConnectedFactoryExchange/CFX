@@ -7,6 +7,11 @@ using CFX.Structures;
 
 namespace CFX.Production
 {
+    /// <summary>
+    /// Response from a process endpoint to a request to obtain the setup requirements of the active recipe.
+    /// The response lists the required materials and tools, along with the locations where 
+    /// the materials/tools must be loaded.
+    /// </summary
     public class GetRequiredSetupResponse : CFXMessage
     {
         public GetRequiredSetupResponse()
@@ -14,6 +19,9 @@ namespace CFX.Production
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// Result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

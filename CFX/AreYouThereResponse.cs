@@ -5,6 +5,11 @@ using CFX.Structures;
 
 namespace CFX
 {
+    /// <summary>
+    /// Allows any CFX endpoint to determine if another particular CFX endpoint is present on a CFX network.
+    /// The response sends basic information about the endpoint, including its CFX Handle, and network
+    /// hostname / address.
+    /// </summary>
     public class AreYouThereResponse : CFXMessage
     {
         public AreYouThereResponse()
@@ -18,12 +23,18 @@ namespace CFX
             set;
         }
 
+        /// <summary>
+        /// The handle of the endpoint that is responding
+        /// </summary>
         public string CFXHandle
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The network address / Uri to be used for requests to this endpoint
+        /// </summary>
         public string RequestNetworkUri
         {
             get;
@@ -31,7 +42,7 @@ namespace CFX
         }
 
         /// <summary>
-        /// Optional field if a single network host is servicing multiple endpoints.  For AMQP, corresponds to the AMQP 1.0 target address.
+        /// The AMQP 1.0 target address to be used for requests to this endpoint
         /// </summary>
         public string RequestTargetAddress
         {

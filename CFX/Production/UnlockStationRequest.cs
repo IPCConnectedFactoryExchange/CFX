@@ -12,6 +12,18 @@ namespace CFX.Production
 {
     public class UnlockStationRequest : CFXMessage
     {
+        public string Lane
+        {
+            get;
+            set;
+        }
+
+        public string Stage
+        {
+            get;
+            set;
+        }
+
         public Operator Requestor
         {
             get;

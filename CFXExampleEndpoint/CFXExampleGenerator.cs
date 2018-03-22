@@ -43,7 +43,7 @@ namespace CFXExampleEndpoint
 
         private MaterialPackageDetail m1, m2, m3, m4, m5, m6, m7;
         private MaterialCarrier c1, c2, c3;
-        private InstallationTool t1, t2, t3;
+        private Tool t1, t2, t3;
 
         public string GenerateAssembly()
         {
@@ -119,7 +119,7 @@ namespace CFXExampleEndpoint
             msg = new MaterialsUninstalled()
             {
                 TransactionId = Guid.NewGuid(),
-                InstalledMaterials = new List<UninstalledMaterial>(new UninstalledMaterial[]
+                UninstalledMaterials = new List<UninstalledMaterial>(new UninstalledMaterial[]
                 {
                     new UninstalledMaterial()
                     {
@@ -658,19 +658,24 @@ namespace CFXExampleEndpoint
                 Vendor = "SMT Plus",
                 ModelNumber = "Model_21232",
                 SerialNumber = "SN23123",
+                NumberOfLanes = 1,
+                NumberOfStages = 4,
                 SupportedTopics = new List<SupportedTopic>(new SupportedTopic [] 
                 {
                     new SupportedTopic()
                     {
-                        TopicName = "CFX.Production"
+                        TopicName = "CFX.Production",
+                        TopicSupportType = TopicSupportType.PublisherConsumer
                     },
                     new SupportedTopic()
                     {
-                        TopicName = "CFX.Production.Assembly"
+                        TopicName = "CFX.Production.Assembly",
+                        TopicSupportType = TopicSupportType.Publisher
                     },
                     new SupportedTopic()
                     {
-                        TopicName = "CFX.ResourcePerformance"
+                        TopicName = "CFX.ResourcePerformance",
+                        TopicSupportType = TopicSupportType.Publisher
                     },
                 })
             };
@@ -681,6 +686,12 @@ namespace CFXExampleEndpoint
                 CFXHandle = "SMTPlus.Model_21232.SN23123",
                 RequestNetworkUri = "amqp://host33/",
                 RequestTargetAddress = "/queue/SN23123"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new EndpointShuttingDown()
+            {
+                CFXHandle = "SMTPlus.Model_21232.SN23123",
             };
             AppendMessage(msg, ref result);
 
@@ -1741,63 +1752,11 @@ namespace CFXExampleEndpoint
             grsr.SetupRequirements.MaterialSetupRequirements[1].ApprovedManufacturerParts.AddRange(new string[] { "JP55443", "TX554323" });
             AppendMessage(grsr, ref result);
 
-            msg = new LockLaneRequest()
-            {
-                Lane = "1",
-                Reason = LockReason.QualityIssue,
-                Requestor = new Operator()
-                {
-                    ActorType = ActorType.Human,
-                    FirstName = "Bill",
-                    LastName = "Smith",
-                    FullName = "Bill Smith",
-                    LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
-                }
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new LockLaneResponse()
-            {
-                Result = new RequestResult()
-                {
-                    Result = StatusResult.Success,
-                    Message = "OK",
-                    ResultCode = 0
-                }
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new LockStageRequest()
-            {
-                Stage = "STAGE1",
-                Reason = LockReason.QualityIssue,
-                Requestor = new Operator()
-                {
-                    ActorType = ActorType.Human,
-                    FirstName = "Bill",
-                    LastName = "Smith",
-                    FullName = "Bill Smith",
-                    LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
-                }
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new LockStageResponse()
-            {
-                Result = new RequestResult()
-                {
-                    Result = StatusResult.Success,
-                    Message = "OK",
-                    ResultCode = 0
-                }
-            };
-            AppendMessage(msg, ref result);
-
             msg = new LockStationRequest()
             {
                 Reason = LockReason.QualityIssue,
+                Lane = "1",
+                Stage="5",
                 Requestor = new Operator()
                 {
                     ActorType = ActorType.Human,
@@ -1953,58 +1912,6 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new UnlockLaneRequest()
-            {
-                Lane = "1",
-                Requestor = new Operator()
-                {
-                    ActorType = ActorType.Human,
-                    FirstName = "Bill",
-                    LastName = "Smith",
-                    FullName = "Bill Smith",
-                    LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
-                }
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new UnlockLaneResponse()
-            {
-                Result = new RequestResult()
-                {
-                    Result = StatusResult.Success,
-                    Message = "OK",
-                    ResultCode = 0
-                }
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new UnlockStageRequest()
-            {
-                Stage = "STAGE1",
-                Requestor = new Operator()
-                {
-                    ActorType = ActorType.Human,
-                    FirstName = "Bill",
-                    LastName = "Smith",
-                    FullName = "Bill Smith",
-                    LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
-                }
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new UnlockStageResponse()
-            {
-                Result = new RequestResult()
-                {
-                    Result = StatusResult.Success,
-                    Message = "OK",
-                    ResultCode = 0
-                }
-            };
-            AppendMessage(msg, ref result);
-
             msg = new UnlockStationRequest()
             {
                 Requestor = new Operator()
@@ -2038,7 +1945,9 @@ namespace CFXExampleEndpoint
                     Name = "RECIPE234324",
                     Revision = "C",
                     MimeType = "application/octet-stream",
-                }
+                    RecipeData = new byte[] {0xff,0xfc,0x34}
+                },
+                Reason = RecipeModificationReason.NewRevision
             };
             AppendMessage(msg, ref result);
 
@@ -2112,10 +2021,14 @@ namespace CFXExampleEndpoint
 
             msg = new ValidateUnitsResponse()
             {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                },
                 PrimaryResult = new ValidationResult()
                 {
                     Result = ValidationStatus.Passed,
-                    Identifier = "CARRIER5566",
+                    UniqueIdentifier = "CARRIER5566",
                     Message = "OK",
                     FailureCode = 0,
                 },
@@ -2125,14 +2038,16 @@ namespace CFXExampleEndpoint
                     new ValidationResult()
                     {
                         Result = ValidationStatus.Passed,
-                        Identifier = "UNIT1123",
+                        UniqueIdentifier = "CARRIER5566",
+                        PositionNumber = 1,
                         Message = "OK",
                         FailureCode = 0,
                     },
                     new ValidationResult()
                     {
                         Result = ValidationStatus.Passed,
-                        Identifier = "UNIT1124",
+                        UniqueIdentifier = "CARRIER5566",
+                        PositionNumber = 2,
                         Message = "OK",
                         FailureCode = 0,
                     }
@@ -2172,7 +2087,7 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new BlockMaterialLocationResponse()
+            msg = new BlockMaterialLocationsResponse()
             {
                 Result = new RequestResult()
                 {
@@ -2194,7 +2109,7 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new UnblockMaterialLocationResponse()
+            msg = new UnblockMaterialLocationsResponse()
             {
                 Result = new RequestResult()
                 {
@@ -2389,7 +2304,7 @@ namespace CFXExampleEndpoint
                 HeadNozzleNumber = 3
             };
 
-            t3 = new InstallationTool()
+            t3 = new Tool()
             {
                 UniqueIdentifier = "UID234228874",
                 Name = "Hammer 45",
