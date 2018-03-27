@@ -33,6 +33,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The material package (reel, bin, etc) that is loaded at the position (if any).
+        /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.None)]
         public MaterialPackage MaterialPackage
         {
@@ -40,6 +43,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The material carrier that is loaded at the position (if any)
+        /// </summary>
         [JsonProperty(ItemTypeNameHandling  = TypeNameHandling.Auto)]
         public MaterialCarrier CarrierInformation
         {

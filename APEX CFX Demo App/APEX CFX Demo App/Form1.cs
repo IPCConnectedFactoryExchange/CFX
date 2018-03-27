@@ -23,14 +23,17 @@ namespace APEX_CFX_Demo_App
         }
 
         AmqpCFXEndpoint theEndpoint;
+        string myHandle = "MyCompany.MyMachineModel.MyMachineSerialNumber";
+        string myBroker = "amqp://cfx.aiscorp.com:5672";
+        string myExchange = "/exchange/AegisCloud";
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
             if (theEndpoint != null) btnClose_Click(sender, e);
 
             theEndpoint = new AmqpCFXEndpoint();
-            theEndpoint.Open("MyHandle-" + Guid.NewGuid().ToString());
-            theEndpoint.AddPublishChannel(new Uri("amqp://cfx.aiscorp.com:5672"), "/exchange/AegisCloud");
+            theEndpoint.Open(myHandle);
+            theEndpoint.AddPublishChannel(new Uri(myBroker), myExchange);
             btnSend.Enabled = true;
         }
 

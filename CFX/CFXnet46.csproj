@@ -24,7 +24,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>bin\netstandard1.6\CFX.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -55,6 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="CFXnet46.csproj.bak" />
     <None Remove="CFX_JSON_Examples.txt" />
     <None Remove="CFX_Logo.PNG" />
   </ItemGroup>

@@ -16,6 +16,22 @@ namespace CFX
     /// The <see cref="CFXEnvelope"/> class is the outer envelope or container in which all CFX messages are enclosed for transmission.
     /// Common properties, such as a globally unique identifier (ID) and the timestamp for the message (TimeStamp),
     /// are defined by this container class and are included with all CFX message transmissions.
+    /// <code language="none">
+    /// {
+    ///    "MessageName": "CFX.EndpointConnected",
+    ///    "Version": "1.0",
+    ///    "TimeStamp": "2018-03-26T16:52:25.3769532-04:00",
+    ///    "UniqueID": "f3b2c8ec-50b7-4c63-9cb3-2ed57c01880f",
+    ///    "Source": null,
+    ///    "Target": null,
+    ///    "RequestID": null,
+    ///    "MessageBody": {
+    ///      "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///      "RequestNetworkUri": "amqp://host33/",
+    ///      "RequestTargetAddress": "/queue/SN23123"
+    ///     }
+    /// }
+    /// </code>
     /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public class CFXEnvelope

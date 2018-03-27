@@ -8,6 +8,10 @@ using Newtonsoft.Json;
 
 namespace CFX
 {
+    /// <summary>
+    /// Abstract base class for all CFX Messages.  Contains no data members.  Provides for the
+    /// serialization and deserialization of messages to and from JSON format.
+    /// </summary>
     //[JsonObject(MemberSerialization.OptIn)]
     public abstract class CFXMessage
     {

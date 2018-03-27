@@ -6,6 +6,11 @@ namespace CFX
 {
     /// <summary>
     /// Sent when an endpoint is about to shut down and disconnect from a CFX network
+    /// <code language="none">
+    /// {
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123"
+    /// }
+    /// </code>
     /// </summary>
     public class EndpointShuttingDown : CFXMessage
     {

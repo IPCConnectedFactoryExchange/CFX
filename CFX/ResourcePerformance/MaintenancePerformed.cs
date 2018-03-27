@@ -5,6 +5,10 @@ using CFX.Structures;
 
 namespace CFX.ResourcePerformance
 {
+    /// <summary>
+    /// Sent by a process endpoint to indicate that a maintenance event has taken place. 
+    /// Information includes the type of maintenance, maintenance code, parts used, labor etc.
+    /// </summary>
     public class MaintenancePerformed : CFXMessage
     {
         public MaintenancePerformed()

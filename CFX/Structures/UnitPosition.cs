@@ -28,9 +28,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Logical reference of production unit as defined by CFX position rule (refer to section 5.6). 
-        /// Position information is only required where the endpoint is unaware of each production
-        /// unit’s true unique identifier.    
+        /// Logical reference of production unit as defined by CFX position rule (see CFX standard section 5.6). 
         /// </summary>
         [JsonProperty]
         public int PositionNumber

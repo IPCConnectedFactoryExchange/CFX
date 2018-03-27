@@ -4,6 +4,10 @@ using System.Text;
 
 namespace CFX.ResourcePerformance
 {
+    /// <summary>
+    /// Sent by a process endpoint on a sampled interval of between 1 minute and 1 hour
+    /// to indicate the energy usage and power consumption.
+    /// </summary>
     public class EnergyConsumed : CFXMessage
     {
         public DateTime StartTime

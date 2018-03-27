@@ -5,6 +5,10 @@ using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a single test in a series of test that an tester makes (both human or automation)
+    /// in the course of testing a production unit.
+    /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Test
     {
@@ -26,24 +30,37 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Identifies the nature of the test performed
+        /// </summary>
         public string TestName
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Indicates the time when this particular test began (if known)
+        /// </summary>
         public DateTime? TestStartTime
         {
             get;
             set;
         }
 
-        public DateTime? TestCompletionTime
+        /// <summary>
+        /// Indicates the time when this particular test ended (if known)
+        /// </summary>
+        public DateTime? TestEndTime
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// A list of environmental conditions (temperature, humidity, etc.) which
+        /// were in place when the test was performed.
+        /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<EnvironmentalCondition> TestConditions
         {
@@ -60,12 +77,18 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Optional comments from the tester who tested the unit
+        /// </summary>
         public string Comments
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The overall result of the test
+        /// </summary>
         public TestResult Result
         {
             get;
@@ -81,18 +104,28 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The symptoms that were discovered in the course of this test
+        /// </summary>
         public List<Symptom> SymptomsFound
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The defects that were discovered in the course of this test
+        /// </summary>
         public List<Defect> DefectsFound
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The measurements that were taken in the course of performing this test.
+        /// NOTE - Only measurements not related to particular defects or symptoms should be recorded here.
+        /// </summary>
         public List<Measurement> Measurements
         {
             get;

@@ -4,10 +4,16 @@ using System.Text;
 
 namespace CFX
 {
+
     /// <summary>
     /// Allows any CFX endpoint to determine if another particular CFX endpoint is present on a CFX network.
     /// The response sends basic information about the endpoint, including its CFX Handle, and network
     /// hostname / address.
+    /// <code language="none">
+    /// {
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123"
+    /// }
+    /// </code>
     /// </summary>
     public class AreYouThereRequest : CFXMessage
     {

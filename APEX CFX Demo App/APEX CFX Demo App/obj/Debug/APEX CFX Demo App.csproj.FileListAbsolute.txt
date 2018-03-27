@@ -33,3 +33,4 @@ C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.
 C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.csproj.CoreCompileInputs.cache
 C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.exe
 C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.pdb
+C:\Code\Git\CFX\APEX CFX Demo App\APEX CFX Demo App\obj\Debug\APEX CFX Demo App.csproj.CopyComplete

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a defect that was discovered on a production unit
+    /// </summary>
     public class Defect
     {
         public Defect()
@@ -13,51 +16,82 @@ namespace CFX.Structures
             ComponentOfInterest = new ComponentDesignator();
             RegionOfInterest = new Region();
             DefectImages = new List<Image>();
+            UniqueIdentifier = Guid.NewGuid().ToString();
+            Priority = 1;
+            ConfidenceLevel = 100.0;
         }
 
+        /// <summary>
+        /// A unique identifier for this particular defect instance
+        /// (new and unique each time a new defect is discovered).
+        /// </summary>
         public string UniqueIdentifier
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// A code identifying the type of defect
+        /// </summary>
         public string DefectCode
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// An optional defect category for this particular type of defect
+        /// </summary>
         public string DefectCategory
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// A human friendly description of the defect
+        /// </summary>
         public string Description
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Optional comments from the inspector who discovered this defect
+        /// </summary>
         public string Comments
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// An optional component or specific component pins related to this defect.
+        /// </summary>
         public ComponentDesignator ComponentOfInterest
         {
             get;
             set;
         }
 
-        public List<Image> DefectImages
+
+        /// <summary>
+        /// An optional location or area on the production unit where the defect is located 
+        /// (for cases where there is no specific component related, such as a scratch or 
+        /// cosmetic defect).
+        /// </summary>
+        public Region RegionOfInterest
         {
             get;
             set;
         }
 
-        public Region RegionOfInterest
+        /// <summary>
+        /// One of more pictures/images of the defect
+        /// </summary>
+        public List<Image> DefectImages
         {
             get;
             set;
@@ -74,7 +108,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// A floating point number from 1 to 100 indicating the level of confidence
+        /// A floating-point number from 1 to 100 indicating the level of confidence
         /// in the validity of this defect.  Intended to be used by humans that screen
         /// the results of inspections made by automated inspection equipment, 
         /// which may produce false defects from time to time.
@@ -85,12 +119,18 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// A list of measurements that were taken in the course of discovering this defect
+        /// </summary>
         public List<Measurement> RelatedMeasurements
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// A list of symptoms that were discovered in the course of identifying this defect.
+        /// </summary>
         public List<Symptom> RelatedSymptoms
         {
             get;

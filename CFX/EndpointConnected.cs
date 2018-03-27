@@ -9,6 +9,13 @@ namespace CFX
     /// Provides the same information as the response to the AreYouThereRequest 
     /// message. Need not be used for short-term machine to machine connection, 
     /// where for example only a simple request / response message is being exchanged.
+    /// <code language="none">
+    /// {
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///   "RequestNetworkUri": "amqp://host33/",
+    ///   "RequestTargetAddress": "/queue/SN23123"
+    /// }
+    /// </code>
     /// </summary>
     public class EndpointConnected : CFXMessage
     {

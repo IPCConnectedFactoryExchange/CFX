@@ -27,7 +27,6 @@ namespace CFX.Structures
 
         /// <summary>
         /// Logical reference of production unit as defined by CFX position rule (refer to CFX standard).
-        /// Position information is only required where each production unit has a specific production ID.  
         /// </summary>
         public int? UnitPositionNumber
         {

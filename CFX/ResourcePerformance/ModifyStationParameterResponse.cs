@@ -5,6 +5,9 @@ using CFX.Structures;
 
 namespace CFX.ResourcePerformance
 {
+    /// <summary>
+    /// Response to an external source to modify a generic configuration parameter of a process endpoint.
+    /// </summary>
     public class ModifyStationParameterResponse : CFXMessage
     {
         public ModifyStationParameterResponse()

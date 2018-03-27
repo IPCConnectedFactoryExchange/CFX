@@ -10,6 +10,18 @@ namespace CFX
     /// and their capabilities. All other CFX endpoints must then respond to this broadcast, providing
     /// information about themselves.  The response provides basic information about the endpoint, 
     /// including its CFX Handle and network hostname / address.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///   "RequestNetworkUri": "amqp://host33/",
+    ///   "RequestTargetAddress": "/queue/SN23123"
+    /// }
+    /// </code>
     /// </summary>
     public class WhoIsThereResponse : CFXMessage
     {

@@ -82,7 +82,7 @@ namespace CFXExampleEndpoint
                                 ReferenceDesignator = "R3"
                             }
                         })
-                         
+
                     },
                     new InstalledMaterial()
                     {
@@ -344,7 +344,7 @@ namespace CFXExampleEndpoint
                                         {
                                             new Image () {ImageData = new byte[] {0xac,0x54,0x56,0x77,0xd8,0x99} }
                                         })
-                                       
+
                                     },
                                     new Defect()
                                     {
@@ -584,7 +584,7 @@ namespace CFXExampleEndpoint
                                 TestName = "HOT_TEST",
                                 Result = TestResult.Passed,
                                 TestStartTime = DateTime.Now - TimeSpan.FromSeconds(32),
-                                TestCompletionTime = DateTime.Now,
+                                TestEndTime = DateTime.Now,
                                 TestConditions = new List<EnvironmentalCondition>(new EnvironmentalCondition []
                                 {
                                     new Temperature() { MeanValue = 45.2, MaxValue = 45.8, MinValue = 44.9 },
@@ -597,7 +597,7 @@ namespace CFXExampleEndpoint
                                 TestName = "COLD_TEST",
                                 Result = TestResult.Passed,
                                 TestStartTime = DateTime.Now - TimeSpan.FromSeconds(32),
-                                TestCompletionTime = DateTime.Now,
+                                TestEndTime = DateTime.Now,
                                 TestConditions = new List<EnvironmentalCondition>(new EnvironmentalCondition []
                                 {
                                     new Temperature() { MeanValue = -6.5, MaxValue = -6.4, MinValue = -6.7 },
@@ -660,7 +660,7 @@ namespace CFXExampleEndpoint
                 SerialNumber = "SN23123",
                 NumberOfLanes = 1,
                 NumberOfStages = 4,
-                SupportedTopics = new List<SupportedTopic>(new SupportedTopic [] 
+                SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
                 {
                     new SupportedTopic()
                     {
@@ -688,6 +688,11 @@ namespace CFXExampleEndpoint
                 RequestTargetAddress = "/queue/SN23123"
             };
             AppendMessage(msg, ref result);
+
+            CFXEnvelope env = new CFXEnvelope(msg);
+            result += "CFXEnvelope\r\n===========\r\n";
+            result += env.ToJson();
+            result += "\r\n\r\n";
 
             msg = new EndpointShuttingDown()
             {
@@ -1071,7 +1076,7 @@ namespace CFXExampleEndpoint
                     FaultCode = "ERROR 234333",
                     PrintingFaultType = SMTSolderPastePrintingFaultType.SqueegeeError
                 }
-            }; 
+            };
             AppendMessage(msg, ref result);
 
             return result;
@@ -1082,7 +1087,7 @@ namespace CFXExampleEndpoint
             string result = "";
             CFXMessage msg = null;
 
-            
+
 
 
             msg = new MaterialsLoaded()
@@ -1301,9 +1306,9 @@ namespace CFXExampleEndpoint
 
             msg = new BlockMaterialsRequest()
             {
-                 Reason = BlockReason.SuspectedProblem,
-                 Comments = "Suspected Bad Lot of Parts",
-                 MaterialPackageIdentifiers = new List<string>(new string []
+                Reason = BlockReason.SuspectedProblem,
+                Comments = "Suspected Bad Lot of Parts",
+                MaterialPackageIdentifiers = new List<string>(new string[]
                  {
                      m1.UniqueIdentifier, m2.UniqueIdentifier
                  })
@@ -1323,7 +1328,7 @@ namespace CFXExampleEndpoint
 
             msg = new MaterialsInitialized()
             {
-                Materials = new List<MaterialPackageDetail>(new MaterialPackageDetail []
+                Materials = new List<MaterialPackageDetail>(new MaterialPackageDetail[]
                 {
                     m1, m2
                 })
@@ -1728,7 +1733,7 @@ namespace CFXExampleEndpoint
             GetRequiredSetupResponse grsr = new GetRequiredSetupResponse()
             {
                 Stage = "1",
-                Lane="1",
+                Lane = "1",
                 RecipeName = "RECIPE4455",
                 RecipeRevision = "C",
                 Result = new RequestResult()
@@ -1756,7 +1761,7 @@ namespace CFXExampleEndpoint
             {
                 Reason = LockReason.QualityIssue,
                 Lane = "1",
-                Stage="5",
+                Stage = "5",
                 Requestor = new Operator()
                 {
                     ActorType = ActorType.Human,
@@ -1940,12 +1945,12 @@ namespace CFXExampleEndpoint
             msg = new UpdateRecipeRequest()
             {
                 Overwrite = true,
-                Recipe  = new Recipe()
+                Recipe = new Recipe()
                 {
                     Name = "RECIPE234324",
                     Revision = "C",
                     MimeType = "application/octet-stream",
-                    RecipeData = new byte[] {0xff,0xfc,0x34}
+                    RecipeData = new byte[] { 0xff, 0xfc, 0x34 }
                 },
                 Reason = RecipeModificationReason.NewRevision
             };
@@ -2005,7 +2010,7 @@ namespace CFXExampleEndpoint
             {
                 PrimaryIdentifier = "CARRIER2342",
                 Validations = new List<ValidationType>(
-                    new ValidationType []
+                    new ValidationType[]
                     {
                         ValidationType.UnitRouteValidation,
                         ValidationType.UnitStatusValidation
@@ -2054,7 +2059,7 @@ namespace CFXExampleEndpoint
                 })
             };
             AppendMessage(msg, ref result);
-            
+
             msg = new IdentifyUnitsRequest();
             AppendMessage(msg, ref result);
 
@@ -2078,7 +2083,7 @@ namespace CFXExampleEndpoint
 
             msg = new BlockMaterialLocationsRequest()
             {
-               Locations = new List<MaterialLocation>(
+                Locations = new List<MaterialLocation>(
                    new MaterialLocation[]
                    {
                         new MaterialLocation() { LocationIdentifier = "23143433", LocationName = "SLOT45"},
@@ -2128,8 +2133,15 @@ namespace CFXExampleEndpoint
             string type = msg.GetType().ToString();
             string sep = new string('=', type.Length);
             data += type + "\r\n" + sep + "\r\n";
-            data += msg.ToJson();
-            data += "\r\n\r\n";
+            string jsonData = msg.ToJson() + "\r\n";
+            data += "/// <code language=\"none\">\r\n";
+            foreach (string line in jsonData.Split(new string[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries))
+            {
+                data += "/// ";
+                data += line;
+                data += "\r\n";
+            }
+            data += "/// </code>\r\n\r\n\r\n";
         }
 
         public void InitializeMaterials()

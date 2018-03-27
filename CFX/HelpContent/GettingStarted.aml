@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="cfb57aac-b696-4c6c-b94b-f034b37daf26" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+    <introduction>
+      <para>The CFX Software Development Kit (SDK) is a .NET based library that may be used within the Microsoft Visual Studio development environment.  
+      It is a .NET Standard 1.3 platform library, allowing it to be inter-operable with many variants of the .NET framework (full .NET Framework, 
+      .NET Core, .NET Micro Framework, UWP, etc.).
+      </para>
+    </introduction>
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="Section1">
+      <title>Using the CFX SDK</title>
+      <content>
+      <para>The CFX SDK currently provides the following features and capabilities:</para>
+      <list class="bullet">
+      <listItem><para>Class / Object representations of all CFX messages (just like the standard, not yet 100% complete, but a great many messages are already available).</para></listItem>
+	  <listItem><para>Ability to serialize and de-serialize CFX message objects to and from JSON format.</para></listItem>
+	  <listItem><para>Ability to publish CFX messages via AMQP transport protocol to one or more destinations.</para></listItem>
+      <listItem><para>Ability to receive CFX messages via AMQP transport protocol from one or more subscription sources.</para></listItem>
+      <listItem><para>Fully automated network connection fault management (maintains AMQP connections even when network goes down or is otherwise unreliable).</para></listItem>
+      <listItem><para>CFX message “spooling”.  Maintains a durable queue of CFX messages that were not able to be transmitted due to faulty network conditions.
+                      Messages are automatically transmitted in their original order once network service has resumed.</para></listItem>
+      <listItem><para>Point-to-Point CFX endpoint command (Request / Response) support.</para></listItem>
+      <listItem><para>Support for AMQP 1.0 SASL authentication and TLS encryption.</para></listItem>
+      </list>
+      </content>
+    </section>
+    <section address="Section2">
+      <title>Supported Development Platforms</title>
+      <content>
+      <para>To use the CFX SDK, you must utilize Microsoft Visual Studio 2012 or newer (or a 3rd party IDE capable of developing applications
+      targeting .NET Framework 4.6 or greater). </para>
+      </content>
+    </section>
+    <section address="Section3">
+      <title>Licensing</title>
+      <content>
+      <para>The CFX SDK is absolutely free, and there are no runtime royalties or license fees of any sort.  
+      Though originally developed by Aegis Software, the SDK and its source code have been donated by Aegis to the IPC.  
+      The code is published publicly on GitHub, and use of the SDK is licensed under the Apache open source license agreement.
+      </para>
+      </content>
+    </section>
+    <section address="Section4">
+      <title>Distribution and Source Code Availability</title>
+      <content>
+      <para>The CFX SDK is available as a NuGet package on nuget.org under the package name CFX.CFXSDK
+      <externalLink>
+		<linkText>(https://www.nuget.org/packages/CFX.CFXSDK)</linkText>
+		<linkUri>https://www.nuget.org/packages/CFX.CFXSDK</linkUri>
+		<linkTarget>_blank</linkTarget>
+	  </externalLink>
+	  </para>
+	  <para>TSource code for the SDK is maintained as an open source community project on GitHub at 
+      <externalLink>
+		<linkText>https://github.com/IPCConnectedFactoryExchange/CFX</linkText>
+		<linkUri>https://github.com/IPCConnectedFactoryExchange/CFX</linkUri>
+		<linkTarget>_blank</linkTarget>
+	  </externalLink>
+	  </para>
+	  <para>Developer Getting Started Guide, CFX Message/Structure Definitions, and Reference Documentation for the CFX SDK can be found here:
+      <externalLink>
+		<linkText>http://www.connectedfactoryexchange.com/CFXDemo/SDK</linkText>
+		<linkAlternateText>Optional alternate text</linkAlternateText>
+		<linkUri>http://www.connectedfactoryexchange.com/CFXDemo/SDK</linkUri>
+		<linkTarget>_blank</linkTarget>
+	  </externalLink>
+	  </para>
+	  </content>
+    </section>
+    <section address="Section4">
+      <title>Step-By-Step Getting Started Guide</title>
+      <content>
+      <para>This walkthrough will guide you through the basic process necessary to create and transmit a CFX message using the CFX SDK</para>
+      <para>For this walkthrough, we will create a basic .NET WinForms application that uses the CFX SDK to accomplish the message creation and transmission</para>
+      <para>To create your actual demo for the APEX show, you will follow a very similar process, but will be adding the CFX library to your pre-existing machine 
+            controller, line controller, or data collection software modules.</para>
+      <section address="Section4Sub1">
+      <title>STEP 1 -- Creating a new WinForms Application</title>
+      <content>
+        <para>Use Visual Studio to create a new WinForms Application</para>
+        <para><mediaLink><image xlink:href="StepImage1"/></mediaLink></para>
+        <para><mediaLink><image xlink:href="StepImage1b"/></mediaLink></para>
+      </content>
+      </section>
+      <section address="Section4Sub2">
+      <title>STEP 2 -- Add the CFX SDK package to your Project</title>
+      <content>
+        <para>Open the NuGet Package Management Console, and type:</para>
+        <para><code>Install-Package CFX.CFXSDK</code></para>
+        <para>The NuGet Package Management Console can be accessed here:</para>
+        <para><mediaLink><image xlink:href="StepImage2"/></mediaLink></para>
+      </content>
+      </section>
+      <section address="Section4Sub3">
+      <title>STEP 3 -- Initialize an AMQP CFX Publish Channel to a CFX Broker</title>
+      <content>
+        <para>Add an Open button to your form, and create a click handler method.  
+              Add the following code to your handler to initialize a new AMQP channel to the APEX cloud server:</para>
+        <para><code>
+using CFX;
+using CFX.Structures;
+using CFX.ResourcePerformance;
+using CFX.Transport;
+
+. . .
+. . .
+
+AmqpCFXEndpoint theEndpoint;
+string myHandle = "MyCompany.MyMachineModel.MyMachineSerialNumber";
+string myBroker = "amqp://cfx.aiscorp.com:5672";
+string myExchange = "/exchange/AegisCloud";
+
+private void btnOpen_Click(object sender, EventArgs e)
+{
+     if (theEndpoint != null) btnClose_Click(sender, e);
+
+     
+     theEndpoint = new AmqpCFXEndpoint();
+     theEndpoint.Open(myHandle);
+     theEndpoint.AddPublishChannel(new Uri(myBroker), myExchange);
+     btnSend.Enabled = true;
+}
+
+        </code></para>
+      </content>
+      </section>
+      <section address="Section4Sub4">
+      <title>STEP 4 -- Construct a CFX Message and Publish to the Broker</title>
+      <content>
+        <para>Add a Send button to your form, and create a click handler method.  
+              Add the following code to your handler to initialize a new AMQP channel to the APEX cloud server:</para>
+        <para><code>
+private void btnSend_Click(object sender, EventArgs e)
+{
+     CFXEnvelope msg = new CFXEnvelope(new StationStateChanged()
+     {
+          NewState = ResourceState.On,
+          OldState = ResourceState.Off,
+          OldStateDuration = TimeSpan.FromMinutes(43)
+     });
+
+     theEndpoint.Publish(env);
+}
+      </code></para>
+      <para>That’s it!  You can download the full source code for this example on GitHub at:</para>
+      <para><externalLink>
+		<linkText>https://github.com/IPCConnectedFactoryExchange/CFX/tree/master/APEX%20CFX%20Demo%20App</linkText>
+		<linkUri>https://github.com/IPCConnectedFactoryExchange/CFX/tree/master/APEX%20CFX%20Demo%20App</linkUri>
+		<linkTarget>_blank</linkTarget>
+	  </externalLink></para>
+      </content>
+      </section>
+    </content>
+    </section>
+  </developerConceptualDocument>
+</topic>

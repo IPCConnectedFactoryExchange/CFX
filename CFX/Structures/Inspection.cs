@@ -4,6 +4,10 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a single step in a series of steps that an inspector makes (both human or automation)
+    /// in the course of inspecting a production unit.
+    /// </summary>
     public class Inspection
     {
         public Inspection()
@@ -22,20 +26,36 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Identifies the nature of the inspection performed
+        /// </summary>
         public string InspectionName
         {
             get;
             set;
         }
 
-        public DateTime? InspectionTime
+
+        /// <summary>
+        /// Indicates the time when this particular inspection began (if known)
+        /// </summary>
+        public DateTime? InspectionStartTime
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Procedure to be followed to perform this inspection (primarily for human driven inspection).
+        /// Indicates the time when this particular inspection ended (if known)
+        /// </summary>
+        public DateTime? InspectionEndTime
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Procedure to be followed to perform this inspection (primarily for human driven inspection)
         /// </summary>
         public string TestProcedure
         {
@@ -43,12 +63,18 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// Optional comments from the inspector who inspected the unit
+        /// </summary>
         public string Comments
         {
             get;
             set;
         }
-        
+
+        /// <summary>
+        /// The overall result of the inspection
+        /// </summary>
         public TestResult Result
         {
             get;
@@ -64,12 +90,19 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The defects that were discovered in the course of performing this inspection (if any)
+        /// </summary>
         public List<Defect> DefectsFound
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The measurements that were taken in the course of performing this inspection (if any).
+        /// NOTE - Only measurements not related to particular defects or symptoms should be recorded here.
+        /// </summary>
         public List<Measurement> Measurements
         {
             get;

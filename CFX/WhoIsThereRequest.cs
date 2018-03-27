@@ -9,7 +9,10 @@ namespace CFX
     /// and their capabilities. All other CFX endpoints must then respond to this broadcast, providing
     /// information about themselves.  The response provides basic information about the endpoint, 
     /// including its CFX Handle and network hostname / address.
-    /// </summary>
+    /// <code language="none">
+    /// {}
+    /// </code>
+    ///</summary>
     public class WhoIsThereRequest : CFXMessage
     {
     }

@@ -4,11 +4,15 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a measure that was made by a human or by automated equipment in the course
+    /// of inspecting or testing a production unit
+    /// </summary>
     public class Measurement
     {
         public Measurement()
         {
-
+            
         }
 
         /// <summary>
@@ -31,9 +35,9 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The date/time when this Measurement was recorded.
+        /// The date/time when this Measurement was recorded (if known, otherwise null)
         /// </summary>
-        public DateTime TimeRecorded
+        public DateTime? TimeRecorded
         {
             get;
             set;
@@ -50,7 +54,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// An enumeration indicating whether or not this reading is considered acceptable.
+        /// An enumeration indicating whether or not this measurement is considered acceptable.
         /// </summary>
         public TestResult Result
         {
@@ -59,7 +63,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// An optional list of components (instance of a part) on a production unit(s) to be associated with this reading.
+        /// An optional list of components (instance of a part) on a production unit(s) to be associated with this measurement.
         /// </summary>
         public List<ComponentDesignator> Components
         {
@@ -67,12 +71,18 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// An enumeration describing the type of value contained in the Value or BinaryValue properties.
+        /// </summary>
         public DataType ValueDataType
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The units of the value (must be a valid SI unit)
+        /// </summary>
         public string ValueUnits
         {
             get;
@@ -89,6 +99,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The value of the measurement
+        /// </summary>
         public string Value
         {
             get;
@@ -105,24 +118,36 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// The expected value for thie measurement
+        /// </summary>
         public string ExpectedValue
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The units of the expected value (must be a valid SI unit)
+        /// </summary>
         public string ExpectedValueUnits
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The minimum acceptable value
+        /// </summary>
         public string MinimumAcceptableValue
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The minimum acceptable value
+        /// </summary>
         public string MaximumAcceptableValue
         {
             get;

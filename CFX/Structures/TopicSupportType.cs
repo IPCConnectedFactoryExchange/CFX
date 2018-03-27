@@ -14,7 +14,7 @@ namespace CFX.Structures
     {
         /// <summary>
         /// The endpoint publishes outbound messages for this topic, and responds to inbound requests
-        /// </summary
+        /// </summary>
         Publisher,
         /// <summary>
         /// The endpoint consumes the messages of this topic that are produced by other endpoints

@@ -8,13 +8,52 @@ namespace CFX
     /// <summary>
     /// Allows any CFX endpoint to request the capabilities of a specified single endpoint. The response
     /// sends basic information about the endpoint, including its CFX Handle, and network hostname / address.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///   "RequestNetworkUri": "amqp://host33:5688/",
+    ///   "RequestTargetAddress": "/queue/SN23123",
+    ///   "UniqueIdentifier": "UID564545645645656564",
+    ///   "FriendlyName": "SMD Placer 23123",
+    ///   "Vendor": "SMT Plus",
+    ///   "ModelNumber": "Model_21232",
+    ///   "SerialNumber": "SN23123",
+    ///   "NumberOfStages": 4,
+    ///   "NumberOfLanes": 1,
+    ///   "SupportedTopics": [
+    ///     {
+    ///       "TopicName": "CFX.Production",
+    ///       "TopicSupportType": "PublisherConsumer",
+    ///       "SupportedMessages": []
+    ///     },
+    ///     {
+    ///       "TopicName": "CFX.Production.Assembly",
+    ///       "TopicSupportType": "Publisher",
+    ///       "SupportedMessages": []
+    ///     },
+    ///     {
+    ///       "TopicName": "CFX.ResourcePerformance",
+    ///       "TopicSupportType": "Publisher",
+    ///       "SupportedMessages": []
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class GetEndpointInformationResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GetEndpointInformationResponse()
         {
             Result = new RequestResult();
-            SupportedTopics = new List<SupportedTopic>();
+            //SupportedTopics = new List<SupportedTopic>();
         }
 
         /// <summary>
@@ -117,7 +156,7 @@ namespace CFX
         }
 
         /// <summary>
-        /// A list of the topics that the endpoint supports
+        /// A list of the <see cref="CFX.Structures.SupportedTopic"/>s structures describing the level of support for this endpoint
         /// </summary>
         public List<SupportedTopic> SupportedTopics
         {

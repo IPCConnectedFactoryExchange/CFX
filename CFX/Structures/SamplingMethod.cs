@@ -6,6 +6,9 @@ using Newtonsoft.Json.Converters;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a particular sampling methodology.
+    /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SamplingMethod
     {

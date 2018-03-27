@@ -9,6 +9,11 @@ namespace CFX
     /// The response includes information regarding the endpoint’s capabilities
     /// (CFX topic and message support), as well as a generic model of its
     /// physical layout (zones, lanes, etc).
+    /// <code language="none">
+    /// {
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123"
+    /// }
+    /// </code>
     /// </summary>
     public class GetEndpointInformationRequest : CFXMessage
     {

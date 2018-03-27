@@ -9,6 +9,18 @@ namespace CFX
     /// Allows any CFX endpoint to determine if another particular CFX endpoint is present on a CFX network.
     /// The response sends basic information about the endpoint, including its CFX Handle, and network
     /// hostname / address.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
+    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///   "RequestNetworkUri": "amqp://host33/",
+    ///   "RequestTargetAddress": "/queue/SN23123"
+    /// }
+    /// </code>
     /// </summary>
     public class AreYouThereResponse : CFXMessage
     {
