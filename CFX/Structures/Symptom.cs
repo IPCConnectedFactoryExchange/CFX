@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
@@ -9,6 +10,7 @@ namespace CFX.Structures
     /// A symptom does not identify the actual cause of the failure(s), only that 
     /// there is a problem that needs to be investigated. 
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Symptom
     {
         public Symptom()
@@ -95,6 +97,7 @@ namespace CFX.Structures
         /// <summary>
         /// A list of measurements that were taken which caused this symptom to be created
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<Measurement> RelatedMeasurements
         {
             get;

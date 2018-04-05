@@ -7,6 +7,14 @@ namespace CFX.Production
     /// <summary>
     /// Used to activate a named recipe at the process endpoint. 
     /// The response indicates whether this was successful or not.
+    /// <code language="none">
+    /// {
+    ///   "RecipeName": "RECIPE1234",
+    ///   "Revision": "C",
+    ///   "Lane": "1",
+    ///   "Stage": "1"
+    /// }
+    /// </code>
     /// </summary>
     public class ActivateRecipeRequest : CFXMessage
     {

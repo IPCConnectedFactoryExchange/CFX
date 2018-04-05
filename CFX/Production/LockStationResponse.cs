@@ -13,6 +13,15 @@ namespace CFX.Production
     /// <summary>
     /// Response to a request that the endpoint cease active operation (locked) as soon as practically possible
     /// at a process endpoint.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class LockStationResponse : CFXMessage
     {

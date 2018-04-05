@@ -9,6 +9,12 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint when the work-stage for a unit or group of units starts
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": "1"
+    /// }
+    /// </code>
     /// </summary>
     public class WorkStageStarted : CFXMessage
     {

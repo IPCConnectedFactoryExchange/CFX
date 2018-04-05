@@ -1,0 +1,321 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>UnitsTested Class</title><meta name="Language" content="en-us" /><meta name="System.Keywords" content="UnitsTested class" /><meta name="System.Keywords" content="CFX.Production.TestAndInspection.UnitsTested class" /><meta name="Microsoft.Help.F1" content="CFX.Production.TestAndInspection.UnitsTested" /><meta name="Microsoft.Help.Id" content="T:CFX.Production.TestAndInspection.UnitsTested" /><meta name="Description" content="Sent by a process endpoint when one or more units undergo a series of tests. Tests can be of any form, including environmental testing, electrical testing, functional testing, etc." /><meta name="Microsoft.Help.ContentType" content="Reference" /><meta name="BrandingAware" content="true" /><meta name="container" content="CFX.Production.TestAndInspection" /><meta name="file" content="T_CFX_Production_TestAndInspection_UnitsTested" /><meta name="guid" content="T_CFX_Production_TestAndInspection_UnitsTested" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">IPC Connected Factory Exchange Reference<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html\cfb57aac-b696-4c6c-b94b-f034b37daf26.htm" title="IPC Connected Factory Exchange Reference" tocid="roottoc">IPC Connected Factory Exchange Reference</a></div><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/R_Project_CFXSDK.htm" title="CFX Topics, Messages, and Data Structures" tocid="R_Project_CFXSDK">CFX Topics, Messages, and Data Structures</a></div><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/N_CFX_Production_TestAndInspection.htm" title="CFX.Production.TestAndInspection" tocid="N_CFX_Production_TestAndInspection">CFX.Production.TestAndInspection</a></div><div class="toclevel1 current" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Production_TestAndInspection_UnitsTested.htm" title="UnitsTested Class" tocid="T_CFX_Production_TestAndInspection_UnitsTested">UnitsTested Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/Properties_T_CFX_Production_TestAndInspection_UnitsTested.htm" title="UnitsTested Properties" tocid="Properties_T_CFX_Production_TestAndInspection_UnitsTested">UnitsTested Properties</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="titleColumn"><h1>UnitsTested Class</h1></td></tr></table><span class="introStyle"></span> <p style="color: #dc143c; font-size: 8.5pt; font-weight: bold;">[This is preliminary documentation and is subject to change.]</p><div class="summary">
+            Sent by a process endpoint when one or more units undergo a series of tests.  
+            Tests can be of any form, including environmental testing, electrical testing, functional testing, etc.  
+            Detail of each test performed is provided, including any measured values, and the results of each test (P/F).  
+            For any failed tests, symptom detail is provided.
+            <p /><p>Example 1 (In-Circuit Test of 2 Circuit PCB Panel):</p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EACABA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EACABA');return false;" title="Copy">Copy</a></div></div><div id="ID0EACABA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "TransactionId": "2d1bacac-c923-4c38-815c-208685bbe319",
+  "TestMethod": "Automated",
+  "Tester": {
+    "OperatorIdentifier": "UID235434324",
+    "ActorType": "Human",
+    "FullName": "Joseph Smith",
+    "LastName": "Smith",
+    "FirstName": "Joseph",
+    "LoginName": "joseph.smith@abcdrepairs.com"
+  },
+  "SamplingInformation": {
+    "SamplingMethod": "NoSampling",
+    "LotSize": null,
+    "SampleSize": null
+  },
+  "TestedUnits": [
+    {
+      "UnitIdentifier": "PANEL34543535",
+      "UnitPositionNumber": 1,
+      "OverallResult": "Passed",
+      "Tests": [
+        {
+          "UniqueIdentifier": "0e17d9c7-9137-47fb-bddb-816aee913285",
+          "TestName": "RESISTANCE_CHECK_R21",
+          "TestStartTime": null,
+          "TestEndTime": null,
+          "TestConditions": [],
+          "TestProcedure": null,
+          "Comments": null,
+          "Result": "Passed",
+          "Error": null,
+          "SymptomsFound": [],
+          "DefectsFound": [],
+          "Measurements": [
+            {
+              "$type": "CFX.Structures.NumericMeasurement, CFX",
+              "MeasuredValue": {
+                "Value": 28300.0,
+                "ValueUnits": "Ohm",
+                "ExpectedValue": 28.2,
+                "ExpectedValueUnits": "kOhm",
+                "MinimumAcceptableValue": 28.0,
+                "MaximumAcceptableValue": 28.4
+              },
+              "UniqueIdentifier": "a41473f0-81f5-4b2e-8e67-e8c2daf0afd6",
+              "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
+              "TimeRecorded": null,
+              "Sequence": 0,
+              "Result": "Passed",
+              "Components": [
+                {
+                  "ReferenceDesignator": "R21",
+                  "UnitPosition": null,
+                  "PartNumber": "41234-8897"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "UniqueIdentifier": "5e7654ce-d62e-43a6-b90d-879af1ad98ca",
+          "TestName": "RESISTANCE_CHECK_R22",
+          "TestStartTime": null,
+          "TestEndTime": null,
+          "TestConditions": [],
+          "TestProcedure": null,
+          "Comments": null,
+          "Result": "Failed",
+          "Error": null,
+          "SymptomsFound": [
+            {
+              "UniqueIdentifier": "98d7a62e-b411-4e68-b788-40ec6cf4b970",
+              "SymptomCode": "RESFAIL2",
+              "SymptomCategory": "Electrical Tests",
+              "Description": "Resistance Value Out of Tolerance",
+              "Comments": null,
+              "ComponentsOfInterest": [
+                {
+                  "ReferenceDesignator": "R22.1",
+                  "UnitPosition": null,
+                  "PartNumber": "41234-8897"
+                },
+                {
+                  "ReferenceDesignator": "R22.2",
+                  "UnitPosition": null,
+                  "PartNumber": "41234-8897"
+                }
+              ],
+              "RegionOfInterest": null,
+              "Priority": 1,
+              "RelatedMeasurements": [
+                {
+                  "$type": "CFX.Structures.NumericMeasurement, CFX",
+                  "MeasuredValue": {
+                    "Value": 28.52,
+                    "ValueUnits": "kOhm",
+                    "ExpectedValue": 28.2,
+                    "ExpectedValueUnits": "kOhm",
+                    "MinimumAcceptableValue": 28.0,
+                    "MaximumAcceptableValue": 28.4
+                  },
+                  "UniqueIdentifier": "9f3021f9-dd6e-4cae-955e-014a46d9e665",
+                  "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
+                  "TimeRecorded": null,
+                  "Sequence": 0,
+                  "Result": "Passed",
+                  "Components": [
+                    {
+                      "ReferenceDesignator": "R22",
+                      "UnitPosition": null,
+                      "PartNumber": "41234-8897"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "DefectsFound": [],
+          "Measurements": []
+        }
+      ]
+    },
+    {
+      "UnitIdentifier": "PANEL34543535",
+      "UnitPositionNumber": 2,
+      "OverallResult": "Passed",
+      "Tests": [
+        {
+          "UniqueIdentifier": "68a2dd81-171c-4184-8de0-ec7aeaf76b49",
+          "TestName": "RESISTANCE_CHECK_R21",
+          "TestStartTime": null,
+          "TestEndTime": null,
+          "TestConditions": [],
+          "TestProcedure": null,
+          "Comments": null,
+          "Result": "Passed",
+          "Error": null,
+          "SymptomsFound": [],
+          "DefectsFound": [],
+          "Measurements": [
+            {
+              "$type": "CFX.Structures.NumericMeasurement, CFX",
+              "MeasuredValue": {
+                "Value": 28300.0,
+                "ValueUnits": "Ohm",
+                "ExpectedValue": 28.2,
+                "ExpectedValueUnits": "kOhm",
+                "MinimumAcceptableValue": 28.0,
+                "MaximumAcceptableValue": 28.4
+              },
+              "UniqueIdentifier": "ad809cbc-75cb-4ff0-8bbf-98ea000d104d",
+              "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
+              "TimeRecorded": null,
+              "Sequence": 0,
+              "Result": "Passed",
+              "Components": [
+                {
+                  "ReferenceDesignator": "R21",
+                  "UnitPosition": null,
+                  "PartNumber": "41234-8897"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "UniqueIdentifier": "dd6478ae-0b30-4a7f-a3f7-2ec0ff2e4b9b",
+          "TestName": "RESISTANCE_CHECK_R22",
+          "TestStartTime": null,
+          "TestEndTime": null,
+          "TestConditions": [],
+          "TestProcedure": null,
+          "Comments": null,
+          "Result": "Passed",
+          "Error": null,
+          "SymptomsFound": [],
+          "DefectsFound": [],
+          "Measurements": [
+            {
+              "$type": "CFX.Structures.NumericMeasurement, CFX",
+              "MeasuredValue": {
+                "Value": 28300.0,
+                "ValueUnits": "Ohm",
+                "ExpectedValue": 28.2,
+                "ExpectedValueUnits": "kOhm",
+                "MinimumAcceptableValue": 28.0,
+                "MaximumAcceptableValue": 28.4
+              },
+              "UniqueIdentifier": "36117d8e-718f-4750-b97f-e4d1e488ceb3",
+              "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
+              "TimeRecorded": null,
+              "Sequence": 0,
+              "Result": "Passed",
+              "Components": [
+                {
+                  "ReferenceDesignator": "R22",
+                  "UnitPosition": null,
+                  "PartNumber": "41234-8897"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EACABA");</script><p>Example 2 (Burn-in / Hot / Cold Test of Final Production Unit):</p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAABA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAABA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAABA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "TransactionId": "5dbbe5f6-2b53-4584-a893-229195954789",
+  "TestMethod": "Automated",
+  "Tester": {
+    "OperatorIdentifier": "UID235434324",
+    "ActorType": "Human",
+    "FullName": "Joseph Smith",
+    "LastName": "Smith",
+    "FirstName": "Joseph",
+    "LoginName": "joseph.smith@abcdrepairs.com"
+  },
+  "SamplingInformation": {
+    "SamplingMethod": "NoSampling",
+    "LotSize": null,
+    "SampleSize": null
+  },
+  "TestedUnits": [
+    {
+      "UnitIdentifier": "UNIT123456789",
+      "UnitPositionNumber": 1,
+      "OverallResult": "Passed",
+      "Tests": [
+        {
+          "UniqueIdentifier": "5a94739f-2ad1-423e-b5b2-25601a7e54c0",
+          "TestName": "HOT_TEST",
+          "TestStartTime": "2018-03-29T13:52:29.6931932-04:00",
+          "TestEndTime": "2018-03-29T13:53:01.6931932-04:00",
+          "TestConditions": [
+            {
+              "$type": "CFX.Structures.Temperature, CFX",
+              "StartTime": null,
+              "EndTime": null,
+              "MeanValue": 45.2,
+              "MedianValue": 0.0,
+              "MaxValue": 45.8,
+              "MinValue": 44.9
+            },
+            {
+              "$type": "CFX.Structures.Humidity, CFX",
+              "StartTime": null,
+              "EndTime": null,
+              "MeanValue": 85.5,
+              "MedianValue": 0.0,
+              "MaxValue": 85.7,
+              "MinValue": 85.4
+            }
+          ],
+          "TestProcedure": null,
+          "Comments": null,
+          "Result": "Passed",
+          "Error": null,
+          "SymptomsFound": [],
+          "DefectsFound": [],
+          "Measurements": []
+        },
+        {
+          "UniqueIdentifier": "52bb3411-62f1-434a-a3f1-5e44d1484b9e",
+          "TestName": "COLD_TEST",
+          "TestStartTime": "2018-03-29T13:52:29.6941918-04:00",
+          "TestEndTime": "2018-03-29T13:53:01.6941918-04:00",
+          "TestConditions": [
+            {
+              "$type": "CFX.Structures.Temperature, CFX",
+              "StartTime": null,
+              "EndTime": null,
+              "MeanValue": -6.5,
+              "MedianValue": 0.0,
+              "MaxValue": -6.4,
+              "MinValue": -6.7
+            },
+            {
+              "$type": "CFX.Structures.Humidity, CFX",
+              "StartTime": null,
+              "EndTime": null,
+              "MeanValue": 22.5,
+              "MedianValue": 0.0,
+              "MaxValue": 22.7,
+              "MinValue": 22.4
+            }
+          ],
+          "TestProcedure": null,
+          "Comments": null,
+          "Result": "Passed",
+          "Error": null,
+          "SymptomsFound": [],
+          "DefectsFound": [],
+          "Measurements": []
+        }
+      ]
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAABA");</script></div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID1RB')" onkeypress="SectionExpandCollapse_CheckKey('ID1RB', event)" tabindex="0"><img id="ID1RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Inheritance Hierarchy</span></div><div id="ID1RBSection" class="collapsibleSection"><a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">System<span id="LSTF0E40E7B_0"></span><script type="text/javascript">AddLanguageSpecificTextSet("LSTF0E40E7B_0?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>Object</a><br />  <a href="T_CFX_CFXMessage.htm">CFX<span id="LSTF0E40E7B_1"></span><script type="text/javascript">AddLanguageSpecificTextSet("LSTF0E40E7B_1?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>CFXMessage</a><br />    <span class="selflink">CFX.Production.TestAndInspection<span id="LSTF0E40E7B_2"></span><script type="text/javascript">AddLanguageSpecificTextSet("LSTF0E40E7B_2?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>UnitsTested</span><br /></div><p> </p>
+    <strong>Namespace:</strong> 
+   <a href="N_CFX_Production_TestAndInspection.htm">CFX.Production.TestAndInspection</a><br />
+    <strong>Assembly:</strong>
+   CFXnet46 (in CFXnet46.dll) Version: 1.0.5<div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID2RB')" onkeypress="SectionExpandCollapse_CheckKey('ID2RB', event)" tabindex="0"><img id="ID2RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Syntax</span></div><div id="ID2RBSection" class="collapsibleSection"><div class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="ID0EBCA_tab1" class="codeSnippetContainerTab"><a href="#" onclick="javascript:ChangeTab('ID0EBCA','cs','1','2');return false;">C#</a></div><div id="ID0EBCA_tab2" class="codeSnippetContainerTab"><a href="#" onclick="javascript:ChangeTab('ID0EBCA','vb','2','2');return false;">VB</a></div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EBCA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EBCA');return false;" title="Copy">Copy</a></div></div><div id="ID0EBCA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">UnitsTested</span> : <span class="identifier">CFXMessage</span></pre></div><div id="ID0EBCA_code_Div2" class="codeSnippetContainerCode" style="display: none"><pre xml:space="preserve"><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">UnitsTested</span>
+	<span class="keyword">Inherits</span> <span class="identifier">CFXMessage</span></pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EBCA");</script></div><p>The <span class="selflink">UnitsTested</span> type exposes the following members.</p><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID3RB')" onkeypress="SectionExpandCollapse_CheckKey('ID3RB', event)" tabindex="0"><img id="ID3RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Properties</span></div><div id="ID3RBSection" class="collapsibleSection"><table class="members" id="propertyList"><tr><th class="iconColumn">
+								 
+							</th><th>Name</th><th>Description</th></tr><tr data="public;declared;notNetfw;"><td><img src="../icons/pubproperty.gif" alt="Public property" title="Public property" /></td><td><a href="P_CFX_Production_TestAndInspection_UnitsTested_SamplingInformation.htm">SamplingInformation</a></td><td><div class="summary">
+            Describes the sampling method that was used during the test (if any).  
+            </div></td></tr><tr data="public;declared;notNetfw;"><td><img src="../icons/pubproperty.gif" alt="Public property" title="Public property" /></td><td><a href="P_CFX_Production_TestAndInspection_UnitsTested_TestedUnits.htm">TestedUnits</a></td><td><div class="summary">
+            A list of the units that were tested, along with the tests made, and test results.
+            </div></td></tr><tr data="public;declared;notNetfw;"><td><img src="../icons/pubproperty.gif" alt="Public property" title="Public property" /></td><td><a href="P_CFX_Production_TestAndInspection_UnitsTested_Tester.htm">Tester</a></td><td><div class="summary">
+            Identifies the person who performed the test, or operator of the automated equipment that performed the test.
+            </div></td></tr><tr data="public;declared;notNetfw;"><td><img src="../icons/pubproperty.gif" alt="Public property" title="Public property" /></td><td><a href="P_CFX_Production_TestAndInspection_UnitsTested_TestMethod.htm">TestMethod</a></td><td><div class="summary">
+            Describes how the tests were performed.  
+            </div></td></tr><tr data="public;declared;notNetfw;"><td><img src="../icons/pubproperty.gif" alt="Public property" title="Public property" /></td><td><a href="P_CFX_Production_TestAndInspection_UnitsTested_TransactionId.htm">TransactionId</a></td><td><div class="summary">
+            The id of the work transaction with which this testing session is associated.
+            </div></td></tr></table><a href="#PageHeader">Top</a></div><div class="collapsibleAreaRegion" id="seeAlsoSection"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID4RB')" onkeypress="SectionExpandCollapse_CheckKey('ID4RB', event)" tabindex="0"><img id="ID4RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />See Also</span></div><div id="ID4RBSection" class="collapsibleSection"><h4 class="subHeading">Reference</h4><div class="seeAlsoStyle"><a href="N_CFX_Production_TestAndInspection.htm">CFX.Production.TestAndInspection Namespace</a></div></div></div></div><div id="pageFooter" class="pageFooter"> </div></body></html>

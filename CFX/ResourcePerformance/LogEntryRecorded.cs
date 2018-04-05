@@ -16,30 +16,43 @@ namespace CFX.ResourcePerformance
             Importance = LogImportance.Information;
         }
 
+        /// <summary>
+        /// An endpoint-specific string that defines the nature of the log entry
+        /// </summary>
         public string InformationId
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// A human-friendly description of the log entry
+        /// </summary>
         public string Message
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The relative importance of the log entry
+        /// </summary>
         public LogImportance Importance
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The production lane related to the log entry (where applicable)
+        /// </summary>
         public string Lane
         {
             get;
             set;
         }
 
+        /// The production stage related to the log entry (where applicable)
         public string Stage
         {
             get;

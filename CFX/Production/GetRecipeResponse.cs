@@ -9,6 +9,21 @@ namespace CFX.Production
     /// This message is used to request a process endpoint for the details of a named
     /// recipe. The response includes details of the recipe, depending on the 
     /// classification of the process.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
+    ///   "Recipe": {
+    ///     "Name": "RECIPE4455",
+    ///     "Revision": null,
+    ///     "MimeType": "application/octet-stream",
+    ///     "RecipeData": "ESKImSNVZlM="
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class GetRecipeResponse : CFXMessage
     {

@@ -9,6 +9,18 @@ namespace CFX.Production
     /// This message is used to send a named recipe to a process endpoint. The message
     /// includes details of the recipe, depending on the classification of the process. 
     /// The response indicates whether the recipe has been received correctly or not.
+    /// <code language="none">
+    /// {
+    ///   "Overwrite": true,
+    ///   "Recipe": {
+    ///     "Name": "RECIPE234324",
+    ///     "Revision": "C",
+    ///     "MimeType": "application/octet-stream",
+    ///     "RecipeData": "//w0"
+    ///   },
+    ///   "Reason": "NewRevision"
+    /// }
+    /// </code>
     /// </summary>
     public class UpdateRecipeRequest : CFXMessage
     {

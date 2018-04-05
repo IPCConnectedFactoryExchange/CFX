@@ -126,6 +126,7 @@ namespace CFX.Structures
         /// The measurements that were taken in the course of performing this test.
         /// NOTE - Only measurements not related to particular defects or symptoms should be recorded here.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<Measurement> Measurements
         {
             get;

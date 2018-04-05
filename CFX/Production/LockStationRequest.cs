@@ -15,6 +15,21 @@ namespace CFX.Production
     /// at a process endpoint.  A specific production lane or stage may be optionally specified.
     /// Includes a reason, and applies to all operations. The response indicates that the process
     /// has stopped.
+    /// <code language="none">
+    /// {
+    ///   "Lane": "1",
+    ///   "Stage": "5",
+    ///   "Reason": "QualityIssue",
+    ///   "Requestor": {
+    ///     "OperatorIdentifier": "bdcb4098-4645-4342-b85d-65a64c52393e",
+    ///     "ActorType": "Human",
+    ///     "FullName": "Bill Smith",
+    ///     "LastName": "Smith",
+    ///     "FirstName": "Bill",
+    ///     "LoginName": "bill.smith@domain1.com"
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class LockStationRequest : CFXMessage
     {

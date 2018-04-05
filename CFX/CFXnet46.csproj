@@ -34,8 +34,11 @@
 
   <ItemGroup>
     <Compile Remove="DataStructures\**" />
+    <Compile Remove="HelpContent\**" />
     <EmbeddedResource Remove="DataStructures\**" />
+    <EmbeddedResource Remove="HelpContent\**" />
     <None Remove="DataStructures\**" />
+    <None Remove="HelpContent\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +61,7 @@
     <None Remove="CFXnet46.csproj.bak" />
     <None Remove="CFX_JSON_Examples.txt" />
     <None Remove="CFX_Logo.PNG" />
+    <None Remove="Content Layout.content" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,6 +11,15 @@ namespace CFX.Production
     /// This message is used to send a named recipe to a process endpoint. The message
     /// includes details of the recipe, depending on the classification of the process. 
     /// The response indicates whether the recipe has been received correctly or not.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class UpdateRecipeResponse : CFXMessage
     {
@@ -22,7 +31,7 @@ namespace CFX.Production
         public RequestResult Result
         {
             get;
-            private set;
+            set;
         }
     }
 }

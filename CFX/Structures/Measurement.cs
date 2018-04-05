@@ -5,14 +5,14 @@ using System.Text;
 namespace CFX.Structures
 {
     /// <summary>
-    /// Describes a measure that was made by a human or by automated equipment in the course
-    /// of inspecting or testing a production unit
+    /// Abstract base class for dynamic data structure which describes a measurement that was made by a human
+    /// or by automated equipment in the course of inspecting or testing a production unit
     /// </summary>
-    public class Measurement
+    abstract public class Measurement
     {
         public Measurement()
         {
-            
+            UniqueIdentifier = Guid.NewGuid().ToString();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CFX.Structures
         /// <summary>
         /// A name that uniquely describes the test or measurement that was performed.
         /// </summary>
-        public string MeasurementName
+        public virtual string MeasurementName
         {
             get;
             set;
@@ -66,89 +66,6 @@ namespace CFX.Structures
         /// An optional list of components (instance of a part) on a production unit(s) to be associated with this measurement.
         /// </summary>
         public List<ComponentDesignator> Components
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// An enumeration describing the type of value contained in the Value or BinaryValue properties.
-        /// </summary>
-        public DataType ValueDataType
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The units of the value (must be a valid SI unit)
-        /// </summary>
-        public string ValueUnits
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// If the Reading is of type DataType.Binary, this property contains the MIME type
-        /// of the binary data contained in the BinaryValue property.
-        /// </summary>
-        public string ValueMimeType
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The value of the measurement
-        /// </summary>
-        public string Value
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// If the Reading is of type DataType.Binary, this property contains the binary
-        /// representation of the value.
-        /// </summary>
-        public byte[] BinaryValue
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The expected value for thie measurement
-        /// </summary>
-        public string ExpectedValue
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The units of the expected value (must be a valid SI unit)
-        /// </summary>
-        public string ExpectedValueUnits
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The minimum acceptable value
-        /// </summary>
-        public string MinimumAcceptableValue
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The minimum acceptable value
-        /// </summary>
-        public string MaximumAcceptableValue
         {
             get;
             set;

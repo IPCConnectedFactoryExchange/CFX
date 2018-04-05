@@ -12,6 +12,9 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

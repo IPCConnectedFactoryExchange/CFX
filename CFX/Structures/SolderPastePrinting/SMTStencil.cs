@@ -4,10 +4,10 @@ using System.Text;
 
 namespace CFX.Structures.SolderPastePrinting
 {
-    public class SMTStencil
+    /// <summary>
+    /// Describes a stencil that is used in the course of printing solder paste on to a PCB
+    /// </summary>
+    public class SMTStencil : Tool
     {
-        public string UniqueIdentifier { get; set; }
-
-        public string Name { get; set; }
     }
 }

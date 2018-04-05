@@ -10,6 +10,12 @@ namespace CFX.Production
     /// This message is typically used for example, whenever a new recipe is activated which requires a different setup.
     /// If the Lane and Stage properties are left empty, the setup requirements of the entire Endpoint have been impacted.
     /// Otherwise, only the specified Lane and/or Stage is impacted.
+    /// <code language="none">
+    /// {
+    ///   "Lane": "1",
+    ///   "Stage": null
+    /// }
+    /// </code>
     /// </summary>
 
     public class SetupRequirementsChanged : CFXMessage

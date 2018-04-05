@@ -7,6 +7,22 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint to indicate that a change has been made to a specified named recipe.
+    /// <code language="none">
+    /// {
+    ///   "RecipeName": "RECIPE3234",
+    ///   "Revision": "D",
+    ///   "ModifiedBy": {
+    ///     "OperatorIdentifier": "da85fb6e-dca5-4a7e-9f7d-041384286a81",
+    ///     "ActorType": "Human",
+    ///     "FullName": "Bill Smith",
+    ///     "LastName": "Smith",
+    ///     "FirstName": "Bill",
+    ///     "LoginName": "bill.smith@domain1.com"
+    ///   },
+    ///   "Reason": "PositionalCorrection",
+    ///   "Notes": null
+    /// }
+    /// </code>
     /// </summary>
     public class RecipeModified : CFXMessage
     {

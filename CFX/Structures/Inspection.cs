@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
@@ -8,6 +9,7 @@ namespace CFX.Structures
     /// Describes a single step in a series of steps that an inspector makes (both human or automation)
     /// in the course of inspecting a production unit.
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Inspection
     {
         public Inspection()
@@ -100,9 +102,19 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// Any symptoms that were discovered during the inspection (if any).
+        /// </summary>
+        public List<Symptom> Symptoms
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The measurements that were taken in the course of performing this inspection (if any).
         /// NOTE - Only measurements not related to particular defects or symptoms should be recorded here.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<Measurement> Measurements
         {
             get;

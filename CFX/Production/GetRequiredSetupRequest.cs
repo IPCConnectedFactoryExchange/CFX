@@ -8,6 +8,12 @@ namespace CFX.Production
     /// Sent to a process endpoint to request the setup requirements of the active recipe.
     /// The response lists the required materials and tools, along with the locations where 
     /// the materials/tools must be loaded.
+    /// <code language="none">
+    /// {
+    ///   "Lane": "1",
+    ///   "Stage": "1"
+    /// }
+    /// </code>
     /// </summary>
     public class GetRequiredSetupRequest : CFXMessage
     {

@@ -8,6 +8,7 @@ using CFX.Structures;
 using CFX.Structures.SMTPlacement;
 using CFX.Structures.SolderPastePrinting;
 using CFX.Structures.THTInsertion;
+using CFX.Structures.SolderPasteInspection;
 using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.Production.TestAndInspection;
@@ -286,7 +287,7 @@ namespace CFXExampleEndpoint
             {
                 TransactionId = Guid.NewGuid(),
                 Inspector = op1,
-                InspectionMethod = TestMethod.Automated,
+                InspectionMethod = InspectionMethod.AOI,
                 InspectedUnits = new List<InspectedUnit>(new InspectedUnit[]
                 {
                     new InspectedUnit()
@@ -408,6 +409,102 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            /// PCB Paste Inspection Example
+            msg = new UnitsInspected()
+            {
+                TransactionId = Guid.NewGuid(),
+                Inspector = op1,
+                InspectionMethod = InspectionMethod.SPI,
+                InspectedUnits = new List<InspectedUnit>(new InspectedUnit[]
+                {
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 1,
+                        OverallResult = TestResult.Passed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_PASTE_DEPOSITIONS",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new SolderPasteMeasurement()
+                                    {
+                                        MeasurementName = "MEASURE R1.1",
+                                        DepositImage = new Image() {MimeType = "image/jpg", ImageData = new byte[] {0xff, 0x3d, 0x99,0x87 } },
+                                        Result = TestResult.Passed,
+                                        ComponentPad = "R1.1",
+                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
+                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
+                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
+                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                    },
+                                    new SolderPasteMeasurement()
+                                    {
+                                        MeasurementName = "MEASURE R1.1",
+                                        DepositImage = new Image() {MimeType = "image/jpg", ImageData = new byte[] {0xff, 0x3d, 0x99,0x87 } },
+                                        Result = TestResult.Passed,
+                                        ComponentPad = "R1.2",
+                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
+                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
+                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
+                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                    },
+                                })
+                            },
+                        })
+                    },
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 2,
+                        OverallResult = TestResult.Failed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_PASTE_DEPOSITIONS",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new SolderPasteMeasurement()
+                                    {
+                                        Result = TestResult.Passed,
+                                        ComponentPad = "R1.1",
+                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
+                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
+                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
+                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                    },
+                                    new SolderPasteMeasurement()
+                                    {
+                                        Result = TestResult.Passed,
+                                        ComponentPad = "R1.2",
+                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
+                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
+                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
+                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
+                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                    },
+                                })
+                            },
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
             msg = new UnitsTested()
             {
                 TransactionId = Guid.NewGuid(),
@@ -429,22 +526,24 @@ namespace CFXExampleEndpoint
                                 Result = TestResult.Passed,
                                 Measurements = new List<Measurement>(new Measurement []
                                 {
-                                    new Measurement()
+                                    new NumericMeasurement()
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R21",
-                                        ValueDataType = DataType.Numeric,
                                         Components = new List<ComponentDesignator>(new ComponentDesignator []
                                         {
                                             new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
                                         }),
-                                        ExpectedValue = "28.2",
-                                        ExpectedValueUnits = "kOhm",
-                                        MaximumAcceptableValue = "28.4",
-                                        MinimumAcceptableValue = "28.0",
-                                        Value = "28300",
-                                        ValueUnits = "Ohm",
                                         Result = TestResult.Passed,
+                                        MeasuredValue = new NumericValue()
+                                        {
+                                            ExpectedValue = 28.2,
+                                            ExpectedValueUnits = "kOhm",
+                                            MaximumAcceptableValue = 28.4,
+                                            MinimumAcceptableValue = 28.0,
+                                            Value = 28300,
+                                            ValueUnits = "Ohm",
+                                        }
                                     }
                                 })
                             },
@@ -476,21 +575,23 @@ namespace CFXExampleEndpoint
                                         }),
                                         RelatedMeasurements = new List<Measurement>(new Measurement []
                                         {
-                                            new Measurement()
+                                            new NumericMeasurement()
                                             {
                                                 UniqueIdentifier = Guid.NewGuid().ToString(),
                                                 MeasurementName = "RESISTANCE_MEASUREMENT_R22",
-                                                ValueDataType = DataType.Numeric,
                                                 Components = new List<ComponentDesignator>(new ComponentDesignator []
                                                 {
                                                     new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
                                                 }),
-                                                ExpectedValue = "28.2",
-                                                ExpectedValueUnits = "kOhm",
-                                                MaximumAcceptableValue = "28.4",
-                                                MinimumAcceptableValue = "28.0",
-                                                Value = "28.52",
-                                                ValueUnits = "kOhm",
+                                                MeasuredValue = new NumericValue()
+                                                {
+                                                    ExpectedValue = 28.2,
+                                                    ExpectedValueUnits = "kOhm",
+                                                    MaximumAcceptableValue = 28.4,
+                                                    MinimumAcceptableValue = 28.0,
+                                                    Value = 28.52,
+                                                    ValueUnits = "kOhm"
+                                                },
                                                 Result = TestResult.Passed,
                                             }
                                         })
@@ -513,21 +614,23 @@ namespace CFXExampleEndpoint
                                 Result = TestResult.Passed,
                                 Measurements = new List<Measurement>(new Measurement []
                                 {
-                                    new Measurement()
+                                    new NumericMeasurement()
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R21",
-                                        ValueDataType = DataType.Numeric,
                                         Components = new List<ComponentDesignator>(new ComponentDesignator []
                                         {
                                             new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
                                         }),
-                                        ExpectedValue = "28.2",
-                                        ExpectedValueUnits = "kOhm",
-                                        MaximumAcceptableValue = "28.4",
-                                        MinimumAcceptableValue = "28.0",
-                                        Value = "28300",
-                                        ValueUnits = "Ohm",
+                                        MeasuredValue = new NumericValue()
+                                        {
+                                            ExpectedValue = 28.2,
+                                            ExpectedValueUnits = "kOhm",
+                                            MaximumAcceptableValue = 28.4,
+                                            MinimumAcceptableValue = 28.0,
+                                            Value = 28300,
+                                            ValueUnits = "Ohm",
+                                        },
                                         Result = TestResult.Passed,
                                     }
                                 })
@@ -539,21 +642,23 @@ namespace CFXExampleEndpoint
                                 Result = TestResult.Passed,
                                 Measurements = new List<Measurement>(new Measurement []
                                 {
-                                    new Measurement()
+                                    new NumericMeasurement()
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R22",
-                                        ValueDataType = DataType.Numeric,
                                         Components = new List<ComponentDesignator>(new ComponentDesignator []
                                         {
                                             new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
                                         }),
-                                        ExpectedValue = "28.2",
-                                        ExpectedValueUnits = "kOhm",
-                                        MaximumAcceptableValue = "28.4",
-                                        MinimumAcceptableValue = "28.0",
-                                        Value = "28300",
-                                        ValueUnits = "Ohm",
+                                        MeasuredValue = new NumericValue()
+                                        {
+                                            ExpectedValue = 28.2,
+                                            ExpectedValueUnits = "kOhm",
+                                            MaximumAcceptableValue = 28.4,
+                                            MinimumAcceptableValue = 28.0,
+                                            Value = 28300,
+                                            ValueUnits = "Ohm",
+                                        },
                                         Result = TestResult.Passed,
                                     }
                                 })
@@ -723,12 +828,6 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new CFX.ResourcePerformance.FaultOccurred()
-            {
-                Fault = flt
-            };
-            AppendMessage(msg, ref result);
-
             msg = new StationStateChanged()
             {
                 OldState = ResourceState.ReadyProcessingExecuting,
@@ -869,7 +968,6 @@ namespace CFXExampleEndpoint
                 StartTime = DateTime.Now - TimeSpan.FromMinutes(5),
                 EndTime = DateTime.Now,
                 EnergyUsed = 0.012,
-                CurrentPower = 122.6,
                 PeakPower = 125.6,
                 MinimumPower = 120.3,
                 MeanPower = 124.6
@@ -928,9 +1026,26 @@ namespace CFXExampleEndpoint
 
             msg = new ToolChanged()
             {
-                OldNozzle = null,
+                OldTool = null,
                 ReturnedToHolder = null,
-                NewNozzle = new SMTNozzle()
+                NewTool = new Tool()
+                {
+                    UniqueIdentifier = "UID23890430",
+                    Name = "TorqueWrench_123",
+                },
+                LoadedFromHolder = new ToolHolder()
+                {
+                    LocationUniqueIdentifier = "UID238943243243",
+                    LocationName = "BIN45",
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ToolChanged()
+            {
+                OldTool = null,
+                ReturnedToHolder = null,
+                NewTool = new SMTNozzle()
                 {
                     UniqueIdentifier = "UID23890430",
                     Name = "NOZZLE234324",
@@ -938,12 +1053,36 @@ namespace CFXExampleEndpoint
                     HeadId = "HEAD1",
                     HeadNozzleNumber = 1
                 },
-                LoadedFromHolder = new SMTNozzleHolder()
+                LoadedFromHolder = new ToolHolder()
                 {
                     LocationUniqueIdentifier = "UID238943243243",
                     LocationName = "HOLDER14",
                     BaseName = "NEST2"
                 }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ToolChanged()
+            {
+                OldTool = null,
+                ReturnedToHolder = null,
+                NewTool = new SMTStencil()
+                {
+                    UniqueIdentifier = "UID23890430",
+                    Name = "STENCIL234324",
+                },
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new ToolChanged()
+            {
+                OldTool = null,
+                ReturnedToHolder = null,
+                NewTool = new SMTSqueegee()
+                {
+                    UniqueIdentifier = "UID23890430",
+                    Name = "SQUEEGEE234324",
+                },
             };
             AppendMessage(msg, ref result);
 
@@ -1007,21 +1146,6 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new StencilChanged()
-            {
-                OldStencil = new SMTStencil()
-                {
-                    UniqueIdentifier = "UID23432434",
-                    Name = "STENCIL234343"
-                },
-                NewStencil = new SMTStencil()
-                {
-                    UniqueIdentifier = "UID234344455",
-                    Name = "STENCIL8784322"
-                }
-            };
-            AppendMessage(msg, ref result);
-
             msg = new StencilCleaned()
             {
                 Stencil = new SMTStencil()
@@ -1034,21 +1158,6 @@ namespace CFXExampleEndpoint
                 StencilCleanCycles = 2,
                 StencilCleanMode = SMTStencilCleanMode.V,
                 StencilCleanTime = TimeSpan.FromSeconds(38)
-            };
-            AppendMessage(msg, ref result);
-
-            msg = new SqueegeeChanged()
-            {
-                OldSqueegee = new SMTSqueegee()
-                {
-                    UniqueIdentifier = "UID23432434",
-                    Name = "STENCIL234343"
-                },
-                NewSqueegee = new SMTSqueegee()
-                {
-                    UniqueIdentifier = "UID234344455",
-                    Name = "STENCIL8784322"
-                }
             };
             AppendMessage(msg, ref result);
 
@@ -1953,6 +2062,17 @@ namespace CFXExampleEndpoint
                     RecipeData = new byte[] { 0xff, 0xfc, 0x34 }
                 },
                 Reason = RecipeModificationReason.NewRevision
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new UpdateRecipeResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK",
+                    ResultCode = 0
+                }
             };
             AppendMessage(msg, ref result);
 

@@ -11,18 +11,27 @@ namespace CFX.ResourcePerformance
     /// </summary>
     public class StationParameterModified : CFXMessage
     {
+        /// <summary>
+        /// The name of the configuration setting which was modified
+        /// </summary>
         public string ParameterName
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The previous value of this configuration setting
+        /// </summary>
         public string OldParameterValue
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The new value of this configuration setting
+        /// </summary>
         public string NewParameterValue
         {
             get;

@@ -6,6 +6,14 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint to indicate the activation of a recipe by its name
+    /// <code language="none">
+    /// {
+    ///   "RecipeName": "RECIPE3234",
+    ///   "Revision": "B",
+    ///   "Lane": "1",
+    ///   "Stage": null
+    /// }
+    /// </code>
     /// </summary>
     public class RecipeActivated : CFXMessage
     {

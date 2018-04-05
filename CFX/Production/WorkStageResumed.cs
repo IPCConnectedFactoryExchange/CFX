@@ -8,6 +8,12 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent when activity recommences at a stage within a process endpoint, following a WorkStagePaused message
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": "1"
+    /// }
+    /// </code>
     /// </summary>
     public class WorkStageResumed : CFXMessage
     {

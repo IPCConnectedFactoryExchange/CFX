@@ -10,6 +10,17 @@ namespace CFX.Production
     /// <summary>
     /// Used to request the name of the recipe that is activated at a process
     /// endpoint. The response indicates the name of the recipe.
+    /// <code language="none">
+    /// {
+    ///   "ActiveRecipeName": "RECIPE5566",
+    ///   "ActiveRecipeRevision": "C",
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class GetActiveRecipeResponse : CFXMessage
     {

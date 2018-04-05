@@ -8,10 +8,10 @@ using CFX.Structures;
 namespace CFX.ResourcePerformance
 {
     /// <summary>
-    /// Sent by a process endpoint when its production state transitions from
-    /// one state to another per its state model. 
-/// </summary>
-public class StageStateChanged : CFXMessage
+    /// Sent by a process endpoint when the production state of one of its
+    /// stages transitions from one state to another per its state model. 
+    /// </summary>
+    public class StageStateChanged : CFXMessage
     {
         /// <summary>
         /// The previous state prior to this state change

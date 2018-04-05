@@ -5,6 +5,10 @@ using CFX.Structures;
 
 namespace CFX.ResourcePerformance.SolderPastePrinting
 {
+    /// <summary>
+    /// Response to a request from an external source for a squeegee clean
+    /// operation to be performed
+    /// </summary>
     public class CleanSqueegeeResponse : CFXMessage
     {
         public CleanSqueegeeResponse()
@@ -12,6 +16,9 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

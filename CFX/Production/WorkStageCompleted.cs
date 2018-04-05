@@ -12,6 +12,13 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint to indicate that a stage has been completed.
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": "1",
+    ///   "Result": "Completed"
+    /// }
+    /// </code>
     /// </summary>
     public class WorkStageCompleted : CFXMessage
     {

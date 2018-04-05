@@ -13,6 +13,37 @@ namespace CFX.InformationSystem.UnitValidation
     /// Process endpoints, where configured, should send this request before allowing the next unit
     /// to enter the process. Configuration must be provided to identify the endpoint that implements 
     /// CFX.InformationSystem.UnitValidation Identification and is responsible to provide the response.
+    /// <code language="none">
+    /// {
+    ///   "Validations": [
+    ///     "UnitRouteValidation",
+    ///     "UnitStatusValidation"
+    ///   ],
+    ///   "PrimaryIdentifier": "CARRIER2342",
+    ///   "Units": [
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT1",
+    ///       "X": 0.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 0.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT2",
+    ///       "X": 6.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 90.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class ValidateUnitsRequest : CFXMessage
     {

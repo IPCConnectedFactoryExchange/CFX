@@ -39,12 +39,18 @@ namespace CFX.Structures.SMTPlacement
             set;
         }
 
+        /// <summary>
+        /// The width of this lane within the tube feeder (in mm)
+        /// </summary>
         public double Width
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The offset between this lane and the next adjacent lane in this tube feeder
+        /// </summary>
         public double Pitch
         {
             get;

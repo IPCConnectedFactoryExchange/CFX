@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>CFXnet46</name>
+        <name>CFX</name>
     </assembly>
     <members>
         <member name="T:CFX.AreYouThereRequest">
@@ -38,6 +38,11 @@
               "RequestTargetAddress": "/queue/SN23123"
             }
             </code>
+            </summary>
+        </member>
+        <member name="P:CFX.AreYouThereResponse.Result">
+            <summary>
+            The result of the request
             </summary>
         </member>
         <member name="P:CFX.AreYouThereResponse.CFXHandle">
@@ -259,12 +264,53 @@
             A list of the <see cref="T:CFX.Structures.SupportedTopic"/>s structures describing the level of support for this endpoint
             </summary>
         </member>
+        <member name="T:CFX.InformationSystem.NamespaceDoc">
+            <summary>
+            CFX Topic implemented by enterprise information systems (such as an MES or ERP system).
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.UnitValidation.NamespaceDoc">
+            <summary>
+            CFX Topic implemented by enterprise information systems (such as an MES or ERP system) capable of validating the production history and status of a production unit, and its readiness for processing.
+            </summary>
+        </member>
         <member name="T:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest">
             <summary>
             Sent from a process endpoint in order to validate the identifier of the next production unit.  
             Process endpoints, where configured, should send this request before allowing the next unit
             to enter the process. Configuration must be provided to identify the endpoint that implements 
             CFX.InformationSystem.UnitValidation Identification and is responsible to provide the response.
+            <code language="none">
+            {
+              "Validations": [
+                "UnitRouteValidation",
+                "UnitStatusValidation"
+              ],
+              "PrimaryIdentifier": "CARRIER2342",
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsRequest.Validations">
@@ -288,6 +334,38 @@
             Process endpoints, where configured, should send this request before allowing the next unit
             to enter the process. Configuration must be provided to identify the endpoint that implements 
             CFX.InformationSystem.UnitValidation Identification and is responsible to provide the response.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": null
+              },
+              "PrimaryResult": {
+                "UniqueIdentifier": "CARRIER5566",
+                "PositionNumber": 0,
+                "Result": "Passed",
+                "FailureCode": 0,
+                "Message": "OK"
+              },
+              "Results": [
+                {
+                  "UniqueIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "Result": "Passed",
+                  "FailureCode": 0,
+                  "Message": "OK"
+                },
+                {
+                  "UniqueIdentifier": "CARRIER5566",
+                  "PositionNumber": 2,
+                  "Result": "Passed",
+                  "FailureCode": 0,
+                  "Message": "OK"
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.Result">
@@ -303,6 +381,21 @@
         <member name="P:CFX.InformationSystem.UnitValidation.ValidateUnitsResponse.Results">
             <summary>
             Individual results of the validation request (for multiple units in a carrier or PCB Panel)
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MSDManagement.NamespaceDoc">
+            <summary>
+            Specialized messages related to moisture sensitive materials management.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.NamespaceDoc">
+            <summary>
+            Messages related to the management of raw materials.  Includes creation and labeling of material instances, decommissioning spent materials, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.NamespaceDoc">
+            <summary>
+            CFX Topic implemented by endpoints which manage, store, or track materials used in production.
             </summary>
         </member>
         <member name="P:CFX.Materials.Storage.GetLoadedMaterialsRequest.LocationIdentifiers">
@@ -343,10 +436,35 @@
             List of material packages to be unloaded.  
             </summary>
         </member>
+        <member name="T:CFX.Materials.Storage.NamespaceDoc">
+            <summary>
+            Related to events that occur when materials are stored, including consumption.  
+            This includes not only stock areas, but also point-of-use workstations where materials
+            are loaded during production.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.NamespaceDoc">
+            <summary>
+            Messages used for the transportation of raw materials from one location in the factory to another location
+            </summary>
+        </member>
+        <member name="T:CFX.NamespaceDoc">
+            <summary>
+            Root CFX Topic.  All CFX endpoints must implement this topic.
+            </summary>
+        </member>
         <member name="T:CFX.Production.ActivateRecipeRequest">
             <summary>
             Used to activate a named recipe at the process endpoint. 
             The response indicates whether this was successful or not.
+            <code language="none">
+            {
+              "RecipeName": "RECIPE1234",
+              "Revision": "C",
+              "Lane": "1",
+              "Stage": "1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.ActivateRecipeRequest.RecipeName">
@@ -375,6 +493,15 @@
             <summary>
             Used to activate a named recipe at the process endpoint. 
             The response indicates whether this was successful or not.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.ActivateRecipeResponse.Result">
@@ -387,6 +514,89 @@
             Sent by a process endpoint when one or more materials (see note) are installed on to a production unit. 
             This message is typically sent at the completion of production on a unit or group of units at the
             endpoint, or, at the end of each stage.
+            <code language="none">
+            {
+              "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
+              "InstalledMaterials": [
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 1,
+                  "QuantityInstalled": 3.0,
+                  "Material": {
+                    "UniqueIdentifier": "MAT4566556456",
+                    "InternalPartNumber": "IPN47788",
+                    "Quantity": 887.0
+                  },
+                  "CarrierLocation": {
+                    "LocationIdentifier": "UID384234893",
+                    "LocationName": "SLOT45",
+                    "CarrierInformation": {
+                      "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                      "BaseUniqueIdentifier": "123334",
+                      "BaseName": null,
+                      "LaneNumber": 1,
+                      "Width": "Tape8mm",
+                      "Pitch": "Adjustable",
+                      "UniqueIdentifier": "1233334",
+                      "Name": "TAPEFEEDER8mm1233334"
+                    }
+                  },
+                  "InstalledComponents": [
+                    {
+                      "ReferenceDesignator": "R1",
+                      "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R2",
+                      "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R3",
+                      "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 2,
+                  "QuantityInstalled": 3.0,
+                  "Material": {
+                    "UniqueIdentifier": "MAT4566556456",
+                    "InternalPartNumber": "IPN47788",
+                    "Quantity": 887.0
+                  },
+                  "CarrierLocation": {
+                    "LocationIdentifier": "UID384234893",
+                    "LocationName": "SLOT45",
+                    "CarrierInformation": {
+                      "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                      "BaseUniqueIdentifier": "123334",
+                      "BaseName": null,
+                      "LaneNumber": 1,
+                      "Width": "Tape8mm",
+                      "Pitch": "Adjustable",
+                      "UniqueIdentifier": "1233334",
+                      "Name": "TAPEFEEDER8mm1233334"
+                    }
+                  },
+                  "InstalledComponents": [
+                    {
+                      "ReferenceDesignator": "R1",
+                      "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R2",
+                      "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R3",
+                      "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.Assembly.MaterialsInstalled.TransactionId">
@@ -404,6 +614,61 @@
             Sent by a process endpoint when one or more materials (see note) are removed from a production unit.
             This message is typically sent at the completion of a production unit or group of units at the
             endpoint, or, at the end of each stage.
+            <code language="none">
+            {
+              "TransactionId": "9ad7e32d-b1ac-4813-b0e4-28d20b9aefba",
+              "UninstalledMaterials": [
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 1,
+                  "QuantityUninstalled": 3.0,
+                  "Material": {
+                    "UniqueIdentifier": "MAT4566556456",
+                    "InternalPartNumber": "IPN47788",
+                    "Quantity": 887.0
+                  },
+                  "UninstalledComponents": [
+                    {
+                      "ReferenceDesignator": "R1",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R2",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R3",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 2,
+                  "QuantityUninstalled": 3.0,
+                  "Material": {
+                    "UniqueIdentifier": "MAT4566556456",
+                    "InternalPartNumber": "IPN47788",
+                    "Quantity": 887.0
+                  },
+                  "UninstalledComponents": [
+                    {
+                      "ReferenceDesignator": "R1",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R2",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R3",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.Assembly.MaterialsUninstalled.TransactionId">
@@ -416,9 +681,104 @@
             A list of materials which have been uninstalled.
             </summary>
         </member>
+        <member name="T:CFX.Production.Assembly.NamespaceDoc">
+            <summary>
+            Messages are used by a production resource performing any form of assembly of production units. This includes both automated, semi-manual and manual assembly operations.
+            </summary>
+        </member>
         <member name="T:CFX.Production.Assembly.ToolsUsed">
             <summary>
             Sent by a process endpoint when one or more tools are used in the course of performing an assembly operation.
+            <para>JSON Example - SMT Placement Machine</para>
+            <code language="none">
+            {
+              "TransactionId": "8561b98b-21ba-47e6-810d-0917b58a4415",
+              "UsedTools": [
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 1,
+                  "Tool": {
+                    "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
+                    "HeadId": "HEAD1",
+                    "HeadNozzleNumber": 2,
+                    "NozzleType": "409A",
+                    "UniqueIdentifier": "UID234213421",
+                    "Name": "Nozzle45"
+                  },
+                  "UsageCycles": 3,
+                  "InstalledComponents": [
+                    {
+                      "ReferenceDesignator": "R1",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R2",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R3",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 2,
+                  "Tool": {
+                    "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
+                    "HeadId": "HEAD2",
+                    "HeadNozzleNumber": 3,
+                    "NozzleType": "409A",
+                    "UniqueIdentifier": "UID234223422",
+                    "Name": "Nozzle47"
+                  },
+                  "UsageCycles": 3,
+                  "InstalledComponents": [
+                    {
+                      "ReferenceDesignator": "R1",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R2",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    },
+                    {
+                      "ReferenceDesignator": "R3",
+                      "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
+            <para>JSON Example - Hammer Used by Human in Manual Operation</para>
+            <code language="none">
+            {
+              "TransactionId": "8561b98b-21ba-47e6-810d-0917b58a4415",
+              "UsedTools": [
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 1,
+                  "Tool": {
+                    "UniqueIdentifier": "UID234228874",
+                    "Name": "Hammer 45"
+                  },
+                  "UsageCycles": 3,
+                  "InstalledComponents": []
+                },
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 2,
+                  "Tool": {
+                    "UniqueIdentifier": "UID234228874",
+                    "Name": "Hammer 45"
+                  },
+                  "UsageCycles": 3,
+                  "InstalledComponents": []
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.Assembly.ToolsUsed.TransactionId">
@@ -434,6 +794,33 @@
         <member name="T:CFX.Production.Assembly.UnitsPersonalized">
             <summary>
             Sent by a process endpoint when a configuration or assignment is made (example MAC Address) 
+            <code language="none">
+            {
+              "TransactionId": "e5cf340c-6858-4e26-893d-deae86bc09f1",
+              "PersonalizedUnits": [
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 1,
+                  "Characteristics": [
+                    {
+                      "Name": "MAC Address",
+                      "Value": "C0-15-B9-2D-0F-3B"
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL23423432",
+                  "UnitPositionNumber": 2,
+                  "Characteristics": [
+                    {
+                      "Name": "MAC Address",
+                      "Value": "C0-15-B9-2D-0F-3C"
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.Assembly.UnitsPersonalized.TransactionId">
@@ -452,6 +839,24 @@
             Sent to a process endpoint to block or disable a particular material setup location. 
             This is typically used where a loaded material may become unsuitable for use, 
             for example MSD expiry of an SMT material.
+            <code language="none">
+            {
+              "Locations": [
+                {
+                  "LocationIdentifier": "23143433",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                },
+                {
+                  "LocationIdentifier": "23143454",
+                  "LocationName": "SLOT46",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.BlockMaterialLocationsRequest.Locations">
@@ -464,6 +869,15 @@
             Sent to a process endpoint to block or disable a particular material setup location. 
             This is typically used where a loaded material may become unsuitable for use, 
             for example MSD expiry of an SMT material.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "BLOCKED OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.BlockMaterialLocationsResponse.Result">
@@ -475,6 +889,12 @@
             <summary>
             Used to request the name of the recipe that is activated at a process
             endpoint. The response indicates the name of the recipe.
+            <code language="none">
+            {
+              "Lane": "1",
+              "Stage": "1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.GetActiveRecipeRequest.Lane">
@@ -491,6 +911,17 @@
             <summary>
             Used to request the name of the recipe that is activated at a process
             endpoint. The response indicates the name of the recipe.
+            <code language="none">
+            {
+              "ActiveRecipeName": "RECIPE5566",
+              "ActiveRecipeRevision": "C",
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.GetActiveRecipeResponse.ActiveRecipeName">
@@ -513,6 +944,12 @@
             This message is used to request a process endpoint for the details of a named
             recipe. The response includes details of the recipe, depending on the 
             classification of the process.
+            <code language="none">
+            {
+              "RecipeName": "RECIPE3234",
+              "Revision": null
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.GetRecipeRequest.RecipeName">
@@ -530,6 +967,21 @@
             This message is used to request a process endpoint for the details of a named
             recipe. The response includes details of the recipe, depending on the 
             classification of the process.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": null
+              },
+              "Recipe": {
+                "Name": "RECIPE4455",
+                "Revision": null,
+                "MimeType": "application/octet-stream",
+                "RecipeData": "ESKImSNVZlM="
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.GetRecipeResponse.Result">
@@ -547,6 +999,12 @@
             Sent to a process endpoint to request the setup requirements of the active recipe.
             The response lists the required materials and tools, along with the locations where 
             the materials/tools must be loaded.
+            <code language="none">
+            {
+              "Lane": "1",
+              "Stage": "1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.GetRequiredSetupRequest.Lane">
@@ -564,6 +1022,50 @@
             Response from a process endpoint to a request to obtain the setup requirements of the active recipe.
             The response lists the required materials and tools, along with the locations where 
             the materials/tools must be loaded.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              },
+              "RecipeName": "RECIPE4455",
+              "RecipeRevision": "C",
+              "Lane": "1",
+              "Stage": "1",
+              "SetupRequirements": {
+                "Lane": "1",
+                "Stage": "1",
+                "SetupName": "COMMONSETUP45",
+                "MaterialSetupRequirements": [
+                  {
+                    "Position": "B1.F.45",
+                    "PartNumber": "IPN1123",
+                    "ApprovedAlternateParts": [
+                      "IPN2343",
+                      "IPN3432"
+                    ],
+                    "ApprovedManufacturerParts": [
+                      "MOT4329",
+                      "SAM5566"
+                    ]
+                  },
+                  {
+                    "Position": "B1.F.47",
+                    "PartNumber": "IPN1124",
+                    "ApprovedAlternateParts": [
+                      "IPN3344",
+                      "IPN3376"
+                    ],
+                    "ApprovedManufacturerParts": [
+                      "JP55443",
+                      "TX554323"
+                    ]
+                  }
+                ]
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.GetRequiredSetupResponse.Result">
@@ -592,6 +1094,21 @@
             at a process endpoint.  A specific production lane or stage may be optionally specified.
             Includes a reason, and applies to all operations. The response indicates that the process
             has stopped.
+            <code language="none">
+            {
+              "Lane": "1",
+              "Stage": "5",
+              "Reason": "QualityIssue",
+              "Requestor": {
+                "OperatorIdentifier": "bdcb4098-4645-4342-b85d-65a64c52393e",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.LockStationRequest.Lane">
@@ -618,6 +1135,15 @@
             <summary>
             Response to a request that the endpoint cease active operation (locked) as soon as practically possible
             at a process endpoint.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.LockStationResponse.Result">
@@ -625,11 +1151,28 @@
             The result of the request
             </summary>
         </member>
+        <member name="T:CFX.Production.NamespaceDoc">
+            <summary>
+            CFX Topic implemented by endpoints which are involved in the processing of production units.
+            </summary>
+        </member>
         <member name="T:CFX.Production.OperatorActivated">
             <summary>
             Indicates that an operator is now active at or responsible for a process endpoint. 
             Having multiple operators (each needs to be activated and deactivated separately) or 
             an absence of an operator is possible. 
+            <code language="none">
+            {
+              "Operator": {
+                "OperatorIdentifier": "8d24755a-36bf-4bb3-8736-71790f9a1f48",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.OperatorActivated.Operator">
@@ -640,6 +1183,18 @@
         <member name="T:CFX.Production.OperatorDeactivated">
             <summary>
             Indicates that an activated operator is no longer active or responsible at a process endpoint
+            <code language="none">
+            {
+              "Operator": {
+                "OperatorIdentifier": "de1f03c5-b432-4603-b0d8-39c97469fe86",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.OperatorDeactivated.Operator">
@@ -669,6 +1224,14 @@
         <member name="T:CFX.Production.RecipeActivated">
             <summary>
             Sent by a process endpoint to indicate the activation of a recipe by its name
+            <code language="none">
+            {
+              "RecipeName": "RECIPE3234",
+              "Revision": "B",
+              "Lane": "1",
+              "Stage": null
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.RecipeActivated.RecipeName">
@@ -694,6 +1257,22 @@
         <member name="T:CFX.Production.RecipeModified">
             <summary>
             Sent by a process endpoint to indicate that a change has been made to a specified named recipe.
+            <code language="none">
+            {
+              "RecipeName": "RECIPE3234",
+              "Revision": "D",
+              "ModifiedBy": {
+                "OperatorIdentifier": "da85fb6e-dca5-4a7e-9f7d-041384286a81",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              },
+              "Reason": "PositionalCorrection",
+              "Notes": null
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.RecipeModified.RecipeName">
@@ -728,6 +1307,12 @@
             This message is typically used for example, whenever a new recipe is activated which requires a different setup.
             If the Lane and Stage properties are left empty, the setup requirements of the entire Endpoint have been impacted.
             Otherwise, only the specified Lane and/or Stage is impacted.
+            <code language="none">
+            {
+              "Lane": "1",
+              "Stage": null
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.SetupRequirementsChanged.Lane">
@@ -740,11 +1325,519 @@
             An optional property designating the affected Stage.
             </summary>
         </member>
+        <member name="T:CFX.Production.TestAndInspection.NamespaceDoc">
+            <summary>
+            Message used when a production resource is performing any form of test or inspection of production units, including both automated and manual inspections, of all kinds.
+            </summary>
+        </member>
         <member name="T:CFX.Production.TestAndInspection.UnitsInspected">
             <summary>
             Sent by a process endpoint when one or more units have been inspected.  Includes pass/fail information,
             as well as a detailed report of the inspection, including the specific measurements and inspections
             that were made, and defects that were discovered during the process.
+            <para>  </para>
+            <para>Generic Inspection Example (2 Circuit PCB Panel inspected via AOI):</para>
+            <code language="none">
+            {
+              "TransactionId": "31aaff27-ec09-4c75-8de0-2d6cf2855e5f",
+              "InspectionMethod": "AOI",
+              "SamplingInformation": {
+                "SamplingMethod": "NoSampling",
+                "LotSize": null,
+                "SampleSize": null
+              },
+              "Inspector": {
+                "OperatorIdentifier": "UID235434324",
+                "ActorType": "Human",
+                "FullName": "Joseph Smith",
+                "LastName": "Smith",
+                "FirstName": "Joseph",
+                "LoginName": "joseph.smith@abcdrepairs.com"
+              },
+              "InspectedUnits": [
+                {
+                  "UnitIdentifier": "PANEL34543535",
+                  "UnitPositionNumber": 1,
+                  "OverallResult": "Passed",
+                  "Inspections": [
+                    {
+                      "UniqueIdentifier": "75005046-747e-41db-b995-b439b50c3c5d",
+                      "InspectionName": "INSPECT_R21",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "DefectsFound": [],
+                      "Symptoms": null,
+                      "Measurements": []
+                    },
+                    {
+                      "UniqueIdentifier": "45429ea9-a649-4d9d-8f79-31ee51a8032e",
+                      "InspectionName": "INSPECT_R22",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "DefectsFound": [],
+                      "Symptoms": null,
+                      "Measurements": []
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL34543535",
+                  "UnitPositionNumber": 2,
+                  "OverallResult": "Failed",
+                  "Inspections": [
+                    {
+                      "UniqueIdentifier": "e66be78a-b91e-49f8-b2e4-6df002331e49",
+                      "InspectionName": "INSPECT_R21",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "DefectsFound": [],
+                      "Symptoms": null,
+                      "Measurements": []
+                    },
+                    {
+                      "UniqueIdentifier": "f53e0800-487e-48a6-961a-f4cf08f21e9b",
+                      "InspectionName": "INSPECT_R22",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Failed",
+                      "Error": null,
+                      "DefectsFound": [
+                        {
+                          "UniqueIdentifier": "0924ab55-889d-45bd-a685-cd124fc519c9",
+                          "DefectCode": "ISFSLD112",
+                          "DefectCategory": "Solder Problems",
+                          "Description": "Insuffiecient Solder on R22, Lead 1",
+                          "Comments": null,
+                          "ComponentOfInterest": {
+                            "ReferenceDesignator": "R22.1",
+                            "UnitPosition": null,
+                            "PartNumber": "11123-8897"
+                          },
+                          "RegionOfInterest": {
+                            "StartPointX": 0.0,
+                            "StartPointY": 0.0,
+                            "RegionSegments": []
+                          },
+                          "DefectImages": [
+                            {
+                              "MimeType": "image/jpg",
+                              "ImageData": "rFRWd9iZ"
+                            }
+                          ],
+                          "Priority": 1,
+                          "ConfidenceLevel": 100.0,
+                          "RelatedMeasurements": [],
+                          "RelatedSymptoms": []
+                        },
+                        {
+                          "UniqueIdentifier": "c2c7ff88-3725-4a1c-88cf-029f7fc38859",
+                          "DefectCode": "TMBSTN211",
+                          "DefectCategory": "Solder Problems",
+                          "Description": "Tombston on R22",
+                          "Comments": null,
+                          "ComponentOfInterest": {
+                            "ReferenceDesignator": "R22",
+                            "UnitPosition": null,
+                            "PartNumber": "11123-8897"
+                          },
+                          "RegionOfInterest": {
+                            "StartPointX": 0.0,
+                            "StartPointY": 0.0,
+                            "RegionSegments": []
+                          },
+                          "DefectImages": [
+                            {
+                              "MimeType": "image/jpg",
+                              "ImageData": "XSjjh8i5"
+                            }
+                          ],
+                          "Priority": 1,
+                          "ConfidenceLevel": 100.0,
+                          "RelatedMeasurements": [],
+                          "RelatedSymptoms": []
+                        }
+                      ],
+                      "Symptoms": null,
+                      "Measurements": []
+                    },
+                    {
+                      "UniqueIdentifier": "5850e5d9-aae1-46dc-897f-a9c8733f72fb",
+                      "InspectionName": "COSMETIC_INSPECTION",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Failed",
+                      "Error": null,
+                      "DefectsFound": [
+                        {
+                          "UniqueIdentifier": "6fb1a6b3-a29e-4a21-84d1-91d7b24f1a07",
+                          "DefectCode": "SCR23443",
+                          "DefectCategory": "Cosmetic Problems",
+                          "Description": "Scratch Detected on PCB substrate",
+                          "Comments": null,
+                          "ComponentOfInterest": {
+                            "ReferenceDesignator": null,
+                            "UnitPosition": null,
+                            "PartNumber": null
+                          },
+                          "RegionOfInterest": {
+                            "StartPointX": 2.3,
+                            "StartPointY": 4.0,
+                            "RegionSegments": [
+                              {
+                                "X": 5.6,
+                                "Y": 4.0
+                              },
+                              {
+                                "X": 5.6,
+                                "Y": 1.6
+                              },
+                              {
+                                "X": 2.3,
+                                "Y": 1.6
+                              },
+                              {
+                                "X": 2.3,
+                                "Y": 4.0
+                              }
+                            ]
+                          },
+                          "DefectImages": [],
+                          "Priority": 1,
+                          "ConfidenceLevel": 100.0,
+                          "RelatedMeasurements": [],
+                          "RelatedSymptoms": []
+                        }
+                      ],
+                      "Symptoms": null,
+                      "Measurements": []
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
+            <para>Solder Paste Inspection Example:</para>
+            <code language="none">
+            {
+              "TransactionId": "039e47b3-d176-4544-a289-ddb81c0c71a8",
+              "InspectionMethod": "SPI",
+              "SamplingInformation": {
+                "SamplingMethod": "NoSampling",
+                "LotSize": null,
+                "SampleSize": null
+              },
+              "Inspector": {
+                "OperatorIdentifier": "UID235434324",
+                "ActorType": "Human",
+                "FullName": "Joseph Smith",
+                "LastName": "Smith",
+                "FirstName": "Joseph",
+                "LoginName": "joseph.smith@abcdrepairs.com"
+              },
+              "InspectedUnits": [
+                {
+                  "UnitIdentifier": "PANEL34543535",
+                  "UnitPositionNumber": 1,
+                  "OverallResult": "Passed",
+                  "Inspections": [
+                    {
+                      "UniqueIdentifier": "1d7e1cc3-09d5-49e2-869f-2b8712b7928a",
+                      "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "DefectsFound": [],
+                      "Symptoms": null,
+                      "Measurements": [
+                        {
+                          "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
+                          "ComponentPad": "R1.1",
+                          "PasteXSize": {
+                            "Value": 45.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 46.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 45.1,
+                            "MaximumAcceptableValue": 46.9
+                          },
+                          "PasteYSize": {
+                            "Value": 85.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 86.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 85.1,
+                            "MaximumAcceptableValue": 86.9
+                          },
+                          "PasteXOffset": {
+                            "Value": 0.2,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteYOffset": {
+                            "Value": 0.1,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteHeight": {
+                            "Value": 2.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 2.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 2.1,
+                            "MaximumAcceptableValue": 2.9
+                          },
+                          "PasteVolume": {
+                            "Value": 28.9,
+                            "ValueUnits": "ml",
+                            "ExpectedValue": 28.7,
+                            "ExpectedValueUnits": "ml",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 30.0
+                          },
+                          "DepositImage": {
+                            "MimeType": "image/jpg",
+                            "ImageData": "/z2Zhw=="
+                          },
+                          "UniqueIdentifier": "1cee0a74-ee24-42f0-bd94-63949b0475b1",
+                          "MeasurementName": "MEASURE R1.1",
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": null
+                        },
+                        {
+                          "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
+                          "ComponentPad": "R1.2",
+                          "PasteXSize": {
+                            "Value": 45.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 46.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 45.1,
+                            "MaximumAcceptableValue": 46.9
+                          },
+                          "PasteYSize": {
+                            "Value": 85.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 86.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 85.1,
+                            "MaximumAcceptableValue": 86.9
+                          },
+                          "PasteXOffset": {
+                            "Value": 0.2,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteYOffset": {
+                            "Value": 0.1,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteHeight": {
+                            "Value": 2.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 2.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 2.1,
+                            "MaximumAcceptableValue": 2.9
+                          },
+                          "PasteVolume": {
+                            "Value": 28.9,
+                            "ValueUnits": "ml",
+                            "ExpectedValue": 28.7,
+                            "ExpectedValueUnits": "ml",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 30.0
+                          },
+                          "DepositImage": {
+                            "MimeType": "image/jpg",
+                            "ImageData": "/z2Zhw=="
+                          },
+                          "UniqueIdentifier": "953505f7-1fd3-4ed6-83cf-5f99fe3f3b6c",
+                          "MeasurementName": "MEASURE R1.1",
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": null
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL34543535",
+                  "UnitPositionNumber": 2,
+                  "OverallResult": "Failed",
+                  "Inspections": [
+                    {
+                      "UniqueIdentifier": "4721c00a-b653-4a1a-9b63-724fe92c892a",
+                      "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
+                      "InspectionStartTime": null,
+                      "InspectionEndTime": null,
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "DefectsFound": [],
+                      "Symptoms": null,
+                      "Measurements": [
+                        {
+                          "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
+                          "ComponentPad": "R1.1",
+                          "PasteXSize": {
+                            "Value": 45.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 46.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 45.1,
+                            "MaximumAcceptableValue": 46.9
+                          },
+                          "PasteYSize": {
+                            "Value": 85.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 86.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 85.1,
+                            "MaximumAcceptableValue": 86.9
+                          },
+                          "PasteXOffset": {
+                            "Value": 0.2,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteYOffset": {
+                            "Value": 0.1,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteHeight": {
+                            "Value": 2.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 2.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 2.1,
+                            "MaximumAcceptableValue": 2.9
+                          },
+                          "PasteVolume": {
+                            "Value": 28.9,
+                            "ValueUnits": "ml",
+                            "ExpectedValue": 28.7,
+                            "ExpectedValueUnits": "ml",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 30.0
+                          },
+                          "DepositImage": null,
+                          "UniqueIdentifier": "a49769d3-7a47-4fe6-af17-36dd3e132ce7",
+                          "MeasurementName": null,
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": null
+                        },
+                        {
+                          "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
+                          "ComponentPad": "R1.2",
+                          "PasteXSize": {
+                            "Value": 45.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 46.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 45.1,
+                            "MaximumAcceptableValue": 46.9
+                          },
+                          "PasteYSize": {
+                            "Value": 85.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 86.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 85.1,
+                            "MaximumAcceptableValue": 86.9
+                          },
+                          "PasteXOffset": {
+                            "Value": 0.2,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteYOffset": {
+                            "Value": 0.1,
+                            "ValueUnits": "um",
+                            "ExpectedValue": 0.0,
+                            "ExpectedValueUnits": "um",
+                            "MinimumAcceptableValue": -10.2,
+                            "MaximumAcceptableValue": 10.2
+                          },
+                          "PasteHeight": {
+                            "Value": 2.6,
+                            "ValueUnits": "mm",
+                            "ExpectedValue": 2.7,
+                            "ExpectedValueUnits": "mm",
+                            "MinimumAcceptableValue": 2.1,
+                            "MaximumAcceptableValue": 2.9
+                          },
+                          "PasteVolume": {
+                            "Value": 28.9,
+                            "ValueUnits": "ml",
+                            "ExpectedValue": 28.7,
+                            "ExpectedValueUnits": "ml",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 30.0
+                          },
+                          "DepositImage": null,
+                          "UniqueIdentifier": "0ea8afc9-d347-4f66-8193-5f79f4d1f17a",
+                          "MeasurementName": null,
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.TestAndInspection.UnitsInspected.TransactionId">
@@ -779,6 +1872,313 @@
             Tests can be of any form, including environmental testing, electrical testing, functional testing, etc.  
             Detail of each test performed is provided, including any measured values, and the results of each test (P/F).  
             For any failed tests, symptom detail is provided.
+            <para>  </para>
+            <para>Example 1 (In-Circuit Test of 2 Circuit PCB Panel):</para>
+            <code language="none">
+            {
+              "TransactionId": "2d1bacac-c923-4c38-815c-208685bbe319",
+              "TestMethod": "Automated",
+              "Tester": {
+                "OperatorIdentifier": "UID235434324",
+                "ActorType": "Human",
+                "FullName": "Joseph Smith",
+                "LastName": "Smith",
+                "FirstName": "Joseph",
+                "LoginName": "joseph.smith@abcdrepairs.com"
+              },
+              "SamplingInformation": {
+                "SamplingMethod": "NoSampling",
+                "LotSize": null,
+                "SampleSize": null
+              },
+              "TestedUnits": [
+                {
+                  "UnitIdentifier": "PANEL34543535",
+                  "UnitPositionNumber": 1,
+                  "OverallResult": "Passed",
+                  "Tests": [
+                    {
+                      "UniqueIdentifier": "0e17d9c7-9137-47fb-bddb-816aee913285",
+                      "TestName": "RESISTANCE_CHECK_R21",
+                      "TestStartTime": null,
+                      "TestEndTime": null,
+                      "TestConditions": [],
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "SymptomsFound": [],
+                      "DefectsFound": [],
+                      "Measurements": [
+                        {
+                          "$type": "CFX.Structures.NumericMeasurement, CFX",
+                          "MeasuredValue": {
+                            "Value": 28300.0,
+                            "ValueUnits": "Ohm",
+                            "ExpectedValue": 28.2,
+                            "ExpectedValueUnits": "kOhm",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 28.4
+                          },
+                          "UniqueIdentifier": "a41473f0-81f5-4b2e-8e67-e8c2daf0afd6",
+                          "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": [
+                            {
+                              "ReferenceDesignator": "R21",
+                              "UnitPosition": null,
+                              "PartNumber": "41234-8897"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "UniqueIdentifier": "5e7654ce-d62e-43a6-b90d-879af1ad98ca",
+                      "TestName": "RESISTANCE_CHECK_R22",
+                      "TestStartTime": null,
+                      "TestEndTime": null,
+                      "TestConditions": [],
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Failed",
+                      "Error": null,
+                      "SymptomsFound": [
+                        {
+                          "UniqueIdentifier": "98d7a62e-b411-4e68-b788-40ec6cf4b970",
+                          "SymptomCode": "RESFAIL2",
+                          "SymptomCategory": "Electrical Tests",
+                          "Description": "Resistance Value Out of Tolerance",
+                          "Comments": null,
+                          "ComponentsOfInterest": [
+                            {
+                              "ReferenceDesignator": "R22.1",
+                              "UnitPosition": null,
+                              "PartNumber": "41234-8897"
+                            },
+                            {
+                              "ReferenceDesignator": "R22.2",
+                              "UnitPosition": null,
+                              "PartNumber": "41234-8897"
+                            }
+                          ],
+                          "RegionOfInterest": null,
+                          "Priority": 1,
+                          "RelatedMeasurements": [
+                            {
+                              "$type": "CFX.Structures.NumericMeasurement, CFX",
+                              "MeasuredValue": {
+                                "Value": 28.52,
+                                "ValueUnits": "kOhm",
+                                "ExpectedValue": 28.2,
+                                "ExpectedValueUnits": "kOhm",
+                                "MinimumAcceptableValue": 28.0,
+                                "MaximumAcceptableValue": 28.4
+                              },
+                              "UniqueIdentifier": "9f3021f9-dd6e-4cae-955e-014a46d9e665",
+                              "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
+                              "TimeRecorded": null,
+                              "Sequence": 0,
+                              "Result": "Passed",
+                              "Components": [
+                                {
+                                  "ReferenceDesignator": "R22",
+                                  "UnitPosition": null,
+                                  "PartNumber": "41234-8897"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DefectsFound": [],
+                      "Measurements": []
+                    }
+                  ]
+                },
+                {
+                  "UnitIdentifier": "PANEL34543535",
+                  "UnitPositionNumber": 2,
+                  "OverallResult": "Passed",
+                  "Tests": [
+                    {
+                      "UniqueIdentifier": "68a2dd81-171c-4184-8de0-ec7aeaf76b49",
+                      "TestName": "RESISTANCE_CHECK_R21",
+                      "TestStartTime": null,
+                      "TestEndTime": null,
+                      "TestConditions": [],
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "SymptomsFound": [],
+                      "DefectsFound": [],
+                      "Measurements": [
+                        {
+                          "$type": "CFX.Structures.NumericMeasurement, CFX",
+                          "MeasuredValue": {
+                            "Value": 28300.0,
+                            "ValueUnits": "Ohm",
+                            "ExpectedValue": 28.2,
+                            "ExpectedValueUnits": "kOhm",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 28.4
+                          },
+                          "UniqueIdentifier": "ad809cbc-75cb-4ff0-8bbf-98ea000d104d",
+                          "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": [
+                            {
+                              "ReferenceDesignator": "R21",
+                              "UnitPosition": null,
+                              "PartNumber": "41234-8897"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "UniqueIdentifier": "dd6478ae-0b30-4a7f-a3f7-2ec0ff2e4b9b",
+                      "TestName": "RESISTANCE_CHECK_R22",
+                      "TestStartTime": null,
+                      "TestEndTime": null,
+                      "TestConditions": [],
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "SymptomsFound": [],
+                      "DefectsFound": [],
+                      "Measurements": [
+                        {
+                          "$type": "CFX.Structures.NumericMeasurement, CFX",
+                          "MeasuredValue": {
+                            "Value": 28300.0,
+                            "ValueUnits": "Ohm",
+                            "ExpectedValue": 28.2,
+                            "ExpectedValueUnits": "kOhm",
+                            "MinimumAcceptableValue": 28.0,
+                            "MaximumAcceptableValue": 28.4
+                          },
+                          "UniqueIdentifier": "36117d8e-718f-4750-b97f-e4d1e488ceb3",
+                          "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
+                          "TimeRecorded": null,
+                          "Sequence": 0,
+                          "Result": "Passed",
+                          "Components": [
+                            {
+                              "ReferenceDesignator": "R22",
+                              "UnitPosition": null,
+                              "PartNumber": "41234-8897"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
+            <para>Example 2 (Burn-in / Hot / Cold Test of Final Production Unit):</para>
+            <code language="none">
+            {
+              "TransactionId": "5dbbe5f6-2b53-4584-a893-229195954789",
+              "TestMethod": "Automated",
+              "Tester": {
+                "OperatorIdentifier": "UID235434324",
+                "ActorType": "Human",
+                "FullName": "Joseph Smith",
+                "LastName": "Smith",
+                "FirstName": "Joseph",
+                "LoginName": "joseph.smith@abcdrepairs.com"
+              },
+              "SamplingInformation": {
+                "SamplingMethod": "NoSampling",
+                "LotSize": null,
+                "SampleSize": null
+              },
+              "TestedUnits": [
+                {
+                  "UnitIdentifier": "UNIT123456789",
+                  "UnitPositionNumber": 1,
+                  "OverallResult": "Passed",
+                  "Tests": [
+                    {
+                      "UniqueIdentifier": "5a94739f-2ad1-423e-b5b2-25601a7e54c0",
+                      "TestName": "HOT_TEST",
+                      "TestStartTime": "2018-03-29T13:52:29.6931932-04:00",
+                      "TestEndTime": "2018-03-29T13:53:01.6931932-04:00",
+                      "TestConditions": [
+                        {
+                          "$type": "CFX.Structures.Temperature, CFX",
+                          "StartTime": null,
+                          "EndTime": null,
+                          "MeanValue": 45.2,
+                          "MedianValue": 0.0,
+                          "MaxValue": 45.8,
+                          "MinValue": 44.9
+                        },
+                        {
+                          "$type": "CFX.Structures.Humidity, CFX",
+                          "StartTime": null,
+                          "EndTime": null,
+                          "MeanValue": 85.5,
+                          "MedianValue": 0.0,
+                          "MaxValue": 85.7,
+                          "MinValue": 85.4
+                        }
+                      ],
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "SymptomsFound": [],
+                      "DefectsFound": [],
+                      "Measurements": []
+                    },
+                    {
+                      "UniqueIdentifier": "52bb3411-62f1-434a-a3f1-5e44d1484b9e",
+                      "TestName": "COLD_TEST",
+                      "TestStartTime": "2018-03-29T13:52:29.6941918-04:00",
+                      "TestEndTime": "2018-03-29T13:53:01.6941918-04:00",
+                      "TestConditions": [
+                        {
+                          "$type": "CFX.Structures.Temperature, CFX",
+                          "StartTime": null,
+                          "EndTime": null,
+                          "MeanValue": -6.5,
+                          "MedianValue": 0.0,
+                          "MaxValue": -6.4,
+                          "MinValue": -6.7
+                        },
+                        {
+                          "$type": "CFX.Structures.Humidity, CFX",
+                          "StartTime": null,
+                          "EndTime": null,
+                          "MeanValue": 22.5,
+                          "MedianValue": 0.0,
+                          "MaxValue": 22.7,
+                          "MinValue": 22.4
+                        }
+                      ],
+                      "TestProcedure": null,
+                      "Comments": null,
+                      "Result": "Passed",
+                      "Error": null,
+                      "SymptomsFound": [],
+                      "DefectsFound": [],
+                      "Measurements": []
+                    }
+                  ]
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.TestAndInspection.UnitsTested.TransactionId">
@@ -810,6 +2210,24 @@
             <summary>
             Sent to a process endpoint to release a material locations block which was put
             into place by a previously sent BlockMaterialLocationsRequest
+            <code language="none">
+            {
+              "Locations": [
+                {
+                  "LocationIdentifier": "23143433",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                },
+                {
+                  "LocationIdentifier": "23143454",
+                  "LocationName": "SLOT46",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.UnblockMaterialLocationsRequest.Locations">
@@ -820,11 +2238,47 @@
         <member name="T:CFX.Production.UnblockMaterialLocationsResponse">
             <summary>
             Response to UnblockMaterialLocationsRequest
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "BLOCKED OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="T:CFX.Production.UnitsArrived">
             <summary>
             Sent when production units physically arrives at a process endpoint, prior to any work or other activity commencing.
+            <code language="none">
+            {
+              "UnitCount": 2,
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.UnitsArrived.UnitCount">
@@ -841,6 +2295,33 @@
             <summary>
             Sent by a process endpoint when units physically depart from a process endpoint. 
             This does not imply any information about any activity that may have taken place.
+            <code language="none">
+            {
+              "UnitCount": 2,
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.UnitsDeparted.UnitCount">
@@ -857,6 +2338,33 @@
             <summary>
             Sent by a process endpoint to identify that a specific production unit is disqualified or scrapped.
             This includes logical disqualification in the case that a unit is abandoned during manufacturing
+            <code language="none">
+            {
+              "UnitCount": 2,
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.UnitsDisqualified.UnitCount">
@@ -869,11 +2377,56 @@
             List of structures that identify each specific instance of production unit to be disqualified (could be within a carrier or panel). 
             </summary>
         </member>
+        <member name="T:CFX.Production.UnlockStationRequest">
+            <summary>
+            Request that a process endpoint resume production, following a previous lock. The response indicates that the lock has been removed.
+            <code language="none">
+            {
+              "Lane": null,
+              "Stage": null,
+              "Requestor": {
+                "OperatorIdentifier": "60d8e5c1-ca23-48c6-b56a-3572723176bd",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="T:CFX.Production.UnlockStationResponse">
+            <summary>
+            Response to a request for a process endpoint to resume production, following a previous lock.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
+            </summary>
+        </member>
         <member name="T:CFX.Production.UpdateRecipeRequest">
             <summary>
             This message is used to send a named recipe to a process endpoint. The message
             includes details of the recipe, depending on the classification of the process. 
             The response indicates whether the recipe has been received correctly or not.
+            <code language="none">
+            {
+              "Overwrite": true,
+              "Recipe": {
+                "Name": "RECIPE234324",
+                "Revision": "C",
+                "MimeType": "application/octet-stream",
+                "RecipeData": "//w0"
+              },
+              "Reason": "NewRevision"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.UpdateRecipeRequest.Overwrite">
@@ -898,11 +2451,26 @@
             This message is used to send a named recipe to a process endpoint. The message
             includes details of the recipe, depending on the classification of the process. 
             The response indicates whether the recipe has been received correctly or not.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="T:CFX.Production.WorkCompleted">
             <summary>
             Sent by a process endpoint when all work has been completed at a process endpoint.
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Result": "Completed"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.WorkCompleted.TransactionID">
@@ -913,6 +2481,13 @@
         <member name="T:CFX.Production.WorkStageCompleted">
             <summary>
             Sent by a process endpoint to indicate that a stage has been completed.
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Stage": "1",
+              "Result": "Completed"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.WorkStageCompleted.TransactionID">
@@ -928,6 +2503,12 @@
         <member name="T:CFX.Production.WorkStagePaused">
             <summary>
             Sent when activity pauses for some reason at a stage of the process endpoint
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Stage": "1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.WorkStagePaused.TransactionID">
@@ -943,6 +2524,12 @@
         <member name="T:CFX.Production.WorkStageResumed">
             <summary>
             Sent when activity recommences at a stage within a process endpoint, following a WorkStagePaused message
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Stage": "1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.WorkStageResumed.TransactionID">
@@ -958,6 +2545,12 @@
         <member name="T:CFX.Production.WorkStageStarted">
             <summary>
             Sent by a process endpoint when the work-stage for a unit or group of units starts
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Stage": "1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Production.WorkStageStarted.TransactionID">
@@ -970,11 +2563,7 @@
             The stage name or number
             </summary>
         </member>
-        <member name="T:CFX.Production.WorkStarted">
-            <summary>
-            Sent by a process endpoint when the work-cycle for a unit or group of units starts
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:CFX.Production.WorkStarted" -->
         <member name="P:CFX.Production.WorkStarted.TransactionID">
             <summary>
             Transaction ID used to attach events and data during subsequent processing, until WorkCompleted
@@ -999,21 +2588,182 @@
             <summary>
             Sent by a process endpoint on a sampled interval of between 1 minute and 1 hour
             to indicate the energy usage and power consumption.
+            <code language="none">
+            {
+              "StartTime": "2018-04-05T09:33:06.1358356-04:00",
+              "EndTime": "2018-04-05T09:38:06.1358356-04:00",
+              "EnergyUsed": 0.012,
+              "PeakPower": 125.6,
+              "MinimumPower": 120.3,
+              "MeanPower": 124.6
+            }
+            </code>
             </summary>
         </member>
-        <member name="T:CFX.ResourcePerformance.FaultCleared">
+        <member name="P:CFX.ResourcePerformance.EnergyConsumed.StartTime">
             <summary>
-            Sent by a process endpoint when a fault is cleared as described in a FaultOccurred message  
+            The start time of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.EnergyConsumed.EndTime">
+            <summary>
+            The end time of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.EnergyConsumed.EnergyUsed">
+            <summary>
+            The total amount of energy consumed during the sample period
+            (in kilowatt-hours)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.EnergyConsumed.PeakPower">
+            <summary>
+            The maximum amount of power recorded during the sample period
+            (in watts)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.EnergyConsumed.MinimumPower">
+            <summary>
+            The lowest amount of power recorded during the sample period
+            (in watts)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.EnergyConsumed.MeanPower">
+            <summary>
+            The average amount of power consumed during the sample period
+            (in watts)
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:CFX.ResourcePerformance.FaultCleared" -->
+        <member name="P:CFX.ResourcePerformance.FaultCleared.FaultOccurrenceId">
+            <summary>
+            A unique identifier of the instance of the related fault.  Corresponds with the
+            FaultOccurrenceId property of the corresponding FaultOccurred message
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.FaultOccurred">
             <summary>
-            Sent by a process endpoint whenever a fault is encountered. A data structure must be included in the message related to specific equipment type.
+            <para>Sent by a process endpoint whenever a fault is encountered. A data structure must be included in the message related to specific equipment type.</para>
+            <para>Generic Fault Example:</para>
+            <code language="none">
+            {
+              "Fault": {
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368",
+                "Lane": null,
+                "Stage": null
+              }
+            }
+            </code>
+            <para>SMT Placement Fault Example:</para>
+            <code language="none">
+            {
+              "Fault": {
+                "$type": "CFX.Structures.SMTPlacement.SMTPlacementFault, CFX",
+                "PlacementFaultType": "PickupError",
+                "ProgramStep": 56,
+                "Designator": {
+                  "ReferenceDesignator": "R31",
+                  "UnitPosition": null,
+                  "PartNumber": "PN123456"
+                },
+                "MaterialLocation": {
+                  "LocationIdentifier": "UID23948348324",
+                  "LocationName": "SLOT47",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "UID34280923084932849",
+                    "InternalPartNumber": "IPN456465465465",
+                    "Quantity": 854.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": null,
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Pitch8mm",
+                    "UniqueIdentifier": "FDR2348934-32890",
+                    "Name": "8MMFDR231"
+                  }
+                },
+                "Nozzle": {
+                  "HeadId": "HEAD1",
+                  "HeadNozzleNumber": 3,
+                  "NozzleType": "TYPE914",
+                  "UniqueIdentifier": "UID2389432849",
+                  "Name": "NOZZLE3243244"
+                },
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "2a8aca83-5889-49d7-887b-89145b6dc9b9",
+                "Lane": "LANE1",
+                "Stage": "STAGE2"
+              }
+            }
+            </code>
+            <para>THT Insertion Fault Example:</para>
+            <code language="none">
+            {
+              "Fault": {
+                "$type": "CFX.Structures.THTInsertion.THTInsertionFault, CFX",
+                "InsertionFaultType": "ClinchError",
+                "ProgramStep": 56,
+                "Designator": {
+                  "ReferenceDesignator": "R31",
+                  "UnitPosition": null,
+                  "PartNumber": "PN123456"
+                },
+                "MaterialLocation": {
+                  "LocationIdentifier": "UID23948348324",
+                  "LocationName": "SLOT47",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "UID34280923084932849",
+                    "InternalPartNumber": "IPN456465465465",
+                    "Quantity": 854.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": null,
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Pitch8mm",
+                    "UniqueIdentifier": "FDR2348934-32890",
+                    "Name": "8MMFDR231"
+                  }
+                },
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "c2ae2e0b-104e-4293-b9d3-575863c2916d",
+                "Lane": "LANE1",
+                "Stage": "STAGE2"
+              }
+            }
+            </code>
+            <code language="none">
+            {
+              "Fault": {
+                "$type": "CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault, CFX",
+                "PrintingFaultType": "SqueegeeError",
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 234333",
+                "FaultOccurrenceId": "3e667e7d-24b4-4b77-b356-34bb5e99d05c",
+                "Lane": null,
+                "Stage": null
+              }
+            }
+            </code>
+            <para>SMT Printing Fault Example:</para>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.FaultOccurred.Fault">
             <summary>
-            Dynamic structure provi
+            Dynamic structure providing detailed information about the fault that has occurred.
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.LogEntryRecorded">
@@ -1022,15 +2772,78 @@
             Information about the criticality of the information should also be given (information, warning, error etc.)
             </summary>
         </member>
+        <member name="P:CFX.ResourcePerformance.LogEntryRecorded.InformationId">
+            <summary>
+            An endpoint-specific string that defines the nature of the log entry
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.LogEntryRecorded.Message">
+            <summary>
+            A human-friendly description of the log entry
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.LogEntryRecorded.Importance">
+            <summary>
+            The relative importance of the log entry
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.LogEntryRecorded.Lane">
+            <summary>
+            The production lane related to the log entry (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.LogEntryRecorded.Stage">
+            The production stage related to the log entry (where applicable)
+        </member>
         <member name="T:CFX.ResourcePerformance.MaintenancePerformed">
             <summary>
-            Sent by a process endpoint to indicate that a maintenance event has taken place. 
+            Sent by an endpoint when maintenance has been performed.
             Information includes the type of maintenance, maintenance code, parts used, labor etc.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.MaintenancePerformed.MaintenanceType">
+            <summary>
+            An enumeration describing the type of maintenance that was performed
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.MaintenancePerformed.MaintenanceOrderNumber">
+            <summary>
+            The work order number related to this maintenance event
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.MaintenancePerformed.MaintenanceJobCode">
+            <summary>
+            An endpoint-specific code indicating the nature of the maintenance
+            event that was conducted
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.MaintenancePerformed.ConsumedMaterials">
+            <summary>
+            A list of the specific parts and materials that were consumed while performing
+            the maintenance event
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.MaintenancePerformed.Tasks">
+            <summary>
+            A list of the specific tasks that were performed while conducting this maintenance
+            event
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.ModifyStationParameterRequest">
             <summary>
-            This message allows an external source to modify a generic configuration parameter of a process endpoint.
+            This request allows an external source to modify a generic configuration parameter of a process endpoint.
+            Upon successful processing of this request, the endpoint should publish a <see cref="T:CFX.ResourcePerformance.StationParameterModified"/> message in addition to the 
+            <see cref="T:CFX.ResourcePerformance.ModifyStationParameterResponse"/> message that it sends back to the requester.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterRequest.ParameterName">
+            <summary>
+            The name of the configuration parameter
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterRequest.ParameterValue">
+            <summary>
+            The new value for the configuration parameter
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.ModifyStationParameterResponse">
@@ -1038,10 +2851,224 @@
             Response to an external source to modify a generic configuration parameter of a process endpoint.
             </summary>
         </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.ParameterName">
+            <summary>
+            THe name of the configuration setting that was modified
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.OldParameterValue">
+            <summary>
+            The previous value of the configuration setting
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.NewParameterValue">
+            <summary>
+            The new value of the configuration setting
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.NamespaceDoc">
+            <summary>
+            CFX Topic related to the performance of an endpoint (speed, OEE, fault rates, etc).
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced">
+            <summary>
+            Sent periodically by an SMT placement machine to indicate the number of placements which were
+            successfully or unsuccessfully completed during the sample time window.
+            This sample time window shall not exceed 10 minutes.
+            <code language="none">
+            {
+              "StartTime": "2018-04-05T09:28:06.161835-04:00",
+              "EndTime": "2018-04-05T09:38:06.161835-04:00",
+              "TotalComponentsPlaced": 875,
+              "TotalComponentsNotPlaced": 45
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.StartTime">
+            <summary>
+            The start of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.EndTime">
+            <summary>
+            The end of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.TotalComponentsPlaced">
+            <summary>
+            The total number of components that were successfully placed during the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.TotalComponentsNotPlaced">
+            <summary>
+            The total number of components that were not successfully placed during the sample period
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SMTPlacement.NamespaceDoc">
+            <summary>
+            Messages related to the performance of resources where SMT placement takes place (SMT placement equipment). 
+            This includes specialized faults, placement rates, and other information related to the performance
+            of an SMT placement machine.
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SMTPlacement.ToolChanged">
+            <summary>
+            Sent when a new tool is selected for active use at a production endpoint
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.OldTool">
+            <summary>
+            The tool that was previously in active use (if any) 
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.ReturnedToHolder">
+            <summary>
+            The location on the endpoint where the old tool was returned (if any)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.NewTool">
+            <summary>
+            The new active tool
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.LoadedFromHolder">
+            <summary>
+            The location on the endpoint from which the newly active tool was selected 
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest">
+            <summary>
+            Allows an external source to direct a request to a stencil printer
+            to perform a squeegee clean operation
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest.CleanTypeRequested">
+            <summary>
+            An enumeration indicating the type of clean operation that is
+            being requested
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeResponse">
+            <summary>
+            Response to a request from an external source for a squeegee clean
+            operation to be performed
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilRequest">
+            <summary>
+            Allows an external source to direct a request to a stencil printer
+            to perform a stencil clean operation
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilRequest.CleanTypeRequested">
+            <summary>
+            An enumeration indicating the type of clean operation that is
+            being requested
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.NamespaceDoc">
+            <summary>
+            Specialized messages related to the performance of solder paste printers.  This might include
+            information related to stencil or squeegee cleaning rates, etc.
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned">
+            <summary>
+            Indicates that a squeegee clean operation has been performed
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.Squeegee">
+            <summary>
+            Identifies the squeegee that has been cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.SqueegeeCleanType">
+            <summary>
+            An enumeration indicating the type of clean that was performed
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.TimeSinceLastClean">
+            <summary>
+            Indicates the length of time that has ellapsed since the last time
+            the squeegee was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.CyclesSinceLastClean">
+            <summary>
+            Indicates how many printing cycles have been completed since the last
+            time the squeegee was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.SqueegeeCleanCycles">
+            <summary>
+            Indicates the total number of squeegee cleaning cycles that
+            have been performed since this squeegee was loaded.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.SqueegeeCleanTime">
+            <summary>
+            Indicates the total amount of time that it took to perform this squeegee clean operation
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned">
+            <summary>
+            Indicates that a stencil clean operation has been performed
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.Stencil">
+            <summary>
+            Identifies the stencil that has been cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.StencilCleanMode">
+            <summary>
+            Indicates that cleaning mode for the stencil clean operation
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.TimeSinceLastClean">
+            <summary>
+            Indicates the length of time that has ellapsed since the last time
+            the stencil was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.CyclesSinceLastClean">
+            <summary>
+            Indicates how many printing cycles have been completed since the last
+            time the stencil was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.StencilCleanCycles">
+            <summary>
+            Indicates the total number of stencil cleaning cycles that
+            have been performed since this squeegee was loaded.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.StencilCleanTime">
+            <summary>
+            Indicates the total amount of time that it took to perform this stencil clean operation
+            </summary>
+        </member>
         <member name="T:CFX.ResourcePerformance.StageStateChanged">
             <summary>
-            Sent by a process endpoint when its production state transitions from
-            one state to another per its state model. 
+            Sent by a process endpoint when the production state of one of its
+            stages transitions from one state to another per its state model. 
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StageStateChanged.OldState">
@@ -1089,6 +3116,80 @@
             recipes, which are handled by the RecipeModified event. 
             </summary>
         </member>
+        <member name="P:CFX.ResourcePerformance.StationParameterModified.ParameterName">
+            <summary>
+            The name of the configuration setting which was modified
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationParameterModified.OldParameterValue">
+            <summary>
+            The previous value of this configuration setting
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationParameterModified.NewParameterValue">
+            <summary>
+            The new value of this configuration setting
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.StationStateChanged">
+            <summary>
+            Sent by a process endpoint when the production state transitions
+            from one state to another per its state model. 
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.OldState">
+            <summary>
+            The previous state prior to this state change
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.OldStateDuration">
+            <summary>
+            The amount of time spent in the previous state
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.NewState">
+            <summary>
+            The new state
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.RelatedFault">
+            <summary>
+            In the case of a stoppage, information about the Fault which caused the stoppage.
+            Otherwise null.
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.THTInsertion.ComponentsInserted">
+            <summary>
+            Sent periodically by an THT inserter to indicate the number of insertions which were
+            successfully or unsuccessfully completed during the sample time window.
+            This sample time window shall not exceed 10 minutes.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.StartTime">
+            <summary>
+            The start of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.EndTime">
+            <summary>
+            The end of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.TotalComponentsInserted">
+            <summary>
+            The total number of components that were successfully inserted during the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.TotalComponentsNotInserted">
+            <summary>
+            The total number of components that were not successfully inserted during the sample period
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.THTInsertion.NamespaceDoc">
+            <summary>
+            Specialized messages related to the performance of through-hole insertion equipment
+            </summary>
+        </member>
         <member name="P:CFX.Sensor.Identification.IdentifiersRead.PrimaryIdentifier">
             <summary>
             The barcode, RFID, etc. that was most recently acquired by the scanner / reader.  If a single production unit is moving through the
@@ -1115,6 +3216,16 @@
             <summary>
             An optional list of actual production unit identifiers, in the case that multiple production units are moving through the 
             process, and the sensor is capable if reading multiple identifiers. 
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.NamespaceDoc">
+            <summary>
+            Messages for devices that are responsible to reading or scanning identification labels or tags (barcodes, RFID’s, machine vision systems, etc.).
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.NamespaceDoc">
+            <summary>
+            CFX Topic related to endpoints which measure or detect conditions
             </summary>
         </member>
         <member name="T:CFX.Structures.ActorType">
@@ -1150,6 +3261,23 @@
         <member name="F:CFX.Structures.BlockReason.Defective">
             <summary>
             The unit is known to be defective.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.BooleanMeasurement">
+            <summary>
+            Describes a measurement that was made by a human or by automated equipment
+            in the course of inspecting or testing a production unit in which the result
+            of the measurement is a boolean (true / fales) value.
+            </summary> 
+        </member>
+        <member name="P:CFX.Structures.BooleanMeasurement.Value">
+            <summary>
+            The actual resulting value of this measurement
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.BooleanMeasurement.ExpectedValue">
+            <summary>
+            The expected value of this measurement
             </summary>
         </member>
         <member name="T:CFX.Structures.Characteristic">
@@ -1347,6 +3475,44 @@
             The minimum value during the sample period
             </summary>
         </member>
+        <member name="T:CFX.Structures.Fault">
+            <summary>
+            A dynamic structure which describes a fault that has occurred in the course of production.
+            May be one of:  <see cref="T:CFX.Structures.Fault"/>, <see cref = "T:CFX.Structures.SMTPlacement.SMTPlacementFault" />,
+            <see cref="T:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault"/>, or <see cref="T:CFX.Structures.THTInsertion.THTInsertionFault"/>
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Fault.Cause">
+            <summary>
+            The cause of this fault.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Fault.Severity">
+            <summary>
+            The severity of the fault
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Fault.FaultCode">
+            <summary>
+            An endpoint specific code indicating the nature of the fault
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Fault.FaultOccurrenceId">
+            <summary>
+            A 128-bit unique identifier which uniquely identifier this specific 
+            occurrence of the fault
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Fault.Lane">
+            <summary>
+            The production lane related to this fault (if applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.Fault.Stage">
+            <summary>
+            The production stage related to this fualt (if applicable)
+            </summary>
+        </member>
         <member name="T:CFX.Structures.FaultCause">
             <summary>
             Possible causes of a fault that causes a stoppage in production
@@ -1514,10 +3680,35 @@
             The defects that were discovered in the course of performing this inspection (if any)
             </summary>
         </member>
+        <member name="P:CFX.Structures.Inspection.Symptoms">
+            <summary>
+            Any symptoms that were discovered during the inspection (if any).
+            </summary>
+        </member>
         <member name="P:CFX.Structures.Inspection.Measurements">
             <summary>
             The measurements that were taken in the course of performing this inspection (if any).
             NOTE - Only measurements not related to particular defects or symptoms should be recorded here.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.InspectionMethod">
+            <summary>
+            Method of testing
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.InspectionMethod.Human">
+            <summary>
+            The inspection was performed by a human being
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.InspectionMethod.AOI">
+            <summary>
+            The inspection was performed by automated optical inspection equipment / device
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.InspectionMethod.SPI">
+            <summary>
+            The inspection was performed by automated solder paste inspection equipment / device
             </summary>
         </member>
         <member name="T:CFX.Structures.InstalledComponent">
@@ -1792,8 +3983,8 @@
         </member>
         <member name="T:CFX.Structures.Measurement">
             <summary>
-            Describes a measure that was made by a human or by automated equipment in the course
-            of inspecting or testing a production unit
+            Abstract base class for dynamic data structure which describes a measurement that was made by a human
+            or by automated equipment in the course of inspecting or testing a production unit
             </summary>
         </member>
         <member name="P:CFX.Structures.Measurement.UniqueIdentifier">
@@ -1826,53 +4017,6 @@
         <member name="P:CFX.Structures.Measurement.Components">
             <summary>
             An optional list of components (instance of a part) on a production unit(s) to be associated with this measurement.
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.ValueDataType">
-            <summary>
-            An enumeration describing the type of value contained in the Value or BinaryValue properties.
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.ValueUnits">
-            <summary>
-            The units of the value (must be a valid SI unit)
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.ValueMimeType">
-            <summary>
-            If the Reading is of type DataType.Binary, this property contains the MIME type
-            of the binary data contained in the BinaryValue property.
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.Value">
-            <summary>
-            The value of the measurement
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.BinaryValue">
-            <summary>
-            If the Reading is of type DataType.Binary, this property contains the binary
-            representation of the value.
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.ExpectedValue">
-            <summary>
-            The expected value for thie measurement
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.ExpectedValueUnits">
-            <summary>
-            The units of the expected value (must be a valid SI unit)
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.MinimumAcceptableValue">
-            <summary>
-            The minimum acceptable value
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.Measurement.MaximumAcceptableValue">
-            <summary>
-            The minimum acceptable value
             </summary>
         </member>
         <member name="T:CFX.Structures.MSDLevel">
@@ -1953,6 +4097,52 @@
         <member name="F:CFX.Structures.MSDState.Expired">
             <summary>
             Exposed to atmosphere/moisture beyond acceptable limits.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.NamespaceDoc">
+            <summary>
+            Root namespace for all data structures referenced by CFX messages.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.NumericMeasurement">
+            <summary>
+            Describes a numeric (floating point) measurement that was made by a human or by automated equipment
+            in the course of inspecting or testing a production unit
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericMeasurement.MeasuredValue">
+            <summary>
+            The actual numeric value measured and recorded during this test/inspection.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericValue.Value">
+            <summary>
+            The actual numeric value that was measured and recorded during a test or inspection
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericValue.ValueUnits">
+            <summary>
+            The units of the value (must be a valid SI unit)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericValue.ExpectedValue">
+            <summary>
+            The expected value for thie measurement
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericValue.ExpectedValueUnits">
+            <summary>
+            The units of the expected value (must be a valid SI unit)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericValue.MinimumAcceptableValue">
+            <summary>
+            The minimum acceptable value
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.NumericValue.MaximumAcceptableValue">
+            <summary>
+            The minimum acceptable value
             </summary>
         </member>
         <member name="T:CFX.Structures.Operator">
@@ -2183,6 +4373,28 @@
             Collection of (X, Y) coordinates that when plotted form a planar region.
             </summary>
         </member>
+        <member name="T:CFX.Structures.RequestResult">
+            <summary>
+            A structure which indicates whether or not a CFX request to an endpoint was successful.
+            If not successful, information about the nature of the failure is provided.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.RequestResult.Result">
+            <summary>
+            An enumeration indication whether or not the request was successfully executed
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.RequestResult.ResultCode">
+            <summary>
+            In the case of a failure, an integer-based, endpoint-specific error code
+            indicating the nature of the failure
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.RequestResult.Message">
+            <summary>
+            In the case of a failure, a human readable message indicating the nature of the failure
+            </summary>
+        </member>
         <member name="T:CFX.Structures.ResourceState">
             <summary>
             Endpoint state model
@@ -2314,6 +4526,11 @@
             A fixed number of units were sampled (lot size disregarded).
             </summary>
         </member>
+        <member name="T:CFX.Structures.SMTPlacement.NamespaceDoc">
+            <summary>
+            Data structures related to SMT placement equipment
+            </summary>
+        </member>
         <member name="T:CFX.Structures.SMTPlacement.SMDTapeFeeder">
             <summary>
             Describes an SMT Tape feeder.
@@ -2337,6 +4554,16 @@
             <summary>
             For multi-lane tape feeders, this is the number of the position
             of the lane within the feeder.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTapeFeeder.Width">
+            <summary>
+            An enumeration indicating the width of this tape feeder
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTapeFeeder.Pitch">
+            <summary>
+            An enumeration indicating the pitch of this tape feeder
             </summary>
         </member>
         <member name="T:CFX.Structures.SMTPlacement.SMDTapePitch">
@@ -2456,7 +4683,37 @@
         </member>
         <member name="T:CFX.Structures.SMTPlacement.SMDTrayFeeder">
             <summary>
-            Describes and SMT Tray Feeder
+            Describes an SMT Tray carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTrayFeeder.CellDimensionX">
+            <summary>
+            The x dimension of each cell in the tray carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTrayFeeder.CellDimensionY">
+            <summary>
+            The y dimension of each cell in the tray carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTrayFeeder.CellCountX">
+            <summary>
+            The number of cells in the x axis in this tray carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTrayFeeder.CellCountY">
+            <summary>
+            The number of cells in the y axis in this tray carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTrayFeeder.CellPitchX">
+            <summary>
+            The x offset between adjacent cells in the tray carrier
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTrayFeeder.CellPitchY">
+            <summary>
+            The y offset between adjacent cells in the tray carrier
             </summary>
         </member>
         <member name="T:CFX.Structures.SMTPlacement.SMDTubeFeeder">
@@ -2482,6 +4739,16 @@
             The position number of this tube feeder position within its base.
             </summary>
         </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTubeFeeder.Width">
+            <summary>
+            The width of this lane within the tube feeder (in mm)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMDTubeFeeder.Pitch">
+            <summary>
+            The offset between this lane and the next adjacent lane in this tube feeder
+            </summary>
+        </member>
         <member name="P:CFX.Structures.SMTPlacement.SMTNozzle.HeadId">
             <summary>
             The name or identifier of the SMT head associated with this SMT Nozzle.
@@ -2497,25 +4764,37 @@
             The type or model name of this SMT Nozzle
             </summary>
         </member>
-        <member name="T:CFX.Structures.SMTPlacement.SMTNozzleHolder">
+        <member name="T:CFX.Structures.SMTPlacement.SMTPlacementFault">
             <summary>
-            Desctibes a location on an SMT placement machine where a nozzle/tool may be stored.
+            A specific type of fault that is produced by endpoints responsible
+            for the picking and placing of SMD components
             </summary>
         </member>
-        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.LocationUniqueIdentifier">
+        <member name="P:CFX.Structures.SMTPlacement.SMTPlacementFault.PlacementFaultType">
             <summary>
-            Unique identifier of the nozzle holder (barcode, RFID, etc.)
+            The specific type of SMT placement fault 
             </summary>
         </member>
-        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.LocationName">
+        <member name="P:CFX.Structures.SMTPlacement.SMTPlacementFault.ProgramStep">
             <summary>
-            The name of the nozzle holder location
+            An integer representing the step in the program/recipe that was
+            being executed when the fault occurred (where applicable)
             </summary>
         </member>
-        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.BaseName">
+        <member name="P:CFX.Structures.SMTPlacement.SMTPlacementFault.Designator">
             <summary>
-            If this nozzle holder is part of a nest or group of nozzle holders, 
-            this is the nest or group name.
+            Identifies the specific component the placer was trying to place
+            when the fault occurred (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTPlacementFault.MaterialLocation">
+            <summary>
+            The material carrier location related to this fault (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SMTPlacement.SMTPlacementFault.Nozzle">
+            <summary>
+            The placement nozzle related to this fault (where applicable)
             </summary>
         </member>
         <member name="T:CFX.Structures.SMTPlacement.SMTPlacementFaultType">
@@ -2588,6 +4867,55 @@
             Error decoding fiducial reference mark
             </summary>
         </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.ComponentPad">
+            <summary>
+            The specific component lead / pad related to this measurement (eg.  "R31.2", "C2.1")
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.PasteXSize">
+            <summary>
+            The x dimension (length) of the paste deposition.  Includes the expected deposition
+            length in the ExpectedValue property.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.PasteYSize">
+            <summary>
+            The y dimension (width) of the paste deposition.  Includes the expected deposition
+            width in the ExpectedValue property.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.PasteXOffset">
+            <summary>
+            The x location of the center of the paste deposition relative to the center of the pad.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.PasteYOffset">
+            <summary>
+            The y location of the center of the paste deposition relative to the center of the pad.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.PasteHeight">
+            <summary>
+            The height of the paste deposition.  Includes the expected deposition
+            height in the ExpectedValue property.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.PasteVolume">
+            <summary>
+            The volume of the paste deposition.  Includes the expected deposition
+            volume in the ExpectedValue property.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.DepositImage">
+            <summary>
+            An optional image of the deposit formatted in an acceptable MIME image format (JPG, PNG, etc.)
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.NamespaceDoc">
+            <summary>
+            Data structures related to SMT stencil printing equipment
+            </summary>
+        </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTCleanType">
             <summary>
             Types of SMT stencil cleans
@@ -2608,6 +4936,17 @@
             A fast, light clean
             </summary>
         </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault">
+            <summary>
+            A specific type of fault that is produced by endpoints responsible
+            for the printing of solder paste on PCBs.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault.PrintingFaultType">
+            <summary>
+            The specific type of printing fault
+            </summary>
+        </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFaultType">
             <summary>
             Types of SMT printing faults
@@ -2621,6 +4960,16 @@
         <member name="F:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFaultType.PasteError">
             <summary>
             A paste related error
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTSqueegee">
+            <summary>
+            Describes a squeegee that is used in the course of printing solder paste on to a PCB
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTStencil">
+            <summary>
+            Describes a stencil that is used in the course of printing solder paste on to a PCB
             </summary>
         </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTStencilCleanMode">
@@ -2859,21 +5208,54 @@
             The test was aborted by the operator / user.
             </summary>
         </member>
+        <member name="T:CFX.Structures.TextMeasurement">
+            <summary>
+            Describes a measurement that was made by a human or by automated equipment
+            in the course of inspecting or testing a production unit in which the result
+            of the measurement is a text based value.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.TextMeasurement.Value">
+            <summary>
+            The actual resulting value of this text based measurement
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.TextMeasurement.ExpectedValue">
+            <summary>
+            The expected value of this text based measurement
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.THTInsertion.NamespaceDoc">
+            <summary>
+            Data structures related to PCB through-hole insertion equipment
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.THTInsertion.THTInsertionFault">
+            <summary>
+            A specific type of fault that is produced by endpoints responsible
+            for the insertion of through-hole electronic components (THT insertion)
+            </summary>
+        </member>
         <member name="P:CFX.Structures.THTInsertion.THTInsertionFault.InsertionFaultType">
             <summary>
-            The type of THT fault
+            The specific type of THT fault
             </summary>
         </member>
         <member name="P:CFX.Structures.THTInsertion.THTInsertionFault.ProgramStep">
             <summary>
             An integer representing the step in the program/recipe that was
-            being executed when the fault occurred.
+            being executed when the fault occurred  (where applicable)
             </summary>
         </member>
         <member name="P:CFX.Structures.THTInsertion.THTInsertionFault.Designator">
             <summary>
             Identifies the specific component the inserter was trying to insert
-            when the fault occurred.
+            when the fault occurred  (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.THTInsertion.THTInsertionFault.MaterialLocation">
+            <summary>
+            The material carrier location related to this fault (where applicable)
             </summary>
         </member>
         <member name="T:CFX.Structures.THTInsertion.THTInsertionFaultType">
@@ -2949,6 +5331,27 @@
         <member name="P:CFX.Structures.Tool.Name">
             <summary>
             The name of the tool
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.ToolHolder">
+            <summary>
+            Describes a location on a process endpoint where a tool may be stored.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ToolHolder.LocationUniqueIdentifier">
+            <summary>
+            Unique identifier of the tool holder (barcode, RFID, etc.)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ToolHolder.LocationName">
+            <summary>
+            The name of the tool holder location
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ToolHolder.BaseName">
+            <summary>
+            If this tool holder is part of a nest or group of nozzle holders, 
+            this is the nest or group name.
             </summary>
         </member>
         <member name="T:CFX.Structures.TopicSupportType">
@@ -3149,6 +5552,12 @@
             Work was not completed
             </summary>
         </member>
+        <member name="T:CFX.Transport.NamespaceDoc">
+            <summary>
+            Constains classes which facilitate the transport of CFX messages across a network, 
+            including AMQP 1.0 transmission and receipt
+            </summary>
+        </member>
         <member name="T:CFX.Transport.SHA">
             <summary> 
               Static class providing Secure Hashing Algorithm (SHA-1, SHA-224, SHA-256) 
@@ -3167,6 +5576,11 @@
               Compute SHA-256 digest 
             </summary> 
             <param name = "input">Input array</param> 
+        </member>
+        <member name="T:CFX.Utilities.NamespaceDoc">
+            <summary>
+            Constains various utility and helper classes, such as diagnostic logging, etc.
+            </summary>
         </member>
         <member name="T:CFX.WhoIsThereRequest">
              <summary>

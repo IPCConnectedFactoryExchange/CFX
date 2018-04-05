@@ -8,6 +8,33 @@ namespace CFX.Production
     /// <summary>
     /// Sent by a process endpoint when units physically depart from a process endpoint. 
     /// This does not imply any information about any activity that may have taken place.
+    /// <code language="none">
+    /// {
+    ///   "UnitCount": 2,
+    ///   "Units": [
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT1",
+    ///       "X": 0.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 0.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT2",
+    ///       "X": 6.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 90.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class UnitsDeparted : CFXMessage
     {

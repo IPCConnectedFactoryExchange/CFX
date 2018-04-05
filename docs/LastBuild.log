@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\Code\Git\CFX\CFX\cfxsdk.shfbproj" started="3/27/2018 10:53:10 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\Code\Git\CFX\CFX\cfxsdk.shfbproj" started="4/4/2018 8:45:07 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
 Locating components in the following folder(s):
     C:\Code\Git\CFX\CFX
     C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins\
@@ -15,6 +17,8 @@ Copyright &#169; 2006-2017, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
 -------------------------------
 Clearing any prior web/markdown output...
+    Ignoring read-only/hidden file C:\Code\Git\CFX\docs\~$CFXSDK.docx
+    Ignoring read-only/hidden file C:\Code\Git\CFX\docs\~$nlicensed-CFXSDK.docx
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
@@ -32,16 +36,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0000
+</plugIn>    Last step completed in 00:00:00.0333
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0156
+    Last step completed in 00:00:00.0040
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateRefInfo.proj]
-Build started 3/27/2018 10:53:12 AM.
+Build started 4/4/2018 8:45:09 AM.
 The target &quot;_ConvertPdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,37)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectPdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,70)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectMdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,38)&quot; does not exist in the project, and will be ignored.
@@ -55,7 +59,7 @@ GenerateRefInfo:
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 3 dependency assemblies.
-  Wrote information on 20 namespaces, 203 types, and 777 members
+  Wrote information on 21 namespaces, 210 types, and 793 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2017.12.30.2)
   Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
@@ -65,13 +69,13 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj&qu
 
 Build succeeded.
 
-Time Elapsed 00:00:01.00
-    Last step completed in 00:00:01.1339
+Time Elapsed 00:00:01.04
+    Last step completed in 00:00:01.2001
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - TransformManifest.proj]
-Build started 3/27/2018 10:53:13 AM.
+Build started 4/4/2018 8:45:11 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.12.30.2)
@@ -83,6 +87,14 @@ TransformManifest:
   Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_AddPublishChannel_1 generated for M:CFX.Transport.AmqpCFXEndpoint.AddPublishChannel(System.Uri,System.String,CFX.Transport.AuthenticationMode,System.Security.Cryptography.X509Certificates.X509Certificate)
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_AddSubscribeChannel_1 generated for M:CFX.Transport.AmqpCFXEndpoint.AddSubscribeChannel(System.Uri,System.String,CFX.Transport.AuthenticationMode,System.Security.Cryptography.X509Certificates.X509Certificate)
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_ClosePublishChannel_1 generated for M:CFX.Transport.AmqpCFXEndpoint.ClosePublishChannel(System.Uri,System.String)
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_CloseSubscribeChannel_1 generated for M:CFX.Transport.AmqpCFXEndpoint.CloseSubscribeChannel(System.Uri,System.String)
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_Open_1 generated for M:CFX.Transport.AmqpCFXEndpoint.Open(System.String,System.Uri)
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_Publish_1 generated for M:CFX.Transport.AmqpCFXEndpoint.Publish(CFX.CFXMessage)
+    Unique name M_CFX_Transport_AmqpCFXEndpoint_PublishMany_1 generated for M:CFX.Transport.AmqpCFXEndpoint.PublishMany(System.Collections.Generic.IEnumerable{CFX.CFXMessage})
+    Unique name M_CFX_Utilities_AppLog_Error_1 generated for M:CFX.Utilities.AppLog.Error(System.String)
   XslTransform (v2017.12.30.2)
   Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
@@ -91,12 +103,12 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\TransformManifest.proj&
 
 Build succeeded.
 
-Time Elapsed 00:00:00.65
-    Last step completed in 00:00:00.7854
+Time Elapsed 00:00:00.71
+    Last step completed in 00:00:00.8496
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0373
+    Last step completed in 00:00:00.0534
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -110,16 +122,14 @@ Copying images and creating the media map file...
 Generating conceptual topic files
     Parsing topic file &#39;C:\Code\Git\CFX\CFX\HelpContent\GettingStarted.aml&#39;
     C:\Code\Git\CFX\CFX\HelpContent\GettingStarted.aml -&gt; C:\Code\Git\CFX\docs\Working\ddueXml\cfb57aac-b696-4c6c-b94b-f034b37daf26.xml
-    Parsing topic file &#39;C:\Code\Git\CFX\CFX\HelpContent\Reference.aml&#39;
-    C:\Code\Git\CFX\CFX\HelpContent\Reference.aml -&gt; C:\Code\Git\CFX\docs\Working\ddueXml\dce483ff-b636-4597-a6bb-36c2dcbbf716.xml
-    Last step completed in 00:00:00.0159
+    Last step completed in 00:00:00.0313
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
     Companion files
     _ContentMetadata_.xml
     Merging topic IDs into manifest.xml
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0313
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
@@ -133,7 +143,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 3/27/2018 10:53:14 AM.
+Build started 4/4/2018 8:45:11 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.12.30.2)
@@ -144,14 +154,14 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\GenerateIntermediateTOC
 
 Build succeeded.
 
-Time Elapsed 00:00:00.18
+Time Elapsed 00:00:00.22
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.3164
+    Last step completed in 00:00:00.3698
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.2162
+    Last step completed in 00:00:00.2467
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -159,12 +169,12 @@ C:\Code\Git\CFX\docs\Working\sandcastle.config
   Updating reference topic configurations.
   Updating conceptual topic configurations.
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0201
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildTopics.proj]
-Build started 3/27/2018 10:53:14 AM.
+Build started 4/4/2018 8:45:12 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.12.30.2)
@@ -172,18 +182,22 @@ BuildTopics:
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   Loading configuration...
   Processing topics...
-BuildAssembler : warning : SharedContentComponent: [dce483ff-b636-4597-a6bb-36c2dcbbf716] Missing shared content item. Tag: &#39;includeAttribute&#39;; Id:&#39;meta_mshelp_topicType_codeEntityDocument&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
-BuildAssembler : warning : ResolveReferenceLinksComponent: [dce483ff-b636-4597-a6bb-36c2dcbbf716] Unknown reference link target &#39;API member ID&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
-BuildAssembler : warning : ResolveReferenceLinksComponent: [dce483ff-b636-4597-a6bb-36c2dcbbf716] Invalid reference link target &#39;API member ID&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.EnvelopeFromMessage(Amqp.Message)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.EnvelopeFromMessage(Amqp.Message)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.EnvelopesFromMessage(Amqp.Message)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.EnvelopesFromMessage(Amqp.Message)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessageFromEnvelope(CFX.CFXEnvelope,System.Boolean)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessageFromEnvelope(CFX.CFXEnvelope,System.Boolean)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessageFromEnvelopes(CFX.CFXEnvelope[],System.Boolean)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessageFromEnvelopes(CFX.CFXEnvelope[],System.Boolean)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessagePreview(Amqp.Message,System.Int32)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessagePreview(Amqp.Message,System.Int32)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.SendAzureAuthenticationToken(Amqp.Connection,System.String,System.String,System.String)] Unknown reference link target &#39;T:Amqp.Connection&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
-  Processed 999 topic(s)
-  9 warning(s)
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.SendAzureAuthenticationToken(Amqp.Connection,System.String,System.String,System.String)] Unknown reference link target &#39;T:Amqp.Connection&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
+  Processed 1025 topic(s)
+  12 warning(s)
   CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
+  ResolveArtLinksComponent: Copying media files...
   ResolveArtLinksComponent: Copying media files...
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 6 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
@@ -191,12 +205,12 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\BuildTopics.proj&quot; 
 
 Build succeeded.
 
-Time Elapsed 00:00:12.21
-    Last step completed in 00:00:12.4003
+Time Elapsed 00:00:15.38
+    Last step completed in 00:00:15.5491
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0156
+    Last step completed in 00:00:00.0015
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -207,15 +221,83 @@ E-Mail: Eric@EWoodruff.us
 
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
+Processing Help 1 files in C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1
+Processed 1025 HTML files
+Sorting keywords and generating See Also indices
+Saving HTML Help 1 keyword index to C:\Code\Git\CFX\docs\Working\CFXSDK.hhk
+Saving HTML Help 1 table of contents to C:\Code\Git\CFX\docs\Working\CFXSDK.hhc
+
 Processing website files in C:\Code\Git\CFX\docs\Working\Output\Website
-Processed 999 HTML files
+Processed 1025 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Code\Git\CFX\docs\Working\WebKI.xml
 Saving website table of contents to C:\Code\Git\CFX\docs\Working\WebTOC.xml
-    Last step completed in 00:00:00.7019
+    Last step completed in 00:00:01.3817
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\AlertCaution.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertNote.png -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\AlertNote.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\AlertSecurity.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CFW.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\CFW.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CodeExample.png -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\CodeExample.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\favicon.ico -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privclass.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privdelegate.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privenumeration.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privevent.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privextension.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privfield.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privinterface.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privmethod.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privproperty.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privstructure.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\privstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protclass.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protdelegate.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protenumeration.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protevent.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protextension.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protfield.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protinterface.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protmethod.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protoperator.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protoperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protproperty.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protstructure.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\protstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubclass.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubdelegate.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubenumeration.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubevent.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubextension.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubfield.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubinterface.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubmethod.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\puboperator.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\puboperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubproperty.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubstructure.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\pubstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionCollapsed.png -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\SectionCollapsed.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionExpanded.png -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\SectionExpanded.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\slMobile.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\slMobile.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\static.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\xna.gif -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\icons\xna.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\scripts\branding.js -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\scripts\branding.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-cs-CZ.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-cs-CZ.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-de-DE.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-de-DE.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-en-US.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-en-US.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-es-ES.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-es-ES.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-fr-FR.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-fr-FR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Help1.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-Help1.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-HelpViewer.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-HelpViewer.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-it-IT.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-it-IT.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ja-JP.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-ja-JP.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ko-KR.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-ko-KR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pl-PL.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-pl-PL.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pt-BR.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-pt-BR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ru-RU.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-ru-RU.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-tr-TR.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-tr-TR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Website.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-Website.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\styles\branding.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\icons\AlertCaution.png
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertNote.png -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\icons\AlertNote.png
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\icons\AlertSecurity.png
@@ -294,7 +376,52 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\clipboard.min.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.1315
+    Last step completed in 00:00:00.2696
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating HTML Help 1 table of contents file...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpFileIndex">
+Generating HTML Help 1 index file...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Generating HTML Help 1 project file...
+    Last step completed in 00:00:00.0156
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Compiling HTML Help 1 file...
+[C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - Build1xHelpFile.proj]
+  Microsoft HTML Help Compiler 4.74.8702
+  
+  
+  
+  Compiling c:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\CFXSDK.chm
+  
+  
+  
+  
+  
+  Compile time: 0 minutes, 5 seconds
+  
+  1,027	Topics
+  
+  10,807	Local links
+  
+  706	Internet links
+  
+  0	Graphics
+  
+  
+  
+  
+  
+  Created c:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\CFXSDK.chm, 1,095,181 bytes
+  
+  Compression decreased file by 6,596,853 bytes.
+  
+    Last step completed in 00:00:06.1493
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
@@ -305,23 +432,24 @@ Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:01.0718
+</plugIn>    Last step completed in 00:00:01.3121
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 500 files
 Copied 1000 files
-Copied 1464 files for the website content
-    Last step completed in 00:00:02.4559
+Copied 1500 files
+Copied 1502 files for the website content
+    Last step completed in 00:00:02.8428
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.5481
+    Last step completed in 00:00:00.9168
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 3/27/2018 10:53:31 AM.  Total time: 00:00:21.5337
+Build completed successfully at 4/4/2018 8:45:40 AM.  Total time: 00:00:33.0436
 
 </buildStep>
 </shfbBuild>

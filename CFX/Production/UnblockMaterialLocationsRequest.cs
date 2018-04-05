@@ -8,6 +8,24 @@ namespace CFX.Production
     /// <summary>
     /// Sent to a process endpoint to release a material locations block which was put
     /// into place by a previously sent BlockMaterialLocationsRequest
+    /// <code language="none">
+    /// {
+    ///   "Locations": [
+    ///     {
+    ///       "LocationIdentifier": "23143433",
+    ///       "LocationName": "SLOT45",
+    ///       "MaterialPackage": null,
+    ///       "CarrierInformation": null
+    ///     },
+    ///     {
+    ///       "LocationIdentifier": "23143454",
+    ///       "LocationName": "SLOT46",
+    ///       "MaterialPackage": null,
+    ///       "CarrierInformation": null
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class UnblockMaterialLocationsRequest : CFXMessage
     {

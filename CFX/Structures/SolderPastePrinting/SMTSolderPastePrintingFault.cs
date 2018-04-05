@@ -4,6 +4,10 @@ using System.Text;
 
 namespace CFX.Structures.SolderPastePrinting
 {
+    /// <summary>
+    /// A specific type of fault that is produced by endpoints responsible
+    /// for the printing of solder paste on PCBs.
+    /// </summary>
     public class SMTSolderPastePrintingFault : Fault
     {
         public SMTSolderPastePrintingFault()
@@ -11,6 +15,9 @@ namespace CFX.Structures.SolderPastePrinting
             PrintingFaultType = SMTSolderPastePrintingFaultType.SqueegeeError;
         }
 
+        /// <summary>
+        /// The specific type of printing fault
+        /// </summary>
         public SMTSolderPastePrintingFaultType PrintingFaultType
         {
             get;

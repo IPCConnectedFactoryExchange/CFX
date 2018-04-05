@@ -7,6 +7,33 @@ namespace CFX.Production.Assembly
 {
     /// <summary>
     /// Sent by a process endpoint when a configuration or assignment is made (example MAC Address) 
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "e5cf340c-6858-4e26-893d-deae86bc09f1",
+    ///   "PersonalizedUnits": [
+    ///     {
+    ///       "UnitIdentifier": "PANEL23423432",
+    ///       "UnitPositionNumber": 1,
+    ///       "Characteristics": [
+    ///         {
+    ///           "Name": "MAC Address",
+    ///           "Value": "C0-15-B9-2D-0F-3B"
+    ///         }
+    ///       ]
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "PANEL23423432",
+    ///       "UnitPositionNumber": 2,
+    ///       "Characteristics": [
+    ///         {
+    ///           "Name": "MAC Address",
+    ///           "Value": "C0-15-B9-2D-0F-3C"
+    ///         }
+    ///       ]
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class UnitsPersonalized : CFXMessage
     {

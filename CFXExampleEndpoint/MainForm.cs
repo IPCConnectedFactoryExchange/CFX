@@ -38,7 +38,7 @@ namespace CFXExampleEndpoint
 
             CFXExampleGenerator gen = new CFXExampleGenerator();
             string result = gen.GenerateAll();
-            File.WriteAllText(@"c:\Code\Git\CFX\docs\CFX_JSON_Examples.txt", result, Encoding.UTF8);
+            File.WriteAllText(@"c:\Code\Git\CFX\CFX_JSON_Examples.txt", result, Encoding.UTF8);
             return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))

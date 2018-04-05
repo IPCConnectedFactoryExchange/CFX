@@ -26,7 +26,5 @@ namespace CFX.Structures
             get;
             set;
         }
-
-        
     }
 }

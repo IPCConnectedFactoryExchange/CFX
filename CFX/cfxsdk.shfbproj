@@ -19,7 +19,7 @@
     <Language>en-US</Language>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
-    <HelpFileFormat>Website</HelpFileFormat>
+    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
     <IndentHtml>False</IndentHtml>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
@@ -32,8 +32,8 @@
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <PresentationStyle>VS2013</PresentationStyle>
     <Preliminary>True</Preliminary>
-    <NamingMethod>Guid</NamingMethod>
-    <HelpTitle>IPC CFX Message and Structure Definition</HelpTitle>
+    <NamingMethod>MemberName</NamingMethod>
+    <HelpTitle>IPC Connected Factory Exchange Reference</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <DocumentationSources>
       <DocumentationSource sourceFile="bin\net46\CFX.xml" />
@@ -41,35 +41,14 @@
     </DocumentationSources>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="CFX.Transport" isDocumented="True">Classes and utilities related to the queuing, transmission, and receipt of CFX envelopes / messages across a network.  Includes AMQP 1.0 transport.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Utilities" isDocumented="True">Various utility classes related to CFX messaging and transport.  Includes diagnostic logs, etc.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="(global)" isDocumented="False" />
-      <NamespaceSummaryItem name="CFX.ResourcePerformance.SolderPastePrinting" isDocumented="True">Specialized messages related to the performance of solder paste printers.  This might include information related to stencil or squeegee cleaning rates, etc.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.ResourcePerformance.THTInsertion" isDocumented="True">Specialized messages related to the performance of through-hole insertion equipment</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Structures.SMTPlacement" isDocumented="True">Specialized data structures related to SMT component placement processes.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.InformationSystem.UnitValidation" isDocumented="True">CFX Topic implemented by enterprise information systems (such as an MES or ERP system) capable of validating the production history and status of a production unit, and its readiness for processing.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX" isDocumented="True">Root CFX Topic.  All CFX endpoints must implement this topic.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Materials.Management.MSDManagement" isDocumented="True">Specialized messages related to moisture sensitive materials management.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Materials.Storage" isDocumented="True">Related to events that occur when materials are stored, including consumption.  This includes not only stock areas, but also point-of-use workstations where materials are loaded during production.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Materials.Transport" isDocumented="True">Messages used for the transportation of raw materials from one location in the factory to another location</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Production" isDocumented="True">CFX Topic implemented by endpoints which are involved in the processing of production units.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Production.Assembly" isDocumented="True">Messages are used by a production resource performing any form of assembly of production units. This includes both automated, semi-manual and manual assembly operations.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Production.TestAndInspection" isDocumented="True">Message used when a production resource is performing any form of test or inspection of production units, including both automated and manual inspections, of all kinds.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.ResourcePerformance" isDocumented="True">CFX Topic related to the performance of an endpoint (speed, OEE, fault rates, etc).</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.ResourcePerformance.SMTPlacement" isDocumented="True">Messages related to the performance of resources where SMT placement takes place (SMT placement equipment). This includes specialized faults, placement rates, and other information related to the performance of an SMT placement machine.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Sensor.Identification" isDocumented="True">Messages for devices that are responsible to reading or scanning identification labels or tags (barcodes, RFID’s, machine vision systems, etc.).</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Structures" isDocumented="True">CFX Data Structures used by various messsage from all CFX topics</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Structures.SolderPastePrinting" isDocumented="True">Specialized structures related to solder paste printing processes.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Structures.THTInsertion" isDocumented="True">Specialized structures related to through-hole component insertion.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="CFX.Materials.Management" isDocumented="True">Messages related to the management of raw materials.  Includes creation and labeling of material instances, decommissioning spent materials, etc.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <WebsiteSdkLinkType>Msdn</WebsiteSdkLinkType>
     <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
     <IncludeFavorites>False</IncludeFavorites>
     <BinaryTOC>True</BinaryTOC>
     <AppendMarkdownFileExtensionsToUrls>False</AppendMarkdownFileExtensionsToUrls>
-    <RootNamespaceTitle>CFX Message and Data Structures</RootNamespaceTitle>
-    <VisibleItems>None</VisibleItems>
+    <RootNamespaceTitle>CFX Topics, Messages, and Data Structures</RootNamespaceTitle>
+    <VisibleItems>ProtectedInternalAsProtected</VisibleItems>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="CFX" isExposed="True">
         <Filter entryType="Class" fullName="CFX.AreYouThereRequest" filterName="AreYouThereRequest" isExposed="False">
@@ -93,7 +72,9 @@
         <Filter entryType="Class" fullName="CFX.GetEndpointInformationResponse" filterName="GetEndpointInformationResponse" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.GetEndpointInformationResponse.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
-        <Filter entryType="Class" fullName="CFX.NotSupportedResponse" filterName="NotSupportedResponse" isExposed="False" />
+        <Filter entryType="Class" fullName="CFX.NotSupportedResponse" filterName="NotSupportedResponse" isExposed="False">
+          <Filter entryType="Property" fullName="CFX.NotSupportedResponse.RequestResult" filterName="RequestResult" isExposed="True" />
+        </Filter>
         <Filter entryType="Class" fullName="CFX.WhoIsThereRequest" filterName="WhoIsThereRequest" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.WhoIsThereRequest.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
@@ -413,6 +394,9 @@
         </Filter>
       </Filter>
       <Filter entryType="Namespace" fullName="CFX.Structures" isExposed="True">
+        <Filter entryType="Class" fullName="CFX.Structures.BooleanMeasurement" filterName="BooleanMeasurement" isExposed="True">
+          <Filter entryType="Constructor" fullName="CFX.Structures.BooleanMeasurement.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
         <Filter entryType="Class" fullName="CFX.Structures.Characteristic" filterName="Characteristic" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.Structures.Characteristic.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
@@ -473,6 +457,12 @@
         <Filter entryType="Class" fullName="CFX.Structures.Measurement" filterName="Measurement" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.Structures.Measurement.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
+        <Filter entryType="Class" fullName="CFX.Structures.NumericMeasurement" filterName="NumericMeasurement" isExposed="False">
+          <Filter entryType="Property" fullName="CFX.Structures.NumericMeasurement.MeasuredValue" filterName="MeasuredValue" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="CFX.Structures.NumericValue" filterName="NumericValue" isExposed="True">
+          <Filter entryType="Constructor" fullName="CFX.Structures.NumericValue.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
         <Filter entryType="Class" fullName="CFX.Structures.Operator" filterName="Operator" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.Structures.Operator.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
@@ -515,6 +505,9 @@
         <Filter entryType="Class" fullName="CFX.Structures.TestedUnit" filterName="TestedUnit" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.Structures.TestedUnit.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
+        <Filter entryType="Class" fullName="CFX.Structures.TextMeasurement" filterName="TextMeasurement" isExposed="True">
+          <Filter entryType="Constructor" fullName="CFX.Structures.TextMeasurement.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
         <Filter entryType="Class" fullName="CFX.Structures.Tool" filterName="Tool" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.Structures.Tool.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
@@ -552,6 +545,11 @@
         </Filter>
         <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTPlacementFault" filterName="SMTPlacementFault" isExposed="True">
           <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTPlacementFault.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="CFX.Structures.SolderPasteInspection" isExposed="True">
+        <Filter entryType="Class" fullName="CFX.Structures.SolderPasteInspection.SolderPasteMeasurement" filterName="SolderPasteMeasurement" isExposed="True">
+          <Filter entryType="Constructor" fullName="CFX.Structures.SolderPasteInspection.SolderPasteMeasurement.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
       </Filter>
       <Filter entryType="Namespace" fullName="CFX.Structures.SolderPastePrinting" isExposed="True">
@@ -614,13 +612,20 @@
     <ContentLayout Include="Content Layout.content" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="HelpContent\Reference.aml" />
     <None Include="HelpContent\GettingStarted.aml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HelpContent\" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="HelpContent\StepImage2.png">
+      <ImageId>StepImage2</ImageId>
+      <AlternateText>Step Image 2</AlternateText>
+    </Image>
+    <Image Include="HelpContent\StepImage1b.png">
+      <ImageId>StepImage1b</ImageId>
+      <AlternateText>Step Image 1b</AlternateText>
+    </Image>
     <Image Include="HelpContent\StepImage1.png">
       <ImageId>StepImage1</ImageId>
       <AlternateText>Step Image 1</AlternateText>

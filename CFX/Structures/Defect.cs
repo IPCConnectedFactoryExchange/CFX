@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
     /// <summary>
     /// Describes a defect that was discovered on a production unit
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Defect
     {
         public Defect()
@@ -122,6 +124,7 @@ namespace CFX.Structures
         /// <summary>
         /// A list of measurements that were taken in the course of discovering this defect
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<Measurement> RelatedMeasurements
         {
             get;

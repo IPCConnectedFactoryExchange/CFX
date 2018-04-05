@@ -7,6 +7,15 @@ namespace CFX.Production
 {
     /// <summary>
     /// Response to UnblockMaterialLocationsRequest
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "BLOCKED OK"
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class UnblockMaterialLocationsResponse : CFXMessage
     {
