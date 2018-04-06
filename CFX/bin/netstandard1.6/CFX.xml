@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>CFX</name>
+        <name>CFXnet46</name>
     </assembly>
     <members>
         <member name="T:CFX.AreYouThereRequest">
@@ -2563,7 +2563,40 @@
             The stage name or number
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:CFX.Production.WorkStarted" -->
+        <member name="T:CFX.Production.WorkStarted">
+            <summary>
+            Sent by a process endpoint when the work-cycle for a unit or group of units starts
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Lane": "1",
+              "UnitCount": 2,
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
         <member name="P:CFX.Production.WorkStarted.TransactionID">
             <summary>
             Transaction ID used to attach events and data during subsequent processing, until WorkCompleted
@@ -2634,7 +2667,16 @@
             (in watts)
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:CFX.ResourcePerformance.FaultCleared" -->
+        <member name="T:CFX.ResourcePerformance.FaultCleared">
+            <summary>
+            Sent by a process endpoint when a fault is cleared as described in a FaultOccurred message  
+            <code language="none">
+            {
+              "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368"
+            }
+            </code>
+            </summary>
+        </member>
         <member name="P:CFX.ResourcePerformance.FaultCleared.FaultOccurrenceId">
             <summary>
             A unique identifier of the instance of the related fault.  Corresponds with the
@@ -2769,7 +2811,16 @@
         <member name="T:CFX.ResourcePerformance.LogEntryRecorded">
             <summary>
             An informational message sent by a process endpoint regarding the something that has occurred at the station. 
-            Information about the criticality of the information should also be given (information, warning, error etc.)
+            Information about the criticality of the information should also be given (information, warning, error etc.).
+            <code language="none">
+            {
+              "InformationId": "INF21321321",
+              "Message": "Beam 1 Zeroed and Homed",
+              "Importance": "Information",
+              "Lane": "1",
+              "Stage": "STAGE1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.LogEntryRecorded.InformationId">
@@ -2799,6 +2850,73 @@
             <summary>
             Sent by an endpoint when maintenance has been performed.
             Information includes the type of maintenance, maintenance code, parts used, labor etc.
+            <code language="none">
+            {
+              "MaintenanceType": "Preventive",
+              "MaintenanceOrderNumber": "MO676578576",
+              "MaintenanceJobCode": "MNT113334",
+              "ConsumedMaterials": [
+                {
+                  "MaterialLocation": {
+                    "LocationIdentifier": null,
+                    "LocationName": null,
+                    "MaterialPackage": {
+                      "UniqueIdentifier": null,
+                      "InternalPartNumber": "PN2343243",
+                      "Quantity": 0.0
+                    },
+                    "CarrierInformation": null
+                  },
+                  "QuantityUsed": 3.0,
+                  "QuantitySpoiled": 0.0,
+                  "RemainingQuantity": 0.0
+                },
+                {
+                  "MaterialLocation": {
+                    "LocationIdentifier": null,
+                    "LocationName": null,
+                    "MaterialPackage": {
+                      "UniqueIdentifier": "UID23849854385",
+                      "InternalPartNumber": "PN4452",
+                      "Quantity": 0.0
+                    },
+                    "CarrierInformation": null
+                  },
+                  "QuantityUsed": 3.0,
+                  "QuantitySpoiled": 0.0,
+                  "RemainingQuantity": 0.0
+                }
+              ],
+              "Tasks": [
+                {
+                  "Task": "Changed hydraulic fluid in resovoir 1",
+                  "TaskId": "HYD233432432",
+                  "Operator": {
+                    "OperatorIdentifier": "UID235434324",
+                    "ActorType": "Human",
+                    "FullName": "Joseph Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Joseph",
+                    "LoginName": "joseph.smith@abcdrepairs.com"
+                  },
+                  "ManHoursConsumed": 0.75
+                },
+                {
+                  "Task": "Checked torque on main mount bolts",
+                  "TaskId": "CHK3432434",
+                  "Operator": {
+                    "OperatorIdentifier": "UID235434324",
+                    "ActorType": "Human",
+                    "FullName": "Joseph Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Joseph",
+                    "LoginName": "joseph.smith@abcdrepairs.com"
+                  },
+                  "ManHoursConsumed": 0.25
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.MaintenancePerformed.MaintenanceType">
@@ -2834,6 +2952,12 @@
             This request allows an external source to modify a generic configuration parameter of a process endpoint.
             Upon successful processing of this request, the endpoint should publish a <see cref="T:CFX.ResourcePerformance.StationParameterModified"/> message in addition to the 
             <see cref="T:CFX.ResourcePerformance.ModifyStationParameterResponse"/> message that it sends back to the requester.
+            <code language="none">
+            {
+              "ParameterName": "Torque1",
+              "ParameterValue": "35.6"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.ModifyStationParameterRequest.ParameterName">
@@ -2849,6 +2973,18 @@
         <member name="T:CFX.ResourcePerformance.ModifyStationParameterResponse">
             <summary>
             Response to an external source to modify a generic configuration parameter of a process endpoint.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              },
+              "ParameterName": "Torque1",
+              "OldParameterValue": "22.6",
+              "NewParameterValue": "35.6"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.Result">
@@ -2918,35 +3054,15 @@
             of an SMT placement machine.
             </summary>
         </member>
-        <member name="T:CFX.ResourcePerformance.SMTPlacement.ToolChanged">
-            <summary>
-            Sent when a new tool is selected for active use at a production endpoint
-            </summary>
-        </member>
-        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.OldTool">
-            <summary>
-            The tool that was previously in active use (if any) 
-            </summary>
-        </member>
-        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.ReturnedToHolder">
-            <summary>
-            The location on the endpoint where the old tool was returned (if any)
-            </summary>
-        </member>
-        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.NewTool">
-            <summary>
-            The new active tool
-            </summary>
-        </member>
-        <member name="P:CFX.ResourcePerformance.SMTPlacement.ToolChanged.LoadedFromHolder">
-            <summary>
-            The location on the endpoint from which the newly active tool was selected 
-            </summary>
-        </member>
         <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest">
             <summary>
             Allows an external source to direct a request to a stencil printer
             to perform a squeegee clean operation
+            <code language="none">
+            {
+              "CleanTypeRequested": "Deep"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest.CleanTypeRequested">
@@ -2959,6 +3075,15 @@
             <summary>
             Response to a request from an external source for a squeegee clean
             operation to be performed
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeResponse.Result">
@@ -2970,12 +3095,32 @@
             <summary>
             Allows an external source to direct a request to a stencil printer
             to perform a stencil clean operation
+            <code language="none">
+            {
+              "CleanTypeRequested": "D"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilRequest.CleanTypeRequested">
             <summary>
             An enumeration indicating the type of clean operation that is
             being requested
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilResponse">
+            <summary>
+            A response to a request by a remote party for a stencil printer to perform a
+            stencil clean operation
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilResponse.Result">
@@ -2992,6 +3137,19 @@
         <member name="T:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned">
             <summary>
             Indicates that a squeegee clean operation has been performed
+            <code language="none">
+            {
+              "Squeegee": {
+                "UniqueIdentifier": "UID23432434",
+                "Name": "STENCIL234343"
+              },
+              "SqueegeeCleanType": "Normal",
+              "TimeSinceLastClean": "00:33:00",
+              "CyclesSinceLastClean": 35,
+              "SqueegeeCleanCycles": 2,
+              "SqueegeeCleanTime": "00:00:38"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.Squeegee">
@@ -3030,6 +3188,19 @@
         <member name="T:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned">
             <summary>
             Indicates that a stencil clean operation has been performed
+            <code language="none">
+            {
+              "Stencil": {
+                "UniqueIdentifier": "UID23432434",
+                "Name": "STENCIL234343"
+              },
+              "StencilCleanMode": "V",
+              "TimeSinceLastClean": "00:33:00",
+              "CyclesSinceLastClean": 35,
+              "StencilCleanCycles": 2,
+              "StencilCleanTime": "00:00:38"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.Stencil">
@@ -3069,6 +3240,26 @@
             <summary>
             Sent by a process endpoint when the production state of one of its
             stages transitions from one state to another per its state model. 
+            <code language="none">
+            {
+              "Stage": "STAGE2",
+              "Lane": null,
+              "OldState": "IdleStarved",
+              "OldStateDuration": "00:01:25",
+              "NewState": "ReadyProcessingActive",
+              "RelatedFault": null
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StageStateChanged.Stage">
+            <summary>
+            The name of the stage that has changed state
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StageStateChanged.Lane">
+            <summary>
+            The relevant production lane (if applicable)
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StageStateChanged.OldState">
@@ -3097,11 +3288,19 @@
             Sent by a process endpoint when it is about to transition to a state where it is not 
             possible for further communication, for example when the endpoint is powered down, 
             reset, put into maintenance mode, or simply set off-line.
+            <code language="none">
+            {}
+            </code>
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.StationOnline">
             <summary>
             Sent by a process endpoint when it is ready for communication to resume, for example, powered up, maintenance over, etc. 
+            <code language="none">
+            {
+              "OfflineDuration": "00:23:00"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StationOnline.OfflineDuration">
@@ -3114,6 +3313,13 @@
             Sent by a process endpoint to indicate that an operator has modified a generic
             parameter or configuration setting. This does not apply to settings related to
             recipes, which are handled by the RecipeModified event. 
+            <code language="none">
+            {
+              "ParameterName": "Torque1",
+              "OldParameterValue": "22.6",
+              "NewParameterValue": "35.6"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StationParameterModified.ParameterName">
@@ -3135,6 +3341,31 @@
             <summary>
             Sent by a process endpoint when the production state transitions
             from one state to another per its state model. 
+            <para>Example 1 (State change with no related fault):</para>
+            <code language="none">
+            {
+              "OldState": "IdleStarved",
+              "OldStateDuration": "00:01:25",
+              "NewState": "ReadyProcessingActive",
+              "RelatedFault": null
+            }
+            </code>
+            <para>Example 2 (State change with related fault):</para>
+            <code language="none">
+            {
+              "OldState": "ReadyProcessingExecuting",
+              "OldStateDuration": "00:00:25",
+              "NewState": "UnplannedDowntime",
+              "RelatedFault": {
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "84c6021f-9db9-431b-aa0b-567b961ac96f",
+                "Lane": null,
+                "Stage": null
+              }
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StationStateChanged.OldState">
@@ -3163,6 +3394,14 @@
             Sent periodically by an THT inserter to indicate the number of insertions which were
             successfully or unsuccessfully completed during the sample time window.
             This sample time window shall not exceed 10 minutes.
+            <code language="none">
+            {
+              "StartTime": "2018-04-06T08:06:46.4471059-04:00",
+              "EndTime": "2018-04-06T08:16:46.4471059-04:00",
+              "TotalComponentsInserted": 875,
+              "TotalComponentsNotInserted": 45
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.StartTime">
@@ -3190,6 +3429,133 @@
             Specialized messages related to the performance of through-hole insertion equipment
             </summary>
         </member>
+        <member name="T:CFX.ResourcePerformance.ToolChanged">
+            <summary>
+            Sent when a new tool is selected for active use at a production endpoint
+            <para>Example 1 (Generic tool change):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "UniqueIdentifier": "UID23890430",
+                "Name": "TorqueWrench_123"
+              },
+              "LoadedFromHolder": {
+                "LocationUniqueIdentifier": "UID238943243243",
+                "LocationName": "BIN45",
+                "BaseName": null
+              }
+            }
+            </code>
+            <para>Example 2 (Nozzle change on SMT placement machine):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
+                "HeadId": "HEAD1",
+                "HeadNozzleNumber": 1,
+                "NozzleType": "TYPE914",
+                "UniqueIdentifier": "UID23890430",
+                "Name": "NOZZLE234324"
+              },
+              "LoadedFromHolder": {
+                "LocationUniqueIdentifier": "UID238943243243",
+                "LocationName": "HOLDER14",
+                "BaseName": "NEST2"
+              }
+            }
+            </code>
+            <para>Example 3 (Stencil change on SMT stencil printer):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "$type": "CFX.Structures.SolderPastePrinting.SMTStencil, CFX",
+                "UniqueIdentifier": "UID23890430",
+                "Name": "STENCIL234324"
+              },
+              "LoadedFromHolder": null
+            }
+            </code>
+            <para>Example 3 (Squeegee change on SMT stencil printer):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "$type": "CFX.Structures.SolderPastePrinting.SMTSqueegee, CFX",
+                "UniqueIdentifier": "UID23890430",
+                "Name": "SQUEEGEE234324"
+              },
+              "LoadedFromHolder": null
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.OldTool">
+            <summary>
+            The tool that was previously in active use (if any) 
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.ReturnedToHolder">
+            <summary>
+            The location on the endpoint where the old tool was returned (if any)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.NewTool">
+            <summary>
+            The new active tool
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.LoadedFromHolder">
+            <summary>
+            The location on the endpoint from which the newly active tool was selected 
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.IdentifiersRead">
+            <summary>
+            Sent by an identification device (barcode scanner, RFID reader, etc.) when the device has identified one or more items
+            <para>Example 1 (Simple, single barcode read)</para>
+            <code language="none">
+            {
+              "PrimaryIdentifier": "CARRIER21342",
+              "Units": null
+            }
+            </code>
+            <para>Example 2 (Camera system capable of reading all barcodes on a multi-circuit PCB panel)</para>
+            <code language="none">
+            {
+              "PrimaryIdentifier": "CARRIER21342",
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
         <member name="P:CFX.Sensor.Identification.IdentifiersRead.PrimaryIdentifier">
             <summary>
             The barcode, RFID, etc. that was most recently acquired by the scanner / reader.  If a single production unit is moving through the
@@ -3202,6 +3568,58 @@
             <summary>
             An optional list of actual production unit identifiers, in the case that multiple production units are moving through the 
             process, and the sensor is capable if reading multiple identifiers. 
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.IdentifyUnitsRequest">
+            <summary>
+            Sent by a process endpoint to a unit identification device (such as a barcode scanner or RFID reader)
+            to request the most recently scanned unit identifiers.
+            <code language="none">
+            {}
+            </code>
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.IdentifyUnitsResponse">
+            <summary>
+            Response from a unit identification device (such as a barcode scanner or RFID reader)
+            to a process endpoint which contains the most recently scanned unit identifiers.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              },
+              "PrimaryIdentifier": "CARRIER21342",
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Sensor.Identification.IdentifyUnitsResponse.Result">
+            <summary>
+            The result of the request
             </summary>
         </member>
         <member name="P:CFX.Sensor.Identification.IdentifyUnitsResponse.PrimaryIdentifier">
@@ -4916,26 +5334,6 @@
             Data structures related to SMT stencil printing equipment
             </summary>
         </member>
-        <member name="T:CFX.Structures.SolderPastePrinting.SMTCleanType">
-            <summary>
-            Types of SMT stencil cleans
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Normal">
-            <summary>
-            A typical clean
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Deep">
-            <summary>
-            A more involved, deeper clean
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Quick">
-            <summary>
-            A fast, light clean
-            </summary>
-        </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault">
             <summary>
             A specific type of fault that is produced by endpoints responsible
@@ -4965,6 +5363,26 @@
         <member name="T:CFX.Structures.SolderPastePrinting.SMTSqueegee">
             <summary>
             Describes a squeegee that is used in the course of printing solder paste on to a PCB
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType">
+            <summary>
+            Types of SMT stencil cleans
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType.Normal">
+            <summary>
+            A typical clean
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType.Deep">
+            <summary>
+            A more involved, deeper clean
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType.Quick">
+            <summary>
+            A fast, light clean
             </summary>
         </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTStencil">
@@ -5321,6 +5739,12 @@
         <member name="T:CFX.Structures.Tool">
             <summary>
             Describes a tool that is used in production
+            <code language="none">
+            {
+                "UniqueIdentifier": "UID23890430",
+                "Name": "SQUEEGEE234324"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Structures.Tool.UniqueIdentifier">
@@ -5449,6 +5873,18 @@
                 2.  The UnitIdentifier property represents the unique identifier of the "carrier" or "PCB panel"
                     AND the PositionNumber property represents the position of the unit within the carrier/panel.
                     PositionNumber's are established as defined in the CFX Standard.
+            <code language="none">
+            {
+                "UnitIdentifier": "CARRIER5566",
+                "PositionNumber": 1,
+                "PositionName": "CIRCUIT1",
+                "X": 0.254,
+                "Y": 0.556,
+                "Rotation": 0.0,
+                "FlipX": false,
+                "FlipY": false
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Structures.UnitPosition.UnitIdentifier">

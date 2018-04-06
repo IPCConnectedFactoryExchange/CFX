@@ -8,6 +8,15 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
     /// <summary>
     /// Response to a request from an external source for a squeegee clean
     /// operation to be performed
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class CleanSqueegeeResponse : CFXMessage
     {

@@ -38,6 +38,7 @@ namespace CFX.Production
     ///     }
     ///   ]
     /// }
+    /// </code>
     /// </summary>
     public class WorkStarted : CFXMessage
     {

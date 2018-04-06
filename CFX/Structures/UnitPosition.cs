@@ -14,6 +14,18 @@ namespace CFX.Structures
     ///     2.  The UnitIdentifier property represents the unique identifier of the "carrier" or "PCB panel"
     ///         AND the PositionNumber property represents the position of the unit within the carrier/panel.
     ///         PositionNumber's are established as defined in the CFX Standard.
+    /// <code language="none">
+    /// {
+    ///     "UnitIdentifier": "CARRIER5566",
+    ///     "PositionNumber": 1,
+    ///     "PositionName": "CIRCUIT1",
+    ///     "X": 0.254,
+    ///     "Y": 0.556,
+    ///     "Rotation": 0.0,
+    ///     "FlipX": false,
+    ///     "FlipY": false
+    /// }
+    /// </code>
     /// </summary>
     public class UnitPosition
     {

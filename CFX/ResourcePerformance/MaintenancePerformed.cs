@@ -8,6 +8,73 @@ namespace CFX.ResourcePerformance
     /// <summary>
     /// Sent by an endpoint when maintenance has been performed.
     /// Information includes the type of maintenance, maintenance code, parts used, labor etc.
+    /// <code language="none">
+    /// {
+    ///   "MaintenanceType": "Preventive",
+    ///   "MaintenanceOrderNumber": "MO676578576",
+    ///   "MaintenanceJobCode": "MNT113334",
+    ///   "ConsumedMaterials": [
+    ///     {
+    ///       "MaterialLocation": {
+    ///         "LocationIdentifier": null,
+    ///         "LocationName": null,
+    ///         "MaterialPackage": {
+    ///           "UniqueIdentifier": null,
+    ///           "InternalPartNumber": "PN2343243",
+    ///           "Quantity": 0.0
+    ///         },
+    ///         "CarrierInformation": null
+    ///       },
+    ///       "QuantityUsed": 3.0,
+    ///       "QuantitySpoiled": 0.0,
+    ///       "RemainingQuantity": 0.0
+    ///     },
+    ///     {
+    ///       "MaterialLocation": {
+    ///         "LocationIdentifier": null,
+    ///         "LocationName": null,
+    ///         "MaterialPackage": {
+    ///           "UniqueIdentifier": "UID23849854385",
+    ///           "InternalPartNumber": "PN4452",
+    ///           "Quantity": 0.0
+    ///         },
+    ///         "CarrierInformation": null
+    ///       },
+    ///       "QuantityUsed": 3.0,
+    ///       "QuantitySpoiled": 0.0,
+    ///       "RemainingQuantity": 0.0
+    ///     }
+    ///   ],
+    ///   "Tasks": [
+    ///     {
+    ///       "Task": "Changed hydraulic fluid in resovoir 1",
+    ///       "TaskId": "HYD233432432",
+    ///       "Operator": {
+    ///         "OperatorIdentifier": "UID235434324",
+    ///         "ActorType": "Human",
+    ///         "FullName": "Joseph Smith",
+    ///         "LastName": "Smith",
+    ///         "FirstName": "Joseph",
+    ///         "LoginName": "joseph.smith@abcdrepairs.com"
+    ///       },
+    ///       "ManHoursConsumed": 0.75
+    ///     },
+    ///     {
+    ///       "Task": "Checked torque on main mount bolts",
+    ///       "TaskId": "CHK3432434",
+    ///       "Operator": {
+    ///         "OperatorIdentifier": "UID235434324",
+    ///         "ActorType": "Human",
+    ///         "FullName": "Joseph Smith",
+    ///         "LastName": "Smith",
+    ///         "FirstName": "Joseph",
+    ///         "LoginName": "joseph.smith@abcdrepairs.com"
+    ///       },
+    ///       "ManHoursConsumed": 0.25
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class MaintenancePerformed : CFXMessage
     {

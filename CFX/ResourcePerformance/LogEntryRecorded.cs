@@ -7,7 +7,16 @@ namespace CFX.ResourcePerformance
 {
     /// <summary>
     /// An informational message sent by a process endpoint regarding the something that has occurred at the station. 
-    /// Information about the criticality of the information should also be given (information, warning, error etc.)
+    /// Information about the criticality of the information should also be given (information, warning, error etc.).
+    /// <code language="none">
+    /// {
+    ///   "InformationId": "INF21321321",
+    ///   "Message": "Beam 1 Zeroed and Homed",
+    ///   "Importance": "Information",
+    ///   "Lane": "1",
+    ///   "Stage": "STAGE1"
+    /// }
+    /// </code>
     /// </summary>
     public class LogEntryRecorded : CFXMessage
     {

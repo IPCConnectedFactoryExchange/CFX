@@ -8,6 +8,19 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
 {
     /// <summary>
     /// Indicates that a stencil clean operation has been performed
+    /// <code language="none">
+    /// {
+    ///   "Stencil": {
+    ///     "UniqueIdentifier": "UID23432434",
+    ///     "Name": "STENCIL234343"
+    ///   },
+    ///   "StencilCleanMode": "V",
+    ///   "TimeSinceLastClean": "00:33:00",
+    ///   "CyclesSinceLastClean": 35,
+    ///   "StencilCleanCycles": 2,
+    ///   "StencilCleanTime": "00:00:38"
+    /// }
+    /// </code>
     /// </summary>
     public class StencilCleaned : CFXMessage
     {

@@ -9,6 +9,11 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
     /// <summary>
     /// Allows an external source to direct a request to a stencil printer
     /// to perform a squeegee clean operation
+    /// <code language="none">
+    /// {
+    ///   "CleanTypeRequested": "Deep"
+    /// }
+    /// </code>
     /// </summary>
     public class CleanSqueegeeRequest : CFXMessage
     {
@@ -16,7 +21,7 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
         /// An enumeration indicating the type of clean operation that is
         /// being requested
         /// </summary>
-        public SMTCleanType CleanTypeRequested
+        public SMTSqueegeeCleanType CleanTypeRequested
         {
             get;
             set;

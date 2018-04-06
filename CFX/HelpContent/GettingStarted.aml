@@ -8,8 +8,9 @@
     -->
     <introduction>
       <para>The CFX Software Development Kit (SDK) is a .NET based library that may be used within the Microsoft Visual Studio development environment.  
-      It is a .NET Standard 1.3 platform library, allowing it to be inter-operable with many variants of the .NET framework (full .NET Framework, 
-      .NET Core, .NET Micro Framework, UWP, etc.).
+      It is available in two variants:  A .NET 4.6 based library for traditional windows desktop and server applications (CFX.CFXSDK), and a
+      .NET Standard 1.3 platform variant (CFX.CFXSDK.NetStandard) that allows interoperability with different editions of the .NET framework (.NET Core, 
+      .NET Micro Framework, UWP, etc.).
       </para>
     </introduction>
     <!-- Add one or more top-level section elements.  These are collapsible.

@@ -7,6 +7,18 @@ namespace CFX.ResourcePerformance
 {
     /// <summary>
     /// Response to an external source to modify a generic configuration parameter of a process endpoint.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   },
+    ///   "ParameterName": "Torque1",
+    ///   "OldParameterValue": "22.6",
+    ///   "NewParameterValue": "35.6"
+    /// }
+    /// </code>
     /// </summary>
     public class ModifyStationParameterResponse : CFXMessage
     {

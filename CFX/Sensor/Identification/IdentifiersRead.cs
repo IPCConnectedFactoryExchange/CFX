@@ -5,6 +5,44 @@ using CFX.Structures;
 
 namespace CFX.Sensor.Identification
 {
+    /// <summary>
+    /// Sent by an identification device (barcode scanner, RFID reader, etc.) when the device has identified one or more items
+    /// <para>Example 1 (Simple, single barcode read)</para>
+    /// <code language="none">
+    /// {
+    ///   "PrimaryIdentifier": "CARRIER21342",
+    ///   "Units": null
+    /// }
+    /// </code>
+    /// <para>Example 2 (Camera system capable of reading all barcodes on a multi-circuit PCB panel)</para>
+    /// <code language="none">
+    /// {
+    ///   "PrimaryIdentifier": "CARRIER21342",
+    ///   "Units": [
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT1",
+    ///       "X": 0.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 0.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT2",
+    ///       "X": 6.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 90.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
+    /// </summary>
     public class IdentifiersRead : CFXMessage
     {
         /// <summary>

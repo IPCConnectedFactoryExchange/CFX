@@ -8,6 +8,13 @@ namespace CFX.ResourcePerformance
     /// Sent by a process endpoint to indicate that an operator has modified a generic
     /// parameter or configuration setting. This does not apply to settings related to
     /// recipes, which are handled by the RecipeModified event. 
+    /// <code language="none">
+    /// {
+    ///   "ParameterName": "Torque1",
+    ///   "OldParameterValue": "22.6",
+    ///   "NewParameterValue": "35.6"
+    /// }
+    /// </code>
     /// </summary>
     public class StationParameterModified : CFXMessage
     {

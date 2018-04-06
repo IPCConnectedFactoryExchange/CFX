@@ -8,6 +8,14 @@ namespace CFX.ResourcePerformance.THTInsertion
     /// Sent periodically by an THT inserter to indicate the number of insertions which were
     /// successfully or unsuccessfully completed during the sample time window.
     /// This sample time window shall not exceed 10 minutes.
+    /// <code language="none">
+    /// {
+    ///   "StartTime": "2018-04-06T08:06:46.4471059-04:00",
+    ///   "EndTime": "2018-04-06T08:16:46.4471059-04:00",
+    ///   "TotalComponentsInserted": 875,
+    ///   "TotalComponentsNotInserted": 45
+    /// }
+    /// </code>
     /// </summary>
     public class ComponentsInserted : CFXMessage
     {

@@ -5,6 +5,42 @@ using CFX.Structures;
 
 namespace CFX.Sensor.Identification
 {
+    /// <summary>
+    /// Response from a unit identification device (such as a barcode scanner or RFID reader)
+    /// to a process endpoint which contains the most recently scanned unit identifiers.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   },
+    ///   "PrimaryIdentifier": "CARRIER21342",
+    ///   "Units": [
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT1",
+    ///       "X": 0.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 0.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT2",
+    ///       "X": 6.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 90.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
+    /// </summary>
     public class IdentifyUnitsResponse : CFXMessage
     {
         public IdentifyUnitsResponse()
@@ -13,6 +49,9 @@ namespace CFX.Sensor.Identification
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

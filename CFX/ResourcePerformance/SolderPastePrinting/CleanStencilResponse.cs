@@ -5,6 +5,19 @@ using CFX.Structures;
 
 namespace CFX.ResourcePerformance.SolderPastePrinting
 {
+    /// <summary>
+    /// A response to a request by a remote party for a stencil printer to perform a
+    /// stencil clean operation
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
     public class CleanStencilResponse : CFXMessage
     {
         public CleanStencilResponse()

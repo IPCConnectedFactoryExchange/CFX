@@ -10,7 +10,7 @@ namespace CFX.Structures.SolderPastePrinting
     /// Types of SMT stencil cleans
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum SMTCleanType
+    public enum SMTSqueegeeCleanType
     {
         /// <summary>
         /// A typical clean

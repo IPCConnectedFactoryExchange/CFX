@@ -6,6 +6,12 @@ namespace CFX.Structures
 {
     /// <summary>
     /// Describes a tool that is used in production
+    /// <code language="none">
+    /// {
+    ///     "UniqueIdentifier": "UID23890430",
+    ///     "Name": "SQUEEGEE234324"
+    /// }
+    /// </code>
     /// </summary>
     public class Tool
     {

@@ -8,6 +8,19 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
 {
     /// <summary>
     /// Indicates that a squeegee clean operation has been performed
+    /// <code language="none">
+    /// {
+    ///   "Squeegee": {
+    ///     "UniqueIdentifier": "UID23432434",
+    ///     "Name": "STENCIL234343"
+    ///   },
+    ///   "SqueegeeCleanType": "Normal",
+    ///   "TimeSinceLastClean": "00:33:00",
+    ///   "CyclesSinceLastClean": 35,
+    ///   "SqueegeeCleanCycles": 2,
+    ///   "SqueegeeCleanTime": "00:00:38"
+    /// }
+    /// </code>
     /// </summary>
     public class SqueegeeCleaned : CFXMessage
     {
@@ -23,7 +36,7 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
         /// <summary>
         /// An enumeration indicating the type of clean that was performed
         /// </summary>
-        public SMTCleanType SqueegeeCleanType
+        public SMTSqueegeeCleanType SqueegeeCleanType
         {
             get;
             set;

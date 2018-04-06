@@ -40,6 +40,11 @@
             </code>
             </summary>
         </member>
+        <member name="P:CFX.AreYouThereResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
         <member name="P:CFX.AreYouThereResponse.CFXHandle">
             <summary>
             The handle of the endpoint that is responding
@@ -2558,7 +2563,40 @@
             The stage name or number
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:CFX.Production.WorkStarted" -->
+        <member name="T:CFX.Production.WorkStarted">
+            <summary>
+            Sent by a process endpoint when the work-cycle for a unit or group of units starts
+            <code language="none">
+            {
+              "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+              "Lane": "1",
+              "UnitCount": 2,
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
         <member name="P:CFX.Production.WorkStarted.TransactionID">
             <summary>
             Transaction ID used to attach events and data during subsequent processing, until WorkCompleted
@@ -2583,6 +2621,16 @@
             <summary>
             Sent by a process endpoint on a sampled interval of between 1 minute and 1 hour
             to indicate the energy usage and power consumption.
+            <code language="none">
+            {
+              "StartTime": "2018-04-05T09:33:06.1358356-04:00",
+              "EndTime": "2018-04-05T09:38:06.1358356-04:00",
+              "EnergyUsed": 0.012,
+              "PeakPower": 125.6,
+              "MinimumPower": 120.3,
+              "MeanPower": 124.6
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.EnergyConsumed.StartTime">
@@ -2622,6 +2670,11 @@
         <member name="T:CFX.ResourcePerformance.FaultCleared">
             <summary>
             Sent by a process endpoint when a fault is cleared as described in a FaultOccurred message  
+            <code language="none">
+            {
+              "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.FaultCleared.FaultOccurrenceId">
@@ -2632,7 +2685,122 @@
         </member>
         <member name="T:CFX.ResourcePerformance.FaultOccurred">
             <summary>
-            Sent by a process endpoint whenever a fault is encountered. A data structure must be included in the message related to specific equipment type.
+            <para>Sent by a process endpoint whenever a fault is encountered. A data structure must be included in the message related to specific equipment type.</para>
+            <para>Generic Fault Example:</para>
+            <code language="none">
+            {
+              "Fault": {
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368",
+                "Lane": null,
+                "Stage": null
+              }
+            }
+            </code>
+            <para>SMT Placement Fault Example:</para>
+            <code language="none">
+            {
+              "Fault": {
+                "$type": "CFX.Structures.SMTPlacement.SMTPlacementFault, CFX",
+                "PlacementFaultType": "PickupError",
+                "ProgramStep": 56,
+                "Designator": {
+                  "ReferenceDesignator": "R31",
+                  "UnitPosition": null,
+                  "PartNumber": "PN123456"
+                },
+                "MaterialLocation": {
+                  "LocationIdentifier": "UID23948348324",
+                  "LocationName": "SLOT47",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "UID34280923084932849",
+                    "InternalPartNumber": "IPN456465465465",
+                    "Quantity": 854.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": null,
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Pitch8mm",
+                    "UniqueIdentifier": "FDR2348934-32890",
+                    "Name": "8MMFDR231"
+                  }
+                },
+                "Nozzle": {
+                  "HeadId": "HEAD1",
+                  "HeadNozzleNumber": 3,
+                  "NozzleType": "TYPE914",
+                  "UniqueIdentifier": "UID2389432849",
+                  "Name": "NOZZLE3243244"
+                },
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "2a8aca83-5889-49d7-887b-89145b6dc9b9",
+                "Lane": "LANE1",
+                "Stage": "STAGE2"
+              }
+            }
+            </code>
+            <para>THT Insertion Fault Example:</para>
+            <code language="none">
+            {
+              "Fault": {
+                "$type": "CFX.Structures.THTInsertion.THTInsertionFault, CFX",
+                "InsertionFaultType": "ClinchError",
+                "ProgramStep": 56,
+                "Designator": {
+                  "ReferenceDesignator": "R31",
+                  "UnitPosition": null,
+                  "PartNumber": "PN123456"
+                },
+                "MaterialLocation": {
+                  "LocationIdentifier": "UID23948348324",
+                  "LocationName": "SLOT47",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "UID34280923084932849",
+                    "InternalPartNumber": "IPN456465465465",
+                    "Quantity": 854.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": null,
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Pitch8mm",
+                    "UniqueIdentifier": "FDR2348934-32890",
+                    "Name": "8MMFDR231"
+                  }
+                },
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "c2ae2e0b-104e-4293-b9d3-575863c2916d",
+                "Lane": "LANE1",
+                "Stage": "STAGE2"
+              }
+            }
+            </code>
+            <code language="none">
+            {
+              "Fault": {
+                "$type": "CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault, CFX",
+                "PrintingFaultType": "SqueegeeError",
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 234333",
+                "FaultOccurrenceId": "3e667e7d-24b4-4b77-b356-34bb5e99d05c",
+                "Lane": null,
+                "Stage": null
+              }
+            }
+            </code>
+            <para>SMT Printing Fault Example:</para>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.FaultOccurred.Fault">
@@ -2643,7 +2811,16 @@
         <member name="T:CFX.ResourcePerformance.LogEntryRecorded">
             <summary>
             An informational message sent by a process endpoint regarding the something that has occurred at the station. 
-            Information about the criticality of the information should also be given (information, warning, error etc.)
+            Information about the criticality of the information should also be given (information, warning, error etc.).
+            <code language="none">
+            {
+              "InformationId": "INF21321321",
+              "Message": "Beam 1 Zeroed and Homed",
+              "Importance": "Information",
+              "Lane": "1",
+              "Stage": "STAGE1"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.LogEntryRecorded.InformationId">
@@ -2673,6 +2850,73 @@
             <summary>
             Sent by an endpoint when maintenance has been performed.
             Information includes the type of maintenance, maintenance code, parts used, labor etc.
+            <code language="none">
+            {
+              "MaintenanceType": "Preventive",
+              "MaintenanceOrderNumber": "MO676578576",
+              "MaintenanceJobCode": "MNT113334",
+              "ConsumedMaterials": [
+                {
+                  "MaterialLocation": {
+                    "LocationIdentifier": null,
+                    "LocationName": null,
+                    "MaterialPackage": {
+                      "UniqueIdentifier": null,
+                      "InternalPartNumber": "PN2343243",
+                      "Quantity": 0.0
+                    },
+                    "CarrierInformation": null
+                  },
+                  "QuantityUsed": 3.0,
+                  "QuantitySpoiled": 0.0,
+                  "RemainingQuantity": 0.0
+                },
+                {
+                  "MaterialLocation": {
+                    "LocationIdentifier": null,
+                    "LocationName": null,
+                    "MaterialPackage": {
+                      "UniqueIdentifier": "UID23849854385",
+                      "InternalPartNumber": "PN4452",
+                      "Quantity": 0.0
+                    },
+                    "CarrierInformation": null
+                  },
+                  "QuantityUsed": 3.0,
+                  "QuantitySpoiled": 0.0,
+                  "RemainingQuantity": 0.0
+                }
+              ],
+              "Tasks": [
+                {
+                  "Task": "Changed hydraulic fluid in resovoir 1",
+                  "TaskId": "HYD233432432",
+                  "Operator": {
+                    "OperatorIdentifier": "UID235434324",
+                    "ActorType": "Human",
+                    "FullName": "Joseph Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Joseph",
+                    "LoginName": "joseph.smith@abcdrepairs.com"
+                  },
+                  "ManHoursConsumed": 0.75
+                },
+                {
+                  "Task": "Checked torque on main mount bolts",
+                  "TaskId": "CHK3432434",
+                  "Operator": {
+                    "OperatorIdentifier": "UID235434324",
+                    "ActorType": "Human",
+                    "FullName": "Joseph Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Joseph",
+                    "LoginName": "joseph.smith@abcdrepairs.com"
+                  },
+                  "ManHoursConsumed": 0.25
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.MaintenancePerformed.MaintenanceType">
@@ -2708,6 +2952,12 @@
             This request allows an external source to modify a generic configuration parameter of a process endpoint.
             Upon successful processing of this request, the endpoint should publish a <see cref="T:CFX.ResourcePerformance.StationParameterModified"/> message in addition to the 
             <see cref="T:CFX.ResourcePerformance.ModifyStationParameterResponse"/> message that it sends back to the requester.
+            <code language="none">
+            {
+              "ParameterName": "Torque1",
+              "ParameterValue": "35.6"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.ModifyStationParameterRequest.ParameterName">
@@ -2723,11 +2973,78 @@
         <member name="T:CFX.ResourcePerformance.ModifyStationParameterResponse">
             <summary>
             Response to an external source to modify a generic configuration parameter of a process endpoint.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              },
+              "ParameterName": "Torque1",
+              "OldParameterValue": "22.6",
+              "NewParameterValue": "35.6"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.ParameterName">
+            <summary>
+            THe name of the configuration setting that was modified
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.OldParameterValue">
+            <summary>
+            The previous value of the configuration setting
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ModifyStationParameterResponse.NewParameterValue">
+            <summary>
+            The new value of the configuration setting
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.NamespaceDoc">
             <summary>
             CFX Topic related to the performance of an endpoint (speed, OEE, fault rates, etc).
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced">
+            <summary>
+            Sent periodically by an SMT placement machine to indicate the number of placements which were
+            successfully or unsuccessfully completed during the sample time window.
+            This sample time window shall not exceed 10 minutes.
+            <code language="none">
+            {
+              "StartTime": "2018-04-05T09:28:06.161835-04:00",
+              "EndTime": "2018-04-05T09:38:06.161835-04:00",
+              "TotalComponentsPlaced": 875,
+              "TotalComponentsNotPlaced": 45
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.StartTime">
+            <summary>
+            The start of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.EndTime">
+            <summary>
+            The end of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.TotalComponentsPlaced">
+            <summary>
+            The total number of components that were successfully placed during the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced.TotalComponentsNotPlaced">
+            <summary>
+            The total number of components that were not successfully placed during the sample period
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.SMTPlacement.NamespaceDoc">
@@ -2737,16 +3054,212 @@
             of an SMT placement machine.
             </summary>
         </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest">
+            <summary>
+            Allows an external source to direct a request to a stencil printer
+            to perform a squeegee clean operation
+            <code language="none">
+            {
+              "CleanTypeRequested": "Deep"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest.CleanTypeRequested">
+            <summary>
+            An enumeration indicating the type of clean operation that is
+            being requested
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeResponse">
+            <summary>
+            Response to a request from an external source for a squeegee clean
+            operation to be performed
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilRequest">
+            <summary>
+            Allows an external source to direct a request to a stencil printer
+            to perform a stencil clean operation
+            <code language="none">
+            {
+              "CleanTypeRequested": "D"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilRequest.CleanTypeRequested">
+            <summary>
+            An enumeration indicating the type of clean operation that is
+            being requested
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilResponse">
+            <summary>
+            A response to a request by a remote party for a stencil printer to perform a
+            stencil clean operation
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.CleanStencilResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
         <member name="T:CFX.ResourcePerformance.SolderPastePrinting.NamespaceDoc">
             <summary>
             Specialized messages related to the performance of solder paste printers.  This might include
             information related to stencil or squeegee cleaning rates, etc.
             </summary>
         </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned">
+            <summary>
+            Indicates that a squeegee clean operation has been performed
+            <code language="none">
+            {
+              "Squeegee": {
+                "UniqueIdentifier": "UID23432434",
+                "Name": "STENCIL234343"
+              },
+              "SqueegeeCleanType": "Normal",
+              "TimeSinceLastClean": "00:33:00",
+              "CyclesSinceLastClean": 35,
+              "SqueegeeCleanCycles": 2,
+              "SqueegeeCleanTime": "00:00:38"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.Squeegee">
+            <summary>
+            Identifies the squeegee that has been cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.SqueegeeCleanType">
+            <summary>
+            An enumeration indicating the type of clean that was performed
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.TimeSinceLastClean">
+            <summary>
+            Indicates the length of time that has ellapsed since the last time
+            the squeegee was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.CyclesSinceLastClean">
+            <summary>
+            Indicates how many printing cycles have been completed since the last
+            time the squeegee was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.SqueegeeCleanCycles">
+            <summary>
+            Indicates the total number of squeegee cleaning cycles that
+            have been performed since this squeegee was loaded.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned.SqueegeeCleanTime">
+            <summary>
+            Indicates the total amount of time that it took to perform this squeegee clean operation
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned">
+            <summary>
+            Indicates that a stencil clean operation has been performed
+            <code language="none">
+            {
+              "Stencil": {
+                "UniqueIdentifier": "UID23432434",
+                "Name": "STENCIL234343"
+              },
+              "StencilCleanMode": "V",
+              "TimeSinceLastClean": "00:33:00",
+              "CyclesSinceLastClean": 35,
+              "StencilCleanCycles": 2,
+              "StencilCleanTime": "00:00:38"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.Stencil">
+            <summary>
+            Identifies the stencil that has been cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.StencilCleanMode">
+            <summary>
+            Indicates that cleaning mode for the stencil clean operation
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.TimeSinceLastClean">
+            <summary>
+            Indicates the length of time that has ellapsed since the last time
+            the stencil was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.CyclesSinceLastClean">
+            <summary>
+            Indicates how many printing cycles have been completed since the last
+            time the stencil was cleaned
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.StencilCleanCycles">
+            <summary>
+            Indicates the total number of stencil cleaning cycles that
+            have been performed since this squeegee was loaded.
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned.StencilCleanTime">
+            <summary>
+            Indicates the total amount of time that it took to perform this stencil clean operation
+            </summary>
+        </member>
         <member name="T:CFX.ResourcePerformance.StageStateChanged">
             <summary>
-            Sent by a process endpoint when its production state transitions from
-            one state to another per its state model. 
+            Sent by a process endpoint when the production state of one of its
+            stages transitions from one state to another per its state model. 
+            <code language="none">
+            {
+              "Stage": "STAGE2",
+              "Lane": null,
+              "OldState": "IdleStarved",
+              "OldStateDuration": "00:01:25",
+              "NewState": "ReadyProcessingActive",
+              "RelatedFault": null
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StageStateChanged.Stage">
+            <summary>
+            The name of the stage that has changed state
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StageStateChanged.Lane">
+            <summary>
+            The relevant production lane (if applicable)
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StageStateChanged.OldState">
@@ -2775,11 +3288,19 @@
             Sent by a process endpoint when it is about to transition to a state where it is not 
             possible for further communication, for example when the endpoint is powered down, 
             reset, put into maintenance mode, or simply set off-line.
+            <code language="none">
+            {}
+            </code>
             </summary>
         </member>
         <member name="T:CFX.ResourcePerformance.StationOnline">
             <summary>
             Sent by a process endpoint when it is ready for communication to resume, for example, powered up, maintenance over, etc. 
+            <code language="none">
+            {
+              "OfflineDuration": "00:23:00"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StationOnline.OfflineDuration">
@@ -2792,6 +3313,13 @@
             Sent by a process endpoint to indicate that an operator has modified a generic
             parameter or configuration setting. This does not apply to settings related to
             recipes, which are handled by the RecipeModified event. 
+            <code language="none">
+            {
+              "ParameterName": "Torque1",
+              "OldParameterValue": "22.6",
+              "NewParameterValue": "35.6"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.ResourcePerformance.StationParameterModified.ParameterName">
@@ -2809,9 +3337,223 @@
             The new value of this configuration setting
             </summary>
         </member>
+        <member name="T:CFX.ResourcePerformance.StationStateChanged">
+            <summary>
+            Sent by a process endpoint when the production state transitions
+            from one state to another per its state model. 
+            <para>Example 1 (State change with no related fault):</para>
+            <code language="none">
+            {
+              "OldState": "IdleStarved",
+              "OldStateDuration": "00:01:25",
+              "NewState": "ReadyProcessingActive",
+              "RelatedFault": null
+            }
+            </code>
+            <para>Example 2 (State change with related fault):</para>
+            <code language="none">
+            {
+              "OldState": "ReadyProcessingExecuting",
+              "OldStateDuration": "00:00:25",
+              "NewState": "UnplannedDowntime",
+              "RelatedFault": {
+                "Cause": "MechanicalFailure",
+                "Severity": "Error",
+                "FaultCode": "ERROR 3943480",
+                "FaultOccurrenceId": "84c6021f-9db9-431b-aa0b-567b961ac96f",
+                "Lane": null,
+                "Stage": null
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.OldState">
+            <summary>
+            The previous state prior to this state change
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.OldStateDuration">
+            <summary>
+            The amount of time spent in the previous state
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.NewState">
+            <summary>
+            The new state
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.StationStateChanged.RelatedFault">
+            <summary>
+            In the case of a stoppage, information about the Fault which caused the stoppage.
+            Otherwise null.
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.THTInsertion.ComponentsInserted">
+            <summary>
+            Sent periodically by an THT inserter to indicate the number of insertions which were
+            successfully or unsuccessfully completed during the sample time window.
+            This sample time window shall not exceed 10 minutes.
+            <code language="none">
+            {
+              "StartTime": "2018-04-06T08:06:46.4471059-04:00",
+              "EndTime": "2018-04-06T08:16:46.4471059-04:00",
+              "TotalComponentsInserted": 875,
+              "TotalComponentsNotInserted": 45
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.StartTime">
+            <summary>
+            The start of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.EndTime">
+            <summary>
+            The end of the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.TotalComponentsInserted">
+            <summary>
+            The total number of components that were successfully inserted during the sample period
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.THTInsertion.ComponentsInserted.TotalComponentsNotInserted">
+            <summary>
+            The total number of components that were not successfully inserted during the sample period
+            </summary>
+        </member>
         <member name="T:CFX.ResourcePerformance.THTInsertion.NamespaceDoc">
             <summary>
             Specialized messages related to the performance of through-hole insertion equipment
+            </summary>
+        </member>
+        <member name="T:CFX.ResourcePerformance.ToolChanged">
+            <summary>
+            Sent when a new tool is selected for active use at a production endpoint
+            <para>Example 1 (Generic tool change):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "UniqueIdentifier": "UID23890430",
+                "Name": "TorqueWrench_123"
+              },
+              "LoadedFromHolder": {
+                "LocationUniqueIdentifier": "UID238943243243",
+                "LocationName": "BIN45",
+                "BaseName": null
+              }
+            }
+            </code>
+            <para>Example 2 (Nozzle change on SMT placement machine):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
+                "HeadId": "HEAD1",
+                "HeadNozzleNumber": 1,
+                "NozzleType": "TYPE914",
+                "UniqueIdentifier": "UID23890430",
+                "Name": "NOZZLE234324"
+              },
+              "LoadedFromHolder": {
+                "LocationUniqueIdentifier": "UID238943243243",
+                "LocationName": "HOLDER14",
+                "BaseName": "NEST2"
+              }
+            }
+            </code>
+            <para>Example 3 (Stencil change on SMT stencil printer):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "$type": "CFX.Structures.SolderPastePrinting.SMTStencil, CFX",
+                "UniqueIdentifier": "UID23890430",
+                "Name": "STENCIL234324"
+              },
+              "LoadedFromHolder": null
+            }
+            </code>
+            <para>Example 3 (Squeegee change on SMT stencil printer):</para>
+            <code language="none">
+            {
+              "OldTool": null,
+              "ReturnedToHolder": null,
+              "NewTool": {
+                "$type": "CFX.Structures.SolderPastePrinting.SMTSqueegee, CFX",
+                "UniqueIdentifier": "UID23890430",
+                "Name": "SQUEEGEE234324"
+              },
+              "LoadedFromHolder": null
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.OldTool">
+            <summary>
+            The tool that was previously in active use (if any) 
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.ReturnedToHolder">
+            <summary>
+            The location on the endpoint where the old tool was returned (if any)
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.NewTool">
+            <summary>
+            The new active tool
+            </summary>
+        </member>
+        <member name="P:CFX.ResourcePerformance.ToolChanged.LoadedFromHolder">
+            <summary>
+            The location on the endpoint from which the newly active tool was selected 
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.IdentifiersRead">
+            <summary>
+            Sent by an identification device (barcode scanner, RFID reader, etc.) when the device has identified one or more items
+            <para>Example 1 (Simple, single barcode read)</para>
+            <code language="none">
+            {
+              "PrimaryIdentifier": "CARRIER21342",
+              "Units": null
+            }
+            </code>
+            <para>Example 2 (Camera system capable of reading all barcodes on a multi-circuit PCB panel)</para>
+            <code language="none">
+            {
+              "PrimaryIdentifier": "CARRIER21342",
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Sensor.Identification.IdentifiersRead.PrimaryIdentifier">
@@ -2826,6 +3568,58 @@
             <summary>
             An optional list of actual production unit identifiers, in the case that multiple production units are moving through the 
             process, and the sensor is capable if reading multiple identifiers. 
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.IdentifyUnitsRequest">
+            <summary>
+            Sent by a process endpoint to a unit identification device (such as a barcode scanner or RFID reader)
+            to request the most recently scanned unit identifiers.
+            <code language="none">
+            {}
+            </code>
+            </summary>
+        </member>
+        <member name="T:CFX.Sensor.Identification.IdentifyUnitsResponse">
+            <summary>
+            Response from a unit identification device (such as a barcode scanner or RFID reader)
+            to a process endpoint which contains the most recently scanned unit identifiers.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              },
+              "PrimaryIdentifier": "CARRIER21342",
+              "Units": [
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT1",
+                  "X": 0.254,
+                  "Y": 0.556,
+                  "Rotation": 0.0,
+                  "FlipX": false,
+                  "FlipY": false
+                },
+                {
+                  "UnitIdentifier": "CARRIER5566",
+                  "PositionNumber": 1,
+                  "PositionName": "CIRCUIT2",
+                  "X": 6.254,
+                  "Y": 0.556,
+                  "Rotation": 90.0,
+                  "FlipX": false,
+                  "FlipY": false
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Sensor.Identification.IdentifyUnitsResponse.Result">
+            <summary>
+            The result of the request
             </summary>
         </member>
         <member name="P:CFX.Sensor.Identification.IdentifyUnitsResponse.PrimaryIdentifier">
@@ -4388,27 +5182,6 @@
             The type or model name of this SMT Nozzle
             </summary>
         </member>
-        <member name="T:CFX.Structures.SMTPlacement.SMTNozzleHolder">
-            <summary>
-            Desctibes a location on an SMT placement machine where a nozzle/tool may be stored.
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.LocationUniqueIdentifier">
-            <summary>
-            Unique identifier of the nozzle holder (barcode, RFID, etc.)
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.LocationName">
-            <summary>
-            The name of the nozzle holder location
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.SMTPlacement.SMTNozzleHolder.BaseName">
-            <summary>
-            If this nozzle holder is part of a nest or group of nozzle holders, 
-            this is the nest or group name.
-            </summary>
-        </member>
         <member name="T:CFX.Structures.SMTPlacement.SMTPlacementFault">
             <summary>
             A specific type of fault that is produced by endpoints responsible
@@ -4561,26 +5334,6 @@
             Data structures related to SMT stencil printing equipment
             </summary>
         </member>
-        <member name="T:CFX.Structures.SolderPastePrinting.SMTCleanType">
-            <summary>
-            Types of SMT stencil cleans
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Normal">
-            <summary>
-            A typical clean
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Deep">
-            <summary>
-            A more involved, deeper clean
-            </summary>
-        </member>
-        <member name="F:CFX.Structures.SolderPastePrinting.SMTCleanType.Quick">
-            <summary>
-            A fast, light clean
-            </summary>
-        </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault">
             <summary>
             A specific type of fault that is produced by endpoints responsible
@@ -4612,29 +5365,29 @@
             Describes a squeegee that is used in the course of printing solder paste on to a PCB
             </summary>
         </member>
-        <member name="P:CFX.Structures.SolderPastePrinting.SMTSqueegee.UniqueIdentifier">
+        <member name="T:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType">
             <summary>
-            The unique identifier that describes this particular squeegee instance
+            Types of SMT stencil cleans
             </summary>
         </member>
-        <member name="P:CFX.Structures.SolderPastePrinting.SMTSqueegee.Name">
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType.Normal">
             <summary>
-            A human readable name for this squeegee
+            A typical clean
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType.Deep">
+            <summary>
+            A more involved, deeper clean
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType.Quick">
+            <summary>
+            A fast, light clean
             </summary>
         </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTStencil">
             <summary>
             Describes a stencil that is used in the course of printing solder paste on to a PCB
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.SolderPastePrinting.SMTStencil.UniqueIdentifier">
-            <summary>
-            The unique identifier that describes this particular stencil instance
-            </summary>
-        </member>
-        <member name="P:CFX.Structures.SolderPastePrinting.SMTStencil.Name">
-            <summary>
-            A human readable name for this stencil
             </summary>
         </member>
         <member name="T:CFX.Structures.SolderPastePrinting.SMTStencilCleanMode">
@@ -4986,6 +5739,12 @@
         <member name="T:CFX.Structures.Tool">
             <summary>
             Describes a tool that is used in production
+            <code language="none">
+            {
+                "UniqueIdentifier": "UID23890430",
+                "Name": "SQUEEGEE234324"
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Structures.Tool.UniqueIdentifier">
@@ -4996,6 +5755,27 @@
         <member name="P:CFX.Structures.Tool.Name">
             <summary>
             The name of the tool
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.ToolHolder">
+            <summary>
+            Describes a location on a process endpoint where a tool may be stored.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ToolHolder.LocationUniqueIdentifier">
+            <summary>
+            Unique identifier of the tool holder (barcode, RFID, etc.)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ToolHolder.LocationName">
+            <summary>
+            The name of the tool holder location
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ToolHolder.BaseName">
+            <summary>
+            If this tool holder is part of a nest or group of nozzle holders, 
+            this is the nest or group name.
             </summary>
         </member>
         <member name="T:CFX.Structures.TopicSupportType">
@@ -5093,6 +5873,18 @@
                 2.  The UnitIdentifier property represents the unique identifier of the "carrier" or "PCB panel"
                     AND the PositionNumber property represents the position of the unit within the carrier/panel.
                     PositionNumber's are established as defined in the CFX Standard.
+            <code language="none">
+            {
+                "UnitIdentifier": "CARRIER5566",
+                "PositionNumber": 1,
+                "PositionName": "CIRCUIT1",
+                "X": 0.254,
+                "Y": 0.556,
+                "Rotation": 0.0,
+                "FlipX": false,
+                "FlipY": false
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Structures.UnitPosition.UnitIdentifier">

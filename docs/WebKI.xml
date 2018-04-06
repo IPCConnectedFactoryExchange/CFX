@@ -156,7 +156,7 @@
   <HelpKINode Title="BaseName property">
     <HelpKINode Title="SMDTapeFeeder.BaseName Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTapeFeeder_BaseName.htm" />
     <HelpKINode Title="SMDTubeFeeder.BaseName Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_BaseName.htm" />
-    <HelpKINode Title="SMTNozzleHolder.BaseName Property " Url="html/P_CFX_Structures_SMTPlacement_SMTNozzleHolder_BaseName.htm" />
+    <HelpKINode Title="ToolHolder.BaseName Property " Url="html/P_CFX_Structures_ToolHolder_BaseName.htm" />
   </HelpKINode>
   <HelpKINode Title="BaseUniqueIdentifier property">
     <HelpKINode Title="SMDTapeFeeder.BaseUniqueIdentifier Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTapeFeeder_BaseUniqueIdentifier.htm" />
@@ -309,15 +309,12 @@
   <HelpKINode Title="CFX.ResourcePerformance.ModifyStationParameterResponse class" Url="html/T_CFX_ResourcePerformance_ModifyStationParameterResponse.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SMTPlacement namespace" Url="html/N_CFX_ResourcePerformance_SMTPlacement.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced class" Url="html/T_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced.htm" />
-  <HelpKINode Title="CFX.ResourcePerformance.SMTPlacement.ToolChanged class" Url="html/T_CFX_ResourcePerformance_SMTPlacement_ToolChanged.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting namespace" Url="html/N_CFX_ResourcePerformance_SolderPastePrinting.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeRequest class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeRequest.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.CleanSqueegeeResponse class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeResponse.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.CleanStencilRequest class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.CleanStencilResponse class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilResponse.htm" />
-  <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.SqueegeeChanged class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.SqueegeeCleaned class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned.htm" />
-  <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.StencilChanged class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.SolderPastePrinting.StencilCleaned class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.StageStateChanged class" Url="html/T_CFX_ResourcePerformance_StageStateChanged.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.StationOffline class" Url="html/T_CFX_ResourcePerformance_StationOffline.htm" />
@@ -326,6 +323,7 @@
   <HelpKINode Title="CFX.ResourcePerformance.StationStateChanged class" Url="html/T_CFX_ResourcePerformance_StationStateChanged.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.THTInsertion namespace" Url="html/N_CFX_ResourcePerformance_THTInsertion.htm" />
   <HelpKINode Title="CFX.ResourcePerformance.THTInsertion.ComponentsInserted class" Url="html/T_CFX_ResourcePerformance_THTInsertion_ComponentsInserted.htm" />
+  <HelpKINode Title="CFX.ResourcePerformance.ToolChanged class" Url="html/T_CFX_ResourcePerformance_ToolChanged.htm" />
   <HelpKINode Title="CFX.Sensor.Identification namespace" Url="html/N_CFX_Sensor_Identification.htm" />
   <HelpKINode Title="CFX.Sensor.Identification.IdentifiersRead class" Url="html/T_CFX_Sensor_Identification_IdentifiersRead.htm" />
   <HelpKINode Title="CFX.Sensor.Identification.IdentifyUnitsRequest class" Url="html/T_CFX_Sensor_Identification_IdentifyUnitsRequest.htm" />
@@ -388,16 +386,15 @@
   <HelpKINode Title="CFX.Structures.SMTPlacement.SMDTrayFeeder class" Url="html/T_CFX_Structures_SMTPlacement_SMDTrayFeeder.htm" />
   <HelpKINode Title="CFX.Structures.SMTPlacement.SMDTubeFeeder class" Url="html/T_CFX_Structures_SMTPlacement_SMDTubeFeeder.htm" />
   <HelpKINode Title="CFX.Structures.SMTPlacement.SMTNozzle class" Url="html/T_CFX_Structures_SMTPlacement_SMTNozzle.htm" />
-  <HelpKINode Title="CFX.Structures.SMTPlacement.SMTNozzleHolder class" Url="html/T_CFX_Structures_SMTPlacement_SMTNozzleHolder.htm" />
   <HelpKINode Title="CFX.Structures.SMTPlacement.SMTPlacementFault class" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm" />
   <HelpKINode Title="CFX.Structures.SMTPlacement.SMTPlacementFaultType enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFaultType.htm" />
   <HelpKINode Title="CFX.Structures.SolderPasteInspection namespace" Url="html/N_CFX_Structures_SolderPasteInspection.htm" />
   <HelpKINode Title="CFX.Structures.SolderPasteInspection.SolderPasteMeasurement class" Url="html/T_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement.htm" />
   <HelpKINode Title="CFX.Structures.SolderPastePrinting namespace" Url="html/N_CFX_Structures_SolderPastePrinting.htm" />
-  <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTCleanType enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTCleanType.htm" />
   <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFault class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault.htm" />
   <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTSolderPastePrintingFaultType enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFaultType.htm" />
   <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTSqueegee class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegee.htm" />
+  <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTSqueegeeCleanType enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegeeCleanType.htm" />
   <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTStencil class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencil.htm" />
   <HelpKINode Title="CFX.Structures.SolderPastePrinting.SMTStencilCleanMode enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencilCleanMode.htm" />
   <HelpKINode Title="CFX.Structures.StationSetupRequirements class" Url="html/T_CFX_Structures_StationSetupRequirements.htm" />
@@ -414,6 +411,7 @@
   <HelpKINode Title="CFX.Structures.THTInsertion.THTInsertionFault class" Url="html/T_CFX_Structures_THTInsertion_THTInsertionFault.htm" />
   <HelpKINode Title="CFX.Structures.THTInsertion.THTInsertionFaultType enumeration" Url="html/T_CFX_Structures_THTInsertion_THTInsertionFaultType.htm" />
   <HelpKINode Title="CFX.Structures.Tool class" Url="html/T_CFX_Structures_Tool.htm" />
+  <HelpKINode Title="CFX.Structures.ToolHolder class" Url="html/T_CFX_Structures_ToolHolder.htm" />
   <HelpKINode Title="CFX.Structures.ToolUsed class" Url="html/T_CFX_Structures_ToolUsed.htm" />
   <HelpKINode Title="CFX.Structures.TopicSupportType enumeration" Url="html/T_CFX_Structures_TopicSupportType.htm" />
   <HelpKINode Title="CFX.Structures.TransportOrderHistory class" Url="html/T_CFX_Structures_TransportOrderHistory.htm" />
@@ -619,7 +617,7 @@
     <HelpKINode Title="LogMessageType Enumeration" Url="html/T_CFX_Utilities_LogMessageType.htm" />
   </HelpKINode>
   <HelpKINode Title="Debug method" Url="html/M_CFX_Utilities_AppLog_Debug.htm" />
-  <HelpKINode Title="Deep enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTCleanType.htm" />
+  <HelpKINode Title="Deep enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegeeCleanType.htm" />
   <HelpKINode Title="Defect class">
     <HelpKINode Title="Defect Class" Url="html/T_CFX_Structures_Defect.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_Defect.htm" />
@@ -1012,6 +1010,7 @@
     <HelpKINode Title="LogEntryRecorded.Lane Property " Url="html/P_CFX_ResourcePerformance_LogEntryRecorded_Lane.htm" />
     <HelpKINode Title="RecipeActivated.Lane Property " Url="html/P_CFX_Production_RecipeActivated_Lane.htm" />
     <HelpKINode Title="SetupRequirementsChanged.Lane Property " Url="html/P_CFX_Production_SetupRequirementsChanged_Lane.htm" />
+    <HelpKINode Title="StageStateChanged.Lane Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_Lane.htm" />
     <HelpKINode Title="StationSetupRequirements.Lane Property " Url="html/P_CFX_Structures_StationSetupRequirements_Lane.htm" />
     <HelpKINode Title="UnlockStationRequest.Lane Property " Url="html/P_CFX_Production_UnlockStationRequest_Lane.htm" />
     <HelpKINode Title="WorkStarted.Lane Property " Url="html/P_CFX_Production_WorkStarted_Lane.htm" />
@@ -1025,7 +1024,7 @@
   <HelpKINode Title="LeadingMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsJoined_LeadingMaterialPackage.htm" />
   <HelpKINode Title="LightingError enumeration member" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFaultType.htm" />
   <HelpKINode Title="LinkType enumeration" Url="html/T_CFX_Transport_LinkType.htm" />
-  <HelpKINode Title="LoadedFromHolder property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_LoadedFromHolder.htm" />
+  <HelpKINode Title="LoadedFromHolder property" Url="html/P_CFX_ResourcePerformance_ToolChanged_LoadedFromHolder.htm" />
   <HelpKINode Title="LoadError enumeration member" Url="html/T_CFX_Structures_FaultCause.htm" />
   <HelpKINode Title="Location property" Url="html/P_CFX_Structures_TransportOrderHistory_Location.htm" />
   <HelpKINode Title="LocationIdentifier property">
@@ -1036,13 +1035,13 @@
   <HelpKINode Title="LocationName property">
     <HelpKINode Title="MaterialCarrierLocation.LocationName Property " Url="html/P_CFX_Structures_MaterialCarrierLocation_LocationName.htm" />
     <HelpKINode Title="MaterialLocation.LocationName Property " Url="html/P_CFX_Structures_MaterialLocation_LocationName.htm" />
-    <HelpKINode Title="SMTNozzleHolder.LocationName Property " Url="html/P_CFX_Structures_SMTPlacement_SMTNozzleHolder_LocationName.htm" />
+    <HelpKINode Title="ToolHolder.LocationName Property " Url="html/P_CFX_Structures_ToolHolder_LocationName.htm" />
   </HelpKINode>
   <HelpKINode Title="Locations property">
     <HelpKINode Title="BlockMaterialLocationsRequest.Locations Property " Url="html/P_CFX_Production_BlockMaterialLocationsRequest_Locations.htm" />
     <HelpKINode Title="UnblockMaterialLocationsRequest.Locations Property " Url="html/P_CFX_Production_UnblockMaterialLocationsRequest_Locations.htm" />
   </HelpKINode>
-  <HelpKINode Title="LocationUniqueIdentifier property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzleHolder_LocationUniqueIdentifier.htm" />
+  <HelpKINode Title="LocationUniqueIdentifier property" Url="html/P_CFX_Structures_ToolHolder_LocationUniqueIdentifier.htm" />
   <HelpKINode Title="LockReason enumeration" Url="html/T_CFX_Structures_LockReason.htm" />
   <HelpKINode Title="LockStationRequest class">
     <HelpKINode Title="LockStationRequest Class" Url="html/T_CFX_Production_LockStationRequest.htm" />
@@ -1404,30 +1403,26 @@
     <HelpKINode Title="Characteristic.Name Property " Url="html/P_CFX_Structures_Characteristic_Name.htm" />
     <HelpKINode Title="MaterialCarrier.Name Property " Url="html/P_CFX_Structures_MaterialCarrier_Name.htm" />
     <HelpKINode Title="Recipe.Name Property " Url="html/P_CFX_Structures_Recipe_Name.htm" />
-    <HelpKINode Title="SMTSqueegee.Name Property " Url="html/P_CFX_Structures_SolderPastePrinting_SMTSqueegee_Name.htm" />
-    <HelpKINode Title="SMTStencil.Name Property " Url="html/P_CFX_Structures_SolderPastePrinting_SMTStencil_Name.htm" />
     <HelpKINode Title="Tool.Name Property " Url="html/P_CFX_Structures_Tool_Name.htm" />
   </HelpKINode>
   <HelpKINode Title="NeverOpened enumeration member" Url="html/T_CFX_Structures_MSDState.htm" />
   <HelpKINode Title="NewMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackage.htm" />
-  <HelpKINode Title="NewNozzle property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_NewNozzle.htm" />
   <HelpKINode Title="NewParameterValue property">
     <HelpKINode Title="ModifyStationParameterResponse.NewParameterValue Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_NewParameterValue.htm" />
     <HelpKINode Title="StationParameterModified.NewParameterValue Property " Url="html/P_CFX_ResourcePerformance_StationParameterModified_NewParameterValue.htm" />
   </HelpKINode>
   <HelpKINode Title="NewRecipe enumeration member" Url="html/T_CFX_Structures_RecipeModificationReason.htm" />
   <HelpKINode Title="NewRevision enumeration member" Url="html/T_CFX_Structures_RecipeModificationReason.htm" />
-  <HelpKINode Title="NewSqueegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged_NewSqueegee.htm" />
   <HelpKINode Title="NewState property">
     <HelpKINode Title="StageStateChanged.NewState Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_NewState.htm" />
     <HelpKINode Title="StationStateChanged.NewState Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_NewState.htm" />
   </HelpKINode>
-  <HelpKINode Title="NewStencil property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged_NewStencil.htm" />
+  <HelpKINode Title="NewTool property" Url="html/P_CFX_ResourcePerformance_ToolChanged_NewTool.htm" />
   <HelpKINode Title="NextCheckpoint property">
     <HelpKINode Title="CheckpointReached.NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_NextCheckpoint.htm" />
     <HelpKINode Title="MaterialTransportStarted.NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_NextCheckpoint.htm" />
   </HelpKINode>
-  <HelpKINode Title="Normal enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTCleanType.htm" />
+  <HelpKINode Title="Normal enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegeeCleanType.htm" />
   <HelpKINode Title="NoSampling enumeration member" Url="html/T_CFX_Structures_SamplingMethod.htm" />
   <HelpKINode Title="Notes property" Url="html/P_CFX_Production_RecipeModified_Notes.htm" />
   <HelpKINode Title="NotSupportedResponse class">
@@ -1459,12 +1454,10 @@
   <HelpKINode Title="NumericValue.ValueUnits property" Url="html/P_CFX_Structures_NumericValue_ValueUnits.htm" />
   <HelpKINode Title="Off enumeration member" Url="html/T_CFX_Structures_ResourceState.htm" />
   <HelpKINode Title="OfflineDuration property" Url="html/P_CFX_ResourcePerformance_StationOnline_OfflineDuration.htm" />
-  <HelpKINode Title="OldNozzle property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_OldNozzle.htm" />
   <HelpKINode Title="OldParameterValue property">
     <HelpKINode Title="ModifyStationParameterResponse.OldParameterValue Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_OldParameterValue.htm" />
     <HelpKINode Title="StationParameterModified.OldParameterValue Property " Url="html/P_CFX_ResourcePerformance_StationParameterModified_OldParameterValue.htm" />
   </HelpKINode>
-  <HelpKINode Title="OldSqueegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged_OldSqueegee.htm" />
   <HelpKINode Title="OldState property">
     <HelpKINode Title="StageStateChanged.OldState Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_OldState.htm" />
     <HelpKINode Title="StationStateChanged.OldState Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_OldState.htm" />
@@ -1473,7 +1466,7 @@
     <HelpKINode Title="StageStateChanged.OldStateDuration Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_OldStateDuration.htm" />
     <HelpKINode Title="StationStateChanged.OldStateDuration Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_OldStateDuration.htm" />
   </HelpKINode>
-  <HelpKINode Title="OldStencil property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged_OldStencil.htm" />
+  <HelpKINode Title="OldTool property" Url="html/P_CFX_ResourcePerformance_ToolChanged_OldTool.htm" />
   <HelpKINode Title="On enumeration member" Url="html/T_CFX_Structures_ResourceState.htm" />
   <HelpKINode Title="OnCFXMessageReceived event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnCFXMessageReceived.htm" />
   <HelpKINode Title="OnRequestHandler delegate" Url="html/T_CFX_Transport_OnRequestHandler.htm" />
@@ -1617,7 +1610,7 @@
   <HelpKINode Title="QuantitySpoiled property" Url="html/P_CFX_Structures_ConsumedMaterial_QuantitySpoiled.htm" />
   <HelpKINode Title="QuantityUninstalled property" Url="html/P_CFX_Structures_UninstalledMaterial_QuantityUninstalled.htm" />
   <HelpKINode Title="QuantityUsed property" Url="html/P_CFX_Structures_ConsumedMaterial_QuantityUsed.htm" />
-  <HelpKINode Title="Quick enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTCleanType.htm" />
+  <HelpKINode Title="Quick enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegeeCleanType.htm" />
   <HelpKINode Title="Reading class">
     <HelpKINode Title="Reading Class" Url="html/T_CFX_Structures_Reading.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_Reading.htm" />
@@ -1798,7 +1791,7 @@
   </HelpKINode>
   <HelpKINode Title="ResultCode property" Url="html/P_CFX_Structures_RequestResult_ResultCode.htm" />
   <HelpKINode Title="Results property" Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse_Results.htm" />
-  <HelpKINode Title="ReturnedToHolder property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_ReturnedToHolder.htm" />
+  <HelpKINode Title="ReturnedToHolder property" Url="html/P_CFX_ResourcePerformance_ToolChanged_ReturnedToHolder.htm" />
   <HelpKINode Title="Revision property">
     <HelpKINode Title="ActivateRecipeRequest.Revision Property " Url="html/P_CFX_Production_ActivateRecipeRequest_Revision.htm" />
     <HelpKINode Title="GetRecipeRequest.Revision Property " Url="html/P_CFX_Production_GetRecipeRequest_Revision.htm" />
@@ -1885,7 +1878,6 @@
   <HelpKINode Title="SMDTubeFeeder.LaneNumber property" Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_LaneNumber.htm" />
   <HelpKINode Title="SMDTubeFeeder.Pitch property" Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_Pitch.htm" />
   <HelpKINode Title="SMDTubeFeeder.Width property" Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_Width.htm" />
-  <HelpKINode Title="SMTCleanType enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTCleanType.htm" />
   <HelpKINode Title="SMTNozzle class">
     <HelpKINode Title="SMTNozzle Class" Url="html/T_CFX_Structures_SMTPlacement_SMTNozzle.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTNozzle.htm" />
@@ -1893,13 +1885,6 @@
   <HelpKINode Title="SMTNozzle.HeadId property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzle_HeadId.htm" />
   <HelpKINode Title="SMTNozzle.HeadNozzleNumber property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzle_HeadNozzleNumber.htm" />
   <HelpKINode Title="SMTNozzle.NozzleType property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzle_NozzleType.htm" />
-  <HelpKINode Title="SMTNozzleHolder class">
-    <HelpKINode Title="SMTNozzleHolder Class" Url="html/T_CFX_Structures_SMTPlacement_SMTNozzleHolder.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTNozzleHolder.htm" />
-  </HelpKINode>
-  <HelpKINode Title="SMTNozzleHolder.BaseName property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzleHolder_BaseName.htm" />
-  <HelpKINode Title="SMTNozzleHolder.LocationName property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzleHolder_LocationName.htm" />
-  <HelpKINode Title="SMTNozzleHolder.LocationUniqueIdentifier property" Url="html/P_CFX_Structures_SMTPlacement_SMTNozzleHolder_LocationUniqueIdentifier.htm" />
   <HelpKINode Title="SMTPlacementFault class">
     <HelpKINode Title="SMTPlacementFault Class" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm" />
@@ -1916,18 +1901,9 @@
   </HelpKINode>
   <HelpKINode Title="SMTSolderPastePrintingFault.PrintingFaultType property" Url="html/P_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault_PrintingFaultType.htm" />
   <HelpKINode Title="SMTSolderPastePrintingFaultType enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFaultType.htm" />
-  <HelpKINode Title="SMTSqueegee class">
-    <HelpKINode Title="SMTSqueegee Class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegee.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_SolderPastePrinting_SMTSqueegee.htm" />
-  </HelpKINode>
-  <HelpKINode Title="SMTSqueegee.Name property" Url="html/P_CFX_Structures_SolderPastePrinting_SMTSqueegee_Name.htm" />
-  <HelpKINode Title="SMTSqueegee.UniqueIdentifier property" Url="html/P_CFX_Structures_SolderPastePrinting_SMTSqueegee_UniqueIdentifier.htm" />
-  <HelpKINode Title="SMTStencil class">
-    <HelpKINode Title="SMTStencil Class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencil.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_SolderPastePrinting_SMTStencil.htm" />
-  </HelpKINode>
-  <HelpKINode Title="SMTStencil.Name property" Url="html/P_CFX_Structures_SolderPastePrinting_SMTStencil_Name.htm" />
-  <HelpKINode Title="SMTStencil.UniqueIdentifier property" Url="html/P_CFX_Structures_SolderPastePrinting_SMTStencil_UniqueIdentifier.htm" />
+  <HelpKINode Title="SMTSqueegee class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegee.htm" />
+  <HelpKINode Title="SMTSqueegeeCleanType enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegeeCleanType.htm" />
+  <HelpKINode Title="SMTStencil class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencil.htm" />
   <HelpKINode Title="SMTStencilCleanMode enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencilCleanMode.htm" />
   <HelpKINode Title="SoftwareFailure enumeration member" Url="html/T_CFX_Structures_FaultCause.htm" />
   <HelpKINode Title="SolderPasteMeasurement class">
@@ -1945,12 +1921,6 @@
   <HelpKINode Title="Source property" Url="html/P_CFX_CFXEnvelope_Source.htm" />
   <HelpKINode Title="SPI enumeration member" Url="html/T_CFX_Structures_InspectionMethod.htm" />
   <HelpKINode Title="Squeegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_Squeegee.htm" />
-  <HelpKINode Title="SqueegeeChanged class">
-    <HelpKINode Title="SqueegeeChanged Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged.htm" />
-  </HelpKINode>
-  <HelpKINode Title="SqueegeeChanged.NewSqueegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged_NewSqueegee.htm" />
-  <HelpKINode Title="SqueegeeChanged.OldSqueegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeChanged_OldSqueegee.htm" />
   <HelpKINode Title="SqueegeeCleanCycles property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanCycles.htm" />
   <HelpKINode Title="SqueegeeCleaned class">
     <HelpKINode Title="SqueegeeCleaned Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned.htm" />
@@ -1960,8 +1930,10 @@
   <HelpKINode Title="SqueegeeCleaned.Squeegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_Squeegee.htm" />
   <HelpKINode Title="SqueegeeCleaned.SqueegeeCleanCycles property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanCycles.htm" />
   <HelpKINode Title="SqueegeeCleaned.SqueegeeCleanTime property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanTime.htm" />
+  <HelpKINode Title="SqueegeeCleaned.SqueegeeCleanType property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanType.htm" />
   <HelpKINode Title="SqueegeeCleaned.TimeSinceLastClean property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_TimeSinceLastClean.htm" />
   <HelpKINode Title="SqueegeeCleanTime property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanTime.htm" />
+  <HelpKINode Title="SqueegeeCleanType property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanType.htm" />
   <HelpKINode Title="SqueegeeError enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFaultType.htm" />
   <HelpKINode Title="Squeglia enumeration member" Url="html/T_CFX_Structures_SamplingMethod.htm" />
   <HelpKINode Title="Stage property">
@@ -1974,6 +1946,7 @@
     <HelpKINode Title="LogEntryRecorded.Stage Property " Url="html/P_CFX_ResourcePerformance_LogEntryRecorded_Stage.htm" />
     <HelpKINode Title="RecipeActivated.Stage Property " Url="html/P_CFX_Production_RecipeActivated_Stage.htm" />
     <HelpKINode Title="SetupRequirementsChanged.Stage Property " Url="html/P_CFX_Production_SetupRequirementsChanged_Stage.htm" />
+    <HelpKINode Title="StageStateChanged.Stage Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_Stage.htm" />
     <HelpKINode Title="StationSetupRequirements.Stage Property " Url="html/P_CFX_Structures_StationSetupRequirements_Stage.htm" />
     <HelpKINode Title="UnlockStationRequest.Stage Property " Url="html/P_CFX_Production_UnlockStationRequest_Stage.htm" />
     <HelpKINode Title="WorkStageCompleted.Stage Property " Url="html/P_CFX_Production_WorkStageCompleted_Stage.htm" />
@@ -1985,10 +1958,12 @@
     <HelpKINode Title="StageStateChanged Class" Url="html/T_CFX_ResourcePerformance_StageStateChanged.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_ResourcePerformance_StageStateChanged.htm" />
   </HelpKINode>
+  <HelpKINode Title="StageStateChanged.Lane property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_Lane.htm" />
   <HelpKINode Title="StageStateChanged.NewState property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_NewState.htm" />
   <HelpKINode Title="StageStateChanged.OldState property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_OldState.htm" />
   <HelpKINode Title="StageStateChanged.OldStateDuration property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_OldStateDuration.htm" />
   <HelpKINode Title="StageStateChanged.RelatedFault property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_RelatedFault.htm" />
+  <HelpKINode Title="StageStateChanged.Stage property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_Stage.htm" />
   <HelpKINode Title="StartedBy property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_StartedBy.htm" />
   <HelpKINode Title="StartPointX property" Url="html/P_CFX_Structures_Region_StartPointX.htm" />
   <HelpKINode Title="StartPointY property" Url="html/P_CFX_Structures_Region_StartPointY.htm" />
@@ -2034,12 +2009,6 @@
   </HelpKINode>
   <HelpKINode Title="StatusResult enumeration" Url="html/T_CFX_Structures_StatusResult.htm" />
   <HelpKINode Title="Stencil property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned_Stencil.htm" />
-  <HelpKINode Title="StencilChanged class">
-    <HelpKINode Title="StencilChanged Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged.htm" />
-  </HelpKINode>
-  <HelpKINode Title="StencilChanged.NewStencil property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged_NewStencil.htm" />
-  <HelpKINode Title="StencilChanged.OldStencil property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilChanged_OldStencil.htm" />
   <HelpKINode Title="StencilCleanCycles property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned_StencilCleanCycles.htm" />
   <HelpKINode Title="StencilCleaned class">
     <HelpKINode Title="StencilCleaned Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned.htm" />
@@ -2176,13 +2145,24 @@
   <HelpKINode Title="Tool.Name property" Url="html/P_CFX_Structures_Tool_Name.htm" />
   <HelpKINode Title="Tool.UniqueIdentifier property" Url="html/P_CFX_Structures_Tool_UniqueIdentifier.htm" />
   <HelpKINode Title="ToolChanged class">
-    <HelpKINode Title="ToolChanged Class" Url="html/T_CFX_ResourcePerformance_SMTPlacement_ToolChanged.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_ResourcePerformance_SMTPlacement_ToolChanged.htm" />
+    <HelpKINode Title="ToolChanged Class" Url="html/T_CFX_ResourcePerformance_ToolChanged.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CFX_ResourcePerformance_ToolChanged__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CFX_ResourcePerformance_ToolChanged.htm" />
   </HelpKINode>
-  <HelpKINode Title="ToolChanged.LoadedFromHolder property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_LoadedFromHolder.htm" />
-  <HelpKINode Title="ToolChanged.NewNozzle property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_NewNozzle.htm" />
-  <HelpKINode Title="ToolChanged.OldNozzle property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_OldNozzle.htm" />
-  <HelpKINode Title="ToolChanged.ReturnedToHolder property" Url="html/P_CFX_ResourcePerformance_SMTPlacement_ToolChanged_ReturnedToHolder.htm" />
+  <HelpKINode Title="ToolChanged.LoadedFromHolder property" Url="html/P_CFX_ResourcePerformance_ToolChanged_LoadedFromHolder.htm" />
+  <HelpKINode Title="ToolChanged.NewTool property" Url="html/P_CFX_ResourcePerformance_ToolChanged_NewTool.htm" />
+  <HelpKINode Title="ToolChanged.OldTool property" Url="html/P_CFX_ResourcePerformance_ToolChanged_OldTool.htm" />
+  <HelpKINode Title="ToolChanged.ReturnedToHolder property" Url="html/P_CFX_ResourcePerformance_ToolChanged_ReturnedToHolder.htm" />
+  <HelpKINode Title="ToolChanged.ToolChanged constructor" Url="html/M_CFX_ResourcePerformance_ToolChanged__ctor.htm" />
+  <HelpKINode Title="ToolHolder class">
+    <HelpKINode Title="ToolHolder Class" Url="html/T_CFX_Structures_ToolHolder.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CFX_Structures_ToolHolder__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_ToolHolder.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToolHolder.BaseName property" Url="html/P_CFX_Structures_ToolHolder_BaseName.htm" />
+  <HelpKINode Title="ToolHolder.LocationName property" Url="html/P_CFX_Structures_ToolHolder_LocationName.htm" />
+  <HelpKINode Title="ToolHolder.LocationUniqueIdentifier property" Url="html/P_CFX_Structures_ToolHolder_LocationUniqueIdentifier.htm" />
+  <HelpKINode Title="ToolHolder.ToolHolder constructor" Url="html/M_CFX_Structures_ToolHolder__ctor.htm" />
   <HelpKINode Title="ToolsUsed class">
     <HelpKINode Title="ToolsUsed Class" Url="html/T_CFX_Production_Assembly_ToolsUsed.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Production_Assembly_ToolsUsed.htm" />
@@ -2209,21 +2189,21 @@
   <HelpKINode Title="TrackedBy property" Url="html/P_CFX_Materials_Transport_CheckpointReached_TrackedBy.htm" />
   <HelpKINode Title="TrailingMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsJoined_TrailingMaterialPackage.htm" />
   <HelpKINode Title="TransactionId property">
-    <HelpKINode Title="UnitsPersonalized.TransactionId Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_TransactionId.htm" />
     <HelpKINode Title="ReadingsRecorded.TransactionId Property " Url="html/P_CFX_Production_ReadingsRecorded_TransactionId.htm" />
     <HelpKINode Title="ToolsUsed.TransactionId Property " Url="html/P_CFX_Production_Assembly_ToolsUsed_TransactionId.htm" />
     <HelpKINode Title="UnitsInspected.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_TransactionId.htm" />
-    <HelpKINode Title="MaterialsUninstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
+    <HelpKINode Title="UnitsPersonalized.TransactionId Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_TransactionId.htm" />
     <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
+    <HelpKINode Title="MaterialsUninstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
     <HelpKINode Title="UnitsTested.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_TransactionId.htm" />
   </HelpKINode>
   <HelpKINode Title="TransactionID property">
-    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
+    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
+    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
     <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
     <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
+    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
     <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
-    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
   </HelpKINode>
   <HelpKINode Title="TransportOrderHistory class">
     <HelpKINode Title="TransportOrderHistory Class" Url="html/T_CFX_Structures_TransportOrderHistory.htm" />
@@ -2273,8 +2253,6 @@
     <HelpKINode Title="MaterialPackage.UniqueIdentifier Property " Url="html/P_CFX_Structures_MaterialPackage_UniqueIdentifier.htm" />
     <HelpKINode Title="MaterialPackageDetail.UniqueIdentifier Property " Url="html/P_CFX_Structures_MaterialPackageDetail_UniqueIdentifier.htm" />
     <HelpKINode Title="Measurement.UniqueIdentifier Property " Url="html/P_CFX_Structures_Measurement_UniqueIdentifier.htm" />
-    <HelpKINode Title="SMTSqueegee.UniqueIdentifier Property " Url="html/P_CFX_Structures_SolderPastePrinting_SMTSqueegee_UniqueIdentifier.htm" />
-    <HelpKINode Title="SMTStencil.UniqueIdentifier Property " Url="html/P_CFX_Structures_SolderPastePrinting_SMTStencil_UniqueIdentifier.htm" />
     <HelpKINode Title="Symptom.UniqueIdentifier Property " Url="html/P_CFX_Structures_Symptom_UniqueIdentifier.htm" />
     <HelpKINode Title="Test.UniqueIdentifier Property " Url="html/P_CFX_Structures_Test_UniqueIdentifier.htm" />
     <HelpKINode Title="Tool.UniqueIdentifier Property " Url="html/P_CFX_Structures_Tool_UniqueIdentifier.htm" />

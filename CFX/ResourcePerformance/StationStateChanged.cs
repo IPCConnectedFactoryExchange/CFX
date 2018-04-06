@@ -10,6 +10,31 @@ namespace CFX.ResourcePerformance
     /// <summary>
     /// Sent by a process endpoint when the production state transitions
     /// from one state to another per its state model. 
+    /// <para>Example 1 (State change with no related fault):</para>
+    /// <code language="none">
+    /// {
+    ///   "OldState": "IdleStarved",
+    ///   "OldStateDuration": "00:01:25",
+    ///   "NewState": "ReadyProcessingActive",
+    ///   "RelatedFault": null
+    /// }
+    /// </code>
+    /// <para>Example 2 (State change with related fault):</para>
+    /// <code language="none">
+    /// {
+    ///   "OldState": "ReadyProcessingExecuting",
+    ///   "OldStateDuration": "00:00:25",
+    ///   "NewState": "UnplannedDowntime",
+    ///   "RelatedFault": {
+    ///     "Cause": "MechanicalFailure",
+    ///     "Severity": "Error",
+    ///     "FaultCode": "ERROR 3943480",
+    ///     "FaultOccurrenceId": "84c6021f-9db9-431b-aa0b-567b961ac96f",
+    ///     "Lane": null,
+    ///     "Stage": null
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     public class StationStateChanged : CFXMessage
     {

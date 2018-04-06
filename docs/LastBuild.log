@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\Code\Git\CFX\CFX\cfxsdk.shfbproj" started="4/4/2018 8:45:07 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\Code\Git\CFX\CFX\cfxsdk.shfbproj" started="4/6/2018 11:20:22 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -36,16 +36,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0333
+</plugIn>    Last step completed in 00:00:00.0156
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0040
+    Last step completed in 00:00:00.0156
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateRefInfo.proj]
-Build started 4/4/2018 8:45:09 AM.
+Build started 4/6/2018 11:20:23 AM.
 The target &quot;_ConvertPdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,37)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectPdbFiles&quot; listed in an AfterTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (34,70)&quot; does not exist in the project, and will be ignored.
 The target &quot;_CollectMdbFiles&quot; listed in a BeforeTargets attribute at &quot;C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets (41,38)&quot; does not exist in the project, and will be ignored.
@@ -59,7 +59,7 @@ GenerateRefInfo:
   Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 3 dependency assemblies.
-  Wrote information on 21 namespaces, 210 types, and 793 members
+  Wrote information on 21 namespaces, 208 types, and 790 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2017.12.30.2)
   Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
@@ -69,13 +69,13 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\GenerateRefInfo.proj&qu
 
 Build succeeded.
 
-Time Elapsed 00:00:01.04
-    Last step completed in 00:00:01.2001
+Time Elapsed 00:00:00.95
+    Last step completed in 00:00:01.0938
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - TransformManifest.proj]
-Build started 4/4/2018 8:45:11 AM.
+Build started 4/6/2018 11:20:25 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.12.30.2)
@@ -103,12 +103,12 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\TransformManifest.proj&
 
 Build succeeded.
 
-Time Elapsed 00:00:00.71
-    Last step completed in 00:00:00.8496
+Time Elapsed 00:00:00.68
+    Last step completed in 00:00:00.8281
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0534
+    Last step completed in 00:00:00.0313
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -122,14 +122,14 @@ Copying images and creating the media map file...
 Generating conceptual topic files
     Parsing topic file &#39;C:\Code\Git\CFX\CFX\HelpContent\GettingStarted.aml&#39;
     C:\Code\Git\CFX\CFX\HelpContent\GettingStarted.aml -&gt; C:\Code\Git\CFX\docs\Working\ddueXml\cfb57aac-b696-4c6c-b94b-f034b37daf26.xml
-    Last step completed in 00:00:00.0313
+    Last step completed in 00:00:00.0469
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
     Companion files
     _ContentMetadata_.xml
     Merging topic IDs into manifest.xml
-    Last step completed in 00:00:00.0313
+    Last step completed in 00:00:00.0156
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
@@ -138,12 +138,12 @@ No additional content to copy
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0156
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 4/4/2018 8:45:11 AM.
+Build started 4/6/2018 11:20:25 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.12.30.2)
@@ -154,14 +154,14 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\GenerateIntermediateTOC
 
 Build succeeded.
 
-Time Elapsed 00:00:00.22
+Time Elapsed 00:00:00.18
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.3698
+    Last step completed in 00:00:00.2969
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.2467
+    Last step completed in 00:00:00.2188
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -169,12 +169,12 @@ C:\Code\Git\CFX\docs\Working\sandcastle.config
   Updating reference topic configurations.
   Updating conceptual topic configurations.
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00.0201
+    Last step completed in 00:00:00.0156
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\MSBuild\14.0\bin\amd64\MSBuild.exe - BuildTopics.proj]
-Build started 4/4/2018 8:45:12 AM.
+Build started 4/6/2018 11:20:26 AM.
 Project &quot;C:\Code\Git\CFX\docs\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.12.30.2)
@@ -194,7 +194,7 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.Amqp
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.MessagePreview(Amqp.Message,System.Int32)] Unknown reference link target &#39;T:Amqp.Message&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.SendAzureAuthenticationToken(Amqp.Connection,System.String,System.String,System.String)] Unknown reference link target &#39;T:Amqp.Connection&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CFX.Transport.AmqpUtilities.SendAzureAuthenticationToken(Amqp.Connection,System.String,System.String,System.String)] Unknown reference link target &#39;T:Amqp.Connection&#39;. [C:\Code\Git\CFX\docs\Working\BuildTopics.proj]
-  Processed 1025 topic(s)
+  Processed 1016 topic(s)
   12 warning(s)
   CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
   ResolveArtLinksComponent: Copying media files...
@@ -205,12 +205,12 @@ Done Building Project &quot;C:\Code\Git\CFX\docs\Working\BuildTopics.proj&quot; 
 
 Build succeeded.
 
-Time Elapsed 00:00:15.38
-    Last step completed in 00:00:15.5491
+Time Elapsed 00:00:16.07
+    Last step completed in 00:00:16.2329
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0015
+    Last step completed in 00:00:00.0156
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -222,17 +222,17 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing Help 1 files in C:\Code\Git\CFX\docs\Working\Output\HtmlHelp1
-Processed 1025 HTML files
+Processed 1016 HTML files
 Sorting keywords and generating See Also indices
 Saving HTML Help 1 keyword index to C:\Code\Git\CFX\docs\Working\CFXSDK.hhk
 Saving HTML Help 1 table of contents to C:\Code\Git\CFX\docs\Working\CFXSDK.hhc
 
 Processing website files in C:\Code\Git\CFX\docs\Working\Output\Website
-Processed 1025 HTML files
+Processed 1016 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Code\Git\CFX\docs\Working\WebKI.xml
 Saving website table of contents to C:\Code\Git\CFX\docs\Working\WebTOC.xml
-    Last step completed in 00:00:01.3817
+    Last step completed in 00:00:01.1875
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -376,7 +376,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\clipboard.min.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\Code\Git\CFX\docs\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.2696
+    Last step completed in 00:00:00.2656
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating HTML Help 1 table of contents file...
@@ -388,7 +388,7 @@ Generating HTML Help 1 index file...
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Generating HTML Help 1 project file...
-    Last step completed in 00:00:00.0156
+    Last step completed in 00:00:00.0313
 </buildStep>
 <buildStep step="CompilingHelpFile">
 Compiling HTML Help 1 file...
@@ -405,11 +405,11 @@ Compiling HTML Help 1 file...
   
   Compile time: 0 minutes, 5 seconds
   
-  1,027	Topics
+  1,018	Topics
   
-  10,807	Local links
+  10,723	Local links
   
-  706	Internet links
+  702	Internet links
   
   0	Graphics
   
@@ -417,11 +417,11 @@ Compiling HTML Help 1 file...
   
   
   
-  Created c:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\CFXSDK.chm, 1,095,181 bytes
+  Created c:\Code\Git\CFX\docs\Working\Output\HtmlHelp1\CFXSDK.chm, 1,109,401 bytes
   
-  Compression decreased file by 6,596,853 bytes.
+  Compression decreased file by 6,625,503 bytes.
   
-    Last step completed in 00:00:06.1493
+    Last step completed in 00:00:06.1749
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
@@ -432,24 +432,23 @@ Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:01.3121
+</plugIn>    Last step completed in 00:00:01.1563
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 500 files
 Copied 1000 files
-Copied 1500 files
-Copied 1502 files for the website content
-    Last step completed in 00:00:02.8428
+Copied 1485 files for the website content
+    Last step completed in 00:00:02.2032
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.9168
+    Last step completed in 00:00:00.8906
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 4/4/2018 8:45:40 AM.  Total time: 00:00:33.0436
+Build completed successfully at 4/6/2018 11:20:54 AM.  Total time: 00:00:32.4393
 
 </buildStep>
 </shfbBuild>

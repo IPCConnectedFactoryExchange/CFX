@@ -837,6 +837,15 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new StageStateChanged()
+            {
+                Stage = "STAGE2",
+                OldState = ResourceState.IdleStarved,
+                OldStateDuration = TimeSpan.FromSeconds(85),
+                NewState = ResourceState.ReadyProcessingActive
+            };
+            AppendMessage(msg, ref result);
+
             msg = new CFX.ResourcePerformance.FaultOccurred()
             {
                 Fault = flt
@@ -1143,6 +1152,40 @@ namespace CFXExampleEndpoint
                 EndTime = DateTime.Now,
                 TotalComponentsInserted = 875,
                 TotalComponentsNotInserted = 45
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CleanStencilRequest()
+            {
+                CleanTypeRequested = SMTStencilCleanMode.D
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CleanStencilResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK",
+                    ResultCode = 0
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CleanSqueegeeRequest()
+            {
+                CleanTypeRequested = SMTSqueegeeCleanType.Deep
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CleanSqueegeeResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK",
+                    ResultCode = 0
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -2191,6 +2234,24 @@ namespace CFXExampleEndpoint
                     Message = "OK",
                     ResultCode = 0
                 },
+                PrimaryIdentifier = "CARRIER21342",
+                Units = new List<UnitPosition>(
+                    new UnitPosition[]
+                    {
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                    })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new IdentifiersRead()
+            {
+                PrimaryIdentifier = "CARRIER21342",
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new IdentifiersRead()
+            {
                 PrimaryIdentifier = "CARRIER21342",
                 Units = new List<UnitPosition>(
                     new UnitPosition[]

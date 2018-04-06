@@ -8,6 +8,11 @@ namespace CFX.ResourcePerformance
 {
     /// <summary>
     /// Sent by a process endpoint when it is ready for communication to resume, for example, powered up, maintenance over, etc. 
+    /// <code language="none">
+    /// {
+    ///   "OfflineDuration": "00:23:00"
+    /// }
+    /// </code>
     /// </summary>
     public class StationOnline : CFXMessage
     {

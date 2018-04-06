@@ -11,7 +11,6 @@ namespace CFX.ResourcePerformance
     ///   "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368"
     /// }
     /// </code>
-
     /// </summary>
     public class FaultCleared : CFXMessage
     {

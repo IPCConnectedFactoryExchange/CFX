@@ -8,6 +8,12 @@ namespace CFX.ResourcePerformance
     /// This request allows an external source to modify a generic configuration parameter of a process endpoint.
     /// Upon successful processing of this request, the endpoint should publish a <see cref="StationParameterModified"/> message in addition to the 
     /// <see cref="ModifyStationParameterResponse"/> message that it sends back to the requester.
+    /// <code language="none">
+    /// {
+    ///   "ParameterName": "Torque1",
+    ///   "ParameterValue": "35.6"
+    /// }
+    /// </code>
     /// </summary>
     public class ModifyStationParameterRequest : CFXMessage
     {
