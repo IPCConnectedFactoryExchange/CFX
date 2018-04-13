@@ -111,8 +111,8 @@ CFXEnvelope
 {
   "MessageName": "CFX.EndpointConnected",
   "Version": "1.0",
-  "TimeStamp": "2018-04-06T09:07:50.2398335-04:00",
-  "UniqueID": "5a4561e1-d11a-4cb0-9db1-d9bf09f21fed",
+  "TimeStamp": "2018-04-13T12:09:43.0178841-04:00",
+  "UniqueID": "f221e01e-f143-478e-88d2-b2829a390460",
   "Source": null,
   "Target": null,
   "RequestID": null,
@@ -155,7 +155,7 @@ CFX.ResourcePerformance.StationStateChanged
 ///     "Cause": "MechanicalFailure",
 ///     "Severity": "Error",
 ///     "FaultCode": "ERROR 3943480",
-///     "FaultOccurrenceId": "394b49bd-62ea-4685-8d41-4c632779c2f0",
+///     "FaultOccurrenceId": "6bb917cd-4d5e-4773-a023-4d50c7f9a959",
 ///     "Lane": null,
 ///     "Stage": null
 ///   }
@@ -185,7 +185,7 @@ CFX.ResourcePerformance.FaultOccurred
 ///     "Cause": "MechanicalFailure",
 ///     "Severity": "Error",
 ///     "FaultCode": "ERROR 3943480",
-///     "FaultOccurrenceId": "394b49bd-62ea-4685-8d41-4c632779c2f0",
+///     "FaultOccurrenceId": "6bb917cd-4d5e-4773-a023-4d50c7f9a959",
 ///     "Lane": null,
 ///     "Stage": null
 ///   }
@@ -197,7 +197,7 @@ CFX.ResourcePerformance.FaultCleared
 ====================================
 /// <code language="none">
 /// {
-///   "FaultOccurrenceId": "394b49bd-62ea-4685-8d41-4c632779c2f0"
+///   "FaultOccurrenceId": "6bb917cd-4d5e-4773-a023-4d50c7f9a959"
 /// }
 /// </code>
 
@@ -343,8 +343,8 @@ CFX.ResourcePerformance.EnergyConsumed
 ======================================
 /// <code language="none">
 /// {
-///   "StartTime": "2018-04-06T09:02:50.2882255-04:00",
-///   "EndTime": "2018-04-06T09:07:50.2882255-04:00",
+///   "StartTime": "2018-04-13T12:04:43.0878861-04:00",
+///   "EndTime": "2018-04-13T12:09:43.0888862-04:00",
 ///   "EnergyUsed": 0.012,
 ///   "PeakPower": 125.6,
 ///   "MinimumPower": 120.3,
@@ -395,7 +395,7 @@ CFX.ResourcePerformance.FaultOccurred
 ///     "Cause": "MechanicalFailure",
 ///     "Severity": "Error",
 ///     "FaultCode": "ERROR 3943480",
-///     "FaultOccurrenceId": "30db169b-0144-4f84-9e1c-0627c767698a",
+///     "FaultOccurrenceId": "966a046e-ee50-4288-b4c7-5bc9f0df54da",
 ///     "Lane": "LANE1",
 ///     "Stage": "STAGE2"
 ///   }
@@ -481,8 +481,8 @@ CFX.ResourcePerformance.SMTPlacement.ComponentsPlaced
 =====================================================
 /// <code language="none">
 /// {
-///   "StartTime": "2018-04-06T08:57:50.3376158-04:00",
-///   "EndTime": "2018-04-06T09:07:50.3376158-04:00",
+///   "StartTime": "2018-04-13T11:59:43.1328875-04:00",
+///   "EndTime": "2018-04-13T12:09:43.1328875-04:00",
 ///   "TotalComponentsPlaced": 875,
 ///   "TotalComponentsNotPlaced": 45
 /// }
@@ -524,7 +524,7 @@ CFX.ResourcePerformance.FaultOccurred
 ///     "Cause": "MechanicalFailure",
 ///     "Severity": "Error",
 ///     "FaultCode": "ERROR 3943480",
-///     "FaultOccurrenceId": "0f792a2b-4197-49ab-86f6-ed4f0c492538",
+///     "FaultOccurrenceId": "aaec1b94-160f-4d8d-b0e0-e9b920d8c433",
 ///     "Lane": "LANE1",
 ///     "Stage": "STAGE2"
 ///   }
@@ -536,8 +536,8 @@ CFX.ResourcePerformance.THTInsertion.ComponentsInserted
 =======================================================
 /// <code language="none">
 /// {
-///   "StartTime": "2018-04-06T08:57:50.341614-04:00",
-///   "EndTime": "2018-04-06T09:07:50.341614-04:00",
+///   "StartTime": "2018-04-13T11:59:43.1428863-04:00",
+///   "EndTime": "2018-04-13T12:09:43.1428863-04:00",
 ///   "TotalComponentsInserted": 875,
 ///   "TotalComponentsNotInserted": 45
 /// }
@@ -632,7 +632,7 @@ CFX.ResourcePerformance.FaultOccurred
 ///     "Cause": "MechanicalFailure",
 ///     "Severity": "Error",
 ///     "FaultCode": "ERROR 234333",
-///     "FaultOccurrenceId": "592b727e-dc32-4164-8ff0-398d5200627b",
+///     "FaultOccurrenceId": "7e7f3a74-3048-448b-acee-12cf6ec3ab1c",
 ///     "Lane": null,
 ///     "Stage": null
 ///   }
@@ -785,7 +785,7 @@ CFX.Production.LockStationRequest
 ///   "Stage": "5",
 ///   "Reason": "QualityIssue",
 ///   "Requestor": {
-///     "OperatorIdentifier": "f0eabd9a-6e45-476a-bf10-257d313b94cc",
+///     "OperatorIdentifier": "3e9fa93d-3733-475c-94a6-cd1cf55e280a",
 ///     "ActorType": "Human",
 ///     "FullName": "Bill Smith",
 ///     "LastName": "Smith",
@@ -814,7 +814,7 @@ CFX.Production.OperatorActivated
 /// <code language="none">
 /// {
 ///   "Operator": {
-///     "OperatorIdentifier": "365bd3a6-541f-4031-9da2-f2c394ce51d3",
+///     "OperatorIdentifier": "4cec9447-3da6-4c6d-b3cb-8744c99af9e5",
 ///     "ActorType": "Human",
 ///     "FullName": "Bill Smith",
 ///     "LastName": "Smith",
@@ -830,7 +830,7 @@ CFX.Production.OperatorDeactivated
 /// <code language="none">
 /// {
 ///   "Operator": {
-///     "OperatorIdentifier": "5b2d2998-7faf-4a35-81a5-75c8667ee96a",
+///     "OperatorIdentifier": "107e677c-21ab-4c5c-bbe4-13f0f94ef74e",
 ///     "ActorType": "Human",
 ///     "FullName": "Bill Smith",
 ///     "LastName": "Smith",
@@ -845,11 +845,11 @@ CFX.Production.ReadingsRecorded
 ===============================
 /// <code language="none">
 /// {
-///   "TransactionId": "9e7fccec-c8b6-4076-849f-35664d11f9a9",
+///   "TransactionId": "9593528c-f1a1-45ca-8046-4d2635d234d0",
 ///   "Readings": [
 ///     {
 ///       "ReadingIdentifier": "CHIPTEMP1",
-///       "TimeRecorded": "2018-04-06T09:07:50.4197572-04:00",
+///       "TimeRecorded": "2018-04-13T12:09:43.2108872-04:00",
 ///       "ReadingSequence": 1,
 ///       "Result": "Passed",
 ///       "UnitIdentifier": null,
@@ -873,7 +873,7 @@ CFX.Production.ReadingsRecorded
 ///     },
 ///     {
 ///       "ReadingIdentifier": "VOLTAGE1",
-///       "TimeRecorded": "2018-04-06T09:07:50.4197572-04:00",
+///       "TimeRecorded": "2018-04-13T12:09:43.2108872-04:00",
 ///       "ReadingSequence": 2,
 ///       "Result": "Passed",
 ///       "UnitIdentifier": null,
@@ -907,7 +907,7 @@ CFX.Production.ReadingsRecorded
 ///     },
 ///     {
 ///       "ReadingIdentifier": "CHIPTEMP1",
-///       "TimeRecorded": "2018-04-06T09:07:50.4197572-04:00",
+///       "TimeRecorded": "2018-04-13T12:09:43.2108872-04:00",
 ///       "ReadingSequence": 1,
 ///       "Result": "Passed",
 ///       "UnitIdentifier": null,
@@ -931,7 +931,7 @@ CFX.Production.ReadingsRecorded
 ///     },
 ///     {
 ///       "ReadingIdentifier": "VOLTAGE1",
-///       "TimeRecorded": "2018-04-06T09:07:50.4197572-04:00",
+///       "TimeRecorded": "2018-04-13T12:09:43.2108872-04:00",
 ///       "ReadingSequence": 2,
 ///       "Result": "Passed",
 ///       "UnitIdentifier": null,
@@ -987,7 +987,7 @@ CFX.Production.RecipeModified
 ///   "RecipeName": "RECIPE3234",
 ///   "Revision": "D",
 ///   "ModifiedBy": {
-///     "OperatorIdentifier": "d85f1d2b-7d92-4a0b-9ecb-89e2f6686664",
+///     "OperatorIdentifier": "043a2f6e-f86c-4feb-b60a-7b7dfe92f7f7",
 ///     "ActorType": "Human",
 ///     "FullName": "Bill Smith",
 ///     "LastName": "Smith",
@@ -1110,7 +1110,7 @@ CFX.Production.UnlockStationRequest
 ///   "Lane": null,
 ///   "Stage": null,
 ///   "Requestor": {
-///     "OperatorIdentifier": "c4202347-defe-4bbf-9864-204fae50cb60",
+///     "OperatorIdentifier": "8b88241e-0d84-4f34-a037-47861fa563aa",
 ///     "ActorType": "Human",
 ///     "FullName": "Bill Smith",
 ///     "LastName": "Smith",
@@ -1476,7 +1476,7 @@ CFX.Production.Assembly.MaterialsInstalled
 ==========================================
 /// <code language="none">
 /// {
-///   "TransactionId": "b0eff9df-899b-469c-80bc-9c6a8999c747",
+///   "TransactionId": "2a0223f5-4161-482d-8771-2403ec4c82a6",
 ///   "InstalledMaterials": [
 ///     {
 ///       "UnitIdentifier": "PANEL23423432",
@@ -1504,15 +1504,15 @@ CFX.Production.Assembly.MaterialsInstalled
 ///       "InstalledComponents": [
 ///         {
 ///           "ReferenceDesignator": "R1",
-///           "InstallationTime": "2018-04-06T09:07:50.5353371-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.2988884-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R2",
-///           "InstallationTime": "2018-04-06T09:07:50.5358367-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.2998891-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R3",
-///           "InstallationTime": "2018-04-06T09:07:50.5358367-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.2998891-04:00"
 ///         }
 ///       ]
 ///     },
@@ -1542,15 +1542,15 @@ CFX.Production.Assembly.MaterialsInstalled
 ///       "InstalledComponents": [
 ///         {
 ///           "ReferenceDesignator": "R1",
-///           "InstallationTime": "2018-04-06T09:07:50.5358367-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.2998891-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R2",
-///           "InstallationTime": "2018-04-06T09:07:50.5358367-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.2998891-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R3",
-///           "InstallationTime": "2018-04-06T09:07:50.5358367-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.2998891-04:00"
 ///         }
 ///       ]
 ///     }
@@ -1563,7 +1563,7 @@ CFX.Production.Assembly.MaterialsUninstalled
 ============================================
 /// <code language="none">
 /// {
-///   "TransactionId": "a6c81098-18fd-4eb4-964b-1ef449cf755f",
+///   "TransactionId": "78aae576-d793-483e-bf3d-49951a2963a6",
 ///   "UninstalledMaterials": [
 ///     {
 ///       "UnitIdentifier": "PANEL23423432",
@@ -1577,15 +1577,15 @@ CFX.Production.Assembly.MaterialsUninstalled
 ///       "UninstalledComponents": [
 ///         {
 ///           "ReferenceDesignator": "R1",
-///           "InstallationTime": "2018-04-06T09:07:50.5628465-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3168899-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R2",
-///           "InstallationTime": "2018-04-06T09:07:50.5628465-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3168899-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R3",
-///           "InstallationTime": "2018-04-06T09:07:50.5628465-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3168899-04:00"
 ///         }
 ///       ]
 ///     },
@@ -1601,15 +1601,15 @@ CFX.Production.Assembly.MaterialsUninstalled
 ///       "UninstalledComponents": [
 ///         {
 ///           "ReferenceDesignator": "R1",
-///           "InstallationTime": "2018-04-06T09:07:50.5628465-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3168899-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R2",
-///           "InstallationTime": "2018-04-06T09:07:50.5628465-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3168899-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R3",
-///           "InstallationTime": "2018-04-06T09:07:50.5628465-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3168899-04:00"
 ///         }
 ///       ]
 ///     }
@@ -1622,7 +1622,7 @@ CFX.Production.Assembly.ToolsUsed
 =================================
 /// <code language="none">
 /// {
-///   "TransactionId": "c7e89ee0-6294-4118-9337-fb4e22d3269e",
+///   "TransactionId": "618e27b5-a53a-4a14-a48c-0f5ce25506ff",
 ///   "UsedTools": [
 ///     {
 ///       "UnitIdentifier": "PANEL23423432",
@@ -1639,15 +1639,15 @@ CFX.Production.Assembly.ToolsUsed
 ///       "InstalledComponents": [
 ///         {
 ///           "ReferenceDesignator": "R1",
-///           "InstallationTime": "2018-04-06T09:07:50.5708473-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3218897-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R2",
-///           "InstallationTime": "2018-04-06T09:07:50.5708473-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3218897-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R3",
-///           "InstallationTime": "2018-04-06T09:07:50.5708473-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3218897-04:00"
 ///         }
 ///       ]
 ///     },
@@ -1666,15 +1666,15 @@ CFX.Production.Assembly.ToolsUsed
 ///       "InstalledComponents": [
 ///         {
 ///           "ReferenceDesignator": "R1",
-///           "InstallationTime": "2018-04-06T09:07:50.5708473-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3218897-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R2",
-///           "InstallationTime": "2018-04-06T09:07:50.5708473-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3218897-04:00"
 ///         },
 ///         {
 ///           "ReferenceDesignator": "R3",
-///           "InstallationTime": "2018-04-06T09:07:50.5708473-04:00"
+///           "InstallationTime": "2018-04-13T12:09:43.3218897-04:00"
 ///         }
 ///       ]
 ///     }
@@ -1687,7 +1687,7 @@ CFX.Production.Assembly.ToolsUsed
 =================================
 /// <code language="none">
 /// {
-///   "TransactionId": "c7e89ee0-6294-4118-9337-fb4e22d3269e",
+///   "TransactionId": "618e27b5-a53a-4a14-a48c-0f5ce25506ff",
 ///   "UsedTools": [
 ///     {
 ///       "UnitIdentifier": "PANEL23423432",
@@ -1718,7 +1718,7 @@ CFX.Production.Assembly.UnitsPersonalized
 =========================================
 /// <code language="none">
 /// {
-///   "TransactionId": "00d23c15-dc0d-4c01-b564-f384e02801c8",
+///   "TransactionId": "be492379-b7f9-47af-acb3-776e7fd8b6c0",
 ///   "PersonalizedUnits": [
 ///     {
 ///       "UnitIdentifier": "PANEL23423432",
@@ -1749,7 +1749,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ===============================================
 /// <code language="none">
 /// {
-///   "TransactionId": "19c10e15-5852-40d5-8c43-7942c304815f",
+///   "TransactionId": "bbde1c47-4077-48d9-b87d-7733f3c0f350",
 ///   "InspectionMethod": "AOI",
 ///   "SamplingInformation": {
 ///     "SamplingMethod": "NoSampling",
@@ -1771,7 +1771,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///       "OverallResult": "Passed",
 ///       "Inspections": [
 ///         {
-///           "UniqueIdentifier": "21cc808f-762c-4dd0-910a-de42f3712d3e",
+///           "UniqueIdentifier": "68ac9c52-e8a0-4d1e-a1b3-6e19162164d3",
 ///           "InspectionName": "INSPECT_R21",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -1784,7 +1784,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///           "Measurements": []
 ///         },
 ///         {
-///           "UniqueIdentifier": "281c78a6-8ea8-48fc-93d9-41a0a2228e8c",
+///           "UniqueIdentifier": "0f88a7d1-a4eb-4674-86a9-573549956374",
 ///           "InspectionName": "INSPECT_R22",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -1804,7 +1804,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///       "OverallResult": "Failed",
 ///       "Inspections": [
 ///         {
-///           "UniqueIdentifier": "5858c129-91d5-4f95-a0ad-1d680355c4f6",
+///           "UniqueIdentifier": "a2ff5098-a65c-4902-9150-db6be949a44c",
 ///           "InspectionName": "INSPECT_R21",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -1817,7 +1817,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///           "Measurements": []
 ///         },
 ///         {
-///           "UniqueIdentifier": "a6eb7cd3-ade6-4dcd-8693-494d4ddf2520",
+///           "UniqueIdentifier": "54460a47-9844-4a1c-835b-2e6a7b536cf0",
 ///           "InspectionName": "INSPECT_R22",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -1827,7 +1827,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///           "Error": null,
 ///           "DefectsFound": [
 ///             {
-///               "UniqueIdentifier": "46c0f646-b79a-4a9f-9e28-d5e15cb0e991",
+///               "UniqueIdentifier": "3c491b24-dc71-4b9c-878c-5bfe6e587459",
 ///               "DefectCode": "ISFSLD112",
 ///               "DefectCategory": "Solder Problems",
 ///               "Description": "Insuffiecient Solder on R22, Lead 1",
@@ -1854,7 +1854,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///               "RelatedSymptoms": []
 ///             },
 ///             {
-///               "UniqueIdentifier": "bb360389-edce-41b2-b91f-ea3392d62ca2",
+///               "UniqueIdentifier": "8e6c2e2d-d98a-4f76-8e21-327a975f4bd8",
 ///               "DefectCode": "TMBSTN211",
 ///               "DefectCategory": "Solder Problems",
 ///               "Description": "Tombston on R22",
@@ -1885,7 +1885,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///           "Measurements": []
 ///         },
 ///         {
-///           "UniqueIdentifier": "48218475-2465-4bb3-852c-b3403be06228",
+///           "UniqueIdentifier": "863bb845-a7d1-4c4f-8e36-14ec28074bc9",
 ///           "InspectionName": "COSMETIC_INSPECTION",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -1895,7 +1895,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///           "Error": null,
 ///           "DefectsFound": [
 ///             {
-///               "UniqueIdentifier": "deb7e8ed-1f5c-41b1-a896-fc4abaa939d5",
+///               "UniqueIdentifier": "bf8b6d23-6004-4ae1-9027-0900b359d560",
 ///               "DefectCode": "SCR23443",
 ///               "DefectCategory": "Cosmetic Problems",
 ///               "Description": "Scratch Detected on PCB substrate",
@@ -1948,7 +1948,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ===============================================
 /// <code language="none">
 /// {
-///   "TransactionId": "f60ba29a-d93e-4a69-91f7-02003637ce8e",
+///   "TransactionId": "40e4e024-23a3-4ad9-82c8-7f6f5447f061",
 ///   "InspectionMethod": "SPI",
 ///   "SamplingInformation": {
 ///     "SamplingMethod": "NoSampling",
@@ -1970,7 +1970,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///       "OverallResult": "Passed",
 ///       "Inspections": [
 ///         {
-///           "UniqueIdentifier": "a0933fe4-2522-41df-985f-251bd1703ae4",
+///           "UniqueIdentifier": "d4cb30a7-c000-4b79-bb29-e7a65e0c3133",
 ///           "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -2036,7 +2036,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///                 "MimeType": "image/jpg",
 ///                 "ImageData": "/z2Zhw=="
 ///               },
-///               "UniqueIdentifier": "433ccc06-687b-4a15-89c9-7c42f248d561",
+///               "UniqueIdentifier": "481ed35c-d9f3-48ae-a9ff-218e5d889cc6",
 ///               "MeasurementName": "MEASURE R1.1",
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2098,7 +2098,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///                 "MimeType": "image/jpg",
 ///                 "ImageData": "/z2Zhw=="
 ///               },
-///               "UniqueIdentifier": "995c72f3-25d2-4b4e-80e5-adc8bf495210",
+///               "UniqueIdentifier": "8f193102-2b0f-45e6-8e8e-ce0a54bebd6f",
 ///               "MeasurementName": "MEASURE R1.1",
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2115,7 +2115,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///       "OverallResult": "Failed",
 ///       "Inspections": [
 ///         {
-///           "UniqueIdentifier": "337e18ce-2c0f-462f-913b-b3caed26c903",
+///           "UniqueIdentifier": "3663395d-5685-44cd-afa0-37e40b45208a",
 ///           "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
 ///           "InspectionStartTime": null,
 ///           "InspectionEndTime": null,
@@ -2178,7 +2178,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///                 "MaximumAcceptableValue": 30.0
 ///               },
 ///               "DepositImage": null,
-///               "UniqueIdentifier": "8650386e-62eb-4160-8a67-8b95fcf8027f",
+///               "UniqueIdentifier": "b06ff6a4-c952-41ab-adac-9d082ce5fe26",
 ///               "MeasurementName": null,
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2237,7 +2237,7 @@ CFX.Production.TestAndInspection.UnitsInspected
 ///                 "MaximumAcceptableValue": 30.0
 ///               },
 ///               "DepositImage": null,
-///               "UniqueIdentifier": "15287657-ecf4-4c10-8933-bac643fa6818",
+///               "UniqueIdentifier": "9e0a3a12-50b1-4c7c-803a-3bf7ba4de8a4",
 ///               "MeasurementName": null,
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2257,7 +2257,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ============================================
 /// <code language="none">
 /// {
-///   "TransactionId": "8b343d52-e6ca-4852-a1d3-deb79c8ad59f",
+///   "TransactionId": "f66e0d09-55b6-4802-a56b-ef56628793e8",
 ///   "TestMethod": "Automated",
 ///   "Tester": {
 ///     "OperatorIdentifier": "UID235434324",
@@ -2279,7 +2279,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///       "OverallResult": "Passed",
 ///       "Tests": [
 ///         {
-///           "UniqueIdentifier": "bf157b62-c229-4d67-8abf-049ab529a93f",
+///           "UniqueIdentifier": "5f82e9e1-64ae-4ad9-8c85-ed49c18f0cfe",
 ///           "TestName": "RESISTANCE_CHECK_R21",
 ///           "TestStartTime": null,
 ///           "TestEndTime": null,
@@ -2301,7 +2301,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///                 "MinimumAcceptableValue": 28.0,
 ///                 "MaximumAcceptableValue": 28.4
 ///               },
-///               "UniqueIdentifier": "403a1779-8ea9-468f-b27a-3760708f08cf",
+///               "UniqueIdentifier": "0bf8c883-ead5-47cc-9ff5-69d5e1b942df",
 ///               "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2317,7 +2317,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///           ]
 ///         },
 ///         {
-///           "UniqueIdentifier": "fad83c00-92d7-4559-ae03-e37d7c5d4039",
+///           "UniqueIdentifier": "21e97c74-9b21-4c99-ac5e-17efe4f313fd",
 ///           "TestName": "RESISTANCE_CHECK_R22",
 ///           "TestStartTime": null,
 ///           "TestEndTime": null,
@@ -2328,7 +2328,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///           "Error": null,
 ///           "SymptomsFound": [
 ///             {
-///               "UniqueIdentifier": "816445eb-d101-4d67-823c-e905de0b8bf1",
+///               "UniqueIdentifier": "20a0e41b-4b85-4ac4-bdce-ede068e7e438",
 ///               "SymptomCode": "RESFAIL2",
 ///               "SymptomCategory": "Electrical Tests",
 ///               "Description": "Resistance Value Out of Tolerance",
@@ -2358,7 +2358,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///                     "MinimumAcceptableValue": 28.0,
 ///                     "MaximumAcceptableValue": 28.4
 ///                   },
-///                   "UniqueIdentifier": "76ac3c5d-1442-4c8f-9f43-d03972dd89fc",
+///                   "UniqueIdentifier": "38600615-3fa1-4644-9a39-5ffb400c6599",
 ///                   "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
 ///                   "TimeRecorded": null,
 ///                   "Sequence": 0,
@@ -2385,7 +2385,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///       "OverallResult": "Passed",
 ///       "Tests": [
 ///         {
-///           "UniqueIdentifier": "23196bc0-0908-427c-9f6a-dac906564776",
+///           "UniqueIdentifier": "ca86e84d-a8e7-4152-b27f-b7a57706fbdb",
 ///           "TestName": "RESISTANCE_CHECK_R21",
 ///           "TestStartTime": null,
 ///           "TestEndTime": null,
@@ -2407,7 +2407,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///                 "MinimumAcceptableValue": 28.0,
 ///                 "MaximumAcceptableValue": 28.4
 ///               },
-///               "UniqueIdentifier": "26da7929-89f3-48c0-9099-583613c0555a",
+///               "UniqueIdentifier": "4a4a95bb-8cfc-490d-9c60-596fbac70097",
 ///               "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2423,7 +2423,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///           ]
 ///         },
 ///         {
-///           "UniqueIdentifier": "feb2111d-4298-4975-b16d-5cbdc2ac8194",
+///           "UniqueIdentifier": "fd853d49-b678-4d6c-a58a-3928839ca91a",
 ///           "TestName": "RESISTANCE_CHECK_R22",
 ///           "TestStartTime": null,
 ///           "TestEndTime": null,
@@ -2445,7 +2445,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ///                 "MinimumAcceptableValue": 28.0,
 ///                 "MaximumAcceptableValue": 28.4
 ///               },
-///               "UniqueIdentifier": "d6d11e3a-4404-4424-90b0-2ac9e3fd5dd8",
+///               "UniqueIdentifier": "7861589e-4f2a-4b0e-8115-189f33d1c2ff",
 ///               "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
 ///               "TimeRecorded": null,
 ///               "Sequence": 0,
@@ -2471,7 +2471,7 @@ CFX.Production.TestAndInspection.UnitsTested
 ============================================
 /// <code language="none">
 /// {
-///   "TransactionId": "824161a5-ef7e-41a8-b598-bfb7d2f251f2",
+///   "TransactionId": "344de060-c130-42b2-bc95-97ed43e7b30a",
 ///   "TestMethod": "Automated",
 ///   "Tester": {
 ///     "OperatorIdentifier": "UID235434324",
@@ -2493,10 +2493,10 @@ CFX.Production.TestAndInspection.UnitsTested
 ///       "OverallResult": "Passed",
 ///       "Tests": [
 ///         {
-///           "UniqueIdentifier": "bcf8bbe9-5a09-4aad-8647-369a95b859ce",
+///           "UniqueIdentifier": "1607312e-fc1b-4ff1-8b67-3861a9d43484",
 ///           "TestName": "HOT_TEST",
-///           "TestStartTime": "2018-04-06T09:07:18.7198784-04:00",
-///           "TestEndTime": "2018-04-06T09:07:50.7198784-04:00",
+///           "TestStartTime": "2018-04-13T12:09:11.4288931-04:00",
+///           "TestEndTime": "2018-04-13T12:09:43.4298932-04:00",
 ///           "TestConditions": [
 ///             {
 ///               "$type": "CFX.Structures.Temperature, CFX",
@@ -2526,10 +2526,10 @@ CFX.Production.TestAndInspection.UnitsTested
 ///           "Measurements": []
 ///         },
 ///         {
-///           "UniqueIdentifier": "7ef02527-f372-4b55-854f-24fb3cb19fb9",
+///           "UniqueIdentifier": "94f36b56-fd8b-4639-8e57-d49387ffdcd7",
 ///           "TestName": "COLD_TEST",
-///           "TestStartTime": "2018-04-06T09:07:18.7208755-04:00",
-///           "TestEndTime": "2018-04-06T09:07:50.7208755-04:00",
+///           "TestStartTime": "2018-04-13T12:09:11.4298932-04:00",
+///           "TestEndTime": "2018-04-13T12:09:43.4298932-04:00",
 ///           "TestConditions": [
 ///             {
 ///               "$type": "CFX.Structures.Temperature, CFX",
@@ -2932,7 +2932,7 @@ CFX.Materials.Management.MaterialsInitialized
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -2957,7 +2957,7 @@ CFX.Materials.Management.MaterialsInitialized
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG44543534",
 ///       "ManufacuterLotCode": "LOT2016101008",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2016-10-10T00:00:00",
 ///       "ReceivedDate": "2017-09-09T00:00:00",
 ///       "Units": null,
@@ -3003,7 +3003,7 @@ CFX.Materials.Management.MaterialsModified
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -3028,7 +3028,7 @@ CFX.Materials.Management.MaterialsModified
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG44543534",
 ///       "ManufacuterLotCode": "LOT2016101008",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2016-10-10T00:00:00",
 ///       "ReceivedDate": "2017-09-09T00:00:00",
 ///       "Units": null,
@@ -3045,7 +3045,7 @@ CFX.Materials.Management.MaterialsModified
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG543534537",
 ///       "ManufacuterLotCode": "LOT2017080355",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2017-08-03T00:00:00",
 ///       "ReceivedDate": "2017-09-10T00:00:00",
 ///       "Units": null,
@@ -3096,16 +3096,10 @@ CFX.Materials.Management.MaterialsSplit
 =======================================
 /// <code language="none">
 /// {
-///   "OriginalMaterialPackage": {
-///     "UniqueIdentifier": "MAT4566589856",
-///     "InternalPartNumber": "IPN45577",
-///     "Quantity": 151.0
-///   },
-///   "NewMaterialPackage": {
-///     "UniqueIdentifier": "MAT4563453457",
-///     "InternalPartNumber": "IPN45577",
-///     "Quantity": 151.0
-///   }
+///   "SourceMaterialPackageIdentifier": "MAT4566589856",
+///   "SourceMaterialPackageRemainingQuantity": 121.0,
+///   "NewMaterialPackageIdentifier": "MAT4563453457",
+///   "NewMaterialPackageQuantity": 30.0
 /// }
 /// </code>
 
@@ -3168,8 +3162,8 @@ CFX.Materials.Management.MaterialsConsumed
 /// </code>
 
 
-CFX.Materials.Management.MaterialsEmpty
-=======================================
+CFX.Materials.Storage.MaterialsEmpty
+====================================
 /// <code language="none">
 /// {
 ///   "EmptyMaterials": [
@@ -3229,7 +3223,7 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -3238,9 +3232,9 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-12T09:07:50.8152755-04:00",
+///         "ExpirationDateTime": "2018-04-19T12:09:43.5188947-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5188947-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL3",
 ///         "MSDState": "Exposed"
@@ -3254,7 +3248,7 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG543534537",
 ///       "ManufacuterLotCode": "LOT2017080355",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2017-08-03T00:00:00",
 ///       "ReceivedDate": "2017-09-10T00:00:00",
 ///       "Units": null,
@@ -3263,9 +3257,9 @@ CFX.Materials.Management.MSDManagement.MaterialsOpened
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-12T09:07:50.8152755-04:00",
+///         "ExpirationDateTime": "2018-04-19T12:09:43.5188947-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5188947-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL2A",
 ///         "MSDState": "Exposed"
@@ -3289,7 +3283,7 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -3298,9 +3292,9 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "ExpirationDateTime": "2018-04-13T12:09:43.521895-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5188947-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL3",
 ///         "MSDState": "Expired"
@@ -3314,7 +3308,7 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG543534537",
 ///       "ManufacuterLotCode": "LOT2017080355",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2017-08-03T00:00:00",
 ///       "ReceivedDate": "2017-09-10T00:00:00",
 ///       "Units": null,
@@ -3323,9 +3317,9 @@ CFX.Materials.Management.MSDManagement.MaterialsExpired
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "ExpirationDateTime": "2018-04-13T12:09:43.521895-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5188947-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL2A",
 ///         "MSDState": "Expired"
@@ -3349,7 +3343,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -3360,7 +3354,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
 ///         "ExpirationDateTime": null,
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5188947-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL3",
 ///         "MSDState": "InDryStorage"
@@ -3374,7 +3368,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG543534537",
 ///       "ManufacuterLotCode": "LOT2017080355",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2017-08-03T00:00:00",
 ///       "ReceivedDate": "2017-09-10T00:00:00",
 ///       "Units": null,
@@ -3385,7 +3379,7 @@ CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
 ///         "ExpirationDateTime": null,
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8152755-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5188947-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL2A",
 ///         "MSDState": "InDryStorage"
@@ -3409,7 +3403,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -3418,9 +3412,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-12T09:07:50.8364137-04:00",
+///         "ExpirationDateTime": "2018-04-19T12:09:43.5288983-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8364137-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5288983-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL3",
 ///         "MSDState": "Exposed"
@@ -3434,7 +3428,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG543534537",
 ///       "ManufacuterLotCode": "LOT2017080355",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2017-08-03T00:00:00",
 ///       "ReceivedDate": "2017-09-10T00:00:00",
 ///       "Units": null,
@@ -3443,9 +3437,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-12T09:07:50.8364137-04:00",
+///         "ExpirationDateTime": "2018-04-19T12:09:43.5288983-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.8364137-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.5288983-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL2A",
 ///         "MSDState": "Exposed"
@@ -3469,7 +3463,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG23452442",
 ///       "ManufacuterLotCode": "LOT2016110588",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7648788-04:00",
 ///       "ManufactureDate": "2016-11-05T00:00:00",
 ///       "ReceivedDate": "2017-05-06T00:00:00",
 ///       "Units": null,
@@ -3478,9 +3472,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-12T09:07:50.839916-04:00",
+///         "ExpirationDateTime": "2018-04-19T12:09:43.532895-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.839916-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.532895-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL3",
 ///         "MSDState": "Exposed"
@@ -3494,7 +3488,7 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
 ///       "Vendor": "Digikey",
 ///       "VendorPartNumber": "DIG543534537",
 ///       "ManufacuterLotCode": "LOT2017080355",
-///       "Created": "2018-04-06T09:07:49.956141-04:00",
+///       "Created": "2018-04-13T12:09:42.7668799-04:00",
 ///       "ManufactureDate": "2017-08-03T00:00:00",
 ///       "ReceivedDate": "2017-09-10T00:00:00",
 ///       "Units": null,
@@ -3503,9 +3497,9 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
 ///       "Status": "Active",
 ///       "MaterialData": {
 ///         "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
-///         "ExpirationDateTime": "2018-04-12T09:07:50.839916-04:00",
+///         "ExpirationDateTime": "2018-04-19T12:09:43.532895-04:00",
 ///         "OriginalExposureDateTime": "2017-05-01T08:22:12",
-///         "LastExposureDateTime": "2018-04-06T09:07:50.839916-04:00",
+///         "LastExposureDateTime": "2018-04-13T12:09:43.532895-04:00",
 ///         "RemainingExposureTime": "6.00:00:00",
 ///         "MSDLevel": "MSL2A",
 ///         "MSDState": "Exposed"
@@ -3516,24 +3510,49 @@ CFX.Materials.Management.MSDManagement.MaterialsRestored
 /// </code>
 
 
-CFX.Materials.Transport.MaterialTransportStarted
-================================================
+CFX.Materials.Transport.TransportOrderStarted
+=============================================
 /// <code language="none">
 /// {
 ///   "TransportOrderNumber": "TR329483249830000",
 ///   "StartedBy": {
-///     "OperatorIdentifier": "377c3b83-a78d-43cc-af61-6460f09542d7",
+///     "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
 ///     "ActorType": "Human",
 ///     "FullName": "Bill Smith",
 ///     "LastName": "Smith",
 ///     "FirstName": "Bill",
 ///     "LoginName": "bill.smith@domain1.com"
 ///   },
-///   "Comments": null,
+///   "Comments": "Initiating new transport order.  Waiting to be kitted.",
+///   "Status": "Pending",
 ///   "RelatedWorkOrderNumber": "WO2384702937403280032",
+///   "Source": null,
 ///   "FinalDestination": "LINE1",
 ///   "NextCheckpoint": "SMT STAGING AREA 1",
 ///   "Materials": []
+/// }
+/// </code>
+
+
+CFX.Materials.Transport.TransportOrderStatusChanged
+===================================================
+/// <code language="none">
+/// {
+///   "TransportOrderNumber": "TR329483249830000",
+///   "Comments": "Kitting Underway...",
+///   "Status": "Kitting",
+///   "UpdatedBy": {
+///     "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+///     "ActorType": "Human",
+///     "FullName": "Bill Smith",
+///     "LastName": "Smith",
+///     "FirstName": "Bill",
+///     "LoginName": "bill.smith@domain1.com"
+///   },
+///   "RelatedWorkOrderNumber": "WO2384702937403280032",
+///   "Source": null,
+///   "FinalDestination": "LINE 1",
+///   "NextCheckpoint": "LINE 1"
 /// }
 /// </code>
 
@@ -3543,9 +3562,10 @@ CFX.Materials.Transport.CheckpointReached
 /// <code language="none">
 /// {
 ///   "TransportOrderNumber": "TR329483249830000",
-///   "Comments": null,
+///   "Comments": "Arrived SMT Production Area",
+///   "Status": "InTransit",
 ///   "TrackedBy": {
-///     "OperatorIdentifier": "4499c570-28d7-4f1a-89f9-c4ed3a14b384",
+///     "OperatorIdentifier": "957cc475-bd65-4289-9c7a-1a89aa9adaed",
 ///     "ActorType": "Human",
 ///     "FullName": "John Doe",
 ///     "LastName": "Doe",
@@ -3560,14 +3580,14 @@ CFX.Materials.Transport.CheckpointReached
 /// </code>
 
 
-CFX.Materials.Transport.MaterialTransportCompleted
-==================================================
+CFX.Materials.Transport.TransportOrderCompleted
+===============================================
 /// <code language="none">
 /// {
 ///   "TransportOrderNumber": "TR329483249830000",
-///   "Comments": null,
+///   "Comments": "Received at Line 1",
 ///   "AcceptedBy": {
-///     "OperatorIdentifier": "23036b5f-d2e8-487c-92eb-e8b696cf5949",
+///     "OperatorIdentifier": "b776aee6-0462-4a7d-9976-158a342f898c",
 ///     "ActorType": "Human",
 ///     "FullName": "Mike Dolittle",
 ///     "LastName": "Dolittle",
@@ -3606,7 +3626,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
 ///       "EventDateTime": "2017-11-01T11:55:00",
 ///       "Status": "Kitting",
 ///       "Operator": {
-///         "OperatorIdentifier": "377c3b83-a78d-43cc-af61-6460f09542d7",
+///         "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
 ///         "ActorType": "Human",
 ///         "FullName": "Bill Smith",
 ///         "LastName": "Smith",
@@ -3620,7 +3640,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
 ///       "EventDateTime": "2017-11-01T14:25:00",
 ///       "Status": "Kitted",
 ///       "Operator": {
-///         "OperatorIdentifier": "377c3b83-a78d-43cc-af61-6460f09542d7",
+///         "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
 ///         "ActorType": "Human",
 ///         "FullName": "Bill Smith",
 ///         "LastName": "Smith",
@@ -3634,7 +3654,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
 ///       "EventDateTime": "2017-11-01T15:45:00",
 ///       "Status": "InTransit",
 ///       "Operator": {
-///         "OperatorIdentifier": "377c3b83-a78d-43cc-af61-6460f09542d7",
+///         "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
 ///         "ActorType": "Human",
 ///         "FullName": "Bill Smith",
 ///         "LastName": "Smith",
@@ -3648,7 +3668,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
 ///       "EventDateTime": "2017-11-01T16:55:00",
 ///       "Status": "InTransit",
 ///       "Operator": {
-///         "OperatorIdentifier": "4499c570-28d7-4f1a-89f9-c4ed3a14b384",
+///         "OperatorIdentifier": "957cc475-bd65-4289-9c7a-1a89aa9adaed",
 ///         "ActorType": "Human",
 ///         "FullName": "John Doe",
 ///         "LastName": "Doe",
@@ -3662,7 +3682,7 @@ CFX.Materials.Transport.GetTransportOrderStatusResponse
 ///       "EventDateTime": "2017-11-01T17:22:00",
 ///       "Status": "Delivered",
 ///       "Operator": {
-///         "OperatorIdentifier": "23036b5f-d2e8-487c-92eb-e8b696cf5949",
+///         "OperatorIdentifier": "b776aee6-0462-4a7d-9976-158a342f898c",
 ///         "ActorType": "Human",
 ///         "FullName": "Mike Dolittle",
 ///         "LastName": "Dolittle",

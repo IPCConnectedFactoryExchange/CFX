@@ -2,23 +2,23 @@
 <HelpTOC>
 
   <HelpTOCNode Title="Getting Started with the SDK" Url="html/cfb57aac-b696-4c6c-b94b-f034b37daf26.htm" />
-  <HelpTOCNode Id="7837f716-fc23-456b-afef-051a0bac17e2" Title="CFX Topics, Messages, and Data Structures" Url="html/R_Project_CFXSDK.htm">
-    <HelpTOCNode Id="4e643dc4-663a-454b-93ec-3059eca09cc7" Title="CFX" Url="html/N_CFX.htm">
-      <HelpTOCNode Id="3a82428c-73a5-4dcd-8ee9-218e569695dd" Title="AreYouThereRequest Class" Url="html/T_CFX_AreYouThereRequest.htm">
-        <HelpTOCNode Id="2d300c06-07f6-49c9-a653-2af8feeb7904" Title="AreYouThereRequest Properties" Url="html/Properties_T_CFX_AreYouThereRequest.htm">
+  <HelpTOCNode Id="0f75c3fc-d11b-4b8d-8a03-b8bfbfd9d949" Title="CFX Topics, Messages, and Data Structures" Url="html/R_Project_CFXSDK.htm">
+    <HelpTOCNode Id="646db89d-abbd-442f-8425-d32a17b40d15" Title="CFX" Url="html/N_CFX.htm">
+      <HelpTOCNode Id="c62f87b1-ebb1-44fa-b453-f7db2c40864e" Title="AreYouThereRequest Class" Url="html/T_CFX_AreYouThereRequest.htm">
+        <HelpTOCNode Id="a66213bf-db25-4bd5-a4ac-976fbaeb5b27" Title="AreYouThereRequest Properties" Url="html/Properties_T_CFX_AreYouThereRequest.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_AreYouThereRequest_CFXHandle.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4e3ff1d9-56c9-42f7-813f-458bbb18be7c" Title="AreYouThereResponse Class" Url="html/T_CFX_AreYouThereResponse.htm">
-        <HelpTOCNode Id="5ea50373-a415-4820-9be1-4b9c65f8ed91" Title="AreYouThereResponse Properties" Url="html/Properties_T_CFX_AreYouThereResponse.htm">
+      <HelpTOCNode Id="3517ca1e-d335-42cc-94b4-0bdfa6413841" Title="AreYouThereResponse Class" Url="html/T_CFX_AreYouThereResponse.htm">
+        <HelpTOCNode Id="997f3273-7986-4b3c-b8aa-96cb400633d6" Title="AreYouThereResponse Properties" Url="html/Properties_T_CFX_AreYouThereResponse.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_AreYouThereResponse_CFXHandle.htm" />
           <HelpTOCNode Title="RequestNetworkUri Property " Url="html/P_CFX_AreYouThereResponse_RequestNetworkUri.htm" />
           <HelpTOCNode Title="RequestTargetAddress Property " Url="html/P_CFX_AreYouThereResponse_RequestTargetAddress.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_AreYouThereResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="bf5005f8-0699-4c5b-8c69-4acec7cd9c69" Title="CFXEnvelope Class" Url="html/T_CFX_CFXEnvelope.htm">
-        <HelpTOCNode Id="ca246149-ce42-44cb-b18f-a27eb10d364c" Title="CFXEnvelope Properties" Url="html/Properties_T_CFX_CFXEnvelope.htm">
+      <HelpTOCNode Id="1c6c4ade-1a67-42b6-aa01-abcf3eedca80" Title="CFXEnvelope Class" Url="html/T_CFX_CFXEnvelope.htm">
+        <HelpTOCNode Id="292b06a7-2d75-43a9-8214-9c3b04914f71" Title="CFXEnvelope Properties" Url="html/Properties_T_CFX_CFXEnvelope.htm">
           <HelpTOCNode Title="MessageBody Property " Url="html/P_CFX_CFXEnvelope_MessageBody.htm" />
           <HelpTOCNode Title="MessageName Property " Url="html/P_CFX_CFXEnvelope_MessageName.htm" />
           <HelpTOCNode Title="RequestID Property " Url="html/P_CFX_CFXEnvelope_RequestID.htm" />
@@ -28,7 +28,7 @@
           <HelpTOCNode Title="UniqueID Property " Url="html/P_CFX_CFXEnvelope_UniqueID.htm" />
           <HelpTOCNode Title="Version Property " Url="html/P_CFX_CFXEnvelope_Version.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="c385d111-a4dc-41ed-a848-e4220493bb78" Title="CFXEnvelope Methods" Url="html/Methods_T_CFX_CFXEnvelope.htm">
+        <HelpTOCNode Id="88f46b94-475e-4e76-a1a1-21161774db7d" Title="CFXEnvelope Methods" Url="html/Methods_T_CFX_CFXEnvelope.htm">
           <HelpTOCNode Title="FromBytes Method " Url="html/M_CFX_CFXEnvelope_FromBytes.htm" />
           <HelpTOCNode Title="FromCFXMessage Method " Url="html/M_CFX_CFXEnvelope_FromCFXMessage.htm" />
           <HelpTOCNode Title="FromJson Method " Url="html/M_CFX_CFXEnvelope_FromJson.htm" />
@@ -38,12 +38,12 @@
           <HelpTOCNode Title="ToBytes Method " Url="html/M_CFX_CFXEnvelope_ToBytes.htm" />
           <HelpTOCNode Title="ToJson Method " Url="html/M_CFX_CFXEnvelope_ToJson.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="d49626fc-ea54-4395-b7bc-47ef382f590f" Title="CFXEnvelope Fields" Url="html/Fields_T_CFX_CFXEnvelope.htm">
+        <HelpTOCNode Id="2b1e7871-9887-4acd-8cb9-bf7e001e443e" Title="CFXEnvelope Fields" Url="html/Fields_T_CFX_CFXEnvelope.htm">
           <HelpTOCNode Title="CFXVERSION Field" Url="html/F_CFX_CFXEnvelope_CFXVERSION.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="eb355667-a4c7-49f9-b23f-ce13176b4b14" Title="CFXMessage Class" Url="html/T_CFX_CFXMessage.htm">
-        <HelpTOCNode Id="1140d97d-6eae-493f-bc01-01284cbfd6cc" Title="CFXMessage Methods" Url="html/Methods_T_CFX_CFXMessage.htm">
+      <HelpTOCNode Id="3cdf1c47-2f14-4a1d-b1f2-72f287ce8629" Title="CFXMessage Class" Url="html/T_CFX_CFXMessage.htm">
+        <HelpTOCNode Id="70f6f868-843a-4e9a-83f0-fd3ef31e3c06" Title="CFXMessage Methods" Url="html/Methods_T_CFX_CFXMessage.htm">
           <HelpTOCNode Title="FromBytes(T) Method " Url="html/M_CFX_CFXMessage_FromBytes__1.htm" />
           <HelpTOCNode Title="FromJson(T) Method " Url="html/M_CFX_CFXMessage_FromJson__1.htm" />
           <HelpTOCNode Title="FromTypeName Method " Url="html/M_CFX_CFXMessage_FromTypeName.htm" />
@@ -51,25 +51,25 @@
           <HelpTOCNode Title="ToJson Method " Url="html/M_CFX_CFXMessage_ToJson.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="1bc6ac4e-bc62-4fc5-8946-1fba557dc09d" Title="EndpointConnected Class" Url="html/T_CFX_EndpointConnected.htm">
-        <HelpTOCNode Id="e4bf0345-e95b-4207-9c3e-b12735da0ade" Title="EndpointConnected Properties" Url="html/Properties_T_CFX_EndpointConnected.htm">
+      <HelpTOCNode Id="95d17f3f-44c1-4e5e-a474-2b978b9e1304" Title="EndpointConnected Class" Url="html/T_CFX_EndpointConnected.htm">
+        <HelpTOCNode Id="5063cbbb-69e0-4b09-9413-ef3dbbf7ee1b" Title="EndpointConnected Properties" Url="html/Properties_T_CFX_EndpointConnected.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_EndpointConnected_CFXHandle.htm" />
           <HelpTOCNode Title="RequestNetworkUri Property " Url="html/P_CFX_EndpointConnected_RequestNetworkUri.htm" />
           <HelpTOCNode Title="RequestTargetAddress Property " Url="html/P_CFX_EndpointConnected_RequestTargetAddress.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="044b28f9-ac07-41a6-a5f3-b353f0ef1f0d" Title="EndpointShuttingDown Class" Url="html/T_CFX_EndpointShuttingDown.htm">
-        <HelpTOCNode Id="7d049403-ead4-4905-9d49-f4b821fc1884" Title="EndpointShuttingDown Properties" Url="html/Properties_T_CFX_EndpointShuttingDown.htm">
+      <HelpTOCNode Id="8f582df3-0dab-4aa0-8692-d7d74e85585f" Title="EndpointShuttingDown Class" Url="html/T_CFX_EndpointShuttingDown.htm">
+        <HelpTOCNode Id="610ca481-d5a1-447e-a157-0d0caa4eea41" Title="EndpointShuttingDown Properties" Url="html/Properties_T_CFX_EndpointShuttingDown.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_EndpointShuttingDown_CFXHandle.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="16b06091-913e-4e5f-ac64-bcc9338d38fb" Title="GetEndpointInformationRequest Class" Url="html/T_CFX_GetEndpointInformationRequest.htm">
-        <HelpTOCNode Id="2b226410-156a-4174-a3aa-59e0aed73054" Title="GetEndpointInformationRequest Properties" Url="html/Properties_T_CFX_GetEndpointInformationRequest.htm">
+      <HelpTOCNode Id="dcccaa5e-af7d-489e-8523-fb2ef0d8edb1" Title="GetEndpointInformationRequest Class" Url="html/T_CFX_GetEndpointInformationRequest.htm">
+        <HelpTOCNode Id="93b1e180-8e53-4f0a-ab40-35a2398b7fac" Title="GetEndpointInformationRequest Properties" Url="html/Properties_T_CFX_GetEndpointInformationRequest.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_GetEndpointInformationRequest_CFXHandle.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0490f168-7e9d-43fd-b7f9-de9cb1db3a01" Title="GetEndpointInformationResponse Class" Url="html/T_CFX_GetEndpointInformationResponse.htm">
-        <HelpTOCNode Id="e6e88b00-d997-449a-966f-2d6a799cbc68" Title="GetEndpointInformationResponse Properties" Url="html/Properties_T_CFX_GetEndpointInformationResponse.htm">
+      <HelpTOCNode Id="0471c9ac-54a5-45cc-adae-6a81789bc96b" Title="GetEndpointInformationResponse Class" Url="html/T_CFX_GetEndpointInformationResponse.htm">
+        <HelpTOCNode Id="847a8499-3e54-40ca-804b-3cc7bdfaca23" Title="GetEndpointInformationResponse Properties" Url="html/Properties_T_CFX_GetEndpointInformationResponse.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_GetEndpointInformationResponse_CFXHandle.htm" />
           <HelpTOCNode Title="FriendlyName Property " Url="html/P_CFX_GetEndpointInformationResponse_FriendlyName.htm" />
           <HelpTOCNode Title="ModelNumber Property " Url="html/P_CFX_GetEndpointInformationResponse_ModelNumber.htm" />
@@ -84,14 +84,14 @@
           <HelpTOCNode Title="Vendor Property " Url="html/P_CFX_GetEndpointInformationResponse_Vendor.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="8a1fdb3f-ce10-4980-87e1-4e2d6e1ffc89" Title="NotSupportedResponse Class" Url="html/T_CFX_NotSupportedResponse.htm">
-        <HelpTOCNode Id="a5d918d1-390b-48c8-a661-dfab960fa57c" Title="NotSupportedResponse Properties" Url="html/Properties_T_CFX_NotSupportedResponse.htm">
+      <HelpTOCNode Id="8ca9e9cd-768a-421b-a95c-ba73d06a4a20" Title="NotSupportedResponse Class" Url="html/T_CFX_NotSupportedResponse.htm">
+        <HelpTOCNode Id="9fd5898d-af4e-40d5-9ac5-b4c94545f6bb" Title="NotSupportedResponse Properties" Url="html/Properties_T_CFX_NotSupportedResponse.htm">
           <HelpTOCNode Title="RequestResult Property " Url="html/P_CFX_NotSupportedResponse_RequestResult.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="WhoIsThereRequest Class" Url="html/T_CFX_WhoIsThereRequest.htm" />
-      <HelpTOCNode Id="abf74512-7fc4-4849-8f08-20ff3956ed2d" Title="WhoIsThereResponse Class" Url="html/T_CFX_WhoIsThereResponse.htm">
-        <HelpTOCNode Id="7df3a038-d056-427a-9c95-d277384de7e9" Title="WhoIsThereResponse Properties" Url="html/Properties_T_CFX_WhoIsThereResponse.htm">
+      <HelpTOCNode Id="88317ac9-9ebc-41d7-926c-437f4156902c" Title="WhoIsThereResponse Class" Url="html/T_CFX_WhoIsThereResponse.htm">
+        <HelpTOCNode Id="de8f57fe-4d77-4bb2-a11f-ad1360165678" Title="WhoIsThereResponse Properties" Url="html/Properties_T_CFX_WhoIsThereResponse.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_WhoIsThereResponse_CFXHandle.htm" />
           <HelpTOCNode Title="RequestNetworkUri Property " Url="html/P_CFX_WhoIsThereResponse_RequestNetworkUri.htm" />
           <HelpTOCNode Title="RequestTargetAddress Property " Url="html/P_CFX_WhoIsThereResponse_RequestTargetAddress.htm" />
@@ -99,165 +99,163 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="ba0f3540-9003-4b39-ab84-f4293fe70c0d" Title="CFX.InformationSystem.UnitValidation" Url="html/N_CFX_InformationSystem_UnitValidation.htm">
-      <HelpTOCNode Id="aa6515a4-aa60-4860-800d-d2438a522115" Title="ValidateUnitsRequest Class" Url="html/T_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest.htm">
-        <HelpTOCNode Id="933e1f7b-660a-419f-9958-497e688f2835" Title="ValidateUnitsRequest Properties" Url="html/Properties_T_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest.htm">
+    <HelpTOCNode Id="ae549043-344c-46b7-8e7d-31dcdc5ea44b" Title="CFX.InformationSystem.UnitValidation" Url="html/N_CFX_InformationSystem_UnitValidation.htm">
+      <HelpTOCNode Id="6cae4667-3f44-4628-ab14-b866170d9433" Title="ValidateUnitsRequest Class" Url="html/T_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest.htm">
+        <HelpTOCNode Id="d7550057-c4bf-49ce-9297-112eb35b4186" Title="ValidateUnitsRequest Properties" Url="html/Properties_T_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest.htm">
           <HelpTOCNode Title="PrimaryIdentifier Property " Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest_PrimaryIdentifier.htm" />
           <HelpTOCNode Title="Units Property " Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest_Units.htm" />
           <HelpTOCNode Title="Validations Property " Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsRequest_Validations.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="bb51e473-d29f-4df9-93d7-01c8eb639e01" Title="ValidateUnitsResponse Class" Url="html/T_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse.htm">
-        <HelpTOCNode Id="acfa41be-95eb-4c58-b0ec-26f03026f6f3" Title="ValidateUnitsResponse Properties" Url="html/Properties_T_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse.htm">
+      <HelpTOCNode Id="0c0a77fa-8406-4452-b932-325aa40e48b6" Title="ValidateUnitsResponse Class" Url="html/T_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse.htm">
+        <HelpTOCNode Id="e67d34b0-45d8-4615-863d-5924900747b6" Title="ValidateUnitsResponse Properties" Url="html/Properties_T_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse.htm">
           <HelpTOCNode Title="PrimaryResult Property " Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse_PrimaryResult.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse_Result.htm" />
           <HelpTOCNode Title="Results Property " Url="html/P_CFX_InformationSystem_UnitValidation_ValidateUnitsResponse_Results.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="3740a581-f1bc-455f-8c79-6962cef76bd0" Title="CFX.Materials.Management" Url="html/N_CFX_Materials_Management.htm">
-      <HelpTOCNode Id="99c1c5c2-8046-46b6-9c59-5a07608bcd5e" Title="BlockMaterialsRequest Class" Url="html/T_CFX_Materials_Management_BlockMaterialsRequest.htm">
-        <HelpTOCNode Id="4595f6a7-6c26-43ca-9c58-f64ba1e1de5c" Title="BlockMaterialsRequest Properties" Url="html/Properties_T_CFX_Materials_Management_BlockMaterialsRequest.htm">
+    <HelpTOCNode Id="03dd6e61-a114-4187-a348-6f6c6811d6d7" Title="CFX.Materials.Management" Url="html/N_CFX_Materials_Management.htm">
+      <HelpTOCNode Id="ef84bc5b-84f7-432e-8d80-e2aa72e5533b" Title="BlockMaterialsRequest Class" Url="html/T_CFX_Materials_Management_BlockMaterialsRequest.htm">
+        <HelpTOCNode Id="a5bc1e30-e821-4591-9b9a-3fe27b4f2892" Title="BlockMaterialsRequest Properties" Url="html/Properties_T_CFX_Materials_Management_BlockMaterialsRequest.htm">
           <HelpTOCNode Title="Blocker Property " Url="html/P_CFX_Materials_Management_BlockMaterialsRequest_Blocker.htm" />
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Management_BlockMaterialsRequest_Comments.htm" />
           <HelpTOCNode Title="MaterialPackageIdentifiers Property " Url="html/P_CFX_Materials_Management_BlockMaterialsRequest_MaterialPackageIdentifiers.htm" />
           <HelpTOCNode Title="Reason Property " Url="html/P_CFX_Materials_Management_BlockMaterialsRequest_Reason.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="db74f73b-c765-461c-a310-c0b4db3c0c77" Title="BlockMaterialsResponse Class" Url="html/T_CFX_Materials_Management_BlockMaterialsResponse.htm">
-        <HelpTOCNode Id="531fcbe7-26ae-4f94-8e20-f7ff91dc4475" Title="BlockMaterialsResponse Properties" Url="html/Properties_T_CFX_Materials_Management_BlockMaterialsResponse.htm">
+      <HelpTOCNode Id="3ad9cda9-6a99-4a82-af08-766e1988f6fd" Title="BlockMaterialsResponse Class" Url="html/T_CFX_Materials_Management_BlockMaterialsResponse.htm">
+        <HelpTOCNode Id="83027dd6-51f0-48aa-b07a-b641fc1e1f61" Title="BlockMaterialsResponse Properties" Url="html/Properties_T_CFX_Materials_Management_BlockMaterialsResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Materials_Management_BlockMaterialsResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="9e59b20e-c670-429a-828d-158fb0aca68c" Title="MaterialsConsumed Class" Url="html/T_CFX_Materials_Management_MaterialsConsumed.htm">
-        <HelpTOCNode Id="9577250b-b24b-4ef8-85b5-96e5c61df8c1" Title="MaterialsConsumed Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsConsumed.htm">
+      <HelpTOCNode Id="1dd60303-07b1-4bab-8205-00fd440fcad0" Title="MaterialsConsumed Class" Url="html/T_CFX_Materials_Management_MaterialsConsumed.htm">
+        <HelpTOCNode Id="e00d445e-0292-438f-a8dc-4afa0117e434" Title="MaterialsConsumed Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsConsumed.htm">
           <HelpTOCNode Title="ConsumedMaterials Property " Url="html/P_CFX_Materials_Management_MaterialsConsumed_ConsumedMaterials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="97161e94-6209-41ea-9b6e-649ec982dda7" Title="MaterialsEmpty Class" Url="html/T_CFX_Materials_Management_MaterialsEmpty.htm">
-        <HelpTOCNode Id="4584a1fe-5ff7-4cd8-a0e8-48adf3dcca21" Title="MaterialsEmpty Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsEmpty.htm">
-          <HelpTOCNode Title="EmptyMaterials Property " Url="html/P_CFX_Materials_Management_MaterialsEmpty_EmptyMaterials.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="a080c201-58af-4616-9400-f9ae07b0efe5" Title="MaterialsInitialized Class" Url="html/T_CFX_Materials_Management_MaterialsInitialized.htm">
-        <HelpTOCNode Id="d2451a58-61e6-4d0e-bd1e-b01c58e05330" Title="MaterialsInitialized Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsInitialized.htm">
+      <HelpTOCNode Id="3ce4122b-1d2e-4100-8be7-e777f1a0d2e5" Title="MaterialsInitialized Class" Url="html/T_CFX_Materials_Management_MaterialsInitialized.htm">
+        <HelpTOCNode Id="a0c96186-009c-4212-9ab9-8cd4c60d67d2" Title="MaterialsInitialized Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsInitialized.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MaterialsInitialized_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="f135aa50-eda8-4f12-95fa-f9dd1a978ba3" Title="MaterialsJoined Class" Url="html/T_CFX_Materials_Management_MaterialsJoined.htm">
-        <HelpTOCNode Id="d4df3e02-9595-4b49-aeb7-7c97c60102ee" Title="MaterialsJoined Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsJoined.htm">
+      <HelpTOCNode Id="b45211f9-a624-486b-8f3d-02b310747b0c" Title="MaterialsJoined Class" Url="html/T_CFX_Materials_Management_MaterialsJoined.htm">
+        <HelpTOCNode Id="a0267fc4-85d5-4236-9c7a-bfaae7743573" Title="MaterialsJoined Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsJoined.htm">
           <HelpTOCNode Title="LeadingMaterialPackage Property " Url="html/P_CFX_Materials_Management_MaterialsJoined_LeadingMaterialPackage.htm" />
           <HelpTOCNode Title="TrailingMaterialPackage Property " Url="html/P_CFX_Materials_Management_MaterialsJoined_TrailingMaterialPackage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="513ed5ba-694a-4e4d-9034-a41181e5e5fe" Title="MaterialsModified Class" Url="html/T_CFX_Materials_Management_MaterialsModified.htm">
-        <HelpTOCNode Id="adfc57ce-5a78-4e5a-982c-45f683304c00" Title="MaterialsModified Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsModified.htm">
+      <HelpTOCNode Id="3307f0e3-bee4-4a91-a6c4-757fa6862571" Title="MaterialsModified Class" Url="html/T_CFX_Materials_Management_MaterialsModified.htm">
+        <HelpTOCNode Id="277924d7-5589-4d19-9376-2cff5d3b47c0" Title="MaterialsModified Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsModified.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MaterialsModified_Materials.htm" />
           <HelpTOCNode Title="Reason Property " Url="html/P_CFX_Materials_Management_MaterialsModified_Reason.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="ed30c876-ce28-4c58-a7c1-f59f48884ba0" Title="MaterialsRetired Class" Url="html/T_CFX_Materials_Management_MaterialsRetired.htm">
-        <HelpTOCNode Id="48acf87c-6730-4c4d-b10f-b012a643dec1" Title="MaterialsRetired Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsRetired.htm">
+      <HelpTOCNode Id="d8119f72-d3d3-4256-9d76-e8a3017fb0b2" Title="MaterialsRetired Class" Url="html/T_CFX_Materials_Management_MaterialsRetired.htm">
+        <HelpTOCNode Id="96e73dcb-c362-423b-a4de-d2bbbe5da4fc" Title="MaterialsRetired Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsRetired.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MaterialsRetired_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="b45f17c9-9596-433e-a887-dd04e409b635" Title="MaterialsSplit Class" Url="html/T_CFX_Materials_Management_MaterialsSplit.htm">
-        <HelpTOCNode Id="a55efc6f-72f0-4dab-be7a-ae42b1e28871" Title="MaterialsSplit Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsSplit.htm">
-          <HelpTOCNode Title="NewMaterialPackage Property " Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackage.htm" />
-          <HelpTOCNode Title="OriginalMaterialPackage Property " Url="html/P_CFX_Materials_Management_MaterialsSplit_OriginalMaterialPackage.htm" />
+      <HelpTOCNode Id="39187288-28ea-4727-a6d3-5747a759ed89" Title="MaterialsSplit Class" Url="html/T_CFX_Materials_Management_MaterialsSplit.htm">
+        <HelpTOCNode Id="35f04467-ed2d-446b-bce4-d1f471ca01db" Title="MaterialsSplit Properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsSplit.htm">
+          <HelpTOCNode Title="NewMaterialPackageIdentifier Property " Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackageIdentifier.htm" />
+          <HelpTOCNode Title="NewMaterialPackageQuantity Property " Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackageQuantity.htm" />
+          <HelpTOCNode Title="SourceMaterialPackageIdentifier Property " Url="html/P_CFX_Materials_Management_MaterialsSplit_SourceMaterialPackageIdentifier.htm" />
+          <HelpTOCNode Title="SourceMaterialPackageRemainingQuantity Property " Url="html/P_CFX_Materials_Management_MaterialsSplit_SourceMaterialPackageRemainingQuantity.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="UnblockMaterialsResponse Class" Url="html/T_CFX_Materials_Management_UnblockMaterialsResponse.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="fc3c383d-613c-45b3-8a31-8b2ae71a3549" Title="CFX.Materials.Management.MSDManagement" Url="html/N_CFX_Materials_Management_MSDManagement.htm">
-      <HelpTOCNode Id="26e5f258-faa2-4cbb-b559-cd482015f8f9" Title="MaterialsExpired Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsExpired.htm">
-        <HelpTOCNode Id="2d336fa6-6af7-463b-bfac-b9199406dff6" Title="MaterialsExpired Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsExpired.htm">
+    <HelpTOCNode Id="5ef31973-02cf-4b33-be50-654ae4e36315" Title="CFX.Materials.Management.MSDManagement" Url="html/N_CFX_Materials_Management_MSDManagement.htm">
+      <HelpTOCNode Id="13ca35f6-1f6b-46d4-9623-a8ed49709052" Title="MaterialsExpired Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsExpired.htm">
+        <HelpTOCNode Id="7b79d039-e466-49c3-a373-6b3c943412ae" Title="MaterialsExpired Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsExpired.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsExpired_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6d5e4c2c-179c-4acb-b2d8-91ea6a02a915" Title="MaterialsOpened Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsOpened.htm">
-        <HelpTOCNode Id="9e7bfd8e-a8e5-4e0c-ae78-3903bbe6a423" Title="MaterialsOpened Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsOpened.htm">
+      <HelpTOCNode Id="011ddc1a-d081-41f2-b0df-3048a0aba4a6" Title="MaterialsOpened Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsOpened.htm">
+        <HelpTOCNode Id="47fb0c8d-3aab-4387-abb4-ec2bd8a3935d" Title="MaterialsOpened Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsOpened.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsOpened_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="7e6b10e5-330c-443d-a342-5d20de7abee6" Title="MaterialsPlacedInDryStorage Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsPlacedInDryStorage.htm">
-        <HelpTOCNode Id="f68f5f23-20ca-4d22-bef6-906a0a40c7d0" Title="MaterialsPlacedInDryStorage Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsPlacedInDryStorage.htm">
+      <HelpTOCNode Id="f3b8f968-88b8-454e-8528-d1a9cb6420d6" Title="MaterialsPlacedInDryStorage Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsPlacedInDryStorage.htm">
+        <HelpTOCNode Id="3968de5b-e5b7-4cab-904d-51bae78b6b97" Title="MaterialsPlacedInDryStorage Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsPlacedInDryStorage.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsPlacedInDryStorage_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="dd1e1e0c-f19f-48aa-8c41-bf2691f9f3a0" Title="MaterialsRemovedFromDryStorage Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsRemovedFromDryStorage.htm">
-        <HelpTOCNode Id="e3cebf1d-db78-4069-875c-9fc212126ecf" Title="MaterialsRemovedFromDryStorage Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsRemovedFromDryStorage.htm">
+      <HelpTOCNode Id="044b7d41-ff60-48b6-8817-8341859ab129" Title="MaterialsRemovedFromDryStorage Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsRemovedFromDryStorage.htm">
+        <HelpTOCNode Id="b3832b49-4041-4960-8e12-6ae0bb8bcc5c" Title="MaterialsRemovedFromDryStorage Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsRemovedFromDryStorage.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsRemovedFromDryStorage_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="e372f4ab-40a9-4029-9c29-67410fac8848" Title="MaterialsRestored Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsRestored.htm">
-        <HelpTOCNode Id="39d690fc-6609-4d41-94df-8a73d5944184" Title="MaterialsRestored Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsRestored.htm">
+      <HelpTOCNode Id="1838eb4d-08bb-4ec2-a5c4-1d5f96302e6e" Title="MaterialsRestored Class" Url="html/T_CFX_Materials_Management_MSDManagement_MaterialsRestored.htm">
+        <HelpTOCNode Id="8a0b990f-a262-4ce4-a15b-b45c42f92177" Title="MaterialsRestored Properties" Url="html/Properties_T_CFX_Materials_Management_MSDManagement_MaterialsRestored.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsRestored_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="b0d0341b-f5b9-4d7a-990c-19666877672f" Title="CFX.Materials.Storage" Url="html/N_CFX_Materials_Storage.htm">
-      <HelpTOCNode Id="ee421366-ff08-419e-aee6-c3a9f190bdfe" Title="GetLoadedMaterialsRequest Class" Url="html/T_CFX_Materials_Storage_GetLoadedMaterialsRequest.htm">
-        <HelpTOCNode Id="c6b86572-3b5e-43aa-ab9d-66fbea3347ce" Title="GetLoadedMaterialsRequest Properties" Url="html/Properties_T_CFX_Materials_Storage_GetLoadedMaterialsRequest.htm">
+    <HelpTOCNode Id="3be32800-3709-41aa-a458-7e5d83c64a33" Title="CFX.Materials.Storage" Url="html/N_CFX_Materials_Storage.htm">
+      <HelpTOCNode Id="4b06c257-f7c7-4f07-8311-97baa8ad4988" Title="GetLoadedMaterialsRequest Class" Url="html/T_CFX_Materials_Storage_GetLoadedMaterialsRequest.htm">
+        <HelpTOCNode Id="ba8b5c6b-9593-470e-a93e-b9750f43e0d4" Title="GetLoadedMaterialsRequest Properties" Url="html/Properties_T_CFX_Materials_Storage_GetLoadedMaterialsRequest.htm">
           <HelpTOCNode Title="LocationIdentifiers Property " Url="html/P_CFX_Materials_Storage_GetLoadedMaterialsRequest_LocationIdentifiers.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6632fdf2-b603-4b26-9d43-6bb34c0fbe9e" Title="GetLoadedMaterialsResponse Class" Url="html/T_CFX_Materials_Storage_GetLoadedMaterialsResponse.htm">
-        <HelpTOCNode Id="b3e04ef7-5f15-4cf1-b27c-4dbdb31c1050" Title="GetLoadedMaterialsResponse Properties" Url="html/Properties_T_CFX_Materials_Storage_GetLoadedMaterialsResponse.htm">
+      <HelpTOCNode Id="e5e86475-05e7-4749-a303-a521beb9b6bc" Title="GetLoadedMaterialsResponse Class" Url="html/T_CFX_Materials_Storage_GetLoadedMaterialsResponse.htm">
+        <HelpTOCNode Id="f41663bc-d09e-43c4-b39e-ff88a204ace2" Title="GetLoadedMaterialsResponse Properties" Url="html/Properties_T_CFX_Materials_Storage_GetLoadedMaterialsResponse.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Storage_GetLoadedMaterialsResponse_Materials.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Materials_Storage_GetLoadedMaterialsResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="06a43315-2deb-4a1a-ae4a-a93407c5d9be" Title="MaterialCarriersLoaded Class" Url="html/T_CFX_Materials_Storage_MaterialCarriersLoaded.htm">
-        <HelpTOCNode Id="123fd075-bab9-4bae-8162-ec7763e798f2" Title="MaterialCarriersLoaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialCarriersLoaded.htm">
+      <HelpTOCNode Id="684cecc7-ae8f-4e49-a538-35d03909c4b5" Title="MaterialCarriersLoaded Class" Url="html/T_CFX_Materials_Storage_MaterialCarriersLoaded.htm">
+        <HelpTOCNode Id="9833e700-44ca-428c-ad24-e8ba76967ab7" Title="MaterialCarriersLoaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialCarriersLoaded.htm">
           <HelpTOCNode Title="Carriers Property " Url="html/P_CFX_Materials_Storage_MaterialCarriersLoaded_Carriers.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2a6321f5-5edc-40a3-8ce3-debb0e568c29" Title="MaterialCarriersUnloaded Class" Url="html/T_CFX_Materials_Storage_MaterialCarriersUnloaded.htm">
-        <HelpTOCNode Id="df22ba9e-a0dd-49e8-b878-894c73446d14" Title="MaterialCarriersUnloaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialCarriersUnloaded.htm">
+      <HelpTOCNode Id="dfc69748-f1bb-4ff8-9d33-fed1a385bff5" Title="MaterialCarriersUnloaded Class" Url="html/T_CFX_Materials_Storage_MaterialCarriersUnloaded.htm">
+        <HelpTOCNode Id="c0f1e900-b58a-447f-b381-0b0998b60a6d" Title="MaterialCarriersUnloaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialCarriersUnloaded.htm">
           <HelpTOCNode Title="CarrierIdentifiers Property " Url="html/P_CFX_Materials_Storage_MaterialCarriersUnloaded_CarrierIdentifiers.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2d522b5a-004e-480d-a8b8-a35aadc4b3eb" Title="MaterialsLoaded Class" Url="html/T_CFX_Materials_Storage_MaterialsLoaded.htm">
-        <HelpTOCNode Id="82c892af-1b78-4d68-8d95-fa272db4a780" Title="MaterialsLoaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialsLoaded.htm">
+      <HelpTOCNode Id="4f06e183-bbc7-4c05-bd0b-8206faccb987" Title="MaterialsLoaded Class" Url="html/T_CFX_Materials_Storage_MaterialsLoaded.htm">
+        <HelpTOCNode Id="ae24103c-88ca-4ffe-b954-9940e7b6aed3" Title="MaterialsLoaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialsLoaded.htm">
           <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Storage_MaterialsLoaded_Materials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="e777c15b-4d0d-49a6-8c46-cf49aeaf687e" Title="MaterialsUnloaded Class" Url="html/T_CFX_Materials_Storage_MaterialsUnloaded.htm">
-        <HelpTOCNode Id="6eba7e16-5f6e-426d-b27f-7e925fb9f4d3" Title="MaterialsUnloaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialsUnloaded.htm">
+      <HelpTOCNode Id="1d23330e-bb3f-42d5-aaa5-179bf593cb95" Title="MaterialsUnloaded Class" Url="html/T_CFX_Materials_Storage_MaterialsUnloaded.htm">
+        <HelpTOCNode Id="ad65b1b6-e967-4cc7-b78d-bde3f90dca5a" Title="MaterialsUnloaded Properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialsUnloaded.htm">
           <HelpTOCNode Title="MaterialPackageIdentifiers Property " Url="html/P_CFX_Materials_Storage_MaterialsUnloaded_MaterialPackageIdentifiers.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4801e760-2b93-4228-9106-55bce43b8e01" Title="ValidateStationSetupRequest Class" Url="html/T_CFX_Materials_Storage_ValidateStationSetupRequest.htm">
-        <HelpTOCNode Id="6ca36a9a-df55-47b0-9c1f-c8340b099486" Title="ValidateStationSetupRequest Properties" Url="html/Properties_T_CFX_Materials_Storage_ValidateStationSetupRequest.htm">
+      <HelpTOCNode Id="2e8824db-354c-4e0b-9e7c-30dcc0e9b54f" Title="ValidateStationSetupRequest Class" Url="html/T_CFX_Materials_Storage_ValidateStationSetupRequest.htm">
+        <HelpTOCNode Id="99b2484c-050f-4cd3-8c77-0995ffdb5b2e" Title="ValidateStationSetupRequest Properties" Url="html/Properties_T_CFX_Materials_Storage_ValidateStationSetupRequest.htm">
           <HelpTOCNode Title="SetupRequirements Property " Url="html/P_CFX_Materials_Storage_ValidateStationSetupRequest_SetupRequirements.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="5dcbfa68-6796-4104-b864-a7937e96d5b9" Title="ValidateStationSetupResponse Class" Url="html/T_CFX_Materials_Storage_ValidateStationSetupResponse.htm">
-        <HelpTOCNode Id="f4694ff0-ece6-4c24-8a19-7c6d163e3534" Title="ValidateStationSetupResponse Properties" Url="html/Properties_T_CFX_Materials_Storage_ValidateStationSetupResponse.htm">
+      <HelpTOCNode Id="78cd8b83-4db6-4855-969c-7277c71f2154" Title="ValidateStationSetupResponse Class" Url="html/T_CFX_Materials_Storage_ValidateStationSetupResponse.htm">
+        <HelpTOCNode Id="8d36b2ba-6e7d-4281-bf5c-d59138266889" Title="ValidateStationSetupResponse Properties" Url="html/Properties_T_CFX_Materials_Storage_ValidateStationSetupResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Materials_Storage_ValidateStationSetupResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="cd52fef5-5137-4b29-86d2-5a92019fdade" Title="CFX.Materials.Transport" Url="html/N_CFX_Materials_Transport.htm">
-      <HelpTOCNode Id="ba3a67fa-bcad-443a-a4e6-8d5a5014848f" Title="CheckpointReached Class" Url="html/T_CFX_Materials_Transport_CheckpointReached.htm">
-        <HelpTOCNode Id="5ed8ad03-1359-4ab3-8e27-894753939a5b" Title="CheckpointReached Properties" Url="html/Properties_T_CFX_Materials_Transport_CheckpointReached.htm">
+    <HelpTOCNode Id="cfbaa771-de1b-4567-ab21-b63e4f39ce3d" Title="CFX.Materials.Transport" Url="html/N_CFX_Materials_Transport.htm">
+      <HelpTOCNode Id="adffb6dd-a6dd-4a76-b9c7-a4cdae2498a1" Title="CheckpointReached Class" Url="html/T_CFX_Materials_Transport_CheckpointReached.htm">
+        <HelpTOCNode Id="e8c23df6-1f3c-43a1-865e-26a40930c38d" Title="CheckpointReached Properties" Url="html/Properties_T_CFX_Materials_Transport_CheckpointReached.htm">
           <HelpTOCNode Title="Checkpoint Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_Checkpoint.htm" />
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_Comments.htm" />
           <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_FinalDestination.htm" />
           <HelpTOCNode Title="NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_NextCheckpoint.htm" />
           <HelpTOCNode Title="RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_RelatedWorkOrderNumber.htm" />
+          <HelpTOCNode Title="Status Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_Status.htm" />
           <HelpTOCNode Title="TrackedBy Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_TrackedBy.htm" />
           <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_TransportOrderNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d2ebebbe-d451-4e43-968a-b0c246e74bb1" Title="GetTransportOrderStatusRequest Class" Url="html/T_CFX_Materials_Transport_GetTransportOrderStatusRequest.htm">
-        <HelpTOCNode Id="7c3e6162-d470-4184-9fb0-46c38d7a3de6" Title="GetTransportOrderStatusRequest Properties" Url="html/Properties_T_CFX_Materials_Transport_GetTransportOrderStatusRequest.htm">
+      <HelpTOCNode Id="edcb8e48-5432-493a-b029-c8476fe9f5ea" Title="GetTransportOrderStatusRequest Class" Url="html/T_CFX_Materials_Transport_GetTransportOrderStatusRequest.htm">
+        <HelpTOCNode Id="ccb123b3-377f-43da-9bbc-f8001d94a001" Title="GetTransportOrderStatusRequest Properties" Url="html/Properties_T_CFX_Materials_Transport_GetTransportOrderStatusRequest.htm">
           <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusRequest_TransportOrderNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a6430626-f9a8-4913-ba8a-0dfc77332be2" Title="GetTransportOrderStatusResponse Class" Url="html/T_CFX_Materials_Transport_GetTransportOrderStatusResponse.htm">
-        <HelpTOCNode Id="7e134ad9-5d16-4602-b589-ce295684a3bf" Title="GetTransportOrderStatusResponse Properties" Url="html/Properties_T_CFX_Materials_Transport_GetTransportOrderStatusResponse.htm">
+      <HelpTOCNode Id="a9f08c14-4e4a-4f88-870f-6b26aea8f2b1" Title="GetTransportOrderStatusResponse Class" Url="html/T_CFX_Materials_Transport_GetTransportOrderStatusResponse.htm">
+        <HelpTOCNode Id="9a426e49-67e9-4792-90b7-20b2d54ffa39" Title="GetTransportOrderStatusResponse Properties" Url="html/Properties_T_CFX_Materials_Transport_GetTransportOrderStatusResponse.htm">
           <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_FinalDestination.htm" />
           <HelpTOCNode Title="History Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_History.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_Result.htm" />
@@ -265,84 +263,101 @@
           <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_TransportOrderNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0bb113f8-c47d-4091-b822-f5ea2b581d34" Title="MaterialTransportCompleted Class" Url="html/T_CFX_Materials_Transport_MaterialTransportCompleted.htm">
-        <HelpTOCNode Id="5ecc0620-a481-4885-9f9b-9d75349e994a" Title="MaterialTransportCompleted Properties" Url="html/Properties_T_CFX_Materials_Transport_MaterialTransportCompleted.htm">
-          <HelpTOCNode Title="AcceptedBy Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_AcceptedBy.htm" />
-          <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_Comments.htm" />
-          <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_FinalDestination.htm" />
-          <HelpTOCNode Title="RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_RelatedWorkOrderNumber.htm" />
-          <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_TransportOrderNumber.htm" />
+      <HelpTOCNode Id="7018b821-0a76-4ead-a15f-45bedac6a0d0" Title="TransportOrderCompleted Class" Url="html/T_CFX_Materials_Transport_TransportOrderCompleted.htm">
+        <HelpTOCNode Title="TransportOrderCompleted Constructor " Url="html/M_CFX_Materials_Transport_TransportOrderCompleted__ctor.htm" />
+        <HelpTOCNode Id="3b90683c-6d86-442a-af61-e664d8cfdb61" Title="TransportOrderCompleted Properties" Url="html/Properties_T_CFX_Materials_Transport_TransportOrderCompleted.htm">
+          <HelpTOCNode Title="AcceptedBy Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_AcceptedBy.htm" />
+          <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_Comments.htm" />
+          <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_FinalDestination.htm" />
+          <HelpTOCNode Title="RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_RelatedWorkOrderNumber.htm" />
+          <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_TransportOrderNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a1bccb99-a674-4772-9bef-e7bb9336937e" Title="MaterialTransportStarted Class" Url="html/T_CFX_Materials_Transport_MaterialTransportStarted.htm">
-        <HelpTOCNode Id="50802160-721d-4e2b-98be-e545684f270d" Title="MaterialTransportStarted Properties" Url="html/Properties_T_CFX_Materials_Transport_MaterialTransportStarted.htm">
-          <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_Comments.htm" />
-          <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_FinalDestination.htm" />
-          <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_Materials.htm" />
-          <HelpTOCNode Title="NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_NextCheckpoint.htm" />
-          <HelpTOCNode Title="RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_RelatedWorkOrderNumber.htm" />
-          <HelpTOCNode Title="StartedBy Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_StartedBy.htm" />
-          <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_TransportOrderNumber.htm" />
+      <HelpTOCNode Id="8ec39e84-12fe-4004-98df-71e54c24e46e" Title="TransportOrderStarted Class" Url="html/T_CFX_Materials_Transport_TransportOrderStarted.htm">
+        <HelpTOCNode Title="TransportOrderStarted Constructor " Url="html/M_CFX_Materials_Transport_TransportOrderStarted__ctor.htm" />
+        <HelpTOCNode Id="a60193e3-0eb0-4156-bfd6-fed24e8e30a0" Title="TransportOrderStarted Properties" Url="html/Properties_T_CFX_Materials_Transport_TransportOrderStarted.htm">
+          <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Comments.htm" />
+          <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_FinalDestination.htm" />
+          <HelpTOCNode Title="Materials Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Materials.htm" />
+          <HelpTOCNode Title="NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_NextCheckpoint.htm" />
+          <HelpTOCNode Title="RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_RelatedWorkOrderNumber.htm" />
+          <HelpTOCNode Title="Source Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Source.htm" />
+          <HelpTOCNode Title="StartedBy Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_StartedBy.htm" />
+          <HelpTOCNode Title="Status Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Status.htm" />
+          <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_TransportOrderNumber.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="0597734c-0a3c-494a-bdfb-6561ad1630ac" Title="TransportOrderStatusChanged Class" Url="html/T_CFX_Materials_Transport_TransportOrderStatusChanged.htm">
+        <HelpTOCNode Title="TransportOrderStatusChanged Constructor " Url="html/M_CFX_Materials_Transport_TransportOrderStatusChanged__ctor.htm" />
+        <HelpTOCNode Id="124fdd00-74c6-4aad-8485-e99bdffebd26" Title="TransportOrderStatusChanged Properties" Url="html/Properties_T_CFX_Materials_Transport_TransportOrderStatusChanged.htm">
+          <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Comments.htm" />
+          <HelpTOCNode Title="FinalDestination Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_FinalDestination.htm" />
+          <HelpTOCNode Title="NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_NextCheckpoint.htm" />
+          <HelpTOCNode Title="RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_RelatedWorkOrderNumber.htm" />
+          <HelpTOCNode Title="Source Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Source.htm" />
+          <HelpTOCNode Title="Status Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Status.htm" />
+          <HelpTOCNode Title="TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_TransportOrderNumber.htm" />
+          <HelpTOCNode Title="UpdatedBy Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_UpdatedBy.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="326ae3ff-32f7-421a-a0dc-e16625d5b8a7" Title="CFX.Production" Url="html/N_CFX_Production.htm">
-      <HelpTOCNode Id="e3a4b040-d715-44b5-83f7-cafdb066b5f7" Title="ActivateRecipeRequest Class" Url="html/T_CFX_Production_ActivateRecipeRequest.htm">
-        <HelpTOCNode Id="2a22080a-4d78-4961-a602-fe36769a5b31" Title="ActivateRecipeRequest Properties" Url="html/Properties_T_CFX_Production_ActivateRecipeRequest.htm">
+    <HelpTOCNode Id="1c076dd8-808c-4458-95dd-c648a7179ac7" Title="CFX.Production" Url="html/N_CFX_Production.htm">
+      <HelpTOCNode Id="6af96c57-acf9-4ddf-b8ab-09ec1d412c57" Title="ActivateRecipeRequest Class" Url="html/T_CFX_Production_ActivateRecipeRequest.htm">
+        <HelpTOCNode Id="1c43ccb4-3197-4d5a-842b-0da4b48a37d9" Title="ActivateRecipeRequest Properties" Url="html/Properties_T_CFX_Production_ActivateRecipeRequest.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_ActivateRecipeRequest_Lane.htm" />
           <HelpTOCNode Title="RecipeName Property " Url="html/P_CFX_Production_ActivateRecipeRequest_RecipeName.htm" />
           <HelpTOCNode Title="Revision Property " Url="html/P_CFX_Production_ActivateRecipeRequest_Revision.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_ActivateRecipeRequest_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="b4f8f306-608f-4ca2-8c40-379db3825c03" Title="ActivateRecipeResponse Class" Url="html/T_CFX_Production_ActivateRecipeResponse.htm">
-        <HelpTOCNode Id="7afee191-9d70-4f29-a08a-06ecb9d0a309" Title="ActivateRecipeResponse Properties" Url="html/Properties_T_CFX_Production_ActivateRecipeResponse.htm">
+      <HelpTOCNode Id="cacec460-d105-4772-befe-785e2317b7de" Title="ActivateRecipeResponse Class" Url="html/T_CFX_Production_ActivateRecipeResponse.htm">
+        <HelpTOCNode Id="80b1ede1-21c5-4b6b-b1df-c661b52d34d5" Title="ActivateRecipeResponse Properties" Url="html/Properties_T_CFX_Production_ActivateRecipeResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_ActivateRecipeResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="794aab2f-74d6-4cdf-8db0-bcf82e459c0c" Title="BlockMaterialLocationsRequest Class" Url="html/T_CFX_Production_BlockMaterialLocationsRequest.htm">
-        <HelpTOCNode Id="6c76e2d7-74f9-4e73-9f30-5d9c362d59d0" Title="BlockMaterialLocationsRequest Properties" Url="html/Properties_T_CFX_Production_BlockMaterialLocationsRequest.htm">
+      <HelpTOCNode Id="3cc42da3-255c-4ae9-b58b-05512213d9b6" Title="BlockMaterialLocationsRequest Class" Url="html/T_CFX_Production_BlockMaterialLocationsRequest.htm">
+        <HelpTOCNode Id="a17bcd19-b8aa-4a3e-8b86-7062b59b5240" Title="BlockMaterialLocationsRequest Properties" Url="html/Properties_T_CFX_Production_BlockMaterialLocationsRequest.htm">
           <HelpTOCNode Title="Locations Property " Url="html/P_CFX_Production_BlockMaterialLocationsRequest_Locations.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="8e7d54cb-7389-47b0-832c-9e659b28fbb7" Title="BlockMaterialLocationsResponse Class" Url="html/T_CFX_Production_BlockMaterialLocationsResponse.htm">
-        <HelpTOCNode Id="a0c9402a-18a5-4e85-85af-c707c726964f" Title="BlockMaterialLocationsResponse Properties" Url="html/Properties_T_CFX_Production_BlockMaterialLocationsResponse.htm">
+      <HelpTOCNode Id="f1f91ae8-d1a5-4f0b-98dd-1cccc2e05bf2" Title="BlockMaterialLocationsResponse Class" Url="html/T_CFX_Production_BlockMaterialLocationsResponse.htm">
+        <HelpTOCNode Id="b5b725ba-d351-4c97-91fc-5a765e4ec87d" Title="BlockMaterialLocationsResponse Properties" Url="html/Properties_T_CFX_Production_BlockMaterialLocationsResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_BlockMaterialLocationsResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="1c607283-040b-46fc-b094-d59e7b34adeb" Title="GetActiveRecipeRequest Class" Url="html/T_CFX_Production_GetActiveRecipeRequest.htm">
-        <HelpTOCNode Id="327c1df8-0a38-41f4-b76a-6bb390d7c999" Title="GetActiveRecipeRequest Properties" Url="html/Properties_T_CFX_Production_GetActiveRecipeRequest.htm">
+      <HelpTOCNode Id="5a45d739-d5a1-4356-898f-034a9bb94ce9" Title="GetActiveRecipeRequest Class" Url="html/T_CFX_Production_GetActiveRecipeRequest.htm">
+        <HelpTOCNode Id="9bab3850-26bf-479e-87a7-7973ce249dc2" Title="GetActiveRecipeRequest Properties" Url="html/Properties_T_CFX_Production_GetActiveRecipeRequest.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_GetActiveRecipeRequest_Lane.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_GetActiveRecipeRequest_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="ce4e7d9d-e133-4859-8f85-312be0713b8b" Title="GetActiveRecipeResponse Class" Url="html/T_CFX_Production_GetActiveRecipeResponse.htm">
-        <HelpTOCNode Id="0121a388-fbab-4c9d-aaec-3e1ed62e9d22" Title="GetActiveRecipeResponse Properties" Url="html/Properties_T_CFX_Production_GetActiveRecipeResponse.htm">
+      <HelpTOCNode Id="be363480-a65d-4ccd-90e6-6d78053ea67e" Title="GetActiveRecipeResponse Class" Url="html/T_CFX_Production_GetActiveRecipeResponse.htm">
+        <HelpTOCNode Id="547c3ab7-a98d-4818-83f0-9fed1c7ad543" Title="GetActiveRecipeResponse Properties" Url="html/Properties_T_CFX_Production_GetActiveRecipeResponse.htm">
           <HelpTOCNode Title="ActiveRecipeName Property " Url="html/P_CFX_Production_GetActiveRecipeResponse_ActiveRecipeName.htm" />
           <HelpTOCNode Title="ActiveRecipeRevision Property " Url="html/P_CFX_Production_GetActiveRecipeResponse_ActiveRecipeRevision.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_GetActiveRecipeResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2469cd6f-f3e7-46a4-95ff-2f91c99a7d77" Title="GetRecipeRequest Class" Url="html/T_CFX_Production_GetRecipeRequest.htm">
-        <HelpTOCNode Id="b041e949-99c5-465d-9a3c-c470d9aee67c" Title="GetRecipeRequest Properties" Url="html/Properties_T_CFX_Production_GetRecipeRequest.htm">
+      <HelpTOCNode Id="5af587ad-5804-4aca-a8e4-f84fba7676ed" Title="GetRecipeRequest Class" Url="html/T_CFX_Production_GetRecipeRequest.htm">
+        <HelpTOCNode Id="31fa7691-e8ce-4d68-9394-beef1150acf6" Title="GetRecipeRequest Properties" Url="html/Properties_T_CFX_Production_GetRecipeRequest.htm">
           <HelpTOCNode Title="RecipeName Property " Url="html/P_CFX_Production_GetRecipeRequest_RecipeName.htm" />
           <HelpTOCNode Title="Revision Property " Url="html/P_CFX_Production_GetRecipeRequest_Revision.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="b0ba09bc-653a-45a6-aa5e-dd4eafd9c57d" Title="GetRecipeResponse Class" Url="html/T_CFX_Production_GetRecipeResponse.htm">
-        <HelpTOCNode Id="b1173abd-dd98-4250-b8df-2a7ffcdb4d60" Title="GetRecipeResponse Properties" Url="html/Properties_T_CFX_Production_GetRecipeResponse.htm">
+      <HelpTOCNode Id="ba631fdc-81a2-48e2-b0c0-aedd08462a7e" Title="GetRecipeResponse Class" Url="html/T_CFX_Production_GetRecipeResponse.htm">
+        <HelpTOCNode Id="bdf9c230-287f-47de-be46-abd47984583f" Title="GetRecipeResponse Properties" Url="html/Properties_T_CFX_Production_GetRecipeResponse.htm">
           <HelpTOCNode Title="Recipe Property " Url="html/P_CFX_Production_GetRecipeResponse_Recipe.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_GetRecipeResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="54606835-9488-4786-9dd4-3d8ca073cb1e" Title="GetRequiredSetupRequest Class" Url="html/T_CFX_Production_GetRequiredSetupRequest.htm">
-        <HelpTOCNode Id="a5a5cc75-68ca-43ff-abcb-657aea73f1d0" Title="GetRequiredSetupRequest Properties" Url="html/Properties_T_CFX_Production_GetRequiredSetupRequest.htm">
+      <HelpTOCNode Id="09327f5e-0ba2-4fd2-8bf1-0fddd2fc85cb" Title="GetRequiredSetupRequest Class" Url="html/T_CFX_Production_GetRequiredSetupRequest.htm">
+        <HelpTOCNode Id="66c45f1e-4e2c-4652-9461-568b4d257eef" Title="GetRequiredSetupRequest Properties" Url="html/Properties_T_CFX_Production_GetRequiredSetupRequest.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_GetRequiredSetupRequest_Lane.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_GetRequiredSetupRequest_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a24c6148-a179-4933-acdb-57fd136da826" Title="GetRequiredSetupResponse Class" Url="html/T_CFX_Production_GetRequiredSetupResponse.htm">
-        <HelpTOCNode Id="6fbe4b25-4f58-4187-9d9f-b9f6dc25e702" Title="GetRequiredSetupResponse Properties" Url="html/Properties_T_CFX_Production_GetRequiredSetupResponse.htm">
+      <HelpTOCNode Id="6488ee43-9a2c-4665-9ae0-9c674eb732c3" Title="GetRequiredSetupResponse Class" Url="html/T_CFX_Production_GetRequiredSetupResponse.htm">
+        <HelpTOCNode Id="8750e443-dde9-4e80-b6e3-ddd5cff5764c" Title="GetRequiredSetupResponse Properties" Url="html/Properties_T_CFX_Production_GetRequiredSetupResponse.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_GetRequiredSetupResponse_Lane.htm" />
           <HelpTOCNode Title="RecipeName Property " Url="html/P_CFX_Production_GetRequiredSetupResponse_RecipeName.htm" />
           <HelpTOCNode Title="RecipeRevision Property " Url="html/P_CFX_Production_GetRequiredSetupResponse_RecipeRevision.htm" />
@@ -351,45 +366,45 @@
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_GetRequiredSetupResponse_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="c791d101-948e-4ef7-b837-1f083333aa5a" Title="LockStationRequest Class" Url="html/T_CFX_Production_LockStationRequest.htm">
-        <HelpTOCNode Id="457ff031-f1a5-431a-8e75-287ec37693e2" Title="LockStationRequest Properties" Url="html/Properties_T_CFX_Production_LockStationRequest.htm">
+      <HelpTOCNode Id="56a6a02a-1831-4e84-935a-ff5b8f38e378" Title="LockStationRequest Class" Url="html/T_CFX_Production_LockStationRequest.htm">
+        <HelpTOCNode Id="8f7bcac6-d6b8-48eb-ab44-0430b82bb5e4" Title="LockStationRequest Properties" Url="html/Properties_T_CFX_Production_LockStationRequest.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_LockStationRequest_Lane.htm" />
           <HelpTOCNode Title="Reason Property " Url="html/P_CFX_Production_LockStationRequest_Reason.htm" />
           <HelpTOCNode Title="Requestor Property " Url="html/P_CFX_Production_LockStationRequest_Requestor.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_LockStationRequest_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="46afd420-b856-4527-91c3-75145d00e2d5" Title="LockStationResponse Class" Url="html/T_CFX_Production_LockStationResponse.htm">
-        <HelpTOCNode Id="ef70d89a-16ad-44cd-af4f-a490868f9f09" Title="LockStationResponse Properties" Url="html/Properties_T_CFX_Production_LockStationResponse.htm">
+      <HelpTOCNode Id="6d92a6dd-6ab9-47b1-b716-5f85d15378a5" Title="LockStationResponse Class" Url="html/T_CFX_Production_LockStationResponse.htm">
+        <HelpTOCNode Id="8c3958c2-3ccc-4d29-a72c-bb1c14e38747" Title="LockStationResponse Properties" Url="html/Properties_T_CFX_Production_LockStationResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_LockStationResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a4deb506-6a0b-4e55-a340-ed5c09301deb" Title="OperatorActivated Class" Url="html/T_CFX_Production_OperatorActivated.htm">
-        <HelpTOCNode Id="19573280-2941-4652-b191-04e62ce34c1d" Title="OperatorActivated Properties" Url="html/Properties_T_CFX_Production_OperatorActivated.htm">
+      <HelpTOCNode Id="8a97b2f4-307e-406e-862d-f8acbfc8f303" Title="OperatorActivated Class" Url="html/T_CFX_Production_OperatorActivated.htm">
+        <HelpTOCNode Id="590e9d5c-6800-4fcf-b808-fa70a3a7fd18" Title="OperatorActivated Properties" Url="html/Properties_T_CFX_Production_OperatorActivated.htm">
           <HelpTOCNode Title="Operator Property " Url="html/P_CFX_Production_OperatorActivated_Operator.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d251e793-cfcc-4071-bc3e-aecbe8242425" Title="OperatorDeactivated Class" Url="html/T_CFX_Production_OperatorDeactivated.htm">
-        <HelpTOCNode Id="4da98223-7e62-4a70-8d43-3c54bea9effa" Title="OperatorDeactivated Properties" Url="html/Properties_T_CFX_Production_OperatorDeactivated.htm">
+      <HelpTOCNode Id="5fc6d2f8-052a-4d13-ac1d-ae16330c9119" Title="OperatorDeactivated Class" Url="html/T_CFX_Production_OperatorDeactivated.htm">
+        <HelpTOCNode Id="176a85e7-bf3d-4426-9b2d-3763e95ca5bd" Title="OperatorDeactivated Properties" Url="html/Properties_T_CFX_Production_OperatorDeactivated.htm">
           <HelpTOCNode Title="Operator Property " Url="html/P_CFX_Production_OperatorDeactivated_Operator.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="52fc9366-e6b2-4171-a900-ebeba0c7484e" Title="ReadingsRecorded Class" Url="html/T_CFX_Production_ReadingsRecorded.htm">
-        <HelpTOCNode Id="4ac8cbac-34ee-4bd0-b248-c3a4badea1ee" Title="ReadingsRecorded Properties" Url="html/Properties_T_CFX_Production_ReadingsRecorded.htm">
+      <HelpTOCNode Id="c2b97d89-e61e-471f-b396-37fb1684f098" Title="ReadingsRecorded Class" Url="html/T_CFX_Production_ReadingsRecorded.htm">
+        <HelpTOCNode Id="72224f8f-c254-4443-aa76-dccba3aacbe4" Title="ReadingsRecorded Properties" Url="html/Properties_T_CFX_Production_ReadingsRecorded.htm">
           <HelpTOCNode Title="Readings Property " Url="html/P_CFX_Production_ReadingsRecorded_Readings.htm" />
           <HelpTOCNode Title="TransactionId Property " Url="html/P_CFX_Production_ReadingsRecorded_TransactionId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4cfbd0b1-e502-43f5-89a5-82165c47b978" Title="RecipeActivated Class" Url="html/T_CFX_Production_RecipeActivated.htm">
-        <HelpTOCNode Id="8062460f-ec82-46a7-b56a-d74965c77832" Title="RecipeActivated Properties" Url="html/Properties_T_CFX_Production_RecipeActivated.htm">
+      <HelpTOCNode Id="063ccdf5-aa0c-48c7-afdf-5eb4b6c773c8" Title="RecipeActivated Class" Url="html/T_CFX_Production_RecipeActivated.htm">
+        <HelpTOCNode Id="c3f9cc49-4f84-44b8-ab09-05a0453e555c" Title="RecipeActivated Properties" Url="html/Properties_T_CFX_Production_RecipeActivated.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_RecipeActivated_Lane.htm" />
           <HelpTOCNode Title="RecipeName Property " Url="html/P_CFX_Production_RecipeActivated_RecipeName.htm" />
           <HelpTOCNode Title="Revision Property " Url="html/P_CFX_Production_RecipeActivated_Revision.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_RecipeActivated_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d43100fa-901f-4fbe-865f-e81c4cb8f4d3" Title="RecipeModified Class" Url="html/T_CFX_Production_RecipeModified.htm">
-        <HelpTOCNode Id="f92f7a32-a629-437d-97eb-6d5a94c8a772" Title="RecipeModified Properties" Url="html/Properties_T_CFX_Production_RecipeModified.htm">
+      <HelpTOCNode Id="014edeaa-a960-4d22-8154-fa1fe0fbb8ae" Title="RecipeModified Class" Url="html/T_CFX_Production_RecipeModified.htm">
+        <HelpTOCNode Id="489bdb0b-6f24-4ec3-a46b-ab9e822c0508" Title="RecipeModified Properties" Url="html/Properties_T_CFX_Production_RecipeModified.htm">
           <HelpTOCNode Title="ModifiedBy Property " Url="html/P_CFX_Production_RecipeModified_ModifiedBy.htm" />
           <HelpTOCNode Title="Notes Property " Url="html/P_CFX_Production_RecipeModified_Notes.htm" />
           <HelpTOCNode Title="Reason Property " Url="html/P_CFX_Production_RecipeModified_Reason.htm" />
@@ -397,97 +412,97 @@
           <HelpTOCNode Title="Revision Property " Url="html/P_CFX_Production_RecipeModified_Revision.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4666fb9a-34ed-4ed3-bec9-93b952cd5a1e" Title="SetupRequirementsChanged Class" Url="html/T_CFX_Production_SetupRequirementsChanged.htm">
-        <HelpTOCNode Id="270f952b-a7c2-47f6-ac61-52487fcb18bc" Title="SetupRequirementsChanged Properties" Url="html/Properties_T_CFX_Production_SetupRequirementsChanged.htm">
+      <HelpTOCNode Id="d3c18a46-ae86-480d-9715-db5b5fc97c55" Title="SetupRequirementsChanged Class" Url="html/T_CFX_Production_SetupRequirementsChanged.htm">
+        <HelpTOCNode Id="f94d00d0-e7c0-4624-88e0-48fd1c5532c3" Title="SetupRequirementsChanged Properties" Url="html/Properties_T_CFX_Production_SetupRequirementsChanged.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_SetupRequirementsChanged_Lane.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_SetupRequirementsChanged_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d8e5ff2e-32ed-4d59-8eb7-ef1e040827a2" Title="UnblockMaterialLocationsRequest Class" Url="html/T_CFX_Production_UnblockMaterialLocationsRequest.htm">
-        <HelpTOCNode Id="fbdf9351-c4e3-498e-b10d-e5b7fdee6679" Title="UnblockMaterialLocationsRequest Properties" Url="html/Properties_T_CFX_Production_UnblockMaterialLocationsRequest.htm">
+      <HelpTOCNode Id="150b9a0a-3f1f-4ad7-9126-6453760f3544" Title="UnblockMaterialLocationsRequest Class" Url="html/T_CFX_Production_UnblockMaterialLocationsRequest.htm">
+        <HelpTOCNode Id="d4bb7ea5-cbbb-477d-b7ea-2563c37cd494" Title="UnblockMaterialLocationsRequest Properties" Url="html/Properties_T_CFX_Production_UnblockMaterialLocationsRequest.htm">
           <HelpTOCNode Title="Locations Property " Url="html/P_CFX_Production_UnblockMaterialLocationsRequest_Locations.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="b9df8c4a-e347-4931-b412-728f55bc19d9" Title="UnblockMaterialLocationsResponse Class" Url="html/T_CFX_Production_UnblockMaterialLocationsResponse.htm">
-        <HelpTOCNode Id="5d8d683b-4601-4db1-b2a3-51ab56b52962" Title="UnblockMaterialLocationsResponse Properties" Url="html/Properties_T_CFX_Production_UnblockMaterialLocationsResponse.htm">
+      <HelpTOCNode Id="487bd4bf-6b0f-4065-a94a-41581ff9b97d" Title="UnblockMaterialLocationsResponse Class" Url="html/T_CFX_Production_UnblockMaterialLocationsResponse.htm">
+        <HelpTOCNode Id="7047cd72-be56-48b3-b91c-937d1ef0a4ea" Title="UnblockMaterialLocationsResponse Properties" Url="html/Properties_T_CFX_Production_UnblockMaterialLocationsResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_UnblockMaterialLocationsResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="cca39873-1bf8-4297-a4f2-f6f3c492d1fe" Title="UnitsArrived Class" Url="html/T_CFX_Production_UnitsArrived.htm">
-        <HelpTOCNode Id="7288673b-0cf7-4913-8a71-495a183dd97d" Title="UnitsArrived Properties" Url="html/Properties_T_CFX_Production_UnitsArrived.htm">
+      <HelpTOCNode Id="68290392-81ce-48e2-8b95-2f8d0d075769" Title="UnitsArrived Class" Url="html/T_CFX_Production_UnitsArrived.htm">
+        <HelpTOCNode Id="ec44f906-59e6-4090-8026-6e956c175d45" Title="UnitsArrived Properties" Url="html/Properties_T_CFX_Production_UnitsArrived.htm">
           <HelpTOCNode Title="UnitCount Property " Url="html/P_CFX_Production_UnitsArrived_UnitCount.htm" />
           <HelpTOCNode Title="Units Property " Url="html/P_CFX_Production_UnitsArrived_Units.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="f4642049-5490-49b5-9c76-da3165ddd0e1" Title="UnitsDeparted Class" Url="html/T_CFX_Production_UnitsDeparted.htm">
-        <HelpTOCNode Id="afab94b1-2713-487e-859f-a3db0acb456f" Title="UnitsDeparted Properties" Url="html/Properties_T_CFX_Production_UnitsDeparted.htm">
+      <HelpTOCNode Id="41826a12-9ce7-4ceb-899d-c661d586ff5f" Title="UnitsDeparted Class" Url="html/T_CFX_Production_UnitsDeparted.htm">
+        <HelpTOCNode Id="ecd6de6d-ceb6-4d36-8645-d4677cab3290" Title="UnitsDeparted Properties" Url="html/Properties_T_CFX_Production_UnitsDeparted.htm">
           <HelpTOCNode Title="UnitCount Property " Url="html/P_CFX_Production_UnitsDeparted_UnitCount.htm" />
           <HelpTOCNode Title="Units Property " Url="html/P_CFX_Production_UnitsDeparted_Units.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="58e8a59a-0ac2-448b-b8ff-904b583b18d9" Title="UnitsDisqualified Class" Url="html/T_CFX_Production_UnitsDisqualified.htm">
-        <HelpTOCNode Id="00a7df4a-342a-4d8b-9663-f194961c6626" Title="UnitsDisqualified Properties" Url="html/Properties_T_CFX_Production_UnitsDisqualified.htm">
+      <HelpTOCNode Id="62ecfcff-6b6e-419a-9a76-52d338229e16" Title="UnitsDisqualified Class" Url="html/T_CFX_Production_UnitsDisqualified.htm">
+        <HelpTOCNode Id="0d92aa2d-d15f-4ff9-a1c6-ffd36c5182aa" Title="UnitsDisqualified Properties" Url="html/Properties_T_CFX_Production_UnitsDisqualified.htm">
           <HelpTOCNode Title="UnitCount Property " Url="html/P_CFX_Production_UnitsDisqualified_UnitCount.htm" />
           <HelpTOCNode Title="Units Property " Url="html/P_CFX_Production_UnitsDisqualified_Units.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="38ff640a-e23c-418a-be7d-c976992ca1b2" Title="UnlockStationRequest Class" Url="html/T_CFX_Production_UnlockStationRequest.htm">
-        <HelpTOCNode Id="3e826b9c-4226-443b-ad99-06abb0814269" Title="UnlockStationRequest Properties" Url="html/Properties_T_CFX_Production_UnlockStationRequest.htm">
+      <HelpTOCNode Id="60f4587d-01e6-4830-8219-bca01fdd0b7b" Title="UnlockStationRequest Class" Url="html/T_CFX_Production_UnlockStationRequest.htm">
+        <HelpTOCNode Id="15e41a0e-fcc3-4bfe-92fd-7ca2f18ae65b" Title="UnlockStationRequest Properties" Url="html/Properties_T_CFX_Production_UnlockStationRequest.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_UnlockStationRequest_Lane.htm" />
           <HelpTOCNode Title="Requestor Property " Url="html/P_CFX_Production_UnlockStationRequest_Requestor.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_UnlockStationRequest_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="92cc0c63-af77-48cb-a482-44f1fcb4fa0e" Title="UnlockStationResponse Class" Url="html/T_CFX_Production_UnlockStationResponse.htm">
-        <HelpTOCNode Id="9c5c8d6e-5431-4abb-89d0-bb600b750e5c" Title="UnlockStationResponse Properties" Url="html/Properties_T_CFX_Production_UnlockStationResponse.htm">
+      <HelpTOCNode Id="5d67956c-a1ce-4345-8613-b865b8d791dc" Title="UnlockStationResponse Class" Url="html/T_CFX_Production_UnlockStationResponse.htm">
+        <HelpTOCNode Id="62a927e1-8a07-48be-b564-a1802792a8c6" Title="UnlockStationResponse Properties" Url="html/Properties_T_CFX_Production_UnlockStationResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_UnlockStationResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="746e5e4a-cef4-4816-969a-6f8790fa1bee" Title="UpdateRecipeRequest Class" Url="html/T_CFX_Production_UpdateRecipeRequest.htm">
-        <HelpTOCNode Id="ce3a4d33-34a5-4398-a933-d9ae105f0f00" Title="UpdateRecipeRequest Properties" Url="html/Properties_T_CFX_Production_UpdateRecipeRequest.htm">
+      <HelpTOCNode Id="b27e9dbc-ff05-4ff9-90d8-5f9b570169f7" Title="UpdateRecipeRequest Class" Url="html/T_CFX_Production_UpdateRecipeRequest.htm">
+        <HelpTOCNode Id="090c07bc-aefa-430a-a00b-95557ecbf519" Title="UpdateRecipeRequest Properties" Url="html/Properties_T_CFX_Production_UpdateRecipeRequest.htm">
           <HelpTOCNode Title="Overwrite Property " Url="html/P_CFX_Production_UpdateRecipeRequest_Overwrite.htm" />
           <HelpTOCNode Title="Reason Property " Url="html/P_CFX_Production_UpdateRecipeRequest_Reason.htm" />
           <HelpTOCNode Title="Recipe Property " Url="html/P_CFX_Production_UpdateRecipeRequest_Recipe.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="786e8766-2b05-4a5c-b694-79c4b37c3a02" Title="UpdateRecipeResponse Class" Url="html/T_CFX_Production_UpdateRecipeResponse.htm">
-        <HelpTOCNode Id="e1b312f3-ecc7-45df-b8c8-5f6dd1abf461" Title="UpdateRecipeResponse Properties" Url="html/Properties_T_CFX_Production_UpdateRecipeResponse.htm">
+      <HelpTOCNode Id="60110a33-3bbd-4dd1-88eb-371a6470f33e" Title="UpdateRecipeResponse Class" Url="html/T_CFX_Production_UpdateRecipeResponse.htm">
+        <HelpTOCNode Id="08342f57-ad5e-4461-8fdf-b82bfc53062a" Title="UpdateRecipeResponse Properties" Url="html/Properties_T_CFX_Production_UpdateRecipeResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_UpdateRecipeResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="701365e9-c2a3-4973-a77b-bc52720b81dc" Title="WorkCompleted Class" Url="html/T_CFX_Production_WorkCompleted.htm">
-        <HelpTOCNode Id="1fbca758-443c-49ee-acfd-687e18b2bb59" Title="WorkCompleted Properties" Url="html/Properties_T_CFX_Production_WorkCompleted.htm">
+      <HelpTOCNode Id="cd2ed0c1-bfda-4f87-9368-88a085bf9984" Title="WorkCompleted Class" Url="html/T_CFX_Production_WorkCompleted.htm">
+        <HelpTOCNode Id="fd6f7e92-d752-41c2-b730-846bb97ba9d1" Title="WorkCompleted Properties" Url="html/Properties_T_CFX_Production_WorkCompleted.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_WorkCompleted_Result.htm" />
           <HelpTOCNode Title="TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2d51ccca-f45f-404c-bdfe-254993d9e88d" Title="WorkStageCompleted Class" Url="html/T_CFX_Production_WorkStageCompleted.htm">
-        <HelpTOCNode Id="5c509910-1f31-4a86-b903-6db0fd8fb5a2" Title="WorkStageCompleted Properties" Url="html/Properties_T_CFX_Production_WorkStageCompleted.htm">
+      <HelpTOCNode Id="932b9ac5-1c74-4be7-a4b2-df54fcf55f36" Title="WorkStageCompleted Class" Url="html/T_CFX_Production_WorkStageCompleted.htm">
+        <HelpTOCNode Id="d6607600-e982-47ee-bfd7-f9e7091ffce6" Title="WorkStageCompleted Properties" Url="html/Properties_T_CFX_Production_WorkStageCompleted.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Production_WorkStageCompleted_Result.htm" />
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_WorkStageCompleted_Stage.htm" />
           <HelpTOCNode Title="TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="f7b00940-5bfb-4d48-a3ff-ce653ca29720" Title="WorkStagePaused Class" Url="html/T_CFX_Production_WorkStagePaused.htm">
-        <HelpTOCNode Id="f0567e7e-b047-4cf2-90cf-1544cba0ff97" Title="WorkStagePaused Properties" Url="html/Properties_T_CFX_Production_WorkStagePaused.htm">
+      <HelpTOCNode Id="0c8d15df-3e3a-480b-b611-85a7b1705fde" Title="WorkStagePaused Class" Url="html/T_CFX_Production_WorkStagePaused.htm">
+        <HelpTOCNode Id="7edec88c-a151-46f0-b2c1-bc97ab935059" Title="WorkStagePaused Properties" Url="html/Properties_T_CFX_Production_WorkStagePaused.htm">
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_WorkStagePaused_Stage.htm" />
           <HelpTOCNode Title="TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="16a369e0-e10a-48ab-aa33-f25ea4cbc654" Title="WorkStageResumed Class" Url="html/T_CFX_Production_WorkStageResumed.htm">
-        <HelpTOCNode Id="29eacdb4-218a-4443-825b-21299930ecb6" Title="WorkStageResumed Properties" Url="html/Properties_T_CFX_Production_WorkStageResumed.htm">
+      <HelpTOCNode Id="2816b9d8-48b0-4dc2-bdae-c87c7826a104" Title="WorkStageResumed Class" Url="html/T_CFX_Production_WorkStageResumed.htm">
+        <HelpTOCNode Id="ba01f0b0-72e4-4f69-b1c5-9b2b9a4ad37a" Title="WorkStageResumed Properties" Url="html/Properties_T_CFX_Production_WorkStageResumed.htm">
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_WorkStageResumed_Stage.htm" />
           <HelpTOCNode Title="TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d13a589c-3699-4efd-89ae-d303f31c4682" Title="WorkStageStarted Class" Url="html/T_CFX_Production_WorkStageStarted.htm">
-        <HelpTOCNode Id="3ba0bcbe-6ce1-47d5-a6dc-8961a65f13e0" Title="WorkStageStarted Properties" Url="html/Properties_T_CFX_Production_WorkStageStarted.htm">
+      <HelpTOCNode Id="82591c52-9cd8-46a1-987e-ef52d665dc07" Title="WorkStageStarted Class" Url="html/T_CFX_Production_WorkStageStarted.htm">
+        <HelpTOCNode Id="20127a25-9cae-48e8-8891-e5971f45dc18" Title="WorkStageStarted Properties" Url="html/Properties_T_CFX_Production_WorkStageStarted.htm">
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_Production_WorkStageStarted_Stage.htm" />
           <HelpTOCNode Title="TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0fe23479-8a92-4a47-a310-ba2cb4570894" Title="WorkStarted Class" Url="html/T_CFX_Production_WorkStarted.htm">
-        <HelpTOCNode Id="deb29b6e-e741-4790-bca2-c3b5a6c3f65d" Title="WorkStarted Properties" Url="html/Properties_T_CFX_Production_WorkStarted.htm">
+      <HelpTOCNode Id="4603a02f-7a5e-425b-985c-c2cb5384f967" Title="WorkStarted Class" Url="html/T_CFX_Production_WorkStarted.htm">
+        <HelpTOCNode Id="b1a450c6-cab1-445e-83f4-d2756cea208c" Title="WorkStarted Properties" Url="html/Properties_T_CFX_Production_WorkStarted.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Production_WorkStarted_Lane.htm" />
           <HelpTOCNode Title="TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
           <HelpTOCNode Title="UnitCount Property " Url="html/P_CFX_Production_WorkStarted_UnitCount.htm" />
@@ -495,35 +510,35 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="14dfce4d-d3f3-4840-bad6-01b26cfc13b2" Title="CFX.Production.Assembly" Url="html/N_CFX_Production_Assembly.htm">
-      <HelpTOCNode Id="1357c8bd-9d53-4195-87db-961b1cd95042" Title="MaterialsInstalled Class" Url="html/T_CFX_Production_Assembly_MaterialsInstalled.htm">
-        <HelpTOCNode Id="32c485b1-9061-4b86-95ee-d535a83e572a" Title="MaterialsInstalled Properties" Url="html/Properties_T_CFX_Production_Assembly_MaterialsInstalled.htm">
+    <HelpTOCNode Id="6f842045-c1f5-4ae8-a44b-73fa9525df13" Title="CFX.Production.Assembly" Url="html/N_CFX_Production_Assembly.htm">
+      <HelpTOCNode Id="ea0ab94c-f9ff-4894-a768-1e2a6198886e" Title="MaterialsInstalled Class" Url="html/T_CFX_Production_Assembly_MaterialsInstalled.htm">
+        <HelpTOCNode Id="0c7c2b16-0c17-47ea-a619-e0e747c253e1" Title="MaterialsInstalled Properties" Url="html/Properties_T_CFX_Production_Assembly_MaterialsInstalled.htm">
           <HelpTOCNode Title="InstalledMaterials Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_InstalledMaterials.htm" />
           <HelpTOCNode Title="TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2ac44631-f6f4-41f6-9e52-ea02d382f2ab" Title="MaterialsUninstalled Class" Url="html/T_CFX_Production_Assembly_MaterialsUninstalled.htm">
-        <HelpTOCNode Id="5863f372-29ff-4fc2-948b-451076891aa0" Title="MaterialsUninstalled Properties" Url="html/Properties_T_CFX_Production_Assembly_MaterialsUninstalled.htm">
+      <HelpTOCNode Id="5f5d75a1-7f56-4e11-9552-d2f7fc975af7" Title="MaterialsUninstalled Class" Url="html/T_CFX_Production_Assembly_MaterialsUninstalled.htm">
+        <HelpTOCNode Id="dd2dbcf3-e17a-424f-80ed-3a637e72794f" Title="MaterialsUninstalled Properties" Url="html/Properties_T_CFX_Production_Assembly_MaterialsUninstalled.htm">
           <HelpTOCNode Title="TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
           <HelpTOCNode Title="UninstalledMaterials Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_UninstalledMaterials.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4c84a1f4-462c-4434-a3ab-323409ad9b99" Title="ToolsUsed Class" Url="html/T_CFX_Production_Assembly_ToolsUsed.htm">
-        <HelpTOCNode Id="25deeae6-d8df-4542-9fc8-e94f080841d5" Title="ToolsUsed Properties" Url="html/Properties_T_CFX_Production_Assembly_ToolsUsed.htm">
+      <HelpTOCNode Id="91cc0961-a58d-4b88-bcd9-e3191972455e" Title="ToolsUsed Class" Url="html/T_CFX_Production_Assembly_ToolsUsed.htm">
+        <HelpTOCNode Id="a0695c8f-35e6-4454-b409-c132687ba236" Title="ToolsUsed Properties" Url="html/Properties_T_CFX_Production_Assembly_ToolsUsed.htm">
           <HelpTOCNode Title="TransactionId Property " Url="html/P_CFX_Production_Assembly_ToolsUsed_TransactionId.htm" />
           <HelpTOCNode Title="UsedTools Property " Url="html/P_CFX_Production_Assembly_ToolsUsed_UsedTools.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="22903ce3-26cf-480c-805c-467e6e540ae7" Title="UnitsPersonalized Class" Url="html/T_CFX_Production_Assembly_UnitsPersonalized.htm">
-        <HelpTOCNode Id="58b37665-4b7d-4ee5-934a-3677be32635e" Title="UnitsPersonalized Properties" Url="html/Properties_T_CFX_Production_Assembly_UnitsPersonalized.htm">
+      <HelpTOCNode Id="d61bff43-95d6-4bad-b554-71a4cf62cee1" Title="UnitsPersonalized Class" Url="html/T_CFX_Production_Assembly_UnitsPersonalized.htm">
+        <HelpTOCNode Id="ce82fa9d-5660-4709-a335-c2ebef07e89f" Title="UnitsPersonalized Properties" Url="html/Properties_T_CFX_Production_Assembly_UnitsPersonalized.htm">
           <HelpTOCNode Title="PersonalizedUnits Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_PersonalizedUnits.htm" />
           <HelpTOCNode Title="TransactionId Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_TransactionId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="49eb062a-f9f0-4063-9e82-b05fa374ea76" Title="CFX.Production.TestAndInspection" Url="html/N_CFX_Production_TestAndInspection.htm">
-      <HelpTOCNode Id="dc9dee05-afed-402b-bacf-b82a7ae008bf" Title="UnitsInspected Class" Url="html/T_CFX_Production_TestAndInspection_UnitsInspected.htm">
-        <HelpTOCNode Id="48525c3e-ac16-455c-859e-fba4505251b7" Title="UnitsInspected Properties" Url="html/Properties_T_CFX_Production_TestAndInspection_UnitsInspected.htm">
+    <HelpTOCNode Id="8452a4e5-c015-4275-a1b6-443d5e09573e" Title="CFX.Production.TestAndInspection" Url="html/N_CFX_Production_TestAndInspection.htm">
+      <HelpTOCNode Id="2df49940-5aba-4809-954e-3091ad567dff" Title="UnitsInspected Class" Url="html/T_CFX_Production_TestAndInspection_UnitsInspected.htm">
+        <HelpTOCNode Id="93642067-03f8-40ff-9944-26b84eea0608" Title="UnitsInspected Properties" Url="html/Properties_T_CFX_Production_TestAndInspection_UnitsInspected.htm">
           <HelpTOCNode Title="InspectedUnits Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_InspectedUnits.htm" />
           <HelpTOCNode Title="InspectionMethod Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_InspectionMethod.htm" />
           <HelpTOCNode Title="Inspector Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_Inspector.htm" />
@@ -531,8 +546,8 @@
           <HelpTOCNode Title="TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_TransactionId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="564f6539-d553-43b8-8f02-a4abee1032e5" Title="UnitsTested Class" Url="html/T_CFX_Production_TestAndInspection_UnitsTested.htm">
-        <HelpTOCNode Id="f9c1ca3a-84db-4df2-991c-403a6be77b48" Title="UnitsTested Properties" Url="html/Properties_T_CFX_Production_TestAndInspection_UnitsTested.htm">
+      <HelpTOCNode Id="c7e32766-320f-4efe-8b05-c6b196634bb2" Title="UnitsTested Class" Url="html/T_CFX_Production_TestAndInspection_UnitsTested.htm">
+        <HelpTOCNode Id="6521ac2a-eae4-4b49-9109-f7f8c5d139ce" Title="UnitsTested Properties" Url="html/Properties_T_CFX_Production_TestAndInspection_UnitsTested.htm">
           <HelpTOCNode Title="SamplingInformation Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_SamplingInformation.htm" />
           <HelpTOCNode Title="TestedUnits Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_TestedUnits.htm" />
           <HelpTOCNode Title="Tester Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_Tester.htm" />
@@ -541,9 +556,9 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="bf553578-a673-40a9-85d8-c26d58b39ae4" Title="CFX.ResourcePerformance" Url="html/N_CFX_ResourcePerformance.htm">
-      <HelpTOCNode Id="c072d493-a5eb-41f2-b783-91c09b824f47" Title="EnergyConsumed Class" Url="html/T_CFX_ResourcePerformance_EnergyConsumed.htm">
-        <HelpTOCNode Id="133012f5-ac1b-4236-b260-c063d767ddb7" Title="EnergyConsumed Properties" Url="html/Properties_T_CFX_ResourcePerformance_EnergyConsumed.htm">
+    <HelpTOCNode Id="7e259abe-ab7e-46c9-a1e5-eb9365335ef4" Title="CFX.ResourcePerformance" Url="html/N_CFX_ResourcePerformance.htm">
+      <HelpTOCNode Id="6c79dca2-8080-4fee-aaa2-d9fde7e4d6d2" Title="EnergyConsumed Class" Url="html/T_CFX_ResourcePerformance_EnergyConsumed.htm">
+        <HelpTOCNode Id="96bde216-7401-4626-97fd-7d0e9a43b4f6" Title="EnergyConsumed Properties" Url="html/Properties_T_CFX_ResourcePerformance_EnergyConsumed.htm">
           <HelpTOCNode Title="EndTime Property " Url="html/P_CFX_ResourcePerformance_EnergyConsumed_EndTime.htm" />
           <HelpTOCNode Title="EnergyUsed Property " Url="html/P_CFX_ResourcePerformance_EnergyConsumed_EnergyUsed.htm" />
           <HelpTOCNode Title="MeanPower Property " Url="html/P_CFX_ResourcePerformance_EnergyConsumed_MeanPower.htm" />
@@ -552,18 +567,18 @@
           <HelpTOCNode Title="StartTime Property " Url="html/P_CFX_ResourcePerformance_EnergyConsumed_StartTime.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="3c915b34-f6b7-4ea5-ab0f-720e48e5c54d" Title="FaultCleared Class" Url="html/T_CFX_ResourcePerformance_FaultCleared.htm">
-        <HelpTOCNode Id="882feb79-c06f-4248-b774-1147b7328c08" Title="FaultCleared Properties" Url="html/Properties_T_CFX_ResourcePerformance_FaultCleared.htm">
+      <HelpTOCNode Id="a356a31e-3bff-42df-aca0-84523392f805" Title="FaultCleared Class" Url="html/T_CFX_ResourcePerformance_FaultCleared.htm">
+        <HelpTOCNode Id="681b09bf-3957-404a-b52d-0821e9fe4cfc" Title="FaultCleared Properties" Url="html/Properties_T_CFX_ResourcePerformance_FaultCleared.htm">
           <HelpTOCNode Title="FaultOccurrenceId Property " Url="html/P_CFX_ResourcePerformance_FaultCleared_FaultOccurrenceId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="20bde3eb-76f9-43dd-96a6-ee344e0833c7" Title="FaultOccurred Class" Url="html/T_CFX_ResourcePerformance_FaultOccurred.htm">
-        <HelpTOCNode Id="0432ae73-0615-4b6d-be87-d12597e5ee01" Title="FaultOccurred Properties" Url="html/Properties_T_CFX_ResourcePerformance_FaultOccurred.htm">
+      <HelpTOCNode Id="4a05ef22-e1b9-4df7-9fb1-5a896a5a437a" Title="FaultOccurred Class" Url="html/T_CFX_ResourcePerformance_FaultOccurred.htm">
+        <HelpTOCNode Id="913ce7cb-5ea7-42ad-acbc-076e463c1e87" Title="FaultOccurred Properties" Url="html/Properties_T_CFX_ResourcePerformance_FaultOccurred.htm">
           <HelpTOCNode Title="Fault Property " Url="html/P_CFX_ResourcePerformance_FaultOccurred_Fault.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="91984711-e516-492c-9ff8-0e54d85695e4" Title="LogEntryRecorded Class" Url="html/T_CFX_ResourcePerformance_LogEntryRecorded.htm">
-        <HelpTOCNode Id="271e4efb-b37c-4451-847d-ac6213a0beea" Title="LogEntryRecorded Properties" Url="html/Properties_T_CFX_ResourcePerformance_LogEntryRecorded.htm">
+      <HelpTOCNode Id="4ff6ca73-215e-4de5-a603-c622ee568fef" Title="LogEntryRecorded Class" Url="html/T_CFX_ResourcePerformance_LogEntryRecorded.htm">
+        <HelpTOCNode Id="c426fb11-7b28-4bba-9696-3ba6f7be1cc3" Title="LogEntryRecorded Properties" Url="html/Properties_T_CFX_ResourcePerformance_LogEntryRecorded.htm">
           <HelpTOCNode Title="Importance Property " Url="html/P_CFX_ResourcePerformance_LogEntryRecorded_Importance.htm" />
           <HelpTOCNode Title="InformationId Property " Url="html/P_CFX_ResourcePerformance_LogEntryRecorded_InformationId.htm" />
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_ResourcePerformance_LogEntryRecorded_Lane.htm" />
@@ -571,8 +586,8 @@
           <HelpTOCNode Title="Stage Property " Url="html/P_CFX_ResourcePerformance_LogEntryRecorded_Stage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="9d2227a8-05ad-468d-82e4-43cad7813f1d" Title="MaintenancePerformed Class" Url="html/T_CFX_ResourcePerformance_MaintenancePerformed.htm">
-        <HelpTOCNode Id="1c4227cc-1978-4efb-b18b-a32be397a48b" Title="MaintenancePerformed Properties" Url="html/Properties_T_CFX_ResourcePerformance_MaintenancePerformed.htm">
+      <HelpTOCNode Id="071c9741-36ec-4802-8151-669a463a201e" Title="MaintenancePerformed Class" Url="html/T_CFX_ResourcePerformance_MaintenancePerformed.htm">
+        <HelpTOCNode Id="615c781f-2c64-47cb-a9c9-b3560138075c" Title="MaintenancePerformed Properties" Url="html/Properties_T_CFX_ResourcePerformance_MaintenancePerformed.htm">
           <HelpTOCNode Title="ConsumedMaterials Property " Url="html/P_CFX_ResourcePerformance_MaintenancePerformed_ConsumedMaterials.htm" />
           <HelpTOCNode Title="MaintenanceJobCode Property " Url="html/P_CFX_ResourcePerformance_MaintenancePerformed_MaintenanceJobCode.htm" />
           <HelpTOCNode Title="MaintenanceOrderNumber Property " Url="html/P_CFX_ResourcePerformance_MaintenancePerformed_MaintenanceOrderNumber.htm" />
@@ -580,22 +595,22 @@
           <HelpTOCNode Title="Tasks Property " Url="html/P_CFX_ResourcePerformance_MaintenancePerformed_Tasks.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="7db7ee19-3e48-450a-b978-73803c757373" Title="ModifyStationParameterRequest Class" Url="html/T_CFX_ResourcePerformance_ModifyStationParameterRequest.htm">
-        <HelpTOCNode Id="d3e3ad24-50e4-426d-b6fb-706fa9b165a9" Title="ModifyStationParameterRequest Properties" Url="html/Properties_T_CFX_ResourcePerformance_ModifyStationParameterRequest.htm">
+      <HelpTOCNode Id="fdda031a-bd18-4311-96d2-f44b6efe0c0c" Title="ModifyStationParameterRequest Class" Url="html/T_CFX_ResourcePerformance_ModifyStationParameterRequest.htm">
+        <HelpTOCNode Id="b4f05cb6-d540-4b09-af4a-aab2b8e1cf75" Title="ModifyStationParameterRequest Properties" Url="html/Properties_T_CFX_ResourcePerformance_ModifyStationParameterRequest.htm">
           <HelpTOCNode Title="ParameterName Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterRequest_ParameterName.htm" />
           <HelpTOCNode Title="ParameterValue Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterRequest_ParameterValue.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="9dcdf0dc-183b-4bd0-8034-a49edfe7e465" Title="ModifyStationParameterResponse Class" Url="html/T_CFX_ResourcePerformance_ModifyStationParameterResponse.htm">
-        <HelpTOCNode Id="be23b71f-34c1-4263-8263-5e143e2201a4" Title="ModifyStationParameterResponse Properties" Url="html/Properties_T_CFX_ResourcePerformance_ModifyStationParameterResponse.htm">
+      <HelpTOCNode Id="7217418d-8dc4-49de-986c-f408233a22c5" Title="ModifyStationParameterResponse Class" Url="html/T_CFX_ResourcePerformance_ModifyStationParameterResponse.htm">
+        <HelpTOCNode Id="9fb02857-5ce9-441f-aaa1-099cbc8df26e" Title="ModifyStationParameterResponse Properties" Url="html/Properties_T_CFX_ResourcePerformance_ModifyStationParameterResponse.htm">
           <HelpTOCNode Title="NewParameterValue Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_NewParameterValue.htm" />
           <HelpTOCNode Title="OldParameterValue Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_OldParameterValue.htm" />
           <HelpTOCNode Title="ParameterName Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_ParameterName.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="2c347fea-66d3-4e67-b47e-6522e7ef5da2" Title="StageStateChanged Class" Url="html/T_CFX_ResourcePerformance_StageStateChanged.htm">
-        <HelpTOCNode Id="45ed4088-ee82-4e01-8826-9e50b445c0f2" Title="StageStateChanged Properties" Url="html/Properties_T_CFX_ResourcePerformance_StageStateChanged.htm">
+      <HelpTOCNode Id="11acc89c-2266-4911-9d4e-ac0c12137ca1" Title="StageStateChanged Class" Url="html/T_CFX_ResourcePerformance_StageStateChanged.htm">
+        <HelpTOCNode Id="08b08f2c-616e-4f3a-bcc1-2b670816bc43" Title="StageStateChanged Properties" Url="html/Properties_T_CFX_ResourcePerformance_StageStateChanged.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_Lane.htm" />
           <HelpTOCNode Title="NewState Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_NewState.htm" />
           <HelpTOCNode Title="OldState Property " Url="html/P_CFX_ResourcePerformance_StageStateChanged_OldState.htm" />
@@ -605,29 +620,29 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="StationOffline Class" Url="html/T_CFX_ResourcePerformance_StationOffline.htm" />
-      <HelpTOCNode Id="8a29aff3-3d8e-4f17-bbfe-7e799925c6c1" Title="StationOnline Class" Url="html/T_CFX_ResourcePerformance_StationOnline.htm">
-        <HelpTOCNode Id="5c8835e7-99a3-4413-876d-783ebaa5eff7" Title="StationOnline Properties" Url="html/Properties_T_CFX_ResourcePerformance_StationOnline.htm">
+      <HelpTOCNode Id="1a2a0206-7ff9-4aa0-80c6-b612fe3d6b30" Title="StationOnline Class" Url="html/T_CFX_ResourcePerformance_StationOnline.htm">
+        <HelpTOCNode Id="c88eae10-949c-4692-b98d-5a3f62b51229" Title="StationOnline Properties" Url="html/Properties_T_CFX_ResourcePerformance_StationOnline.htm">
           <HelpTOCNode Title="OfflineDuration Property " Url="html/P_CFX_ResourcePerformance_StationOnline_OfflineDuration.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="3246b7a6-43b5-40a6-a270-e9e482f8c185" Title="StationParameterModified Class" Url="html/T_CFX_ResourcePerformance_StationParameterModified.htm">
-        <HelpTOCNode Id="84422145-d3d0-41dd-a9a4-82b1031d338f" Title="StationParameterModified Properties" Url="html/Properties_T_CFX_ResourcePerformance_StationParameterModified.htm">
+      <HelpTOCNode Id="f124e7f1-e5de-412b-ab95-499b35f14a25" Title="StationParameterModified Class" Url="html/T_CFX_ResourcePerformance_StationParameterModified.htm">
+        <HelpTOCNode Id="ab3bdaff-fd8c-4b5d-abc6-fed257d09279" Title="StationParameterModified Properties" Url="html/Properties_T_CFX_ResourcePerformance_StationParameterModified.htm">
           <HelpTOCNode Title="NewParameterValue Property " Url="html/P_CFX_ResourcePerformance_StationParameterModified_NewParameterValue.htm" />
           <HelpTOCNode Title="OldParameterValue Property " Url="html/P_CFX_ResourcePerformance_StationParameterModified_OldParameterValue.htm" />
           <HelpTOCNode Title="ParameterName Property " Url="html/P_CFX_ResourcePerformance_StationParameterModified_ParameterName.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="ac56d22e-840e-4bfa-8ee2-f373c0c66b53" Title="StationStateChanged Class" Url="html/T_CFX_ResourcePerformance_StationStateChanged.htm">
-        <HelpTOCNode Id="ff61f46a-169c-4f3e-83b5-de3ea0c37ade" Title="StationStateChanged Properties" Url="html/Properties_T_CFX_ResourcePerformance_StationStateChanged.htm">
+      <HelpTOCNode Id="68b338b8-b46f-4500-b5f0-696bacb8e90a" Title="StationStateChanged Class" Url="html/T_CFX_ResourcePerformance_StationStateChanged.htm">
+        <HelpTOCNode Id="adc0aa55-7510-4145-b5f9-dd4432dc0f4c" Title="StationStateChanged Properties" Url="html/Properties_T_CFX_ResourcePerformance_StationStateChanged.htm">
           <HelpTOCNode Title="NewState Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_NewState.htm" />
           <HelpTOCNode Title="OldState Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_OldState.htm" />
           <HelpTOCNode Title="OldStateDuration Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_OldStateDuration.htm" />
           <HelpTOCNode Title="RelatedFault Property " Url="html/P_CFX_ResourcePerformance_StationStateChanged_RelatedFault.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="165dd63c-9e23-4dc4-b40d-caceaccb224e" Title="ToolChanged Class" Url="html/T_CFX_ResourcePerformance_ToolChanged.htm">
+      <HelpTOCNode Id="8c171c94-384e-46c9-a4c1-03d15bb39d53" Title="ToolChanged Class" Url="html/T_CFX_ResourcePerformance_ToolChanged.htm">
         <HelpTOCNode Title="ToolChanged Constructor " Url="html/M_CFX_ResourcePerformance_ToolChanged__ctor.htm" />
-        <HelpTOCNode Id="06d89739-ad51-4a33-8a56-a254445771cc" Title="ToolChanged Properties" Url="html/Properties_T_CFX_ResourcePerformance_ToolChanged.htm">
+        <HelpTOCNode Id="d14e0c0f-daf2-4a66-807f-94f449ef318d" Title="ToolChanged Properties" Url="html/Properties_T_CFX_ResourcePerformance_ToolChanged.htm">
           <HelpTOCNode Title="LoadedFromHolder Property " Url="html/P_CFX_ResourcePerformance_ToolChanged_LoadedFromHolder.htm" />
           <HelpTOCNode Title="NewTool Property " Url="html/P_CFX_ResourcePerformance_ToolChanged_NewTool.htm" />
           <HelpTOCNode Title="OldTool Property " Url="html/P_CFX_ResourcePerformance_ToolChanged_OldTool.htm" />
@@ -635,9 +650,9 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="01f274d5-c2d9-450f-a3fb-973bfe248709" Title="CFX.ResourcePerformance.SMTPlacement" Url="html/N_CFX_ResourcePerformance_SMTPlacement.htm">
-      <HelpTOCNode Id="9aee3adb-ae1a-449e-8cae-17c3e3727c19" Title="ComponentsPlaced Class" Url="html/T_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced.htm">
-        <HelpTOCNode Id="9764a680-1078-49a3-9d9d-90bc80fa52f2" Title="ComponentsPlaced Properties" Url="html/Properties_T_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced.htm">
+    <HelpTOCNode Id="30d3fe0e-41a2-4109-9716-54d137f240d4" Title="CFX.ResourcePerformance.SMTPlacement" Url="html/N_CFX_ResourcePerformance_SMTPlacement.htm">
+      <HelpTOCNode Id="7c8b9352-aa63-4ef1-8bb5-ebc33a573d15" Title="ComponentsPlaced Class" Url="html/T_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced.htm">
+        <HelpTOCNode Id="f4769f22-4213-42ea-a096-e5ae8c2d6b45" Title="ComponentsPlaced Properties" Url="html/Properties_T_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced.htm">
           <HelpTOCNode Title="EndTime Property " Url="html/P_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced_EndTime.htm" />
           <HelpTOCNode Title="StartTime Property " Url="html/P_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced_StartTime.htm" />
           <HelpTOCNode Title="TotalComponentsNotPlaced Property " Url="html/P_CFX_ResourcePerformance_SMTPlacement_ComponentsPlaced_TotalComponentsNotPlaced.htm" />
@@ -645,29 +660,29 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="92d8bf6e-57ba-40cd-a73d-20e3db3f5fba" Title="CFX.ResourcePerformance.SolderPastePrinting" Url="html/N_CFX_ResourcePerformance_SolderPastePrinting.htm">
-      <HelpTOCNode Id="0032a583-1aa4-4c2a-8984-f8f58c0dc7c2" Title="CleanSqueegeeRequest Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeRequest.htm">
-        <HelpTOCNode Id="d7f8c41d-ffc1-4f86-bd3d-1737c1a0f8a4" Title="CleanSqueegeeRequest Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeRequest.htm">
+    <HelpTOCNode Id="bf8df58e-b373-4d00-abf4-67911f87c640" Title="CFX.ResourcePerformance.SolderPastePrinting" Url="html/N_CFX_ResourcePerformance_SolderPastePrinting.htm">
+      <HelpTOCNode Id="7ad47241-e4fd-41ea-a9e0-037da9d8562e" Title="CleanSqueegeeRequest Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeRequest.htm">
+        <HelpTOCNode Id="72d39b00-2083-4a80-b0b3-16a370088431" Title="CleanSqueegeeRequest Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeRequest.htm">
           <HelpTOCNode Title="CleanTypeRequested Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeRequest_CleanTypeRequested.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a997650b-1215-4d94-a4b0-3d4c605911d2" Title="CleanSqueegeeResponse Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeResponse.htm">
-        <HelpTOCNode Id="b1b96793-a9ae-4a30-befa-18403cdd9457" Title="CleanSqueegeeResponse Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeResponse.htm">
+      <HelpTOCNode Id="0ed9ba8c-e6ec-4315-98ae-863e3bca18f4" Title="CleanSqueegeeResponse Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeResponse.htm">
+        <HelpTOCNode Id="2ec6c427-59f9-4ea0-a925-2d6a963d5e25" Title="CleanSqueegeeResponse Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_CleanSqueegeeResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d39b8dec-7d48-42ae-b296-124448d32db5" Title="CleanStencilRequest Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest.htm">
-        <HelpTOCNode Id="8d292d1c-64a7-4ffe-b08f-cf06b1be47ce" Title="CleanStencilRequest Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest.htm">
+      <HelpTOCNode Id="58d48cfb-0dc7-4667-b540-42d77fca1140" Title="CleanStencilRequest Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest.htm">
+        <HelpTOCNode Id="dcfc88e5-da37-4d60-b670-7330d0c3c2f7" Title="CleanStencilRequest Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest.htm">
           <HelpTOCNode Title="CleanTypeRequested Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest_CleanTypeRequested.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="283eb068-4ff0-4180-a049-3b573a68cb9d" Title="CleanStencilResponse Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilResponse.htm">
-        <HelpTOCNode Id="e3a03d63-9f63-4e6f-aa2e-0c44c59769a6" Title="CleanStencilResponse Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilResponse.htm">
+      <HelpTOCNode Id="96db3b78-30f5-4d89-b5dd-ca896a0ba6f6" Title="CleanStencilResponse Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilResponse.htm">
+        <HelpTOCNode Id="b88b263b-37a9-452a-8cdd-fae94df602ce" Title="CleanStencilResponse Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilResponse.htm">
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilResponse_Result.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="adba9e04-b661-4131-9393-3d63d6e8d8f2" Title="SqueegeeCleaned Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned.htm">
-        <HelpTOCNode Id="58e6a686-41dd-4744-8fa0-c4cef2f4a9fa" Title="SqueegeeCleaned Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned.htm">
+      <HelpTOCNode Id="f8710a03-910f-4e20-94cb-ac36907cfa81" Title="SqueegeeCleaned Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned.htm">
+        <HelpTOCNode Id="2e69804a-b303-4ace-99f9-5c2de863c2de" Title="SqueegeeCleaned Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned.htm">
           <HelpTOCNode Title="CyclesSinceLastClean Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_CyclesSinceLastClean.htm" />
           <HelpTOCNode Title="Squeegee Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_Squeegee.htm" />
           <HelpTOCNode Title="SqueegeeCleanCycles Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanCycles.htm" />
@@ -676,8 +691,8 @@
           <HelpTOCNode Title="TimeSinceLastClean Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_TimeSinceLastClean.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="22fe2fb1-e665-4f4c-a93b-398a09ea0d88" Title="StencilCleaned Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned.htm">
-        <HelpTOCNode Id="e299c747-2fc9-4662-bc61-2f6141b86f4d" Title="StencilCleaned Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned.htm">
+      <HelpTOCNode Id="b7bf8d77-e26c-4fc2-a639-61196f4bb3fc" Title="StencilCleaned Class" Url="html/T_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned.htm">
+        <HelpTOCNode Id="31af3932-2583-42e6-b3a5-bd35bde5bd1d" Title="StencilCleaned Properties" Url="html/Properties_T_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned.htm">
           <HelpTOCNode Title="CyclesSinceLastClean Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned_CyclesSinceLastClean.htm" />
           <HelpTOCNode Title="Stencil Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned_Stencil.htm" />
           <HelpTOCNode Title="StencilCleanCycles Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned_StencilCleanCycles.htm" />
@@ -687,9 +702,9 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="2e52c214-127c-4d6c-995d-d2008fc4373d" Title="CFX.ResourcePerformance.THTInsertion" Url="html/N_CFX_ResourcePerformance_THTInsertion.htm">
-      <HelpTOCNode Id="0b8fb4b0-0054-41d8-aa66-c9615dc04bd1" Title="ComponentsInserted Class" Url="html/T_CFX_ResourcePerformance_THTInsertion_ComponentsInserted.htm">
-        <HelpTOCNode Id="3e5ba5ff-eefa-45d2-8a87-fd1affd01b6c" Title="ComponentsInserted Properties" Url="html/Properties_T_CFX_ResourcePerformance_THTInsertion_ComponentsInserted.htm">
+    <HelpTOCNode Id="bb6997ae-abfd-40b8-9081-14237286a821" Title="CFX.ResourcePerformance.THTInsertion" Url="html/N_CFX_ResourcePerformance_THTInsertion.htm">
+      <HelpTOCNode Id="341758ff-3ca5-40d3-b7eb-193a25ef66fa" Title="ComponentsInserted Class" Url="html/T_CFX_ResourcePerformance_THTInsertion_ComponentsInserted.htm">
+        <HelpTOCNode Id="28ffd9a5-7545-4d0a-bf22-998cd69fe964" Title="ComponentsInserted Properties" Url="html/Properties_T_CFX_ResourcePerformance_THTInsertion_ComponentsInserted.htm">
           <HelpTOCNode Title="EndTime Property " Url="html/P_CFX_ResourcePerformance_THTInsertion_ComponentsInserted_EndTime.htm" />
           <HelpTOCNode Title="StartTime Property " Url="html/P_CFX_ResourcePerformance_THTInsertion_ComponentsInserted_StartTime.htm" />
           <HelpTOCNode Title="TotalComponentsInserted Property " Url="html/P_CFX_ResourcePerformance_THTInsertion_ComponentsInserted_TotalComponentsInserted.htm" />
@@ -697,46 +712,46 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="94d304d6-0fad-48e5-b78b-11c53199d370" Title="CFX.Sensor.Identification" Url="html/N_CFX_Sensor_Identification.htm">
-      <HelpTOCNode Id="cac0b8b0-744d-4eac-8593-032f5e024fd6" Title="IdentifiersRead Class" Url="html/T_CFX_Sensor_Identification_IdentifiersRead.htm">
-        <HelpTOCNode Id="27e16140-bece-4160-b7b5-5fbfc5128663" Title="IdentifiersRead Properties" Url="html/Properties_T_CFX_Sensor_Identification_IdentifiersRead.htm">
+    <HelpTOCNode Id="ca18a9c8-caae-4ba7-a3a9-278f489ff23a" Title="CFX.Sensor.Identification" Url="html/N_CFX_Sensor_Identification.htm">
+      <HelpTOCNode Id="b8384859-ab4d-4b8c-83b6-3f7db641983b" Title="IdentifiersRead Class" Url="html/T_CFX_Sensor_Identification_IdentifiersRead.htm">
+        <HelpTOCNode Id="391e3eae-424c-4128-a92b-4a450975a83d" Title="IdentifiersRead Properties" Url="html/Properties_T_CFX_Sensor_Identification_IdentifiersRead.htm">
           <HelpTOCNode Title="PrimaryIdentifier Property " Url="html/P_CFX_Sensor_Identification_IdentifiersRead_PrimaryIdentifier.htm" />
           <HelpTOCNode Title="Units Property " Url="html/P_CFX_Sensor_Identification_IdentifiersRead_Units.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="IdentifyUnitsRequest Class" Url="html/T_CFX_Sensor_Identification_IdentifyUnitsRequest.htm" />
-      <HelpTOCNode Id="31325723-72ce-40c2-a9bb-81610cb723e1" Title="IdentifyUnitsResponse Class" Url="html/T_CFX_Sensor_Identification_IdentifyUnitsResponse.htm">
-        <HelpTOCNode Id="24682355-e7c9-484f-950d-916c52525e5b" Title="IdentifyUnitsResponse Properties" Url="html/Properties_T_CFX_Sensor_Identification_IdentifyUnitsResponse.htm">
+      <HelpTOCNode Id="4d447262-a18b-4ab2-bedc-af283cf09d96" Title="IdentifyUnitsResponse Class" Url="html/T_CFX_Sensor_Identification_IdentifyUnitsResponse.htm">
+        <HelpTOCNode Id="c58a2c54-deda-43d5-bfc2-9da9c3ff53c2" Title="IdentifyUnitsResponse Properties" Url="html/Properties_T_CFX_Sensor_Identification_IdentifyUnitsResponse.htm">
           <HelpTOCNode Title="PrimaryIdentifier Property " Url="html/P_CFX_Sensor_Identification_IdentifyUnitsResponse_PrimaryIdentifier.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Sensor_Identification_IdentifyUnitsResponse_Result.htm" />
           <HelpTOCNode Title="Units Property " Url="html/P_CFX_Sensor_Identification_IdentifyUnitsResponse_Units.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="a68cca14-5386-4345-8e90-3f8b82b38bbf" Title="CFX.Structures" Url="html/N_CFX_Structures.htm">
+    <HelpTOCNode Id="9d99d012-9e80-43e9-a503-4c4cbc10ab98" Title="CFX.Structures" Url="html/N_CFX_Structures.htm">
       <HelpTOCNode Title="ActorType Enumeration" Url="html/T_CFX_Structures_ActorType.htm" />
       <HelpTOCNode Title="BlockReason Enumeration" Url="html/T_CFX_Structures_BlockReason.htm" />
-      <HelpTOCNode Id="9f77c129-568c-4149-93a9-a780380dac85" Title="BooleanMeasurement Class" Url="html/T_CFX_Structures_BooleanMeasurement.htm">
-        <HelpTOCNode Id="f3da57ad-be59-4804-805c-bc87d9b1d26d" Title="BooleanMeasurement Properties" Url="html/Properties_T_CFX_Structures_BooleanMeasurement.htm">
+      <HelpTOCNode Id="187896af-7cc1-40b3-a7e1-35c9eff79246" Title="BooleanMeasurement Class" Url="html/T_CFX_Structures_BooleanMeasurement.htm">
+        <HelpTOCNode Id="e5f2265f-b580-468a-be36-dce1ab122b9b" Title="BooleanMeasurement Properties" Url="html/Properties_T_CFX_Structures_BooleanMeasurement.htm">
           <HelpTOCNode Title="ExpectedValue Property " Url="html/P_CFX_Structures_BooleanMeasurement_ExpectedValue.htm" />
           <HelpTOCNode Title="Value Property " Url="html/P_CFX_Structures_BooleanMeasurement_Value.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6ef402ca-89ef-43da-a349-29f40306b0ad" Title="Characteristic Class" Url="html/T_CFX_Structures_Characteristic.htm">
-        <HelpTOCNode Id="63db2cd4-e92d-44ef-9db8-9e15bcb899b9" Title="Characteristic Properties" Url="html/Properties_T_CFX_Structures_Characteristic.htm">
+      <HelpTOCNode Id="64ae9a6b-2a73-4436-91db-b32c9bb1b82d" Title="Characteristic Class" Url="html/T_CFX_Structures_Characteristic.htm">
+        <HelpTOCNode Id="b1880f3e-4adf-4171-9e59-d1b6955cc8e1" Title="Characteristic Properties" Url="html/Properties_T_CFX_Structures_Characteristic.htm">
           <HelpTOCNode Title="Name Property " Url="html/P_CFX_Structures_Characteristic_Name.htm" />
           <HelpTOCNode Title="Value Property " Url="html/P_CFX_Structures_Characteristic_Value.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="5728f6d5-d42f-49a0-9b38-2f823339b68a" Title="ComponentDesignator Class" Url="html/T_CFX_Structures_ComponentDesignator.htm">
-        <HelpTOCNode Id="1a2513a1-eaee-4567-b1a6-49f702a4d2bf" Title="ComponentDesignator Properties" Url="html/Properties_T_CFX_Structures_ComponentDesignator.htm">
+      <HelpTOCNode Id="0c8fd1ee-4540-4d95-aeae-396fca97a1a1" Title="ComponentDesignator Class" Url="html/T_CFX_Structures_ComponentDesignator.htm">
+        <HelpTOCNode Id="bba13a26-2e15-436e-aef0-51ef8de16570" Title="ComponentDesignator Properties" Url="html/Properties_T_CFX_Structures_ComponentDesignator.htm">
           <HelpTOCNode Title="PartNumber Property " Url="html/P_CFX_Structures_ComponentDesignator_PartNumber.htm" />
           <HelpTOCNode Title="ReferenceDesignator Property " Url="html/P_CFX_Structures_ComponentDesignator_ReferenceDesignator.htm" />
           <HelpTOCNode Title="UnitPosition Property " Url="html/P_CFX_Structures_ComponentDesignator_UnitPosition.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="3d04052a-c1db-44be-ae83-63752a650d2e" Title="ConsumedMaterial Class" Url="html/T_CFX_Structures_ConsumedMaterial.htm">
-        <HelpTOCNode Id="6dc04c63-bc14-4f24-ab4a-a0f26999a727" Title="ConsumedMaterial Properties" Url="html/Properties_T_CFX_Structures_ConsumedMaterial.htm">
+      <HelpTOCNode Id="638eb052-2941-4821-8c7a-018f60606a9a" Title="ConsumedMaterial Class" Url="html/T_CFX_Structures_ConsumedMaterial.htm">
+        <HelpTOCNode Id="544b609e-8c82-4e8e-9ac2-28f35380fe53" Title="ConsumedMaterial Properties" Url="html/Properties_T_CFX_Structures_ConsumedMaterial.htm">
           <HelpTOCNode Title="MaterialLocation Property " Url="html/P_CFX_Structures_ConsumedMaterial_MaterialLocation.htm" />
           <HelpTOCNode Title="QuantitySpoiled Property " Url="html/P_CFX_Structures_ConsumedMaterial_QuantitySpoiled.htm" />
           <HelpTOCNode Title="QuantityUsed Property " Url="html/P_CFX_Structures_ConsumedMaterial_QuantityUsed.htm" />
@@ -744,8 +759,8 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="DataType Enumeration" Url="html/T_CFX_Structures_DataType.htm" />
-      <HelpTOCNode Id="db4d7345-5a75-4b4f-98e6-4604ab55c7f5" Title="Defect Class" Url="html/T_CFX_Structures_Defect.htm">
-        <HelpTOCNode Id="296302e4-6129-42fd-b468-66a9b1070c92" Title="Defect Properties" Url="html/Properties_T_CFX_Structures_Defect.htm">
+      <HelpTOCNode Id="95528997-7151-4b02-83cb-7b7d122ec492" Title="Defect Class" Url="html/T_CFX_Structures_Defect.htm">
+        <HelpTOCNode Id="b5b8b62d-66cf-4002-ac61-d6701f26d8d5" Title="Defect Properties" Url="html/Properties_T_CFX_Structures_Defect.htm">
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Structures_Defect_Comments.htm" />
           <HelpTOCNode Title="ComponentOfInterest Property " Url="html/P_CFX_Structures_Defect_ComponentOfInterest.htm" />
           <HelpTOCNode Title="ConfidenceLevel Property " Url="html/P_CFX_Structures_Defect_ConfidenceLevel.htm" />
@@ -760,8 +775,8 @@
           <HelpTOCNode Title="UniqueIdentifier Property " Url="html/P_CFX_Structures_Defect_UniqueIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="c0cb7e0e-2158-4c11-b695-8549803cd517" Title="EnvironmentalCondition Class" Url="html/T_CFX_Structures_EnvironmentalCondition.htm">
-        <HelpTOCNode Id="7985ed11-fd87-4795-be2e-38a18b6715dc" Title="EnvironmentalCondition Properties" Url="html/Properties_T_CFX_Structures_EnvironmentalCondition.htm">
+      <HelpTOCNode Id="f2729e23-1888-4ce0-8540-44e16e4b22f5" Title="EnvironmentalCondition Class" Url="html/T_CFX_Structures_EnvironmentalCondition.htm">
+        <HelpTOCNode Id="33dff263-ded7-4a61-8982-60e4749163aa" Title="EnvironmentalCondition Properties" Url="html/Properties_T_CFX_Structures_EnvironmentalCondition.htm">
           <HelpTOCNode Title="EndTime Property " Url="html/P_CFX_Structures_EnvironmentalCondition_EndTime.htm" />
           <HelpTOCNode Title="MaxValue Property " Url="html/P_CFX_Structures_EnvironmentalCondition_MaxValue.htm" />
           <HelpTOCNode Title="MeanValue Property " Url="html/P_CFX_Structures_EnvironmentalCondition_MeanValue.htm" />
@@ -770,8 +785,8 @@
           <HelpTOCNode Title="StartTime Property " Url="html/P_CFX_Structures_EnvironmentalCondition_StartTime.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d492c34d-ff6e-4beb-b497-fdb8e9094b80" Title="Fault Class" Url="html/T_CFX_Structures_Fault.htm">
-        <HelpTOCNode Id="5adc156f-cd6b-4733-8af5-641fe06a8373" Title="Fault Properties" Url="html/Properties_T_CFX_Structures_Fault.htm">
+      <HelpTOCNode Id="48f9c90c-3130-4590-99f3-fa2e42d16340" Title="Fault Class" Url="html/T_CFX_Structures_Fault.htm">
+        <HelpTOCNode Id="19cbddd0-cb85-43b6-b855-47f06c39dca9" Title="Fault Properties" Url="html/Properties_T_CFX_Structures_Fault.htm">
           <HelpTOCNode Title="Cause Property " Url="html/P_CFX_Structures_Fault_Cause.htm" />
           <HelpTOCNode Title="FaultCode Property " Url="html/P_CFX_Structures_Fault_FaultCode.htm" />
           <HelpTOCNode Title="FaultOccurrenceId Property " Url="html/P_CFX_Structures_Fault_FaultOccurrenceId.htm" />
@@ -783,22 +798,22 @@
       <HelpTOCNode Title="FaultCause Enumeration" Url="html/T_CFX_Structures_FaultCause.htm" />
       <HelpTOCNode Title="FaultSeverity Enumeration" Url="html/T_CFX_Structures_FaultSeverity.htm" />
       <HelpTOCNode Title="Humidity Class" Url="html/T_CFX_Structures_Humidity.htm" />
-      <HelpTOCNode Id="25ffd144-3653-4c9b-8431-f8b051ddec04" Title="Image Class" Url="html/T_CFX_Structures_Image.htm">
-        <HelpTOCNode Id="2458f396-6fde-4d6c-a8e8-78b718eb09e1" Title="Image Properties" Url="html/Properties_T_CFX_Structures_Image.htm">
+      <HelpTOCNode Id="ddb00858-941b-4614-94c8-911eaf586fe6" Title="Image Class" Url="html/T_CFX_Structures_Image.htm">
+        <HelpTOCNode Id="5a568100-c3ad-457a-a9c2-cc9f52496a59" Title="Image Properties" Url="html/Properties_T_CFX_Structures_Image.htm">
           <HelpTOCNode Title="ImageData Property " Url="html/P_CFX_Structures_Image_ImageData.htm" />
           <HelpTOCNode Title="MimeType Property " Url="html/P_CFX_Structures_Image_MimeType.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="55e4d165-91bc-459b-8c49-e222ffd93501" Title="InspectedUnit Class" Url="html/T_CFX_Structures_InspectedUnit.htm">
-        <HelpTOCNode Id="527a0991-4233-4bc8-810f-53c850122d1e" Title="InspectedUnit Properties" Url="html/Properties_T_CFX_Structures_InspectedUnit.htm">
+      <HelpTOCNode Id="2cbd2e7b-a886-45d2-b530-419671b85d13" Title="InspectedUnit Class" Url="html/T_CFX_Structures_InspectedUnit.htm">
+        <HelpTOCNode Id="19b1411d-9048-49ac-afb3-97aa14383a49" Title="InspectedUnit Properties" Url="html/Properties_T_CFX_Structures_InspectedUnit.htm">
           <HelpTOCNode Title="Inspections Property " Url="html/P_CFX_Structures_InspectedUnit_Inspections.htm" />
           <HelpTOCNode Title="OverallResult Property " Url="html/P_CFX_Structures_InspectedUnit_OverallResult.htm" />
           <HelpTOCNode Title="UnitIdentifier Property " Url="html/P_CFX_Structures_InspectedUnit_UnitIdentifier.htm" />
           <HelpTOCNode Title="UnitPositionNumber Property " Url="html/P_CFX_Structures_InspectedUnit_UnitPositionNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="c69ecdce-1059-4694-a505-11c3c375bebd" Title="Inspection Class" Url="html/T_CFX_Structures_Inspection.htm">
-        <HelpTOCNode Id="e65c21c8-b05f-4f5f-bebe-7a3d84aec740" Title="Inspection Properties" Url="html/Properties_T_CFX_Structures_Inspection.htm">
+      <HelpTOCNode Id="978bc9a8-6f47-49c5-bcb2-5d37f1f3e082" Title="Inspection Class" Url="html/T_CFX_Structures_Inspection.htm">
+        <HelpTOCNode Id="e3c9f974-c70b-465d-8dea-e482eda6acd8" Title="Inspection Properties" Url="html/Properties_T_CFX_Structures_Inspection.htm">
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Structures_Inspection_Comments.htm" />
           <HelpTOCNode Title="DefectsFound Property " Url="html/P_CFX_Structures_Inspection_DefectsFound.htm" />
           <HelpTOCNode Title="Error Property " Url="html/P_CFX_Structures_Inspection_Error.htm" />
@@ -813,14 +828,14 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="InspectionMethod Enumeration" Url="html/T_CFX_Structures_InspectionMethod.htm" />
-      <HelpTOCNode Id="42572ea8-e874-46d8-a806-732426accd3f" Title="InstalledComponent Class" Url="html/T_CFX_Structures_InstalledComponent.htm">
-        <HelpTOCNode Id="a2d6b5ad-4b58-4618-a280-aebc724e5d55" Title="InstalledComponent Properties" Url="html/Properties_T_CFX_Structures_InstalledComponent.htm">
+      <HelpTOCNode Id="b9497d4e-b542-4f7d-9bb2-1dad34635495" Title="InstalledComponent Class" Url="html/T_CFX_Structures_InstalledComponent.htm">
+        <HelpTOCNode Id="08d9355b-a2b7-45fc-8af6-c2d9e49eb61c" Title="InstalledComponent Properties" Url="html/Properties_T_CFX_Structures_InstalledComponent.htm">
           <HelpTOCNode Title="InstallationTime Property " Url="html/P_CFX_Structures_InstalledComponent_InstallationTime.htm" />
           <HelpTOCNode Title="ReferenceDesignator Property " Url="html/P_CFX_Structures_InstalledComponent_ReferenceDesignator.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="21420a8f-1973-4786-94b8-619e02b95dfd" Title="InstalledMaterial Class" Url="html/T_CFX_Structures_InstalledMaterial.htm">
-        <HelpTOCNode Id="fe322c25-0a28-4b22-a131-d9e0cddf1107" Title="InstalledMaterial Properties" Url="html/Properties_T_CFX_Structures_InstalledMaterial.htm">
+      <HelpTOCNode Id="accc36c2-bd8b-4b47-abe8-c45bbbabc8c3" Title="InstalledMaterial Class" Url="html/T_CFX_Structures_InstalledMaterial.htm">
+        <HelpTOCNode Id="897cb9ab-f858-4477-8bd7-4a8f5524e35a" Title="InstalledMaterial Properties" Url="html/Properties_T_CFX_Structures_InstalledMaterial.htm">
           <HelpTOCNode Title="CarrierLocation Property " Url="html/P_CFX_Structures_InstalledMaterial_CarrierLocation.htm" />
           <HelpTOCNode Title="InstalledComponents Property " Url="html/P_CFX_Structures_InstalledMaterial_InstalledComponents.htm" />
           <HelpTOCNode Title="Material Property " Url="html/P_CFX_Structures_InstalledMaterial_Material.htm" />
@@ -831,8 +846,8 @@
       </HelpTOCNode>
       <HelpTOCNode Title="LockReason Enumeration" Url="html/T_CFX_Structures_LockReason.htm" />
       <HelpTOCNode Title="LogImportance Enumeration" Url="html/T_CFX_Structures_LogImportance.htm" />
-      <HelpTOCNode Id="09b68d8c-32ac-4fda-bfa9-d8712f7c1ef8" Title="MaintenanceTask Class" Url="html/T_CFX_Structures_MaintenanceTask.htm">
-        <HelpTOCNode Id="36ed9c4d-4d41-46ec-9b33-79796664e090" Title="MaintenanceTask Properties" Url="html/Properties_T_CFX_Structures_MaintenanceTask.htm">
+      <HelpTOCNode Id="4f11192f-c0c8-4f85-a59e-1548035b74ff" Title="MaintenanceTask Class" Url="html/T_CFX_Structures_MaintenanceTask.htm">
+        <HelpTOCNode Id="f4a0c944-b95f-44f7-ba6b-c5524e62aef6" Title="MaintenanceTask Properties" Url="html/Properties_T_CFX_Structures_MaintenanceTask.htm">
           <HelpTOCNode Title="ManHoursConsumed Property " Url="html/P_CFX_Structures_MaintenanceTask_ManHoursConsumed.htm" />
           <HelpTOCNode Title="Operator Property " Url="html/P_CFX_Structures_MaintenanceTask_Operator.htm" />
           <HelpTOCNode Title="Task Property " Url="html/P_CFX_Structures_MaintenanceTask_Task.htm" />
@@ -840,21 +855,21 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="MaintenanceType Enumeration" Url="html/T_CFX_Structures_MaintenanceType.htm" />
-      <HelpTOCNode Id="6c772e5f-6152-4102-88e6-9966a0a745b3" Title="MaterialCarrier Class" Url="html/T_CFX_Structures_MaterialCarrier.htm">
-        <HelpTOCNode Id="7e81770f-4359-49a4-a7d7-535a4dcece1d" Title="MaterialCarrier Properties" Url="html/Properties_T_CFX_Structures_MaterialCarrier.htm">
+      <HelpTOCNode Id="2583692b-c411-49ff-9ed8-39c5dafc2a85" Title="MaterialCarrier Class" Url="html/T_CFX_Structures_MaterialCarrier.htm">
+        <HelpTOCNode Id="5ebac5d8-b414-48b7-9cb8-8854b57df450" Title="MaterialCarrier Properties" Url="html/Properties_T_CFX_Structures_MaterialCarrier.htm">
           <HelpTOCNode Title="Name Property " Url="html/P_CFX_Structures_MaterialCarrier_Name.htm" />
           <HelpTOCNode Title="UniqueIdentifier Property " Url="html/P_CFX_Structures_MaterialCarrier_UniqueIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="e64b90c9-f88a-4adf-9010-0971ae66fd1f" Title="MaterialCarrierLocation Class" Url="html/T_CFX_Structures_MaterialCarrierLocation.htm">
-        <HelpTOCNode Id="9f61177e-7d78-4584-9595-9044b2fdfbad" Title="MaterialCarrierLocation Properties" Url="html/Properties_T_CFX_Structures_MaterialCarrierLocation.htm">
+      <HelpTOCNode Id="f3543632-b667-4b4b-9f70-a7baa6959637" Title="MaterialCarrierLocation Class" Url="html/T_CFX_Structures_MaterialCarrierLocation.htm">
+        <HelpTOCNode Id="9127b94c-1d27-4990-a73c-0242e2ef2d36" Title="MaterialCarrierLocation Properties" Url="html/Properties_T_CFX_Structures_MaterialCarrierLocation.htm">
           <HelpTOCNode Title="CarrierInformation Property " Url="html/P_CFX_Structures_MaterialCarrierLocation_CarrierInformation.htm" />
           <HelpTOCNode Title="LocationIdentifier Property " Url="html/P_CFX_Structures_MaterialCarrierLocation_LocationIdentifier.htm" />
           <HelpTOCNode Title="LocationName Property " Url="html/P_CFX_Structures_MaterialCarrierLocation_LocationName.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="52477deb-a39e-433f-93fd-cd18b3249d1e" Title="MaterialLocation Class" Url="html/T_CFX_Structures_MaterialLocation.htm">
-        <HelpTOCNode Id="da58cb17-4366-408e-b5c1-4e572762fa69" Title="MaterialLocation Properties" Url="html/Properties_T_CFX_Structures_MaterialLocation.htm">
+      <HelpTOCNode Id="e5287700-3bd5-4006-ad28-8131275def62" Title="MaterialLocation Class" Url="html/T_CFX_Structures_MaterialLocation.htm">
+        <HelpTOCNode Id="99455dae-564b-4cbb-b6ce-42752a301073" Title="MaterialLocation Properties" Url="html/Properties_T_CFX_Structures_MaterialLocation.htm">
           <HelpTOCNode Title="CarrierInformation Property " Url="html/P_CFX_Structures_MaterialLocation_CarrierInformation.htm" />
           <HelpTOCNode Title="LocationIdentifier Property " Url="html/P_CFX_Structures_MaterialLocation_LocationIdentifier.htm" />
           <HelpTOCNode Title="LocationName Property " Url="html/P_CFX_Structures_MaterialLocation_LocationName.htm" />
@@ -862,16 +877,16 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="MaterialModifyReason Enumeration" Url="html/T_CFX_Structures_MaterialModifyReason.htm" />
-      <HelpTOCNode Id="32253036-082c-4596-bcc5-c5d40c8691b4" Title="MaterialPackage Class" Url="html/T_CFX_Structures_MaterialPackage.htm">
-        <HelpTOCNode Id="37811b6d-0b49-4d32-bf5a-bb80b23d38e5" Title="MaterialPackage Properties" Url="html/Properties_T_CFX_Structures_MaterialPackage.htm">
+      <HelpTOCNode Id="783806ca-71f6-4cb3-af24-fd5b6ddb2c02" Title="MaterialPackage Class" Url="html/T_CFX_Structures_MaterialPackage.htm">
+        <HelpTOCNode Id="fe69820e-3fcf-433a-80a3-a4b1fc2c3baa" Title="MaterialPackage Properties" Url="html/Properties_T_CFX_Structures_MaterialPackage.htm">
           <HelpTOCNode Title="InternalPartNumber Property " Url="html/P_CFX_Structures_MaterialPackage_InternalPartNumber.htm" />
           <HelpTOCNode Title="Quantity Property " Url="html/P_CFX_Structures_MaterialPackage_Quantity.htm" />
           <HelpTOCNode Title="UniqueIdentifier Property " Url="html/P_CFX_Structures_MaterialPackage_UniqueIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="MaterialPackageData Class" Url="html/T_CFX_Structures_MaterialPackageData.htm" />
-      <HelpTOCNode Id="762d4d26-98aa-4205-8b89-ee2f094329e8" Title="MaterialPackageDetail Class" Url="html/T_CFX_Structures_MaterialPackageDetail.htm">
-        <HelpTOCNode Id="5ab32c59-e154-48b3-9973-233030505bd3" Title="MaterialPackageDetail Properties" Url="html/Properties_T_CFX_Structures_MaterialPackageDetail.htm">
+      <HelpTOCNode Id="1a86ece5-8721-46a7-9410-d487d9fa606c" Title="MaterialPackageDetail Class" Url="html/T_CFX_Structures_MaterialPackageDetail.htm">
+        <HelpTOCNode Id="8c72780c-8b32-4c56-a42f-891f9abf8502" Title="MaterialPackageDetail Properties" Url="html/Properties_T_CFX_Structures_MaterialPackageDetail.htm">
           <HelpTOCNode Title="Created Property " Url="html/P_CFX_Structures_MaterialPackageDetail_Created.htm" />
           <HelpTOCNode Title="InitialQuantity Property " Url="html/P_CFX_Structures_MaterialPackageDetail_InitialQuantity.htm" />
           <HelpTOCNode Title="InternalPartNumber Property " Url="html/P_CFX_Structures_MaterialPackageDetail_InternalPartNumber.htm" />
@@ -888,12 +903,12 @@
           <HelpTOCNode Title="Vendor Property " Url="html/P_CFX_Structures_MaterialPackageDetail_Vendor.htm" />
           <HelpTOCNode Title="VendorPartNumber Property " Url="html/P_CFX_Structures_MaterialPackageDetail_VendorPartNumber.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="f409abca-8ed3-47db-9c80-fcf1510a0f13" Title="MaterialPackageDetail Methods" Url="html/Methods_T_CFX_Structures_MaterialPackageDetail.htm">
+        <HelpTOCNode Id="eebabdcd-eb61-43db-b281-2aaf9f1b236b" Title="MaterialPackageDetail Methods" Url="html/Methods_T_CFX_Structures_MaterialPackageDetail.htm">
           <HelpTOCNode Title="ToMaterialPackage Method " Url="html/M_CFX_Structures_MaterialPackageDetail_ToMaterialPackage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="7285979e-d1be-4326-8dad-7d7fd9ca030d" Title="MaterialPackageMSDData Class" Url="html/T_CFX_Structures_MaterialPackageMSDData.htm">
-        <HelpTOCNode Id="94a53212-bac1-4231-9d34-cc8aa3de169e" Title="MaterialPackageMSDData Properties" Url="html/Properties_T_CFX_Structures_MaterialPackageMSDData.htm">
+      <HelpTOCNode Id="cee8c0b7-435b-4392-b2e5-357cd68c964c" Title="MaterialPackageMSDData Class" Url="html/T_CFX_Structures_MaterialPackageMSDData.htm">
+        <HelpTOCNode Id="d3b534f4-923e-40d1-83c5-019fd713dbe1" Title="MaterialPackageMSDData Properties" Url="html/Properties_T_CFX_Structures_MaterialPackageMSDData.htm">
           <HelpTOCNode Title="ExpirationDateTime Property " Url="html/P_CFX_Structures_MaterialPackageMSDData_ExpirationDateTime.htm" />
           <HelpTOCNode Title="LastExposureDateTime Property " Url="html/P_CFX_Structures_MaterialPackageMSDData_LastExposureDateTime.htm" />
           <HelpTOCNode Title="MSDLevel Property " Url="html/P_CFX_Structures_MaterialPackageMSDData_MSDLevel.htm" />
@@ -902,8 +917,8 @@
           <HelpTOCNode Title="RemainingExposureTime Property " Url="html/P_CFX_Structures_MaterialPackageMSDData_RemainingExposureTime.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="774595dc-4b7e-4710-b128-63a457ac3752" Title="MaterialSetupRequirement Class" Url="html/T_CFX_Structures_MaterialSetupRequirement.htm">
-        <HelpTOCNode Id="0b34cc24-07d1-47b0-8df1-5fbd1e92f4bb" Title="MaterialSetupRequirement Properties" Url="html/Properties_T_CFX_Structures_MaterialSetupRequirement.htm">
+      <HelpTOCNode Id="dd39b294-9f73-466c-aa49-b22ab3d8b3ed" Title="MaterialSetupRequirement Class" Url="html/T_CFX_Structures_MaterialSetupRequirement.htm">
+        <HelpTOCNode Id="ab49d901-9eda-43e1-bcef-3b20af4fa95d" Title="MaterialSetupRequirement Properties" Url="html/Properties_T_CFX_Structures_MaterialSetupRequirement.htm">
           <HelpTOCNode Title="ApprovedAlternateParts Property " Url="html/P_CFX_Structures_MaterialSetupRequirement_ApprovedAlternateParts.htm" />
           <HelpTOCNode Title="ApprovedManufacturerParts Property " Url="html/P_CFX_Structures_MaterialSetupRequirement_ApprovedManufacturerParts.htm" />
           <HelpTOCNode Title="PartNumber Property " Url="html/P_CFX_Structures_MaterialSetupRequirement_PartNumber.htm" />
@@ -911,8 +926,8 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="MaterialStatus Enumeration" Url="html/T_CFX_Structures_MaterialStatus.htm" />
-      <HelpTOCNode Id="0b4ed9e5-eb25-47a1-8139-5aaacb347c7b" Title="Measurement Class" Url="html/T_CFX_Structures_Measurement.htm">
-        <HelpTOCNode Id="16c2b628-4095-4e17-94b9-f07be1a29018" Title="Measurement Properties" Url="html/Properties_T_CFX_Structures_Measurement.htm">
+      <HelpTOCNode Id="3895fa03-534b-450c-b871-2672028b5d7b" Title="Measurement Class" Url="html/T_CFX_Structures_Measurement.htm">
+        <HelpTOCNode Id="7e8cb40a-c554-4003-8335-f0e8b1c86b34" Title="Measurement Properties" Url="html/Properties_T_CFX_Structures_Measurement.htm">
           <HelpTOCNode Title="Components Property " Url="html/P_CFX_Structures_Measurement_Components.htm" />
           <HelpTOCNode Title="MeasurementName Property " Url="html/P_CFX_Structures_Measurement_MeasurementName.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Structures_Measurement_Result.htm" />
@@ -923,13 +938,13 @@
       </HelpTOCNode>
       <HelpTOCNode Title="MSDLevel Enumeration" Url="html/T_CFX_Structures_MSDLevel.htm" />
       <HelpTOCNode Title="MSDState Enumeration" Url="html/T_CFX_Structures_MSDState.htm" />
-      <HelpTOCNode Id="69de60ed-52d8-4d64-a816-c8943079309e" Title="NumericMeasurement Class" Url="html/T_CFX_Structures_NumericMeasurement.htm">
-        <HelpTOCNode Id="b548fb70-5fc6-4e65-acf3-f308a4151159" Title="NumericMeasurement Properties" Url="html/Properties_T_CFX_Structures_NumericMeasurement.htm">
+      <HelpTOCNode Id="90cf6af5-240b-4144-a69c-ce119379f1d7" Title="NumericMeasurement Class" Url="html/T_CFX_Structures_NumericMeasurement.htm">
+        <HelpTOCNode Id="cd51aead-72bc-4ca9-9c95-44537e7727e9" Title="NumericMeasurement Properties" Url="html/Properties_T_CFX_Structures_NumericMeasurement.htm">
           <HelpTOCNode Title="MeasuredValue Property " Url="html/P_CFX_Structures_NumericMeasurement_MeasuredValue.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="f36033d8-4a96-41e1-a3b4-a522ecf69807" Title="NumericValue Class" Url="html/T_CFX_Structures_NumericValue.htm">
-        <HelpTOCNode Id="364e5817-eaca-4c56-a164-834c7825a161" Title="NumericValue Properties" Url="html/Properties_T_CFX_Structures_NumericValue.htm">
+      <HelpTOCNode Id="0d4e3c34-81da-47d5-b730-44fa025fc466" Title="NumericValue Class" Url="html/T_CFX_Structures_NumericValue.htm">
+        <HelpTOCNode Id="18b4d3be-2e51-442f-a673-de61eb499a2e" Title="NumericValue Properties" Url="html/Properties_T_CFX_Structures_NumericValue.htm">
           <HelpTOCNode Title="ExpectedValue Property " Url="html/P_CFX_Structures_NumericValue_ExpectedValue.htm" />
           <HelpTOCNode Title="ExpectedValueUnits Property " Url="html/P_CFX_Structures_NumericValue_ExpectedValueUnits.htm" />
           <HelpTOCNode Title="MaximumAcceptableValue Property " Url="html/P_CFX_Structures_NumericValue_MaximumAcceptableValue.htm" />
@@ -938,8 +953,8 @@
           <HelpTOCNode Title="ValueUnits Property " Url="html/P_CFX_Structures_NumericValue_ValueUnits.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="57bafae3-098d-498a-8e70-6276937c46d1" Title="Operator Class" Url="html/T_CFX_Structures_Operator.htm">
-        <HelpTOCNode Id="73d89e4a-451d-4771-9611-0d496d4d7ff3" Title="Operator Properties" Url="html/Properties_T_CFX_Structures_Operator.htm">
+      <HelpTOCNode Id="00764dd7-0d36-42de-a55f-71da4f339c87" Title="Operator Class" Url="html/T_CFX_Structures_Operator.htm">
+        <HelpTOCNode Id="3a8a69c1-db75-4846-8c78-76aa3d822fda" Title="Operator Properties" Url="html/Properties_T_CFX_Structures_Operator.htm">
           <HelpTOCNode Title="ActorType Property " Url="html/P_CFX_Structures_Operator_ActorType.htm" />
           <HelpTOCNode Title="FirstName Property " Url="html/P_CFX_Structures_Operator_FirstName.htm" />
           <HelpTOCNode Title="FullName Property " Url="html/P_CFX_Structures_Operator_FullName.htm" />
@@ -948,15 +963,15 @@
           <HelpTOCNode Title="OperatorIdentifier Property " Url="html/P_CFX_Structures_Operator_OperatorIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="536277a4-5469-49ed-b874-79dce92a91e6" Title="PersonalizedUnit Class" Url="html/T_CFX_Structures_PersonalizedUnit.htm">
-        <HelpTOCNode Id="c5695b79-6840-48b4-b588-67119e40fa5e" Title="PersonalizedUnit Properties" Url="html/Properties_T_CFX_Structures_PersonalizedUnit.htm">
+      <HelpTOCNode Id="a6743e26-b503-4aa9-aba8-e9e6ab64baa7" Title="PersonalizedUnit Class" Url="html/T_CFX_Structures_PersonalizedUnit.htm">
+        <HelpTOCNode Id="ffa4e28b-37bd-4099-949f-aaf5120c1169" Title="PersonalizedUnit Properties" Url="html/Properties_T_CFX_Structures_PersonalizedUnit.htm">
           <HelpTOCNode Title="Characteristics Property " Url="html/P_CFX_Structures_PersonalizedUnit_Characteristics.htm" />
           <HelpTOCNode Title="UnitIdentifier Property " Url="html/P_CFX_Structures_PersonalizedUnit_UnitIdentifier.htm" />
           <HelpTOCNode Title="UnitPositionNumber Property " Url="html/P_CFX_Structures_PersonalizedUnit_UnitPositionNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="21093497-fe82-4d58-aa43-9cd53bf63460" Title="Reading Class" Url="html/T_CFX_Structures_Reading.htm">
-        <HelpTOCNode Id="84c90a50-4fc1-4a0b-a601-48a16202e7c7" Title="Reading Properties" Url="html/Properties_T_CFX_Structures_Reading.htm">
+      <HelpTOCNode Id="81887e0e-eef5-4061-ac6e-b467e978545a" Title="Reading Class" Url="html/T_CFX_Structures_Reading.htm">
+        <HelpTOCNode Id="cd6c7a1a-ea2c-41db-a4cc-ad6291818cab" Title="Reading Properties" Url="html/Properties_T_CFX_Structures_Reading.htm">
           <HelpTOCNode Title="BinaryValue Property " Url="html/P_CFX_Structures_Reading_BinaryValue.htm" />
           <HelpTOCNode Title="Components Property " Url="html/P_CFX_Structures_Reading_Components.htm" />
           <HelpTOCNode Title="ExpectedValue Property " Url="html/P_CFX_Structures_Reading_ExpectedValue.htm" />
@@ -975,8 +990,8 @@
           <HelpTOCNode Title="ValueUnits Property " Url="html/P_CFX_Structures_Reading_ValueUnits.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="e58ad120-2255-46c8-a9f5-3d483ae47939" Title="Recipe Class" Url="html/T_CFX_Structures_Recipe.htm">
-        <HelpTOCNode Id="b8b0152a-dd35-4322-b6a9-7f35a1803c07" Title="Recipe Properties" Url="html/Properties_T_CFX_Structures_Recipe.htm">
+      <HelpTOCNode Id="bfceba7e-5ec5-485d-8db0-7737b6cebf38" Title="Recipe Class" Url="html/T_CFX_Structures_Recipe.htm">
+        <HelpTOCNode Id="af073ec6-0918-4fe9-aada-7388f2d95e70" Title="Recipe Properties" Url="html/Properties_T_CFX_Structures_Recipe.htm">
           <HelpTOCNode Title="MimeType Property " Url="html/P_CFX_Structures_Recipe_MimeType.htm" />
           <HelpTOCNode Title="Name Property " Url="html/P_CFX_Structures_Recipe_Name.htm" />
           <HelpTOCNode Title="RecipeData Property " Url="html/P_CFX_Structures_Recipe_RecipeData.htm" />
@@ -984,37 +999,37 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="RecipeModificationReason Enumeration" Url="html/T_CFX_Structures_RecipeModificationReason.htm" />
-      <HelpTOCNode Id="fc9a7e57-94da-4f0c-8f86-3eb7cfd4242a" Title="Region Class" Url="html/T_CFX_Structures_Region.htm">
-        <HelpTOCNode Id="c127b506-3c76-46e9-b803-c4ddb27ccd8a" Title="Region Properties" Url="html/Properties_T_CFX_Structures_Region.htm">
+      <HelpTOCNode Id="7f266669-defb-4a00-9647-5eb6fdb8d99c" Title="Region Class" Url="html/T_CFX_Structures_Region.htm">
+        <HelpTOCNode Id="13ebd05f-e378-483f-97e4-89a61619a829" Title="Region Properties" Url="html/Properties_T_CFX_Structures_Region.htm">
           <HelpTOCNode Title="RegionSegments Property " Url="html/P_CFX_Structures_Region_RegionSegments.htm" />
           <HelpTOCNode Title="StartPointX Property " Url="html/P_CFX_Structures_Region_StartPointX.htm" />
           <HelpTOCNode Title="StartPointY Property " Url="html/P_CFX_Structures_Region_StartPointY.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="77666bd4-d488-4ba1-9c61-1faf9b915e51" Title="RequestResult Class" Url="html/T_CFX_Structures_RequestResult.htm">
-        <HelpTOCNode Id="7ea263d2-0570-420d-bb13-efbee593d144" Title="RequestResult Properties" Url="html/Properties_T_CFX_Structures_RequestResult.htm">
+      <HelpTOCNode Id="07e9a05f-7022-4459-b609-ba7de279f0ab" Title="RequestResult Class" Url="html/T_CFX_Structures_RequestResult.htm">
+        <HelpTOCNode Id="2bec4369-aac0-47b2-80b5-8f9b4e3b54b1" Title="RequestResult Properties" Url="html/Properties_T_CFX_Structures_RequestResult.htm">
           <HelpTOCNode Title="Message Property " Url="html/P_CFX_Structures_RequestResult_Message.htm" />
           <HelpTOCNode Title="Result Property " Url="html/P_CFX_Structures_RequestResult_Result.htm" />
           <HelpTOCNode Title="ResultCode Property " Url="html/P_CFX_Structures_RequestResult_ResultCode.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="ResourceState Enumeration" Url="html/T_CFX_Structures_ResourceState.htm" />
-      <HelpTOCNode Id="1098ef21-7eb7-4b41-bda2-34c049fe5d9a" Title="SamplingInformation Class" Url="html/T_CFX_Structures_SamplingInformation.htm">
-        <HelpTOCNode Id="1a12c803-69a5-4aa8-8810-3b4c6d9c11f9" Title="SamplingInformation Properties" Url="html/Properties_T_CFX_Structures_SamplingInformation.htm">
+      <HelpTOCNode Id="d3659b37-2cea-4e28-a489-c0c92574f156" Title="SamplingInformation Class" Url="html/T_CFX_Structures_SamplingInformation.htm">
+        <HelpTOCNode Id="b20155f0-c62f-42dc-9cbe-9ad3893af8ab" Title="SamplingInformation Properties" Url="html/Properties_T_CFX_Structures_SamplingInformation.htm">
           <HelpTOCNode Title="LotSize Property " Url="html/P_CFX_Structures_SamplingInformation_LotSize.htm" />
           <HelpTOCNode Title="SampleSize Property " Url="html/P_CFX_Structures_SamplingInformation_SampleSize.htm" />
           <HelpTOCNode Title="SamplingMethod Property " Url="html/P_CFX_Structures_SamplingInformation_SamplingMethod.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="SamplingMethod Enumeration" Url="html/T_CFX_Structures_SamplingMethod.htm" />
-      <HelpTOCNode Id="7106b0eb-0840-46dd-b8e9-b0fcfd6b3f91" Title="Segment Class" Url="html/T_CFX_Structures_Segment.htm">
-        <HelpTOCNode Id="2b11b577-4e32-415a-ac24-346aaa5160c1" Title="Segment Properties" Url="html/Properties_T_CFX_Structures_Segment.htm">
+      <HelpTOCNode Id="03155c7f-5358-45b5-866f-43a019008aae" Title="Segment Class" Url="html/T_CFX_Structures_Segment.htm">
+        <HelpTOCNode Id="a282b97a-4247-493b-a52b-a10c9c05de0e" Title="Segment Properties" Url="html/Properties_T_CFX_Structures_Segment.htm">
           <HelpTOCNode Title="X Property " Url="html/P_CFX_Structures_Segment_X.htm" />
           <HelpTOCNode Title="Y Property " Url="html/P_CFX_Structures_Segment_Y.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="88301670-0f19-4648-a31e-da8fa4ed787c" Title="StationSetupRequirements Class" Url="html/T_CFX_Structures_StationSetupRequirements.htm">
-        <HelpTOCNode Id="e87f7624-7689-497f-a60b-b0bb4b7de8d3" Title="StationSetupRequirements Properties" Url="html/Properties_T_CFX_Structures_StationSetupRequirements.htm">
+      <HelpTOCNode Id="3df9d0e4-7fea-4eb6-b875-c834ee4dc453" Title="StationSetupRequirements Class" Url="html/T_CFX_Structures_StationSetupRequirements.htm">
+        <HelpTOCNode Id="059fdf6b-b202-405e-a67b-1ad7486a5e8f" Title="StationSetupRequirements Properties" Url="html/Properties_T_CFX_Structures_StationSetupRequirements.htm">
           <HelpTOCNode Title="Lane Property " Url="html/P_CFX_Structures_StationSetupRequirements_Lane.htm" />
           <HelpTOCNode Title="MaterialSetupRequirements Property " Url="html/P_CFX_Structures_StationSetupRequirements_MaterialSetupRequirements.htm" />
           <HelpTOCNode Title="SetupName Property " Url="html/P_CFX_Structures_StationSetupRequirements_SetupName.htm" />
@@ -1022,15 +1037,15 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="StatusResult Enumeration" Url="html/T_CFX_Structures_StatusResult.htm" />
-      <HelpTOCNode Id="f0693797-6de5-4ec8-8371-979e51b666c7" Title="SupportedTopic Class" Url="html/T_CFX_Structures_SupportedTopic.htm">
-        <HelpTOCNode Id="5d9a841b-4995-4c44-922b-f1f05db2c5fd" Title="SupportedTopic Properties" Url="html/Properties_T_CFX_Structures_SupportedTopic.htm">
+      <HelpTOCNode Id="6825607d-3174-42e8-b191-ca9d797f5bc7" Title="SupportedTopic Class" Url="html/T_CFX_Structures_SupportedTopic.htm">
+        <HelpTOCNode Id="fd28fa14-fa90-43e1-b84d-a8818e58164d" Title="SupportedTopic Properties" Url="html/Properties_T_CFX_Structures_SupportedTopic.htm">
           <HelpTOCNode Title="SupportedMessages Property " Url="html/P_CFX_Structures_SupportedTopic_SupportedMessages.htm" />
           <HelpTOCNode Title="TopicName Property " Url="html/P_CFX_Structures_SupportedTopic_TopicName.htm" />
           <HelpTOCNode Title="TopicSupportType Property " Url="html/P_CFX_Structures_SupportedTopic_TopicSupportType.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="96e88040-b25d-4515-9b28-78d3c8ef48dc" Title="Symptom Class" Url="html/T_CFX_Structures_Symptom.htm">
-        <HelpTOCNode Id="f4de804e-eab0-4c8f-8154-2e4780f3b566" Title="Symptom Properties" Url="html/Properties_T_CFX_Structures_Symptom.htm">
+      <HelpTOCNode Id="b1744ba2-33e8-4565-bb52-530d42c4cabe" Title="Symptom Class" Url="html/T_CFX_Structures_Symptom.htm">
+        <HelpTOCNode Id="079798f9-84a8-4819-b376-969c34140110" Title="Symptom Properties" Url="html/Properties_T_CFX_Structures_Symptom.htm">
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Structures_Symptom_Comments.htm" />
           <HelpTOCNode Title="ComponentsOfInterest Property " Url="html/P_CFX_Structures_Symptom_ComponentsOfInterest.htm" />
           <HelpTOCNode Title="Description Property " Url="html/P_CFX_Structures_Symptom_Description.htm" />
@@ -1043,8 +1058,8 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="Temperature Class" Url="html/T_CFX_Structures_Temperature.htm" />
-      <HelpTOCNode Id="789045b0-1313-499a-888e-61146e258b25" Title="Test Class" Url="html/T_CFX_Structures_Test.htm">
-        <HelpTOCNode Id="59576b37-4f27-4517-bdfc-1620b2f9df89" Title="Test Properties" Url="html/Properties_T_CFX_Structures_Test.htm">
+      <HelpTOCNode Id="8f809660-2812-4785-872f-ad9afdccd2e0" Title="Test Class" Url="html/T_CFX_Structures_Test.htm">
+        <HelpTOCNode Id="189b50bf-a18e-4edc-a7be-05a67c9e268d" Title="Test Properties" Url="html/Properties_T_CFX_Structures_Test.htm">
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Structures_Test_Comments.htm" />
           <HelpTOCNode Title="DefectsFound Property " Url="html/P_CFX_Structures_Test_DefectsFound.htm" />
           <HelpTOCNode Title="Error Property " Url="html/P_CFX_Structures_Test_Error.htm" />
@@ -1059,8 +1074,8 @@
           <HelpTOCNode Title="UniqueIdentifier Property " Url="html/P_CFX_Structures_Test_UniqueIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0c69a2c2-be86-4a60-9e00-282195612f8f" Title="TestedUnit Class" Url="html/T_CFX_Structures_TestedUnit.htm">
-        <HelpTOCNode Id="01a28466-a24b-4e85-af55-529bf9667ba9" Title="TestedUnit Properties" Url="html/Properties_T_CFX_Structures_TestedUnit.htm">
+      <HelpTOCNode Id="b6562635-5c2d-4978-86f7-f631d35b5a27" Title="TestedUnit Class" Url="html/T_CFX_Structures_TestedUnit.htm">
+        <HelpTOCNode Id="ba754376-01e5-4303-a7b7-b38bf3d499eb" Title="TestedUnit Properties" Url="html/Properties_T_CFX_Structures_TestedUnit.htm">
           <HelpTOCNode Title="OverallResult Property " Url="html/P_CFX_Structures_TestedUnit_OverallResult.htm" />
           <HelpTOCNode Title="Tests Property " Url="html/P_CFX_Structures_TestedUnit_Tests.htm" />
           <HelpTOCNode Title="UnitIdentifier Property " Url="html/P_CFX_Structures_TestedUnit_UnitIdentifier.htm" />
@@ -1069,28 +1084,28 @@
       </HelpTOCNode>
       <HelpTOCNode Title="TestMethod Enumeration" Url="html/T_CFX_Structures_TestMethod.htm" />
       <HelpTOCNode Title="TestResult Enumeration" Url="html/T_CFX_Structures_TestResult.htm" />
-      <HelpTOCNode Id="249b8739-5501-4ac9-99a5-aa0f346f3590" Title="TextMeasurement Class" Url="html/T_CFX_Structures_TextMeasurement.htm">
-        <HelpTOCNode Id="70f7155e-551d-428c-9948-85330dedd2d9" Title="TextMeasurement Properties" Url="html/Properties_T_CFX_Structures_TextMeasurement.htm">
+      <HelpTOCNode Id="2e73ffc2-efc3-4988-b3d4-f7de90231960" Title="TextMeasurement Class" Url="html/T_CFX_Structures_TextMeasurement.htm">
+        <HelpTOCNode Id="637afa9c-b13e-48d1-a2e7-f67700f3f25b" Title="TextMeasurement Properties" Url="html/Properties_T_CFX_Structures_TextMeasurement.htm">
           <HelpTOCNode Title="ExpectedValue Property " Url="html/P_CFX_Structures_TextMeasurement_ExpectedValue.htm" />
           <HelpTOCNode Title="Value Property " Url="html/P_CFX_Structures_TextMeasurement_Value.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="46d533d8-5e61-4e5a-9869-3ffa226801cc" Title="Tool Class" Url="html/T_CFX_Structures_Tool.htm">
-        <HelpTOCNode Id="d623dc77-4b5b-4b2d-8490-525bf3712ab0" Title="Tool Properties" Url="html/Properties_T_CFX_Structures_Tool.htm">
+      <HelpTOCNode Id="99ecbe5b-e5cf-432e-868f-22c4360c7cb0" Title="Tool Class" Url="html/T_CFX_Structures_Tool.htm">
+        <HelpTOCNode Id="eca8a322-a866-4574-8c7c-8d63bd69b45b" Title="Tool Properties" Url="html/Properties_T_CFX_Structures_Tool.htm">
           <HelpTOCNode Title="Name Property " Url="html/P_CFX_Structures_Tool_Name.htm" />
           <HelpTOCNode Title="UniqueIdentifier Property " Url="html/P_CFX_Structures_Tool_UniqueIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="60e8d827-0f41-4422-a529-7018a8445256" Title="ToolHolder Class" Url="html/T_CFX_Structures_ToolHolder.htm">
+      <HelpTOCNode Id="8cde6fdc-6089-4e8c-bd4f-d8d635c29b36" Title="ToolHolder Class" Url="html/T_CFX_Structures_ToolHolder.htm">
         <HelpTOCNode Title="ToolHolder Constructor " Url="html/M_CFX_Structures_ToolHolder__ctor.htm" />
-        <HelpTOCNode Id="d14901a3-5c60-45c9-87b8-d0080d506e50" Title="ToolHolder Properties" Url="html/Properties_T_CFX_Structures_ToolHolder.htm">
+        <HelpTOCNode Id="9f147d88-3575-4c62-b4e3-1e80dba846b5" Title="ToolHolder Properties" Url="html/Properties_T_CFX_Structures_ToolHolder.htm">
           <HelpTOCNode Title="BaseName Property " Url="html/P_CFX_Structures_ToolHolder_BaseName.htm" />
           <HelpTOCNode Title="LocationName Property " Url="html/P_CFX_Structures_ToolHolder_LocationName.htm" />
           <HelpTOCNode Title="LocationUniqueIdentifier Property " Url="html/P_CFX_Structures_ToolHolder_LocationUniqueIdentifier.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0965204d-eb73-45d9-ba96-b085cf190ce8" Title="ToolUsed Class" Url="html/T_CFX_Structures_ToolUsed.htm">
-        <HelpTOCNode Id="eca21435-96b0-434b-8d99-c0520a8e79d8" Title="ToolUsed Properties" Url="html/Properties_T_CFX_Structures_ToolUsed.htm">
+      <HelpTOCNode Id="5ba08097-fbdb-4a82-a04c-fd3ccc165f07" Title="ToolUsed Class" Url="html/T_CFX_Structures_ToolUsed.htm">
+        <HelpTOCNode Id="880163ea-83aa-490c-9fe4-b88bfa238668" Title="ToolUsed Properties" Url="html/Properties_T_CFX_Structures_ToolUsed.htm">
           <HelpTOCNode Title="InstalledComponents Property " Url="html/P_CFX_Structures_ToolUsed_InstalledComponents.htm" />
           <HelpTOCNode Title="Tool Property " Url="html/P_CFX_Structures_ToolUsed_Tool.htm" />
           <HelpTOCNode Title="UnitIdentifier Property " Url="html/P_CFX_Structures_ToolUsed_UnitIdentifier.htm" />
@@ -1099,8 +1114,8 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="TopicSupportType Enumeration" Url="html/T_CFX_Structures_TopicSupportType.htm" />
-      <HelpTOCNode Id="cdb104bf-4639-4fc2-ad24-3c8a8109df83" Title="TransportOrderHistory Class" Url="html/T_CFX_Structures_TransportOrderHistory.htm">
-        <HelpTOCNode Id="a5024251-817e-4924-b09d-cf939c1afc4a" Title="TransportOrderHistory Properties" Url="html/Properties_T_CFX_Structures_TransportOrderHistory.htm">
+      <HelpTOCNode Id="c348b3ba-64fd-4f68-b347-47bae954d5ed" Title="TransportOrderHistory Class" Url="html/T_CFX_Structures_TransportOrderHistory.htm">
+        <HelpTOCNode Id="2cdb0ae3-93fc-4ba1-94cb-05447934c6fe" Title="TransportOrderHistory Properties" Url="html/Properties_T_CFX_Structures_TransportOrderHistory.htm">
           <HelpTOCNode Title="Comments Property " Url="html/P_CFX_Structures_TransportOrderHistory_Comments.htm" />
           <HelpTOCNode Title="EventDateTime Property " Url="html/P_CFX_Structures_TransportOrderHistory_EventDateTime.htm" />
           <HelpTOCNode Title="Location Property " Url="html/P_CFX_Structures_TransportOrderHistory_Location.htm" />
@@ -1109,8 +1124,8 @@
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="TransportOrderStatus Enumeration" Url="html/T_CFX_Structures_TransportOrderStatus.htm" />
-      <HelpTOCNode Id="8c165baf-1fca-47d1-8dc2-5830bbd54715" Title="UninstalledMaterial Class" Url="html/T_CFX_Structures_UninstalledMaterial.htm">
-        <HelpTOCNode Id="c0bffc05-2abc-496e-988a-3194becda7c2" Title="UninstalledMaterial Properties" Url="html/Properties_T_CFX_Structures_UninstalledMaterial.htm">
+      <HelpTOCNode Id="0c227200-5014-4747-80c2-364c00150e25" Title="UninstalledMaterial Class" Url="html/T_CFX_Structures_UninstalledMaterial.htm">
+        <HelpTOCNode Id="cda9e8eb-899c-4b4c-94cf-e0184caa9e0a" Title="UninstalledMaterial Properties" Url="html/Properties_T_CFX_Structures_UninstalledMaterial.htm">
           <HelpTOCNode Title="Material Property " Url="html/P_CFX_Structures_UninstalledMaterial_Material.htm" />
           <HelpTOCNode Title="QuantityUninstalled Property " Url="html/P_CFX_Structures_UninstalledMaterial_QuantityUninstalled.htm" />
           <HelpTOCNode Title="UninstalledComponents Property " Url="html/P_CFX_Structures_UninstalledMaterial_UninstalledComponents.htm" />
@@ -1118,8 +1133,8 @@
           <HelpTOCNode Title="UnitPositionNumber Property " Url="html/P_CFX_Structures_UninstalledMaterial_UnitPositionNumber.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="55b0819b-cd96-42c8-81e8-5d458e31ac85" Title="UnitPosition Class" Url="html/T_CFX_Structures_UnitPosition.htm">
-        <HelpTOCNode Id="1d72ca3e-4dcb-4697-81f2-c8b8266cd31e" Title="UnitPosition Properties" Url="html/Properties_T_CFX_Structures_UnitPosition.htm">
+      <HelpTOCNode Id="af9c153b-ad4a-4038-b777-8003eaefbc28" Title="UnitPosition Class" Url="html/T_CFX_Structures_UnitPosition.htm">
+        <HelpTOCNode Id="4b51db9e-9430-4533-8832-af2397367fb6" Title="UnitPosition Properties" Url="html/Properties_T_CFX_Structures_UnitPosition.htm">
           <HelpTOCNode Title="FlipX Property " Url="html/P_CFX_Structures_UnitPosition_FlipX.htm" />
           <HelpTOCNode Title="FlipY Property " Url="html/P_CFX_Structures_UnitPosition_FlipY.htm" />
           <HelpTOCNode Title="PositionName Property " Url="html/P_CFX_Structures_UnitPosition_PositionName.htm" />
@@ -1130,8 +1145,8 @@
           <HelpTOCNode Title="Y Property " Url="html/P_CFX_Structures_UnitPosition_Y.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="fedcfcc6-4706-4ba7-832b-141440c8c4a5" Title="ValidationResult Class" Url="html/T_CFX_Structures_ValidationResult.htm">
-        <HelpTOCNode Id="f7c2dd42-9728-4024-92bb-89080ed6dc6d" Title="ValidationResult Properties" Url="html/Properties_T_CFX_Structures_ValidationResult.htm">
+      <HelpTOCNode Id="d7879ad6-dd91-4c6f-8682-e45639866507" Title="ValidationResult Class" Url="html/T_CFX_Structures_ValidationResult.htm">
+        <HelpTOCNode Id="ac1d2df5-7709-468b-8261-4fe4d5069892" Title="ValidationResult Properties" Url="html/Properties_T_CFX_Structures_ValidationResult.htm">
           <HelpTOCNode Title="FailureCode Property " Url="html/P_CFX_Structures_ValidationResult_FailureCode.htm" />
           <HelpTOCNode Title="Message Property " Url="html/P_CFX_Structures_ValidationResult_Message.htm" />
           <HelpTOCNode Title="PositionNumber Property " Url="html/P_CFX_Structures_ValidationResult_PositionNumber.htm" />
@@ -1143,9 +1158,9 @@
       <HelpTOCNode Title="ValidationType Enumeration" Url="html/T_CFX_Structures_ValidationType.htm" />
       <HelpTOCNode Title="WorkResult Enumeration" Url="html/T_CFX_Structures_WorkResult.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="169f3b18-4460-4b81-9d14-2e2f37023d88" Title="CFX.Structures.SMTPlacement" Url="html/N_CFX_Structures_SMTPlacement.htm">
-      <HelpTOCNode Id="f81c2c4d-8dd3-4b95-bd4f-1212fc85d98f" Title="SMDTapeFeeder Class" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeFeeder.htm">
-        <HelpTOCNode Id="091afb54-cdce-48f4-a261-9aaa9c45498c" Title="SMDTapeFeeder Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMDTapeFeeder.htm">
+    <HelpTOCNode Id="9d9f2034-14d4-4184-9e2f-a9c385dff79e" Title="CFX.Structures.SMTPlacement" Url="html/N_CFX_Structures_SMTPlacement.htm">
+      <HelpTOCNode Id="da54b812-005e-4641-bfd8-03a234d75d00" Title="SMDTapeFeeder Class" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeFeeder.htm">
+        <HelpTOCNode Id="4017fa5c-028e-4c6e-ba96-9fb34c76e117" Title="SMDTapeFeeder Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMDTapeFeeder.htm">
           <HelpTOCNode Title="BaseName Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTapeFeeder_BaseName.htm" />
           <HelpTOCNode Title="BaseUniqueIdentifier Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTapeFeeder_BaseUniqueIdentifier.htm" />
           <HelpTOCNode Title="LaneNumber Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTapeFeeder_LaneNumber.htm" />
@@ -1156,8 +1171,8 @@
       <HelpTOCNode Title="SMDTapePitch Enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMDTapePitch.htm" />
       <HelpTOCNode Title="SMDTapeType Enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeType.htm" />
       <HelpTOCNode Title="SMDTapeWidth Enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeWidth.htm" />
-      <HelpTOCNode Id="3d73bc13-4a06-4768-9354-ff8401489fbb" Title="SMDTrayFeeder Class" Url="html/T_CFX_Structures_SMTPlacement_SMDTrayFeeder.htm">
-        <HelpTOCNode Id="a2ab41ba-65b6-4063-ac40-a8fb70257225" Title="SMDTrayFeeder Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMDTrayFeeder.htm">
+      <HelpTOCNode Id="48745da8-bb5f-4406-9d57-1d208dd2b17d" Title="SMDTrayFeeder Class" Url="html/T_CFX_Structures_SMTPlacement_SMDTrayFeeder.htm">
+        <HelpTOCNode Id="a2a5ff2d-0a86-4b3b-8c81-17f85851dd2e" Title="SMDTrayFeeder Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMDTrayFeeder.htm">
           <HelpTOCNode Title="CellCountX Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTrayFeeder_CellCountX.htm" />
           <HelpTOCNode Title="CellCountY Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTrayFeeder_CellCountY.htm" />
           <HelpTOCNode Title="CellDimensionX Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTrayFeeder_CellDimensionX.htm" />
@@ -1166,8 +1181,8 @@
           <HelpTOCNode Title="CellPitchY Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTrayFeeder_CellPitchY.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="8e33b37c-85bb-4c4d-b54a-19c849f2d6a7" Title="SMDTubeFeeder Class" Url="html/T_CFX_Structures_SMTPlacement_SMDTubeFeeder.htm">
-        <HelpTOCNode Id="f7dc8625-256c-4d6f-a8a4-ea6b1ae1bfd7" Title="SMDTubeFeeder Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMDTubeFeeder.htm">
+      <HelpTOCNode Id="cca2b8d2-2786-43a2-bb64-dced86f61119" Title="SMDTubeFeeder Class" Url="html/T_CFX_Structures_SMTPlacement_SMDTubeFeeder.htm">
+        <HelpTOCNode Id="b4d6298f-9f41-4773-857c-9abf4da7181e" Title="SMDTubeFeeder Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMDTubeFeeder.htm">
           <HelpTOCNode Title="BaseName Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_BaseName.htm" />
           <HelpTOCNode Title="BaseUniqueIdentifier Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_BaseUniqueIdentifier.htm" />
           <HelpTOCNode Title="LaneNumber Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_LaneNumber.htm" />
@@ -1175,15 +1190,15 @@
           <HelpTOCNode Title="Width Property " Url="html/P_CFX_Structures_SMTPlacement_SMDTubeFeeder_Width.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="22957b11-fdaf-4c1e-be11-1493ee73f05a" Title="SMTNozzle Class" Url="html/T_CFX_Structures_SMTPlacement_SMTNozzle.htm">
-        <HelpTOCNode Id="aaad378f-ceae-4f5c-8c6f-a3ed469575fd" Title="SMTNozzle Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTNozzle.htm">
+      <HelpTOCNode Id="22eb3faf-03ab-486a-ac0a-237dc1f4937a" Title="SMTNozzle Class" Url="html/T_CFX_Structures_SMTPlacement_SMTNozzle.htm">
+        <HelpTOCNode Id="095835d0-8caa-4bc2-b8f0-0e86c9a0ff01" Title="SMTNozzle Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTNozzle.htm">
           <HelpTOCNode Title="HeadId Property " Url="html/P_CFX_Structures_SMTPlacement_SMTNozzle_HeadId.htm" />
           <HelpTOCNode Title="HeadNozzleNumber Property " Url="html/P_CFX_Structures_SMTPlacement_SMTNozzle_HeadNozzleNumber.htm" />
           <HelpTOCNode Title="NozzleType Property " Url="html/P_CFX_Structures_SMTPlacement_SMTNozzle_NozzleType.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="ddef6e00-4b12-4a90-a7fe-62e1e2c0fb79" Title="SMTPlacementFault Class" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm">
-        <HelpTOCNode Id="b9ff8d8b-3d46-450f-a662-6389e175d87a" Title="SMTPlacementFault Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm">
+      <HelpTOCNode Id="2fa6d976-d1bc-4df7-8227-fbeb0e679af5" Title="SMTPlacementFault Class" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm">
+        <HelpTOCNode Id="eb81f0e9-87cf-4112-a499-275e29e7b42e" Title="SMTPlacementFault Properties" Url="html/Properties_T_CFX_Structures_SMTPlacement_SMTPlacementFault.htm">
           <HelpTOCNode Title="Designator Property " Url="html/P_CFX_Structures_SMTPlacement_SMTPlacementFault_Designator.htm" />
           <HelpTOCNode Title="MaterialLocation Property " Url="html/P_CFX_Structures_SMTPlacement_SMTPlacementFault_MaterialLocation.htm" />
           <HelpTOCNode Title="Nozzle Property " Url="html/P_CFX_Structures_SMTPlacement_SMTPlacementFault_Nozzle.htm" />
@@ -1193,9 +1208,9 @@
       </HelpTOCNode>
       <HelpTOCNode Title="SMTPlacementFaultType Enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMTPlacementFaultType.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="dc816340-3d7d-4637-9b9b-f97bd33c4ade" Title="CFX.Structures.SolderPasteInspection" Url="html/N_CFX_Structures_SolderPasteInspection.htm">
-      <HelpTOCNode Id="19bffdfb-275a-448f-99f3-bda66e5ad253" Title="SolderPasteMeasurement Class" Url="html/T_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement.htm">
-        <HelpTOCNode Id="f451af88-f4f9-46bb-83d1-4dba139eb449" Title="SolderPasteMeasurement Properties" Url="html/Properties_T_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement.htm">
+    <HelpTOCNode Id="abe85bbf-7d1a-4387-a842-7d7ebc2845e8" Title="CFX.Structures.SolderPasteInspection" Url="html/N_CFX_Structures_SolderPasteInspection.htm">
+      <HelpTOCNode Id="901eb5c0-cc03-42e0-ae6a-e10e0c7d3d9c" Title="SolderPasteMeasurement Class" Url="html/T_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement.htm">
+        <HelpTOCNode Id="51262d7f-a9f7-4d0b-9d95-377930b88313" Title="SolderPasteMeasurement Properties" Url="html/Properties_T_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement.htm">
           <HelpTOCNode Title="ComponentPad Property " Url="html/P_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement_ComponentPad.htm" />
           <HelpTOCNode Title="DepositImage Property " Url="html/P_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement_DepositImage.htm" />
           <HelpTOCNode Title="PasteHeight Property " Url="html/P_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement_PasteHeight.htm" />
@@ -1207,9 +1222,9 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="ac7168e2-03a5-410f-b3f2-7054d736f8ce" Title="CFX.Structures.SolderPastePrinting" Url="html/N_CFX_Structures_SolderPastePrinting.htm">
-      <HelpTOCNode Id="b7e43505-450c-4c48-a86a-fbcd7bf848dd" Title="SMTSolderPastePrintingFault Class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault.htm">
-        <HelpTOCNode Id="7d6fb3be-ec03-4060-baf2-85a8ad05cc33" Title="SMTSolderPastePrintingFault Properties" Url="html/Properties_T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault.htm">
+    <HelpTOCNode Id="1576dbbb-4bc0-4c27-ae05-62053d778ae3" Title="CFX.Structures.SolderPastePrinting" Url="html/N_CFX_Structures_SolderPastePrinting.htm">
+      <HelpTOCNode Id="e1fe7dd0-728a-4243-a354-08e645a879a5" Title="SMTSolderPastePrintingFault Class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault.htm">
+        <HelpTOCNode Id="a04c4a15-e07f-4703-bf7d-ec5e35e41217" Title="SMTSolderPastePrintingFault Properties" Url="html/Properties_T_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault.htm">
           <HelpTOCNode Title="PrintingFaultType Property " Url="html/P_CFX_Structures_SolderPastePrinting_SMTSolderPastePrintingFault_PrintingFaultType.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
@@ -1219,9 +1234,9 @@
       <HelpTOCNode Title="SMTStencil Class" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencil.htm" />
       <HelpTOCNode Title="SMTStencilCleanMode Enumeration" Url="html/T_CFX_Structures_SolderPastePrinting_SMTStencilCleanMode.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="3126f9ed-f5a2-46ac-8ba4-41c3a62b2cb0" Title="CFX.Structures.THTInsertion" Url="html/N_CFX_Structures_THTInsertion.htm">
-      <HelpTOCNode Id="121092e8-2e95-4cda-a195-879b60ada941" Title="THTInsertionFault Class" Url="html/T_CFX_Structures_THTInsertion_THTInsertionFault.htm">
-        <HelpTOCNode Id="df83eacd-3dd8-4878-83d1-b8a8b4e4021a" Title="THTInsertionFault Properties" Url="html/Properties_T_CFX_Structures_THTInsertion_THTInsertionFault.htm">
+    <HelpTOCNode Id="0775eb36-90e7-4e41-b4d4-c79ad5bd2ef6" Title="CFX.Structures.THTInsertion" Url="html/N_CFX_Structures_THTInsertion.htm">
+      <HelpTOCNode Id="860660b2-0e25-49ee-94c6-e6ee87ecb288" Title="THTInsertionFault Class" Url="html/T_CFX_Structures_THTInsertion_THTInsertionFault.htm">
+        <HelpTOCNode Id="5bffe3d8-67dd-4d9a-bb2a-38254beaacf1" Title="THTInsertionFault Properties" Url="html/Properties_T_CFX_Structures_THTInsertion_THTInsertionFault.htm">
           <HelpTOCNode Title="Designator Property " Url="html/P_CFX_Structures_THTInsertion_THTInsertionFault_Designator.htm" />
           <HelpTOCNode Title="InsertionFaultType Property " Url="html/P_CFX_Structures_THTInsertion_THTInsertionFault_InsertionFaultType.htm" />
           <HelpTOCNode Title="MaterialLocation Property " Url="html/P_CFX_Structures_THTInsertion_THTInsertionFault_MaterialLocation.htm" />
@@ -1230,10 +1245,10 @@
       </HelpTOCNode>
       <HelpTOCNode Title="THTInsertionFaultType Enumeration" Url="html/T_CFX_Structures_THTInsertion_THTInsertionFaultType.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="176a8c5e-9b7d-48ea-befe-3dd25940f5a0" Title="CFX.Transport" Url="html/N_CFX_Transport.htm">
-      <HelpTOCNode Id="cc1802c9-eaeb-47aa-9513-5acbdd41be06" Title="AmqpCFXEndpoint Class" Url="html/T_CFX_Transport_AmqpCFXEndpoint.htm">
+    <HelpTOCNode Id="11b7fd7c-6671-4794-9226-2c7f2dfd1425" Title="CFX.Transport" Url="html/N_CFX_Transport.htm">
+      <HelpTOCNode Id="4e8aebd1-4679-4b2e-9bf0-897c8fe6107f" Title="AmqpCFXEndpoint Class" Url="html/T_CFX_Transport_AmqpCFXEndpoint.htm">
         <HelpTOCNode Title="AmqpCFXEndpoint Constructor " Url="html/M_CFX_Transport_AmqpCFXEndpoint__ctor.htm" />
-        <HelpTOCNode Id="f5be5d62-39af-4e33-81dc-c667971d29f1" Title="AmqpCFXEndpoint Properties" Url="html/Properties_T_CFX_Transport_AmqpCFXEndpoint.htm">
+        <HelpTOCNode Id="3256d4bb-6654-41b1-91de-3d85fb401e66" Title="AmqpCFXEndpoint Properties" Url="html/Properties_T_CFX_Transport_AmqpCFXEndpoint.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_CFXHandle.htm" />
           <HelpTOCNode Title="DurableMessages Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_DurableMessages.htm" />
           <HelpTOCNode Title="DurableReceiverSetting Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_DurableReceiverSetting.htm" />
@@ -1245,72 +1260,72 @@
           <HelpTOCNode Title="RequestTimeout Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_RequestTimeout.htm" />
           <HelpTOCNode Title="RequestUri Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_RequestUri.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="974ca5f3-08ac-401c-bb91-93bbf3b72a4e" Title="AmqpCFXEndpoint Methods" Url="html/Methods_T_CFX_Transport_AmqpCFXEndpoint.htm">
-          <HelpTOCNode Id="2c5a7f25-5656-4c17-87b1-e2d02161dd06" Title="AddPublishChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_AddPublishChannel.htm">
+        <HelpTOCNode Id="9e2e1f19-3400-43b2-8b3b-6d4011aaf00b" Title="AmqpCFXEndpoint Methods" Url="html/Methods_T_CFX_Transport_AmqpCFXEndpoint.htm">
+          <HelpTOCNode Id="1f7f2a27-8fe2-471a-bb68-a3ab1791da46" Title="AddPublishChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_AddPublishChannel.htm">
             <HelpTOCNode Title="AddPublishChannel Method (AmqpChannelAddress, AuthenticationMode, X509Certificate)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_AddPublishChannel.htm" />
             <HelpTOCNode Title="AddPublishChannel Method (Uri, String, AuthenticationMode, X509Certificate)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_AddPublishChannel_1.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="b3c26e06-c53f-4f89-aa5f-cb25c7742473" Title="AddSubscribeChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_AddSubscribeChannel.htm">
+          <HelpTOCNode Id="0edbbeeb-1d12-4647-9602-d32a76ec9357" Title="AddSubscribeChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_AddSubscribeChannel.htm">
             <HelpTOCNode Title="AddSubscribeChannel Method (AmqpChannelAddress, AuthenticationMode, X509Certificate)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_AddSubscribeChannel.htm" />
             <HelpTOCNode Title="AddSubscribeChannel Method (Uri, String, AuthenticationMode, X509Certificate)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_AddSubscribeChannel_1.htm" />
           </HelpTOCNode>
           <HelpTOCNode Title="Close Method " Url="html/M_CFX_Transport_AmqpCFXEndpoint_Close.htm" />
-          <HelpTOCNode Id="282d114d-8b1e-4916-9bbd-e828250cc6b3" Title="ClosePublishChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_ClosePublishChannel.htm">
+          <HelpTOCNode Id="952b9a35-a868-4b10-9d8a-94c9d5aa1588" Title="ClosePublishChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_ClosePublishChannel.htm">
             <HelpTOCNode Title="ClosePublishChannel Method (AmqpChannelAddress)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_ClosePublishChannel.htm" />
             <HelpTOCNode Title="ClosePublishChannel Method (Uri, String)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_ClosePublishChannel_1.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="924d4fc2-910a-483b-86bf-24d8400556b1" Title="CloseSubscribeChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_CloseSubscribeChannel.htm">
+          <HelpTOCNode Id="16c1a0c4-2837-49cd-a7fc-74aeff0a7485" Title="CloseSubscribeChannel Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_CloseSubscribeChannel.htm">
             <HelpTOCNode Title="CloseSubscribeChannel Method (AmqpChannelAddress)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_CloseSubscribeChannel.htm" />
             <HelpTOCNode Title="CloseSubscribeChannel Method (Uri, String)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_CloseSubscribeChannel_1.htm" />
           </HelpTOCNode>
           <HelpTOCNode Title="Dispose Method " Url="html/M_CFX_Transport_AmqpCFXEndpoint_Dispose.htm" />
           <HelpTOCNode Title="ExecuteRequest Method " Url="html/M_CFX_Transport_AmqpCFXEndpoint_ExecuteRequest.htm" />
-          <HelpTOCNode Id="8e1fffb7-36fa-4102-abb0-6a2e5ab2d915" Title="Open Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_Open.htm">
+          <HelpTOCNode Id="e4dd5c62-e275-4ccc-a502-11cbcff949b5" Title="Open Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_Open.htm">
             <HelpTOCNode Title="Open Method (String, Uri)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_Open_1.htm" />
             <HelpTOCNode Title="Open Method (String, IPAddress, Int32)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_Open.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="e643b93b-685e-409b-ba8b-11c9ce27ed6d" Title="Publish Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_Publish.htm">
+          <HelpTOCNode Id="bf7928cb-df58-428d-87e2-08617ddd3528" Title="Publish Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_Publish.htm">
             <HelpTOCNode Title="Publish Method (CFXEnvelope)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_Publish.htm" />
             <HelpTOCNode Title="Publish Method (CFXMessage)" Url="html/M_CFX_Transport_AmqpCFXEndpoint_Publish_1.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="b066c062-0f2f-41d4-9af3-985c56c85b22" Title="PublishMany Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_PublishMany.htm">
+          <HelpTOCNode Id="9790fe64-02c3-4dd3-af32-2678b35d6627" Title="PublishMany Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_PublishMany.htm">
             <HelpTOCNode Title="PublishMany Method (IEnumerable(CFXEnvelope))" Url="html/M_CFX_Transport_AmqpCFXEndpoint_PublishMany.htm" />
             <HelpTOCNode Title="PublishMany Method (IEnumerable(CFXMessage))" Url="html/M_CFX_Transport_AmqpCFXEndpoint_PublishMany_1.htm" />
           </HelpTOCNode>
           <HelpTOCNode Title="TestChannel Method " Url="html/M_CFX_Transport_AmqpCFXEndpoint_TestChannel.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="b4b2ae36-fe4c-4007-bc90-5bbf2bb351ba" Title="AmqpCFXEndpoint Events" Url="html/Events_T_CFX_Transport_AmqpCFXEndpoint.htm">
+        <HelpTOCNode Id="6512030f-fdac-4c47-89e7-7deb9845e079" Title="AmqpCFXEndpoint Events" Url="html/Events_T_CFX_Transport_AmqpCFXEndpoint.htm">
           <HelpTOCNode Title="OnCFXMessageReceived Event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnCFXMessageReceived.htm" />
           <HelpTOCNode Title="OnRequestReceived Event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnRequestReceived.htm" />
           <HelpTOCNode Title="OnValidateCertificate Event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnValidateCertificate.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="70d6888a-685e-4c7e-85d0-a8c7c9be69ea" Title="AmqpChannelAddress Class" Url="html/T_CFX_Transport_AmqpChannelAddress.htm">
+      <HelpTOCNode Id="ace5396d-004c-46f4-bb89-d3bd6f483ae1" Title="AmqpChannelAddress Class" Url="html/T_CFX_Transport_AmqpChannelAddress.htm">
         <HelpTOCNode Title="AmqpChannelAddress Constructor " Url="html/M_CFX_Transport_AmqpChannelAddress__ctor.htm" />
-        <HelpTOCNode Id="0ff88b40-8493-4d26-bfa0-8ff85ab10c38" Title="AmqpChannelAddress Properties" Url="html/Properties_T_CFX_Transport_AmqpChannelAddress.htm">
+        <HelpTOCNode Id="1cd60b84-1331-49d7-9048-6ddd16f7af63" Title="AmqpChannelAddress Properties" Url="html/Properties_T_CFX_Transport_AmqpChannelAddress.htm">
           <HelpTOCNode Title="Address Property " Url="html/P_CFX_Transport_AmqpChannelAddress_Address.htm" />
           <HelpTOCNode Title="Uri Property " Url="html/P_CFX_Transport_AmqpChannelAddress_Uri.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="10b8a9d0-d254-4ce8-a133-40b98e1365d6" Title="AmqpRequestProcessor Class" Url="html/T_CFX_Transport_AmqpRequestProcessor.htm">
+      <HelpTOCNode Id="da9aaa2c-c5a4-4e3a-bbbf-6619842db0a9" Title="AmqpRequestProcessor Class" Url="html/T_CFX_Transport_AmqpRequestProcessor.htm">
         <HelpTOCNode Title="AmqpRequestProcessor Constructor " Url="html/M_CFX_Transport_AmqpRequestProcessor__ctor.htm" />
-        <HelpTOCNode Id="5e57af8d-a555-497d-bc03-afcfdc691304" Title="AmqpRequestProcessor Properties" Url="html/Properties_T_CFX_Transport_AmqpRequestProcessor.htm">
+        <HelpTOCNode Id="acbfcf59-7d69-47ca-8438-6aa29eaa06be" Title="AmqpRequestProcessor Properties" Url="html/Properties_T_CFX_Transport_AmqpRequestProcessor.htm">
           <HelpTOCNode Title="CFXHandle Property " Url="html/P_CFX_Transport_AmqpRequestProcessor_CFXHandle.htm" />
           <HelpTOCNode Title="RequestHandle Property " Url="html/P_CFX_Transport_AmqpRequestProcessor_RequestHandle.htm" />
           <HelpTOCNode Title="RequestUri Property " Url="html/P_CFX_Transport_AmqpRequestProcessor_RequestUri.htm" />
           <HelpTOCNode Title="SendTimout Property " Url="html/P_CFX_Transport_AmqpRequestProcessor_SendTimout.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="fedd3938-a75b-464c-b4c0-66e47710ab7c" Title="AmqpRequestProcessor Methods" Url="html/Methods_T_CFX_Transport_AmqpRequestProcessor.htm">
+        <HelpTOCNode Id="c91ebff9-7a19-45d0-b8d3-44f25cb6c67f" Title="AmqpRequestProcessor Methods" Url="html/Methods_T_CFX_Transport_AmqpRequestProcessor.htm">
           <HelpTOCNode Title="Close Method " Url="html/M_CFX_Transport_AmqpRequestProcessor_Close.htm" />
           <HelpTOCNode Title="Dispose Method " Url="html/M_CFX_Transport_AmqpRequestProcessor_Dispose.htm" />
           <HelpTOCNode Title="Open Method " Url="html/M_CFX_Transport_AmqpRequestProcessor_Open.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="159535a3-f962-46ae-aefb-cda24d41dc43" Title="AmqpRequestProcessor Events" Url="html/Events_T_CFX_Transport_AmqpRequestProcessor.htm">
+        <HelpTOCNode Id="8c484d52-d0ef-4c35-95ff-6f14f01061f4" Title="AmqpRequestProcessor Events" Url="html/Events_T_CFX_Transport_AmqpRequestProcessor.htm">
           <HelpTOCNode Title="OnRequestReceived Event" Url="html/E_CFX_Transport_AmqpRequestProcessor_OnRequestReceived.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="60b3ffe2-373c-4ef0-8e27-1e0ebb7d08a8" Title="AmqpUtilities Class" Url="html/T_CFX_Transport_AmqpUtilities.htm">
-        <HelpTOCNode Id="cb7a0783-44ad-4116-a184-61cdc3a8d21d" Title="AmqpUtilities Methods" Url="html/Methods_T_CFX_Transport_AmqpUtilities.htm">
+      <HelpTOCNode Id="8fc59fcb-654d-4b02-b613-ee753ac5ef26" Title="AmqpUtilities Class" Url="html/T_CFX_Transport_AmqpUtilities.htm">
+        <HelpTOCNode Id="4ccc7421-5f72-49e1-aff3-f6c75afa4125" Title="AmqpUtilities Methods" Url="html/Methods_T_CFX_Transport_AmqpUtilities.htm">
           <HelpTOCNode Title="EnvelopeFromMessage Method " Url="html/M_CFX_Transport_AmqpUtilities_EnvelopeFromMessage.htm" />
           <HelpTOCNode Title="EnvelopesFromMessage Method " Url="html/M_CFX_Transport_AmqpUtilities_EnvelopesFromMessage.htm" />
           <HelpTOCNode Title="GetCertificate Method " Url="html/M_CFX_Transport_AmqpUtilities_GetCertificate.htm" />
@@ -1329,41 +1344,41 @@
       <HelpTOCNode Title="ValidateCertificateResult Enumeration" Url="html/T_CFX_Transport_ValidateCertificateResult.htm" />
       <HelpTOCNode Title="ValidateServerCertificateHandler Delegate" Url="html/T_CFX_Transport_ValidateServerCertificateHandler.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="06612670-93a0-4ef0-b5f8-459f62f5652c" Title="CFX.Utilities" Url="html/N_CFX_Utilities.htm">
-      <HelpTOCNode Id="c90f93e7-555b-4f28-aa54-f0f305e5b822" Title="AppLog Class" Url="html/T_CFX_Utilities_AppLog.htm">
-        <HelpTOCNode Id="c8aeecb8-6740-41fd-bdbb-703084cf0240" Title="AppLog Properties" Url="html/Properties_T_CFX_Utilities_AppLog.htm">
+    <HelpTOCNode Id="6a0480ec-ba15-491a-af38-acb3b3050ab6" Title="CFX.Utilities" Url="html/N_CFX_Utilities.htm">
+      <HelpTOCNode Id="18617f02-0243-41b9-bd6d-eab117d2b9b6" Title="AppLog Class" Url="html/T_CFX_Utilities_AppLog.htm">
+        <HelpTOCNode Id="f096f47e-a1c2-4d8a-a457-3f77cf4c4fd2" Title="AppLog Properties" Url="html/Properties_T_CFX_Utilities_AppLog.htm">
           <HelpTOCNode Title="AmqpTraceEnabled Property " Url="html/P_CFX_Utilities_AppLog_AmqpTraceEnabled.htm" />
           <HelpTOCNode Title="LogFilePath Property " Url="html/P_CFX_Utilities_AppLog_LogFilePath.htm" />
           <HelpTOCNode Title="LoggingEnabled Property " Url="html/P_CFX_Utilities_AppLog_LoggingEnabled.htm" />
           <HelpTOCNode Title="LoggingLevel Property " Url="html/P_CFX_Utilities_AppLog_LoggingLevel.htm" />
           <HelpTOCNode Title="SettingsPath Property " Url="html/P_CFX_Utilities_AppLog_SettingsPath.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="c0354b6c-75f8-43f9-92a0-bb5c2bb832a4" Title="AppLog Methods" Url="html/Methods_T_CFX_Utilities_AppLog.htm">
+        <HelpTOCNode Id="2ab58982-3e1a-4663-8f3b-34cceb8f7d36" Title="AppLog Methods" Url="html/Methods_T_CFX_Utilities_AppLog.htm">
           <HelpTOCNode Title="Debug Method " Url="html/M_CFX_Utilities_AppLog_Debug.htm" />
-          <HelpTOCNode Id="85ae998a-7340-4748-9ee7-62f20b02082d" Title="Error Method " Url="html/Overload_CFX_Utilities_AppLog_Error.htm">
+          <HelpTOCNode Id="df4d2a3b-9b27-4e17-8cc3-84a42b6b047f" Title="Error Method " Url="html/Overload_CFX_Utilities_AppLog_Error.htm">
             <HelpTOCNode Title="Error Method (Exception)" Url="html/M_CFX_Utilities_AppLog_Error.htm" />
             <HelpTOCNode Title="Error Method (String)" Url="html/M_CFX_Utilities_AppLog_Error_1.htm" />
           </HelpTOCNode>
           <HelpTOCNode Title="Info Method " Url="html/M_CFX_Utilities_AppLog_Info.htm" />
           <HelpTOCNode Title="Warn Method " Url="html/M_CFX_Utilities_AppLog_Warn.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="86c9e8cc-4cb0-4e35-99ac-e6f99fe8429e" Title="AppLog Events" Url="html/Events_T_CFX_Utilities_AppLog.htm">
+        <HelpTOCNode Id="b8bb99d6-7100-465a-a1ea-eca5be40e1bf" Title="AppLog Events" Url="html/Events_T_CFX_Utilities_AppLog.htm">
           <HelpTOCNode Title="OnTraceMessage Event" Url="html/E_CFX_Utilities_AppLog_OnTraceMessage.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="bdc835bd-ee2c-48e1-a660-e5a7a7ba9134" Title="AppLogSettings Class" Url="html/T_CFX_Utilities_AppLogSettings.htm">
+      <HelpTOCNode Id="5e475abc-4035-4873-ac3f-d413b2fb3876" Title="AppLogSettings Class" Url="html/T_CFX_Utilities_AppLogSettings.htm">
         <HelpTOCNode Title="AppLogSettings Constructor " Url="html/M_CFX_Utilities_AppLogSettings__ctor.htm" />
-        <HelpTOCNode Id="c3d3b172-b4b4-45cf-b5e5-17cce25544c8" Title="AppLogSettings Properties" Url="html/Properties_T_CFX_Utilities_AppLogSettings.htm">
+        <HelpTOCNode Id="40d4b381-172e-41cc-be3b-3f62cb7e26fa" Title="AppLogSettings Properties" Url="html/Properties_T_CFX_Utilities_AppLogSettings.htm">
           <HelpTOCNode Title="AmqpTraceEnabled Property " Url="html/P_CFX_Utilities_AppLogSettings_AmqpTraceEnabled.htm" />
           <HelpTOCNode Title="LogFilePath Property " Url="html/P_CFX_Utilities_AppLogSettings_LogFilePath.htm" />
           <HelpTOCNode Title="LoggingEnabled Property " Url="html/P_CFX_Utilities_AppLogSettings_LoggingEnabled.htm" />
           <HelpTOCNode Title="LoggingLevel Property " Url="html/P_CFX_Utilities_AppLogSettings_LoggingLevel.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d2511cc8-5632-4acb-a751-ab4eeee2f011" Title="CFXJsonSerializer Class" Url="html/T_CFX_Utilities_CFXJsonSerializer.htm">
+      <HelpTOCNode Id="c919adfd-eed9-47ae-8786-71274e11b5f7" Title="CFXJsonSerializer Class" Url="html/T_CFX_Utilities_CFXJsonSerializer.htm">
         <HelpTOCNode Title="CFXJsonSerializer Constructor " Url="html/M_CFX_Utilities_CFXJsonSerializer__ctor.htm" />
-        <HelpTOCNode Id="d8678d00-d9ff-468f-86f1-666225e2cbf1" Title="CFXJsonSerializer Methods" Url="html/Methods_T_CFX_Utilities_CFXJsonSerializer.htm">
-          <HelpTOCNode Id="164b22d2-a23d-4542-a5eb-baee4e2088fd" Title="DeserializeObject Method " Url="html/Overload_CFX_Utilities_CFXJsonSerializer_DeserializeObject.htm">
+        <HelpTOCNode Id="a52201e8-267c-44e7-83bc-140fb2dd6ffc" Title="CFXJsonSerializer Methods" Url="html/Methods_T_CFX_Utilities_CFXJsonSerializer.htm">
+          <HelpTOCNode Id="2db8ba3c-440c-420b-a8ad-bb5e739341f7" Title="DeserializeObject Method " Url="html/Overload_CFX_Utilities_CFXJsonSerializer_DeserializeObject.htm">
             <HelpTOCNode Title="DeserializeObject(T) Method (String)" Url="html/M_CFX_Utilities_CFXJsonSerializer_DeserializeObject__1.htm" />
             <HelpTOCNode Title="DeserializeObject Method (String, Type)" Url="html/M_CFX_Utilities_CFXJsonSerializer_DeserializeObject.htm" />
           </HelpTOCNode>

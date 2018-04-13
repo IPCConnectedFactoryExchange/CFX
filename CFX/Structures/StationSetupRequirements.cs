@@ -4,6 +4,12 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes the material setup requirements for a particular process endpoint to perform a 
+    /// particular operation on one or more partiuclar products.  Also includes information on
+    /// where specifically the materials should be loaded (when applicable), AML (where applicable),
+    /// and alternate part information (where applicable).
+    /// </summary>
     public class StationSetupRequirements
     {
         public StationSetupRequirements()
@@ -30,7 +36,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// An optional name for this particular setup.
+        /// An optional name for this particular setup
         /// </summary>
         public string SetupName
         {
@@ -38,6 +44,9 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// A list of the materials that need to be installed / loaded at the process endpoint
+        /// </summary>
         public List<MaterialSetupRequirement> MaterialSetupRequirements
         {
             get;

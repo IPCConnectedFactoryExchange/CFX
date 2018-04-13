@@ -5,6 +5,18 @@ using CFX.Structures;
 
 namespace CFX.Materials.Management
 {
+    /// <summary>
+    /// Response to a request to unblock one or more particular lots or instances of material from use in production.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "BLOCKED OK"
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
     public class UnblockMaterialsResponse : CFXMessage
     {
         public UnblockMaterialsResponse()
@@ -12,6 +24,9 @@ namespace CFX.Materials.Management
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         RequestResult Result
         {
             get;

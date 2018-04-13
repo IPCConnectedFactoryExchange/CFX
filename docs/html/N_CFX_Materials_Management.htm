@@ -1,5 +1,260 @@
-﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>CFX.Materials.Management Namespace</title><meta name="Language" content="en-us" /><meta name="System.Keywords" content="CFX.Materials.Management namespace" /><meta name="Microsoft.Help.F1" content="CFX.Materials.Management" /><meta name="Microsoft.Help.Id" content="N:CFX.Materials.Management" /><meta name="Description" content="Messages related to the management of raw materials. Includes creation and labeling of material instances, decommissioning spent materials, etc." /><meta name="Microsoft.Help.ContentType" content="Reference" /><meta name="BrandingAware" content="true" /><meta name="container" content="CFX.Materials.Management" /><meta name="file" content="N_CFX_Materials_Management" /><meta name="guid" content="N_CFX_Materials_Management" /><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">IPC Connected Factory Exchange Reference<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html\cfb57aac-b696-4c6c-b94b-f034b37daf26.htm" title="IPC Connected Factory Exchange Reference" tocid="roottoc">IPC Connected Factory Exchange Reference</a></div><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/R_Project_CFXSDK.htm" title="CFX Topics, Messages, and Data Structures" tocid="R_Project_CFXSDK">CFX Topics, Messages, and Data Structures</a></div><div class="toclevel1 current" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/N_CFX_Materials_Management.htm" title="CFX.Materials.Management" tocid="N_CFX_Materials_Management">CFX.Materials.Management</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_BlockMaterialsRequest.htm" title="BlockMaterialsRequest Class" tocid="T_CFX_Materials_Management_BlockMaterialsRequest">BlockMaterialsRequest Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_BlockMaterialsResponse.htm" title="BlockMaterialsResponse Class" tocid="T_CFX_Materials_Management_BlockMaterialsResponse">BlockMaterialsResponse Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsConsumed.htm" title="MaterialsConsumed Class" tocid="T_CFX_Materials_Management_MaterialsConsumed">MaterialsConsumed Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsEmpty.htm" title="MaterialsEmpty Class" tocid="T_CFX_Materials_Management_MaterialsEmpty">MaterialsEmpty Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsInitialized.htm" title="MaterialsInitialized Class" tocid="T_CFX_Materials_Management_MaterialsInitialized">MaterialsInitialized Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsJoined.htm" title="MaterialsJoined Class" tocid="T_CFX_Materials_Management_MaterialsJoined">MaterialsJoined Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsModified.htm" title="MaterialsModified Class" tocid="T_CFX_Materials_Management_MaterialsModified">MaterialsModified Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsRetired.htm" title="MaterialsRetired Class" tocid="T_CFX_Materials_Management_MaterialsRetired">MaterialsRetired Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsSplit.htm" title="MaterialsSplit Class" tocid="T_CFX_Materials_Management_MaterialsSplit">MaterialsSplit Class</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/T_CFX_Materials_Management_UnblockMaterialsResponse.htm" title="UnblockMaterialsResponse Class" tocid="T_CFX_Materials_Management_UnblockMaterialsResponse">UnblockMaterialsResponse Class</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="titleColumn"><h1>CFX.Materials.Management Namespace</h1></td></tr></table><span class="introStyle"></span> <p style="color: #dc143c; font-size: 8.5pt; font-weight: bold;">[This is preliminary documentation and is subject to change.]</p><div class="summary">
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>CFX.Materials.Management Namespace</title><meta name="Language" content="en-us" /><meta name="System.Keywords" content="CFX.Materials.Management namespace" /><meta name="Microsoft.Help.F1" content="CFX.Materials.Management" /><meta name="Microsoft.Help.Id" content="N:CFX.Materials.Management" /><meta name="Description" content="Messages related to the management of raw materials. Includes creation and labeling of material instances, decommissioning spent materials, etc." /><meta name="Microsoft.Help.ContentType" content="Reference" /><meta name="BrandingAware" content="true" /><meta name="container" content="CFX.Materials.Management" /><meta name="file" content="N_CFX_Materials_Management" /><meta name="guid" content="N_CFX_Materials_Management" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">IPC Connected Factory Exchange Reference<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html\cfb57aac-b696-4c6c-b94b-f034b37daf26.htm" title="IPC Connected Factory Exchange Reference" tocid="roottoc">IPC Connected Factory Exchange Reference</a></div><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/R_Project_CFXSDK.htm" title="CFX Topics, Messages, and Data Structures" tocid="R_Project_CFXSDK">CFX Topics, Messages, and Data Structures</a></div><div class="toclevel1 current" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/N_CFX_Materials_Management.htm" title="CFX.Materials.Management" tocid="N_CFX_Materials_Management">CFX.Materials.Management</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_BlockMaterialsRequest.htm" title="BlockMaterialsRequest Class" tocid="T_CFX_Materials_Management_BlockMaterialsRequest">BlockMaterialsRequest Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_BlockMaterialsResponse.htm" title="BlockMaterialsResponse Class" tocid="T_CFX_Materials_Management_BlockMaterialsResponse">BlockMaterialsResponse Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsConsumed.htm" title="MaterialsConsumed Class" tocid="T_CFX_Materials_Management_MaterialsConsumed">MaterialsConsumed Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsInitialized.htm" title="MaterialsInitialized Class" tocid="T_CFX_Materials_Management_MaterialsInitialized">MaterialsInitialized Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsJoined.htm" title="MaterialsJoined Class" tocid="T_CFX_Materials_Management_MaterialsJoined">MaterialsJoined Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsModified.htm" title="MaterialsModified Class" tocid="T_CFX_Materials_Management_MaterialsModified">MaterialsModified Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsRetired.htm" title="MaterialsRetired Class" tocid="T_CFX_Materials_Management_MaterialsRetired">MaterialsRetired Class</a></div><div class="toclevel2" data-toclevel="2"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/T_CFX_Materials_Management_MaterialsSplit.htm" title="MaterialsSplit Class" tocid="T_CFX_Materials_Management_MaterialsSplit">MaterialsSplit Class</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/T_CFX_Materials_Management_UnblockMaterialsResponse.htm" title="UnblockMaterialsResponse Class" tocid="T_CFX_Materials_Management_UnblockMaterialsResponse">UnblockMaterialsResponse Class</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="titleColumn"><h1>CFX.Materials.Management Namespace</h1></td></tr></table><span class="introStyle"></span> <p style="color: #dc143c; font-size: 8.5pt; font-weight: bold;">[This is preliminary documentation and is subject to change.]</p><div class="summary">
             Messages related to the management of raw materials.  Includes creation and labeling of material instances, decommissioning spent materials, etc.
-            </div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID0RB')" onkeypress="SectionExpandCollapse_CheckKey('ID0RB', event)" tabindex="0"><img id="ID0RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Classes</span></div><div id="ID0RBSection" class="collapsibleSection"><table class="members" id="classList"><tr><th class="iconColumn">
+            </div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID1RB')" onkeypress="SectionExpandCollapse_CheckKey('ID1RB', event)" tabindex="0"><img id="ID1RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Classes</span></div><div id="ID1RBSection" class="collapsibleSection"><table class="members" id="classList"><tr><th class="iconColumn">
 					 
-				</th><th>Class</th><th>Description</th></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_BlockMaterialsRequest.htm">BlockMaterialsRequest</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_BlockMaterialsResponse.htm">BlockMaterialsResponse</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsConsumed.htm">MaterialsConsumed</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsEmpty.htm">MaterialsEmpty</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsInitialized.htm">MaterialsInitialized</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsJoined.htm">MaterialsJoined</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsModified.htm">MaterialsModified</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsRetired.htm">MaterialsRetired</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsSplit.htm">MaterialsSplit</a></td><td /></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_UnblockMaterialsResponse.htm">UnblockMaterialsResponse</a></td><td /></tr></table></div></div></div><div id="pageFooter" class="pageFooter"> </div></body></html>
+				</th><th>Class</th><th>Description</th></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_BlockMaterialsRequest.htm">BlockMaterialsRequest</a></td><td><div class="summary">
+            A request to block one or more particular lots or instances of material from use in production.
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAIBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAIBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAIBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "Locations": [
+    {
+      "LocationIdentifier": "23143433",
+      "LocationName": "SLOT45",
+      "MaterialPackage": null,
+      "CarrierInformation": null
+    },
+    {
+      "LocationIdentifier": "23143454",
+      "LocationName": "SLOT46",
+      "MaterialPackage": null,
+      "CarrierInformation": null
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAIBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_BlockMaterialsResponse.htm">BlockMaterialsResponse</a></td><td><div class="summary">
+            Response to a request block one or more instances of material from use in production
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAHBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAHBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAHBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "Result": {
+    "Result": "Success",
+    "ResultCode": 0,
+    "Message": "BLOCKED OK"
+  }
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAHBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsConsumed.htm">MaterialsConsumed</a></td><td><div class="summary">
+            Sent by a process endpoint when materials are consumed
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAGBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAGBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAGBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "ConsumedMaterials": [
+    {
+      "MaterialLocation": {
+        "LocationIdentifier": "3245434554",
+        "LocationName": "SLOT22",
+        "MaterialPackage": {
+          "UniqueIdentifier": "MAT238908348903",
+          "InternalPartNumber": "IPN-1222-55555",
+          "Quantity": 344.0
+        },
+        "CarrierInformation": {
+          "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+          "BaseUniqueIdentifier": null,
+          "BaseName": null,
+          "LaneNumber": 1,
+          "Width": "Tape8mm",
+          "Pitch": "Pitch8mm",
+          "UniqueIdentifier": "234232432424",
+          "Name": "FEEDER2245465"
+        }
+      },
+      "QuantityUsed": 42.0,
+      "QuantitySpoiled": 2.0,
+      "RemainingQuantity": 344.0
+    },
+    {
+      "MaterialLocation": {
+        "LocationIdentifier": "3245435784",
+        "LocationName": "SLOT28",
+        "MaterialPackage": {
+          "UniqueIdentifier": "MAT238908323434",
+          "InternalPartNumber": "IPN-1222-11111",
+          "Quantity": 258.0
+        },
+        "CarrierInformation": {
+          "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+          "BaseUniqueIdentifier": null,
+          "BaseName": null,
+          "LaneNumber": 1,
+          "Width": "Tape8mm",
+          "Pitch": "Pitch8mm",
+          "UniqueIdentifier": "234232432424",
+          "Name": "FEEDER2245465"
+        }
+      },
+      "QuantityUsed": 88.0,
+      "QuantitySpoiled": 3.0,
+      "RemainingQuantity": 258.0
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAGBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsInitialized.htm">MaterialsInitialized</a></td><td><div class="summary">
+            Sent whan one or more new material packages are introduced into the factory environment.  
+            This might occurr when new material is received from suppliers, or when newly received
+            material is labeled with unique identifiers for tracking, stocking, or production purposes.
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAFBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAFBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAFBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "Materials": [
+    {
+      "UniqueIdentifier": "MAT4566556456",
+      "InternalPartNumber": "IPN47788",
+      "Manufacturer": "MOTOROLA",
+      "ManufacturerPartNumber": "MOT231234",
+      "Vendor": "Digikey",
+      "VendorPartNumber": "DIG23452442",
+      "ManufacuterLotCode": "LOT2016110588",
+      "Created": "2018-04-13T11:30:30.8326863-04:00",
+      "ManufactureDate": "2016-11-05T00:00:00",
+      "ReceivedDate": "2017-05-06T00:00:00",
+      "Units": null,
+      "InitialQuantity": 1000.0,
+      "Quantity": 887.0,
+      "Status": "Active",
+      "MaterialData": {
+        "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+        "ExpirationDateTime": null,
+        "OriginalExposureDateTime": "2017-05-01T08:22:12",
+        "LastExposureDateTime": "2017-05-06T13:55:33",
+        "RemainingExposureTime": "6.00:00:00",
+        "MSDLevel": "MSL3",
+        "MSDState": "InDryStorage"
+      }
+    },
+    {
+      "UniqueIdentifier": "MAT4566554543",
+      "InternalPartNumber": "IPN48899",
+      "Manufacturer": "SAMSUNG",
+      "ManufacturerPartNumber": "SAM233243",
+      "Vendor": "Digikey",
+      "VendorPartNumber": "DIG44543534",
+      "ManufacuterLotCode": "LOT2016101008",
+      "Created": "2018-04-13T11:30:30.8346859-04:00",
+      "ManufactureDate": "2016-10-10T00:00:00",
+      "ReceivedDate": "2017-09-09T00:00:00",
+      "Units": null,
+      "InitialQuantity": 1000.0,
+      "Quantity": 748.0,
+      "Status": "Active",
+      "MaterialData": null
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAFBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsJoined.htm">MaterialsJoined</a></td><td><div class="summary">
+            Sent when two separate material packages (containing the same part) are joined together.
+            For example, as in the case of the splicing together of multiple reels of embossed tape
+            containing SMD parts.
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAEBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAEBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAEBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "LeadingMaterialPackage": {
+    "UniqueIdentifier": "MAT4566589856",
+    "InternalPartNumber": "IPN45577",
+    "Quantity": 151.0
+  },
+  "TrailingMaterialPackage": {
+    "UniqueIdentifier": "MAT4563453457",
+    "InternalPartNumber": "IPN45577",
+    "Quantity": 151.0
+  }
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAEBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsModified.htm">MaterialsModified</a></td><td><div class="summary">
+            Sent when the attributes of one or more specific material packages have been altered.
+            NOTEL  When the current quantity attribute of the material package decreases in the 
+            normal course of production (consumption), a MaterialsModified modified message should NOT
+            be sent.  Instead, in this case a <a href="T_CFX_Materials_Management_MaterialsConsumed.htm">MaterialsConsumed</a> message should be sent.
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAADBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAADBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAADBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "Reason": "ManualCountAndQuantityUpdate",
+  "Materials": [
+    {
+      "UniqueIdentifier": "MAT4566556456",
+      "InternalPartNumber": "IPN47788",
+      "Manufacturer": "MOTOROLA",
+      "ManufacturerPartNumber": "MOT231234",
+      "Vendor": "Digikey",
+      "VendorPartNumber": "DIG23452442",
+      "ManufacuterLotCode": "LOT2016110588",
+      "Created": "2018-04-13T11:30:30.8326863-04:00",
+      "ManufactureDate": "2016-11-05T00:00:00",
+      "ReceivedDate": "2017-05-06T00:00:00",
+      "Units": null,
+      "InitialQuantity": 1000.0,
+      "Quantity": 887.0,
+      "Status": "Active",
+      "MaterialData": {
+        "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+        "ExpirationDateTime": null,
+        "OriginalExposureDateTime": "2017-05-01T08:22:12",
+        "LastExposureDateTime": "2017-05-06T13:55:33",
+        "RemainingExposureTime": "6.00:00:00",
+        "MSDLevel": "MSL3",
+        "MSDState": "InDryStorage"
+      }
+    },
+    {
+      "UniqueIdentifier": "MAT4566554543",
+      "InternalPartNumber": "IPN48899",
+      "Manufacturer": "SAMSUNG",
+      "ManufacturerPartNumber": "SAM233243",
+      "Vendor": "Digikey",
+      "VendorPartNumber": "DIG44543534",
+      "ManufacuterLotCode": "LOT2016101008",
+      "Created": "2018-04-13T11:30:30.8346859-04:00",
+      "ManufactureDate": "2016-10-10T00:00:00",
+      "ReceivedDate": "2017-09-09T00:00:00",
+      "Units": null,
+      "InitialQuantity": 1000.0,
+      "Quantity": 748.0,
+      "Status": "Active",
+      "MaterialData": null
+    },
+    {
+      "UniqueIdentifier": "MAT4566553421",
+      "InternalPartNumber": "IPN45577",
+      "Manufacturer": "FUJITSU",
+      "ManufacturerPartNumber": "FJJT234243",
+      "Vendor": "Digikey",
+      "VendorPartNumber": "DIG543534537",
+      "ManufacuterLotCode": "LOT2017080355",
+      "Created": "2018-04-13T11:30:30.8346859-04:00",
+      "ManufactureDate": "2017-08-03T00:00:00",
+      "ReceivedDate": "2017-09-10T00:00:00",
+      "Units": null,
+      "InitialQuantity": 500.0,
+      "Quantity": 151.0,
+      "Status": "Active",
+      "MaterialData": {
+        "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+        "ExpirationDateTime": null,
+        "OriginalExposureDateTime": "2017-05-01T08:22:12",
+        "LastExposureDateTime": "2017-05-06T13:55:33",
+        "RemainingExposureTime": "6.00:00:00",
+        "MSDLevel": "MSL2A",
+        "MSDState": "Exposed"
+      }
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAADBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsRetired.htm">MaterialsRetired</a></td><td><div class="summary">
+            Sent when one or more material packages are fully exhausted / depleted
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAACBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAACBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAACBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "Materials": [
+    {
+      "UniqueIdentifier": "MAT4566556456",
+      "InternalPartNumber": "IPN47788",
+      "Quantity": 887.0
+    },
+    {
+      "UniqueIdentifier": "MAT4566554543",
+      "InternalPartNumber": "IPN48899",
+      "Quantity": 748.0
+    },
+    {
+      "UniqueIdentifier": "MAT4566553421",
+      "InternalPartNumber": "IPN45577",
+      "Quantity": 151.0
+    }
+  ]
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAACBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_MaterialsSplit.htm">MaterialsSplit</a></td><td><div class="summary">
+            Sent when a a certain quantity of material is removed from a material package
+            to form a new material package.  The sum of the new quantities of the old and 
+            new material package packages should equal the quantity of the original package.
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAABBDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAABBDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAABBDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "SourceMaterialPackageIdentifier": "MAT4566589856",
+  "SourceMaterialPackageRemainingQuantity": 121.0,
+  "NewMaterialPackageIdentifier": "MAT4563453457",
+  "NewMaterialPackageQuantity": 30.0
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAABBDA");</script></div></td></tr><tr data="class; public"><td><img src="../icons/pubclass.gif" alt="Public class" title="Public class" /></td><td><a href="T_CFX_Materials_Management_UnblockMaterialsResponse.htm">UnblockMaterialsResponse</a></td><td><div class="summary">
+            Response to a request to unblock one or more particular lots or instances of material from use in production.
+            <div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAABDA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAABDA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAABDA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">{
+  "Result": {
+    "Result": "Success",
+    "ResultCode": 0,
+    "Message": "BLOCKED OK"
+  }
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAABDA");</script></div></td></tr></table></div></div></div><div id="pageFooter" class="pageFooter"> </div></body></html>

@@ -5,6 +5,18 @@ using CFX.Structures;
 
 namespace CFX.Materials.Management
 {
+    /// <summary>
+    /// Response to a request block one or more instances of material from use in production
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "BLOCKED OK"
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
     public class BlockMaterialsResponse : CFXMessage
     {
         public BlockMaterialsResponse()
@@ -12,6 +24,9 @@ namespace CFX.Materials.Management
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

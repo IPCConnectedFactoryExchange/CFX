@@ -1515,8 +1515,10 @@ namespace CFXExampleEndpoint
 
             msg = new MaterialsSplit()
             {
-                OriginalMaterialPackage = m6.ToMaterialPackage(),
-                NewMaterialPackage = m7.ToMaterialPackage()
+                SourceMaterialPackageIdentifier = m6.UniqueIdentifier,
+                SourceMaterialPackageRemainingQuantity = m6.Quantity - 30,
+                NewMaterialPackageIdentifier = m7.UniqueIdentifier,
+                NewMaterialPackageQuantity = 30
             };
             AppendMessage(msg, ref result);
 
@@ -1721,9 +1723,11 @@ namespace CFXExampleEndpoint
                 OperatorIdentifier = Guid.NewGuid().ToString()
             };
 
-            msg = new MaterialTransportStarted()
+            msg = new TransportOrderStarted()
             {
                 TransportOrderNumber = "TR329483249830000",
+                Status = TransportOrderStatus.Pending,
+                Comments = "Initiating new transport order.  Waiting to be kitted.",
                 FinalDestination = "LINE1",
                 NextCheckpoint = "SMT STAGING AREA 1",
                 RelatedWorkOrderNumber = "WO2384702937403280032",
@@ -1731,9 +1735,23 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new TransportOrderStatusChanged()
+            {
+                TransportOrderNumber = "TR329483249830000",
+                Status = TransportOrderStatus.Kitting,
+                Comments = "Kitting Underway...",
+                FinalDestination = "LINE 1",
+                NextCheckpoint = "SMT STAGING AREA 1",
+                RelatedWorkOrderNumber = "WO2384702937403280032",
+                UpdatedBy = o1
+            };
+            AppendMessage(msg, ref result);
+
             msg = new CheckpointReached()
             {
                 TransportOrderNumber = "TR329483249830000",
+                Status = TransportOrderStatus.InTransit,
+                Comments = "Arrived SMT Production Area",
                 Checkpoint = "SMT STAGING AREA 1",
                 FinalDestination = "LINE 1",
                 NextCheckpoint = "LINE 1",
@@ -1742,9 +1760,10 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new MaterialTransportCompleted()
+            msg = new TransportOrderCompleted()
             {
                 TransportOrderNumber = "TR329483249830000",
+                Comments = "Received at Line 1",
                 FinalDestination = "LINE 1",
                 RelatedWorkOrderNumber = "WO2384702937403280032",
                 AcceptedBy = o3

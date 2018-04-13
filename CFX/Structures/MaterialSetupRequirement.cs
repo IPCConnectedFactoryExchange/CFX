@@ -4,6 +4,13 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Describes a single, specific material setup requirement at a particular process endpoint.
+    /// Includes the material / part that must be loaded at the endpoint, along with the 
+    /// specific location where the material must be loaded (where applicable), valid alternate
+    /// part numbers that may be substituted for the primary part, and any applicable
+    /// AML (Approved Manufacturer List) restrictions.
+    /// </summary>
     public class MaterialSetupRequirement
     {
         public MaterialSetupRequirement()

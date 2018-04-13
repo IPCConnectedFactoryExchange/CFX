@@ -4,6 +4,18 @@ using System.Text;
 
 namespace CFX.Materials.Storage
 {
+    /// <summary>
+    /// Sent when a material carrier (typcially containing 1 or more material packages)
+    /// is unloaded at a process endpoint.
+    /// <code language="none">
+    /// {
+    ///   "CarrierIdentifiers": [
+    ///     "1233334",
+    ///     "1233334"
+    ///   ]
+    /// }
+    /// </code>
+    /// </summary>
     public class MaterialCarriersUnloaded : CFXMessage
     {
         public MaterialCarriersUnloaded()

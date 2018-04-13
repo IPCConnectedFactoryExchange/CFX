@@ -4,6 +4,20 @@ using System.Text;
 
 namespace CFX.Materials.Storage
 {
+    /// <summary>
+    /// Sent when a material package (potentially contained within a material carrier)
+    /// is unloaded at a process endpoint.
+    /// <code language="none">
+    /// {
+    ///   "MaterialPackageIdentifiers": [
+    ///     "MAT4566556456",
+    ///     "MAT4566554543",
+    ///     "MAT4566553421",
+    ///     "MAT4566555547"
+    ///   ]
+    /// }
+    /// </code>
+    /// </summary>
     public class MaterialsUnloaded : CFXMessage
     {
         public MaterialsUnloaded()
@@ -12,7 +26,7 @@ namespace CFX.Materials.Storage
         }
 
         /// <summary>
-        /// List of material packages to be unloaded.  
+        /// List of material package identifiers to be unloaded.  
         /// </summary>
         public List<string> MaterialPackageIdentifiers
         {

@@ -4,6 +4,15 @@ using System.Text;
 
 namespace CFX.Materials.Storage
 {
+    /// <summary>
+    /// A request to a material storage endpoint to obtain a list of all the materials
+    /// currently stored within the endpoint.
+    /// <code language="none">
+    /// {
+    ///   "LocationIdentifiers": null
+    /// }
+    /// </code>
+    /// </summary>
     public class GetLoadedMaterialsRequest : CFXMessage
     {
         /// <summary>

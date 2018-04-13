@@ -5,7 +5,7 @@ using System.Text;
 namespace CFX.Structures
 {
     /// <summary>
-    /// Describes a specific, single handling unit of a material, such as a reel of SMT parts,
+    /// Describes a specific, single handling unit of a particular material, such as a reel of SMT parts,
     /// a bag of parts, bin of parts, etc.
     /// </summary>
     public class MaterialPackage

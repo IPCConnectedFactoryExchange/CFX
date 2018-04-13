@@ -21,27 +21,27 @@ namespace CFX.Structures
         /// </summary>
         MSL1,
         /// <summary>
-        /// Sensitivity Level 1
+        /// Sensitivity Level 2
         /// </summary>
         MSL2,
         /// <summary>
-        /// Sensitivity Level 2
+        /// Sensitivity Level 2A
         /// </summary>
         MSL2A,
         /// <summary>
-        /// Sensitivity Level 2A
+        /// Sensitivity Level 3
         /// </summary>
         MSL3,
         /// <summary>
-        /// Sensitivity Level 3
+        /// Sensitivity Level 4
         /// </summary>
         MSL4,
         /// <summary>
-        /// Sensitivity Level 4
+        /// Sensitivity Level 5
         /// </summary>
         MSL5,
         /// <summary>
-        /// Sensitivity Level 5
+        /// Sensitivity Level 5A
         /// </summary>
         MSL5A,
         /// <summary>

@@ -383,6 +383,715 @@
             Individual results of the validation request (for multiple units in a carrier or PCB Panel)
             </summary>
         </member>
+        <member name="T:CFX.Materials.Management.BlockMaterialsRequest">
+            <summary>
+            A request to block one or more particular lots or instances of material from use in production.
+            <code language="none">
+            {
+              "Locations": [
+                {
+                  "LocationIdentifier": "23143433",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                },
+                {
+                  "LocationIdentifier": "23143454",
+                  "LocationName": "SLOT46",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.BlockMaterialsRequest.MaterialPackageIdentifiers">
+            <summary>
+            A list of the unique identifiers of the material packages to be blocked
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.BlockMaterialsRequest.Reason">
+            <summary>
+            An enumeration describing the reason for the block
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.BlockMaterialsRequest.Comments">
+            <summary>
+            Human readable comments describing the nature of the block (optional)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.BlockMaterialsRequest.Blocker">
+            <summary>
+            The person responsible for initiating this block
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.BlockMaterialsResponse">
+            <summary>
+            Response to a request block one or more instances of material from use in production
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "BLOCKED OK"
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.BlockMaterialsResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MaterialsConsumed">
+            <summary>
+            Sent by a process endpoint when materials are consumed
+            <code language="none">
+            {
+              "ConsumedMaterials": [
+                {
+                  "MaterialLocation": {
+                    "LocationIdentifier": "3245434554",
+                    "LocationName": "SLOT22",
+                    "MaterialPackage": {
+                      "UniqueIdentifier": "MAT238908348903",
+                      "InternalPartNumber": "IPN-1222-55555",
+                      "Quantity": 344.0
+                    },
+                    "CarrierInformation": {
+                      "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                      "BaseUniqueIdentifier": null,
+                      "BaseName": null,
+                      "LaneNumber": 1,
+                      "Width": "Tape8mm",
+                      "Pitch": "Pitch8mm",
+                      "UniqueIdentifier": "234232432424",
+                      "Name": "FEEDER2245465"
+                    }
+                  },
+                  "QuantityUsed": 42.0,
+                  "QuantitySpoiled": 2.0,
+                  "RemainingQuantity": 344.0
+                },
+                {
+                  "MaterialLocation": {
+                    "LocationIdentifier": "3245435784",
+                    "LocationName": "SLOT28",
+                    "MaterialPackage": {
+                      "UniqueIdentifier": "MAT238908323434",
+                      "InternalPartNumber": "IPN-1222-11111",
+                      "Quantity": 258.0
+                    },
+                    "CarrierInformation": {
+                      "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                      "BaseUniqueIdentifier": null,
+                      "BaseName": null,
+                      "LaneNumber": 1,
+                      "Width": "Tape8mm",
+                      "Pitch": "Pitch8mm",
+                      "UniqueIdentifier": "234232432424",
+                      "Name": "FEEDER2245465"
+                    }
+                  },
+                  "QuantityUsed": 88.0,
+                  "QuantitySpoiled": 3.0,
+                  "RemainingQuantity": 258.0
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsConsumed.ConsumedMaterials">
+            <summary>
+            A list of one or more materials that have been consumed
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MaterialsInitialized">
+            <summary>
+            Sent whan one or more new material packages are introduced into the factory environment.  
+            This might occurr when new material is received from suppliers, or when newly received
+            material is labeled with unique identifiers for tracking, stocking, or production purposes.
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": null,
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2017-05-06T13:55:33",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "InDryStorage"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566554543",
+                  "InternalPartNumber": "IPN48899",
+                  "Manufacturer": "SAMSUNG",
+                  "ManufacturerPartNumber": "SAM233243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG44543534",
+                  "ManufacuterLotCode": "LOT2016101008",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2016-10-10T00:00:00",
+                  "ReceivedDate": "2017-09-09T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 748.0,
+                  "Status": "Active",
+                  "MaterialData": null
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsInitialized.Materials">
+            <summary>
+            A list of the new material packages, including details
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MaterialsJoined">
+            <summary>
+            Sent when two separate material packages (containing the same part) are joined together.
+            For example, as in the case of the splicing together of multiple reels of embossed tape
+            containing SMD parts.
+            <code language="none">
+            {
+              "LeadingMaterialPackage": {
+                "UniqueIdentifier": "MAT4566589856",
+                "InternalPartNumber": "IPN45577",
+                "Quantity": 151.0
+              },
+              "TrailingMaterialPackage": {
+                "UniqueIdentifier": "MAT4563453457",
+                "InternalPartNumber": "IPN45577",
+                "Quantity": 151.0
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsJoined.LeadingMaterialPackage">
+            <summary>
+            Of the two material packages being joined, the material package which will be consumed
+            first after joining
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsJoined.TrailingMaterialPackage">
+            <summary>
+            Of the two material packages being joined, the material package which will be consumed
+            last after joining
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MaterialsModified">
+            <summary>
+            Sent when the attributes of one or more specific material packages have been altered.
+            NOTEL  When the current quantity attribute of the material package decreases in the 
+            normal course of production (consumption), a MaterialsModified modified message should NOT
+            be sent.  Instead, in this case a <see cref="T:CFX.Materials.Management.MaterialsConsumed"/> message should be sent.
+            <code language="none">
+            {
+              "Reason": "ManualCountAndQuantityUpdate",
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": null,
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2017-05-06T13:55:33",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "InDryStorage"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566554543",
+                  "InternalPartNumber": "IPN48899",
+                  "Manufacturer": "SAMSUNG",
+                  "ManufacturerPartNumber": "SAM233243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG44543534",
+                  "ManufacuterLotCode": "LOT2016101008",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2016-10-10T00:00:00",
+                  "ReceivedDate": "2017-09-09T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 748.0,
+                  "Status": "Active",
+                  "MaterialData": null
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Manufacturer": "FUJITSU",
+                  "ManufacturerPartNumber": "FJJT234243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG543534537",
+                  "ManufacuterLotCode": "LOT2017080355",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2017-08-03T00:00:00",
+                  "ReceivedDate": "2017-09-10T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 500.0,
+                  "Quantity": 151.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": null,
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2017-05-06T13:55:33",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL2A",
+                    "MSDState": "Exposed"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsModified.Reason">
+            <summary>
+            The reason for the changes
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsModified.Materials">
+            <summary>
+            A list of material packages, including the updated information
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MaterialsRetired">
+            <summary>
+            Sent when one or more material packages are fully exhausted / depleted
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Quantity": 887.0
+                },
+                {
+                  "UniqueIdentifier": "MAT4566554543",
+                  "InternalPartNumber": "IPN48899",
+                  "Quantity": 748.0
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Quantity": 151.0
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsRetired.Materials">
+            <summary>
+            A list of the materials that have been exhausted / depleted
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MaterialsSplit">
+            <summary>
+            Sent when a a certain quantity of material is removed from a material package
+            to form a new material package.  The sum of the new quantities of the old and 
+            new material package packages should equal the quantity of the original package.
+            <code language="none">
+            {
+              "SourceMaterialPackageIdentifier": "MAT4566589856",
+              "SourceMaterialPackageRemainingQuantity": 121.0,
+              "NewMaterialPackageIdentifier": "MAT4563453457",
+              "NewMaterialPackageQuantity": 30.0
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsSplit.SourceMaterialPackageIdentifier">
+            <summary>
+            The unique identifier of the original material package that is being divided
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsSplit.SourceMaterialPackageRemainingQuantity">
+            <summary>
+            The quantity of material remaining in the original material package after
+            it was divided
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsSplit.NewMaterialPackageIdentifier">
+            <summary>
+            The unique identifier of the newly created material package
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MaterialsSplit.NewMaterialPackageQuantity">
+            <summary>
+            The amount of material contained within newly created material package
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MSDManagement.MaterialsExpired">
+            <summary>
+            Sent when one or more MSD material packages have reached their maximum exposure time, 
+            and may no longer be used in production (unless reconditioned)
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-13T11:30:32.1677157-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1657131-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "Expired"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Manufacturer": "FUJITSU",
+                  "ManufacturerPartNumber": "FJJT234243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG543534537",
+                  "ManufacuterLotCode": "LOT2017080355",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2017-08-03T00:00:00",
+                  "ReceivedDate": "2017-09-10T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 500.0,
+                  "Quantity": 151.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-13T11:30:32.1677157-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1657131-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL2A",
+                    "MSDState": "Expired"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MSDManagement.MaterialsExpired.Materials">
+            <summary>
+            The materials which have expired
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MSDManagement.MaterialsOpened">
+            <summary>
+            Sent when one or more MSD material packages have been opened and exposed to the environment
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-19T11:30:32.1657131-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1657131-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "Exposed"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Manufacturer": "FUJITSU",
+                  "ManufacturerPartNumber": "FJJT234243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG543534537",
+                  "ManufacuterLotCode": "LOT2017080355",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2017-08-03T00:00:00",
+                  "ReceivedDate": "2017-09-10T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 500.0,
+                  "Quantity": 151.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-19T11:30:32.1657131-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1657131-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL2A",
+                    "MSDState": "Exposed"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MSDManagement.MaterialsOpened.Materials">
+            <summary>
+            The materials which have been opened / exposed
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage">
+            <summary>
+            Sent when one or more MSD material packages have been placed into dry storage
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": null,
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1657131-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "InDryStorage"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Manufacturer": "FUJITSU",
+                  "ManufacturerPartNumber": "FJJT234243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG543534537",
+                  "ManufacuterLotCode": "LOT2017080355",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2017-08-03T00:00:00",
+                  "ReceivedDate": "2017-09-10T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 500.0,
+                  "Quantity": 151.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": null,
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1657131-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL2A",
+                    "MSDState": "InDryStorage"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MSDManagement.MaterialsPlacedInDryStorage.Materials">
+            <summary>
+            The materials which have been placed in dry storage
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage">
+            <summary>
+            Sent when one or more MSD material packages have been removed from dry storage
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-19T11:30:32.1737132-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1737132-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "Exposed"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Manufacturer": "FUJITSU",
+                  "ManufacturerPartNumber": "FJJT234243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG543534537",
+                  "ManufacuterLotCode": "LOT2017080355",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2017-08-03T00:00:00",
+                  "ReceivedDate": "2017-09-10T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 500.0,
+                  "Quantity": 151.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-19T11:30:32.1737132-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.1737132-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL2A",
+                    "MSDState": "Exposed"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MSDManagement.MaterialsRemovedFromDryStorage.Materials">
+            <summary>
+            The materials which have been removed from dry storage
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.MSDManagement.MaterialsRestored">
+            <summary>
+            Sent when one or more MSD material packages have been reconditioned, and restored for use in production
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "UniqueIdentifier": "MAT4566556456",
+                  "InternalPartNumber": "IPN47788",
+                  "Manufacturer": "MOTOROLA",
+                  "ManufacturerPartNumber": "MOT231234",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG23452442",
+                  "ManufacuterLotCode": "LOT2016110588",
+                  "Created": "2018-04-13T11:30:30.8326863-04:00",
+                  "ManufactureDate": "2016-11-05T00:00:00",
+                  "ReceivedDate": "2017-05-06T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 1000.0,
+                  "Quantity": 887.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-19T11:30:32.176715-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.176715-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL3",
+                    "MSDState": "Exposed"
+                  }
+                },
+                {
+                  "UniqueIdentifier": "MAT4566553421",
+                  "InternalPartNumber": "IPN45577",
+                  "Manufacturer": "FUJITSU",
+                  "ManufacturerPartNumber": "FJJT234243",
+                  "Vendor": "Digikey",
+                  "VendorPartNumber": "DIG543534537",
+                  "ManufacuterLotCode": "LOT2017080355",
+                  "Created": "2018-04-13T11:30:30.8346859-04:00",
+                  "ManufactureDate": "2017-08-03T00:00:00",
+                  "ReceivedDate": "2017-09-10T00:00:00",
+                  "Units": null,
+                  "InitialQuantity": 500.0,
+                  "Quantity": 151.0,
+                  "Status": "Active",
+                  "MaterialData": {
+                    "$type": "CFX.Structures.MaterialPackageMSDData, CFX",
+                    "ExpirationDateTime": "2018-04-19T11:30:32.176715-04:00",
+                    "OriginalExposureDateTime": "2017-05-01T08:22:12",
+                    "LastExposureDateTime": "2018-04-13T11:30:32.176715-04:00",
+                    "RemainingExposureTime": "6.00:00:00",
+                    "MSDLevel": "MSL2A",
+                    "MSDState": "Exposed"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.MSDManagement.MaterialsRestored.Materials">
+            <summary>
+            The materials which have been restored
+            </summary>
+        </member>
         <member name="T:CFX.Materials.Management.MSDManagement.NamespaceDoc">
             <summary>
             Specialized messages related to moisture sensitive materials management.
@@ -393,15 +1102,211 @@
             Messages related to the management of raw materials.  Includes creation and labeling of material instances, decommissioning spent materials, etc.
             </summary>
         </member>
+        <member name="T:CFX.Materials.Management.UnblockMaterialsRequest">
+            <summary>
+            A request to unblock one or more particular lots or instances of material from use in production.
+            <code language="none">
+            {
+              "Locations": [
+                {
+                  "LocationIdentifier": "23143433",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                },
+                {
+                  "LocationIdentifier": "23143454",
+                  "LocationName": "SLOT46",
+                  "MaterialPackage": null,
+                  "CarrierInformation": null
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.UnblockMaterialsRequest.MaterialPackageIdentifiers">
+            <summary>
+            A list of the unique identifiers of the material packages to be blocked
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.UnblockMaterialsRequest.Comments">
+            <summary>
+            Human readable comments describing the nature of the block (optional)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.UnblockMaterialsRequest.Unblocker">
+            <summary>
+            The person responsible for removing the block
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Management.UnblockMaterialsResponse">
+            <summary>
+            Response to a request to unblock one or more particular lots or instances of material from use in production.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "BLOCKED OK"
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Management.UnblockMaterialsResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
         <member name="T:CFX.Materials.NamespaceDoc">
             <summary>
             CFX Topic implemented by endpoints which manage, store, or track materials used in production.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Storage.GetLoadedMaterialsRequest">
+            <summary>
+            A request to a material storage endpoint to obtain a list of all the materials
+            currently stored within the endpoint.
+            <code language="none">
+            {
+              "LocationIdentifiers": null
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Materials.Storage.GetLoadedMaterialsRequest.LocationIdentifiers">
             <summary>
             An optional list of specific locations in which the requestor is interested.
             If empty, all materials loaded at the Endpoint are returned.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Storage.GetLoadedMaterialsResponse">
+            <summary>
+            A response to a request to a material storage endpoint to obtain a list of all the materials
+            currently stored within the endpoint.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "SETUP OK"
+              },
+              "Materials": [
+                {
+                  "LocationIdentifier": "5555646453",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566556456",
+                    "InternalPartNumber": "IPN47788",
+                    "Quantity": 887.0
+                  },
+                  "CarrierInformation": {
+                    "UniqueIdentifier": "1233333",
+                    "Name": null
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646454",
+                  "LocationName": "SLOT50",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566554543",
+                    "InternalPartNumber": "IPN48899",
+                    "Quantity": 748.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123334",
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Adjustable",
+                    "UniqueIdentifier": "1233334",
+                    "Name": "TAPEFEEDER8mm1233334"
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646457",
+                  "LocationName": "92.1",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566589856",
+                    "InternalPartNumber": "IPN45577",
+                    "Quantity": 151.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTrayFeeder, CFX",
+                    "CellDimensionX": 17.0,
+                    "CellDimensionY": 17.0,
+                    "CellCountX": 8,
+                    "CellCountY": 3,
+                    "CellPitchX": 0.0,
+                    "CellPitchY": 0.0,
+                    "UniqueIdentifier": "1233337",
+                    "Name": "MATRIXTRAY1233337"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Storage.GetLoadedMaterialsResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Storage.GetLoadedMaterialsResponse.Materials">
+            <summary>
+            A list of the materials stored at the process endpoint, including
+            storage location information.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Storage.MaterialCarriersLoaded">
+            <summary>
+            Sent when a material carrier (typcially containing 1 or more material packages)
+            is loaded at a process endpoint.
+            <code language="none">
+            {
+              "Carriers": [
+                {
+                  "LocationIdentifier": "5555646453",
+                  "LocationName": null,
+                  "CarrierInformation": {
+                    "UniqueIdentifier": "1233333",
+                    "Name": null
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646455",
+                  "LocationName": "LANEA",
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123335",
+                    "BaseName": "MULTILANEFEEDER123335",
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Adjustable",
+                    "UniqueIdentifier": "1233335A",
+                    "Name": "TAPEFEEDER8mm1233335A"
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646455",
+                  "LocationName": "LANEB",
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123335",
+                    "BaseName": "MULTILANEFEEDER123335",
+                    "LaneNumber": 2,
+                    "Width": "Tape8mm",
+                    "Pitch": "Adjustable",
+                    "UniqueIdentifier": "1233335B",
+                    "Name": "TAPEFEEDER8mm1233335B"
+                  }
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Materials.Storage.MaterialCarriersLoaded.Carriers">
@@ -413,11 +1318,204 @@
                    (LocationIdentifier = Identifier of new parent carrier, CarrierInformation = Identifier of carrier to be loaded)
             </summary>
         </member>
+        <member name="T:CFX.Materials.Storage.MaterialCarriersUnloaded">
+            <summary>
+            Sent when a material carrier (typcially containing 1 or more material packages)
+            is unloaded at a process endpoint.
+            <code language="none">
+            {
+              "CarrierIdentifiers": [
+                "1233334",
+                "1233334"
+              ]
+            }
+            </code>
+            </summary>
+        </member>
         <member name="P:CFX.Materials.Storage.MaterialCarriersUnloaded.CarrierIdentifiers">
             <summary>
             List of carriers to be unloaded.  
             NOTE - This message DOES NOT mean that the MaterialPackage is unloaded from the MaterialCarrier.
                    Only that the MaterialCarrier is unloaded from its parent (slot on and Endpoint, or another MaterialCarrier).
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Storage.MaterialsEmpty">
+            <summary>
+            Sent when one or more material packages stored at a particular location
+            become fully exhausted / depleted.
+            <code language="none">
+            {
+              "EmptyMaterials": [
+                {
+                  "LocationIdentifier": "3245434554",
+                  "LocationName": "SLOT22",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT238908348903",
+                    "InternalPartNumber": "IPN-1222-55555",
+                    "Quantity": 0.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": null,
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Pitch8mm",
+                    "UniqueIdentifier": "234232432424",
+                    "Name": "FEEDER2245465"
+                  }
+                },
+                {
+                  "LocationIdentifier": "3245435784",
+                  "LocationName": "SLOT28",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT238908323434",
+                    "InternalPartNumber": "IPN-1222-11111",
+                    "Quantity": 0.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": null,
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Pitch8mm",
+                    "UniqueIdentifier": "234232432424",
+                    "Name": "FEEDER2245465"
+                  }
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Storage.MaterialsEmpty.EmptyMaterials">
+            <summary>
+            A list of the material locations where the depleted material packages are stored or loaded
+            at the endpoint.  Also includes the material package that is loaded at the location (if known).
+            For example, if the endpoint is an SMT placement machine, the location identifies 
+            the feeder slot/position where the depleted material package is loaded.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Storage.MaterialsLoaded">
+            <summary>
+            Sent when a material package (potentially contained within a material carrier)
+            is loaded at a process endpoint.
+            <code language="none">
+            {
+              "Materials": [
+                {
+                  "LocationIdentifier": "5555646453",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566556456",
+                    "InternalPartNumber": "IPN47788",
+                    "Quantity": 887.0
+                  },
+                  "CarrierInformation": {
+                    "UniqueIdentifier": "1233333",
+                    "Name": null
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646454",
+                  "LocationName": "SLOT44",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566554543",
+                    "InternalPartNumber": "IPN48899",
+                    "Quantity": 748.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123334",
+                    "BaseName": null,
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Adjustable",
+                    "UniqueIdentifier": "1233334",
+                    "Name": "TAPEFEEDER8mm1233334"
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646455",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566553421",
+                    "InternalPartNumber": "IPN45577",
+                    "Quantity": 151.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123335",
+                    "BaseName": "MULTILANEFEEDER123335",
+                    "LaneNumber": 1,
+                    "Width": "Tape8mm",
+                    "Pitch": "Adjustable",
+                    "UniqueIdentifier": "1233335A",
+                    "Name": "TAPEFEEDER8mm1233335A"
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646455",
+                  "LocationName": "SLOT45",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566555547",
+                    "InternalPartNumber": "IPN45577",
+                    "Quantity": 151.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123335",
+                    "BaseName": "MULTILANEFEEDER123335",
+                    "LaneNumber": 2,
+                    "Width": "Tape8mm",
+                    "Pitch": "Adjustable",
+                    "UniqueIdentifier": "1233335B",
+                    "Name": "TAPEFEEDER8mm1233335B"
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646456",
+                  "LocationName": "SLOT46",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566588751",
+                    "InternalPartNumber": "IPN45577",
+                    "Quantity": 151.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTubeFeeder, CFX",
+                    "BaseUniqueIdentifier": "123336",
+                    "BaseName": null,
+                    "LaneNumber": 0,
+                    "Width": 12.0,
+                    "Pitch": 24.0,
+                    "UniqueIdentifier": "1233336",
+                    "Name": "TUBE1233336"
+                  }
+                },
+                {
+                  "LocationIdentifier": "5555646457",
+                  "LocationName": "92.1",
+                  "MaterialPackage": {
+                    "UniqueIdentifier": "MAT4566589856",
+                    "InternalPartNumber": "IPN45577",
+                    "Quantity": 151.0
+                  },
+                  "CarrierInformation": {
+                    "$type": "CFX.Structures.SMTPlacement.SMDTrayFeeder, CFX",
+                    "CellDimensionX": 17.0,
+                    "CellDimensionY": 17.0,
+                    "CellCountX": 8,
+                    "CellCountY": 3,
+                    "CellPitchX": 0.0,
+                    "CellPitchY": 0.0,
+                    "UniqueIdentifier": "1233337",
+                    "Name": "MATRIXTRAY1233337"
+                  }
+                }
+              ]
+            }
+            </code>
             </summary>
         </member>
         <member name="P:CFX.Materials.Storage.MaterialsLoaded.Materials">
@@ -431,9 +1529,25 @@
                    (LocationIdentifier = Endpoint Slot Identifier, CarrierInformation = Identifier of carrier to be loaded)
             </summary>
         </member>
+        <member name="T:CFX.Materials.Storage.MaterialsUnloaded">
+            <summary>
+            Sent when a material package (potentially contained within a material carrier)
+            is unloaded at a process endpoint.
+            <code language="none">
+            {
+              "MaterialPackageIdentifiers": [
+                "MAT4566556456",
+                "MAT4566554543",
+                "MAT4566553421",
+                "MAT4566555547"
+              ]
+            }
+            </code>
+            </summary>
+        </member>
         <member name="P:CFX.Materials.Storage.MaterialsUnloaded.MaterialPackageIdentifiers">
             <summary>
-            List of material packages to be unloaded.  
+            List of material package identifiers to be unloaded.  
             </summary>
         </member>
         <member name="T:CFX.Materials.Storage.NamespaceDoc">
@@ -443,9 +1557,460 @@
             are loaded during production.
             </summary>
         </member>
+        <member name="T:CFX.Materials.Storage.ValidateStationSetupRequest">
+            <summary>
+            Request to a process endpoint to validate that the currently loaded materials
+            comply with the setup requirements supplied in this request.
+            <code language="none">
+            {
+              "SetupRequirements": {
+                "Lane": null,
+                "Stage": null,
+                "SetupName": "COMMONSETUP1",
+                "MaterialSetupRequirements": [
+                  {
+                    "Position": "B1.F.45",
+                    "PartNumber": "IPN1123",
+                    "ApprovedAlternateParts": [
+                      "IPN2343",
+                      "IPN3432"
+                    ],
+                    "ApprovedManufacturerParts": [
+                      "MOT4329",
+                      "SAM5566"
+                    ]
+                  },
+                  {
+                    "Position": "B1.F.47",
+                    "PartNumber": "IPN1124",
+                    "ApprovedAlternateParts": [
+                      "IPN3344",
+                      "IPN3376"
+                    ],
+                    "ApprovedManufacturerParts": [
+                      "JP55443",
+                      "TX554323"
+                    ]
+                  }
+                ]
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Storage.ValidateStationSetupRequest.SetupRequirements">
+            <summary>
+            The setup requirements to be validated
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Storage.ValidateStationSetupResponse">
+            <summary>
+            Response to a request to a process endpoint to validate that the currently loaded materials
+            comply with the setup requirements supplied by the request.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "SETUP OK"
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Storage.ValidateStationSetupResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.CheckpointReached">
+            <summary>
+            Sent when a group of materials or production units that is being transported
+            through the factory environment arrives at a way point along its path source
+            to destination.
+            <code language="none">
+            {
+              "TransportOrderNumber": "TR329483249830000",
+              "Comments": "Arrived SMT Production Area",
+              "Status": "InTransit",
+              "TrackedBy": {
+                "OperatorIdentifier": "957cc475-bd65-4289-9c7a-1a89aa9adaed",
+                "ActorType": "Human",
+                "FullName": "John Doe",
+                "LastName": "Doe",
+                "FirstName": "John",
+                "LoginName": "john.doe@domain1.com"
+              },
+              "RelatedWorkOrderNumber": "WO2384702937403280032",
+              "Checkpoint": "SMT STAGING AREA 1",
+              "FinalDestination": "LINE 1",
+              "NextCheckpoint": "LINE 1"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.TransportOrderNumber">
+            <summary>
+            The number of the related transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.Comments">
+            <summary>
+            Human readable comments related to this arrival (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.Status">
+            <summary>
+            The status of this transport order at the time of the event
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.TrackedBy">
+            <summary>
+            The operator who recorded the arrival (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.RelatedWorkOrderNumber">
+            <summary>
+            The related production work order number (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.Checkpoint">
+            <summary>
+            The name of the check point that was reached
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.FinalDestination">
+            <summary>
+            The name of the final destination of this transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.CheckpointReached.NextCheckpoint">
+            <summary>
+            The name of the next anticipated check point along the transport
+            order's path from source to final destination
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.GetTransportOrderStatusRequest">
+            <summary>
+            A request to an endpoint (such as an upper level system, MES, ERP, etc.) to check
+            the status of a particular transport order.  A transport order is a directive to move
+            materials / WIP / production units from one location to another.
+            <code language="none">
+            {
+              "TransportOrderNumber": "TR329483249830000"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.GetTransportOrderStatusRequest.TransportOrderNumber">
+            <summary>
+            The order number of the related transport order
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.GetTransportOrderStatusResponse">
+            <summary>
+            A response to a request to an endpoint (such as an upper level system, MES, ERP, etc.) to check
+            the status of a particular transport order.
+            <code language="none">
+            {
+              "Result": {
+                "Result": "Success",
+                "ResultCode": 0,
+                "Message": "OK"
+              },
+              "TransportOrderNumber": "TR329483249830000",
+              "FinalDestination": "LINE 1",
+              "Status": "Delivered",
+              "History": [
+                {
+                  "EventDateTime": "2017-11-01T11:55:00",
+                  "Status": "Kitting",
+                  "Operator": {
+                    "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+                    "ActorType": "Human",
+                    "FullName": "Bill Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Bill",
+                    "LoginName": "bill.smith@domain1.com"
+                  },
+                  "Location": "STOCK ROOM 1",
+                  "Comments": null
+                },
+                {
+                  "EventDateTime": "2017-11-01T14:25:00",
+                  "Status": "Kitted",
+                  "Operator": {
+                    "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+                    "ActorType": "Human",
+                    "FullName": "Bill Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Bill",
+                    "LoginName": "bill.smith@domain1.com"
+                  },
+                  "Location": "STOCK ROOM 1",
+                  "Comments": null
+                },
+                {
+                  "EventDateTime": "2017-11-01T15:45:00",
+                  "Status": "InTransit",
+                  "Operator": {
+                    "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+                    "ActorType": "Human",
+                    "FullName": "Bill Smith",
+                    "LastName": "Smith",
+                    "FirstName": "Bill",
+                    "LoginName": "bill.smith@domain1.com"
+                  },
+                  "Location": "STOCK ROOM 1",
+                  "Comments": null
+                },
+                {
+                  "EventDateTime": "2017-11-01T16:55:00",
+                  "Status": "InTransit",
+                  "Operator": {
+                    "OperatorIdentifier": "957cc475-bd65-4289-9c7a-1a89aa9adaed",
+                    "ActorType": "Human",
+                    "FullName": "John Doe",
+                    "LastName": "Doe",
+                    "FirstName": "John",
+                    "LoginName": "john.doe@domain1.com"
+                  },
+                  "Location": "SMT STAGING AREA 1",
+                  "Comments": null
+                },
+                {
+                  "EventDateTime": "2017-11-01T17:22:00",
+                  "Status": "Delivered",
+                  "Operator": {
+                    "OperatorIdentifier": "b776aee6-0462-4a7d-9976-158a342f898c",
+                    "ActorType": "Human",
+                    "FullName": "Mike Dolittle",
+                    "LastName": "Dolittle",
+                    "FirstName": "Mike",
+                    "LoginName": "mike.dolittle@domain1.com"
+                  },
+                  "Location": "LINE1",
+                  "Comments": null
+                }
+              ]
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.GetTransportOrderStatusResponse.Result">
+            <summary>
+            The result of the request
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.GetTransportOrderStatusResponse.TransportOrderNumber">
+            <summary>
+            The order number of the related transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.GetTransportOrderStatusResponse.FinalDestination">
+            <summary>
+            The final destination of this transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.GetTransportOrderStatusResponse.Status">
+            <summary>
+            The current status of this transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.GetTransportOrderStatusResponse.History">
+            <summary>
+            The history of this transport order
+            </summary>
+        </member>
         <member name="T:CFX.Materials.Transport.NamespaceDoc">
             <summary>
             Messages used for the transportation of raw materials from one location in the factory to another location
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.TransportOrderCompleted">
+            <summary>
+            Sent when a transport order has arrived at its final destination.
+            <code language="none">
+            {
+              "TransportOrderNumber": "TR329483249830000",
+              "Comments": "Received at Line 1",
+              "AcceptedBy": {
+                "OperatorIdentifier": "b776aee6-0462-4a7d-9976-158a342f898c",
+                "ActorType": "Human",
+                "FullName": "Mike Dolittle",
+                "LastName": "Dolittle",
+                "FirstName": "Mike",
+                "LoginName": "mike.dolittle@domain1.com"
+              },
+              "RelatedWorkOrderNumber": "WO2384702937403280032",
+              "FinalDestination": "LINE 1"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderCompleted.TransportOrderNumber">
+            <summary>
+            The order number of the related transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderCompleted.Comments">
+            <summary>
+            Human readable comments related to this arrival event (when applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderCompleted.AcceptedBy">
+            <summary>
+            The operator who accepted the delivery, and recorded the arrival
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderCompleted.RelatedWorkOrderNumber">
+            <summary>
+            The related production work order number (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderCompleted.FinalDestination">
+            <summary>
+            The final destination where the transport order was delivered)
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.TransportOrderStarted">
+            <summary>
+            Sent when a new transport order is initiated.  A transport order is a directive to move
+            materials / WIP / production units from one location to another.
+            <code language="none">
+            {
+              "TransportOrderNumber": "TR329483249830000",
+              "StartedBy": {
+                "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              },
+              "Comments": "Initiating new transport order.  Waiting to be kitted.",
+              "Status": "Pending",
+              "RelatedWorkOrderNumber": "WO2384702937403280032",
+              "Source": null,
+              "FinalDestination": "LINE1",
+              "NextCheckpoint": "SMT STAGING AREA 1",
+              "Materials": []
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.TransportOrderNumber">
+            <summary>
+            The order number of the new transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.StartedBy">
+            <summary>
+            The operator who initiated the new transport order (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.Comments">
+            <summary>
+            Human readable comments related to this event
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.Status">
+            <summary>
+            The status of this transport order at the time of the event
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.RelatedWorkOrderNumber">
+            <summary>
+            The related production work order number (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.Source">
+            <summary>
+            The point of origination for this this transport order.  Often
+            will be a stock area, room, etc., but may be any location within
+            the factory environment
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.FinalDestination">
+            <summary>
+            The final destination for this transport order 
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.NextCheckpoint">
+            <summary>
+            The next anticipated check point (way point) for this transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStarted.Materials">
+            <summary>
+            A list of the specific materials, WIP, and / or production units that are to be 
+            transported for this transport order.
+            </summary>
+        </member>
+        <member name="T:CFX.Materials.Transport.TransportOrderStatusChanged">
+            <summary>
+            Sent when a new transport order is initiated.
+            <code language="none">
+            {
+              "TransportOrderNumber": "TR329483249830000",
+              "Comments": "Kitting Underway...",
+              "Status": "Kitting",
+              "UpdatedBy": {
+                "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+                "ActorType": "Human",
+                "FullName": "Bill Smith",
+                "LastName": "Smith",
+                "FirstName": "Bill",
+                "LoginName": "bill.smith@domain1.com"
+              },
+              "RelatedWorkOrderNumber": "WO2384702937403280032",
+              "Source": null,
+              "FinalDestination": "LINE 1",
+              "NextCheckpoint": "SMT STAGING AREA 1"
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.TransportOrderNumber">
+            <summary>
+            The order number of the new transport order
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.Comments">
+            <summary>
+            Human readable comments related to this event
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.Status">
+            <summary>
+            The status of this transport order at the time of the event
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.UpdatedBy">
+            <summary>
+            The operator who updated the status (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.RelatedWorkOrderNumber">
+            <summary>
+            The related production work order number (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.Source">
+            <summary>
+            The point of origination for this this transport order.  Often
+            will be a stock area, room, etc., but may be any location within
+            the factory environment
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.FinalDestination">
+            <summary>
+            The final destination for this transport order 
+            </summary>
+        </member>
+        <member name="P:CFX.Materials.Transport.TransportOrderStatusChanged.NextCheckpoint">
+            <summary>
+            The next anticipated check point (way point) for this transport order
             </summary>
         </member>
         <member name="T:CFX.NamespaceDoc">
@@ -3741,6 +5306,33 @@
             The internal part number of the designated component.
             </summary>
         </member>
+        <member name="T:CFX.Structures.ConsumedMaterial">
+            <summary>
+            Describes an event where material is consumed in the course of production.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ConsumedMaterial.MaterialLocation">
+            <summary>
+            The location on the process endpoint from which the material was consumed.
+            Also identifies the specific material package from which the material was 
+            consumed (if known)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ConsumedMaterial.QuantityUsed">
+            <summary>
+            The quantity of material that was consumed for value-added purposes
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ConsumedMaterial.QuantitySpoiled">
+            <summary>
+            The quantity of material that was spoiled (consumed, but not for value-added purposes)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.ConsumedMaterial.RemainingQuantity">
+            <summary>
+            The quantity of material remaining in the material package after the consumption event
+            </summary>
+        </member>
         <member name="T:CFX.Structures.DataType">
             <summary>
             Types of data
@@ -4261,6 +5853,24 @@
             Testing of repairs made
             </summary>
         </member>
+        <member name="T:CFX.Structures.MaterialCarrier">
+            <summary>
+            A dynamic structure which describes a device that is mounted at a process endpoint which contains
+            source materials that are then consumed by the endpoint.  An SMD Tape Feeder would be an example of a MaterialCarrier.
+            This base MaterialCarrier structure is used to describe a generic carrier, when a more specific carrier location class is
+            not available, such as <see cref="T:CFX.Structures.SMTPlacement.SMDTapeFeeder"/>, <see cref="T:CFX.Structures.SMTPlacement.SMDTubeFeeder"/>, and <see cref="T:CFX.Structures.SMTPlacement.SMDTubeFeeder"/>.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialCarrier.UniqueIdentifier">
+            <summary>
+            The unique identifier for this carrier (barcode, RFID, etc.)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialCarrier.Name">
+            <summary>
+            A human readable name for this carrier
+            </summary>
+        </member>
         <member name="T:CFX.Structures.MaterialCarrierLocation">
             <summary>
             Describes a specific location on an endpoint where a material carrier may be loaded.
@@ -4333,7 +5943,7 @@
         </member>
         <member name="T:CFX.Structures.MaterialPackage">
             <summary>
-            Describes a specific, single handling unit of a material, such as a reel of SMT parts,
+            Describes a specific, single handling unit of a particular material, such as a reel of SMT parts,
             a bag of parts, bin of parts, etc.
             </summary>
         </member>
@@ -4351,6 +5961,154 @@
         <member name="P:CFX.Structures.MaterialPackage.Quantity">
             <summary>
             The quantity of parts or material contained within this material package.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialPackageData">
+            <summary>
+            An abstract base class from which dynamic material data structures derive.
+            For example, <see cref="T:CFX.Structures.MaterialPackageMSDData"/>
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialPackageDetail">
+            <summary>
+            Describes detailed information about a particular material package (instance of
+            material that is tracked, stocked, and used within the factory environment.
+            </summary>
+        </member>
+        <member name="M:CFX.Structures.MaterialPackageDetail.ToMaterialPackage">
+            <summary>
+            Helper method which converts the more detailed MaterialPackageDetail structure
+            to the simplified <see cref="T:CFX.Structures.MaterialPackage"/> structure.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.UniqueIdentifier">
+            <summary>
+            The unique identifier of the material package
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.InternalPartNumber">
+            <summary>
+            The internal part number of the material contained within this material package
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.Manufacturer">
+            <summary>
+            The name of the manufacturer of this material
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.ManufacturerPartNumber">
+            <summary>
+            The part number of the material as it is known to the original manufacturer of the material
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.Vendor">
+            <summary>
+            The name of the supplier from whom the material was purchased / supplied.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.VendorPartNumber">
+            <summary>
+            The part number of the material as it is known to the supplier or vendor of the material
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.ManufacuterLotCode">
+            <summary>
+            The lot code applied to this batch of material by the original manufacturer of the material
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.Created">
+            <summary>
+            The date / time when this material package was introduced into the factory environment
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.ManufactureDate">
+            <summary>
+            The date / time when this material was originally manufactured by the manufacturer
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.ReceivedDate">
+            <summary>
+            The date / time when this material was received into the factory
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.Units">
+            <summary>
+            The unit of measure for this material (items, liters, meters, grams, etc.)
+            Only valid SI units of measure should be utilized
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.InitialQuantity">
+            <summary>
+            The initial quantity of material contained within this material package at the time
+            when it was initialized / introduced into the factory environment
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.Quantity">
+            <summary>
+            The quantity of material presently contained within this material package
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.Status">
+            <summary>
+            The current status of this material package
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageDetail.MaterialData">
+            <summary>
+            Optional dynamic structure containing specialized information about this material package.
+            For example, if the material package contains moisture sensitive devices, this would contain
+            additional information specific to MSD material handling (exposure time, etc.).
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialPackageMSDData">
+            <summary>
+            Describes addition detail for material packages containing moisture 
+            sensitive devices
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageMSDData.ExpirationDateTime">
+            <summary>
+            In the case where the MSD material is open and currently exposed to the
+            environment, the date / time when the MSD material will expire rendering it
+            no longer able to be used in production.  Otherwise null.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageMSDData.OriginalExposureDateTime">
+            <summary>
+            The date / time when this MSD material was originally opened and exposed to
+            the environment
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageMSDData.LastExposureDateTime">
+            <summary>
+            In the case where the MSD material is open and currently exposed to the environment,
+            the date / time when the material was most recently opened and/or exposed.  Otherwise null.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageMSDData.RemainingExposureTime">
+            <summary>
+            The total amount of time before the MSD expires, rendering it unable to be used in production
+            (assuming the material is open and exposed to the environment)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageMSDData.MSDLevel">
+            <summary>
+            The level of moisture sensitivity (as defined by IPC/JEDEC J-STD-033C)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.MaterialPackageMSDData.MSDState">
+            <summary>
+            An enumeration describing the current state of this MSD material
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.MaterialSetupRequirement">
+            <summary>
+            Describes a single, specific material setup requirement at a particular process endpoint.
+            Includes the material / part that must be loaded at the endpoint, along with the 
+            specific location where the material must be loaded (where applicable), valid alternate
+            part numbers that may be substituted for the primary part, and any applicable
+            AML (Approved Manufacturer List) restrictions.
             </summary>
         </member>
         <member name="P:CFX.Structures.MaterialSetupRequirement.Position">
@@ -5410,6 +7168,14 @@
             Clean mode D
             </summary>
         </member>
+        <member name="T:CFX.Structures.StationSetupRequirements">
+            <summary>
+            Describes the material setup requirements for a particular process endpoint to perform a 
+            particular operation on one or more partiuclar products.  Also includes information on
+            where specifically the materials should be loaded (when applicable), AML (where applicable),
+            and alternate part information (where applicable).
+            </summary>
+        </member>
         <member name="P:CFX.Structures.StationSetupRequirements.Lane">
             <summary>
             The production lane to which this setup applies (when applicable)
@@ -5422,7 +7188,12 @@
         </member>
         <member name="P:CFX.Structures.StationSetupRequirements.SetupName">
             <summary>
-            An optional name for this particular setup.
+            An optional name for this particular setup
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.StationSetupRequirements.MaterialSetupRequirements">
+            <summary>
+            A list of the materials that need to be installed / loaded at the process endpoint
             </summary>
         </member>
         <member name="T:CFX.Structures.StatusResult">
@@ -5797,6 +7568,33 @@
             <summary>
             The endpoint publishes outbound messages for this topic, responds to inbound request, and
             consumes the messages of this topic that are produced by other endpoints
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.TransportOrderHistory">
+            <summary>
+            Describes a single event in the history of a transport order.  
+            A transport order is a directive to move materials / WIP / production
+            units from one location to another.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.TransportOrderHistory.Status">
+            <summary>
+            The status of this transport order at the time of the event
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.TransportOrderHistory.Operator">
+            <summary>
+            The operator involved in this event (where applicable)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.TransportOrderHistory.Location">
+            <summary>
+            The location where this event took place
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.TransportOrderHistory.Comments">
+            <summary>
+            Human readable comments related to this event (where applicable)
             </summary>
         </member>
         <member name="T:CFX.Structures.TransportOrderStatus">

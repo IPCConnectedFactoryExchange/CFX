@@ -5,6 +5,52 @@ using CFX.Structures;
 
 namespace CFX.Materials.Storage
 {
+    /// <summary>
+    /// Sent when a material carrier (typcially containing 1 or more material packages)
+    /// is loaded at a process endpoint.
+    /// <code language="none">
+    /// {
+    ///   "Carriers": [
+    ///     {
+    ///       "LocationIdentifier": "5555646453",
+    ///       "LocationName": null,
+    ///       "CarrierInformation": {
+    ///         "UniqueIdentifier": "1233333",
+    ///         "Name": null
+    ///       }
+    ///     },
+    ///     {
+    ///       "LocationIdentifier": "5555646455",
+    ///       "LocationName": "LANEA",
+    ///       "CarrierInformation": {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+    ///         "BaseUniqueIdentifier": "123335",
+    ///         "BaseName": "MULTILANEFEEDER123335",
+    ///         "LaneNumber": 1,
+    ///         "Width": "Tape8mm",
+    ///         "Pitch": "Adjustable",
+    ///         "UniqueIdentifier": "1233335A",
+    ///         "Name": "TAPEFEEDER8mm1233335A"
+    ///       }
+    ///     },
+    ///     {
+    ///       "LocationIdentifier": "5555646455",
+    ///       "LocationName": "LANEB",
+    ///       "CarrierInformation": {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
+    ///         "BaseUniqueIdentifier": "123335",
+    ///         "BaseName": "MULTILANEFEEDER123335",
+    ///         "LaneNumber": 2,
+    ///         "Width": "Tape8mm",
+    ///         "Pitch": "Adjustable",
+    ///         "UniqueIdentifier": "1233335B",
+    ///         "Name": "TAPEFEEDER8mm1233335B"
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
+    /// </summary>
     public class MaterialCarriersLoaded : CFXMessage
     {
         public MaterialCarriersLoaded()

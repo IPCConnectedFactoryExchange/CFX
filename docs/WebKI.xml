@@ -4,7 +4,7 @@
     <HelpKINode Title="TestResult Enumeration" Url="html/T_CFX_Structures_TestResult.htm" />
     <HelpKINode Title="WorkResult Enumeration" Url="html/T_CFX_Structures_WorkResult.htm" />
   </HelpKINode>
-  <HelpKINode Title="AcceptedBy property" Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_AcceptedBy.htm" />
+  <HelpKINode Title="AcceptedBy property" Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_AcceptedBy.htm" />
   <HelpKINode Title="ActivateRecipeRequest class">
     <HelpKINode Title="ActivateRecipeRequest Class" Url="html/T_CFX_Production_ActivateRecipeRequest.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Production_ActivateRecipeRequest.htm" />
@@ -228,7 +228,6 @@
   <HelpKINode Title="CFX.Materials.Management.BlockMaterialsRequest class" Url="html/T_CFX_Materials_Management_BlockMaterialsRequest.htm" />
   <HelpKINode Title="CFX.Materials.Management.BlockMaterialsResponse class" Url="html/T_CFX_Materials_Management_BlockMaterialsResponse.htm" />
   <HelpKINode Title="CFX.Materials.Management.MaterialsConsumed class" Url="html/T_CFX_Materials_Management_MaterialsConsumed.htm" />
-  <HelpKINode Title="CFX.Materials.Management.MaterialsEmpty class" Url="html/T_CFX_Materials_Management_MaterialsEmpty.htm" />
   <HelpKINode Title="CFX.Materials.Management.MaterialsInitialized class" Url="html/T_CFX_Materials_Management_MaterialsInitialized.htm" />
   <HelpKINode Title="CFX.Materials.Management.MaterialsJoined class" Url="html/T_CFX_Materials_Management_MaterialsJoined.htm" />
   <HelpKINode Title="CFX.Materials.Management.MaterialsModified class" Url="html/T_CFX_Materials_Management_MaterialsModified.htm" />
@@ -254,8 +253,9 @@
   <HelpKINode Title="CFX.Materials.Transport.CheckpointReached class" Url="html/T_CFX_Materials_Transport_CheckpointReached.htm" />
   <HelpKINode Title="CFX.Materials.Transport.GetTransportOrderStatusRequest class" Url="html/T_CFX_Materials_Transport_GetTransportOrderStatusRequest.htm" />
   <HelpKINode Title="CFX.Materials.Transport.GetTransportOrderStatusResponse class" Url="html/T_CFX_Materials_Transport_GetTransportOrderStatusResponse.htm" />
-  <HelpKINode Title="CFX.Materials.Transport.MaterialTransportCompleted class" Url="html/T_CFX_Materials_Transport_MaterialTransportCompleted.htm" />
-  <HelpKINode Title="CFX.Materials.Transport.MaterialTransportStarted class" Url="html/T_CFX_Materials_Transport_MaterialTransportStarted.htm" />
+  <HelpKINode Title="CFX.Materials.Transport.TransportOrderCompleted class" Url="html/T_CFX_Materials_Transport_TransportOrderCompleted.htm" />
+  <HelpKINode Title="CFX.Materials.Transport.TransportOrderStarted class" Url="html/T_CFX_Materials_Transport_TransportOrderStarted.htm" />
+  <HelpKINode Title="CFX.Materials.Transport.TransportOrderStatusChanged class" Url="html/T_CFX_Materials_Transport_TransportOrderStatusChanged.htm" />
   <HelpKINode Title="CFX.NotSupportedResponse class" Url="html/T_CFX_NotSupportedResponse.htm" />
   <HelpKINode Title="CFX.Production namespace" Url="html/N_CFX_Production.htm" />
   <HelpKINode Title="CFX.Production.ActivateRecipeRequest class" Url="html/T_CFX_Production_ActivateRecipeRequest.htm" />
@@ -515,6 +515,7 @@
   <HelpKINode Title="CheckpointReached.FinalDestination property" Url="html/P_CFX_Materials_Transport_CheckpointReached_FinalDestination.htm" />
   <HelpKINode Title="CheckpointReached.NextCheckpoint property" Url="html/P_CFX_Materials_Transport_CheckpointReached_NextCheckpoint.htm" />
   <HelpKINode Title="CheckpointReached.RelatedWorkOrderNumber property" Url="html/P_CFX_Materials_Transport_CheckpointReached_RelatedWorkOrderNumber.htm" />
+  <HelpKINode Title="CheckpointReached.Status property" Url="html/P_CFX_Materials_Transport_CheckpointReached_Status.htm" />
   <HelpKINode Title="CheckpointReached.TrackedBy property" Url="html/P_CFX_Materials_Transport_CheckpointReached_TrackedBy.htm" />
   <HelpKINode Title="CheckpointReached.TransportOrderNumber property" Url="html/P_CFX_Materials_Transport_CheckpointReached_TransportOrderNumber.htm" />
   <HelpKINode Title="CleanSqueegeeRequest class">
@@ -553,11 +554,12 @@
     <HelpKINode Title="CheckpointReached.Comments Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_Comments.htm" />
     <HelpKINode Title="Defect.Comments Property " Url="html/P_CFX_Structures_Defect_Comments.htm" />
     <HelpKINode Title="Inspection.Comments Property " Url="html/P_CFX_Structures_Inspection_Comments.htm" />
-    <HelpKINode Title="MaterialTransportCompleted.Comments Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_Comments.htm" />
-    <HelpKINode Title="MaterialTransportStarted.Comments Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_Comments.htm" />
     <HelpKINode Title="Symptom.Comments Property " Url="html/P_CFX_Structures_Symptom_Comments.htm" />
     <HelpKINode Title="Test.Comments Property " Url="html/P_CFX_Structures_Test_Comments.htm" />
+    <HelpKINode Title="TransportOrderCompleted.Comments Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_Comments.htm" />
     <HelpKINode Title="TransportOrderHistory.Comments Property " Url="html/P_CFX_Structures_TransportOrderHistory_Comments.htm" />
+    <HelpKINode Title="TransportOrderStarted.Comments Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Comments.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.Comments Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Comments.htm" />
   </HelpKINode>
   <HelpKINode Title="Completed enumeration member" Url="html/T_CFX_Structures_WorkResult.htm" />
   <HelpKINode Title="ComponentDesignator class">
@@ -661,7 +663,6 @@
   <HelpKINode Title="DurableMessages property" Url="html/P_CFX_Transport_AmqpCFXEndpoint_DurableMessages.htm" />
   <HelpKINode Title="DurableReceiverSetting property" Url="html/P_CFX_Transport_AmqpCFXEndpoint_DurableReceiverSetting.htm" />
   <HelpKINode Title="Embossed enumeration member" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeType.htm" />
-  <HelpKINode Title="EmptyMaterials property" Url="html/P_CFX_Materials_Management_MaterialsEmpty_EmptyMaterials.htm" />
   <HelpKINode Title="EndpointConnected class">
     <HelpKINode Title="EndpointConnected Class" Url="html/T_CFX_EndpointConnected.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_EndpointConnected.htm" />
@@ -772,8 +773,9 @@
   <HelpKINode Title="FinalDestination property">
     <HelpKINode Title="CheckpointReached.FinalDestination Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_FinalDestination.htm" />
     <HelpKINode Title="GetTransportOrderStatusResponse.FinalDestination Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_FinalDestination.htm" />
-    <HelpKINode Title="MaterialTransportCompleted.FinalDestination Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_FinalDestination.htm" />
-    <HelpKINode Title="MaterialTransportStarted.FinalDestination Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_FinalDestination.htm" />
+    <HelpKINode Title="TransportOrderCompleted.FinalDestination Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_FinalDestination.htm" />
+    <HelpKINode Title="TransportOrderStarted.FinalDestination Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_FinalDestination.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.FinalDestination Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_FinalDestination.htm" />
   </HelpKINode>
   <HelpKINode Title="FirstName property" Url="html/P_CFX_Structures_Operator_FirstName.htm" />
   <HelpKINode Title="FixedSample enumeration member" Url="html/T_CFX_Structures_SamplingMethod.htm" />
@@ -1205,18 +1207,13 @@
     <HelpKINode Title="MaterialsRemovedFromDryStorage.Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsRemovedFromDryStorage_Materials.htm" />
     <HelpKINode Title="MaterialsRestored.Materials Property " Url="html/P_CFX_Materials_Management_MSDManagement_MaterialsRestored_Materials.htm" />
     <HelpKINode Title="MaterialsRetired.Materials Property " Url="html/P_CFX_Materials_Management_MaterialsRetired_Materials.htm" />
-    <HelpKINode Title="MaterialTransportStarted.Materials Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_Materials.htm" />
+    <HelpKINode Title="TransportOrderStarted.Materials Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Materials.htm" />
   </HelpKINode>
   <HelpKINode Title="MaterialsConsumed class">
     <HelpKINode Title="MaterialsConsumed Class" Url="html/T_CFX_Materials_Management_MaterialsConsumed.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsConsumed.htm" />
   </HelpKINode>
   <HelpKINode Title="MaterialsConsumed.ConsumedMaterials property" Url="html/P_CFX_Materials_Management_MaterialsConsumed_ConsumedMaterials.htm" />
-  <HelpKINode Title="MaterialsEmpty class">
-    <HelpKINode Title="MaterialsEmpty Class" Url="html/T_CFX_Materials_Management_MaterialsEmpty.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsEmpty.htm" />
-  </HelpKINode>
-  <HelpKINode Title="MaterialsEmpty.EmptyMaterials property" Url="html/P_CFX_Materials_Management_MaterialsEmpty_EmptyMaterials.htm" />
   <HelpKINode Title="MaterialSetupRequirement class">
     <HelpKINode Title="MaterialSetupRequirement Class" Url="html/T_CFX_Structures_MaterialSetupRequirement.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_MaterialSetupRequirement.htm" />
@@ -1288,8 +1285,10 @@
     <HelpKINode Title="MaterialsSplit Class" Url="html/T_CFX_Materials_Management_MaterialsSplit.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Management_MaterialsSplit.htm" />
   </HelpKINode>
-  <HelpKINode Title="MaterialsSplit.NewMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackage.htm" />
-  <HelpKINode Title="MaterialsSplit.OriginalMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsSplit_OriginalMaterialPackage.htm" />
+  <HelpKINode Title="MaterialsSplit.NewMaterialPackageIdentifier property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackageIdentifier.htm" />
+  <HelpKINode Title="MaterialsSplit.NewMaterialPackageQuantity property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackageQuantity.htm" />
+  <HelpKINode Title="MaterialsSplit.SourceMaterialPackageIdentifier property" Url="html/P_CFX_Materials_Management_MaterialsSplit_SourceMaterialPackageIdentifier.htm" />
+  <HelpKINode Title="MaterialsSplit.SourceMaterialPackageRemainingQuantity property" Url="html/P_CFX_Materials_Management_MaterialsSplit_SourceMaterialPackageRemainingQuantity.htm" />
   <HelpKINode Title="MaterialStatus enumeration" Url="html/T_CFX_Structures_MaterialStatus.htm" />
   <HelpKINode Title="MaterialsUninstalled class">
     <HelpKINode Title="MaterialsUninstalled Class" Url="html/T_CFX_Production_Assembly_MaterialsUninstalled.htm" />
@@ -1302,26 +1301,6 @@
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Storage_MaterialsUnloaded.htm" />
   </HelpKINode>
   <HelpKINode Title="MaterialsUnloaded.MaterialPackageIdentifiers property" Url="html/P_CFX_Materials_Storage_MaterialsUnloaded_MaterialPackageIdentifiers.htm" />
-  <HelpKINode Title="MaterialTransportCompleted class">
-    <HelpKINode Title="MaterialTransportCompleted Class" Url="html/T_CFX_Materials_Transport_MaterialTransportCompleted.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Transport_MaterialTransportCompleted.htm" />
-  </HelpKINode>
-  <HelpKINode Title="MaterialTransportCompleted.AcceptedBy property" Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_AcceptedBy.htm" />
-  <HelpKINode Title="MaterialTransportCompleted.Comments property" Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_Comments.htm" />
-  <HelpKINode Title="MaterialTransportCompleted.FinalDestination property" Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_FinalDestination.htm" />
-  <HelpKINode Title="MaterialTransportCompleted.RelatedWorkOrderNumber property" Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_RelatedWorkOrderNumber.htm" />
-  <HelpKINode Title="MaterialTransportCompleted.TransportOrderNumber property" Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_TransportOrderNumber.htm" />
-  <HelpKINode Title="MaterialTransportStarted class">
-    <HelpKINode Title="MaterialTransportStarted Class" Url="html/T_CFX_Materials_Transport_MaterialTransportStarted.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Transport_MaterialTransportStarted.htm" />
-  </HelpKINode>
-  <HelpKINode Title="MaterialTransportStarted.Comments property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_Comments.htm" />
-  <HelpKINode Title="MaterialTransportStarted.FinalDestination property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_FinalDestination.htm" />
-  <HelpKINode Title="MaterialTransportStarted.Materials property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_Materials.htm" />
-  <HelpKINode Title="MaterialTransportStarted.NextCheckpoint property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_NextCheckpoint.htm" />
-  <HelpKINode Title="MaterialTransportStarted.RelatedWorkOrderNumber property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_RelatedWorkOrderNumber.htm" />
-  <HelpKINode Title="MaterialTransportStarted.StartedBy property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_StartedBy.htm" />
-  <HelpKINode Title="MaterialTransportStarted.TransportOrderNumber property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_TransportOrderNumber.htm" />
   <HelpKINode Title="MaximumAcceptableValue property">
     <HelpKINode Title="NumericValue.MaximumAcceptableValue Property " Url="html/P_CFX_Structures_NumericValue_MaximumAcceptableValue.htm" />
     <HelpKINode Title="Reading.MaximumAcceptableValue Property " Url="html/P_CFX_Structures_Reading_MaximumAcceptableValue.htm" />
@@ -1406,7 +1385,8 @@
     <HelpKINode Title="Tool.Name Property " Url="html/P_CFX_Structures_Tool_Name.htm" />
   </HelpKINode>
   <HelpKINode Title="NeverOpened enumeration member" Url="html/T_CFX_Structures_MSDState.htm" />
-  <HelpKINode Title="NewMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackage.htm" />
+  <HelpKINode Title="NewMaterialPackageIdentifier property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackageIdentifier.htm" />
+  <HelpKINode Title="NewMaterialPackageQuantity property" Url="html/P_CFX_Materials_Management_MaterialsSplit_NewMaterialPackageQuantity.htm" />
   <HelpKINode Title="NewParameterValue property">
     <HelpKINode Title="ModifyStationParameterResponse.NewParameterValue Property " Url="html/P_CFX_ResourcePerformance_ModifyStationParameterResponse_NewParameterValue.htm" />
     <HelpKINode Title="StationParameterModified.NewParameterValue Property " Url="html/P_CFX_ResourcePerformance_StationParameterModified_NewParameterValue.htm" />
@@ -1420,7 +1400,8 @@
   <HelpKINode Title="NewTool property" Url="html/P_CFX_ResourcePerformance_ToolChanged_NewTool.htm" />
   <HelpKINode Title="NextCheckpoint property">
     <HelpKINode Title="CheckpointReached.NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_NextCheckpoint.htm" />
-    <HelpKINode Title="MaterialTransportStarted.NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_NextCheckpoint.htm" />
+    <HelpKINode Title="TransportOrderStarted.NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_NextCheckpoint.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.NextCheckpoint Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_NextCheckpoint.htm" />
   </HelpKINode>
   <HelpKINode Title="Normal enumeration member" Url="html/T_CFX_Structures_SolderPastePrinting_SMTSqueegeeCleanType.htm" />
   <HelpKINode Title="NoSampling enumeration member" Url="html/T_CFX_Structures_SamplingMethod.htm" />
@@ -1508,7 +1489,6 @@
   <HelpKINode Title="OperatorDeactivated.Operator property" Url="html/P_CFX_Production_OperatorDeactivated_Operator.htm" />
   <HelpKINode Title="OperatorIdentifier property" Url="html/P_CFX_Structures_Operator_OperatorIdentifier.htm" />
   <HelpKINode Title="OriginalExposureDateTime property" Url="html/P_CFX_Structures_MaterialPackageMSDData_OriginalExposureDateTime.htm" />
-  <HelpKINode Title="OriginalMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsSplit_OriginalMaterialPackage.htm" />
   <HelpKINode Title="Other enumeration member">
     <HelpKINode Title="SMDTapePitch Enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMDTapePitch.htm" />
     <HelpKINode Title="SMDTapeWidth Enumeration" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeWidth.htm" />
@@ -1719,8 +1699,9 @@
   <HelpKINode Title="RelatedSymptoms property" Url="html/P_CFX_Structures_Defect_RelatedSymptoms.htm" />
   <HelpKINode Title="RelatedWorkOrderNumber property">
     <HelpKINode Title="CheckpointReached.RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_RelatedWorkOrderNumber.htm" />
-    <HelpKINode Title="MaterialTransportCompleted.RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_RelatedWorkOrderNumber.htm" />
-    <HelpKINode Title="MaterialTransportStarted.RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_RelatedWorkOrderNumber.htm" />
+    <HelpKINode Title="TransportOrderCompleted.RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_RelatedWorkOrderNumber.htm" />
+    <HelpKINode Title="TransportOrderStarted.RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_RelatedWorkOrderNumber.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.RelatedWorkOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_RelatedWorkOrderNumber.htm" />
   </HelpKINode>
   <HelpKINode Title="RemainingExposureTime property" Url="html/P_CFX_Structures_MaterialPackageMSDData_RemainingExposureTime.htm" />
   <HelpKINode Title="RemainingQuantity property" Url="html/P_CFX_Structures_ConsumedMaterial_RemainingQuantity.htm" />
@@ -1918,7 +1899,13 @@
   <HelpKINode Title="SolderPasteMeasurement.PasteXSize property" Url="html/P_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement_PasteXSize.htm" />
   <HelpKINode Title="SolderPasteMeasurement.PasteYOffset property" Url="html/P_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement_PasteYOffset.htm" />
   <HelpKINode Title="SolderPasteMeasurement.PasteYSize property" Url="html/P_CFX_Structures_SolderPasteInspection_SolderPasteMeasurement_PasteYSize.htm" />
-  <HelpKINode Title="Source property" Url="html/P_CFX_CFXEnvelope_Source.htm" />
+  <HelpKINode Title="Source property">
+    <HelpKINode Title="CFXEnvelope.Source Property " Url="html/P_CFX_CFXEnvelope_Source.htm" />
+    <HelpKINode Title="TransportOrderStarted.Source Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Source.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.Source Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Source.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SourceMaterialPackageIdentifier property" Url="html/P_CFX_Materials_Management_MaterialsSplit_SourceMaterialPackageIdentifier.htm" />
+  <HelpKINode Title="SourceMaterialPackageRemainingQuantity property" Url="html/P_CFX_Materials_Management_MaterialsSplit_SourceMaterialPackageRemainingQuantity.htm" />
   <HelpKINode Title="SPI enumeration member" Url="html/T_CFX_Structures_InspectionMethod.htm" />
   <HelpKINode Title="Squeegee property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_Squeegee.htm" />
   <HelpKINode Title="SqueegeeCleanCycles property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_SqueegeeCleaned_SqueegeeCleanCycles.htm" />
@@ -1964,7 +1951,7 @@
   <HelpKINode Title="StageStateChanged.OldStateDuration property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_OldStateDuration.htm" />
   <HelpKINode Title="StageStateChanged.RelatedFault property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_RelatedFault.htm" />
   <HelpKINode Title="StageStateChanged.Stage property" Url="html/P_CFX_ResourcePerformance_StageStateChanged_Stage.htm" />
-  <HelpKINode Title="StartedBy property" Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_StartedBy.htm" />
+  <HelpKINode Title="StartedBy property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_StartedBy.htm" />
   <HelpKINode Title="StartPointX property" Url="html/P_CFX_Structures_Region_StartPointX.htm" />
   <HelpKINode Title="StartPointY property" Url="html/P_CFX_Structures_Region_StartPointY.htm" />
   <HelpKINode Title="StartTime property">
@@ -2003,9 +1990,12 @@
   <HelpKINode Title="StationStateChanged.OldStateDuration property" Url="html/P_CFX_ResourcePerformance_StationStateChanged_OldStateDuration.htm" />
   <HelpKINode Title="StationStateChanged.RelatedFault property" Url="html/P_CFX_ResourcePerformance_StationStateChanged_RelatedFault.htm" />
   <HelpKINode Title="Status property">
+    <HelpKINode Title="CheckpointReached.Status Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_Status.htm" />
     <HelpKINode Title="GetTransportOrderStatusResponse.Status Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_Status.htm" />
     <HelpKINode Title="MaterialPackageDetail.Status Property " Url="html/P_CFX_Structures_MaterialPackageDetail_Status.htm" />
     <HelpKINode Title="TransportOrderHistory.Status Property " Url="html/P_CFX_Structures_TransportOrderHistory_Status.htm" />
+    <HelpKINode Title="TransportOrderStarted.Status Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Status.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.Status Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Status.htm" />
   </HelpKINode>
   <HelpKINode Title="StatusResult enumeration" Url="html/T_CFX_Structures_StatusResult.htm" />
   <HelpKINode Title="Stencil property" Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_StencilCleaned_Stencil.htm" />
@@ -2188,23 +2178,34 @@
   <HelpKINode Title="TraceListenerHandler delegate" Url="html/T_CFX_Utilities_TraceListenerHandler.htm" />
   <HelpKINode Title="TrackedBy property" Url="html/P_CFX_Materials_Transport_CheckpointReached_TrackedBy.htm" />
   <HelpKINode Title="TrailingMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsJoined_TrailingMaterialPackage.htm" />
+  <HelpKINode Title="TransactionID property">
+    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
+    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
+    <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
+    <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
+    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
+    <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
+  </HelpKINode>
   <HelpKINode Title="TransactionId property">
+    <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
+    <HelpKINode Title="MaterialsUninstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
     <HelpKINode Title="ReadingsRecorded.TransactionId Property " Url="html/P_CFX_Production_ReadingsRecorded_TransactionId.htm" />
     <HelpKINode Title="ToolsUsed.TransactionId Property " Url="html/P_CFX_Production_Assembly_ToolsUsed_TransactionId.htm" />
     <HelpKINode Title="UnitsInspected.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_TransactionId.htm" />
     <HelpKINode Title="UnitsPersonalized.TransactionId Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_TransactionId.htm" />
-    <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
-    <HelpKINode Title="MaterialsUninstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
     <HelpKINode Title="UnitsTested.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_TransactionId.htm" />
   </HelpKINode>
-  <HelpKINode Title="TransactionID property">
-    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
-    <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
-    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
-    <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
+  <HelpKINode Title="TransportOrderCompleted class">
+    <HelpKINode Title="TransportOrderCompleted Class" Url="html/T_CFX_Materials_Transport_TransportOrderCompleted.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CFX_Materials_Transport_TransportOrderCompleted__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Transport_TransportOrderCompleted.htm" />
   </HelpKINode>
+  <HelpKINode Title="TransportOrderCompleted.AcceptedBy property" Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_AcceptedBy.htm" />
+  <HelpKINode Title="TransportOrderCompleted.Comments property" Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_Comments.htm" />
+  <HelpKINode Title="TransportOrderCompleted.FinalDestination property" Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_FinalDestination.htm" />
+  <HelpKINode Title="TransportOrderCompleted.RelatedWorkOrderNumber property" Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_RelatedWorkOrderNumber.htm" />
+  <HelpKINode Title="TransportOrderCompleted.TransportOrderCompleted constructor" Url="html/M_CFX_Materials_Transport_TransportOrderCompleted__ctor.htm" />
+  <HelpKINode Title="TransportOrderCompleted.TransportOrderNumber property" Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_TransportOrderNumber.htm" />
   <HelpKINode Title="TransportOrderHistory class">
     <HelpKINode Title="TransportOrderHistory Class" Url="html/T_CFX_Structures_TransportOrderHistory.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_TransportOrderHistory.htm" />
@@ -2218,10 +2219,40 @@
     <HelpKINode Title="CheckpointReached.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_CheckpointReached_TransportOrderNumber.htm" />
     <HelpKINode Title="GetTransportOrderStatusRequest.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusRequest_TransportOrderNumber.htm" />
     <HelpKINode Title="GetTransportOrderStatusResponse.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_GetTransportOrderStatusResponse_TransportOrderNumber.htm" />
-    <HelpKINode Title="MaterialTransportCompleted.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportCompleted_TransportOrderNumber.htm" />
-    <HelpKINode Title="MaterialTransportStarted.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_MaterialTransportStarted_TransportOrderNumber.htm" />
+    <HelpKINode Title="TransportOrderCompleted.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderCompleted_TransportOrderNumber.htm" />
+    <HelpKINode Title="TransportOrderStarted.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStarted_TransportOrderNumber.htm" />
+    <HelpKINode Title="TransportOrderStatusChanged.TransportOrderNumber Property " Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_TransportOrderNumber.htm" />
   </HelpKINode>
+  <HelpKINode Title="TransportOrderStarted class">
+    <HelpKINode Title="TransportOrderStarted Class" Url="html/T_CFX_Materials_Transport_TransportOrderStarted.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CFX_Materials_Transport_TransportOrderStarted__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Transport_TransportOrderStarted.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TransportOrderStarted.Comments property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Comments.htm" />
+  <HelpKINode Title="TransportOrderStarted.FinalDestination property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_FinalDestination.htm" />
+  <HelpKINode Title="TransportOrderStarted.Materials property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Materials.htm" />
+  <HelpKINode Title="TransportOrderStarted.NextCheckpoint property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_NextCheckpoint.htm" />
+  <HelpKINode Title="TransportOrderStarted.RelatedWorkOrderNumber property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_RelatedWorkOrderNumber.htm" />
+  <HelpKINode Title="TransportOrderStarted.Source property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Source.htm" />
+  <HelpKINode Title="TransportOrderStarted.StartedBy property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_StartedBy.htm" />
+  <HelpKINode Title="TransportOrderStarted.Status property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_Status.htm" />
+  <HelpKINode Title="TransportOrderStarted.TransportOrderNumber property" Url="html/P_CFX_Materials_Transport_TransportOrderStarted_TransportOrderNumber.htm" />
+  <HelpKINode Title="TransportOrderStarted.TransportOrderStarted constructor" Url="html/M_CFX_Materials_Transport_TransportOrderStarted__ctor.htm" />
   <HelpKINode Title="TransportOrderStatus enumeration" Url="html/T_CFX_Structures_TransportOrderStatus.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged class">
+    <HelpKINode Title="TransportOrderStatusChanged Class" Url="html/T_CFX_Materials_Transport_TransportOrderStatusChanged.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CFX_Materials_Transport_TransportOrderStatusChanged__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Materials_Transport_TransportOrderStatusChanged.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TransportOrderStatusChanged.Comments property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Comments.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.FinalDestination property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_FinalDestination.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.NextCheckpoint property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_NextCheckpoint.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.RelatedWorkOrderNumber property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_RelatedWorkOrderNumber.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.Source property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Source.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.Status property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_Status.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.TransportOrderNumber property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_TransportOrderNumber.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.TransportOrderStatusChanged constructor" Url="html/M_CFX_Materials_Transport_TransportOrderStatusChanged__ctor.htm" />
+  <HelpKINode Title="TransportOrderStatusChanged.UpdatedBy property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_UpdatedBy.htm" />
   <HelpKINode Title="UnblockMaterialLocationsRequest class">
     <HelpKINode Title="UnblockMaterialLocationsRequest Class" Url="html/T_CFX_Production_UnblockMaterialLocationsRequest.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Production_UnblockMaterialLocationsRequest.htm" />
@@ -2375,6 +2406,7 @@
     <HelpKINode Title="TransportOrderStatus Enumeration" Url="html/T_CFX_Structures_TransportOrderStatus.htm" />
   </HelpKINode>
   <HelpKINode Title="UpdatedBOM enumeration member" Url="html/T_CFX_Structures_RecipeModificationReason.htm" />
+  <HelpKINode Title="UpdatedBy property" Url="html/P_CFX_Materials_Transport_TransportOrderStatusChanged_UpdatedBy.htm" />
   <HelpKINode Title="UpdatedGeometry enumeration member" Url="html/T_CFX_Structures_RecipeModificationReason.htm" />
   <HelpKINode Title="UpdateRecipeRequest class">
     <HelpKINode Title="UpdateRecipeRequest Class" Url="html/T_CFX_Production_UpdateRecipeRequest.htm" />
