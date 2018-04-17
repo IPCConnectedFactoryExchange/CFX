@@ -2,6 +2,3 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/CFX/obj/
-/CFX/bin/
-/.vs/
