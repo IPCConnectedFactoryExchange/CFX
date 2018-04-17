@@ -2,7 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/CFX/obj/Debug
-/CFX Machine Type Matrix.docx
-/CFX Machine Type Tree Matrix.docx
-/CFX/bin/Debug
+/CFX/obj/
+/CFX/bin/
+/.vs/
