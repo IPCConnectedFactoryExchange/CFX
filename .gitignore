@@ -8,14 +8,14 @@
 *.suo
 *.user
 *.sln.docstates
-.vs/
+**/.vs
 
 # Build results
-[Dd]ebug/
-[Rr]elease/
-x64/
-[Bb]in/
-[Oo]bj/
+**/[Dd]ebug/
+**/[Rr]elease/
+**/x64/
+**/[Bb]in/
+**/[Oo]bj/
 # build folder is nowadays used for build scripts and should not be ignored
 #build/
 
