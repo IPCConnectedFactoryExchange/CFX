@@ -175,12 +175,12 @@ namespace CFX.Transport
             return result;
         }
 
-        public void AddPublishChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
+        public void AddPublishChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
-            AddPublishChannel(address.Uri, address.Address, authMode, certificate);
+            AddPublishChannel(address.Uri, address.Address, authMode, certificate, targetHostName);
         }
 
-        public void AddPublishChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
+        public void AddPublishChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -192,7 +192,7 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress, this, authMode, certificate);
+                channel = new AmqpConnection(networkAddress, this, authMode, certificate, targetHostName);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channel.OnValidateCertificate += Channel_OnValidateCertificate;
                 channels[key] = channel;
@@ -226,12 +226,12 @@ namespace CFX.Transport
             }
         }
 
-        public void AddSubscribeChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
+        public void AddSubscribeChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
-            AddSubscribeChannel(address.Uri, address.Address, authMode, certificate);
+            AddSubscribeChannel(address.Uri, address.Address, authMode, certificate, targetHostName);
         }
 
-        public void AddSubscribeChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null)
+        public void AddSubscribeChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -243,7 +243,7 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress, this, authMode, certificate);
+                channel = new AmqpConnection(networkAddress, this, authMode, certificate, targetHostName);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channel.OnValidateCertificate += Channel_OnValidateCertificate;
                 channels[key] = channel;

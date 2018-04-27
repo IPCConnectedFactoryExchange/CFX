@@ -17,7 +17,7 @@ namespace CFX.Transport
 {
     internal class AmqpConnection : IDisposable
     {
-        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, AuthenticationMode authMode, X509Certificate certificate = null)
+        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, AuthenticationMode authMode, X509Certificate certificate = null, string targetHostName = null)
         {
             SendTimout = TimeSpan.FromSeconds(5);
             links = new List<AmqpLink>();
@@ -25,6 +25,7 @@ namespace CFX.Transport
             Endpoint = endpoint;
             AuthenticationMode = authMode;
             Certificate = certificate;
+            TargetHostName = targetHostName;
         }
 
         public TimeSpan SendTimout
@@ -64,6 +65,11 @@ namespace CFX.Transport
             get;
             set;
         }
+        public string TargetHostName
+        {
+            get;
+            set;
+        }
 
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
         public event ValidateServerCertificateHandler OnValidateCertificate;
@@ -97,6 +103,7 @@ namespace CFX.Transport
                     Open o = new Open()
                     {
                         ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
+                        HostName = TargetHostName
                     };
 
                     if (!anonymous || Certificate != null)
@@ -413,8 +420,6 @@ namespace CFX.Transport
         {
             try
             {
-                links.ForEach(l => l.CloseLink());
-
                 if (isAsync)
                 {
                     if (session != null && !session.IsClosed)
@@ -429,6 +434,8 @@ namespace CFX.Transport
                 }
                 else
                 {
+                    links.ForEach(l => l.CloseLink());
+
                     if (session != null && !session.IsClosed)
                     {
                         session.Close();

@@ -34,8 +34,7 @@ namespace CFXExampleEndpoint
             reqHandle.Text = Properties.Settings.Default.RequestTargetHandle;
             reqUsername.Text = Properties.Settings.Default.RequestUsername;
             reqPassword.Text = Properties.Settings.Default.RequestPassword;
-            //txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
-
+            
             //CFXExampleGenerator gen = new CFXExampleGenerator();
             //string result = gen.GenerateAll();
             //File.WriteAllText(@"c:\Code\Git\CFX\CFX_JSON_Examples.txt", result, Encoding.UTF8);
@@ -47,7 +46,7 @@ namespace CFXExampleEndpoint
             RefreshControls();
 
             //CFX.Utilities.AppLog.LoggingEnabled = true;
-            //CFX.Utilities.AppLog.LogFilePath = @"c:\jjwtemp\CFXDiagLog.txt";
+            //CFX.Utilities.AppLog.LogFilePath = @"c:\mylogs";
             CFX.Utilities.AppLog.AmqpTraceEnabled = false;
             CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
         }
@@ -59,8 +58,6 @@ namespace CFXExampleEndpoint
                 return txtCFXHandle.Text;
             }
         }
-
-
 
         private List<AmqpChannelAddress> TransmitChannels
         {
@@ -104,7 +101,20 @@ namespace CFXExampleEndpoint
             {
                 string url = txtRequestUri.Text.Trim();
                 if (string.IsNullOrWhiteSpace(url)) return null;
-                return new Uri(url);
+                Uri reqUri = new Uri(url);
+                if (!string.IsNullOrWhiteSpace(reqUsername.Text))
+                {
+                    UriBuilder uriBuilder = new UriBuilder();
+                    uriBuilder.Scheme = reqUri.Scheme;
+                    uriBuilder.Host = reqUri.Host;
+                    uriBuilder.Path = reqUri.PathAndQuery;
+                    uriBuilder.Port = reqUri.Port;
+                    uriBuilder.UserName = reqUsername.Text;
+                    uriBuilder.Password = reqPassword.Text;
+                    reqUri = uriBuilder.Uri;
+                }
+
+                return reqUri;
             }
         }
 
@@ -132,15 +142,17 @@ namespace CFXExampleEndpoint
 
                 //X509Certificate cert = AmqpUtilities.GetCertificate("aishqcfx01v");
                 X509Certificate cert = null;
+                //string targetHostName = "vhost:/jjwtesthost";
+                string targetHostName = null; 
 
                 foreach (AmqpChannelAddress addr in TransmitChannels)
                 {
-                    theEndpoint.AddPublishChannel(addr, AuthenticationMode.Auto, cert);
+                    theEndpoint.AddPublishChannel(addr, AuthenticationMode.Auto, cert, targetHostName);
                 }
 
                 foreach (AmqpChannelAddress addr in ReceiveChannels)
                 {
-                    theEndpoint.AddSubscribeChannel(addr, AuthenticationMode.Auto, cert);
+                    theEndpoint.AddSubscribeChannel(addr, AuthenticationMode.Auto, cert, targetHostName);
                 }
             }
             catch (Exception ex)
