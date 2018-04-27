@@ -46,8 +46,8 @@ namespace CFXExampleEndpoint
 
             RefreshControls();
 
-            CFX.Utilities.AppLog.LoggingEnabled = true;
-            CFX.Utilities.AppLog.LogFilePath = @"c:\jjwtemp\CFXDiagLog.txt";
+            //CFX.Utilities.AppLog.LoggingEnabled = true;
+            //CFX.Utilities.AppLog.LogFilePath = @"c:\jjwtemp\CFXDiagLog.txt";
             CFX.Utilities.AppLog.AmqpTraceEnabled = false;
             CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
         }
@@ -112,9 +112,6 @@ namespace CFXExampleEndpoint
         {
             CloseEndpoint();
 
-            CFX.Utilities.AppLog.LoggingEnabled = true;
-            CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Warn;
-            CFX.Utilities.AppLog.AmqpTraceEnabled = true;
             //AmqpCFXEndpoint.MaxMessagesPerTransmit = 1;
 
             try
@@ -122,7 +119,7 @@ namespace CFXExampleEndpoint
                 theEndpoint = new AmqpCFXEndpoint();
 
                 X509Certificate2 requestCert = null;
-                if (RequestUri.Scheme.ToLower() == "amqps")
+                if (RequestUri?.Scheme.ToLower() == "amqps")
                 {
                     requestCert = AmqpUtilities.GetCertificate("aishqcfx01v");
                 }

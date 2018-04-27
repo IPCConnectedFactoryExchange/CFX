@@ -463,7 +463,12 @@ namespace CFX.Transport
                 if (reqConn != null && !reqConn.IsClosed) reqConn.CloseAsync();
             }
 
-            if (ex != null) throw ex;
+            if (ex != null)
+            {
+                if (ex.InnerException != null) throw ex.InnerException;
+                throw ex;
+            }
+
             return response;
         }
 
