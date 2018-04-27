@@ -378,6 +378,12 @@ namespace CFX.Transport
             }
         }
 
+        private Uri CurrentRequestTargetUri
+        {
+            get;
+            set;
+        }
+
         public CFXEnvelope ExecuteRequest(string targetUri, CFXEnvelope request)
         {
             CFXEnvelope response = null;
@@ -387,6 +393,7 @@ namespace CFX.Transport
             SenderLink sender = null;
             Exception ex = null;
             Uri targetAddress = new Uri(targetUri);
+            CurrentRequestTargetUri = targetAddress;
 
             try
             {
@@ -407,7 +414,7 @@ namespace CFX.Transport
                         ConnectionFactory factory = new ConnectionFactory();
                         if (targetAddress.Scheme.ToLower() == "amqps")
                         {
-                            factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                            factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
                             factory.SASL.Profile = SaslProfile.External;
                         }
 
@@ -460,11 +467,13 @@ namespace CFX.Transport
             return response;
         }
 
-        static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        bool ValidateRequestServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
-            if (certificate != null)
+            ValidateCertificateResult result = ValidateCertificateResult.NotValidated;
+            if (certificate != null && OnValidateCertificate != null)
             {
-                Console.WriteLine("Received remote certificate. Subject: {0}, Policy errors: {1}", certificate.Subject, sslPolicyErrors);
+                result = OnValidateCertificate(CurrentRequestTargetUri, certificate, chain, sslPolicyErrors);
+                if (result == ValidateCertificateResult.Invalid) return false;
             }
 
             return true;
