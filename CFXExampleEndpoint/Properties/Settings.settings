@@ -5,8 +5,8 @@
     <Setting Name="CFXHandle" Type="System.String" Scope="User">
       <Value Profile="(Default)">CFXEndpoint1</Value>
     </Setting>
-    <Setting Name="RequestPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">5673</Value>
+    <Setting Name="RequestUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TransmitChannels" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

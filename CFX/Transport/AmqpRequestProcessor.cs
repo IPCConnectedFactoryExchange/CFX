@@ -9,10 +9,12 @@ using Amqp;
 using Amqp.Listener;
 using Amqp.Framing;
 using CFX.Utilities;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace CFX.Transport
 {
-    public class AmqpRequestProcessor
+    internal class AmqpRequestProcessor
     {
         public AmqpRequestProcessor()
         {
@@ -48,23 +50,30 @@ namespace CFX.Transport
 
         private ContainerHost inboundHost;
         
-        public void Open(string cfxHandle, Uri requestUri = null)
+        public void Open(string cfxHandle, Uri requestUri, X509Certificate2 certificate = null)
         {
             if (string.IsNullOrEmpty(cfxHandle)) throw new ArgumentException("You must supply a CFX Handle");
 
             this.CFXHandle = cfxHandle;
+            RequestUri = requestUri;
 
-            if (requestUri != null)
-                RequestUri = requestUri;
-            else
-                RequestUri = new Uri(string.Format("amqp://{0}:5672", EnvironmentHelper.GetMachineName()));
-
+            inboundHost = new ContainerHost(RequestUri);
+            
             Task.Run(() =>
             {
                 if (!string.IsNullOrWhiteSpace(RequestUri.UserInfo))
                     inboundHost = new ContainerHost(new Uri[] { RequestUri }, null, RequestUri.UserInfo);
                 else
                     inboundHost = new ContainerHost(RequestUri);
+
+                if (certificate != null)
+                {
+                    var listener = inboundHost.Listeners[0];
+                    listener.SSL.Certificate = certificate;
+                    listener.SSL.ClientCertificateRequired = true;
+                    listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                    listener.SASL.EnableExternalMechanism = true;
+                }
 
                 inboundHost.Open();
                 Debug.WriteLine("Container host is listening on {0}:{1}.  User {2}", RequestUri.Host, RequestUri.Port, requestUri.UserInfo);
@@ -95,6 +104,16 @@ namespace CFX.Transport
             this.inboundHost = null;
         }
 
+        static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            if (certificate != null)
+            {
+                Console.WriteLine("Received remote certificate. Subject: {0}, Policy errors: {1}", certificate.Subject, sslPolicyErrors);
+            }
+
+            return true;
+        }
+
         protected CFXEnvelope Fire_OnRequestReceived(CFXEnvelope request)
         {
             if (OnRequestReceived != null) return OnRequestReceived(request);
@@ -117,7 +136,7 @@ namespace CFX.Transport
 
             void IRequestProcessor.Process(RequestContext requestContext)
             {
-                var task = Task.Run(() =>
+                Task.Run(() =>
                 {
                     CFXEnvelope request = AmqpUtilities.EnvelopeFromMessage(requestContext.Message);
                     CFXEnvelope response = processor.Fire_OnRequestReceived(request);
@@ -137,9 +156,7 @@ namespace CFX.Transport
                             RequestID = request.RequestID
                         }));
                     }
-                });
-
-                Task.WaitAll(new Task[] { task });
+                }).Wait();
             }
         }
 

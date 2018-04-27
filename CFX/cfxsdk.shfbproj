@@ -612,6 +612,7 @@
     <ContentLayout Include="Content Layout.content" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HelpContent\How To Submit Additions and Changes.aml" />
     <None Include="HelpContent\GettingStarted.aml" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Topics>
-  <Topic id="cfb57aac-b696-4c6c-b94b-f034b37daf26" visible="True" isDefault="true" isSelected="true" apiParentMode="InsertAfter" title="Getting Started with the SDK" />
+  <Topic id="cfb57aac-b696-4c6c-b94b-f034b37daf26" visible="True" isDefault="true" title="Getting Started with the SDK" />
+  <Topic id="1ea1dd3b-0f0b-451d-adaa-7927d64f2b4d" visible="True" isSelected="true" apiParentMode="InsertAfter" />
 </Topics>

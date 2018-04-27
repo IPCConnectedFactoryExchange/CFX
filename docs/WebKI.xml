@@ -2178,14 +2178,6 @@
   <HelpKINode Title="TraceListenerHandler delegate" Url="html/T_CFX_Utilities_TraceListenerHandler.htm" />
   <HelpKINode Title="TrackedBy property" Url="html/P_CFX_Materials_Transport_CheckpointReached_TrackedBy.htm" />
   <HelpKINode Title="TrailingMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsJoined_TrailingMaterialPackage.htm" />
-  <HelpKINode Title="TransactionID property">
-    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
-    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
-    <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
-    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
-  </HelpKINode>
   <HelpKINode Title="TransactionId property">
     <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
     <HelpKINode Title="MaterialsUninstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
@@ -2194,6 +2186,14 @@
     <HelpKINode Title="UnitsInspected.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_TransactionId.htm" />
     <HelpKINode Title="UnitsPersonalized.TransactionId Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_TransactionId.htm" />
     <HelpKINode Title="UnitsTested.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_TransactionId.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TransactionID property">
+    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
+    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
+    <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
+    <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
+    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
+    <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
   </HelpKINode>
   <HelpKINode Title="TransportOrderCompleted class">
     <HelpKINode Title="TransportOrderCompleted Class" Url="html/T_CFX_Materials_Transport_TransportOrderCompleted.htm" />

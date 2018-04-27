@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="1ea1dd3b-0f0b-451d-adaa-7927d64f2b4d" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!--
+    <summary>
+      <para>How To Contribute to CFX and the CFX SDK</para>
+    </summary>
+    -->
+    <introduction>
+      <para>The CFX Standard and the CFX SDK continue to grow and evolve via the contributions of the CFX community, under the direction and oversight of the IPC.  
+      All CFX message structures, and functions of the CFX SDK are maintained on GitHub as an open source project that is open and available to all.  
+      Members of the IPC Connected Factory Exchange Committee (2-17) may submit requests to change or augment the CFX message structures and SDK 
+      capabilities via the GitHub site.  These requests are then reviewed by the IPC, and once approved, merged into the next publication of the CFX Standard.
+	  </para>
+	  <para>This guide explains the process for submitting these change requests via GitHub.  In order to submit requests, you must have a GitHub account, and be
+	  a member of the GitHub CFX team.  Any member of the IPC 2-17 Connected Factory Exchange Committee is eligible to become a member of the GitHub CFX team.  
+	  To join, email Nancy Jaster of the IPC at NancyJaster@ipc.org
+	  </para>
+    </introduction>
+    <section address="Section1">
+      <title>Submission Process Overview</title>
+      <content>
+      <para>Here is an overview of the process you should follow to submit a request to change/augment the CFX message structure and/or SDK:
+      </para>
+      <list class="ordered">
+      <listItem><para>Log into the CFX GitHub site (<externalLink><linkText>https://github.com/IPCConnectedFactoryExchange/CFX</linkText><linkUri>https://github.com/IPCConnectedFactoryExchange/CFX</linkUri></externalLink>) using your GitHub credentials (you should already by a member of the GitHub CFX team).</para></listItem>
+	  <listItem><para>Create your own branch from the “master” branch.</para></listItem>
+	  <listItem><para>Make your new additions / edit existing content.</para></listItem>
+	  <listItem><para>Commit all of your changes to your personal branch.</para></listItem>
+      <listItem><para>Submit a “Pull Request” to the IPC through the GitHub environment.</para></listItem>
+      <listItem><para>A member of the IPC CFX “Software Power Team” will review your request, including all of your proposed changes.</para></listItem>
+      <listItem><para>If approved, your changes will be automatically merged with the “master” branch, and become publicly available to all.  Your changes will then be included in the next formal Publication of or   Addendum to the CFX Standard.</para></listItem>
+      <listItem><para>If your changes are not immediately approved, additional information, conversation, and / or modifications may be required.  You will be directly contacted in this case.</para></listItem>
+      </list>
+      <para>Additional details on performing these basic functions on GitHub can be found here:</para>
+      <para>
+      <externalLink>
+      	<linkText>https://guides.github.com/activities/hello-world/</linkText>
+    	<linkUri>https://guides.github.com/activities/hello-world/</linkUri>
+      </externalLink>
+      </para>
+      </content>
+    </section>
+    <section address="Section1">
+      <title>Guidelines on Submissions</title>
+      <content>
+      <para>Here is an overview of the process you should follow to submit a request to change/augment the CFX message structure and/or SDK:
+      </para>
+      <list class="bullet">
+      <listItem><para>All changes and additions to CFX must be fully documented in English using XML Code Documentation Comment system described at:  <externalLink><linkText>https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments</linkText><linkUri>https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments</linkUri></externalLink></para></listItem>
+	  <listItem><para>•	Message and data property names should be consistent with the naming conventions of the existing messages (Pascal Case, Verb Tense, etc.).</para></listItem>
+	  </list>
+      </content>
+    </section>
+  </developerHowToDocument>
+</topic>

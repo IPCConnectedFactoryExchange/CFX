@@ -29,29 +29,27 @@ namespace CFXExampleEndpoint
             txtCFXHandle.Text = Properties.Settings.Default.CFXHandle;
             txtTransmitChannels.Text = Properties.Settings.Default.TransmitChannels;
             txtReceiveChannels.Text = Properties.Settings.Default.ReceiveChannels;
-            txtRequestPort.Text = Properties.Settings.Default.RequestPort;
+            txtRequestUri.Text = Properties.Settings.Default.RequestUri;
             reqUri.Text = Properties.Settings.Default.RequestTargetUri;
             reqHandle.Text = Properties.Settings.Default.RequestTargetHandle;
             reqUsername.Text = Properties.Settings.Default.RequestUsername;
             reqPassword.Text = Properties.Settings.Default.RequestPassword;
             //txtReceiveChannels.Text = Utilities.GetNextEndpointReceiveChannel();
 
-            CFXExampleGenerator gen = new CFXExampleGenerator();
-            string result = gen.GenerateAll();
-            File.WriteAllText(@"c:\Code\Git\CFX\CFX_JSON_Examples.txt", result, Encoding.UTF8);
-            return;
+            //CFXExampleGenerator gen = new CFXExampleGenerator();
+            //string result = gen.GenerateAll();
+            //File.WriteAllText(@"c:\Code\Git\CFX\CFX_JSON_Examples.txt", result, Encoding.UTF8);
+            //return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
 
             RefreshControls();
 
-            //CFX.Utilities.AppLog.LoggingEnabled = true;
-            //CFX.Utilities.AppLog.LogFilePath = @"c:\jjwtemp\CFXDiagLog.txt";
-            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info
-            //                                    | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
-
-
+            CFX.Utilities.AppLog.LoggingEnabled = true;
+            CFX.Utilities.AppLog.LogFilePath = @"c:\jjwtemp\CFXDiagLog.txt";
+            CFX.Utilities.AppLog.AmqpTraceEnabled = false;
+            CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
         }
 
         public string CFXHandle
@@ -100,25 +98,13 @@ namespace CFXExampleEndpoint
             }
         }
 
-        public int RequestPort
+        private Uri RequestUri
         {
             get
             {
-                if (txtRequestPort.Text.Trim().Length > 0)
-                    return Convert.ToInt32(txtRequestPort.Text.Trim());
-                else
-                    return 5673;
-            }
-        }
-
-        public Uri RequestUri
-        {
-            get
-            {
-                if (!string.IsNullOrWhiteSpace(reqUsername.Text))
-                    return new Uri(string.Format("amqp://{0}:{1}@{2}:{3}", reqUsername.Text, reqPassword.Text, Environment.MachineName, RequestPort));
-                else
-                    return new Uri(string.Format("amqp://{0}:{1}", Environment.MachineName, RequestPort));
+                string url = txtRequestUri.Text.Trim();
+                if (string.IsNullOrWhiteSpace(url)) return null;
+                return new Uri(url);
             }
         }
 
@@ -130,25 +116,39 @@ namespace CFXExampleEndpoint
             CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Warn;
             CFX.Utilities.AppLog.AmqpTraceEnabled = true;
             //AmqpCFXEndpoint.MaxMessagesPerTransmit = 1;
-            
-            theEndpoint = new AmqpCFXEndpoint();
-            theEndpoint.Open(CFXHandle, RequestUri);
-            theEndpoint.OnCFXMessageReceived -= TheEndpoint_OnCFXMessageReceived;
-            theEndpoint.OnCFXMessageReceived += TheEndpoint_OnCFXMessageReceived;
-            theEndpoint.OnRequestReceived -= TheEndpoint_OnRequestReceived;
-            theEndpoint.OnRequestReceived += TheEndpoint_OnRequestReceived;
 
-            //X509Certificate cert = AmqpUtilities.GetCertificate("aishqcfx01v");
-            X509Certificate cert = null;
-
-            foreach (AmqpChannelAddress addr in TransmitChannels)
+            try
             {
-                theEndpoint.AddPublishChannel(addr, AuthenticationMode.Auto, cert);
+                theEndpoint = new AmqpCFXEndpoint();
+
+                X509Certificate2 requestCert = null;
+                if (RequestUri.Scheme.ToLower() == "amqps")
+                {
+                    requestCert = AmqpUtilities.GetCertificate("aishqcfx01v");
+                }
+
+                theEndpoint.Open(CFXHandle, RequestUri, requestCert);
+                theEndpoint.OnCFXMessageReceived -= TheEndpoint_OnCFXMessageReceived;
+                theEndpoint.OnCFXMessageReceived += TheEndpoint_OnCFXMessageReceived;
+                theEndpoint.OnRequestReceived -= TheEndpoint_OnRequestReceived;
+                theEndpoint.OnRequestReceived += TheEndpoint_OnRequestReceived;
+
+                //X509Certificate cert = AmqpUtilities.GetCertificate("aishqcfx01v");
+                X509Certificate cert = null;
+
+                foreach (AmqpChannelAddress addr in TransmitChannels)
+                {
+                    theEndpoint.AddPublishChannel(addr, AuthenticationMode.Auto, cert);
+                }
+
+                foreach (AmqpChannelAddress addr in ReceiveChannels)
+                {
+                    theEndpoint.AddSubscribeChannel(addr, AuthenticationMode.Auto, cert);
+                }
             }
-
-            foreach (AmqpChannelAddress addr in ReceiveChannels)
+            catch (Exception ex)
             {
-                theEndpoint.AddSubscribeChannel(addr, AuthenticationMode.Auto, cert);
+                lstResults.Items.Insert(0, "Exception Opening Endpoint:  " + ex.Message);
             }
         }
 
@@ -259,7 +259,7 @@ namespace CFXExampleEndpoint
             Properties.Settings.Default.CFXHandle = CFXHandle;
             Properties.Settings.Default.TransmitChannels = txtTransmitChannels.Text;
             Properties.Settings.Default.ReceiveChannels = txtReceiveChannels.Text;
-            Properties.Settings.Default.RequestPort = txtRequestPort.Text;
+            Properties.Settings.Default.RequestUri = txtRequestUri.Text;
             Properties.Settings.Default.RequestTargetUri = reqUri.Text;
             Properties.Settings.Default.RequestTargetHandle = reqHandle.Text;
             Properties.Settings.Default.RequestUsername = reqUsername.Text;

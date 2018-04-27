@@ -4,15 +4,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Amqp;
 using Amqp.Framing;
+using Amqp.Sasl;
 using CFX.Utilities;
 
 namespace CFX.Transport
 {
+    /// <summary>
+    /// Primary class used by endpoint implementers to facility bi-directional, AMQP 1.0 based communications.  Using this class, endpoints
+    /// may publish messages to one or more destinations, subscribe to receive messages from one or more sources, and process incoming
+    /// CFX requests from other CFX endpoints.  This class also supports security features, including secure AMQP 1.0 protocol (AMQPS or AMQP over TLS),
+    /// as well as SASL based authentication (Simple Authentication and Security Layer).  At the time of this writing, the endpoint has been tested 
+    /// and verified for use with the RabbitMQ broker (with AMQP 1.0 plug-in enabled), as well as the Apache Qpid broker.
+    /// </summary>
     public class AmqpCFXEndpoint : IDisposable
     {
         public AmqpCFXEndpoint()
@@ -36,12 +45,18 @@ namespace CFX.Transport
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
         public event ValidateServerCertificateHandler OnValidateCertificate;
 
+        /// <summary>
+        /// Returns the CFXHandle of the endpoint currently associated with this AMQP endpoint.
+        /// </summary>
         public string CFXHandle
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Returns the Uri currently being used to accept incoming CFX requests for this endpoint
+        /// </summary>
         public Uri RequestUri
         {
             get;
@@ -102,27 +117,32 @@ namespace CFX.Transport
             private set;
         }
 
-        public void Open(string cfxHandle, IPAddress requestAddress, int requestPort = 5672)
+        public void Open(string cfxHandle, IPAddress requestAddress, int requestPort = 5672, X509Certificate2 certificate = null)
         {
-            Uri uri = new Uri(string.Format("amqp://{0}:{1}", requestAddress.ToString(), requestPort));
-            Open(cfxHandle, uri);
+            Uri uri = null;
+            if (requestPort == 5673)
+                uri = new Uri(string.Format("amqps://{0}:{1}", requestAddress.ToString(), requestPort));
+            else
+                uri = new Uri(string.Format("amqp://{0}:{1}", requestAddress.ToString(), requestPort));
+
+            Open(cfxHandle, uri, certificate);
         }
 
-        public void Open(string cfxHandle, Uri requestUri = null)
+        public void Open(string cfxHandle, Uri requestUri = null, X509Certificate2 certificate = null)
         {
             IsOpen = false;
 
             try
             {
                 this.CFXHandle = cfxHandle;
-                if (requestUri != null)
-                    this.RequestUri = requestUri;
-                else
-                    this.RequestUri = new Uri(string.Format("amqp://{0}:5672", EnvironmentHelper.GetMachineName()));
 
-                //requestProcessor = new AmqpRequestProcessor();
-                //requestProcessor.Open(this.CFXHandle, this.RequestUri);
-                //requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
+                if (requestUri != null)
+                {
+                    this.RequestUri = requestUri;
+                    requestProcessor = new AmqpRequestProcessor();
+                    requestProcessor.Open(this.CFXHandle, this.RequestUri, certificate);
+                    requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
+                }
 
                 IsOpen = true;
             }
@@ -384,12 +404,20 @@ namespace CFX.Transport
                 {
                     try
                     {
-                        reqConn = new Connection(new Address(targetAddress.ToString()));
+                        ConnectionFactory factory = new ConnectionFactory();
+                        if (targetAddress.Scheme.ToLower() == "amqps")
+                        {
+                            factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                            factory.SASL.Profile = SaslProfile.External;
+                        }
+
+                        reqConn = factory.CreateAsync(new Address(targetAddress.ToString())).Result;
+                        //reqConn = new Connection(new Address(targetAddress.ToString()));
                         reqSession = new Session(reqConn);
                         Attach recvAttach = new Attach()
                         {
-                            Source = new Source() { Address = CFXHandle },
-                            Target = new Target() { Address = request.Target }
+                            Source = new Source() { Address = request.Target },
+                            Target = new Target() { Address = CFXHandle }
                         };
 
                         receiver = new ReceiverLink(reqSession, "request-receiver", recvAttach, null);
@@ -422,14 +450,24 @@ namespace CFX.Transport
             }
             finally
             {
-                if (receiver != null && !receiver.IsClosed) receiver.Close();
-                if (sender != null && !sender.IsClosed) sender.Close();
-                if (reqSession != null && !reqSession.IsClosed) reqSession.Close();
-                if (reqConn != null && !reqConn.IsClosed) reqConn.Close();
+                if (receiver != null && !receiver.IsClosed) receiver.CloseAsync();
+                if (sender != null && !sender.IsClosed) sender.CloseAsync();
+                if (reqSession != null && !reqSession.IsClosed) reqSession.CloseAsync();
+                if (reqConn != null && !reqConn.IsClosed) reqConn.CloseAsync();
             }
 
             if (ex != null) throw ex;
             return response;
+        }
+
+        static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            if (certificate != null)
+            {
+                Console.WriteLine("Received remote certificate. Subject: {0}, Policy errors: {1}", certificate.Subject, sslPolicyErrors);
+            }
+
+            return true;
         }
     }
 }

@@ -37,23 +37,23 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnSendMsg = new System.Windows.Forms.Button();
-            this.txtRequestPort = new System.Windows.Forms.TextBox();
+            this.txtRequestUri = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClearReceiveChannels = new System.Windows.Forms.Button();
             this.btnAddReceiveChannel = new System.Windows.Forms.Button();
             this.txtReceiveChannels = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnRequest = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lstResults = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.reqUri = new System.Windows.Forms.TextBox();
             this.reqHandle = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.reqUri = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.reqPassword = new System.Windows.Forms.TextBox();
             this.reqUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.reqPassword = new System.Windows.Forms.TextBox();
+            this.lstResults = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -145,22 +145,21 @@
             this.btnSendMsg.UseVisualStyleBackColor = true;
             this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
             // 
-            // txtRequestPort
+            // txtRequestUri
             // 
-            this.txtRequestPort.Location = new System.Drawing.Point(379, 22);
-            this.txtRequestPort.Name = "txtRequestPort";
-            this.txtRequestPort.Size = new System.Drawing.Size(63, 20);
-            this.txtRequestPort.TabIndex = 1;
-            this.txtRequestPort.Text = "5673";
+            this.txtRequestUri.Location = new System.Drawing.Point(342, 22);
+            this.txtRequestUri.Name = "txtRequestUri";
+            this.txtRequestUri.Size = new System.Drawing.Size(151, 20);
+            this.txtRequestUri.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(273, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Request Listen Port";
+            this.label3.Text = "Request Uri";
             // 
             // btnClearReceiveChannels
             // 
@@ -223,58 +222,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Event Channels";
             // 
-            // btnRequest
-            // 
-            this.btnRequest.Location = new System.Drawing.Point(965, 89);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(93, 25);
-            this.btnRequest.TabIndex = 14;
-            this.btnRequest.Text = "Send Request";
-            this.btnRequest.UseVisualStyleBackColor = true;
-            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.reqPassword);
-            this.groupBox2.Controls.Add(this.reqUsername);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtRequestPort);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.btnClose);
-            this.groupBox2.Controls.Add(this.btnOpen);
-            this.groupBox2.Controls.Add(this.txtCFXHandle);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(17, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1081, 56);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "This Endpoint";
-            // 
-            // lstResults
-            // 
-            this.lstResults.FormattingEnabled = true;
-            this.lstResults.Location = new System.Drawing.Point(17, 226);
-            this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(1090, 381);
-            this.lstResults.TabIndex = 19;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(555, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Target Uri:";
-            // 
-            // reqUri
-            // 
-            this.reqUri.Location = new System.Drawing.Point(683, 93);
-            this.reqUri.Name = "reqUri";
-            this.reqUri.Size = new System.Drawing.Size(276, 20);
-            this.reqUri.TabIndex = 16;
-            // 
             // reqHandle
             // 
             this.reqHandle.Location = new System.Drawing.Point(683, 119);
@@ -291,9 +238,62 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Target Handle:";
             // 
+            // reqUri
+            // 
+            this.reqUri.Location = new System.Drawing.Point(683, 93);
+            this.reqUri.Name = "reqUri";
+            this.reqUri.Size = new System.Drawing.Size(276, 20);
+            this.reqUri.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(555, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Target Uri:";
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(965, 89);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(93, 25);
+            this.btnRequest.TabIndex = 14;
+            this.btnRequest.Text = "Send Request";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.reqPassword);
+            this.groupBox2.Controls.Add(this.reqUsername);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtRequestUri);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btnClose);
+            this.groupBox2.Controls.Add(this.btnOpen);
+            this.groupBox2.Controls.Add(this.txtCFXHandle);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(17, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1081, 56);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "This Endpoint";
+            // 
+            // reqPassword
+            // 
+            this.reqPassword.Location = new System.Drawing.Point(784, 22);
+            this.reqPassword.Name = "reqPassword";
+            this.reqPassword.PasswordChar = '*';
+            this.reqPassword.Size = new System.Drawing.Size(118, 20);
+            this.reqPassword.TabIndex = 14;
+            this.reqPassword.Text = "5673";
+            // 
             // reqUsername
             // 
-            this.reqUsername.Location = new System.Drawing.Point(617, 22);
+            this.reqUsername.Location = new System.Drawing.Point(660, 22);
             this.reqUsername.Name = "reqUsername";
             this.reqUsername.Size = new System.Drawing.Size(118, 20);
             this.reqUsername.TabIndex = 12;
@@ -302,20 +302,19 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(456, 25);
+            this.label7.Location = new System.Drawing.Point(499, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "Request Username / Password";
             // 
-            // reqPassword
+            // lstResults
             // 
-            this.reqPassword.Location = new System.Drawing.Point(741, 22);
-            this.reqPassword.Name = "reqPassword";
-            this.reqPassword.PasswordChar = '*';
-            this.reqPassword.Size = new System.Drawing.Size(118, 20);
-            this.reqPassword.TabIndex = 14;
-            this.reqPassword.Text = "5673";
+            this.lstResults.FormattingEnabled = true;
+            this.lstResults.Location = new System.Drawing.Point(17, 226);
+            this.lstResults.Name = "lstResults";
+            this.lstResults.Size = new System.Drawing.Size(1090, 381);
+            this.lstResults.TabIndex = 19;
             // 
             // MainForm
             // 
@@ -347,7 +346,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSendMsg;
-        private System.Windows.Forms.TextBox txtRequestPort;
+        private System.Windows.Forms.TextBox txtRequestUri;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnClearReceiveChannels;
         private System.Windows.Forms.Button btnAddReceiveChannel;
