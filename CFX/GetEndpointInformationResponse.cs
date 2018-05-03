@@ -82,6 +82,15 @@ namespace CFX
             get;
             set;
         }
+        
+        /// <summary>
+        /// The physical location of the endpoint.
+        /// </summary>
+        public string PhysicalLocation
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// The AMQP 1.0 target address to be used for requests to this endpoint
