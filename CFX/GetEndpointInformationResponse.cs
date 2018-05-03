@@ -136,6 +136,15 @@ namespace CFX
             get;
             set;
         }
+        
+        /// <summary>
+        /// A human friendly description of the physical location of this endpoint
+        /// </summary>
+        public string EndpointLocation
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// The number of stages (zones) of the endpoint
