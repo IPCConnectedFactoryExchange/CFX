@@ -56,6 +56,7 @@
       <DependentUpon>AddChannelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CFXExampleGenerator.cs" />
+    <Compile Include="ExampleCodeSnippets.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

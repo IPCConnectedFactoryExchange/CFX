@@ -44,7 +44,7 @@
     <section address="Section1">
       <title>Guidelines on Submissions</title>
       <content>
-      <para>Here is an overview of the process you should follow to submit a request to change/augment the CFX message structure and/or SDK:
+      <para>Here are some basic guidelines you should follow when making submissions:
       </para>
       <list class="bullet">
       <listItem><para>All changes and additions to CFX must be fully documented in English using XML Code Documentation Comment system described at:  <externalLink><linkText>https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments</linkText><linkUri>https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments</linkUri></externalLink></para></listItem>

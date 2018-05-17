@@ -14,7 +14,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.6</FrameworkVersion>
-    <OutputPath>..\docs\</OutputPath>
+    <OutputPath>..\..\..\Aegis Operations\CFXDemonstration\CFXDemonstration\SDK\</OutputPath>
     <HtmlHelpName>CFXSDK</HtmlHelpName>
     <Language>en-US</Language>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
@@ -612,6 +612,7 @@
     <ContentLayout Include="Content Layout.content" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HelpContent\CommonExamples.aml" />
     <None Include="HelpContent\How To Submit Additions and Changes.aml" />
     <None Include="HelpContent\GettingStarted.aml" />
   </ItemGroup>

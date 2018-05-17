@@ -71,22 +71,6 @@
   <HelpKINode Title="AmqpChannelAddress.Address property" Url="html/P_CFX_Transport_AmqpChannelAddress_Address.htm" />
   <HelpKINode Title="AmqpChannelAddress.AmqpChannelAddress constructor" Url="html/M_CFX_Transport_AmqpChannelAddress__ctor.htm" />
   <HelpKINode Title="AmqpChannelAddress.Uri property" Url="html/P_CFX_Transport_AmqpChannelAddress_Uri.htm" />
-  <HelpKINode Title="AmqpRequestProcessor class">
-    <HelpKINode Title="AmqpRequestProcessor Class" Url="html/T_CFX_Transport_AmqpRequestProcessor.htm" />
-    <HelpKINode Title="constructor" Url="html/M_CFX_Transport_AmqpRequestProcessor__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_CFX_Transport_AmqpRequestProcessor.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_CFX_Transport_AmqpRequestProcessor.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_CFX_Transport_AmqpRequestProcessor.htm" />
-  </HelpKINode>
-  <HelpKINode Title="AmqpRequestProcessor.AmqpRequestProcessor constructor" Url="html/M_CFX_Transport_AmqpRequestProcessor__ctor.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.CFXHandle property" Url="html/P_CFX_Transport_AmqpRequestProcessor_CFXHandle.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.Close method" Url="html/M_CFX_Transport_AmqpRequestProcessor_Close.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.Dispose method" Url="html/M_CFX_Transport_AmqpRequestProcessor_Dispose.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.OnRequestReceived event" Url="html/E_CFX_Transport_AmqpRequestProcessor_OnRequestReceived.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.Open method" Url="html/M_CFX_Transport_AmqpRequestProcessor_Open.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.RequestHandle property" Url="html/P_CFX_Transport_AmqpRequestProcessor_RequestHandle.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.RequestUri property" Url="html/P_CFX_Transport_AmqpRequestProcessor_RequestUri.htm" />
-  <HelpKINode Title="AmqpRequestProcessor.SendTimout property" Url="html/P_CFX_Transport_AmqpRequestProcessor_SendTimout.htm" />
   <HelpKINode Title="AmqpTraceEnabled property">
     <HelpKINode Title="AppLog.AmqpTraceEnabled Property " Url="html/P_CFX_Utilities_AppLog_AmqpTraceEnabled.htm" />
     <HelpKINode Title="AppLogSettings.AmqpTraceEnabled Property " Url="html/P_CFX_Utilities_AppLogSettings_AmqpTraceEnabled.htm" />
@@ -425,7 +409,6 @@
   <HelpKINode Title="CFX.Transport namespace" Url="html/N_CFX_Transport.htm" />
   <HelpKINode Title="CFX.Transport.AmqpCFXEndpoint class" Url="html/T_CFX_Transport_AmqpCFXEndpoint.htm" />
   <HelpKINode Title="CFX.Transport.AmqpChannelAddress class" Url="html/T_CFX_Transport_AmqpChannelAddress.htm" />
-  <HelpKINode Title="CFX.Transport.AmqpRequestProcessor class" Url="html/T_CFX_Transport_AmqpRequestProcessor.htm" />
   <HelpKINode Title="CFX.Transport.AmqpUtilities class" Url="html/T_CFX_Transport_AmqpUtilities.htm" />
   <HelpKINode Title="CFX.Transport.AuthenticationMode enumeration" Url="html/T_CFX_Transport_AuthenticationMode.htm" />
   <HelpKINode Title="CFX.Transport.CFXMessageReceivedHandler delegate" Url="html/T_CFX_Transport_CFXMessageReceivedHandler.htm" />
@@ -467,7 +450,6 @@
   <HelpKINode Title="CFXEnvelope.Version property" Url="html/P_CFX_CFXEnvelope_Version.htm" />
   <HelpKINode Title="CFXHandle property">
     <HelpKINode Title="AmqpCFXEndpoint.CFXHandle Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_CFXHandle.htm" />
-    <HelpKINode Title="AmqpRequestProcessor.CFXHandle Property " Url="html/P_CFX_Transport_AmqpRequestProcessor_CFXHandle.htm" />
     <HelpKINode Title="AreYouThereRequest.CFXHandle Property " Url="html/P_CFX_AreYouThereRequest_CFXHandle.htm" />
     <HelpKINode Title="AreYouThereResponse.CFXHandle Property " Url="html/P_CFX_AreYouThereResponse_CFXHandle.htm" />
     <HelpKINode Title="EndpointConnected.CFXHandle Property " Url="html/P_CFX_EndpointConnected_CFXHandle.htm" />
@@ -543,10 +525,7 @@
     <HelpKINode Title="CleanStencilRequest.CleanTypeRequested Property " Url="html/P_CFX_ResourcePerformance_SolderPastePrinting_CleanStencilRequest_CleanTypeRequested.htm" />
   </HelpKINode>
   <HelpKINode Title="ClinchError enumeration member" Url="html/T_CFX_Structures_THTInsertion_THTInsertionFaultType.htm" />
-  <HelpKINode Title="Close method">
-    <HelpKINode Title="AmqpCFXEndpoint.Close Method " Url="html/M_CFX_Transport_AmqpCFXEndpoint_Close.htm" />
-    <HelpKINode Title="AmqpRequestProcessor.Close Method " Url="html/M_CFX_Transport_AmqpRequestProcessor_Close.htm" />
-  </HelpKINode>
+  <HelpKINode Title="Close method" Url="html/M_CFX_Transport_AmqpCFXEndpoint_Close.htm" />
   <HelpKINode Title="ClosePublishChannel method" Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_ClosePublishChannel.htm" />
   <HelpKINode Title="CloseSubscribeChannel method" Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_CloseSubscribeChannel.htm" />
   <HelpKINode Title="Comments property">
@@ -656,10 +635,7 @@
     <HelpKINode Title="SMTPlacementFault.Designator Property " Url="html/P_CFX_Structures_SMTPlacement_SMTPlacementFault_Designator.htm" />
     <HelpKINode Title="THTInsertionFault.Designator Property " Url="html/P_CFX_Structures_THTInsertion_THTInsertionFault_Designator.htm" />
   </HelpKINode>
-  <HelpKINode Title="Dispose method">
-    <HelpKINode Title="AmqpCFXEndpoint.Dispose Method " Url="html/M_CFX_Transport_AmqpCFXEndpoint_Dispose.htm" />
-    <HelpKINode Title="AmqpRequestProcessor.Dispose Method " Url="html/M_CFX_Transport_AmqpRequestProcessor_Dispose.htm" />
-  </HelpKINode>
+  <HelpKINode Title="Dispose method" Url="html/M_CFX_Transport_AmqpCFXEndpoint_Dispose.htm" />
   <HelpKINode Title="DurableMessages property" Url="html/P_CFX_Transport_AmqpCFXEndpoint_DurableMessages.htm" />
   <HelpKINode Title="DurableReceiverSetting property" Url="html/P_CFX_Transport_AmqpCFXEndpoint_DurableReceiverSetting.htm" />
   <HelpKINode Title="Embossed enumeration member" Url="html/T_CFX_Structures_SMTPlacement_SMDTapeType.htm" />
@@ -1451,16 +1427,10 @@
   <HelpKINode Title="On enumeration member" Url="html/T_CFX_Structures_ResourceState.htm" />
   <HelpKINode Title="OnCFXMessageReceived event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnCFXMessageReceived.htm" />
   <HelpKINode Title="OnRequestHandler delegate" Url="html/T_CFX_Transport_OnRequestHandler.htm" />
-  <HelpKINode Title="OnRequestReceived event">
-    <HelpKINode Title="AmqpCFXEndpoint.OnRequestReceived Event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnRequestReceived.htm" />
-    <HelpKINode Title="AmqpRequestProcessor.OnRequestReceived Event" Url="html/E_CFX_Transport_AmqpRequestProcessor_OnRequestReceived.htm" />
-  </HelpKINode>
+  <HelpKINode Title="OnRequestReceived event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnRequestReceived.htm" />
   <HelpKINode Title="OnTraceMessage event" Url="html/E_CFX_Utilities_AppLog_OnTraceMessage.htm" />
   <HelpKINode Title="OnValidateCertificate event" Url="html/E_CFX_Transport_AmqpCFXEndpoint_OnValidateCertificate.htm" />
-  <HelpKINode Title="Open method">
-    <HelpKINode Title="AmqpCFXEndpoint.Open Method " Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_Open.htm" />
-    <HelpKINode Title="AmqpRequestProcessor.Open Method " Url="html/M_CFX_Transport_AmqpRequestProcessor_Open.htm" />
-  </HelpKINode>
+  <HelpKINode Title="Open method" Url="html/Overload_CFX_Transport_AmqpCFXEndpoint_Open.htm" />
   <HelpKINode Title="Operator class">
     <HelpKINode Title="Operator Class" Url="html/T_CFX_Structures_Operator.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_CFX_Structures_Operator.htm" />
@@ -1707,7 +1677,6 @@
   <HelpKINode Title="RemainingQuantity property" Url="html/P_CFX_Structures_ConsumedMaterial_RemainingQuantity.htm" />
   <HelpKINode Title="RemoteStop enumeration member" Url="html/T_CFX_Structures_FaultCause.htm" />
   <HelpKINode Title="Repair enumeration member" Url="html/T_CFX_Structures_MaintenanceType.htm" />
-  <HelpKINode Title="RequestHandle property" Url="html/P_CFX_Transport_AmqpRequestProcessor_RequestHandle.htm" />
   <HelpKINode Title="RequestID property" Url="html/P_CFX_CFXEnvelope_RequestID.htm" />
   <HelpKINode Title="RequestNetworkUri property">
     <HelpKINode Title="AreYouThereResponse.RequestNetworkUri Property " Url="html/P_CFX_AreYouThereResponse_RequestNetworkUri.htm" />
@@ -1734,10 +1703,7 @@
     <HelpKINode Title="WhoIsThereResponse.RequestTargetAddress Property " Url="html/P_CFX_WhoIsThereResponse_RequestTargetAddress.htm" />
   </HelpKINode>
   <HelpKINode Title="RequestTimeout property" Url="html/P_CFX_Transport_AmqpCFXEndpoint_RequestTimeout.htm" />
-  <HelpKINode Title="RequestUri property">
-    <HelpKINode Title="AmqpCFXEndpoint.RequestUri Property " Url="html/P_CFX_Transport_AmqpCFXEndpoint_RequestUri.htm" />
-    <HelpKINode Title="AmqpRequestProcessor.RequestUri Property " Url="html/P_CFX_Transport_AmqpRequestProcessor_RequestUri.htm" />
-  </HelpKINode>
+  <HelpKINode Title="RequestUri property" Url="html/P_CFX_Transport_AmqpCFXEndpoint_RequestUri.htm" />
   <HelpKINode Title="ResourceState enumeration" Url="html/T_CFX_Structures_ResourceState.htm" />
   <HelpKINode Title="Result property">
     <HelpKINode Title="ActivateRecipeResponse.Result Property " Url="html/P_CFX_Production_ActivateRecipeResponse_Result.htm" />
@@ -1808,7 +1774,6 @@
   <HelpKINode Title="Segment.Y property" Url="html/P_CFX_Structures_Segment_Y.htm" />
   <HelpKINode Title="SendAzureAuthenticationToken method" Url="html/M_CFX_Transport_AmqpUtilities_SendAzureAuthenticationToken.htm" />
   <HelpKINode Title="Sender enumeration member" Url="html/T_CFX_Transport_LinkType.htm" />
-  <HelpKINode Title="SendTimout property" Url="html/P_CFX_Transport_AmqpRequestProcessor_SendTimout.htm" />
   <HelpKINode Title="Sequence property" Url="html/P_CFX_Structures_Measurement_Sequence.htm" />
   <HelpKINode Title="SerializeObject method" Url="html/M_CFX_Utilities_CFXJsonSerializer_SerializeObject.htm" />
   <HelpKINode Title="SerializeObjectWithTypes method" Url="html/M_CFX_Utilities_CFXJsonSerializer_SerializeObjectWithTypes.htm" />
@@ -2178,22 +2143,22 @@
   <HelpKINode Title="TraceListenerHandler delegate" Url="html/T_CFX_Utilities_TraceListenerHandler.htm" />
   <HelpKINode Title="TrackedBy property" Url="html/P_CFX_Materials_Transport_CheckpointReached_TrackedBy.htm" />
   <HelpKINode Title="TrailingMaterialPackage property" Url="html/P_CFX_Materials_Management_MaterialsJoined_TrailingMaterialPackage.htm" />
+  <HelpKINode Title="TransactionID property">
+    <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
+    <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
+    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
+    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
+    <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
+    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
+  </HelpKINode>
   <HelpKINode Title="TransactionId property">
-    <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
     <HelpKINode Title="MaterialsUninstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsUninstalled_TransactionId.htm" />
+    <HelpKINode Title="MaterialsInstalled.TransactionId Property " Url="html/P_CFX_Production_Assembly_MaterialsInstalled_TransactionId.htm" />
     <HelpKINode Title="ReadingsRecorded.TransactionId Property " Url="html/P_CFX_Production_ReadingsRecorded_TransactionId.htm" />
-    <HelpKINode Title="ToolsUsed.TransactionId Property " Url="html/P_CFX_Production_Assembly_ToolsUsed_TransactionId.htm" />
     <HelpKINode Title="UnitsInspected.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsInspected_TransactionId.htm" />
+    <HelpKINode Title="ToolsUsed.TransactionId Property " Url="html/P_CFX_Production_Assembly_ToolsUsed_TransactionId.htm" />
     <HelpKINode Title="UnitsPersonalized.TransactionId Property " Url="html/P_CFX_Production_Assembly_UnitsPersonalized_TransactionId.htm" />
     <HelpKINode Title="UnitsTested.TransactionId Property " Url="html/P_CFX_Production_TestAndInspection_UnitsTested_TransactionId.htm" />
-  </HelpKINode>
-  <HelpKINode Title="TransactionID property">
-    <HelpKINode Title="WorkCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkStageCompleted.TransactionID Property " Url="html/P_CFX_Production_WorkStageCompleted_TransactionID.htm" />
-    <HelpKINode Title="WorkStagePaused.TransactionID Property " Url="html/P_CFX_Production_WorkStagePaused_TransactionID.htm" />
-    <HelpKINode Title="WorkStageResumed.TransactionID Property " Url="html/P_CFX_Production_WorkStageResumed_TransactionID.htm" />
-    <HelpKINode Title="WorkStageStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStageStarted_TransactionID.htm" />
-    <HelpKINode Title="WorkStarted.TransactionID Property " Url="html/P_CFX_Production_WorkStarted_TransactionID.htm" />
   </HelpKINode>
   <HelpKINode Title="TransportOrderCompleted class">
     <HelpKINode Title="TransportOrderCompleted Class" Url="html/T_CFX_Materials_Transport_TransportOrderCompleted.htm" />

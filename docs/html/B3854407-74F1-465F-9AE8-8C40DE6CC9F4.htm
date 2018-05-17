@@ -1,0 +1,119 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Common Functions and Tasks</title><meta name="Language" content="en-us" /><meta name="Microsoft.Help.Id" content="B3854407-74F1-465F-9AE8-8C40DE6CC9F4" /><meta name="Description" content="Here you can find a series of code snippets and additional information which demonstrate common functions that may be performed using the CFX SDK. You should read the Getting Started section before looking through the examples below." /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="BrandingAware" content="true" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">IPC Connected Factory Exchange Reference<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html\cfb57aac-b696-4c6c-b94b-f034b37daf26.htm" title="IPC Connected Factory Exchange Reference" tocid="roottoc">IPC Connected Factory Exchange Reference</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="../html/cfb57aac-b696-4c6c-b94b-f034b37daf26.htm" title="Getting Started with the SDK" tocid="cfb57aac-b696-4c6c-b94b-f034b37daf26">Getting Started with the SDK</a></div><div class="toclevel1 current" data-toclevel="1"><a data-tochassubtree="false" href="../html/B3854407-74F1-465F-9AE8-8C40DE6CC9F4.htm" title="Common Functions and Tasks" tocid="B3854407-74F1-465F-9AE8-8C40DE6CC9F4">Common Functions and Tasks</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="../html/1ea1dd3b-0f0b-451d-adaa-7927d64f2b4d.htm" title="How To Submit Additions and Changes" tocid="1ea1dd3b-0f0b-451d-adaa-7927d64f2b4d">How To Submit Additions and Changes</a></div><div class="toclevel1" data-toclevel="1"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/R_Project_CFXSDK.htm" title="CFX Topics, Messages, and Data Structures" tocid="R_Project_CFXSDK">CFX Topics, Messages, and Data Structures</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="titleColumn"><h1>Common Functions and Tasks</h1></td></tr></table><span class="introStyle"></span> <p style="color: #dc143c; font-size: 8.5pt; font-weight: bold;">[This is preliminary documentation and is subject to change.]</p><div class="introduction"><p>Here you can find a series of code snippets and additional information which demonstrate common functions that may be performed using the CFX SDK.
+      You should read the <a href="cfb57aac-b696-4c6c-b94b-f034b37daf26.htm">Getting Started</a> section before looking through
+      the examples below.
+      </p></div><div class="collapsibleAreaRegion" id="Section1"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID1RB')" onkeypress="SectionExpandCollapse_CheckKey('ID1RB', event)" tabindex="0"><img id="ID1RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Publishing or Receiving Encrypted/Secure Messages to/from a Broker (or other Destination)</span></div><div id="ID1RBSection" class="collapsibleSection"><p>To enable encrypted/secure message transmission, simply use "amqps://" as the scheme in your Uri instead of "amqp://".
+      By default, all unsecured transmissions are sent using TCP port 5672.  All secure transmissions are sent on TCP port 5671.
+      </p><p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAAEAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAAEAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAAEAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">AmqpCFXEndpoint endpoint = <span class="highlight-keyword">new</span> AmqpCFXEndpoint();
+endpoint.Open(<span class="highlight-literal">"Vendor1.Model1.Machine34"</span>);
+
+<span class="highlight-comment">// Note the user of "amqps://" instead of "amqp://"</span>
+Uri uri = <span class="highlight-keyword">new</span> Uri(<span class="highlight-literal">"amqps://mycfxbroker.mydomain.com"</span>);           
+
+<span class="highlight-comment">// Target exchange on broker (shown here in RabbitMQ compatible format)</span>
+<span class="highlight-keyword">string</span> amqpTarget = <span class="highlight-literal">"/exchange/myexchange"</span>;
+endpoint.AddPublishChannel(uri, amqpTarget);
+
+<span class="highlight-comment">// Source queue on broker (shown here in RabbitMQ compatible format)</span>
+<span class="highlight-keyword">string</span> amqpSource = <span class="highlight-literal">"/queue/myqueue"</span>;
+endpoint.AddSubscribeChannel(uri, amqpSource);</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAAEAAA");</script></p></div><div class="collapsibleAreaRegion" id="Section2"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID2RB')" onkeypress="SectionExpandCollapse_CheckKey('ID2RB', event)" tabindex="0"><img id="ID2RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Authenticating with a Broker (or other Destination) when Publishing or Receiving Messages</span></div><div id="ID2RBSection" class="collapsibleSection"><p>Encode your username and password into the target Uri.  Though encrypted communication (AMQPS) is not required, it
+      is highly recommended.  If standard AMQP is used, your password will be transmitted in clear text across the network.
+      </p><p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAADAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAADAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAADAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">AmqpCFXEndpoint endpoint = <span class="highlight-keyword">new</span> AmqpCFXEndpoint();
+endpoint.Open(<span class="highlight-literal">"Vendor1.Model1.Machine34"</span>);
+
+<span class="highlight-comment">// Encode your username and password into the destination Uri</span>
+<span class="highlight-keyword">string</span> username = <span class="highlight-literal">"myusername"</span>;
+<span class="highlight-keyword">string</span> password = <span class="highlight-literal">"mypassword"</span>;
+<span class="highlight-keyword">string</span> hostname = <span class="highlight-literal">"mycfxbroker.mydomain.com"</span>;
+
+<span class="highlight-comment">//  eg.  amqps://myusername:mypassword@mycfxbroker.mydomain.com</span>
+Uri uri = <span class="highlight-keyword">new</span> Uri(<span class="highlight-keyword">string</span>.Format(<span class="highlight-literal">"amqps://{0}:{1}@{2}"</span>, username, password, hostname));
+
+<span class="highlight-comment">// Target exchange on broker (shown here in RabbitMQ compatible format)</span>
+<span class="highlight-keyword">string</span> amqpTarget = <span class="highlight-literal">"/exchange/myexchange"</span>;
+endpoint.AddPublishChannel(uri, amqpTarget);
+
+<span class="highlight-comment">// Source queue on broker (shown here in RabbitMQ compatible format)</span>
+<span class="highlight-keyword">string</span> amqpSource = <span class="highlight-literal">"/queue/myqueue"</span>;
+endpoint.AddSubscribeChannel(uri, amqpSource);</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAADAAA");</script></p></div><div class="collapsibleAreaRegion" id="Section3"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID3RB')" onkeypress="SectionExpandCollapse_CheckKey('ID3RB', event)" tabindex="0"><img id="ID3RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Sending a Direct, Synchronous Request (Request/Response Pattern) to another CFX Endpoint</span></div><div id="ID3RBSection" class="collapsibleSection"><p>Use the ExecuteRequest method to make direct requests to other CFX endpoints.  This is a syncrhonous (blocking) method.
+      Just as with pub/sub messages, you may use secure communications (AMQPS) for direct point-to-point request/response transactions.
+      Just use "amqps://" in your Uri rather than "amqp://".  If the remote CFX endpoint requires authentication, you may pass your
+      username and password in the Uri as well (just as you would with standard pub/sub message transmission).
+      </p><p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAACAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAACAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAACAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">string</span> myCFXHandle = <span class="highlight-literal">"Vendor1.Model1.Machine34"</span>;
+
+AmqpCFXEndpoint endpoint = <span class="highlight-keyword">new</span> AmqpCFXEndpoint();
+endpoint.Open(myCFXHandle);
+
+<span class="highlight-keyword">string</span> targetEndpointHostname = <span class="highlight-literal">"machine55.mydomain.com"</span>;
+<span class="highlight-keyword">string</span> targetCFXHandle = <span class="highlight-literal">"Vendor2.Model2.Machine55"</span>;
+<span class="highlight-keyword">string</span> remoteUri = <span class="highlight-keyword">string</span>.Format(<span class="highlight-literal">"amqp://{0}"</span>, targetEndpointHostname);
+
+<span class="highlight-comment">// Set a timeout of 20 seconds.  If the target endpoint does not</span>
+<span class="highlight-comment">// respond in this time, the request will time out.</span>
+AmqpCFXEndpoint.RequestTimeout = TimeSpan.FromSeconds(<span class="highlight-number">20</span>);
+
+<span class="highlight-comment">// Build a GetEndpointInfomation Request</span>
+CFXEnvelope request = CFXEnvelope.FromCFXMessage(<span class="highlight-keyword">new</span> GetEndpointInformationRequest()
+{
+    CFXHandle = targetCFXHandle
+});
+
+CFXEnvelope response = endpoint.ExecuteRequest(remoteUri, request);</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAACAAA");</script></p></div><div class="collapsibleAreaRegion" id="Section4"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID4RB')" onkeypress="SectionExpandCollapse_CheckKey('ID4RB', event)" tabindex="0"><img id="ID4RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Receiving and Processing Direct, Synchronous Requests (Request/Response Pattern) from other CFX Endpoints</span></div><div id="ID4RBSection" class="collapsibleSection"><p>Initialize your endpoint with an inbound request Uri (optional parameter of the Open method).  Hook up an event handler
+      to process requests and return responses.
+      </p><p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAABAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAABAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAABAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">AmqpCFXEndpoint endpoint;
+<span class="highlight-keyword">string</span> myCFXHandle = <span class="highlight-literal">"Vendor1.Model1.Machine34"</span>;
+Uri myRequestUri;
+
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> OpenEndpoint()
+{
+    endpoint = <span class="highlight-keyword">new</span> AmqpCFXEndpoint();
+    myRequestUri = <span class="highlight-keyword">new</span> Uri(<span class="highlight-keyword">string</span>.Format(<span class="highlight-literal">"amqp://{0}"</span>, System.Net.Dns.GetHostName()));
+
+    endpoint.OnRequestReceived += Endpoint_OnRequestReceived;
+    endpoint.Open(myCFXHandle, myRequestUri);
+}
+
+<span class="highlight-keyword">private</span> CFXEnvelope Endpoint_OnRequestReceived(CFXEnvelope request)
+{
+    <span class="highlight-comment">// Process request.  Return Result.</span>
+    <span class="highlight-keyword">if</span> (request.MessageBody <span class="highlight-keyword">is</span> WhoIsThereRequest)
+    {
+        CFXEnvelope result = CFXEnvelope.FromCFXMessage(<span class="highlight-keyword">new</span> WhoIsThereResponse()
+        { CFXHandle = myCFXHandle, RequestNetworkUri = myRequestUri.ToString(), RequestTargetAddress = <span class="highlight-literal">""</span> });
+        result.Source = myCFXHandle;
+        result.Target = request.Source;
+        <span class="highlight-keyword">return</span> result;
+    }
+
+    <span class="highlight-keyword">return</span> <span class="highlight-keyword">null</span>;
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAABAAA");</script></p></div><div class="collapsibleAreaRegion" id="Section5"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID5RB')" onkeypress="SectionExpandCollapse_CheckKey('ID5RB', event)" tabindex="0"><img id="ID5RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Receiving and Processing Secure Direct, Synchronous Requests (Request/Response Pattern) from other CFX Endpoints</span></div><div id="ID5RBSection" class="collapsibleSection"><p>Initialize your endpoint with an inbound request Uri (optional parameter of the Open method).  Hook up an event handler
+      to process requests and return responses.
+      </p><p><div class="codeSnippetContainer"><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EAAAAAAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EAAAAAAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAAAAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">AmqpCFXEndpoint endpoint;
+<span class="highlight-keyword">string</span> myCFXHandle = <span class="highlight-literal">"Vendor1.Model1.Machine34"</span>;
+Uri myRequestUri;
+
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> OpenEndpointSecure()
+{
+    endpoint = <span class="highlight-keyword">new</span> AmqpCFXEndpoint();
+    myRequestUri = <span class="highlight-keyword">new</span> Uri(<span class="highlight-keyword">string</span>.Format(<span class="highlight-literal">"amqps://{0}"</span>, System.Net.Dns.GetHostName()));
+
+    <span class="highlight-comment">// Load certificate from local machine or user certificate store</span>
+    X509Certificate2 cert = AmqpUtilities.GetCertificate(<span class="highlight-literal">"MyCertificateName"</span>);
+
+    endpoint.OnRequestReceived += Endpoint_OnRequestReceived;
+    endpoint.Open(myCFXHandle, myRequestUri, cert);
+}
+
+<span class="highlight-keyword">private</span> CFXEnvelope Endpoint_OnRequestReceived(CFXEnvelope request)
+{
+    <span class="highlight-comment">// Process request.  Return Result.</span>
+    <span class="highlight-keyword">if</span> (request.MessageBody <span class="highlight-keyword">is</span> WhoIsThereRequest)
+    {
+        CFXEnvelope result = CFXEnvelope.FromCFXMessage(<span class="highlight-keyword">new</span> WhoIsThereResponse()
+        { CFXHandle = myCFXHandle, RequestNetworkUri = myRequestUri.ToString(), RequestTargetAddress = <span class="highlight-literal">""</span> });
+        result.Source = myCFXHandle;
+        result.Target = request.Source;
+        <span class="highlight-keyword">return</span> result;
+    }
+
+    <span class="highlight-keyword">return</span> <span class="highlight-keyword">null</span>;
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAAAAAA");</script></p></div></div></div><div id="pageFooter" class="pageFooter" /></body></html>

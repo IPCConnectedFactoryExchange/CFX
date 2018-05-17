@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="B3854407-74F1-465F-9AE8-8C40DE6CC9F4" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+    <introduction>
+      <para>Here you can find a series of code snippets and additional information which demonstrate common functions that may be performed using the CFX SDK.
+      You should read the <link xlink:href="cfb57aac-b696-4c6c-b94b-f034b37daf26">Getting Started</link> section before looking through
+      the examples below.
+      </para>
+    </introduction>
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+      <section address="Section1">
+      <title>Publishing or Receiving Encrypted/Secure Messages to/from a Broker (or other Destination)</title>
+      <content>
+      <para>To enable encrypted/secure message transmission, simply use "amqps://" as the scheme in your Uri instead of "amqp://".
+      By default, all unsecured transmissions are sent using TCP port 5672.  All secure transmissions are sent on TCP port 5671.
+      </para>
+      <para><code>
+            AmqpCFXEndpoint endpoint = new AmqpCFXEndpoint();
+            endpoint.Open("Vendor1.Model1.Machine34");
+            
+            // Note the user of "amqps://" instead of "amqp://"
+            Uri uri = new Uri("amqps://mycfxbroker.mydomain.com");           
+                        
+            // Target exchange on broker (shown here in RabbitMQ compatible format)
+            string amqpTarget = "/exchange/myexchange";
+            endpoint.AddPublishChannel(uri, amqpTarget);
+            
+            // Source queue on broker (shown here in RabbitMQ compatible format)
+            string amqpSource = "/queue/myqueue";
+            endpoint.AddSubscribeChannel(uri, amqpSource);
+      </code></para>
+      </content>
+    </section>
+    <section address="Section2">
+      <title>Authenticating with a Broker (or other Destination) when Publishing or Receiving Messages</title>
+      <content>
+      <para>Encode your username and password into the target Uri.  Though encrypted communication (AMQPS) is not required, it
+      is highly recommended.  If standard AMQP is used, your password will be transmitted in clear text across the network.
+      </para>
+      <para><code>
+            AmqpCFXEndpoint endpoint = new AmqpCFXEndpoint();
+            endpoint.Open("Vendor1.Model1.Machine34");
+            
+            // Encode your username and password into the destination Uri
+            string username = "myusername";
+            string password = "mypassword";
+            string hostname = "mycfxbroker.mydomain.com";
+
+            //  eg.  amqps://myusername:mypassword@mycfxbroker.mydomain.com
+            Uri uri = new Uri(string.Format("amqps://{0}:{1}@{2}", username, password, hostname));
+            
+            // Target exchange on broker (shown here in RabbitMQ compatible format)
+            string amqpTarget = "/exchange/myexchange";
+            endpoint.AddPublishChannel(uri, amqpTarget);
+            
+            // Source queue on broker (shown here in RabbitMQ compatible format)
+            string amqpSource = "/queue/myqueue";
+            endpoint.AddSubscribeChannel(uri, amqpSource);
+      </code></para>
+      </content>
+    </section>
+    <section address="Section3">
+      <title>Sending a Direct, Synchronous Request (Request/Response Pattern) to another CFX Endpoint</title>
+      <content>
+      <para>Use the ExecuteRequest method to make direct requests to other CFX endpoints.  This is a synchronous (blocking) method.
+      Just as with pub/sub messages, you may use secure communications (AMQPS) for direct point-to-point request/response transactions.
+      Just use "amqps://" in your Uri rather than "amqp://".  If the remote CFX endpoint requires authentication, you may pass your
+      user name and password in the Uri as well (just as you would with standard pub/sub message transmission).
+      </para>
+      <para><code>
+            string myCFXHandle = "Vendor1.Model1.Machine34";
+                        
+            AmqpCFXEndpoint endpoint = new AmqpCFXEndpoint();
+            endpoint.Open(myCFXHandle);
+
+            string targetEndpointHostname = "machine55.mydomain.com";
+            string targetCFXHandle = "Vendor2.Model2.Machine55";
+            string remoteUri = string.Format("amqp://{0}", targetEndpointHostname);
+
+            // Set a timeout of 20 seconds.  If the target endpoint does not
+            // respond in this time, the request will time out.
+            AmqpCFXEndpoint.RequestTimeout = TimeSpan.FromSeconds(20);
+
+            // Build a GetEndpointInfomation Request
+            CFXEnvelope request = CFXEnvelope.FromCFXMessage(new GetEndpointInformationRequest()
+            {
+                CFXHandle = targetCFXHandle
+            });
+
+            CFXEnvelope response = endpoint.ExecuteRequest(remoteUri, request);
+      </code></para>
+      </content>
+    </section>
+    <section address="Section4">
+      <title>Receiving and Processing Direct, Synchronous Requests (Request/Response Pattern) from other CFX Endpoints</title>
+      <content>
+      <para>Initialize your endpoint with an inbound request Uri (optional parameter of the Open method).  Hook up an event handler
+      to process requests and return responses.
+      </para>
+      <para><code>
+        AmqpCFXEndpoint endpoint;
+        string myCFXHandle = "Vendor1.Model1.Machine34";
+        Uri myRequestUri;
+
+        public void OpenEndpoint()
+        {
+            endpoint = new AmqpCFXEndpoint();
+            myRequestUri = new Uri(string.Format("amqp://{0}", System.Net.Dns.GetHostName()));
+
+            endpoint.OnRequestReceived += Endpoint_OnRequestReceived;
+            endpoint.Open(myCFXHandle, myRequestUri);
+        }
+
+        private CFXEnvelope Endpoint_OnRequestReceived(CFXEnvelope request)
+        {
+            // Process request.  Return Result.
+            if (request.MessageBody is WhoIsThereRequest)
+            {
+                CFXEnvelope result = CFXEnvelope.FromCFXMessage(new WhoIsThereResponse()
+                { CFXHandle = myCFXHandle, RequestNetworkUri = myRequestUri.ToString(), RequestTargetAddress = "" });
+                result.Source = myCFXHandle;
+                result.Target = request.Source;
+                return result;
+            }
+
+            return null;
+        }
+      </code></para>
+      </content>
+    </section>
+    <section address="Section5">
+      <title>Receiving and Processing Secure Direct, Synchronous Requests (Request/Response Pattern) from other CFX Endpoints</title>
+      <content>
+      <para>Initialize your endpoint with an inbound request Uri (optional parameter of the Open method).  Hook up an event handler
+      to process requests and return responses.
+      </para>
+      <para><code>
+        AmqpCFXEndpoint endpoint;
+        string myCFXHandle = "Vendor1.Model1.Machine34";
+        Uri myRequestUri;
+        
+        public void OpenEndpointSecure()
+        {
+            endpoint = new AmqpCFXEndpoint();
+            myRequestUri = new Uri(string.Format("amqps://{0}", System.Net.Dns.GetHostName()));
+            
+            // Load certificate from local machine or user certificate store
+            X509Certificate2 cert = AmqpUtilities.GetCertificate("MyCertificateName");
+            
+            endpoint.OnRequestReceived += Endpoint_OnRequestReceived;
+            endpoint.Open(myCFXHandle, myRequestUri, cert);
+        }
+
+        private CFXEnvelope Endpoint_OnRequestReceived(CFXEnvelope request)
+        {
+            // Process request.  Return Result.
+            if (request.MessageBody is WhoIsThereRequest)
+            {
+                CFXEnvelope result = CFXEnvelope.FromCFXMessage(new WhoIsThereResponse()
+                { CFXHandle = myCFXHandle, RequestNetworkUri = myRequestUri.ToString(), RequestTargetAddress = "" });
+                result.Source = myCFXHandle;
+                result.Target = request.Source;
+                return result;
+            }
+
+            return null;
+        }
+      </code></para>
+      </content>
+    </section>
+  </developerConceptualDocument>
+</topic>
