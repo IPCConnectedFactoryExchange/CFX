@@ -9,7 +9,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures.THTInsertion
 {
     /// <summary>
-    /// Types of Through Hold Device Insertion Faults
+    /// Types of Through Hole Device Insertion Faults
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum THTInsertionFaultType
