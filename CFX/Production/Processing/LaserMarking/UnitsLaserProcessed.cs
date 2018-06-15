@@ -33,6 +33,9 @@ namespace CFX.Production.Processing.LaserMarking
             set;
         }
 
+        /// <summary>
+        /// The total amount of time that laser was running.
+        /// </summary>
         public TimeSpan LaserProcessingTime
         {
             get;
