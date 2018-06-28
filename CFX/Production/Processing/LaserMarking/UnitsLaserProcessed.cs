@@ -25,20 +25,17 @@ namespace CFX.Production.Processing.LaserMarking
         }
 
         /// <summary>
-        /// The total amount of time that the recipe was processing.
+        /// Total amount of time that the laser was used during processing.
         /// </summary>
-        public TimeSpan RecipeProcessingTime
-        {
-            get;
-            set;
-        }
-
         public TimeSpan LaserProcessingTime
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The name of the active recipe at the time when the processing occurred.
+        /// </summary>
         public string RecipeName
         {
             get;
