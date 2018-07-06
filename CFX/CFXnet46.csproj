@@ -33,10 +33,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bin2015\**" />
     <Compile Remove="DataStructures\**" />
     <Compile Remove="HelpContent\**" />
+    <EmbeddedResource Remove="bin2015\**" />
     <EmbeddedResource Remove="DataStructures\**" />
     <EmbeddedResource Remove="HelpContent\**" />
+    <None Remove="bin2015\**" />
     <None Remove="DataStructures\**" />
     <None Remove="HelpContent\**" />
   </ItemGroup>
