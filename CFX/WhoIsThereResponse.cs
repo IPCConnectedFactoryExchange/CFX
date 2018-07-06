@@ -25,6 +25,9 @@ namespace CFX
     /// </summary>
     public class WhoIsThereResponse : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public WhoIsThereResponse()
         {
             Result = new RequestResult();

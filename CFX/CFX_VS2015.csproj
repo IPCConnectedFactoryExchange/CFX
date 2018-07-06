@@ -107,6 +107,7 @@
     <Compile Include="NotSupportedResponse.cs" />
     <Compile Include="Production\ActivateRecipeRequest.cs" />
     <Compile Include="Production\ActivateRecipeResponse.cs" />
+    <Compile Include="Production\Application\SolderDispensing\PCBSoldered.cs" />
     <Compile Include="Production\Assembly\MaterialsInstalled.cs" />
     <Compile Include="Production\Assembly\MaterialsUninstalled.cs" />
     <Compile Include="Production\Assembly\NamespaceDoc.cs" />
@@ -240,6 +241,9 @@
     <Compile Include="Structures\SMTPlacement\SMTNozzle.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementFault.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementFaultType.cs" />
+    <Compile Include="Structures\SolderDispensing\SolderedPCB.cs" />
+    <Compile Include="Structures\SolderDispensing\SolderingData.cs" />
+    <Compile Include="Structures\SolderDispensing\ZoneData.cs" />
     <Compile Include="Structures\SolderPasteInspection\SolderPasteMeasurement.cs" />
     <Compile Include="Structures\SolderPastePrinting\NamespaceDoc.cs" />
     <Compile Include="Structures\SolderPastePrinting\SMTSolderPastePrintingFault.cs" />
