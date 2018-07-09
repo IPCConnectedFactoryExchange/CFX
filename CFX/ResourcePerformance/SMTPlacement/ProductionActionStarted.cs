@@ -1,0 +1,36 @@
+﻿using CFX.Structures;
+using System;
+
+namespace CFX.ResourcePerformance.SMTPlacement
+{
+    /// <summary>
+    /// Sent by an SMT placement machine to indicate the start of a new action
+    /// <code language="none">
+    /// {
+    ///   "ProductionAction": "BoardAlignment"
+    ///   "TransactionId": "8561b98b-21ba-47e6-810d-0917b58a4415",
+    /// }
+    /// </code>
+    /// </summary>
+    public class ProductionActionStarted : CFXMessage
+    {
+        /// <summary>
+        /// The started action
+        /// </summary>
+        public SMTProductionAction ProductionAction
+        {
+            get;
+            set;
+        }
+		
+		/// <summary>
+        /// Related Transaction ID specified previously by WorkStarted Message
+        /// </summary>
+        public Guid TransactionId
+        {
+            get;
+            set;
+        }
+    }
+}
+
