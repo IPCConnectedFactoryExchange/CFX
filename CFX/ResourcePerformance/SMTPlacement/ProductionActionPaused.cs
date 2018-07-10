@@ -4,7 +4,7 @@ using System;
 namespace CFX.ResourcePerformance.SMTPlacement
 {
     /// <summary>
-    /// Sent by an SMT placement machine to indicate the end of an action
+    /// Sent by an SMT placement machine to indicate the pausing of a new action
     /// <code language="none">
     /// {
     ///   "ProductionAction": "BoardAlignment"
@@ -12,10 +12,10 @@ namespace CFX.ResourcePerformance.SMTPlacement
     /// }
     /// </code>
     /// </summary>
-    public class ProductionActionCompleted : CFXMessage
+    public class ProductionActionPaused : CFXMessage
     {
         /// <summary>
-        /// The completed action
+        /// The paused action
         /// </summary>
         public SMTProductionAction ProductionAction
         {
@@ -51,3 +51,4 @@ namespace CFX.ResourcePerformance.SMTPlacement
         }
     }
 }
+

@@ -31,6 +31,24 @@ namespace CFX.ResourcePerformance.SMTPlacement
             get;
             set;
         }
+		
+		/// <summary>
+        /// The name or number of the stage
+        /// </summary>
+        public string Stage
+        {
+            get;
+            set;
+        }
+		
+		/// <summary>
+        /// The name or number of the head
+        /// </summary>
+        public string Head
+        {
+            get;
+            set;
+        }
     }
 }
 
