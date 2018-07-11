@@ -49,5 +49,14 @@ namespace CFX.ResourcePerformance.SMTPlacement
             get;
             set;
         }
+
+        /// <summary>
+        /// Result of the production action
+        /// </summary>
+        public SMTProductionActionResult Result
+        {
+            get;
+            set;
+        }
     }
 }
