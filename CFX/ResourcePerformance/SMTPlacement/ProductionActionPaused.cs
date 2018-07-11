@@ -23,7 +23,7 @@ namespace CFX.ResourcePerformance.SMTPlacement
             set;
         }
 		
-		/// <summary>
+	/// <summary>
         /// Related Transaction ID specified previously by WorkStarted Message
         /// </summary>
         public Guid TransactionId
@@ -32,7 +32,7 @@ namespace CFX.ResourcePerformance.SMTPlacement
             set;
         }
 		
-		/// <summary>
+	/// <summary>
         /// The name or number of the stage
         /// </summary>
         public string Stage
@@ -41,7 +41,7 @@ namespace CFX.ResourcePerformance.SMTPlacement
             set;
         }
 		
-		/// <summary>
+	/// <summary>
         /// The name or number of the head
         /// </summary>
         public string Head
