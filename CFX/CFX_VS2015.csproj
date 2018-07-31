@@ -68,6 +68,12 @@
     <Compile Include="InformationSystem\UnitValidation\NamespaceDoc.cs" />
     <Compile Include="InformationSystem\UnitValidation\ValidateUnitsRequest.cs" />
     <Compile Include="InformationSystem\UnitValidation\ValidateUnitsResponse.cs" />
+    <Compile Include="InformationSystem\WorkOrderManagement\NamespaceDoc.cs" />
+    <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderCreated.cs" />
+    <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderDeleted.cs" />
+    <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderQuantityChanged.cs" />
+    <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderStatusUpdated.cs" />
+    <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderUpdated.cs" />
     <Compile Include="Materials\Management\BlockMaterialsRequest.cs" />
     <Compile Include="Materials\Management\BlockMaterialsResponse.cs" />
     <Compile Include="Materials\Management\MaterialsConsumed.cs" />
@@ -279,6 +285,9 @@
     <Compile Include="Structures\ValidationResult.cs" />
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />
+    <Compile Include="Structures\WorkOrder.cs" />
+    <Compile Include="Structures\WorkOrderIdentifier.cs" />
+    <Compile Include="Structures\WorkOrderStatus.cs" />
     <Compile Include="Structures\WorkResult.cs" />
     <Compile Include="Transport\AmqpCFXEndpoint.cs" />
     <Compile Include="Transport\AmqpCFXLink.cs" />

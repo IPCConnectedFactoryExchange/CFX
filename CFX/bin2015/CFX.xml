@@ -383,6 +383,82 @@
             Individual results of the validation request (for multiple units in a carrier or PCB Panel)
             </summary>
         </member>
+        <member name="T:CFX.InformationSystem.WorkOrderManagement.NamespaceDoc">
+            <summary>
+            CFX Topic implemented by enterprise information systems (such as an MES or ERP system)
+            involved in the creation and management of production Work Orders and Work Order sub-batches.
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.WorkOrderManagement.WorkOrderCreated">
+            <summary>
+            Sent when a new production Work Order is created by an information system (such as ERP or MES).
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderCreated.NewOrder">
+            <summary>
+            The new Work Order.
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.WorkOrderManagement.WorkOrderDeleted">
+            <summary>
+            Sent when a Work Order (or sub-batch of a Work Order) has been deleted within an information system (such as ERP or MES).
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderDeleted.WorkOrderIdentifier">
+            <summary>
+            The identifier of the Work Order that has been deleted.
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.WorkOrderManagement.WorkOrderQuantityChanged">
+            <summary>
+            Sent when the status of a Work Order (or Work Order sub-batch) has been updated.
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderQuantityChanged.WorkOrderIdentifier">
+            <summary>
+            The Identifier of the relevant Work Order or Work Order sub-batch
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderQuantityChanged.NewQuantity">
+            <summary>
+            The new quantity of the Work Order (or Work Order sub-batch) 
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderQuantityChanged.PreviousQuantity">
+            <summary>
+            The previous quantity of the Work Order (or Work Order sub-batch), if known.
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.WorkOrderManagement.WorkOrderStatusUpdated">
+            <summary>
+            Sent when the status of a Work Order (or Work Order sub-batch) has been updated.
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderStatusUpdated.WorkOrderIdentifier">
+            <summary>
+            The Identifier of the relevant Work Order or Work Order sub-batch
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderStatusUpdated.NewStatus">
+            <summary>
+            The new current status of the Work Order (or Work Order sub-batch)
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderStatusUpdated.PreviousStatus">
+            <summary>
+            The previous status of the Work Order (or Work Order sub-batch)
+            </summary>
+        </member>
+        <member name="T:CFX.InformationSystem.WorkOrderManagement.WorkOrderUpdated">
+            <summary>
+            A Work Order (or Work Order sub-batch) has been modified / updated within an information systsem (such as ERP or MES).
+            </summary>
+        </member>
+        <member name="P:CFX.InformationSystem.WorkOrderManagement.WorkOrderUpdated.UpdatedOrder">
+            <summary>
+            The new details of the updated Work Order (or Work Order sub-batch)
+            </summary>
+        </member>
         <member name="T:CFX.Materials.Management.BlockMaterialsRequest">
             <summary>
             A request to block one or more particular lots or instances of material from use in production.
@@ -8106,6 +8182,163 @@
         <member name="F:CFX.Structures.ValidationType.All">
             <summary>
             All known validations should be performed
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.WorkOrder">
+            <summary>
+            A structure that describes an order to produce a specifified quantity of units of a particular part number /
+            part revision within the factory environment.
+            </summary>
+        </member>
+        <member name="M:CFX.Structures.WorkOrder.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Identifier">
+            <summary>
+            The identifer of the Work Order or Work Order sub-batch
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Description">
+            <summary>
+            A human friendly description for this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Status">
+            <summary>
+            The current status of the Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Router">
+            <summary>
+            The name of the router or process that will be followed to produce the units for this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.RouterRevision">
+            <summary>
+            The revision of the router or process that will be followed to produce units for this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.LotNumber">
+            <summary>
+            Ane lot number that is to be associated with units produced under this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Customer">
+            <summary>
+            An optional customer name, if this Work Order is associated with particular customer.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Department">
+            <summary>
+            An optional department name, if this Work Order is to be executed by a particular department.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.CreatedDate">
+            <summary>
+            The date on which the Work Order was created.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.StartDate">
+            <summary>
+            The date/time on which this Work Order should begin execution.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.DateRequired">
+            <summary>
+            The date/time by which this Work Order should be completed.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.PartNumber">
+            <summary>
+            The part number (internal) of the assembly to be produced by this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.PartRevision">
+            <summary>
+            The revision of the assembly to be produced by this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.Quantity">
+            <summary>
+            The quantity of units to be produced by this Work Order.
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.UnitOfMeasure">
+            <summary>
+            If the Work Order is intended to produce something other than "units", the unit of measure of the 
+            quantity associated with this Word Order.  For example, a Work Order might be placed to produce 200m
+            of red wire.  In this case, the Quantity property would be "200" and the UnitOfMeasure
+            would be "meter".  If UnitOfMeasure is left empty (blank), it is assumed that the quantity specifies
+            "pieces" and/or "units" (200 units of assembly 1234-5678, for example).
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrder.DependsOn">
+            <summary>
+            A list of other Work Orders (or Work Order sub-batches) upon which this Work Order (or Work Order sub-batch) is dependent.
+            Dependent Work Orders feed the supply of materials into upper level Work Orders.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.WorkOrderIdentifier">
+            <summary>
+            Uniquely identifies a particular Work Order (or Work Order sub-batch)
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrderIdentifier.WorkOrderNumber">
+            <summary>
+            The order number of the Work Order
+            </summary>
+        </member>
+        <member name="P:CFX.Structures.WorkOrderIdentifier.Batch">
+            <summary>
+            For Work Orders that are divided into two or more sub-batches, this property indicates
+            the name of the sub-batch.
+            </summary>
+        </member>
+        <member name="T:CFX.Structures.WorkOrderStatus">
+            <summary>
+            Indicates the current status of a Work Order
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.AwaitingApproval">
+            <summary>
+            The Work Order has not yet been approved, and may not be scheduled or executed.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.ApprovedAndPending">
+            <summary>
+            THe Work Order has been approved, and is available to be scheduled or executed.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.Scheduled">
+            <summary>
+            THe Work Order has been scheduled for production, but is not yet executing.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.InProcess">
+            <summary>
+            The Work Order is currently being executed, and is in process.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.Completed">
+            <summary>
+            The Work Order has been completed.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.Closed">
+            <summary>
+            The Work Order has been closed.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.OnHold">
+            <summary>
+            The Work Order has been placed on hold.  No work should occur on this order at this time.
+            </summary>
+        </member>
+        <member name="F:CFX.Structures.WorkOrderStatus.Cancelled">
+            <summary>
+            The Work Order has been cancelled.  
             </summary>
         </member>
         <member name="T:CFX.Structures.WorkResult">
