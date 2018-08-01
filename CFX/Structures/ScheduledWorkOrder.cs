@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace CFX.Structures
 {
@@ -11,6 +13,7 @@ namespace CFX.Structures
     /// at a particular work area within the factory at a particular time.  Includes all of the physical 
     /// resources, tools, personnel, and materials that are required to execute the Work Order.
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ScheduledWorkOrder
     {
         /// <summary>
@@ -71,6 +74,7 @@ namespace CFX.Structures
         /// <summary>
         /// An optional list of the tools that are required to execute the Work Order.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<Tool> ReservedTools
         {
             get;
