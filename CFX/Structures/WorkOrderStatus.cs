@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace CFX.Structures
 {
     /// <summary>
     /// Indicates the current status of a Work Order
     /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum WorkOrderStatus
     {
         /// <summary>

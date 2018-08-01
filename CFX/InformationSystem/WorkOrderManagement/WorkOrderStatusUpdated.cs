@@ -7,6 +7,16 @@ namespace CFX.InformationSystem.WorkOrderManagement
 {
     /// <summary>
     /// Sent when the status of a Work Order (or Work Order sub-batch) has been updated.
+    /// <code language="none">
+    /// {
+    ///   "WorkOrderIdentifier": {
+    ///     "WorkOrderNumber": "WO1122334455",
+    ///     "Batch": null
+    ///   },
+    ///   "NewStatus": "Scheduled",
+    ///   "PreviousStatus": "ApprovedAndPending"
+    /// }
+    /// </code>
     /// </summary>
     public class WorkOrderStatusUpdated : CFXMessage
     {

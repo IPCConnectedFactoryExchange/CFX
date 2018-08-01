@@ -18,13 +18,14 @@ namespace CFX.Structures
         /// </summary>
         public WorkOrder()
         {
-            Identifier = new WorkOrderIdentifier();
+            WorkOrderIdentifier = new WorkOrderIdentifier();
+            CreatedDate = DateTime.Now;
         }
 
         /// <summary>
         /// The identifer of the Work Order or Work Order sub-batch
         /// </summary>
-        public WorkOrderIdentifier Identifier
+        public WorkOrderIdentifier WorkOrderIdentifier
         {
             get;
             set;

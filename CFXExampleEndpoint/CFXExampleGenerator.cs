@@ -13,6 +13,8 @@ using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.Production.TestAndInspection;
 using CFX.InformationSystem.UnitValidation;
+using CFX.InformationSystem.WorkOrderManagement;
+using CFX.InformationSystem.ProductionScheduling;
 using CFX.Sensor.Identification;
 using CFX.Materials;
 using CFX.Materials.Storage;
@@ -33,6 +35,7 @@ namespace CFXExampleEndpoint
             InitializeMaterials();
 
             string result = "";
+            result += GenerateInformationSystem();
             result += GenerateRoot();
             result += GenerateResourcePerformance();
             result += GenerateProduction();
@@ -45,6 +48,8 @@ namespace CFXExampleEndpoint
         private MaterialPackageDetail m1, m2, m3, m4, m5, m6, m7;
         private MaterialCarrier c1, c2, c3;
         private Tool t1, t2, t3;
+
+        Operator op1;
 
         public string GenerateAssembly()
         {
@@ -2346,6 +2351,16 @@ namespace CFXExampleEndpoint
 
         public void InitializeMaterials()
         {
+            op1 = new Operator()
+            {
+                ActorType = ActorType.Human,
+                FirstName = "Joseph",
+                LastName = "Smith",
+                FullName = "Joseph Smith",
+                LoginName = "joseph.smith@abcdrepairs.com",
+                OperatorIdentifier = "UID235434324"
+            };
+
             m1 = new MaterialPackageDetail()
             {
                 UniqueIdentifier = "MAT4566556456",
@@ -2521,6 +2536,163 @@ namespace CFXExampleEndpoint
                 UniqueIdentifier = "UID234228874",
                 Name = "Hammer 45",
             };
+        }
+
+        public string GenerateInformationSystem()
+        {
+            string result = "";
+            CFXMessage msg = null;
+
+            msg = new WorkOrdersCreated()
+            {
+                NewOrders = new List<WorkOrder>(new WorkOrder[] {new WorkOrder()
+                {
+                    WorkOrderIdentifier = new WorkOrderIdentifier()
+                    {
+                        WorkOrderNumber = "WO1122334455",
+                    },
+                    StartDate = new DateTime(2018, 9, 9, 0, 0, 0),
+                    DateRequired = new DateTime(2018, 9, 15, 17, 0, 0),
+                    Description = "Production Order for PCB Assembly",
+                    PartNumber = "1122-3344",
+                    PartRevision = "B",
+                    LotNumber = "LOT4865",
+                    Quantity = 220,
+                    Status = WorkOrderStatus.AwaitingApproval,
+                    Router = "PCB Assembly Process",
+                    RouterRevision = "A",
+                } })
+            };
+
+            AppendMessage(msg, ref result);
+
+            msg = new WorkOrdersUpdated()
+            {
+                UpdatedOrders = new List<WorkOrder>(new WorkOrder[] {new WorkOrder()
+                {
+                    WorkOrderIdentifier = new WorkOrderIdentifier()
+                    {
+                        WorkOrderNumber = "WO1122334455",
+                    },
+                    StartDate = new DateTime(2018, 9, 9, 0, 0, 0),
+                    DateRequired = new DateTime(2018, 9, 15, 17, 0, 0),
+                    Description = "Production Order for PCB Assembly",
+                    PartNumber = "1122-5555",
+                    PartRevision = "C",
+                    LotNumber = "LOT4896",
+                    Quantity = 220,
+                    Status = WorkOrderStatus.AwaitingApproval,
+                    Router = "PCB Assembly Process",
+                    RouterRevision = "A",
+                }})
+            };
+
+            AppendMessage(msg, ref result);
+
+            msg = new WorkOrderStatusUpdated()
+            {
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderNumber = "WO1122334455",
+                },
+                NewStatus = WorkOrderStatus.Scheduled,
+                PreviousStatus = WorkOrderStatus.ApprovedAndPending
+            };
+
+            AppendMessage(msg, ref result);
+
+            msg = new WorkOrderQuantityUpdated()
+            {
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderNumber = "WO1122334455",
+                },
+                NewQuantity = 250,
+                PreviousQuantity = 220
+            };
+
+            AppendMessage(msg, ref result);
+
+            msg = new WorkOrdersDeleted()
+            {
+                WorkOrderIdentifiers = new List<WorkOrderIdentifier>(new WorkOrderIdentifier[] {
+                new WorkOrderIdentifier()
+                {
+                    WorkOrderNumber = "WO1122334455",
+                },
+                new WorkOrderIdentifier()
+                {
+                    WorkOrderNumber = "WO9988776666",
+                    Batch = "Batch1"
+                }
+
+                })
+            };
+
+            AppendMessage(msg, ref result);
+
+            msg = new WorkOrdersScheduled()
+            {
+                ScheduledWorkOrders = new List<ScheduledWorkOrder>(new ScheduledWorkOrder[] { new ScheduledWorkOrder()
+                {
+                    WorkOrderIdentifier = new WorkOrderIdentifier()
+                    {
+                        WorkOrderNumber = "WO1122334455"
+                    },
+                    WorkArea = "SMT Line 1",
+                    StartTime = new DateTime(2018,8,2,11,0,0),
+                    EndTime = new DateTime(2018,8,2,15,0,0),
+                    ReservedResources = new List<string>(new string[] {"L1PRINTER1","L1PLACER1","L1PLACER2","L1OVEN1"}),
+                    ReservedOperators = new List<Operator>(new Operator[] {op1}),
+                    ReservedTools = new List<Tool>(new Tool []
+                    {
+                        new Tool()
+                        {
+                            UniqueIdentifier = "UID23890430",
+                            Name = "TorqueWrench_123",
+                        }
+                    }),
+                    ReservedMaterials = new List<MaterialPackage>(new MaterialPackage []
+                    {
+                        new MaterialPackage()
+                        {
+                            InternalPartNumber = "PN4452",
+                            UniqueIdentifier = "UID23849854385",
+                        },
+                        new MaterialPackage()
+                        {
+                            InternalPartNumber = "PN4452",
+                            UniqueIdentifier = "UID23849854386",
+                        },
+                        new MaterialPackage()
+                        {
+                            InternalPartNumber = "PN3358",
+                            UniqueIdentifier = "UID23849854446",
+                        }
+                    })
+                }})
+            };
+
+            AppendMessage(msg, ref result);
+
+            msg = new WorkOrdersUnscheduled()
+            {
+                ScheduledWorkOrderIdentifiers = new List<ScheduledWorkOrderIdentifier>(new ScheduledWorkOrderIdentifier[]
+                {
+                    new ScheduledWorkOrderIdentifier()
+                    {
+                        WorkOrderIdentifier = new WorkOrderIdentifier()
+                        {
+                            WorkOrderNumber = "WO1122334455"
+                        },
+                        WorkArea = "SMT Line 1",
+                    }
+                })
+            };
+
+            AppendMessage(msg, ref result);
+
+            return result;
         }
     }
 }
