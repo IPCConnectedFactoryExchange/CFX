@@ -39,7 +39,7 @@ namespace CFX
         public CFXEnvelope()
         {
             UniqueID = Guid.NewGuid();
-            Version = "1.0";
+            Version = CFXVERSION;
             TimeStamp = DateTime.Now;
             QueueFilePosition = -1;
             Transmitted = false;

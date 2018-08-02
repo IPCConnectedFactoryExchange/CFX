@@ -16,6 +16,7 @@ namespace CFX
     ///     "Message": null
     ///   },
     ///   "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///   "CFXVersion" : "1.0",
     ///   "RequestNetworkUri": "amqp://host33:5688/",
     ///   "RequestTargetAddress": "/queue/SN23123",
     ///   "UniqueIdentifier": "UID564545645645656564",
@@ -50,10 +51,11 @@ namespace CFX
         /// <summary>
         /// Default constructor
         /// </summary>
-        public GetEndpointInformationResponse()
+        public GetEndpointInformationResponse() : base()
         {
             Result = new RequestResult();
-            //SupportedTopics = new List<SupportedTopic>();
+            CFXVersion = CFXEnvelope.CFXVERSION;
+            SupportedTopics = new List<SupportedTopic>();
         }
 
         /// <summary>
@@ -69,6 +71,15 @@ namespace CFX
         /// The handle of the endpoint that is responding
         /// </summary>
         public string CFXHandle
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The version of CFX supported / utilized by this endpoint
+        /// </summary>
+        public string CFXVersion
         {
             get;
             set;

@@ -15,6 +15,7 @@
 **/[Rr]elease/*
 **/x64/
 **/[Bb]in/
+**/bin2015/
 **/[Oo]bj/
 # build folder is nowadays used for build scripts and should not be ignored
 #build/
