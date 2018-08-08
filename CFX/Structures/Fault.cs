@@ -16,6 +16,8 @@ namespace CFX.Structures
             Cause = FaultCause.MechanicalFailure;
             Severity = FaultSeverity.Information;
             FaultOccurrenceId = Guid.NewGuid();
+            AccessType = AccessType.Unknown;
+            SideLocation = SideLocation.Unknown;
         }
 
         /// <summary>
@@ -72,5 +74,23 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// The Side location is giving an indication for the operator from which side in transport direction of the PCB unit
+        /// the fault or error can be accessed and fixed.         /// </summary>
+        public SideLocation SideLocation
+        {
+            get;
+            set;
+        }
+
+        /// The Access Type is giving an indication for the line engineer if the fault, error or warning messages in the fault object
+        /// can be handled via a remote terminal session to the equipment
+        public AccessType AccessType
+        {
+            get;
+            set;
+        }
+
     }
 }
