@@ -58,7 +58,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Lane number (1 – 99), or 0 if no specific lane
+        /// Lane identifier.  Null if no specific lane
         /// </summary>
         public string Lane
         {

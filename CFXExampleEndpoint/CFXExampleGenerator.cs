@@ -11,6 +11,7 @@ using CFX.Structures.THTInsertion;
 using CFX.Structures.SolderPasteInspection;
 using CFX.Production;
 using CFX.Production.Assembly;
+using CFX.Production.Application;
 using CFX.Production.TestAndInspection;
 using CFX.InformationSystem.UnitValidation;
 using CFX.InformationSystem.WorkOrderManagement;
@@ -171,6 +172,52 @@ namespace CFXExampleEndpoint
                                 ReferenceDesignator = "R3"
                             }
                         })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new MaterialsApplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                AppliedMaterials = new List<InstalledMaterial>(new InstalledMaterial[]
+                {
+                    new InstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityInstalled = 3.57,
+                    },
+                    new InstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityInstalled = 3.45,
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new MaterialsUnapplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                UnappliedMaterials = new List<UninstalledMaterial>(new UninstalledMaterial[]
+                {
+                    new UninstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityUninstalled = 3.55,
+                    },
+                    new UninstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityUninstalled = 3.55,
                     }
                 })
             };
@@ -760,34 +807,157 @@ namespace CFXExampleEndpoint
 
             msg = new GetEndpointInformationResponse
             {
-                CFXHandle = "SMTPlus.Model_21232.SN23123",
-                RequestNetworkUri = "amqp://host33:5688/",
-                RequestTargetAddress = "/queue/SN23123",
-                UniqueIdentifier = "UID564545645645656564",
-                FriendlyName = "SMD Placer 23123",
-                Vendor = "SMT Plus",
-                ModelNumber = "Model_21232",
-                SerialNumber = "SN23123",
-                NumberOfLanes = 1,
-                NumberOfStages = 4,
-                SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                EndpointInformation = new Endpoint()
                 {
-                    new SupportedTopic()
+                    CFXHandle = "SMTPlus.Model_11111.SN444555",
+                    RequestNetworkUri = "amqp://host55:5688/",
+                    RequestTargetAddress = "/queue/SN444555",
+                    UniqueIdentifier = "UID1111111111111111",
+                    FriendlyName = "SMD Printer 444555",
+                    Vendor = "SMT Plus",
+                    ModelNumber = "Model_11111",
+                    SerialNumber = "SN444555",
+                    NumberOfLanes = 1,
+                    NumberOfStages = 1,
+                    HermesInformation = new HermesInformation()
                     {
-                        TopicName = "CFX.Production",
-                        TopicSupportType = TopicSupportType.PublisherConsumer
+                        Enabled = true,
+                        Version = "1.0"
                     },
-                    new SupportedTopic()
+                    OperatingRequirements = new OperatingRequirements()
                     {
-                        TopicName = "CFX.Production.Assembly",
-                        TopicSupportType = TopicSupportType.Publisher
+                        MinimumHumidity = 0.0,
+                        MaximumHumidity = 0.8,
+                        MinimumTemperature = -1.0,
+                        MaximumTemperature = 40.0
                     },
-                    new SupportedTopic()
+                    SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
                     {
-                        TopicName = "CFX.ResourcePerformance",
-                        TopicSupportType = TopicSupportType.Publisher
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production",
+                            TopicSupportType = TopicSupportType.PublisherConsumer
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production.Application",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.ResourcePerformance",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                    })
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetEndpointInformationResponse
+            {
+                EndpointInformation = new SMTPlacementEndpoint()
+                {
+                    CFXHandle = "SMTPlus.Model_21232.SN23123",
+                    RequestNetworkUri = "amqp://host33:5688/",
+                    RequestTargetAddress = "/queue/SN23123",
+                    UniqueIdentifier = "UID564545645645656564",
+                    FriendlyName = "SMD Placer 23123",
+                    Vendor = "SMT Plus",
+                    ModelNumber = "Model_21232",
+                    SerialNumber = "SN23123",
+                    NumberOfLanes = 1,
+                    NumberOfStages = 4,
+                    HermesInformation = new HermesInformation()
+                    {
+                        Enabled = true,
+                        Version = "1.0"
                     },
-                })
+                    OperatingRequirements = new OperatingRequirements()
+                    {
+                        MinimumHumidity = 0.0,
+                        MaximumHumidity = 0.8,
+                        MinimumTemperature = -1.0,
+                        MaximumTemperature = 40.0
+                    },
+                    SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                    {
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production",
+                            TopicSupportType = TopicSupportType.PublisherConsumer
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production.Assembly",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.ResourcePerformance",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                    }),
+                    SupportedPCBDimensions = new DimensionalConstraints()
+                    {
+                        MinimumWidth = 10.0,
+                        MaximumWidth = 1000.0,
+                        MinimumLength = 10.0,
+                        MaximumLength = 1000.0,
+                        MinimumHeight = 0.0,
+                        MaximumHeight = 50.0,
+                        MinimumThickness = 0.5,
+                        MaximumThickness = 10.0,
+                        MinimumWeight = 0.0,
+                        MaximumWeight = 1000.0
+                    },
+                    NominalPlacementCPH = 10000,
+                    NominalPCBCPH = 10000,
+                    PlacementConstraints = new SMTPlacementConstraints()
+                    {
+                    },
+                    Stages = new List<SMTStageInformation>(new SMTStageInformation[]
+                    {
+                        new SMTStageInformation()
+                        {
+                            StageName = "BUFFERSTAGE1",
+                            NumberOfFeederStations = 0
+                        },
+                        new SMTStageInformation()
+                        {
+                            StageName = "WORKSTAGE1",
+                            NumberOfFeederStations = 100
+                        },
+                        new SMTStageInformation()
+                        {
+                            StageName = "WORKSTAGE2",
+                            NumberOfFeederStations = 100
+                        }
+                    }),
+                    Lanes = new List<SMTLaneInformation>(new SMTLaneInformation[]
+                    {
+                        new SMTLaneInformation()
+                        {
+                            LaneName = "LANE1",
+                        },
+                        new SMTLaneInformation()
+                        {
+                            LaneName = "LANE2",
+                        }
+                    }),
+                    Heads = new List<SMTHeadInformation>(new SMTHeadInformation[]
+                    {
+                        new SMTHeadInformation()
+                        {
+                            HeadId = "HEAD1",
+                            PlacementAccuracy = 0.001
+                        },
+                        new SMTHeadInformation()
+                        {
+                            HeadId = "HEAD2",
+                            PlacementAccuracy = 0.001
+                        }
+                    })
+                }
             };
             AppendMessage(msg, ref result);
 
