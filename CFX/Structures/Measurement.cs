@@ -63,9 +63,11 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// An optional list of components (instance of a part) on a production unit(s) to be associated with this measurement.
+        /// An optional list of component designators (instances of a part) on a production unit(s) to be associated with this measurement.
+        /// May include sub-components in "." notation.  Examples:  R1, R2, R3   or  R2.3 (R2, pin 3)
+        /// 
         /// </summary>
-        public List<ComponentDesignator> Components
+        public string CRDs
         {
             get;
             set;

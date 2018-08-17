@@ -11,9 +11,10 @@ namespace CFX.Production.TestAndInspection
     /// that were made, and defects that were discovered during the process.
     /// <para>  </para>
     /// <para>Generic Inspection Example (2 Circuit PCB Panel inspected via AOI):</para>
+    /// <para>  </para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "31aaff27-ec09-4c75-8de0-2d6cf2855e5f",
+    ///   "TransactionId": "bc799894-c0dc-4373-bddd-8259b78eb082",
     ///   "InspectionMethod": "AOI",
     ///   "SamplingInformation": {
     ///     "SamplingMethod": "NoSampling",
@@ -35,7 +36,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "75005046-747e-41db-b995-b439b50c3c5d",
+    ///           "UniqueIdentifier": "83326aff-050b-4483-a43b-3faf000c5a40",
     ///           "InspectionName": "INSPECT_R21",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -48,7 +49,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "45429ea9-a649-4d9d-8f79-31ee51a8032e",
+    ///           "UniqueIdentifier": "8c33b186-e8db-410b-af3c-d6a90cfb1610",
     ///           "InspectionName": "INSPECT_R22",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -68,7 +69,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Failed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "e66be78a-b91e-49f8-b2e4-6df002331e49",
+    ///           "UniqueIdentifier": "c121fe35-db2f-44aa-9a37-59661cc11ed7",
     ///           "InspectionName": "INSPECT_R21",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -81,7 +82,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "f53e0800-487e-48a6-961a-f4cf08f21e9b",
+    ///           "UniqueIdentifier": "13cc5da1-b257-41fc-89f7-e908ef3afff3",
     ///           "InspectionName": "INSPECT_R22",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -91,7 +92,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Error": null,
     ///           "DefectsFound": [
     ///             {
-    ///               "UniqueIdentifier": "0924ab55-889d-45bd-a685-cd124fc519c9",
+    ///               "UniqueIdentifier": "0006e95c-5eb6-4fbe-a456-0ce6b269e525",
     ///               "DefectCode": "ISFSLD112",
     ///               "DefectCategory": "Solder Problems",
     ///               "Description": "Insuffiecient Solder on R22, Lead 1",
@@ -118,7 +119,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RelatedSymptoms": []
     ///             },
     ///             {
-    ///               "UniqueIdentifier": "c2c7ff88-3725-4a1c-88cf-029f7fc38859",
+    ///               "UniqueIdentifier": "33493e20-7e22-47c7-8f03-26e2512d2222",
     ///               "DefectCode": "TMBSTN211",
     ///               "DefectCategory": "Solder Problems",
     ///               "Description": "Tombston on R22",
@@ -149,7 +150,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "5850e5d9-aae1-46dc-897f-a9c8733f72fb",
+    ///           "UniqueIdentifier": "4413185d-8541-4e70-ae7e-0b8c7b15a661",
     ///           "InspectionName": "COSMETIC_INSPECTION",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -159,7 +160,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Error": null,
     ///           "DefectsFound": [
     ///             {
-    ///               "UniqueIdentifier": "6fb1a6b3-a29e-4a21-84d1-91d7b24f1a07",
+    ///               "UniqueIdentifier": "f8c206b7-0be1-4717-a3d3-c93bc4421568",
     ///               "DefectCode": "SCR23443",
     ///               "DefectCategory": "Cosmetic Problems",
     ///               "Description": "Scratch Detected on PCB substrate",
@@ -207,9 +208,10 @@ namespace CFX.Production.TestAndInspection
     /// }
     /// </code>
     /// <para>Solder Paste Inspection Example:</para>
+    /// <para>  </para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "039e47b3-d176-4544-a289-ddb81c0c71a8",
+    ///   "TransactionId": "5c36dbd0-fd6b-4463-ad79-7ca5c4498b56",
     ///   "InspectionMethod": "SPI",
     ///   "SamplingInformation": {
     ///     "SamplingMethod": "NoSampling",
@@ -231,7 +233,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "1d7e1cc3-09d5-49e2-869f-2b8712b7928a",
+    ///           "UniqueIdentifier": "833c6606-aad9-4d04-aaea-af1ccbd7f6bd",
     ///           "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -243,128 +245,44 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
-    ///               "ComponentPad": "R1.1",
-    ///               "PasteXSize": {
-    ///                 "Value": 45.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 46.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 45.1,
-    ///                 "MaximumAcceptableValue": 46.9
-    ///               },
-    ///               "PasteYSize": {
-    ///                 "Value": 85.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 86.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 85.1,
-    ///                 "MaximumAcceptableValue": 86.9
-    ///               },
-    ///               "PasteXOffset": {
-    ///                 "Value": 0.2,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteYOffset": {
-    ///                 "Value": 0.1,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteHeight": {
-    ///                 "Value": 2.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 2.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 2.1,
-    ///                 "MaximumAcceptableValue": 2.9
-    ///               },
-    ///               "PasteVolume": {
-    ///                 "Value": 28.9,
-    ///                 "ValueUnits": "ml",
-    ///                 "ExpectedValue": 28.7,
-    ///                 "ExpectedValueUnits": "ml",
-    ///                 "MinimumAcceptableValue": 28.0,
-    ///                 "MaximumAcceptableValue": 30.0
-    ///               },
-    ///               "DepositImage": {
-    ///                 "MimeType": "image/jpg",
-    ///                 "ImageData": "/z2Zhw=="
-    ///               },
-    ///               "UniqueIdentifier": "1cee0a74-ee24-42f0-bd94-63949b0475b1",
-    ///               "MeasurementName": "MEASURE R1.1",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "X": 5.62,
+    ///               "EX": 5.6,
+    ///               "Y": 8.29,
+    ///               "EY": 8.3,
+    ///               "Z": 5.01,
+    ///               "EZ": 5.0,
+    ///               "DX": 0.02,
+    ///               "DY": 0.03,
+    ///               "Vol": 5.11,
+    ///               "EVol": 5.1,
+    ///               "Image": null,
+    ///               "UniqueIdentifier": "29496f49-e06d-4aa7-8441-c5b0931fe366",
+    ///               "MeasurementName": "R1.1",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": null
+    ///               "CRDs": "R1.1"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
-    ///               "ComponentPad": "R1.2",
-    ///               "PasteXSize": {
-    ///                 "Value": 45.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 46.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 45.1,
-    ///                 "MaximumAcceptableValue": 46.9
-    ///               },
-    ///               "PasteYSize": {
-    ///                 "Value": 85.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 86.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 85.1,
-    ///                 "MaximumAcceptableValue": 86.9
-    ///               },
-    ///               "PasteXOffset": {
-    ///                 "Value": 0.2,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteYOffset": {
-    ///                 "Value": 0.1,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteHeight": {
-    ///                 "Value": 2.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 2.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 2.1,
-    ///                 "MaximumAcceptableValue": 2.9
-    ///               },
-    ///               "PasteVolume": {
-    ///                 "Value": 28.9,
-    ///                 "ValueUnits": "ml",
-    ///                 "ExpectedValue": 28.7,
-    ///                 "ExpectedValueUnits": "ml",
-    ///                 "MinimumAcceptableValue": 28.0,
-    ///                 "MaximumAcceptableValue": 30.0
-    ///               },
-    ///               "DepositImage": {
-    ///                 "MimeType": "image/jpg",
-    ///                 "ImageData": "/z2Zhw=="
-    ///               },
-    ///               "UniqueIdentifier": "953505f7-1fd3-4ed6-83cf-5f99fe3f3b6c",
-    ///               "MeasurementName": "MEASURE R1.1",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "X": 5.62,
+    ///               "EX": 5.6,
+    ///               "Y": 8.29,
+    ///               "EY": 8.3,
+    ///               "Z": 5.01,
+    ///               "EZ": 5.0,
+    ///               "DX": 0.02,
+    ///               "DY": 0.03,
+    ///               "Vol": 5.11,
+    ///               "EVol": 5.1,
+    ///               "Image": null,
+    ///               "UniqueIdentifier": "9d94c6dc-4b64-4e29-b338-9f1fa7653bc4",
+    ///               "MeasurementName": "R1.2",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": null
+    ///               "CRDs": "R1.1"
     ///             }
     ///           ]
     ///         }
@@ -376,7 +294,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Failed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "4721c00a-b653-4a1a-9b63-724fe92c892a",
+    ///           "UniqueIdentifier": "71f64821-9883-43b4-bb28-fbf2125c23ca",
     ///           "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -388,122 +306,229 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
-    ///               "ComponentPad": "R1.1",
-    ///               "PasteXSize": {
-    ///                 "Value": 45.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 46.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 45.1,
-    ///                 "MaximumAcceptableValue": 46.9
-    ///               },
-    ///               "PasteYSize": {
-    ///                 "Value": 85.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 86.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 85.1,
-    ///                 "MaximumAcceptableValue": 86.9
-    ///               },
-    ///               "PasteXOffset": {
-    ///                 "Value": 0.2,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteYOffset": {
-    ///                 "Value": 0.1,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteHeight": {
-    ///                 "Value": 2.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 2.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 2.1,
-    ///                 "MaximumAcceptableValue": 2.9
-    ///               },
-    ///               "PasteVolume": {
-    ///                 "Value": 28.9,
-    ///                 "ValueUnits": "ml",
-    ///                 "ExpectedValue": 28.7,
-    ///                 "ExpectedValueUnits": "ml",
-    ///                 "MinimumAcceptableValue": 28.0,
-    ///                 "MaximumAcceptableValue": 30.0
-    ///               },
-    ///               "DepositImage": null,
-    ///               "UniqueIdentifier": "a49769d3-7a47-4fe6-af17-36dd3e132ce7",
-    ///               "MeasurementName": null,
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "X": 5.62,
+    ///               "EX": 5.6,
+    ///               "Y": 8.29,
+    ///               "EY": 8.3,
+    ///               "Z": 5.01,
+    ///               "EZ": 5.0,
+    ///               "DX": 0.02,
+    ///               "DY": 0.03,
+    ///               "Vol": 5.11,
+    ///               "EVol": 5.1,
+    ///               "Image": null,
+    ///               "UniqueIdentifier": "a4aa1046-efb9-4213-ac9a-2e545ac6d9ba",
+    ///               "MeasurementName": "R1.1",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": null
+    ///               "CRDs": "R1.1"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
-    ///               "ComponentPad": "R1.2",
-    ///               "PasteXSize": {
-    ///                 "Value": 45.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 46.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 45.1,
-    ///                 "MaximumAcceptableValue": 46.9
-    ///               },
-    ///               "PasteYSize": {
-    ///                 "Value": 85.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 86.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 85.1,
-    ///                 "MaximumAcceptableValue": 86.9
-    ///               },
-    ///               "PasteXOffset": {
-    ///                 "Value": 0.2,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteYOffset": {
-    ///                 "Value": 0.1,
-    ///                 "ValueUnits": "um",
-    ///                 "ExpectedValue": 0.0,
-    ///                 "ExpectedValueUnits": "um",
-    ///                 "MinimumAcceptableValue": -10.2,
-    ///                 "MaximumAcceptableValue": 10.2
-    ///               },
-    ///               "PasteHeight": {
-    ///                 "Value": 2.6,
-    ///                 "ValueUnits": "mm",
-    ///                 "ExpectedValue": 2.7,
-    ///                 "ExpectedValueUnits": "mm",
-    ///                 "MinimumAcceptableValue": 2.1,
-    ///                 "MaximumAcceptableValue": 2.9
-    ///               },
-    ///               "PasteVolume": {
-    ///                 "Value": 28.9,
-    ///                 "ValueUnits": "ml",
-    ///                 "ExpectedValue": 28.7,
-    ///                 "ExpectedValueUnits": "ml",
-    ///                 "MinimumAcceptableValue": 28.0,
-    ///                 "MaximumAcceptableValue": 30.0
-    ///               },
-    ///               "DepositImage": null,
-    ///               "UniqueIdentifier": "0ea8afc9-d347-4f66-8193-5f79f4d1f17a",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "X": 5.62,
+    ///               "EX": 5.6,
+    ///               "Y": 8.29,
+    ///               "EY": 8.3,
+    ///               "Z": 5.01,
+    ///               "EZ": 5.0,
+    ///               "DX": 0.02,
+    ///               "DY": 0.03,
+    ///               "Vol": 5.11,
+    ///               "EVol": 5.1,
+    ///               "Image": null,
+    ///               "UniqueIdentifier": "774816fd-3396-47da-9d17-898bf3457494",
+    ///               "MeasurementName": "R1.2",
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R1.1"
+    ///             }
+    ///           ]
+    ///         }
+    ///       ]
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
+    /// <para>AOI Measuring Component Offsets Example:</para>
+    /// <para>  </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "5c5d54b0-90f9-41db-833d-a9499f4d191a",
+    ///   "InspectionMethod": "SPI",
+    ///   "SamplingInformation": {
+    ///     "SamplingMethod": "NoSampling",
+    ///     "LotSize": null,
+    ///     "SampleSize": null
+    ///   },
+    ///   "Inspector": {
+    ///     "OperatorIdentifier": "UID235434324",
+    ///     "ActorType": "Human",
+    ///     "FullName": "Joseph Smith",
+    ///     "LastName": "Smith",
+    ///     "FirstName": "Joseph",
+    ///     "LoginName": "joseph.smith@abcdrepairs.com"
+    ///   },
+    ///   "InspectedUnits": [
+    ///     {
+    ///       "UnitIdentifier": "PANEL34543535",
+    ///       "UnitPositionNumber": 1,
+    ///       "OverallResult": "Passed",
+    ///       "Inspections": [
+    ///         {
+    ///           "UniqueIdentifier": "87480b45-e1b8-4ec3-a72c-69ee4eaf149e",
+    ///           "InspectionName": "INSPECT_COMPONENT_OFFSETS",
+    ///           "InspectionStartTime": null,
+    ///           "InspectionEndTime": null,
+    ///           "TestProcedure": null,
+    ///           "Comments": null,
+    ///           "Result": "Passed",
+    ///           "Error": null,
+    ///           "DefectsFound": [],
+    ///           "Symptoms": null,
+    ///           "Measurements": [
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "6240e370-a83d-4a2f-a0dd-3b9725347adc",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": null
+    ///               "CRDs": "R1"
+    ///             },
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "ad87bc5c-f760-4f15-a18d-d11a655db211",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R2"
+    ///             },
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "9f8d6b81-55ac-4e94-bd54-f302266cafb5",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R3"
+    ///             },
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "533c3b13-b6cd-4513-b6f5-62936d7011dd",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R4"
+    ///             }
+    ///           ]
+    ///         }
+    ///       ]
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "PANEL34543535",
+    ///       "UnitPositionNumber": 2,
+    ///       "OverallResult": "Failed",
+    ///       "Inspections": [
+    ///         {
+    ///           "UniqueIdentifier": "8b616c57-cd3b-4c99-9566-7aa4886c4de0",
+    ///           "InspectionName": "INSPECT_COMPONENT_OFFSETS",
+    ///           "InspectionStartTime": null,
+    ///           "InspectionEndTime": null,
+    ///           "TestProcedure": null,
+    ///           "Comments": null,
+    ///           "Result": "Passed",
+    ///           "Error": null,
+    ///           "DefectsFound": [],
+    ///           "Symptoms": null,
+    ///           "Measurements": [
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "38e2d7ec-6b01-4b8f-9a7e-c01d4481f771",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R1"
+    ///             },
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "3fb29677-74e7-4088-b1be-8b6fd8251b1c",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R2"
+    ///             },
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "bb3c9e82-6fdd-4257-9a8c-d981e11ad3e7",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R3"
+    ///             },
+    ///             {
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "DX": 0.02,
+    ///               "DY": 0.01,
+    ///               "DZ": 0.01,
+    ///               "RXY": 0.01,
+    ///               "RZX": 0.15,
+    ///               "RZY": 0.15,
+    ///               "UniqueIdentifier": "8b6860c0-809c-404a-a0ee-1978777b8117",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 0,
+    ///               "Result": "Passed",
+    ///               "CRDs": "R4"
     ///             }
     ///           ]
     ///         }

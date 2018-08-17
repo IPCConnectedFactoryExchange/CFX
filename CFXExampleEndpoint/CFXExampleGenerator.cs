@@ -9,6 +9,7 @@ using CFX.Structures.SMTPlacement;
 using CFX.Structures.SolderPastePrinting;
 using CFX.Structures.THTInsertion;
 using CFX.Structures.SolderPasteInspection;
+using CFX.Structures.PCBInspection;
 using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.Production.Application;
@@ -485,29 +486,35 @@ namespace CFXExampleEndpoint
                                 {
                                     new SolderPasteMeasurement()
                                     {
-                                        MeasurementName = "MEASURE R1.1",
-                                        DepositImage = new Image() {MimeType = "image/jpg", ImageData = new byte[] {0xff, 0x3d, 0x99,0x87 } },
+                                        MeasurementName = "R1.1",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.1",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
                                     },
                                     new SolderPasteMeasurement()
                                     {
-                                        MeasurementName = "MEASURE R1.1",
-                                        DepositImage = new Image() {MimeType = "image/jpg", ImageData = new byte[] {0xff, 0x3d, 0x99,0x87 } },
+                                        MeasurementName = "R1.2",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.2",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
                                     },
                                 })
                             },
@@ -525,29 +532,170 @@ namespace CFXExampleEndpoint
                                 UniqueIdentifier = Guid.NewGuid().ToString(),
                                 InspectionName = "INSPECT_PASTE_DEPOSITIONS",
                                 Result = TestResult.Passed,
-                                Measurements = new List<Measurement>(new Measurement []
+                               Measurements = new List<Measurement>(new Measurement []
                                 {
                                     new SolderPasteMeasurement()
                                     {
+                                        MeasurementName = "R1.1",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.1",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
                                     },
                                     new SolderPasteMeasurement()
                                     {
+                                        MeasurementName = "R1.2",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.2",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
+                                    },
+                                })
+                            },
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            UnitsInspected ui = msg as UnitsInspected;
+            
+            for (int i = 0; i < ui.InspectedUnits.Count; i++)
+            {
+                for (int j = 0; j < 5000; ++j)
+                {
+                    if (ui.InspectedUnits[i].Inspections.Count > 1)
+                    {
+                        Inspection insp = ui.InspectedUnits[i].Inspections[0];
+                        ui.InspectedUnits[i].Inspections = new List<Inspection>();
+                        ui.InspectedUnits[i].Inspections.Add(insp);
+                    }
+                    ui.InspectedUnits[i].Inspections[0].Measurements.Clear();
+                    ui.InspectedUnits[i].Inspections[0].Measurements.Add(
+                        new SolderPasteMeasurement()
+                        {
+                            MeasurementName = "R1.1",
+                            Result = TestResult.Passed,
+                            CRDs = "R1.1",
+                            DX = 0.02,
+                            DY = 0.03,
+                            X = 5.62,
+                            EX = 5.60,
+                            Y = 8.29,
+                            EY = 8.30,
+                            Z = 5.01,
+                            EZ = 5.00,
+                            Vol = 5.11,
+                            EVol = 5.10,
+                        });
+                }
+            }
+
+            System.IO.File.AppendAllText(@"y:\jjwcode\solderpastetest.txt", msg.ToJson(false));
+
+            /// PCB Inspection Example With Component Offset Measurements
+            msg = new UnitsInspected()
+            {
+                TransactionId = Guid.NewGuid(),
+                Inspector = op1,
+                InspectionMethod = InspectionMethod.SPI,
+                InspectedUnits = new List<InspectedUnit>(new InspectedUnit[]
+                {
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 1,
+                        OverallResult = TestResult.Passed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_COMPONENT_OFFSETS",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R1",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R2",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R3",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R4",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                })
+                            },
+                        })
+                    },
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 2,
+                        OverallResult = TestResult.Failed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_COMPONENT_OFFSETS",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R1",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R2",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R3",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R4",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
                                     },
                                 })
                             },
@@ -582,10 +730,7 @@ namespace CFXExampleEndpoint
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R21",
-                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                        {
-                                            new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
-                                        }),
+                                        CRDs = "R21",
                                         Result = TestResult.Passed,
                                         MeasuredValue = new NumericValue()
                                         {
@@ -631,10 +776,7 @@ namespace CFXExampleEndpoint
                                             {
                                                 UniqueIdentifier = Guid.NewGuid().ToString(),
                                                 MeasurementName = "RESISTANCE_MEASUREMENT_R22",
-                                                Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                                {
-                                                    new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
-                                                }),
+                                                CRDs = "R22",
                                                 MeasuredValue = new NumericValue()
                                                 {
                                                     ExpectedValue = 28.2,
@@ -670,10 +812,7 @@ namespace CFXExampleEndpoint
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R21",
-                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                        {
-                                            new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
-                                        }),
+                                        CRDs = "R21",
                                         MeasuredValue = new NumericValue()
                                         {
                                             ExpectedValue = 28.2,
@@ -698,10 +837,7 @@ namespace CFXExampleEndpoint
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R22",
-                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                        {
-                                            new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
-                                        }),
+                                        CRDs = "R22",
                                         MeasuredValue = new NumericValue()
                                         {
                                             ExpectedValue = 28.2,
@@ -2508,9 +2644,10 @@ namespace CFXExampleEndpoint
             string type = msg.GetType().ToString();
             string sep = new string('=', type.Length);
             data += type + "\r\n" + sep + "\r\n";
-            string jsonData = msg.ToJson() + "\r\n";
+            string jsonData = msg.ToJson(true) + "\r\n";
+
             data += "/// <code language=\"none\">\r\n";
-            foreach (string line in jsonData.Split(new string[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries))
+            foreach (string line in jsonData.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
             {
                 data += "/// ";
                 data += line;

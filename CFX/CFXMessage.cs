@@ -15,9 +15,9 @@ namespace CFX
     //[JsonObject(MemberSerialization.OptIn)]
     public abstract class CFXMessage
     {
-        public string ToJson()
+        public string ToJson(bool formatted = false)
         {
-            return CFXJsonSerializer.SerializeObject(this);
+            return CFXJsonSerializer.SerializeObject(this, formatted);
         }
 
         public static CFXMessage FromTypeName(string messageType)
