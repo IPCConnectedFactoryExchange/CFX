@@ -1047,7 +1047,7 @@ namespace CFXExampleEndpoint
                         MaximumWeight = 1000.0
                     },
                     NominalPlacementCPH = 10000,
-                    NominalPCBCPH = 10000,
+                    NominalUnitsPerHour = 120,
                     PlacementConstraints = new SMTPlacementConstraints()
                     {
                     },

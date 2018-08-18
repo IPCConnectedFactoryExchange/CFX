@@ -61,7 +61,9 @@ namespace CFX
     ///   }
     /// }
     /// </code>
-    /// Example of SMT Placement Machine type endpoint:
+    /// <para></para>
+    /// <para>Example of SMT Placement Machine type endpoint:</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "Result": {
@@ -72,7 +74,7 @@ namespace CFX
     ///   "EndpointInformation": {
     ///     "$type": "CFX.Structures.SMTPlacement.SMTPlacementEndpoint, CFXnet46",
     ///     "NominalPlacementCPH": 10000.0,
-    ///     "NominalPCBCPH": 10000.0,
+    ///     "NominalUnitsPerHour": 120.0,
     ///     "SupportedPCBDimensions": {
     ///       "MinimumLength": 10.0,
     ///       "MaximumLength": 1000.0,

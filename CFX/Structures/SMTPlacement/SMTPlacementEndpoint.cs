@@ -31,9 +31,10 @@ namespace CFX.Structures.SMTPlacement
         }
 
         /// <summary>
-        /// ???
+        /// The average (nominal) number of production units per hour this endpoin
+        /// is capable of producing.
         /// </summary>
-        public double NominalPCBCPH
+        public double NominalUnitsPerHour
         {
             get;
             set;
