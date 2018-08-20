@@ -27,4 +27,16 @@ namespace CFX.Structures
         /// </summary>
         Warning
     }
+    /// <summary>
+    ///  Describes data sent with the result status
+    /// </summary>
+    public class StatusResultData
+    {
+
+        public string Data
+        {
+            get;
+            set;
+        }//Data
+    }//StatusResultData
 }
