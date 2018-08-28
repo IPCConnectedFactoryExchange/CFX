@@ -17,41 +17,34 @@ limitations under the License.
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace CFX.Structures
+namespace CFX.Structures.PressInsertion
 {
     /// <summary>
-    /// Describes a Condition Sequence.  Conditions consist of one or more steps that control non-pressing actions for a press recipe.
+    /// Describes a individual step of a Condition sequence
     /// </summary>
-    public class Condition
+    public class ConditionStep
     {
-        public Condition()
+        /// <summary>
+        /// The sequence position of this step in relation to the other steps in the condition.  Steps are peformed in increasing sequence integer order 1...n
+        /// </summary>
+        public int SequencePosition
         {
-            Steps = new ConditionStep[1];
+            get;
+            set;
         }
 
         /// <summary>
-        /// The  name of the condition.
+        /// The name of this step
         /// </summary>
-        public string ConditionName
+        public string Name
         {
             get;
             set;
-        }//ConditionName
+        }
 
         /// <summary>
-        /// An array of the steps of the Condition.
-        /// </summary>
-        public ConditionStep[] Steps
-        {
-            get;
-            set;
-        }//Steps
-
-        /// <summary>
-        /// String containing the aggregated JavaScript code of all condition steps.
+        /// String containing the JavaScript code that controls the step action.
         /// </summary>
         public string JavaScriptCode
         {
@@ -59,14 +52,5 @@ namespace CFX.Structures
             set;
         }//JavaScriptCode
 
-        /// <summary>
-        /// Indicates whether condition is a single step or consists of multiple sub-steps
-        /// </summary>
-        public Boolean MultiStep
-        {
-            get;
-            set;
-        }//MultiStep
-
-    }//Condition
+    }
 }

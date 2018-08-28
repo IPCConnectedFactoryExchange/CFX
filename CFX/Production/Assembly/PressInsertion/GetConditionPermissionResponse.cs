@@ -14,34 +14,37 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -------------------------------------------------------------------------
 */
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using CFX.Structures.PressInsertion;
 
-
-namespace CFX.Production.Assembly
+namespace CFX.Production.Assembly.PressInsertion
 {
     /// <summary>
-    /// This message is used to request a process endpoint for permission to proceed
-    /// with the recipe based on the results of a condition sequence action
+    /// This message is used to grant or reject permission for a process endpoint to proceed
+    /// with the recipe based on the results of a condition sequence action.
     /// <code language="none">
     /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
     ///   "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
     ///   "ConditionStep": {}
-    ///   "Data": {}
     /// }
     /// </code>
     /// </summary>
-    public class GetConditionPermissionRequest : CFXMessage
+    public class GetConditionPermissionResponse : CFXMessage
     {
-
-        public GetConditionPermissionRequest()
+        public GetConditionPermissionResponse()
         {
+            Result = new RequestResult();
         }
 
-
-	/// <summary>
+        /// <summary>
         /// Related Transaction ID specified previously by WorkStarted Message
         /// </summary>
         public Guid TransactionID
@@ -50,21 +53,22 @@ namespace CFX.Production.Assembly
             set;
         }
 
-	/// <summary>	
-    	/// Describes a individual step of a Condition sequence that must be validated
-	/// </summary>
-	public ConditionStep ConditionStep
-	{
-	   get;
-	   set;
-	}
-        /// <summary>
-        /// The data to validate
+        /// <summary>	
+        /// Describes a individual step of a Condition sequence that must be validated
         /// </summary>
-        public string Data
+        public ConditionStep ConditionStep
         {
             get;
             set;
-        }//Data
+        }
+
+        /// <summary>
+        /// The result of the request
+        /// </summary>
+        public RequestResult Result
+        {
+            get;
+            set;
+        }
     }
 }

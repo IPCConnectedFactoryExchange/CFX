@@ -25,7 +25,7 @@ using CFX;
 using CFX.Structures;
 
 
-namespace CFX.Production.Assembly
+namespace CFX.Production.Assembly.PressInsertion
 {
     /// <summary>
     /// Sent by a press insertion machine when a condition has been completed

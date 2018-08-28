@@ -17,31 +17,29 @@ limitations under the License.
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CFX.Structures;
+using CFX.Structures.PressInsertion;
 
-namespace CFX.Production.Assembly
+
+namespace CFX.Production.Assembly.PressInsertion
 {
     /// <summary>
-    /// This message is used to grant or reject permission for a process endpoint to proceed
-    /// with the recipe based on the results of a condition sequence action.
+    /// This message is used to request a process endpoint for permission to proceed
+    /// with the recipe based on the results of a condition sequence action
     /// <code language="none">
     /// {
-    ///   "Result": {
-    ///     "Result": "Success",
-    ///     "ResultCode": 0,
-    ///     "Message": null
-    ///   },
     ///   "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
     ///   "ConditionStep": {}
+    ///   "Data": {}
     /// }
     /// </code>
     /// </summary>
-    public class GetConditionPermissionResponse : CFXMessage
+    public class GetConditionPermissionRequest : CFXMessage
     {
-        public GetConditionPermissionResponse()
+
+        public GetConditionPermissionRequest()
         {
-            Result = new RequestResult();
         }
+
 
 	/// <summary>
         /// Related Transaction ID specified previously by WorkStarted Message
@@ -61,12 +59,12 @@ namespace CFX.Production.Assembly
 	   set;
 	}
         /// <summary>
-        /// The result of the request
+        /// The data to validate
         /// </summary>
-        public RequestResult Result
+        public string Data
         {
             get;
             set;
-        }//RequestResult
+        }//Data
     }
 }

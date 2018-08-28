@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
 
-namespace CFX.Production
+namespace CFX.Structures.PressInsertion
 {
     /// <summary>
     /// Describes result of a condition step.
