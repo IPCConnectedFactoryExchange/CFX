@@ -193,6 +193,7 @@
     <Compile Include="Sensor\Identification\IdentifyUnitsResponse.cs" />
     <Compile Include="Sensor\Identification\NamespaceDoc.cs" />
     <Compile Include="Sensor\NamespaceDoc.cs" />
+    <Compile Include="Structures\AccessType.cs" />
     <Compile Include="Structures\ActorType.cs" />
     <Compile Include="Structures\BlockReason.cs" />
     <Compile Include="Structures\BooleanMeasurement.cs" />
@@ -237,6 +238,8 @@
     <Compile Include="Structures\NumericValue.cs" />
     <Compile Include="Structures\OperatingRequirements.cs" />
     <Compile Include="Structures\Operator.cs" />
+    <Compile Include="Structures\PCBInspection\NamespaceDoc.cs" />
+    <Compile Include="Structures\PCBInspection\OffsetMeasurement.cs" />
     <Compile Include="Structures\PersonalizedUnit.cs" />
     <Compile Include="Structures\Reading.cs" />
     <Compile Include="Structures\Recipe.cs" />
@@ -249,6 +252,7 @@
     <Compile Include="Structures\ScheduledWorkOrder.cs" />
     <Compile Include="Structures\ScheduledWorkOrderIdentifier.cs" />
     <Compile Include="Structures\Segment.cs" />
+    <Compile Include="Structures\SideLocation.cs" />
     <Compile Include="Structures\SMTPlacement\NamespaceDoc.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTapeFeeder.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTapePitch.cs" />
