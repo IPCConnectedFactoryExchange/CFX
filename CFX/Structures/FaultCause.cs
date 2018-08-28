@@ -54,5 +54,21 @@ namespace CFX.Structures
         /// A stop was induced because required documentation was missing
         /// </summary>
         MissingDocumentation,
+        /// <summary>
+        /// A stop was induced because material requires a refill of an empty consumable material 
+        /// </summary>
+        Refill,
+        /// <summary>
+        /// A stop was induced because required material moisture sensitive  status has been expired
+        /// </summary>
+        MsdExpired,
+        /// <summary>
+        /// A stop was induced because required consumable material due date status has been expired
+        /// </summary>
+        MaterialExpired,
+        /// <summary>
+        /// A stop was induced because required consumable material is missing 
+        /// </summary>
+        MissingComponent,
     }
 }
