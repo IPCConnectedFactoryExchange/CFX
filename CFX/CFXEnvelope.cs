@@ -153,9 +153,9 @@ namespace CFX
             return (T)MessageBody;
         }
 
-        public string ToJson()
+        public string ToJson(bool formatted = false)
         {
-            return CFXJsonSerializer.SerializeObject(this);
+            return CFXJsonSerializer.SerializeObject(this, formatted);
         }
 
         public static CFXEnvelope FromCFXMessage(CFXMessage msg)
