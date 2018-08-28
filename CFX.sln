@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFXnet46", "CFX\CFXnet46.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFX", "CFX\CFX.csproj", "{41826C60-1D98-4B49-A6DF-484A289FBBEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFXExampleEndpoint", "CFXExampleEndpoint\CFXExampleEndpoint.csproj", "{29975296-19AF-46C9-A58D-F99776491E4F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +17,10 @@ Global
 		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41826C60-1D98-4B49-A6DF-484A289FBBEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41826C60-1D98-4B49-A6DF-484A289FBBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41826C60-1D98-4B49-A6DF-484A289FBBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41826C60-1D98-4B49-A6DF-484A289FBBEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
