@@ -21,8 +21,8 @@ namespace CFX.Sensor.Identification
     ///       "UnitIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT1",
-    ///       "X": 0.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 0.0,
     ///       "FlipX": false,
     ///       "FlipY": false
@@ -31,8 +31,8 @@ namespace CFX.Sensor.Identification
     ///       "UnitIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT2",
-    ///       "X": 6.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 90.0,
     ///       "FlipX": false,
     ///       "FlipY": false

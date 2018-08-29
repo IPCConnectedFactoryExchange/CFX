@@ -4,32 +4,60 @@ using System.Text;
 
 namespace CFX.Structures.SolderPasteInspection
 {
+    /// <summary>
+    /// Describes the results of a measurement that was made on a solder paste deposition.
+    /// </summary>
     public class SolderPasteMeasurement : Measurement
     {
         /// <summary>
-        /// The specific component lead / pad related to this measurement (eg.  "R31.2", "C2.1")
+        /// The x dimension (length) of the paste deposition, expressed in millimeters (mm).
         /// </summary>
-        public string ComponentPad
+        public double X
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The x dimension (length) of the paste deposition.  Includes the expected deposition
-        /// length in the ExpectedValue property.
+        /// The expected or nominal x dimension (length) required for this paste deposition, expressed in millimeters (mm).
         /// </summary>
-        public NumericValue PasteXSize
+        public double EX
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The y dimension (width) of the paste deposition.  Includes the expected deposition
-        /// width in the ExpectedValue property.
+        /// The x dimension (length) of the paste deposition, expressed in millimeters (mm).
         /// </summary>
-        public NumericValue PasteYSize
+        public double Y
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The expected or nominal x dimension (length) required for this paste deposition, expressed in millimeters (mm).
+        /// </summary>
+        public double EY
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The height of the paste deposition, expressed in millimeters (mm).
+        /// </summary>
+        public double Z
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The expected or nominal height required for this paste deposition, expressed in millimeters (mm).
+        /// </summary>
+        public double EZ
         {
             get;
             set;
@@ -38,7 +66,7 @@ namespace CFX.Structures.SolderPasteInspection
         /// <summary>
         /// The x location of the center of the paste deposition relative to the center of the pad.
         /// </summary>
-        public NumericValue PasteXOffset
+        public double DX
         {
             get;
             set;
@@ -47,27 +75,25 @@ namespace CFX.Structures.SolderPasteInspection
         /// <summary>
         /// The y location of the center of the paste deposition relative to the center of the pad.
         /// </summary>
-        public NumericValue PasteYOffset
+        public double DY
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The height of the paste deposition.  Includes the expected deposition
-        /// height in the ExpectedValue property.
+        /// The volume of the paste deposition, expressed in milliliters (ml)
         /// </summary>
-        public NumericValue PasteHeight
+        public double Vol
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The volume of the paste deposition.  Includes the expected deposition
-        /// volume in the ExpectedValue property.
+        /// The expected or nominal volume of the paste deposition, expressed in milliliters (ml)
         /// </summary>
-        public NumericValue PasteVolume
+        public double EVol
         {
             get;
             set;
@@ -76,7 +102,7 @@ namespace CFX.Structures.SolderPasteInspection
         /// <summary>
         /// An optional image of the deposit formatted in an acceptable MIME image format (JPG, PNG, etc.)
         /// </summary>
-        public Image DepositImage
+        public Image Image
         {
             get;
             set;
