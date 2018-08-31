@@ -23,7 +23,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using CFX;
 using CFX.Structures;
-
+using CFX.Structures.PressInsertion;
 
 namespace CFX.Production.Assembly.PressInsertion
 {
@@ -32,6 +32,7 @@ namespace CFX.Production.Assembly.PressInsertion
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///	  "ConditionName" "Condition1",
     ///   "ResultOfCondition": Success,
     ///   "UnitPosition": 
     ///     {
@@ -57,6 +58,15 @@ namespace CFX.Production.Assembly.PressInsertion
             get;
             set;
         }
+
+	/// <summary>
+        /// Identifies the Condition name
+        /// </summary>
+	public ConditionName ConditionName
+	{
+	    get;
+	    set;
+	}
 
         /// <summary>
         /// Identifies the related production unit

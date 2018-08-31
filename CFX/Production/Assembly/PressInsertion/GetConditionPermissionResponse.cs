@@ -33,6 +33,7 @@ namespace CFX.Production.Assembly.PressInsertion
     ///     "Message": null
     ///   },
     ///   "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
+    ///   "ConditionName" "Condition1",
     ///   "ConditionStep": {}
     /// }
     /// </code>
@@ -52,6 +53,15 @@ namespace CFX.Production.Assembly.PressInsertion
             get;
             set;
         }
+
+	/// <summary>
+        /// Identifies the Condition name
+        /// </summary>
+	public ConditionName ConditionName
+	{
+	    get;
+	    set;
+	}
 
         /// <summary>	
         /// Describes a individual step of a Condition sequence that must be validated
