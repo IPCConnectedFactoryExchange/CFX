@@ -28,11 +28,14 @@ using CFX.Structures;
 namespace CFX.Production.Assembly.PressInsertion
 {
     /// <summary>
-    /// Sent by a press insertion machine when a condition has been completed
+    /// Sent by a press insertion machine when a condition has been started
+    /// A condition is a physical or logical operation - i.e. A pin insertion or connector press onto a board
+    /// is a physical condition, much like a validation of a part before a connector insertion occurs is a 
+    /// logical condition
+    /// 
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
-    ///   "ResultOfCondition": Success,
     ///   "UnitPosition": 
     ///     {
     ///       "UnitIdentifier": "CARRIER5566",
@@ -57,20 +60,10 @@ namespace CFX.Production.Assembly.PressInsertion
             get;
             set;
         }
-
         /// <summary>
         /// Identifies the related production unit
         /// </summary>
 	public UnitPosition UnitPosition
-        {
-            get;
-            set;
-        }
-        
-        /// <summary>
-        /// Identifies the result of the condition
-        /// </summary>
-	public StatusResult ResultOfCondition
         {
             get;
             set;
