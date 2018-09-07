@@ -35,19 +35,19 @@ namespace CFXExampleEndpoint
             reqUsername.Text = Properties.Settings.Default.RequestUsername;
             reqPassword.Text = Properties.Settings.Default.RequestPassword;
 
-            CFXExampleGenerator gen = new CFXExampleGenerator();
-            string result = gen.GenerateAll();
-            File.WriteAllText(@"y:\JJWCode\CFX_JSON_Examples.txt", result, Encoding.UTF8);
-            return;
+            //CFXExampleGenerator gen = new CFXExampleGenerator();
+            //string result = gen.GenerateAll();
+            //File.WriteAllText(@"y:\JJWCode\CFX_JSON_Examples.txt", result, Encoding.UTF8);
+            //return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
 
             RefreshControls();
 
-            //CFX.Utilities.AppLog.LoggingEnabled = true;
-            //CFX.Utilities.AppLog.LogFilePath = @"c:\mylogs";
-            CFX.Utilities.AppLog.AmqpTraceEnabled = false;
+            CFX.Utilities.AppLog.LoggingEnabled = true;
+            CFX.Utilities.AppLog.LogFilePath = @"c:\stuff\mylog.txt";
+            //CFX.Utilities.AppLog.AmqpTraceEnabled = false;
             CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
         }
 

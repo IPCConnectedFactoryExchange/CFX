@@ -18,7 +18,7 @@ limitations under the License.
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX.Structures
+namespace CFX.Structures.PressInsertion
 {
     /// <summary>
     /// Describes a Manufacturer
