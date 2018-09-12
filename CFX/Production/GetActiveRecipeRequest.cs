@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -17,9 +18,9 @@ namespace CFX.Production
     public class GetActiveRecipeRequest : CFXMessage
     {
         /// <summary>
-        /// The optional name or number of the production lane
+        /// The optional number of the production lane
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -28,7 +29,7 @@ namespace CFX.Production
         /// <summary>
         /// The optional name or number of the stage
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

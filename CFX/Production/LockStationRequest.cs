@@ -36,7 +36,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional production lane.  When specified, only that production lane shall be locked.
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -45,7 +45,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional stage.  When specified, only that stage shall be locked.
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

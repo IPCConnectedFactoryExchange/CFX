@@ -20,7 +20,7 @@ namespace CFX.Structures
         /// <summary>
         /// The production lane to which this setup applies (when applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -29,7 +29,7 @@ namespace CFX.Structures
         /// <summary>
         /// The stage to which this setup applies (when applicable)
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

@@ -1055,17 +1055,32 @@ namespace CFXExampleEndpoint
                     {
                         new SMTStageInformation()
                         {
-                            StageName = "BUFFERSTAGE1",
+                            Stage = new Stage()
+                            {
+                                StageSequence = 1,
+                                StageName = "BUFFERSTAGE1",
+                                StageType = StageType.Buffer
+                            },
                             NumberOfFeederStations = 0
                         },
                         new SMTStageInformation()
                         {
-                            StageName = "WORKSTAGE1",
+                            Stage = new Stage()
+                            {
+                                StageSequence = 2,
+                                StageName = "WORKSTAGE1",
+                                StageType = StageType.Work
+                            },
                             NumberOfFeederStations = 100
                         },
                         new SMTStageInformation()
                         {
-                            StageName = "WORKSTAGE2",
+                            Stage = new Stage()
+                            {
+                                StageSequence = 3,
+                                StageName = "WORKSTAGE2",
+                                StageType = StageType.Work
+                            },
                             NumberOfFeederStations = 100
                         }
                     }),
@@ -1150,7 +1165,12 @@ namespace CFXExampleEndpoint
 
             msg = new StageStateChanged()
             {
-                Stage = "STAGE2",
+                Stage = new Stage()
+                {
+                    StageSequence = 2,
+                    StageName = "STAGE2",
+                    StageType = StageType.Work
+                },
                 OldState = ResourceState.IdleStarved,
                 OldStateDuration = TimeSpan.FromSeconds(85),
                 NewState = ResourceState.ReadyProcessingActive
@@ -1212,8 +1232,13 @@ namespace CFXExampleEndpoint
                 Importance = LogImportance.Information,
                 Message = "Beam 1 Zeroed and Homed",
                 InformationId = "INF21321321",
-                Stage = "STAGE1",
-                Lane = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1
             };
             AppendMessage(msg, ref result);
 
@@ -1307,8 +1332,13 @@ namespace CFXExampleEndpoint
                 },
                 PlacementFaultType = SMTPlacementFaultType.PickupError,
                 ProgramStep = 56,
-                Lane = "LANE1",
-                Stage = "STAGE2",
+                Lane = 1,
+                Stage = new Stage()
+                {
+                    StageSequence = 2,
+                    StageName = "STAGE2",
+                    StageType = StageType.Work
+                },
                 MaterialLocation = new MaterialLocation()
                 {
                     LocationIdentifier = "UID23948348324",
@@ -1323,8 +1353,8 @@ namespace CFXExampleEndpoint
                     {
                         Name = "8MMFDR231",
                         UniqueIdentifier = "FDR2348934-32890",
-                        Width = SMDTapeWidth.Tape8mm,
-                        Pitch = SMDTapePitch.Pitch8mm,
+                        TapeWidth = 8,
+                        TapePitch = 8,
                         LaneNumber = 1
                     }
                 },
@@ -1428,8 +1458,13 @@ namespace CFXExampleEndpoint
                 },
                 InsertionFaultType = THTInsertionFaultType.ClinchError,
                 ProgramStep = 56,
-                Lane = "LANE1",
-                Stage = "STAGE2",
+                Lane = 1,
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE2",
+                    StageType = StageType.Work
+                },
                 MaterialLocation = new MaterialLocation()
                 {
                     LocationIdentifier = "UID23948348324",
@@ -1444,8 +1479,8 @@ namespace CFXExampleEndpoint
                     {
                         Name = "8MMFDR231",
                         UniqueIdentifier = "FDR2348934-32890",
-                        Width = SMDTapeWidth.Tape8mm,
-                        Pitch = SMDTapePitch.Pitch8mm,
+                        TapeWidth = 8,
+                        TapePitch = 8,
                         LaneNumber = 1
                     }
                 },
@@ -1550,9 +1585,6 @@ namespace CFXExampleEndpoint
             string result = "";
             CFXMessage msg = null;
 
-
-
-
             msg = new MaterialsLoaded()
             {
                 Materials = new List<MaterialLocation>(new MaterialLocation[]
@@ -1581,8 +1613,8 @@ namespace CFXExampleEndpoint
                             BaseUniqueIdentifier = "123335",
                             Name = "TAPEFEEDER8mm1233335A",
                             BaseName = "MULTILANEFEEDER123335",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                         MaterialPackage = m3.ToMaterialPackage()
                     },
@@ -1597,8 +1629,8 @@ namespace CFXExampleEndpoint
                             Name = "TAPEFEEDER8mm1233335B",
                             BaseName = "MULTILANEFEEDER123335",
                             LaneNumber = 2,
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                         MaterialPackage = m4.ToMaterialPackage()
                     },
@@ -1662,8 +1694,8 @@ namespace CFXExampleEndpoint
                             BaseUniqueIdentifier = "123335",
                             Name = "TAPEFEEDER8mm1233335A",
                             BaseName = "MULTILANEFEEDER123335",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                     },
                     new MaterialCarrierLocation()
@@ -1677,8 +1709,8 @@ namespace CFXExampleEndpoint
                             Name = "TAPEFEEDER8mm1233335B",
                             BaseName = "MULTILANEFEEDER123335",
                             LaneNumber = 2,
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                     }
                 })
@@ -1853,8 +1885,8 @@ namespace CFXExampleEndpoint
                             {
                                 UniqueIdentifier = "234232432424",
                                 Name = "FEEDER2245465",
-                                Width = SMDTapeWidth.Tape8mm,
-                                Pitch = SMDTapePitch.Pitch8mm
+                                TapeWidth = 8,
+                                TapePitch = 4
                             }
                         },
                         QuantityUsed = 42,
@@ -1877,8 +1909,8 @@ namespace CFXExampleEndpoint
                             {
                                 UniqueIdentifier = "234232432424",
                                 Name = "FEEDER2245465",
-                                Width = SMDTapeWidth.Tape8mm,
-                                Pitch = SMDTapePitch.Pitch8mm
+                                TapeWidth = 8,
+                                TapePitch = 4
                             }
                         },
                         QuantityUsed = 88,
@@ -1907,8 +1939,8 @@ namespace CFXExampleEndpoint
                         {
                             UniqueIdentifier = "234232432424",
                             Name = "FEEDER2245465",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Pitch8mm
+                            TapeWidth = 8,
+                            TapePitch = 8
                         }
                     },
                     new MaterialLocation()
@@ -1925,8 +1957,8 @@ namespace CFXExampleEndpoint
                         {
                             UniqueIdentifier = "234232432424",
                             Name = "FEEDER2245465",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Pitch8mm
+                            TapeWidth = 8,
+                            TapePitch = 4
                         }
                     },
                 })
@@ -2150,8 +2182,13 @@ namespace CFXExampleEndpoint
 
             msg = new ActivateRecipeRequest()
             {
-                Stage = "1",
-                Lane = "1",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
                 RecipeName = "RECIPE1234",
                 Revision = "C"
             };
@@ -2170,8 +2207,13 @@ namespace CFXExampleEndpoint
 
             msg = new GetActiveRecipeRequest()
             {
-                Stage = "1",
-                Lane = "1",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
             };
             AppendMessage(msg, ref result);
 
@@ -2207,15 +2249,25 @@ namespace CFXExampleEndpoint
 
             msg = new GetRequiredSetupRequest()
             {
-                Stage = "1",
-                Lane = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
             };
             AppendMessage(msg, ref result);
 
             GetRequiredSetupResponse grsr = new GetRequiredSetupResponse()
             {
-                Stage = "1",
-                Lane = "1",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
                 RecipeName = "RECIPE4455",
                 RecipeRevision = "C",
                 Result = new RequestResult()
@@ -2226,8 +2278,13 @@ namespace CFXExampleEndpoint
                 },
                 SetupRequirements = new StationSetupRequirements()
                 {
-                    Stage = "1",
-                    Lane = "1",
+                    Stage = new Stage()
+                    {
+                        StageSequence = 1,
+                        StageName = "STAGE1",
+                        StageType = StageType.Work
+                    },
+                    Lane = 1,
                     SetupName = "COMMONSETUP45",
                 }
             };
@@ -2242,8 +2299,13 @@ namespace CFXExampleEndpoint
             msg = new LockStationRequest()
             {
                 Reason = LockReason.QualityIssue,
-                Lane = "1",
-                Stage = "5",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
                 Requestor = new Operator()
                 {
                     ActorType = ActorType.Human,
@@ -2337,7 +2399,7 @@ namespace CFXExampleEndpoint
 
             msg = new RecipeActivated()
             {
-                Lane = "1",
+                Lane = 1,
                 RecipeName = "RECIPE3234",
                 Revision = "B"
             };
@@ -2362,7 +2424,7 @@ namespace CFXExampleEndpoint
 
             msg = new SetupRequirementsChanged()
             {
-                Lane = "1",
+                Lane = 1,
             };
             AppendMessage(msg, ref result);
 
@@ -2461,35 +2523,55 @@ namespace CFXExampleEndpoint
             msg = new WorkStageCompleted()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStagePaused()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStageResumed()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStageStarted()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStarted()
             {
                 TransactionID = transId,
-                Lane = "1",
+                Lane = 1,
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
@@ -2806,8 +2888,8 @@ namespace CFXExampleEndpoint
                 UniqueIdentifier = "1233334",
                 BaseUniqueIdentifier = "123334",
                 Name = "TAPEFEEDER8mm1233334",
-                Width = SMDTapeWidth.Tape8mm,
-                Pitch = SMDTapePitch.Adjustable
+                TapeWidth = 8,
+                TapePitch = 8
             };
 
             c3 = new SMDTapeFeeder()
@@ -2816,8 +2898,8 @@ namespace CFXExampleEndpoint
                 BaseUniqueIdentifier = "123335",
                 Name = "TAPEFEEDER8mm1233335A",
                 BaseName = "MULTILANEFEEDER123335",
-                Width = SMDTapeWidth.Tape8mm,
-                Pitch = SMDTapePitch.Adjustable
+                TapeWidth = 8,
+                TapePitch = 4
             };
 
             t1 = new SMTNozzle()

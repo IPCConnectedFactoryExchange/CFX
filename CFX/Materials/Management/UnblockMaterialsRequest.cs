@@ -26,7 +26,7 @@ namespace CFX.Materials.Management
     /// }
     /// </code>
     /// </summary>
-    class UnblockMaterialsRequest : CFXMessage
+    public class UnblockMaterialsRequest : CFXMessage
     {
         public UnblockMaterialsRequest()
         {

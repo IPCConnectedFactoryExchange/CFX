@@ -60,7 +60,7 @@ namespace CFX.Production
         /// <summary>
         /// Lane identifier.  Null if no specific lane
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;

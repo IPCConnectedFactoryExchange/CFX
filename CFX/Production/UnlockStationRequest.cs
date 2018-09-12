@@ -29,18 +29,27 @@ namespace CFX.Production
     /// </summary>
     public class UnlockStationRequest : CFXMessage
     {
-        public string Lane
+        /// <summary>
+        /// An optional production lane.  When specified, only that production lane shall be unlocked.
+        /// </summary>
+        public int? Lane
         {
             get;
             set;
         }
 
-        public string Stage
+        /// <summary>
+        /// An optional stage designating the particular production stage to be unlocked
+        /// </summary>
+        public Stage Stage
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Information about the operator who is requesting that the stage be unlocked.
+        /// </summary>
         public Operator Requestor
         {
             get;

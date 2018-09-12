@@ -34,7 +34,7 @@ namespace CFX.Production
         /// <summary>
         /// The stage name or number
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

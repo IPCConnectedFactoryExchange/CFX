@@ -12,7 +12,16 @@ namespace CFX.Structures.SMTPlacement
     public class SMTLaneInformation
     {
         /// <summary>
-        /// The name of this lane.  Corresponds with Lane property in production messages.
+        /// The lane number.  Corresponds with Lane property in production messages.
+        /// </summary>
+        public int? LaneNumber
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The friendly name of this lane.
         /// </summary>
         public string LaneName
         {

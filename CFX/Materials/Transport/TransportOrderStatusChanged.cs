@@ -6,7 +6,7 @@ using CFX.Structures;
 namespace CFX.Materials.Transport
 {
     /// <summary>
-    /// Sent when a new transport order is initiated.
+    /// Sent when the status of an existing transport order has changed.
     /// <code language="none">
     /// {
     ///   "TransportOrderNumber": "TR329483249830000",

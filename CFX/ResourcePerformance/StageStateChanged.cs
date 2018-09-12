@@ -26,7 +26,7 @@ namespace CFX.ResourcePerformance
         /// <summary>
         /// The name of the stage that has changed state
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;
@@ -35,7 +35,7 @@ namespace CFX.ResourcePerformance
         /// <summary>
         /// The relevant production lane (if applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;

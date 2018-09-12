@@ -49,18 +49,18 @@ namespace CFX.Structures.SMTPlacement
         }
 
         /// <summary>
-        /// An enumeration indicating the width of this tape feeder
+        /// The width of the tape currently loaded on this feeder (in millimeters)
         /// </summary>
-        public SMDTapeWidth Width
+        public double TapeWidth
         {
             get;
             set;
         }
 
         /// <summary>
-        /// An enumeration indicating the pitch of this tape feeder
+        /// The pitch (spacing between parts) of the tape currently loaded on this feeder (in millimeters)
         /// </summary>
-        public SMDTapePitch Pitch
+        public double TapePitch
         {
             get;
             set;

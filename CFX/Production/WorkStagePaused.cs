@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -29,7 +30,7 @@ namespace CFX.Production
         /// <summary>
         /// The stage name or number
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

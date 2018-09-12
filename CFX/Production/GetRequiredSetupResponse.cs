@@ -90,7 +90,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the specific Lane associated with this setup.
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -99,7 +99,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the specific Stage associated with this setup.
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

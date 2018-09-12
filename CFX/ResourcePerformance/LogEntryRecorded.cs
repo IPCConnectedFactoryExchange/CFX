@@ -55,14 +55,14 @@ namespace CFX.ResourcePerformance
         /// <summary>
         /// The production lane related to the log entry (where applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
         }
 
         /// The production stage related to the log entry (where applicable)
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

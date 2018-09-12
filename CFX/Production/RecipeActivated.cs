@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -36,18 +37,18 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Name or number of the production lane
+        /// Number of the production lane (if applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Name or number of the stage
+        /// An optional stage
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -37,10 +38,10 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The optional name or number of the production lane where 
+        /// The optional number of the production lane where 
         /// the recipe should be activated
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -50,7 +51,7 @@ namespace CFX.Production
         /// The optional name or number of the stage where
         /// the recipe should be activated
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;
