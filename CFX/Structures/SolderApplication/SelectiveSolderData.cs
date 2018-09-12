@@ -4,32 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures.SolderDispensing
+namespace CFX.Structures.SolderApplication
 {
     /// <summary>
     /// General data values that apply across the selective process cycle 
     /// </summary>
-    public class SolderingData
+    public class SelectiveSolderData
     {
-        /// <summary>
-        /// Unique ID of Production Unit, Panel, or Carrier
-        /// </summary>
-        public string UnitIdentifier
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Logical reference of production unit as defined by CFX position rule (see CFX standard).
-        /// unit’s true unique identifier.  
-        /// </summary>
-        public int? UnitPositionNumber
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Result of the Selective Process
         /// "Completed" or "Aborted"
@@ -53,7 +34,7 @@ namespace CFX.Structures.SolderDispensing
         /// Pressure od the incoming Nitrogen
         /// in kPa (kilopascal)
         /// </summary>
-        public Single Nitrogen_Pressure
+        public double Nitrogen_Pressure
         {
             get;
             set;
@@ -73,7 +54,7 @@ namespace CFX.Structures.SolderDispensing
         /// The total number of parts processed
         /// since the last reset of the Cycle Counter
         /// </summary>
-        public Int16 Cycle_Count
+        public int Cycle_Count
         {
             get;
             set;
@@ -92,7 +73,7 @@ namespace CFX.Structures.SolderDispensing
         /// The Purity of the incoming Nitrogen supply
         /// in ppm (parts per million)
         /// </summary>
-        public Single Nitrogen_Purity
+        public double Nitrogen_Purity
         {
             get;
             set;
@@ -102,7 +83,7 @@ namespace CFX.Structures.SolderDispensing
         /// The consumption of Nitrogen by the selective soldering system
         /// in LPM (litres per minute)
         /// </summary>        
-        public Single Nitrogen_Flow
+        public double Nitrogen_Flow
         {
             get;
             set;
@@ -112,7 +93,7 @@ namespace CFX.Structures.SolderDispensing
         /// Fiducial correct enabled for the selective soldering system
         /// "True" or "False"
         /// </summary>
-        public Boolean Fiducial_Enabled
+        public bool Fiducial_Enabled
         {
             get;
             set;

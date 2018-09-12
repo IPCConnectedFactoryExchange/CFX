@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures.SolderDispensing
+namespace CFX.Structures.SolderApplication
 {
     /// <summary>
     /// Data specific to a single zone with the
@@ -13,11 +13,10 @@ namespace CFX.Structures.SolderDispensing
     public class ZoneData
     {
         /// <summary>
-        /// The identity of the zone for this set
-        /// of process data.
-        /// (1 to 16)
+        /// The identity of the zone for this set of process data.  
+        /// Corresponds to the StageSequence number of the related Stage
         /// </summary>
-        public Int16 Zone
+        public int StageSequence
         {
             get;
             set;
@@ -37,7 +36,7 @@ namespace CFX.Structures.SolderDispensing
         /// Pressure of the Nitrogen for flux applicator 1
         /// in kPa (kilopascal)
         /// </summary>
-        public Single Bottle1_Pressure
+        public double Bottle1_Pressure
         {
             get;
             set;
@@ -47,7 +46,7 @@ namespace CFX.Structures.SolderDispensing
         /// Pressure of the Nitrogen for flux applicator 2
         /// in kPa (kilopascal)
         /// </summary>
-        public Single Bottle2_Pressure
+        public double Bottle2_Pressure
         {
             get;
             set;
@@ -57,7 +56,7 @@ namespace CFX.Structures.SolderDispensing
         /// The total volume of flux applied to the item
         /// in mg (milligrams)
         /// </summary>
-        public Single Flux_Volume
+        public double Flux_Volume
         {
             get;
             set;
@@ -68,7 +67,7 @@ namespace CFX.Structures.SolderDispensing
         /// during the heating phase
         /// as a percentage (0-100%)
         /// </summary>
-        public Single Top_Preheater_Power
+        public double Top_Preheater_Power
         {
             get;
             set;
@@ -79,7 +78,7 @@ namespace CFX.Structures.SolderDispensing
         /// during the soak phase
         /// as a percentage (0-100%)
         /// </summary>
-        public Single Top_Preheater_Soak
+        public double Top_Preheater_Soak
         {
             get;
             set;
@@ -90,7 +89,7 @@ namespace CFX.Structures.SolderDispensing
         /// during the preheating cycle
         /// in Celsius
         /// </summary>
-        public Single Top_Preheater_Temp
+        public double Top_Preheater_Temp
         {
             get;
             set;
@@ -110,7 +109,7 @@ namespace CFX.Structures.SolderDispensing
         /// The power setting for the bottom side preheater
         /// as a percentage (0-100%)        
         /// </summary>
-        public Single Bot_Preheater_Power
+        public double Bot_Preheater_Power
         {
             get;
             set;
@@ -121,7 +120,7 @@ namespace CFX.Structures.SolderDispensing
         /// during the soak phase
         /// as a percentage (0-100%)
         /// </summary>
-        public Single Bot_Preheater_Soak
+        public double Bot_Preheater_Soak
         {
             get;
             set;
@@ -142,7 +141,7 @@ namespace CFX.Structures.SolderDispensing
         /// The total time for the prehearting
         /// phase within this zone
         /// </summary>
-        public Single Bot_Preheater_Time
+        public TimeSpan Bot_Preheater_Time
         {
             get;
             set;
@@ -152,7 +151,7 @@ namespace CFX.Structures.SolderDispensing
         /// Temperature of the solder bath
         /// in Celsius
         /// </summary>
-        public Single Bath_Temp
+        public double Bath_Temp
         {
             get;
             set;
@@ -163,7 +162,7 @@ namespace CFX.Structures.SolderDispensing
         /// for the selective soldering system
         /// "True" or "False"
         /// </summary>
-        public Boolean Bath_Wave_Enabled
+        public bool Bath_Wave_Enabled
         {
             get;
             set;
@@ -173,7 +172,7 @@ namespace CFX.Structures.SolderDispensing
         /// The value the wave height was corrected by
         /// in mm (millimetres)
         /// </summary>
-        public Single Bath_Wave_Hgt
+        public double Bath_Wave_Hgt
         {
             get;
             set;
@@ -183,7 +182,7 @@ namespace CFX.Structures.SolderDispensing
         /// The quantity of solder consumed by the soldering process
         /// in grams
         /// </summary>
-        public Single Solder_Quantity_Used
+        public double Solder_Quantity_Used
         {
             get;
             set;
@@ -193,7 +192,7 @@ namespace CFX.Structures.SolderDispensing
         /// The X-axis fiducial correction value
         /// in mm (millimetres)
         /// </summary>
-        public Single Fid_XCorrection
+        public double Fid_XCorrection
         {
             get;
             set;
@@ -203,7 +202,7 @@ namespace CFX.Structures.SolderDispensing
         /// The Y-axis fiducial correction value
         /// in mm (millimetres)
         /// </summary>
-        public Single Fid_YCorrection
+        public double Fid_YCorrection
         {
             get;
             set;

@@ -74,4 +74,8 @@
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Production\Application\SolderPaste\" />
+  </ItemGroup>
+
 </Project>

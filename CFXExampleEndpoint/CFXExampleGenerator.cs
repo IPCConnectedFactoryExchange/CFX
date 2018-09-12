@@ -7,6 +7,7 @@ using CFX;
 using CFX.Structures;
 using CFX.Structures.SMTPlacement;
 using CFX.Structures.SolderPastePrinting;
+using CFX.Structures.SolderApplication;
 using CFX.Structures.THTInsertion;
 using CFX.Structures.SolderPasteInspection;
 using CFX.Structures.PCBInspection;
@@ -27,6 +28,7 @@ using CFX.ResourcePerformance;
 using CFX.ResourcePerformance.SMTPlacement;
 using CFX.ResourcePerformance.SolderPastePrinting;
 using CFX.ResourcePerformance.THTInsertion;
+using CFX.Production.Application.Solder;
 
 namespace CFXExampleEndpoint
 {
@@ -318,6 +320,92 @@ namespace CFXExampleEndpoint
                 })
             };
             AppendMessage(msg, ref result);
+
+            SelectiveSolderData ssd1 = new SelectiveSolderData()
+            {
+                Process_Status = "Completed",
+                RecipeName = "Panasonic 2up",
+                Nitrogen_Pressure = 54,
+                Air_Pressure = 62,
+                Cycle_Count = 671261,
+                Cycle_Time = new TimeSpan(0, 0, 1, 44, 200),
+                Nitrogen_Purity = 15,
+                Nitrogen_Flow = 39,
+                Fiducial_Enabled = true
+            };
+
+            ZoneData z1 = new ZoneData()
+            {
+                StageSequence = 1,
+                ProcessTime = new TimeSpan(0, 0, 15, 0),
+                Bottle1_Pressure = 7.0,
+                Bottle2_Pressure = 7.0,
+                Flux_Volume = 210,
+                Top_Preheater_Power = 50,
+                Top_Preheater_Soak = 10,
+                Top_Preheater_Temp = 109,
+                Top_Preheater_Time = new TimeSpan(0, 0, 37),
+                Fid_XCorrection = 0.15,
+                Fid_YCorrection = 0.2
+            };
+
+            ZoneData z2 = new ZoneData()
+            {
+                StageSequence = 2,
+                ProcessTime = new TimeSpan(0, 0, 37),
+                Top_Preheater_Power = 50,
+                Top_Preheater_Soak = 10,
+                Top_Preheater_Temp = 109,
+                Top_Preheater_Time = new TimeSpan(0, 0, 37),
+                Bot_Preheater_Power = 50,
+                Bot_Preheater_Soak = 10,
+                Bot_Preheater_Temp = 108,
+                Bot_Preheater_Time = new TimeSpan(0, 0, 37),
+            };
+
+            ZoneData z3 = new ZoneData()
+            {
+                StageSequence = 3,
+                ProcessTime = new TimeSpan(0, 0, 37),
+                Top_Preheater_Power = 50,
+                Top_Preheater_Soak = 10,
+                Top_Preheater_Temp = 109,
+                Top_Preheater_Time = new TimeSpan(0, 0, 37),
+                Bot_Preheater_Power = 50,
+                Bot_Preheater_Soak = 10,
+                Bot_Preheater_Temp = 108,
+                Bot_Preheater_Time = new TimeSpan(0, 0, 37),
+                Bath_Temp = 305,
+                Bath_Wave_Enabled = true,
+                Bath_Wave_Hgt = 0.1,
+                Solder_Quantity_Used = 5,
+                Fid_XCorrection = 0.15,
+                Fid_YCorrection = 0.2
+            };
+
+            msg = new PCBSelectiveSoldered()
+            {
+                TransactionId = Guid.NewGuid(),
+                HeaderData = ssd1,
+                SolderedPCBs = new List<SelectiveSolderedPCB>(new SelectiveSolderedPCB[] {
+                    new SelectiveSolderedPCB()
+                    {
+                        UnitIdentifier = "PANEL4325435",
+                        UnitPositionNumber = 1,
+                        ZoneData = new List<ZoneData>(new ZoneData [] {z1, z2, z3 })
+                    },
+                    new SelectiveSolderedPCB()
+                    {
+                        UnitIdentifier = "PANEL4325435",
+                        UnitPositionNumber = 1,
+                        ZoneData = new List<ZoneData>(new ZoneData [] {z1, z2, z3 })
+                    }
+                })
+            };
+
+
+            AppendMessage(msg, ref result);
+
 
             return result;
         }

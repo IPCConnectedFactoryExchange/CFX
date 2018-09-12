@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Production.Application.SolderDispensing
+namespace CFX.Production.Application.Solder
 {
     /// <summary>
     /// CFX Topic implemented by endpoints which are involved in the soldering of production units.
