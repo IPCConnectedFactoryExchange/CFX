@@ -11,7 +11,7 @@ namespace CFX.Production
     /// {
     ///   "RecipeName": "RECIPE3234",
     ///   "Revision": "B",
-    ///   "Lane": "1",
+    ///   "Lane": 1,
     ///   "Stage": null
     /// }
     /// </code>

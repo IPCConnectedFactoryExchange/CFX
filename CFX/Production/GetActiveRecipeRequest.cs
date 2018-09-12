@@ -10,8 +10,8 @@ namespace CFX.Production
     /// endpoint. The response indicates the name of the recipe.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
-    ///   "Stage": "1"
+    ///   "Lane": 1,
+    ///   "Stage": null
     /// }
     /// </code>
     /// </summary>
@@ -27,7 +27,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The optional name or number of the stage
+        /// The optional structure identifying the specific Stage
         /// </summary>
         public Stage Stage
         {

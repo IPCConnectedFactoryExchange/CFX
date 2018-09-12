@@ -12,8 +12,12 @@ namespace CFX.Production
     /// {
     ///   "RecipeName": "RECIPE1234",
     ///   "Revision": "C",
-    ///   "Lane": "1",
-    ///   "Stage": "1"
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>

@@ -10,8 +10,9 @@ namespace CFX
     /// Allows any CFX endpoint to request the capabilities of a specified single endpoint. The response
     /// includes information about the endpoint, including its CFX Handle, and network hostname / address.
     /// The endpoint information structure is a dynamic structure, and can vary based on the type of endpoint.
-    /// 
+    /// <para></para>
     /// Generic example:
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "Result": {
@@ -89,24 +90,38 @@ namespace CFX
     ///     },
     ///     "Stages": [
     ///       {
-    ///         "StageName": "BUFFERSTAGE1",
+    ///         "Stage": {
+    ///           "StageSequence": 1,
+    ///           "StageName": "BUFFERSTAGE1",
+    ///           "StageType": "Buffer"
+    ///         },
     ///         "NumberOfFeederStations": 0
     ///       },
     ///       {
-    ///         "StageName": "WORKSTAGE1",
+    ///         "Stage": {
+    ///           "StageSequence": 2,
+    ///           "StageName": "WORKSTAGE1",
+    ///           "StageType": "Work"
+    ///         },
     ///         "NumberOfFeederStations": 100
     ///       },
     ///       {
-    ///         "StageName": "WORKSTAGE2",
+    ///         "Stage": {
+    ///           "StageSequence": 3,
+    ///           "StageName": "WORKSTAGE2",
+    ///           "StageType": "Work"
+    ///         },
     ///         "NumberOfFeederStations": 100
     ///       }
     ///     ],
     ///     "Lanes": [
     ///       {
+    ///         "LaneNumber": null,
     ///         "LaneName": "LANE1",
     ///         "SupportedPCBDimensions": null
     ///       },
     ///       {
+    ///         "LaneNumber": null,
     ///         "LaneName": "LANE2",
     ///         "SupportedPCBDimensions": null
     ///       }

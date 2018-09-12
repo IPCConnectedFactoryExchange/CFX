@@ -17,11 +17,15 @@ namespace CFX.Production
     /// has stopped.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
-    ///   "Stage": "5",
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
     ///   "Reason": "QualityIssue",
     ///   "Requestor": {
-    ///     "OperatorIdentifier": "bdcb4098-4645-4342-b85d-65a64c52393e",
+    ///     "OperatorIdentifier": "3396d4ac-cc73-4ee8-a2bf-7d5997100759",
     ///     "ActorType": "Human",
     ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",

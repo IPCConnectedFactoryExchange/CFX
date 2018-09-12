@@ -11,8 +11,12 @@ namespace CFX.Production
     /// the materials/tools must be loaded.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
-    ///   "Stage": "1"
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>

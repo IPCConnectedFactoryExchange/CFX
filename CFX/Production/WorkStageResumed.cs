@@ -12,7 +12,11 @@ namespace CFX.Production
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
-    ///   "Stage": "1"
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>

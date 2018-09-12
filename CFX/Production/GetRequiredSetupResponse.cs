@@ -20,11 +20,19 @@ namespace CFX.Production
     ///   },
     ///   "RecipeName": "RECIPE4455",
     ///   "RecipeRevision": "C",
-    ///   "Lane": "1",
-    ///   "Stage": "1",
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
     ///   "SetupRequirements": {
-    ///     "Lane": "1",
-    ///     "Stage": "1",
+    ///     "Lane": 1,
+    ///     "Stage": {
+    ///       "StageSequence": 1,
+    ///       "StageName": "STAGE1",
+    ///       "StageType": "Work"
+    ///     },
     ///     "SetupName": "COMMONSETUP45",
     ///     "MaterialSetupRequirements": [
     ///       {

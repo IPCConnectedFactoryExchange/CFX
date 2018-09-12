@@ -13,7 +13,7 @@ namespace CFX.Production
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
-    ///   "Lane": "1",
+    ///   "Lane": 1,
     ///   "UnitCount": 2,
     ///   "Units": [
     ///     {

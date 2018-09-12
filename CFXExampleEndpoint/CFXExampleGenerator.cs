@@ -2295,12 +2295,6 @@ namespace CFXExampleEndpoint
 
             msg = new GetActiveRecipeRequest()
             {
-                Stage = new Stage()
-                {
-                    StageSequence = 1,
-                    StageName = "STAGE1",
-                    StageType = StageType.Work
-                },
                 Lane = 1,
             };
             AppendMessage(msg, ref result);
