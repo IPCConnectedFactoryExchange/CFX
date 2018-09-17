@@ -11,6 +11,7 @@ using CFX.Structures.SolderApplication;
 using CFX.Structures.THTInsertion;
 using CFX.Structures.SolderPasteInspection;
 using CFX.Structures.PCBInspection;
+using CFX.Structures.SolderReflow;
 using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.Production.Application;
@@ -29,6 +30,7 @@ using CFX.ResourcePerformance.SMTPlacement;
 using CFX.ResourcePerformance.SolderPastePrinting;
 using CFX.ResourcePerformance.THTInsertion;
 using CFX.Production.Application.Solder;
+using CFX.Production.Processing;
 
 namespace CFXExampleEndpoint
 {
@@ -1286,14 +1288,20 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new ModifyStationParameterRequest()
+            msg = new ModifyStationParametersRequest()
             {
-                ParameterName = "Torque1",
-                ParameterValue = "35.6"
+                NewParameters = new List<Parameter>(new Parameter[]
+                {
+                    new GenericParameter()
+                    {
+                        Name = "Torque1",
+                        Value = "35.6"
+                    }
+                }),
             };
             AppendMessage(msg, ref result);
 
-            msg = new ModifyStationParameterResponse()
+            msg = new ModifyStationParametersResponse()
             {
                 Result = new RequestResult()
                 {
@@ -1301,17 +1309,79 @@ namespace CFXExampleEndpoint
                     ResultCode = 0,
                     Message = "OK"
                 },
-                ParameterName = "Torque1",
-                NewParameterValue = "35.6",
-                OldParameterValue = "22.6"
             };
             AppendMessage(msg, ref result);
 
-            msg = new StationParameterModified()
+            msg = new StationParametersModified()
             {
-                ParameterName = "Torque1",
-                NewParameterValue = "35.6",
-                OldParameterValue = "22.6"
+                ModifiedParameters = new List<Parameter>(new Parameter[]
+                {
+                    new GenericParameter()
+                    {
+                        Name = "Torque1",
+                        Value = "35.6"
+                    }
+                }),
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StationParametersModified()
+            {
+                ModifiedParameters = new List<Parameter>(new Parameter []
+                {
+                    new ReflowOvenParameter()
+                    {
+                        ConveyorSpeedSetpoint = 50,
+                        ConveyorWidth = 25.0,
+                        VacuumLevel = 1,
+                        VacuumLevelHoldTime = new TimeSpan(0, 0, 100),
+                        ClosedLoopO2 = 500,
+                        ConvectionRate = 25,
+                        ZoneParameters = new List<ReflowZoneParameter>(new ReflowZoneParameter []
+                        {
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 1,
+                                    StageName = "Zone1",
+                                    ReflowZoneType = ReflowZoneType.PreHeat
+                                },
+                                TopTempSetpoint = 220
+                            },
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 2,
+                                    StageName = "Zone2",
+                                    ReflowZoneType = ReflowZoneType.Soak
+                                },
+                                TopTempSetpoint = 200
+                            },
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 1,
+                                    StageName = "Zone1",
+                                    ReflowZoneType = ReflowZoneType.Reflow
+                                },
+                                TopTempSetpoint = 245
+                            },
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 1,
+                                    StageName = "Zone1",
+                                    ReflowZoneType = ReflowZoneType.Cool
+                                },
+                                TopTempSetpoint = 125
+                            },
+                        }),
+                    }
+                }),
             };
             AppendMessage(msg, ref result);
 
@@ -2798,6 +2868,84 @@ namespace CFXExampleEndpoint
                     ResultCode = 0
                 }
             };
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                CommonProcessData = new ReflowProcessData()
+                {
+                    ConveyorSpeed = 60,
+                    ZoneData = new List<ReflowZoneData>(new ReflowZoneData []
+                    {
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 1,
+                                StageName = "PreHeat1",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.PreHeat
+                            },
+                            TopTempSetpoint = 240.0,
+                            TopActualTemp = 239.9,
+                            TopPower = 240,
+                            BotTempSetpoint = 235.0,
+                            BotActualTemp = 234.8,
+                            BotPower = 233
+                        },
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 2,
+                                StageName = "Soak",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.Soak
+                            },
+                            TopTempSetpoint = 240.0,
+                            TopActualTemp = 239.9,
+                            TopPower = 240,
+                            BotTempSetpoint = 235.0,
+                            BotActualTemp = 234.8,
+                            BotPower = 233
+                        },
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 3,
+                                StageName = "Reflow",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.Reflow
+                            },
+                            TopTempSetpoint = 280.0,
+                            TopActualTemp = 279.9,
+                            TopPower = 300,
+                            BotTempSetpoint = 275.0,
+                            BotActualTemp = 273.8,
+                            BotPower = 295
+                        },
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 4,
+                                StageName = "Cool",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.Cool
+                            },
+                            TopTempSetpoint = 50.0,
+                            TopActualTemp = 52.9,
+                            TopPower = 50,
+                            BotTempSetpoint = 50.0,
+                            BotActualTemp = 51.8,
+                            BotPower = 50
+                        }
+                    }),
+                }
+            };
+
             AppendMessage(msg, ref result);
 
             return result;

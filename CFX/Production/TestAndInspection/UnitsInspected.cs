@@ -245,7 +245,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
     ///               "X": 5.62,
     ///               "EX": 5.6,
     ///               "Y": 8.29,
@@ -265,7 +265,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R1.1"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
     ///               "X": 5.62,
     ///               "EX": 5.6,
     ///               "Y": 8.29,
@@ -306,7 +306,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
     ///               "X": 5.62,
     ///               "EX": 5.6,
     ///               "Y": 8.29,
@@ -326,7 +326,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R1.1"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.SolderPasteMeasurement, CFX",
     ///               "X": 5.62,
     ///               "EX": 5.6,
     ///               "Y": 8.29,
@@ -390,7 +390,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -405,7 +405,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R1"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -420,7 +420,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R2"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -435,7 +435,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R3"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -471,7 +471,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -486,7 +486,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R1"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -501,7 +501,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R2"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,
@@ -516,7 +516,7 @@ namespace CFX.Production.TestAndInspection
     ///               "CRDs": "R3"
     ///             },
     ///             {
-    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFXnet46",
+    ///               "$type": "CFX.Structures.PCBInspection.OffsetMeasurement, CFX",
     ///               "DX": 0.02,
     ///               "DY": 0.01,
     ///               "DZ": 0.01,

@@ -73,7 +73,7 @@ namespace CFX
     ///     "Message": null
     ///   },
     ///   "EndpointInformation": {
-    ///     "$type": "CFX.Structures.SMTPlacement.SMTPlacementEndpoint, CFXnet46",
+    ///     "$type": "CFX.Structures.SMTPlacement.SMTPlacementEndpoint, CFX",
     ///     "NominalPlacementCPH": 10000.0,
     ///     "NominalUnitsPerHour": 120.0,
     ///     "SupportedPCBDimensions": {
