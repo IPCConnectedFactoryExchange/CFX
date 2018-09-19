@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
     <PackageId>CFX.CFXSDK</PackageId>
-    <PackageVersion>1.0.7</PackageVersion>
+    <PackageVersion>1.0.9</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,21 +17,21 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
     <PackageIconUrl>https://ipcconnectedfactoryexchange.github.io/CFX/CFX_Logo.PNG</PackageIconUrl>
-    <Version>1.0.7</Version>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
-    <FileVersion>1.0.7.0</FileVersion>
+    <Version>1.0.9</Version>
+    <AssemblyVersion>1.0.9.0</AssemblyVersion>
+    <FileVersion>1.0.9.0</FileVersion>
     <RootNamespace>CFX</RootNamespace>
     <AssemblyName>CFX</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>bin\netstandard1.6\CFX.xml</DocumentationFile>
+    <DocumentationFile>bin\net46\CFX.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>bin\netstandard1.6\CFX.xml</DocumentationFile>
+    <DocumentationFile>bin\net46\CFX.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -67,6 +67,7 @@
     <None Remove="CFX_JSON_Examples.txt" />
     <None Remove="CFX_Logo.PNG" />
     <None Remove="Content Layout.content" />
+    <None Remove="Structures\SolderReflow\ReflowSetpointType.cs~RF182597ab.TMP" />
   </ItemGroup>
 
   <ItemGroup>

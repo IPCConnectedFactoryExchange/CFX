@@ -10,9 +10,9 @@ namespace CFX.ResourcePerformance
     /// Sent by a process endpoint to indicate that an operator has modified a generic
     /// parameter or configuration setting. This does not apply to settings related to
     /// recipes, which are handled by the RecipeModified event. 
-    /// <para>/para>
+    /// <para></para>
     /// <para>Generic Example</para>
-    /// <para>/para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "ModifiedParameters": [
@@ -26,7 +26,7 @@ namespace CFX.ResourcePerformance
     /// </code>
     /// <para></para>
     /// <para>Example fore Solder Reflow Oven</para>
-    /// <para>/para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "ModifiedParameters": [
@@ -34,10 +34,6 @@ namespace CFX.ResourcePerformance
     ///       "$type": "CFX.Structures.SolderReflow.ReflowOvenParameter, CFX",
     ///       "ConveyorSpeedSetpoint": 50.0,
     ///       "ConveyorWidth": 25.0,
-    ///       "VacuumLevel": 1.0,
-    ///       "VacuumLevelHoldTime": "00:01:40",
-    ///       "ClosedLoopO2": 500.0,
-    ///       "ConvectionRate": 25.0,
     ///       "ZoneParameters": [
     ///         {
     ///           "Zone": {
@@ -46,8 +42,18 @@ namespace CFX.ResourcePerformance
     ///             "StageName": "Zone1",
     ///             "StageType": "Work"
     ///           },
-    ///           "TopTempSetpoint": 220.0,
-    ///           "BotTempSetpoint": 0.0
+    ///           "Setpoints": [
+    ///             {
+    ///               "SubZone": "Top",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 220.0
+    ///             },
+    ///             {
+    ///               "SubZone": "Bottom",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 220.0
+    ///             }
+    ///           ]
     ///         },
     ///         {
     ///           "Zone": {
@@ -56,28 +62,73 @@ namespace CFX.ResourcePerformance
     ///             "StageName": "Zone2",
     ///             "StageType": "Work"
     ///           },
-    ///           "TopTempSetpoint": 200.0,
-    ///           "BotTempSetpoint": 0.0
+    ///           "Setpoints": [
+    ///             {
+    ///               "SubZone": "Top",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 200.0
+    ///             },
+    ///             {
+    ///               "SubZone": "Bottom",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 220.0
+    ///             }
+    ///           ]
     ///         },
     ///         {
     ///           "Zone": {
     ///             "ReflowZoneType": "Reflow",
-    ///             "StageSequence": 1,
-    ///             "StageName": "Zone1",
+    ///             "StageSequence": 3,
+    ///             "StageName": "Zone3",
     ///             "StageType": "Work"
     ///           },
-    ///           "TopTempSetpoint": 245.0,
-    ///           "BotTempSetpoint": 0.0
+    ///           "Setpoints": [
+    ///             {
+    ///               "SubZone": "Top",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 200.0
+    ///             },
+    ///             {
+    ///               "SubZone": "Bottom",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 220.0
+    ///             },
+    ///             {
+    ///               "SubZone": "WholeZone",
+    ///               "SetpointType": "O2",
+    ///               "Setpoint": 500.0
+    ///             },
+    ///             {
+    ///               "SubZone": "WholeZone",
+    ///               "SetpointType": "Vacuum",
+    ///               "Setpoint": 2.0
+    ///             },
+    ///             {
+    ///               "SubZone": "WholeZone",
+    ///               "SetpointType": "VacuumHoldTime",
+    ///               "Setpoint": 5.0
+    ///             }
+    ///           ]
     ///         },
     ///         {
     ///           "Zone": {
     ///             "ReflowZoneType": "Cool",
-    ///             "StageSequence": 1,
-    ///             "StageName": "Zone1",
+    ///             "StageSequence": 4,
+    ///             "StageName": "Zone4",
     ///             "StageType": "Work"
     ///           },
-    ///           "TopTempSetpoint": 125.0,
-    ///           "BotTempSetpoint": 0.0
+    ///           "Setpoints": [
+    ///             {
+    ///               "SubZone": "Top",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 105.0
+    ///             },
+    ///             {
+    ///               "SubZone": "Bottom",
+    ///               "SetpointType": "Temperature",
+    ///               "Setpoint": 105.0
+    ///             }
+    ///           ]
     ///         }
     ///       ]
     ///     }

@@ -29,18 +29,9 @@ namespace CFX.Structures.SolderReflow
         }
 
         /// <summary>
-        /// The temperature setpoint for the area above the PCB, expressed in degrees celcius (C).
+        /// A list of setpoints of varying types for each sub-area within this zone.
         /// </summary>
-        public double TopTempSetpoint
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The temperature setpoint for the area below the PCB, expressed in degrees celcius (C).
-        /// </summary>
-        public double BotTempSetpoint
+        public List<ReflowSetPoint> Setpoints
         {
             get;
             set;

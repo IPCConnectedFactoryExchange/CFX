@@ -37,30 +37,6 @@ namespace CFX.Structures.SolderReflow
             set;
         }
 
-        public double VacuumLevel
-        {
-            get;
-            set;
-        }
-
-        public TimeSpan VacuumLevelHoldTime
-        {
-            get;
-            set;
-        }
-
-        public double ClosedLoopO2
-        {
-            get;
-            set;
-        }
-
-        public double ConvectionRate
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// A list of the structures defining the parameters for each zone.
         /// </summary>

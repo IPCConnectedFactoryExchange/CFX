@@ -16,66 +16,254 @@ namespace CFX.Production.Processing
     /// <para></para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "aed15f89-982f-4a42-82c6-ae468cf32107",
+    ///   "TransactionId": "c01318f4-f6c8-43cc-b90c-eefd8a7994e7",
     ///   "CommonProcessData": {
     ///     "$type": "CFX.Structures.SolderReflow.ReflowProcessData, CFX",
     ///     "ConveyorSpeed": 60.0,
+    ///     "ConveyorSpeedSetpoint": 0.0,
     ///     "ZoneData": [
     ///       {
     ///         "Zone": {
     ///           "ReflowZoneType": "PreHeat",
     ///           "StageSequence": 1,
-    ///           "StageName": "PreHeat1",
+    ///           "StageName": "Zone1",
     ///           "StageType": "Work"
     ///         },
-    ///         "TopTempSetpoint": 240.0,
-    ///         "TopActualTemp": 239.9,
-    ///         "TopPower": 240.0,
-    ///         "BotTempSetpoint": 235.0,
-    ///         "BotActualTemp": 234.8,
-    ///         "BotPower": 233.0
+    ///         "Setpoints": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 220.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 210.0
+    ///           }
+    ///         ],
+    ///         "Readings": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 221.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 220.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 55.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 209.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 195.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 45.0
+    ///           }
+    ///         ]
     ///       },
     ///       {
     ///         "Zone": {
     ///           "ReflowZoneType": "Soak",
     ///           "StageSequence": 2,
-    ///           "StageName": "Soak",
+    ///           "StageName": "Zone2",
     ///           "StageType": "Work"
     ///         },
-    ///         "TopTempSetpoint": 240.0,
-    ///         "TopActualTemp": 239.9,
-    ///         "TopPower": 240.0,
-    ///         "BotTempSetpoint": 235.0,
-    ///         "BotActualTemp": 234.8,
-    ///         "BotPower": 233.0
+    ///         "Setpoints": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 200.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 190.0
+    ///           }
+    ///         ],
+    ///         "Readings": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 201.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 190.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 45.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 189.5
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 185.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 42.0
+    ///           }
+    ///         ]
     ///       },
     ///       {
     ///         "Zone": {
     ///           "ReflowZoneType": "Reflow",
     ///           "StageSequence": 3,
-    ///           "StageName": "Reflow",
+    ///           "StageName": "Zone3",
     ///           "StageType": "Work"
     ///         },
-    ///         "TopTempSetpoint": 280.0,
-    ///         "TopActualTemp": 279.9,
-    ///         "TopPower": 300.0,
-    ///         "BotTempSetpoint": 275.0,
-    ///         "BotActualTemp": 273.8,
-    ///         "BotPower": 295.0
+    ///         "Setpoints": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 250.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 240.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "SetpointType": "O2",
+    ///             "Setpoint": 500.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "SetpointType": "Vacuum",
+    ///             "Setpoint": 225.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "SetpointType": "VacuumHoldTime",
+    ///             "Setpoint": 5.0
+    ///           }
+    ///         ],
+    ///         "Readings": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 251.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 230.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 75.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 239.5
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 220.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 65.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "ReadingType": "O2",
+    ///             "ReadingValue": 498.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "ReadingType": "Vacuum",
+    ///             "ReadingValue": 224.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "ReadingType": "VacuumHoldTime",
+    ///             "ReadingValue": 5.0
+    ///           },
+    ///           {
+    ///             "SubZone": "WholeZone",
+    ///             "ReadingType": "ConvectionRate",
+    ///             "ReadingValue": 250.0
+    ///           }
+    ///         ]
     ///       },
     ///       {
     ///         "Zone": {
     ///           "ReflowZoneType": "Cool",
     ///           "StageSequence": 4,
-    ///           "StageName": "Cool",
+    ///           "StageName": "Zone4",
     ///           "StageType": "Work"
     ///         },
-    ///         "TopTempSetpoint": 50.0,
-    ///         "TopActualTemp": 52.9,
-    ///         "TopPower": 50.0,
-    ///         "BotTempSetpoint": 50.0,
-    ///         "BotActualTemp": 51.8,
-    ///         "BotPower": 50.0
+    ///         "Setpoints": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 150.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "SetpointType": "Temperature",
+    ///             "Setpoint": 140.0
+    ///           }
+    ///         ],
+    ///         "Readings": [
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 151.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 120.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Top",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 30.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Temperature",
+    ///             "ReadingValue": 139.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "Power",
+    ///             "ReadingValue": 110.0
+    ///           },
+    ///           {
+    ///             "SubZone": "Bottom",
+    ///             "ReadingType": "PowerLevel",
+    ///             "ReadingValue": 25.0
+    ///           }
+    ///         ]
     ///       }
     ///     ]
     ///   },

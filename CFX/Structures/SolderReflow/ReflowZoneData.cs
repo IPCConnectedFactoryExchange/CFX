@@ -12,6 +12,14 @@ namespace CFX.Structures.SolderReflow
     public class ReflowZoneData
     {
         /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public ReflowZoneData()
+        {
+            Readings = new List<ReflowReading>();
+        }
+
+        /// <summary>
         /// Zone / Stage to which this reflow data is related.
         /// </summary>
         public ReflowZone Zone
@@ -19,64 +27,20 @@ namespace CFX.Structures.SolderReflow
             get;
             set;
         }
-        
+
         /// <summary>
-        /// The set point (in degrees celcius) for this zone for the region
-        /// above the PCB.
+        /// A list of current setpoints associated with this zone.
         /// </summary>
-        public double TopTempSetpoint
+        public List<ReflowSetPoint> Setpoints
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The average actual temperature (in degrees celcius) that was measured and recorded
-        /// for this zone for the region above the PCB at the time when the transaction 
-        /// took place.
+        /// A list of readings / measurements that have been taken for this zone.
         /// </summary>
-        public double TopActualTemp
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The average power (in watts) being consumed by the top heaters of this zone at the time 
-        /// when the transaction took place.
-        /// </summary>
-        public double TopPower
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The set point (in degrees celcius) for this zone for the region
-        /// below the PCB.
-        /// </summary>
-        public double BotTempSetpoint
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The average actual temperature (in degrees celcius) that was measured and recorded
-        /// for this zone for the region below the PCB at the time when the transaction 
-        /// took place.
-        /// </summary>
-        public double BotActualTemp
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The average power (in watts) being consumed by the bottom heaters of this zone at the time 
-        /// when the transaction took place.
-        /// </summary>
-        public double BotPower
+        public List<ReflowReading> Readings
         {
             get;
             set;

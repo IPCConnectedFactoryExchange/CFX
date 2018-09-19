@@ -1333,10 +1333,6 @@ namespace CFXExampleEndpoint
                     {
                         ConveyorSpeedSetpoint = 50,
                         ConveyorWidth = 25.0,
-                        VacuumLevel = 1,
-                        VacuumLevelHoldTime = new TimeSpan(0, 0, 100),
-                        ClosedLoopO2 = 500,
-                        ConvectionRate = 25,
                         ZoneParameters = new List<ReflowZoneParameter>(new ReflowZoneParameter []
                         {
                             new ReflowZoneParameter()
@@ -1347,7 +1343,21 @@ namespace CFXExampleEndpoint
                                     StageName = "Zone1",
                                     ReflowZoneType = ReflowZoneType.PreHeat
                                 },
-                                TopTempSetpoint = 220
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                })
                             },
                             new ReflowZoneParameter()
                             {
@@ -1357,27 +1367,87 @@ namespace CFXExampleEndpoint
                                     StageName = "Zone2",
                                     ReflowZoneType = ReflowZoneType.Soak
                                 },
-                                TopTempSetpoint = 200
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 200
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                })
                             },
                             new ReflowZoneParameter()
                             {
                                 Zone = new ReflowZone()
                                 {
-                                    StageSequence = 1,
-                                    StageName = "Zone1",
+                                    StageSequence = 3,
+                                    StageName = "Zone3",
                                     ReflowZoneType = ReflowZoneType.Reflow
                                 },
-                                TopTempSetpoint = 245
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 200
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.WholeZone,
+                                        SetpointType = ReflowSetpointType.O2,
+                                        Setpoint = 500
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.WholeZone,
+                                        SetpointType = ReflowSetpointType.Vacuum,
+                                        Setpoint = 2.0
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.WholeZone,
+                                        SetpointType = ReflowSetpointType.VacuumHoldTime,
+                                        Setpoint = 5.0
+                                    },
+                                })
                             },
                             new ReflowZoneParameter()
                             {
                                 Zone = new ReflowZone()
                                 {
-                                    StageSequence = 1,
-                                    StageName = "Zone1",
+                                    StageSequence = 4,
+                                    StageName = "Zone4",
                                     ReflowZoneType = ReflowZoneType.Cool
                                 },
-                                TopTempSetpoint = 125
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 105
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 105
+                                    },
+                                })
                             },
                         }),
                     }
@@ -2883,65 +2953,299 @@ namespace CFXExampleEndpoint
                             Zone = new ReflowZone()
                             {
                                 StageSequence = 1,
-                                StageName = "PreHeat1",
+                                StageName = "Zone1",
                                 StageType = StageType.Work,
                                 ReflowZoneType = ReflowZoneType.PreHeat
                             },
-                            TopTempSetpoint = 240.0,
-                            TopActualTemp = 239.9,
-                            TopPower = 240,
-                            BotTempSetpoint = 235.0,
-                            BotActualTemp = 234.8,
-                            BotPower = 233
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 220
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 210
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 221,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 220,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 55,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 209,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 195,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 45,
+                                },
+                            })
                         },
                         new ReflowZoneData()
                         {
                             Zone = new ReflowZone()
                             {
                                 StageSequence = 2,
-                                StageName = "Soak",
+                                StageName = "Zone2",
                                 StageType = StageType.Work,
                                 ReflowZoneType = ReflowZoneType.Soak
                             },
-                            TopTempSetpoint = 240.0,
-                            TopActualTemp = 239.9,
-                            TopPower = 240,
-                            BotTempSetpoint = 235.0,
-                            BotActualTemp = 234.8,
-                            BotPower = 233
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 200
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 190
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 201,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 190,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 45,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 189.5,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 185,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 42,
+                                },
+                            })
                         },
                         new ReflowZoneData()
                         {
                             Zone = new ReflowZone()
                             {
                                 StageSequence = 3,
-                                StageName = "Reflow",
+                                StageName = "Zone3",
                                 StageType = StageType.Work,
                                 ReflowZoneType = ReflowZoneType.Reflow
                             },
-                            TopTempSetpoint = 280.0,
-                            TopActualTemp = 279.9,
-                            TopPower = 300,
-                            BotTempSetpoint = 275.0,
-                            BotActualTemp = 273.8,
-                            BotPower = 295
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 250
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 240
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    SetpointType = ReflowSetpointType.O2,
+                                    Setpoint = 500
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    SetpointType = ReflowSetpointType.Vacuum,
+                                    Setpoint = 225
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    SetpointType = ReflowSetpointType.VacuumHoldTime,
+                                    Setpoint = 5
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 251,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 230,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 75,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 239.5,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 220,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 65,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.O2,
+                                    ReadingValue = 498,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.Vacuum,
+                                    ReadingValue = 224,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.VacuumHoldTime,
+                                    ReadingValue = 5,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.ConvectionRate,
+                                    ReadingValue = 250,
+                                },
+                            })
                         },
                         new ReflowZoneData()
                         {
                             Zone = new ReflowZone()
                             {
                                 StageSequence = 4,
-                                StageName = "Cool",
+                                StageName = "Zone4",
                                 StageType = StageType.Work,
                                 ReflowZoneType = ReflowZoneType.Cool
                             },
-                            TopTempSetpoint = 50.0,
-                            TopActualTemp = 52.9,
-                            TopPower = 50,
-                            BotTempSetpoint = 50.0,
-                            BotActualTemp = 51.8,
-                            BotPower = 50
-                        }
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 150
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 140
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 151,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 120,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 30,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 139,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 110,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 25,
+                                },
+                            })
+                        },
                     }),
                 }
             };
