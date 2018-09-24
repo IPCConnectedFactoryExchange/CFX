@@ -21,7 +21,7 @@ namespace CFX.Production.Processing.ThermalProcessing
 	  */
     /// </code>
     /// </summary>
-    public class SimulatedProfilingStateChange : CFXMessage
+    public class SimulatedProfileLogEntryRecorded : CFXMessage
     {
         /// <summary>
         /// updated when ThermalProcessing endpoint has a new log entry
