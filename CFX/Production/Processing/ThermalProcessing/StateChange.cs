@@ -20,7 +20,7 @@ namespace CFX.Production.Processing.ThermalProcessing
     public class SimulatedProfilingStateChange : CFXMessage
     {
         /// <summary>
-        /// BoardOut statistics of production unit
+        /// updated on StateChange of ThermalProcessing endpoint
         /// </summary>
         public ThermalProcessingState StateChange
         {
