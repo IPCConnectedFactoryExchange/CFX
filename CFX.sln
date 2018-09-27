@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFX", "CFX\CFX.csproj", "{A681A172-1BCA-4C46-8275-FA7990C7C825}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFXExampleEndpoint", "CFXExampleEndpoint\CFXExampleEndpoint.csproj", "{29975296-19AF-46C9-A58D-F99776491E4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A} = {FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

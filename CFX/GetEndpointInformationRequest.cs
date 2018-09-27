@@ -5,7 +5,7 @@ using System.Text;
 namespace CFX
 {
     /// <summary>
-    /// Requests detailed information about a single specified of a specified endpoint. 
+    /// Requests detailed information about a single endpoint, as specified by its CFX Handle.
     /// The response includes information regarding the endpoint’s capabilities
     /// (CFX topic and message support), as well as a generic model of its
     /// physical layout (zones, lanes, etc).

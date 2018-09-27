@@ -25,9 +25,8 @@ namespace CFX.Production
     ///   },
     ///   "Reason": "QualityIssue",
     ///   "Requestor": {
-    ///     "OperatorIdentifier": "3396d4ac-cc73-4ee8-a2bf-7d5997100759",
+    ///     "OperatorIdentifier": "e4d92c77-6a19-4d1e-8c2a-b2b217f59a44",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"

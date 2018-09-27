@@ -19,6 +19,7 @@ namespace CFX.Production
     ///     "StageType": "Work"
     ///   }
     /// }
+    /// </code>
     /// </summary>
     public class WorkStageStarted : CFXMessage
     {

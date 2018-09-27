@@ -12,13 +12,13 @@ namespace CFX.Production
     /// endpoint. The response indicates the name of the recipe.
     /// <code language="none">
     /// {
-    ///   "ActiveRecipeName": "RECIPE5566",
-    ///   "ActiveRecipeRevision": "C",
     ///   "Result": {
     ///     "Result": "Success",
     ///     "ResultCode": 0,
     ///     "Message": "OK"
-    ///   }
+    ///   },
+    ///   "ActiveRecipeName": "RECIPE5566",
+    ///   "ActiveRecipeRevision": "C"
     /// }
     /// </code>
     /// </summary>
@@ -30,7 +30,16 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The name of the active recipe
+        /// The result of the request
+        /// </summary>
+        public RequestResult Result
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The name of the active recipe (may include full path, if applicable)
         /// </summary>
         public string ActiveRecipeName
         {
@@ -39,18 +48,9 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Version number, e.g. “2.0”
+        /// Version number, e.g. “2.0” (Optional)
         /// </summary>
         public string ActiveRecipeRevision
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The result of the request
-        /// </summary>
-        public RequestResult Result
         {
             get;
             set;

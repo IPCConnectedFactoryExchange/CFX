@@ -421,9 +421,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Joseph",
                 LastName = "Smith",
-                FullName = "Joseph Smith",
                 LoginName = "joseph.smith@abcdrepairs.com",
-                OperatorIdentifier = "UID235434324"
+                OperatorIdentifier = "BADGE489499"
             };
 
             CFXMessage msg = new UnitsInspected()
@@ -1000,7 +999,23 @@ namespace CFXExampleEndpoint
         {
             string result = "";
 
-            CFXMessage msg = new WhoIsThereRequest();
+            CFXMessage msg = new WhoIsThereRequest()
+            {
+                SupportedTopicQueryType = SupportedTopicQueryType.All,
+                SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                {
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.Production",
+                        TopicSupportType = TopicSupportType.Publisher,
+                    },
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.Production.Appplication",
+                        TopicSupportType = TopicSupportType.Publisher,
+                    }
+                })
+            };
             AppendMessage(msg, ref result);
 
             msg = new WhoIsThereResponse()
@@ -1035,14 +1050,14 @@ namespace CFXExampleEndpoint
             {
                 EndpointInformation = new Endpoint()
                 {
-                    CFXHandle = "SMTPlus.Model_11111.SN444555",
+                    CFXHandle = "SMTPlus.Model_21232.SN23123",
                     RequestNetworkUri = "amqp://host55:5688/",
-                    RequestTargetAddress = "/queue/SN444555",
+                    RequestTargetAddress = "/queue/SN23123",
                     UniqueIdentifier = "UID1111111111111111",
-                    FriendlyName = "SMD Printer 444555",
+                    FriendlyName = "SMD Printer 23123",
                     Vendor = "SMT Plus",
                     ModelNumber = "Model_11111",
-                    SerialNumber = "SN444555",
+                    SerialNumber = "SNSN23123",
                     NumberOfLanes = 1,
                     NumberOfStages = 1,
                     HermesInformation = new HermesInformation()
@@ -1512,9 +1527,8 @@ namespace CFXExampleEndpoint
                             ActorType = ActorType.Human,
                             FirstName = "Joseph",
                             LastName = "Smith",
-                            FullName = "Joseph Smith",
                             LoginName = "joseph.smith@abcdrepairs.com",
-                            OperatorIdentifier = "UID235434324"
+                            OperatorIdentifier = "BADGE489435"
                         }
                     },
                     new MaintenanceTask()
@@ -1527,9 +1541,8 @@ namespace CFXExampleEndpoint
                             ActorType = ActorType.Human,
                             FirstName = "Joseph",
                             LastName = "Smith",
-                            FullName = "Joseph Smith",
                             LoginName = "joseph.smith@abcdrepairs.com",
-                            OperatorIdentifier = "UID235434324"
+                            OperatorIdentifier = "BADGE489435"
                         }
                     }
                 })
@@ -1966,6 +1979,8 @@ namespace CFXExampleEndpoint
             vs.SetupRequirements.MaterialSetupRequirements[1].ApprovedAlternateParts.AddRange(new string[] { "IPN3344", "IPN3376" });
             vs.SetupRequirements.MaterialSetupRequirements[0].ApprovedManufacturerParts.AddRange(new string[] { "MOT4329", "SAM5566" });
             vs.SetupRequirements.MaterialSetupRequirements[1].ApprovedManufacturerParts.AddRange(new string[] { "JP55443", "TX554323" });
+            vs.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5566", Position = "MODULE1.BEAM1" });
+            vs.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5577", Position = "MODULE1.BEAM2" });
             AppendMessage(vs, ref result);
 
             msg = new ValidateStationSetupResponse()
@@ -2043,7 +2058,7 @@ namespace CFXExampleEndpoint
                 Result = new RequestResult()
                 {
                     Result = StatusResult.Success,
-                    Message = "SETUP OK",
+                    Message = "OK",
                     ResultCode = 0
                 }
             };
@@ -2193,6 +2208,47 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new SplicePointDetected()
+            {
+                DepletedMaterial = new MaterialLocation()
+                {
+                    LocationIdentifier = "3245434554",
+                    LocationName = "SLOT22",
+                    MaterialPackage = new MaterialPackage()
+                    {
+                        UniqueIdentifier = "MAT238908348903",
+                        InternalPartNumber = "IPN-1222-55555",
+                        Quantity = 0
+                    },
+                    CarrierInformation = new SMDTapeFeeder()
+                    {
+                        UniqueIdentifier = "234232432424",
+                        Name = "FEEDER2245465",
+                        TapeWidth = 8,
+                        TapePitch = 8
+                    }
+                },
+                NewlyActiveMaterial = new MaterialLocation()
+                {
+                    LocationIdentifier = "3245435784",
+                    LocationName = "SLOT28",
+                    MaterialPackage = new MaterialPackage()
+                    {
+                        UniqueIdentifier = "MAT238908348904",
+                        InternalPartNumber = "IPN-1222-55555",
+                        Quantity = 1000
+                    },
+                    CarrierInformation = new SMDTapeFeeder()
+                    {
+                        UniqueIdentifier = "234232432424",
+                        Name = "FEEDER2245465",
+                        TapeWidth = 8,
+                        TapePitch = 8
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
             (m1.MaterialData as MaterialPackageMSDData).MSDState = MSDState.Exposed;
             (m1.MaterialData as MaterialPackageMSDData).LastExposureDateTime = DateTime.Now;
             (m1.MaterialData as MaterialPackageMSDData).ExpirationDateTime = DateTime.Now + (m1.MaterialData as MaterialPackageMSDData).RemainingExposureTime;
@@ -2269,9 +2325,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Bill",
                 LastName = "Smith",
-                FullName = "Bill Smith",
                 LoginName = "bill.smith@domain1.com",
-                OperatorIdentifier = Guid.NewGuid().ToString()
+                OperatorIdentifier = "BADGE4485"
             };
 
             Operator o2 = new Operator()
@@ -2279,9 +2334,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "John",
                 LastName = "Doe",
-                FullName = "John Doe",
                 LoginName = "john.doe@domain1.com",
-                OperatorIdentifier = Guid.NewGuid().ToString()
+                OperatorIdentifier = "BADGE4486"
             };
 
             Operator o3 = new Operator()
@@ -2289,9 +2343,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Mike",
                 LastName = "Dolittle",
-                FullName = "Mike Dolittle",
                 LoginName = "mike.dolittle@domain1.com",
-                OperatorIdentifier = Guid.NewGuid().ToString()
+                OperatorIdentifier = "BADGE4487"
             };
 
             msg = new TransportOrderStarted()
@@ -2516,6 +2569,9 @@ namespace CFXExampleEndpoint
             grsr.SetupRequirements.MaterialSetupRequirements[1].ApprovedAlternateParts.AddRange(new string[] { "IPN3344", "IPN3376" });
             grsr.SetupRequirements.MaterialSetupRequirements[0].ApprovedManufacturerParts.AddRange(new string[] { "MOT4329", "SAM5566" });
             grsr.SetupRequirements.MaterialSetupRequirements[1].ApprovedManufacturerParts.AddRange(new string[] { "JP55443", "TX554323" });
+            grsr.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5566", Position = "MODULE1.BEAM1" });
+            grsr.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5577", Position = "MODULE1.BEAM2" });
+
             AppendMessage(grsr, ref result);
 
             msg = new LockStationRequest()
@@ -2533,9 +2589,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE4489"
                 }
             };
             AppendMessage(msg, ref result);
@@ -2558,9 +2613,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 }
             };
             AppendMessage(msg, ref result);
@@ -2572,9 +2626,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 }
             };
             AppendMessage(msg, ref result);
@@ -2636,9 +2689,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 },
                 Reason = RecipeModificationReason.PositionalCorrection
             };
@@ -2674,6 +2726,8 @@ namespace CFXExampleEndpoint
 
             msg = new UnitsDisqualified()
             {
+                Reason = DisqualificationReason.DefectiveRepairNotPossible,
+                Comments = "The units were accidentally dropped, and irrepairably damaged",
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
@@ -2690,9 +2744,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 }
             };
             AppendMessage(msg, ref result);
@@ -2890,14 +2943,27 @@ namespace CFXExampleEndpoint
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER21342", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER21342", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new IdentifiersNotRead()
+            {
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new IdentifiersNotRead()
+            {
+                PositionsNotRead = new List<int>(new int[] { 2, 8 })
             };
             AppendMessage(msg, ref result);
 
             msg = new BlockMaterialLocationsRequest()
             {
+                Reason = BlockReason.ExpiredMaterial,
+                Comments = "MSD Material Has Expired",
                 Locations = new List<MaterialLocation>(
                    new MaterialLocation[]
                    {
@@ -2912,7 +2978,7 @@ namespace CFXExampleEndpoint
                 Result = new RequestResult()
                 {
                     Result = StatusResult.Success,
-                    Message = "BLOCKED OK",
+                    Message = "OK",
                     ResultCode = 0
                 }
             };
@@ -2934,7 +3000,7 @@ namespace CFXExampleEndpoint
                 Result = new RequestResult()
                 {
                     Result = StatusResult.Success,
-                    Message = "BLOCKED OK",
+                    Message = "OK",
                     ResultCode = 0
                 }
             };
@@ -3279,9 +3345,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Joseph",
                 LastName = "Smith",
-                FullName = "Joseph Smith",
                 LoginName = "joseph.smith@abcdrepairs.com",
-                OperatorIdentifier = "UID235434324"
+                OperatorIdentifier = "BADGE489435"
             };
 
             m1 = new MaterialPackageDetail()

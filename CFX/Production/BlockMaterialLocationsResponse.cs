@@ -14,7 +14,7 @@ namespace CFX.Production
     ///   "Result": {
     ///     "Result": "Success",
     ///     "ResultCode": 0,
-    ///     "Message": "BLOCKED OK"
+    ///     "Message": "OK"
     ///   }
     /// }
     /// </code>

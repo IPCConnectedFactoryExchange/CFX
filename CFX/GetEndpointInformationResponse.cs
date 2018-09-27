@@ -21,15 +21,15 @@ namespace CFX
     ///     "Message": null
     ///   },
     ///   "EndpointInformation": {
-    ///     "CFXHandle": "SMTPlus.Model_11111.SN444555",
+    ///     "CFXHandle": "SMTPlus.Model_21232.SN23123",
     ///     "CFXVersion": "1.0",
     ///     "RequestNetworkUri": "amqp://host55:5688/",
-    ///     "RequestTargetAddress": "/queue/SN444555",
+    ///     "RequestTargetAddress": "/queue/SN23123",
     ///     "UniqueIdentifier": "UID1111111111111111",
-    ///     "FriendlyName": "SMD Printer 444555",
+    ///     "FriendlyName": "SMD Printer 23123",
     ///     "Vendor": "SMT Plus",
     ///     "ModelNumber": "Model_11111",
-    ///     "SerialNumber": "SN444555",
+    ///     "SerialNumber": "SNSN23123",
     ///     "NumberOfStages": 1,
     ///     "NumberOfLanes": 1,
     ///     "HermesInformation": {

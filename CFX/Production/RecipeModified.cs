@@ -12,9 +12,8 @@ namespace CFX.Production
     ///   "RecipeName": "RECIPE3234",
     ///   "Revision": "D",
     ///   "ModifiedBy": {
-    ///     "OperatorIdentifier": "da85fb6e-dca5-4a7e-9f7d-041384286a81",
+    ///     "OperatorIdentifier": "95739c63-7e59-481b-a597-627cb843c8f4",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"
@@ -27,7 +26,7 @@ namespace CFX.Production
     public class RecipeModified : CFXMessage
     {
         /// <summary>
-        /// The name of the recipe
+        /// The name of the recipe (may include full path, if applicable)
         /// </summary>
         public string RecipeName
         {
@@ -36,7 +35,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Version number, e.g. “2.0”
+        /// Version number, e.g. “2.0” (Optional)
         /// </summary>
         public string Revision
         {

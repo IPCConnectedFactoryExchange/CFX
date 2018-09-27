@@ -21,6 +21,7 @@ namespace CFX.ResourcePerformance
     ///   ]
     /// }
     /// </code>
+    /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ModifyStationParametersRequest : CFXMessage
     {

@@ -59,7 +59,8 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// List of structures that identify each specific instance of production unit that departed (could be within a carrier or panel). 
+        /// An optional list of structures that identify each specific instance of production unit that arrived (if known).
+        /// Could be individual units, or within a carrier, panel, etc. 
         /// </summary>
         public List<UnitPosition> Units
         {

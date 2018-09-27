@@ -18,7 +18,7 @@ namespace CFX.Production
     public class GetRecipeRequest : CFXMessage
     {
         /// <summary>
-        /// The name of the recipe to be retrieved
+        /// The name of the recipe to be retrieved (may include full path, if applicable)
         /// </summary>
         public string RecipeName
         {
@@ -27,7 +27,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Version number, e.g. “2.0”
+        /// Version number, e.g. “2.0” (Optional)
         /// </summary>
         public string Revision
         {

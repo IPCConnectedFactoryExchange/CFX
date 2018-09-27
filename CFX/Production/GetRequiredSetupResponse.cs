@@ -59,6 +59,18 @@ namespace CFX.Production
     ///           "TX554323"
     ///         ]
     ///       }
+    ///     ],
+    ///     "ToolSetupRequirements": [
+    ///       {
+    ///         "Position": "MODULE1.BEAM1",
+    ///         "PartNumber": "HEADTYPE5566",
+    ///         "ToolIdentifier": null
+    ///       },
+    ///       {
+    ///         "Position": "MODULE1.BEAM2",
+    ///         "PartNumber": "HEADTYPE5577",
+    ///         "ToolIdentifier": null
+    ///       }
     ///     ]
     ///   }
     /// }

@@ -24,7 +24,7 @@ namespace CFX.Production
     public class ActivateRecipeRequest : CFXMessage
     {
         /// <summary>
-        /// The name of the recipe
+        /// The name of the recipe. (may include full path, if applicable)
         /// </summary>
         public string RecipeName
         {
@@ -33,7 +33,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The version indicator for the recipe
+        /// The version indicator for the recipe (optional)
         /// </summary>
         public string Revision
         {
