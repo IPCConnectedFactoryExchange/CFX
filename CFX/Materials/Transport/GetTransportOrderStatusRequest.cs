@@ -10,7 +10,7 @@ namespace CFX.Materials.Transport
     /// materials / WIP / production units from one location to another.
     /// <code language="none">
     /// {
-    ///   "TransportOrderNumber": "TR329483249830000"
+    ///   "TransportOrderId": "TR329483249830000"
     /// }
     /// </code>
     /// </summary>
@@ -19,7 +19,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The order number of the related transport order
         /// </summary>
-        public string TransportOrderNumber
+        public string TransportOrderId
         {
             get;
             set;

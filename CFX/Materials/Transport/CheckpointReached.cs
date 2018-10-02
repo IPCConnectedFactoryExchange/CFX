@@ -11,7 +11,7 @@ namespace CFX.Materials.Transport
     /// to destination.
     /// <code language="none">
     /// {
-    ///   "TransportOrderNumber": "TR329483249830000",
+    ///   "TransportOrderId": "TR329483249830000",
     ///   "Comments": "Arrived SMT Production Area",
     ///   "Status": "InTransit",
     ///   "TrackedBy": {
@@ -22,7 +22,7 @@ namespace CFX.Materials.Transport
     ///     "FirstName": "John",
     ///     "LoginName": "john.doe@domain1.com"
     ///   },
-    ///   "RelatedWorkOrderNumber": "WO2384702937403280032",
+    ///   "RelatedWorkOrderId": "WO2384702937403280032",
     ///   "Checkpoint": "SMT STAGING AREA 1",
     ///   "FinalDestination": "LINE 1",
     ///   "NextCheckpoint": "LINE 1"
@@ -34,7 +34,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The number of the related transport order
         /// </summary>
-        public string TransportOrderNumber
+        public string TransportOrderId
         {
             get;
             set;
@@ -70,7 +70,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The related production work order number (where applicable)
         /// </summary>
-        public string RelatedWorkOrderNumber
+        public string RelatedWorkOrderId
         {
             get;
             set;

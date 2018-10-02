@@ -10,7 +10,7 @@ namespace CFX.InformationSystem.WorkOrderManagement
     /// <code language="none">
     /// {
     ///   "WorkOrderIdentifier": {
-    ///     "WorkOrderNumber": "WO1122334455",
+    ///     "WorkOrderId": "WO1122334455",
     ///     "Batch": null
     ///   },
     ///   "NewStatus": "Scheduled",

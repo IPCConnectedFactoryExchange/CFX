@@ -15,7 +15,7 @@ namespace CFX.Materials.Transport
     ///     "ResultCode": 0,
     ///     "Message": "OK"
     ///   },
-    ///   "TransportOrderNumber": "TR329483249830000",
+    ///   "TransportOrderId": "TR329483249830000",
     ///   "FinalDestination": "LINE 1",
     ///   "Status": "Delivered",
     ///   "History": [
@@ -113,7 +113,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The order number of the related transport order
         /// </summary>
-        public string TransportOrderNumber
+        public string TransportOrderId
         {
             get;
             set;

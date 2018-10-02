@@ -12,7 +12,7 @@ namespace CFX.Structures
         /// <summary>
         /// The order number of the Work Order
         /// </summary>
-        public string WorkOrderNumber
+        public string WorkOrderId
         {
             get;
             set;

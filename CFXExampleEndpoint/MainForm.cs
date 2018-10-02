@@ -323,9 +323,9 @@ namespace CFXExampleEndpoint
 
             ResourceState[] states = new ResourceState []
             {
-                ResourceState.Setup,
-                ResourceState.ReadyProcessingExecuting,
-                ResourceState.Idle
+                ResourceState.SDT_Setup,
+                ResourceState.PRD_RegularWork,
+                ResourceState.SBY_NoProduct
             };
 
             ResourceState newState = lastState;

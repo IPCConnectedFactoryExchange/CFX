@@ -19,6 +19,12 @@ namespace CFX.Structures
         /// </summary>
         Success,
         /// <summary>
+        /// A portion of the request completed successfully (another portion did not).
+        /// Where applicable, the response message will contain details on the portion that did 
+        /// not succeed.
+        /// </summary>
+        PartialSuccess,
+        /// <summary>
         /// Operation was not completed successfully
         /// </summary>
         Failed,

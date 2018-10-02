@@ -92,7 +92,7 @@ namespace CFX.Structures
         /// <summary>
         /// The lot code applied to this batch of material by the original manufacturer of the material
         /// </summary>
-        public string ManufacuterLotCode
+        public string ManufacturerLotCode
         {
             get;
             set;
@@ -159,6 +159,16 @@ namespace CFX.Structures
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.None)]
         public MaterialStatus Status
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Specifies whether or not a material is hazardous, and if so, the regulatory directive that controls
+        /// the use of this substance in production.
+        /// </summary>
+        public HazardousMaterialType HazardousMaterialType
         {
             get;
             set;

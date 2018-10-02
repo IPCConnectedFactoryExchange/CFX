@@ -1253,17 +1253,17 @@ namespace CFXExampleEndpoint
 
             msg = new StationStateChanged()
             {
-                OldState = ResourceState.IdleStarved,
+                OldState = ResourceState.SBY_NoProduct,
                 OldStateDuration = TimeSpan.FromSeconds(85),
-                NewState = ResourceState.ReadyProcessingActive
+                NewState = ResourceState.PRD_RegularWork
             };
             AppendMessage(msg, ref result);
 
             msg = new StationStateChanged()
             {
-                OldState = ResourceState.ReadyProcessingExecuting,
+                OldState = ResourceState.PRD_RegularWork,
                 OldStateDuration = TimeSpan.FromSeconds(25),
-                NewState = ResourceState.UnplannedDowntime,
+                NewState = ResourceState.USD_ChangeOfConsumables,
                 RelatedFault = flt
             };
             AppendMessage(msg, ref result);
@@ -1276,9 +1276,9 @@ namespace CFXExampleEndpoint
                     StageName = "STAGE2",
                     StageType = StageType.Work
                 },
-                OldState = ResourceState.IdleStarved,
+                OldState = ResourceState.SBY_NoProduct,
                 OldStateDuration = TimeSpan.FromSeconds(85),
-                NewState = ResourceState.ReadyProcessingActive
+                NewState = ResourceState.PRD_RegularWork
             };
             AppendMessage(msg, ref result);
 
@@ -2349,54 +2349,54 @@ namespace CFXExampleEndpoint
 
             msg = new TransportOrderStarted()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Status = TransportOrderStatus.Pending,
                 Comments = "Initiating new transport order.  Waiting to be kitted.",
                 FinalDestination = "LINE1",
                 NextCheckpoint = "SMT STAGING AREA 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 StartedBy = o1
             };
             AppendMessage(msg, ref result);
 
             msg = new TransportOrderStatusChanged()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Status = TransportOrderStatus.Kitting,
                 Comments = "Kitting Underway...",
                 FinalDestination = "LINE 1",
                 NextCheckpoint = "SMT STAGING AREA 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 UpdatedBy = o1
             };
             AppendMessage(msg, ref result);
 
             msg = new CheckpointReached()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Status = TransportOrderStatus.InTransit,
                 Comments = "Arrived SMT Production Area",
                 Checkpoint = "SMT STAGING AREA 1",
                 FinalDestination = "LINE 1",
                 NextCheckpoint = "LINE 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 TrackedBy = o2
             };
             AppendMessage(msg, ref result);
 
             msg = new TransportOrderCompleted()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Comments = "Received at Line 1",
                 FinalDestination = "LINE 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 AcceptedBy = o3
             };
             AppendMessage(msg, ref result);
 
             msg = new GetTransportOrderStatusRequest()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
             };
             AppendMessage(msg, ref result);
 
@@ -2408,7 +2408,7 @@ namespace CFXExampleEndpoint
                     Message = "OK",
                     ResultCode = 0
                 },
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 FinalDestination = "LINE 1",
                 Status = TransportOrderStatus.Delivered,
                 History = new List<TransportOrderHistory>(new TransportOrderHistory[]
@@ -3355,12 +3355,13 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN47788",
                 Manufacturer = "MOTOROLA",
                 ManufacturerPartNumber = "MOT231234",
-                ManufacuterLotCode = "LOT2016110588",
+                ManufacturerLotCode = "LOT2016110588",
                 ManufactureDate = new DateTime(2016, 11, 5),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG23452442",
                 ReceivedDate = new DateTime(2017, 5, 6),
                 Status = MaterialStatus.Active,
+                HazardousMaterialType = HazardousMaterialType.RoHS,
                 InitialQuantity = 1000,
                 Quantity = 887,
                 MaterialData = new MaterialPackageMSDData()
@@ -3379,7 +3380,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN48899",
                 Manufacturer = "SAMSUNG",
                 ManufacturerPartNumber = "SAM233243",
-                ManufacuterLotCode = "LOT2016101008",
+                ManufacturerLotCode = "LOT2016101008",
                 ManufactureDate = new DateTime(2016, 10, 10),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG44543534",
@@ -3395,7 +3396,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -3419,7 +3420,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -3435,7 +3436,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -3451,7 +3452,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -3467,7 +3468,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -3537,7 +3538,7 @@ namespace CFXExampleEndpoint
                 {
                     WorkOrderIdentifier = new WorkOrderIdentifier()
                     {
-                        WorkOrderNumber = "WO1122334455",
+                        WorkOrderId = "WO1122334455",
                     },
                     StartDate = new DateTime(2018, 9, 9, 0, 0, 0),
                     DateRequired = new DateTime(2018, 9, 15, 17, 0, 0),
@@ -3560,7 +3561,7 @@ namespace CFXExampleEndpoint
                 {
                     WorkOrderIdentifier = new WorkOrderIdentifier()
                     {
-                        WorkOrderNumber = "WO1122334455",
+                        WorkOrderId = "WO1122334455",
                     },
                     StartDate = new DateTime(2018, 9, 9, 0, 0, 0),
                     DateRequired = new DateTime(2018, 9, 15, 17, 0, 0),
@@ -3581,7 +3582,7 @@ namespace CFXExampleEndpoint
             {
                 WorkOrderIdentifier = new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO1122334455",
+                    WorkOrderId = "WO1122334455",
                 },
                 NewStatus = WorkOrderStatus.Scheduled,
                 PreviousStatus = WorkOrderStatus.ApprovedAndPending
@@ -3593,7 +3594,7 @@ namespace CFXExampleEndpoint
             {
                 WorkOrderIdentifier = new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO1122334455",
+                    WorkOrderId = "WO1122334455",
                 },
                 NewQuantity = 250,
                 PreviousQuantity = 220
@@ -3606,11 +3607,11 @@ namespace CFXExampleEndpoint
                 WorkOrderIdentifiers = new List<WorkOrderIdentifier>(new WorkOrderIdentifier[] {
                 new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO1122334455",
+                    WorkOrderId = "WO1122334455",
                 },
                 new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO9988776666",
+                    WorkOrderId = "WO9988776666",
                     Batch = "Batch1"
                 }
 
@@ -3625,7 +3626,7 @@ namespace CFXExampleEndpoint
                 {
                     WorkOrderIdentifier = new WorkOrderIdentifier()
                     {
-                        WorkOrderNumber = "WO1122334455"
+                        WorkOrderId = "WO1122334455"
                     },
                     WorkArea = "SMT Line 1",
                     StartTime = new DateTime(2018,8,2,11,0,0),
@@ -3671,7 +3672,7 @@ namespace CFXExampleEndpoint
                     {
                         WorkOrderIdentifier = new WorkOrderIdentifier()
                         {
-                            WorkOrderNumber = "WO1122334455"
+                            WorkOrderId = "WO1122334455"
                         },
                         WorkArea = "SMT Line 1",
                     }

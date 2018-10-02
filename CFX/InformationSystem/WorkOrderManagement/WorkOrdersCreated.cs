@@ -14,7 +14,7 @@ namespace CFX.InformationSystem.WorkOrderManagement
     ///   "NewOrders": [
     ///     {
     ///       "WorkOrderIdentifier": {
-    ///         "WorkOrderNumber": "WO1122334455",
+    ///         "WorkOrderId": "WO1122334455",
     ///         "Batch": null
     ///       },
     ///       "Description": "Production Order for PCB Assembly",
