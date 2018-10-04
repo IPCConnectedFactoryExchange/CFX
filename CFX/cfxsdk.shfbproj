@@ -195,9 +195,7 @@
   <Filter entryType="Class" fullName="CFX.Materials.Transport.CheckpointReached" filterName="CheckpointReached" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Materials.Transport.CheckpointReached.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
-  <Filter entryType="Class" fullName="CFX.Materials.Transport.GetTransportOrderStatusRequest" filterName="GetTransportOrderStatusRequest" isExposed="False">
-    <Filter entryType="Property" fullName="CFX.Materials.Transport.GetTransportOrderStatusRequest.TransportOrderNumber" filterName="TransportOrderNumber" isExposed="True" />
-  </Filter>
+  <Filter entryType="Class" fullName="CFX.Materials.Transport.GetTransportOrderStatusRequest" filterName="GetTransportOrderStatusRequest" isExposed="False" />
   <Filter entryType="Class" fullName="CFX.Materials.Transport.GetTransportOrderStatusResponse" filterName="GetTransportOrderStatusResponse" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Materials.Transport.GetTransportOrderStatusResponse.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
@@ -217,6 +215,9 @@
   </Filter>
   <Filter entryType="Class" fullName="CFX.Production.ActivateRecipeResponse" filterName="ActivateRecipeResponse" isExposed="False">
     <Filter entryType="Property" fullName="CFX.Production.ActivateRecipeResponse.Result" filterName="Result" isExposed="True" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.Production.ActivitiesExecuted" filterName="ActivitiesExecuted" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Production.ActivitiesExecuted.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.Production.BlockMaterialLocationsRequest" filterName="BlockMaterialLocationsRequest" isExposed="False">
     <Filter entryType="Property" fullName="CFX.Production.BlockMaterialLocationsRequest.Locations" filterName="Locations" isExposed="True" />
@@ -369,8 +370,14 @@
   </Filter>
 </Filter>
 <Filter entryType="Namespace" fullName="CFX.ResourcePerformance" isExposed="True">
+  <Filter entryType="Class" fullName="CFX.ResourcePerformance.CalibrationPerformed" filterName="CalibrationPerformed" isExposed="False">
+    <Filter entryType="Property" fullName="CFX.ResourcePerformance.CalibrationPerformed.Calibration" filterName="Calibration" isExposed="True" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.ResourcePerformance.EnergyConsumed" filterName="EnergyConsumed" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.EnergyConsumed.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.ResourcePerformance.FaultAcknowledged" filterName="FaultAcknowledged" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.FaultAcknowledged.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.ResourcePerformance.FaultCleared" filterName="FaultCleared" isExposed="False">
     <Filter entryType="Property" fullName="CFX.ResourcePerformance.FaultCleared.FaultOccurrenceId" filterName="FaultOccurrenceId" isExposed="True" />
@@ -445,6 +452,9 @@
   </Filter>
 </Filter>
 <Filter entryType="Namespace" fullName="CFX.Sensor.Identification" isExposed="True">
+  <Filter entryType="Class" fullName="CFX.Sensor.Identification.IdentifiersNotRead" filterName="IdentifiersNotRead" isExposed="False">
+    <Filter entryType="Property" fullName="CFX.Sensor.Identification.IdentifiersNotRead.PositionsNotRead" filterName="PositionsNotRead" isExposed="True" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.Sensor.Identification.IdentifiersRead" filterName="IdentifiersRead" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Sensor.Identification.IdentifiersRead.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
@@ -456,8 +466,14 @@
   </Filter>
 </Filter>
 <Filter entryType="Namespace" fullName="CFX.Structures" isExposed="True">
+  <Filter entryType="Class" fullName="CFX.Structures.Activity" filterName="Activity" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.Activity.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.BooleanMeasurement" filterName="BooleanMeasurement" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.BooleanMeasurement.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.Calibration" filterName="Calibration" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.Calibration.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.Characteristic" filterName="Characteristic" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.Characteristic.#ctor" filterName=".ctor" isExposed="False" />
@@ -606,6 +622,9 @@
   <Filter entryType="Class" fullName="CFX.Structures.ToolHolder" filterName="ToolHolder" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.ToolHolder.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.ToolSetupRequirement" filterName="ToolSetupRequirement" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.ToolSetupRequirement.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.ToolUsed" filterName="ToolUsed" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.ToolUsed.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
@@ -615,8 +634,17 @@
   <Filter entryType="Class" fullName="CFX.Structures.UninstalledMaterial" filterName="UninstalledMaterial" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.UninstalledMaterial.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.UnitAlignmentActivity" filterName="UnitAlignmentActivity" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.UnitAlignmentActivity.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.UnitLoadActivity" filterName="UnitLoadActivity" isExposed="False">
+    <Filter entryType="Property" fullName="CFX.Structures.UnitLoadActivity.LoadTime" filterName="LoadTime" isExposed="True" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.UnitPosition" filterName="UnitPosition" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.UnitPosition.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.UnitUnloadActivity" filterName="UnitUnloadActivity" isExposed="False">
+    <Filter entryType="Property" fullName="CFX.Structures.UnitUnloadActivity.UnloadTime" filterName="UnloadTime" isExposed="True" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.ValidationResult" filterName="ValidationResult" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.ValidationResult.#ctor" filterName=".ctor" isExposed="False" />
@@ -696,14 +724,17 @@
   <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMDTubeFeeder" filterName="SMDTubeFeeder" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMDTubeFeeder.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTHead" filterName="SMTHead" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTHead.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTHeadInformation" filterName="SMTHeadInformation" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTHeadInformation.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTLaneInformation" filterName="SMTLaneInformation" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTLaneInformation.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
-  <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTNozzle" filterName="SMTNozzle" isExposed="True">
-    <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTNozzle.#ctor" filterName=".ctor" isExposed="False" />
+  <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTNozzleChangeActivity" filterName="SMTNozzleChangeActivity" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTNozzleChangeActivity.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.SMTPlacement.SMTPlacementConstraints" filterName="SMTPlacementConstraints" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.SMTPlacement.SMTPlacementConstraints.#ctor" filterName=".ctor" isExposed="False" />
@@ -754,6 +785,12 @@
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.SolderReflow.ReflowProcessData" filterName="ReflowProcessData" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.SolderReflow.ReflowProcessData.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.SolderReflow.ReflowReading" filterName="ReflowReading" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.SolderReflow.ReflowReading.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.Structures.SolderReflow.ReflowSetPoint" filterName="ReflowSetPoint" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.SolderReflow.ReflowSetPoint.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.SolderReflow.ReflowZone" filterName="ReflowZone" isExposed="False">
     <Filter entryType="Property" fullName="CFX.Structures.SolderReflow.ReflowZone.ReflowZoneType" filterName="ReflowZoneType" isExposed="True" />

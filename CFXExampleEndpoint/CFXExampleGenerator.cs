@@ -2872,6 +2872,7 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            Guid actId = Guid.NewGuid();
             msg = new ActivitiesExecuted()
             {
                 TransactionID = transId,
@@ -2891,11 +2892,13 @@ namespace CFXExampleEndpoint
                     new UnitAlignmentActivity()
                     {
                         TimeStamp = DateTime.Now - TimeSpan.FromSeconds(55),
-                        ActivityState = ActivityState.Started
+                        ActivityState = ActivityState.Started,
+                        ActivityInstanceId = actId
                     },
                     new UnitAlignmentActivity()
                     {
                         TimeStamp = DateTime.Now - TimeSpan.FromSeconds(50),
+                        ActivityInstanceId = actId,
                         DX = 0.125,
                         DY = 0.104,
                         DXY = 0.987
