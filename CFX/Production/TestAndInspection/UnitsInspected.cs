@@ -14,7 +14,7 @@ namespace CFX.Production.TestAndInspection
     /// <para>  </para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "bc799894-c0dc-4373-bddd-8259b78eb082",
+    ///   "TransactionId": "14d48338-09b7-4d20-acb9-bf951270793a",
     ///   "InspectionMethod": "AOI",
     ///   "SamplingInformation": {
     ///     "SamplingMethod": "NoSampling",
@@ -22,9 +22,8 @@ namespace CFX.Production.TestAndInspection
     ///     "SampleSize": null
     ///   },
     ///   "Inspector": {
-    ///     "OperatorIdentifier": "UID235434324",
+    ///     "OperatorIdentifier": "BADGE489499",
     ///     "ActorType": "Human",
-    ///     "FullName": "Joseph Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Joseph",
     ///     "LoginName": "joseph.smith@abcdrepairs.com"
@@ -36,7 +35,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "83326aff-050b-4483-a43b-3faf000c5a40",
+    ///           "UniqueIdentifier": "481f296f-d4b2-4d8e-8b05-a0a17ca33488",
     ///           "InspectionName": "INSPECT_R21",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -49,7 +48,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "8c33b186-e8db-410b-af3c-d6a90cfb1610",
+    ///           "UniqueIdentifier": "074c7aa5-8871-4629-b139-122b620bdc1b",
     ///           "InspectionName": "INSPECT_R22",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -69,7 +68,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Failed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "c121fe35-db2f-44aa-9a37-59661cc11ed7",
+    ///           "UniqueIdentifier": "27e4a632-5670-4683-9b54-b67b7df98260",
     ///           "InspectionName": "INSPECT_R21",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -82,7 +81,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "13cc5da1-b257-41fc-89f7-e908ef3afff3",
+    ///           "UniqueIdentifier": "f7ed3609-ea35-4bcc-9170-cb5d540348d5",
     ///           "InspectionName": "INSPECT_R22",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -92,7 +91,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Error": null,
     ///           "DefectsFound": [
     ///             {
-    ///               "UniqueIdentifier": "0006e95c-5eb6-4fbe-a456-0ce6b269e525",
+    ///               "UniqueIdentifier": "53c7d9e7-e43f-4415-a3ff-8932f0437dde",
     ///               "DefectCode": "ISFSLD112",
     ///               "DefectCategory": "Solder Problems",
     ///               "Description": "Insuffiecient Solder on R22, Lead 1",
@@ -119,7 +118,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RelatedSymptoms": []
     ///             },
     ///             {
-    ///               "UniqueIdentifier": "33493e20-7e22-47c7-8f03-26e2512d2222",
+    ///               "UniqueIdentifier": "561d08c2-aac9-422a-8910-41a3528a8acc",
     ///               "DefectCode": "TMBSTN211",
     ///               "DefectCategory": "Solder Problems",
     ///               "Description": "Tombston on R22",
@@ -150,7 +149,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "4413185d-8541-4e70-ae7e-0b8c7b15a661",
+    ///           "UniqueIdentifier": "abcbe17f-9232-4005-87e0-98651e2967b5",
     ///           "InspectionName": "COSMETIC_INSPECTION",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -160,7 +159,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Error": null,
     ///           "DefectsFound": [
     ///             {
-    ///               "UniqueIdentifier": "f8c206b7-0be1-4717-a3d3-c93bc4421568",
+    ///               "UniqueIdentifier": "8018a32b-ef92-494f-bb3d-5e0549bdea20",
     ///               "DefectCode": "SCR23443",
     ///               "DefectCategory": "Cosmetic Problems",
     ///               "Description": "Scratch Detected on PCB substrate",
@@ -211,7 +210,7 @@ namespace CFX.Production.TestAndInspection
     /// <para>  </para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "5c36dbd0-fd6b-4463-ad79-7ca5c4498b56",
+    ///   "TransactionId": "493bdbe0-9c32-4ed1-b7bf-b25372386b99",
     ///   "InspectionMethod": "SPI",
     ///   "SamplingInformation": {
     ///     "SamplingMethod": "NoSampling",
@@ -219,9 +218,8 @@ namespace CFX.Production.TestAndInspection
     ///     "SampleSize": null
     ///   },
     ///   "Inspector": {
-    ///     "OperatorIdentifier": "UID235434324",
+    ///     "OperatorIdentifier": "BADGE489499",
     ///     "ActorType": "Human",
-    ///     "FullName": "Joseph Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Joseph",
     ///     "LoginName": "joseph.smith@abcdrepairs.com"
@@ -233,7 +231,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "833c6606-aad9-4d04-aaea-af1ccbd7f6bd",
+    ///           "UniqueIdentifier": "09b88135-019d-44f0-b28d-1de766851fd1",
     ///           "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -257,7 +255,7 @@ namespace CFX.Production.TestAndInspection
     ///               "Vol": 5.11,
     ///               "EVol": 5.1,
     ///               "Image": null,
-    ///               "UniqueIdentifier": "29496f49-e06d-4aa7-8441-c5b0931fe366",
+    ///               "UniqueIdentifier": "9367a252-cd8b-4198-bd75-100a0ace2249",
     ///               "MeasurementName": "R1.1",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -277,7 +275,7 @@ namespace CFX.Production.TestAndInspection
     ///               "Vol": 5.11,
     ///               "EVol": 5.1,
     ///               "Image": null,
-    ///               "UniqueIdentifier": "9d94c6dc-4b64-4e29-b338-9f1fa7653bc4",
+    ///               "UniqueIdentifier": "db0d3ac0-b6b8-40c2-8dd4-2ca426d3373a",
     ///               "MeasurementName": "R1.2",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -294,7 +292,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Failed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "71f64821-9883-43b4-bb28-fbf2125c23ca",
+    ///           "UniqueIdentifier": "6ae0a4c5-119c-4381-8d9d-eb193345445f",
     ///           "InspectionName": "INSPECT_PASTE_DEPOSITIONS",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -318,7 +316,7 @@ namespace CFX.Production.TestAndInspection
     ///               "Vol": 5.11,
     ///               "EVol": 5.1,
     ///               "Image": null,
-    ///               "UniqueIdentifier": "a4aa1046-efb9-4213-ac9a-2e545ac6d9ba",
+    ///               "UniqueIdentifier": "276b031b-69aa-47de-a087-bf4f1471ff0a",
     ///               "MeasurementName": "R1.1",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -338,7 +336,7 @@ namespace CFX.Production.TestAndInspection
     ///               "Vol": 5.11,
     ///               "EVol": 5.1,
     ///               "Image": null,
-    ///               "UniqueIdentifier": "774816fd-3396-47da-9d17-898bf3457494",
+    ///               "UniqueIdentifier": "49e5f6cf-dd27-4ad7-aa77-469e1da576df",
     ///               "MeasurementName": "R1.2",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -356,7 +354,7 @@ namespace CFX.Production.TestAndInspection
     /// <para>  </para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "5c5d54b0-90f9-41db-833d-a9499f4d191a",
+    ///   "TransactionId": "b8c5c639-2ba8-4371-8edb-f743c5a7e33e",
     ///   "InspectionMethod": "SPI",
     ///   "SamplingInformation": {
     ///     "SamplingMethod": "NoSampling",
@@ -364,9 +362,8 @@ namespace CFX.Production.TestAndInspection
     ///     "SampleSize": null
     ///   },
     ///   "Inspector": {
-    ///     "OperatorIdentifier": "UID235434324",
+    ///     "OperatorIdentifier": "BADGE489499",
     ///     "ActorType": "Human",
-    ///     "FullName": "Joseph Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Joseph",
     ///     "LoginName": "joseph.smith@abcdrepairs.com"
@@ -378,7 +375,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "87480b45-e1b8-4ec3-a72c-69ee4eaf149e",
+    ///           "UniqueIdentifier": "c9b462e5-3e62-482f-9417-268def5bd059",
     ///           "InspectionName": "INSPECT_COMPONENT_OFFSETS",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -397,7 +394,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "6240e370-a83d-4a2f-a0dd-3b9725347adc",
+    ///               "UniqueIdentifier": "63e2821c-f735-4db9-b355-0b2da6be7040",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -412,7 +409,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "ad87bc5c-f760-4f15-a18d-d11a655db211",
+    ///               "UniqueIdentifier": "dbd43fd9-de85-45c6-92fa-5ff271f9634b",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -427,7 +424,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "9f8d6b81-55ac-4e94-bd54-f302266cafb5",
+    ///               "UniqueIdentifier": "ed8cabfb-4f69-4a64-a2dc-8b77f9690312",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -442,7 +439,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "533c3b13-b6cd-4513-b6f5-62936d7011dd",
+    ///               "UniqueIdentifier": "8212c29f-2498-4c30-b2c7-89a403b8f466",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -459,7 +456,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Failed",
     ///       "Inspections": [
     ///         {
-    ///           "UniqueIdentifier": "8b616c57-cd3b-4c99-9566-7aa4886c4de0",
+    ///           "UniqueIdentifier": "92e9b1c1-e40b-41fb-ad41-74fba7668837",
     ///           "InspectionName": "INSPECT_COMPONENT_OFFSETS",
     ///           "InspectionStartTime": null,
     ///           "InspectionEndTime": null,
@@ -478,7 +475,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "38e2d7ec-6b01-4b8f-9a7e-c01d4481f771",
+    ///               "UniqueIdentifier": "0c8f1340-1fef-4a32-9ff4-b44521723fe8",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -493,7 +490,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "3fb29677-74e7-4088-b1be-8b6fd8251b1c",
+    ///               "UniqueIdentifier": "43e34985-0bc4-4a07-a702-2c1578f6f2c3",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -508,7 +505,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "bb3c9e82-6fdd-4257-9a8c-d981e11ad3e7",
+    ///               "UniqueIdentifier": "5d2df2b8-0444-481c-b888-d47c68d51924",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
@@ -523,7 +520,7 @@ namespace CFX.Production.TestAndInspection
     ///               "RXY": 0.01,
     ///               "RZX": 0.15,
     ///               "RZY": 0.15,
-    ///               "UniqueIdentifier": "8b6860c0-809c-404a-a0ee-1978777b8117",
+    ///               "UniqueIdentifier": "fb0ab546-5f52-4a25-9a32-a4d52eedc373",
     ///               "MeasurementName": null,
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,

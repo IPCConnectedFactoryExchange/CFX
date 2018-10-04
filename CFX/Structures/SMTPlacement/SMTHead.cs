@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CFX.Structures.SMTPlacement
 {
-    public class SMTNozzle : Tool
+    public class SMTHead : Tool
     {
         /// <summary>
         /// The name or identifier of the SMT head associated with this SMT Nozzle.
@@ -18,7 +18,7 @@ namespace CFX.Structures.SMTPlacement
         /// <summary>
         /// The spindle number on the head to which this SMT Nozzle is attached
         /// </summary>
-        public int HeadNozzleNumber
+        public int? HeadNozzleNumber
         {
             get;
             set;

@@ -46,8 +46,8 @@ namespace CFX.ResourcePerformance
     ///         "BaseUniqueIdentifier": null,
     ///         "BaseName": null,
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Pitch8mm",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 8.0,
     ///         "UniqueIdentifier": "FDR2348934-32890",
     ///         "Name": "8MMFDR231"
     ///       }
@@ -62,9 +62,15 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 3943480",
-    ///     "FaultOccurrenceId": "2a8aca83-5889-49d7-887b-89145b6dc9b9",
-    ///     "Lane": "LANE1",
-    ///     "Stage": "STAGE2"
+    ///     "FaultOccurrenceId": "1806f0fa-ea40-4533-b951-eb74fb13f240",
+    ///     "Lane": 1,
+    ///     "Stage": {
+    ///       "StageSequence": 2,
+    ///       "StageName": "STAGE2",
+    ///       "StageType": "Work"
+    ///     },
+    ///     "SideLocation": "Unknown",
+    ///     "AccessType": "Unknown"
     ///   }
     /// }
     /// </code>
@@ -93,8 +99,8 @@ namespace CFX.ResourcePerformance
     ///         "BaseUniqueIdentifier": null,
     ///         "BaseName": null,
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Pitch8mm",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 8.0,
     ///         "UniqueIdentifier": "FDR2348934-32890",
     ///         "Name": "8MMFDR231"
     ///       }
@@ -102,12 +108,19 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 3943480",
-    ///     "FaultOccurrenceId": "c2ae2e0b-104e-4293-b9d3-575863c2916d",
-    ///     "Lane": "LANE1",
-    ///     "Stage": "STAGE2"
+    ///     "FaultOccurrenceId": "6367fdee-232c-4976-9254-6ea8861f516e",
+    ///     "Lane": 1,
+    ///     "Stage": {
+    ///       "StageSequence": 1,
+    ///       "StageName": "STAGE2",
+    ///       "StageType": "Work"
+    ///     },
+    ///     "SideLocation": "Unknown",
+    ///     "AccessType": "Unknown"
     ///   }
     /// }
     /// </code>
+    /// <para>Solder Paste Printing Fault Example:</para>
     /// <code language="none">
     /// {
     ///   "Fault": {
@@ -116,13 +129,18 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 234333",
-    ///     "FaultOccurrenceId": "3e667e7d-24b4-4b77-b356-34bb5e99d05c",
-    ///     "Lane": null,
-    ///     "Stage": null
+    ///     "FaultOccurrenceId": "024f9e24-7e4f-4eb7-8ab1-2e16a74891fa",
+    ///     "Lane": 1,
+    ///     "Stage": {
+    ///       "StageSequence": 1,
+    ///       "StageName": "PRINTSTAGE",
+    ///       "StageType": "Work"
+    ///     },
+    ///     "SideLocation": "Unknown",
+    ///     "AccessType": "Unknown"
     ///   }
     /// }
     /// </code>
-    /// <para>SMT Printing Fault Example:</para>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class FaultOccurred : CFXMessage

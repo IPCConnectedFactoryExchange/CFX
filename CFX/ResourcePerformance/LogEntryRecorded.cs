@@ -13,8 +13,12 @@ namespace CFX.ResourcePerformance
     ///   "InformationId": "INF21321321",
     ///   "Message": "Beam 1 Zeroed and Homed",
     ///   "Importance": "Information",
-    ///   "Lane": "1",
-    ///   "Stage": "STAGE1"
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>

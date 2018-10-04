@@ -1288,9 +1288,31 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new FaultAcknowledged()
+            {
+                FaultOccurrenceId = flt.FaultOccurrenceId,
+                Operator = new Operator()
+                {
+                    ActorType = ActorType.Human,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    LoginName = "john.doe@domain1.com",
+                    OperatorIdentifier = "BADGE4486"
+                }
+            };
+            AppendMessage(msg, ref result);
+
             msg = new FaultCleared()
             {
-                FaultOccurrenceId = flt.FaultOccurrenceId
+                FaultOccurrenceId = flt.FaultOccurrenceId,
+                Operator = new Operator()
+                {
+                    ActorType = ActorType.Human,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    LoginName = "john.doe@domain1.com",
+                    OperatorIdentifier = "BADGE4486"
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -1599,7 +1621,7 @@ namespace CFXExampleEndpoint
                         LaneNumber = 1
                     }
                 },
-                Nozzle = new SMTNozzle()
+                Nozzle = new SMTHead()
                 {
                     UniqueIdentifier = "UID2389432849",
                     Name = "NOZZLE3243244",
@@ -1636,7 +1658,7 @@ namespace CFXExampleEndpoint
             {
                 OldTool = null,
                 ReturnedToHolder = null,
-                NewTool = new SMTNozzle()
+                NewTool = new SMTHead()
                 {
                     UniqueIdentifier = "UID23890430",
                     Name = "NOZZLE234324",
@@ -1809,6 +1831,13 @@ namespace CFXExampleEndpoint
             {
                 Fault = new SMTSolderPastePrintingFault()
                 {
+                    Lane = 1,
+                    Stage = new Stage()
+                    {
+                        StageSequence = 1,
+                        StageName = "PRINTSTAGE",
+                        StageType = StageType.Work
+                    },
                     FaultOccurrenceId = Guid.NewGuid(),
                     Cause = FaultCause.MechanicalFailure,
                     Severity = FaultSeverity.Error,
@@ -2843,6 +2872,65 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new ActivitiesExecuted()
+            {
+                TransactionID = transId,
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Activities = new List<Activity>(new Activity[]
+                {
+                    new UnitLoadActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(55),
+                        LoadTime = TimeSpan.FromSeconds(5.3),
+                    },
+                    new UnitAlignmentActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(55),
+                        ActivityState = ActivityState.Started
+                    },
+                    new UnitAlignmentActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(50),
+                        DX = 0.125,
+                        DY = 0.104,
+                        DXY = 0.987
+                    },
+                    new SMTNozzleChangeActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(30),
+                        NewNozzles = new List<SMTHead>(new SMTHead []
+                        {
+                            new SMTHead()
+                            {
+                                UniqueIdentifier = "UID234213421",
+                                Name = "Nozzle45",
+                                NozzleType = "409A",
+                                HeadId = "HEAD1",
+                                HeadNozzleNumber = 1
+                            },
+                            new SMTHead()
+                            {
+                                UniqueIdentifier = "UID234213421",
+                                Name = "Nozzle32",
+                                NozzleType = "302B",
+                                HeadId = "HEAD1",
+                                HeadNozzleNumber = 2
+                            },
+                        }),
+                    },
+                    new UnitUnloadActivity()
+                    {
+                        UnloadTime = TimeSpan.FromSeconds(3.2),
+                    },
+                }),
+            };
+            AppendMessage(msg, ref result);
+
             msg = new WorkStarted()
             {
                 TransactionID = transId,
@@ -3502,7 +3590,7 @@ namespace CFXExampleEndpoint
                 TapePitch = 4
             };
 
-            t1 = new SMTNozzle()
+            t1 = new SMTHead()
             {
                 UniqueIdentifier = "UID234213421",
                 Name = "Nozzle45",
@@ -3511,7 +3599,7 @@ namespace CFXExampleEndpoint
                 HeadNozzleNumber = 2
             };
 
-            t2 = new SMTNozzle()
+            t2 = new SMTHead()
             {
                 UniqueIdentifier = "UID234223422",
                 Name = "Nozzle47",

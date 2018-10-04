@@ -35,9 +35,8 @@ namespace CFX.InformationSystem.ProductionScheduling
     ///       ],
     ///       "ReservedOperators": [
     ///         {
-    ///           "OperatorIdentifier": "UID235434324",
+    ///           "OperatorIdentifier": "BADGE489435",
     ///           "ActorType": "Human",
-    ///           "FullName": "Joseph Smith",
     ///           "LastName": "Smith",
     ///           "FirstName": "Joseph",
     ///           "LoginName": "joseph.smith@abcdrepairs.com"

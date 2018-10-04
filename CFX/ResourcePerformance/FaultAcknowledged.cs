@@ -1,31 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using CFX.Structures;
 
 namespace CFX.ResourcePerformance
 {
     /// <summary>
-    /// Sent by a process endpoint when a fault is cleared as described in a FaultOccurred message  
+    /// Sent when a fault has been acknowledged by the operator, but not yet corrected (cleared).
+    /// A subsequent FaultCleared message will be sent once the operator addresses the issue.
     /// <code language="none">
     /// {
-    ///   "FaultOccurrenceId": "22ac3c8a-9e6d-42f8-85b2-f51bf2224ecc",
     ///   "Operator": {
     ///     "OperatorIdentifier": "BADGE4486",
     ///     "ActorType": "Human",
     ///     "LastName": "Doe",
     ///     "FirstName": "John",
     ///     "LoginName": "john.doe@domain1.com"
-    ///   }
+    ///   },
+    ///   "FaultOccurrenceId": "5af7e56c-cfbf-4f1f-aa4c-79d94a7442bc"
     /// }
     /// </code>
     /// </summary>
-    public class FaultCleared : CFXMessage
+    public class FaultAcknowledged : CFXMessage
     {
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public FaultCleared()
+        public FaultAcknowledged()
         {
         }
 
@@ -40,7 +43,7 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
-        /// The operator or entity who has cleared the fault (if known, otherwise null)
+        /// The operator or entity who has acknowledged the fault (if known, otherwise null)
         /// </summary>
         public Operator Operator
         {

@@ -15,9 +15,8 @@ namespace CFX.Materials.Transport
     ///   "Comments": "Arrived SMT Production Area",
     ///   "Status": "InTransit",
     ///   "TrackedBy": {
-    ///     "OperatorIdentifier": "957cc475-bd65-4289-9c7a-1a89aa9adaed",
+    ///     "OperatorIdentifier": "BADGE4486",
     ///     "ActorType": "Human",
-    ///     "FullName": "John Doe",
     ///     "LastName": "Doe",
     ///     "FirstName": "John",
     ///     "LoginName": "john.doe@domain1.com"

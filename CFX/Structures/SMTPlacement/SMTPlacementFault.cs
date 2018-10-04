@@ -15,7 +15,7 @@ namespace CFX.Structures.SMTPlacement
             PlacementFaultType = SMTPlacementFaultType.PickupError;
             Designator = new ComponentDesignator();
             MaterialLocation = new MaterialLocation();
-            Nozzle = new SMTNozzle();
+            Nozzle = new SMTHead();
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace CFX.Structures.SMTPlacement
         /// <summary>
         /// The placement nozzle related to this fault (where applicable)
         /// </summary>
-        public SMTNozzle Nozzle
+        public SMTHead Nozzle
         {
             get;
             set;

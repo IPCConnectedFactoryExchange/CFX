@@ -12,9 +12,8 @@ namespace CFX.Materials.Transport
     ///   "TransportOrderId": "TR329483249830000",
     ///   "Comments": "Received at Line 1",
     ///   "AcceptedBy": {
-    ///     "OperatorIdentifier": "b776aee6-0462-4a7d-9976-158a342f898c",
+    ///     "OperatorIdentifier": "BADGE4487",
     ///     "ActorType": "Human",
-    ///     "FullName": "Mike Dolittle",
     ///     "LastName": "Dolittle",
     ///     "FirstName": "Mike",
     ///     "LoginName": "mike.dolittle@domain1.com"

@@ -50,9 +50,8 @@ namespace CFX.ResourcePerformance
     ///       "Task": "Changed hydraulic fluid in resovoir 1",
     ///       "TaskId": "HYD233432432",
     ///       "Operator": {
-    ///         "OperatorIdentifier": "UID235434324",
+    ///         "OperatorIdentifier": "BADGE489435",
     ///         "ActorType": "Human",
-    ///         "FullName": "Joseph Smith",
     ///         "LastName": "Smith",
     ///         "FirstName": "Joseph",
     ///         "LoginName": "joseph.smith@abcdrepairs.com"
@@ -63,9 +62,8 @@ namespace CFX.ResourcePerformance
     ///       "Task": "Checked torque on main mount bolts",
     ///       "TaskId": "CHK3432434",
     ///       "Operator": {
-    ///         "OperatorIdentifier": "UID235434324",
+    ///         "OperatorIdentifier": "BADGE489435",
     ///         "ActorType": "Human",
-    ///         "FullName": "Joseph Smith",
     ///         "LastName": "Smith",
     ///         "FirstName": "Joseph",
     ///         "LoginName": "joseph.smith@abcdrepairs.com"

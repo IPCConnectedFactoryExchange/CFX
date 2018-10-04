@@ -12,9 +12,8 @@ namespace CFX.Materials.Transport
     /// {
     ///   "TransportOrderId": "TR329483249830000",
     ///   "StartedBy": {
-    ///     "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+    ///     "OperatorIdentifier": "BADGE4485",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"

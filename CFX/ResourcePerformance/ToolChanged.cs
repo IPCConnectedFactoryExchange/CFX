@@ -31,7 +31,7 @@ namespace CFX.ResourcePerformance
     ///   "OldTool": null,
     ///   "ReturnedToHolder": null,
     ///   "NewTool": {
-    ///     "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
+    ///     "$type": "CFX.Structures.SMTPlacement.SMTHead, CFX",
     ///     "HeadId": "HEAD1",
     ///     "HeadNozzleNumber": 1,
     ///     "NozzleType": "TYPE914",

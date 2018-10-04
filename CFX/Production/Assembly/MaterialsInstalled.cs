@@ -11,7 +11,7 @@ namespace CFX.Production.Assembly
     /// endpoint, or, at the end of each stage.
     /// <code language="none">
     /// {
-    ///   "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
+    ///   "TransactionId": "ce1cf002-50fe-4cd4-af27-5e46fdae5608",
     ///   "InstalledMaterials": [
     ///     {
     ///       "UnitIdentifier": "PANEL23423432",
@@ -30,8 +30,8 @@ namespace CFX.Production.Assembly
     ///           "BaseUniqueIdentifier": "123334",
     ///           "BaseName": null,
     ///           "LaneNumber": 1,
-    ///           "Width": "Tape8mm",
-    ///           "Pitch": "Adjustable",
+    ///           "TapeWidth": 8.0,
+    ///           "TapePitch": 8.0,
     ///           "UniqueIdentifier": "1233334",
     ///           "Name": "TAPEFEEDER8mm1233334"
     ///         }
@@ -39,15 +39,15 @@ namespace CFX.Production.Assembly
     ///       "InstalledComponents": [
     ///         {
     ///           "ReferenceDesignator": "R1",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+    ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R2",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+    ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R3",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+    ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         }
     ///       ]
     ///     },
@@ -68,8 +68,8 @@ namespace CFX.Production.Assembly
     ///           "BaseUniqueIdentifier": "123334",
     ///           "BaseName": null,
     ///           "LaneNumber": 1,
-    ///           "Width": "Tape8mm",
-    ///           "Pitch": "Adjustable",
+    ///           "TapeWidth": 8.0,
+    ///           "TapePitch": 8.0,
     ///           "UniqueIdentifier": "1233334",
     ///           "Name": "TAPEFEEDER8mm1233334"
     ///         }
@@ -77,15 +77,15 @@ namespace CFX.Production.Assembly
     ///       "InstalledComponents": [
     ///         {
     ///           "ReferenceDesignator": "R1",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+    ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R2",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+    ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R3",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6197528-04:00"
+    ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         }
     ///       ]
     ///     }
