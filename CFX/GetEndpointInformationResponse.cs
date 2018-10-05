@@ -30,7 +30,29 @@ namespace CFX
     ///     "Vendor": "SMT Plus",
     ///     "ModelNumber": "Model_11111",
     ///     "SerialNumber": "SNSN23123",
-    ///     "NumberOfStages": 1,
+    ///     "Stages": [
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 1,
+    ///           "StageName": "INBOUND BUFFER",
+    ///           "StageType": "Buffer"
+    ///         }
+    ///       },
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 2,
+    ///           "StageName": "WORK STAGE 1",
+    ///           "StageType": "Work"
+    ///         }
+    ///       },
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 3,
+    ///           "StageName": "OUTBOUND BUFFER",
+    ///           "StageType": "Buffer"
+    ///         }
+    ///       }
+    ///     ],
     ///     "NumberOfLanes": 1,
     ///     "HermesInformation": {
     ///       "Enabled": true,
@@ -88,32 +110,6 @@ namespace CFX
     ///       "MinimumThickness": 0.5,
     ///       "MaximumThickness": 10.0
     ///     },
-    ///     "Stages": [
-    ///       {
-    ///         "Stage": {
-    ///           "StageSequence": 1,
-    ///           "StageName": "BUFFERSTAGE1",
-    ///           "StageType": "Buffer"
-    ///         },
-    ///         "NumberOfFeederStations": 0
-    ///       },
-    ///       {
-    ///         "Stage": {
-    ///           "StageSequence": 2,
-    ///           "StageName": "WORKSTAGE1",
-    ///           "StageType": "Work"
-    ///         },
-    ///         "NumberOfFeederStations": 100
-    ///       },
-    ///       {
-    ///         "Stage": {
-    ///           "StageSequence": 3,
-    ///           "StageName": "WORKSTAGE2",
-    ///           "StageType": "Work"
-    ///         },
-    ///         "NumberOfFeederStations": 100
-    ///       }
-    ///     ],
     ///     "Lanes": [
     ///       {
     ///         "LaneNumber": null,
@@ -158,7 +154,35 @@ namespace CFX
     ///     "Vendor": "SMT Plus",
     ///     "ModelNumber": "Model_21232",
     ///     "SerialNumber": "SN23123",
-    ///     "NumberOfStages": 4,
+    ///     "Stages": [
+    ///       {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
+    ///         "NumberOfFeederStations": 0,
+    ///         "Stage": {
+    ///           "StageSequence": 1,
+    ///           "StageName": "BUFFERSTAGE1",
+    ///           "StageType": "Buffer"
+    ///         }
+    ///       },
+    ///       {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
+    ///         "NumberOfFeederStations": 100,
+    ///         "Stage": {
+    ///           "StageSequence": 2,
+    ///           "StageName": "WORKSTAGE1",
+    ///           "StageType": "Work"
+    ///         }
+    ///       },
+    ///       {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
+    ///         "NumberOfFeederStations": 100,
+    ///         "Stage": {
+    ///           "StageSequence": 3,
+    ///           "StageName": "WORKSTAGE2",
+    ///           "StageType": "Work"
+    ///         }
+    ///       }
+    ///     ],
     ///     "NumberOfLanes": 1,
     ///     "HermesInformation": {
     ///       "Enabled": true,

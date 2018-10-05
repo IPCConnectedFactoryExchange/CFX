@@ -1059,7 +1059,12 @@ namespace CFXExampleEndpoint
                     ModelNumber = "Model_11111",
                     SerialNumber = "SNSN23123",
                     NumberOfLanes = 1,
-                    NumberOfStages = 1,
+                    Stages = new List<StageInformation>(new StageInformation []
+                    {
+                        new StageInformation() {Stage = new Stage() {StageName = "INBOUND BUFFER", StageSequence = 1, StageType = StageType.Buffer} },
+                        new StageInformation() {Stage = new Stage() {StageName = "WORK STAGE 1", StageSequence = 2, StageType = StageType.Work} },
+                        new StageInformation() {Stage = new Stage() {StageName = "OUTBOUND BUFFER", StageSequence = 3, StageType = StageType.Buffer} },
+                    }),
                     HermesInformation = new HermesInformation()
                     {
                         Enabled = true,
@@ -1107,7 +1112,6 @@ namespace CFXExampleEndpoint
                     ModelNumber = "Model_21232",
                     SerialNumber = "SN23123",
                     NumberOfLanes = 1,
-                    NumberOfStages = 4,
                     HermesInformation = new HermesInformation()
                     {
                         Enabled = true,
@@ -1156,7 +1160,7 @@ namespace CFXExampleEndpoint
                     PlacementConstraints = new SMTPlacementConstraints()
                     {
                     },
-                    Stages = new List<SMTStageInformation>(new SMTStageInformation[]
+                    Stages = new List<StageInformation>(new SMTStageInformation[]
                     {
                         new SMTStageInformation()
                         {

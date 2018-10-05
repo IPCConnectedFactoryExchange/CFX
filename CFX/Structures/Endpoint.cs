@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
@@ -10,6 +11,7 @@ namespace CFX.Structures
     /// Describes the details of a particular Endpoint that is participating in a CFX network.
     /// This is a dynamic structure.
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Endpoint
     {
         /// <summary>
@@ -19,6 +21,7 @@ namespace CFX.Structures
         {
             CFXVersion = CFXEnvelope.CFXVERSION;
             SupportedTopics = new List<SupportedTopic>();
+            Stages = new List<StageInformation>();
         }
 
         /// <summary>
@@ -103,9 +106,10 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The number of stages (zones) of the endpoint
+        /// Describes the stages (zones) of the endpoint, including buffer stages.
         /// </summary>
-        public int NumberOfStages
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public List<StageInformation> Stages
         {
             get;
             set;

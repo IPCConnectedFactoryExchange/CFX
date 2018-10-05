@@ -17,7 +17,6 @@ namespace CFX.Structures.SMTPlacement
         /// </summary>
         public SMTPlacementEndpoint()
         {
-            Stages = new List<SMTStageInformation>();
             Lanes = new List<SMTLaneInformation>();
         }
 
@@ -46,16 +45,6 @@ namespace CFX.Structures.SMTPlacement
         /// May be overridden for each lane (see <see cref="SMTLaneInformation"/>).
         /// </summary>
         public DimensionalConstraints SupportedPCBDimensions
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Information about the stages (work and buffer zones) of this SMT 
-        /// placement machine.
-        /// </summary>
-        public List<SMTStageInformation> Stages
         {
             get;
             set;

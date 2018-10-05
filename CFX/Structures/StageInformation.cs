@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures.SMTPlacement
+namespace CFX.Structures
 {
     /// <summary>
     /// Describes a stage (zone) for an endpoint that is an SMT placement machine.
     /// </summary>
-    public class SMTStageInformation : StageInformation
+    public class StageInformation
     {
         /// <summary>
-        /// The number of stations where a feeder may be mounted for this stage.
+        /// A structure describing basic infomration about the stage.
         /// </summary>
-        public int NumberOfFeederStations
+        public Stage Stage
         {
             get;
             set;
