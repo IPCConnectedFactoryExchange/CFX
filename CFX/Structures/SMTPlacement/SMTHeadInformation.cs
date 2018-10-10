@@ -9,19 +9,28 @@ namespace CFX.Structures.SMTPlacement
     /// <summary>
     /// Describes a head for an endpoint that is an SMT placement machine.
     /// </summary>
-    public class SMTHeadInformation
+    public class SMTHeadInformation : HeadInformation
     {
         /// <summary>
-        /// The name or identifier of the SMT head
+        /// An enumeration indicating the purpose of this particular head
         /// </summary>
-        public string HeadId
+        public SMTHeadType SMTHeadType
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The accuracy of this head, expressed in mm.  For example, a head that can accurately
+        /// Indicates the number of nozzle locations
+        /// </summary>
+        public int NumberOfNozzleLocations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The accuracy of this head, expressed in mm. For example, a head that can accurately
         /// place components to 1 micron would have accuracy of 0.001 mm.
         /// </summary>
         public double PlacementAccuracy

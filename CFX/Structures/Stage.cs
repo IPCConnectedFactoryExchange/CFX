@@ -14,6 +14,9 @@ namespace CFX.Structures
             StageType = StageType.Work;
         }
 
+        /// <summary>
+        /// Sequence of this stage in the machine
+        /// </summary>
         public int StageSequence
         {
             get;

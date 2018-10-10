@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures
+namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
-    /// Describes a stage (zone) for an endpoint that is in a machine.
+    /// Describes a head for an endpoint that is in a machine.
     /// </summary>
-    public class StageInformation
+    public class HeadInformation
     {
         /// <summary>
-        /// A structure describing basic information about the stage.
+        /// A structure describing basic information about the head.
         /// </summary>
-        public Stage Stage
+        public Head Head
         {
             get;
             set;
