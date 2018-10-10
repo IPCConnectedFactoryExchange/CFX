@@ -22,7 +22,7 @@ namespace CFX.Production
     public class OperatorDeactivated : CFXMessage
     {
         /// <summary>
-        /// A structure which defines the Operator
+        /// A structure which defines the Operator (optional)
         /// </summary>
         public Operator Operator
         {

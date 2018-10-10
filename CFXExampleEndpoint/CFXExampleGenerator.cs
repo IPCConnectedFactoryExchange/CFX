@@ -2946,7 +2946,7 @@ namespace CFXExampleEndpoint
                     new UnitPosition[]
                     {
                         new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 70.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2964,7 +2964,7 @@ namespace CFXExampleEndpoint
                     new UnitPosition[]
                     {
                         new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 70.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2983,7 +2983,7 @@ namespace CFXExampleEndpoint
                     FailureCode = 0,
                 },
 
-                Results = new List<ValidationResult>(new ValidationResult[]
+                ValidationResults = new List<ValidationResult>(new ValidationResult[]
                 {
                     new ValidationResult()
                     {
@@ -3724,6 +3724,14 @@ namespace CFXExampleEndpoint
                         WorkOrderId = "WO1122334455"
                     },
                     WorkArea = "SMT Line 1",
+                    Scheduler = new Operator()
+                    {
+                        ActorType = ActorType.Human,
+                        FirstName = "John",
+                        LastName = "Doe",
+                        LoginName = "john.doe@domain1.com",
+                        OperatorIdentifier = "BADGE4486"
+                    },
                     StartTime = new DateTime(2018,8,2,11,0,0),
                     EndTime = new DateTime(2018,8,2,15,0,0),
                     ReservedResources = new List<string>(new string[] {"L1PRINTER1","L1PLACER1","L1PLACER2","L1OVEN1"}),

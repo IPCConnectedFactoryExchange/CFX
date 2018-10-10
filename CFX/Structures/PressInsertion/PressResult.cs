@@ -90,7 +90,7 @@ namespace CFX.Structures.PressInsertion
         }//MachineID
 
         /// <summary>
-        ///  Describes the Operator who ran the press cycle
+        ///  Describes the Operator who ran the press cycle (optional)
         /// </summary>
         public Operator PressOperator
         {

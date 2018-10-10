@@ -44,7 +44,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The operator who performed the modification.
+        /// The operator who performed the modification. (optional)
         /// </summary>
         public Operator ModifiedBy
         {

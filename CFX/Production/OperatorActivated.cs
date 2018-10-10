@@ -24,7 +24,7 @@ namespace CFX.Production
     public class OperatorActivated : CFXMessage
     {
         /// <summary>
-        /// A structure which defines the Operator
+        /// A structure which defines the Operator.
         /// </summary>
         public Operator Operator
         {

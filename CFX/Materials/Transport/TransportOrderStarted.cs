@@ -45,7 +45,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The operator who initiated the new transport order (where applicable)
+        /// The operator who initiated the new transport order (optional, where applicable)
         /// </summary>
         public Operator StartedBy
         {

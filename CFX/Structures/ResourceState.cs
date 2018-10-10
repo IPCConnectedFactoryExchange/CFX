@@ -119,7 +119,7 @@ namespace CFX.Structures
         /// <summary>
         /// Unscheduled Downtime.  User Supply Delay.  Waiting for parts required to perform maintenance.
         /// </summary>
-        USD_SuppliedMaintentanceDelay = 5200,
+        USD_SuppliedMaintenanceDelay = 5200,
         /// <summary>
         /// Unscheduled Downtime.  Repair underway.
         /// </summary>

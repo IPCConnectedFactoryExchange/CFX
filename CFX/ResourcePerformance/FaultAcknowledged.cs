@@ -43,7 +43,7 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
-        /// The operator or entity who has acknowledged the fault (if known, otherwise null)
+        /// The operator or entity who has acknowledged the fault (if known, otherwise null) (optional)
         /// </summary>
         public Operator Operator
         {

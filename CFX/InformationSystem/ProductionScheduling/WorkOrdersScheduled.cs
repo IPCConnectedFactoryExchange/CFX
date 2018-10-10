@@ -18,6 +18,13 @@ namespace CFX.InformationSystem.ProductionScheduling
     ///         "WorkOrderId": "WO1122334455",
     ///         "Batch": null
     ///       },
+    ///       "Scheduler": {
+    ///         "OperatorIdentifier": "BADGE4486",
+    ///         "ActorType": "Human",
+    ///         "LastName": "Doe",
+    ///         "FirstName": "John",
+    ///         "LoginName": "john.doe@domain1.com"
+    ///       },
     ///       "WorkArea": "SMT Line 1",
     ///       "StartTime": "2018-08-02T11:00:00",
     ///       "EndTime": "2018-08-02T15:00:00",
