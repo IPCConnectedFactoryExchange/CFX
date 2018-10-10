@@ -74,7 +74,7 @@ namespace CFX.Structures.PressInsertion
         }///ConditionStatus
 
         /// <summary>
-        ///  Describes the Operator who ran the condition step
+        ///  Describes the Operator who ran the condition step (optional)
         /// </summary>
         public Operator ConditionOperator
         {

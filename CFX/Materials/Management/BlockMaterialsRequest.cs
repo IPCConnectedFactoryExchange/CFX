@@ -65,7 +65,7 @@ namespace CFX.Materials.Management
         }
 
         /// <summary>
-        /// The person responsible for initiating this block
+        /// The person responsible for initiating this block (optional)
         /// </summary>
         public Operator Blocker
         {

@@ -47,7 +47,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Information about the operator who is requesting that the stage be unlocked.
+        /// Information about the operator who is requesting that the stage be unlocked. (optional)
         /// </summary>
         public Operator Requestor
         {

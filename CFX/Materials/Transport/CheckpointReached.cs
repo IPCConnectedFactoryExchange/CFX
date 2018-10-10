@@ -58,7 +58,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The operator who recorded the arrival (where applicable)
+        /// The operator who recorded the arrival (optional, where applicable)
         /// </summary>
         public Operator TrackedBy
         {
@@ -67,7 +67,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The related production work order number (where applicable)
+        /// The related production work order number (optional, where applicable)
         /// </summary>
         public string RelatedWorkOrderId
         {

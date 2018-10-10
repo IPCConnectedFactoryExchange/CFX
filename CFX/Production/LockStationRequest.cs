@@ -64,7 +64,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Identifies the originator of the request.
+        /// Identifies the originator of the request. (optional)
         /// </summary>
         public Operator Requestor
         {

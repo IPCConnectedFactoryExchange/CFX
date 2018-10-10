@@ -44,6 +44,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The reason why the material was uninstalled.
+        /// </summary>
+        public UninstalledReason Reason
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The material package that was uninstalled (if known)
         /// </summary>
         public MaterialPackage Material

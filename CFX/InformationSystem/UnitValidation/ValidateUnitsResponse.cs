@@ -24,7 +24,7 @@ namespace CFX.InformationSystem.UnitValidation
     ///     "FailureCode": 0,
     ///     "Message": "OK"
     ///   },
-    ///   "Results": [
+    ///   "ValidationResults": [
     ///     {
     ///       "UniqueIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
@@ -49,7 +49,7 @@ namespace CFX.InformationSystem.UnitValidation
         {
             Result = new RequestResult();
             PrimaryResult = new ValidationResult();
-            Results = new List<ValidationResult>();
+            ValidationResults = new List<ValidationResult>();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace CFX.InformationSystem.UnitValidation
         /// <summary>
         /// Individual results of the validation request (for multiple units in a carrier or PCB Panel)
         /// </summary>
-        public List<ValidationResult> Results
+        public List<ValidationResult> ValidationResults
         {
             get;
             set;

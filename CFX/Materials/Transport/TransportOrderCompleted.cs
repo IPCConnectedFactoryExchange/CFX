@@ -44,7 +44,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The operator who accepted the delivery, and recorded the arrival
+        /// The operator who accepted the delivery, and recorded the arrival (optional)
         /// </summary>
         public Operator AcceptedBy
         {

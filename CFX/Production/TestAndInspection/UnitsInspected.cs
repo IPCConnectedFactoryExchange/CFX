@@ -573,7 +573,7 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
-        /// Identifies the person who performed the inspections, or operator of the automated equipment that performed the inspections
+        /// Identifies the person who performed the inspections, or operator of the automated equipment that performed the inspections (optional)
         /// </summary>
         public Operator Inspector
         {

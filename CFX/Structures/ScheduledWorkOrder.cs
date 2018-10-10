@@ -34,6 +34,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// Identifies the person who was responsible for scheduling the Work Order (optional).
+        /// </summary>
+        public Operator Scheduler
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Identifies the physical location where the Work Order will be executed.  A single Work Order
         /// may be scheduled to run in different physical locations at different times.
         /// </summary>

@@ -60,7 +60,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The operator who updated the status (where applicable)
+        /// The operator who updated the status (optional, where applicable)
         /// </summary>
         public Operator UpdatedBy
         {
