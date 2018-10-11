@@ -1,27 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace CFX.Production.Processing.LaserMarking
+namespace CFX.Structures.LaserMarking
 {
     /// <summary>
-    /// Sent by a process endpoint after a unit undergoes a laser processing. Provides information regarding the experience of the unit during the laser processing.
-    /// <code language="none">
-    /// {
-    ///   "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
-    ///   "RecipeProcessingTime": "0:0:25",
-    /// }
-    /// </code>
+    /// Provides information about the conditions within a reflow oven at a given point in time.
     /// </summary>
-    public class UnitsLaserProcessed : CFXMessage
+    public class LaserMarkingProcessData : ProcessData
     {
         /// <summary>
-        /// The id of the work transaction with which this installation is associated.
+        /// Default Constructor
         /// </summary>
-        public Guid TransactionId
+        public LaserMarkingProcessData()
         {
-            get;
-            set;
         }
 
         /// <summary>

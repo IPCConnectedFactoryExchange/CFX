@@ -2735,13 +2735,29 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new UnitsInitialized()
+            {
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO45648798",
+                    Batch = "BATCH45648798-1"
+                },
+                Units = new List<UnitPosition>(
+                    new UnitPosition[]
+                    {
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "UNIT5566687", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "UNIT5566688", X = 50.45, Y = 80.66, Rotation = 90.0},
+                    })
+            };
+            AppendMessage(msg, ref result);
+
             msg = new UnitsArrived()
             {
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
                         new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
