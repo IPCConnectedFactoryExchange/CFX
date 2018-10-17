@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures.ReflowProfiling;
+using Newtonsoft.Json;
 
 namespace CFX.Production.Processing.ThermalProcessing
 {

@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures.ReflowProfiling;
+using Newtonsoft.Json;
 
 namespace CFX.Production.Processing.ThermalProcessing
 {
     /// <summary>
-    /// Sent by a process endpoint after a fault occurs.
+    /// Sent by a process endpoint after a fault is cleared.
     /// <code language="none">
     /*
     {
