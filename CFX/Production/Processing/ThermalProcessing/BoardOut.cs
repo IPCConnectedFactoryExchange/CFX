@@ -91,7 +91,7 @@ namespace CFX.Production.Processing.ThermalProcessing
         /// <summary>
         /// BoardOut statistics of production unit
         /// </summary>
-        public ThermalProcessingStatistics BoardOut
+        public ReflowProfilingProcessData BoardOut
         {
             get;
             set;
