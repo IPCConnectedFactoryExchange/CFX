@@ -1248,6 +1248,17 @@ namespace CFXExampleEndpoint
             string result = "";
             CFXMessage msg = null;
 
+            msg = new CalibrationPerformed()
+            {
+                Calibration = new Calibration()
+                {
+                    CalibrationCode = "FID1",
+                    CalibrationType = CalibrationType.UnitPosition,
+                    Comments = "Position Check.  Fiducial FID1."
+                }
+            };
+            AppendMessage(msg, ref result);
+
             Fault flt = new Fault()
             {
                 Cause = FaultCause.MechanicalFailure,

@@ -82,10 +82,13 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
-        /// The amount of time spent in the previous state
+        /// The amount of time spent in the previous state.  Note:  There may be certain circumstances
+        /// where it is impossible to provide this duration (as in the case of an unexpected power faillure or other extreme events).
+        /// In this case it is acceptable to report a duration of "null", which will be interpreted as "unknown" by the receiver
+        /// of this event.
         /// </summary>
         [JsonProperty]
-        public TimeSpan OldStateDuration
+        public TimeSpan? OldStateDuration
         {
             get;
             set;

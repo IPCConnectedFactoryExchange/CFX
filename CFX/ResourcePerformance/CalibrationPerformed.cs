@@ -10,6 +10,15 @@ namespace CFX.ResourcePerformance
 {
     /// <summary>
     /// Sent when calibration of any sort has been performed at an endpoint.
+    /// <code language="none">
+    /// {
+    ///   "Calibration": {
+    ///     "CalibrationCode": "FID1",
+    ///     "CalibrationType": "UnitPosition",
+    ///     "Comments": "Position Check.  Fiducial FID1."
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class CalibrationPerformed : CFXMessage
