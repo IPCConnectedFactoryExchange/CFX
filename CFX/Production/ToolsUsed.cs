@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
 
-namespace CFX.Production.Assembly
+namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint when one or more tools are used in the course of performing an assembly operation.
