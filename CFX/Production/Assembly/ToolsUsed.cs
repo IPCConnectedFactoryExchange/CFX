@@ -10,13 +10,13 @@ namespace CFX.Production.Assembly
     /// <para>JSON Example - SMT Placement Machine</para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "74289303-4c58-4785-b6df-41eb031fa759",
+    ///   "TransactionId": "ff199a2e-4b31-4321-8afe-eff177f1a860",
     ///   "UsedTools": [
     ///     {
     ///       "UnitIdentifier": "PANEL23423432",
     ///       "UnitPositionNumber": 1,
     ///       "Tool": {
-    ///         "$type": "CFX.Structures.SMTPlacement.SMTHead, CFX",
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTHeadAndNozzle, CFX",
     ///         "HeadId": "HEAD1",
     ///         "HeadNozzleNumber": 2,
     ///         "NozzleType": "409A",
@@ -27,15 +27,15 @@ namespace CFX.Production.Assembly
     ///       "InstalledComponents": [
     ///         {
     ///           "ReferenceDesignator": "R1",
-    ///           "InstallationTime": "2018-10-03T14:23:37.7842209-04:00"
+    ///           "InstallationTime": "2018-10-25T08:46:46.6320834-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R2",
-    ///           "InstallationTime": "2018-10-03T14:23:37.7842209-04:00"
+    ///           "InstallationTime": "2018-10-25T08:46:46.6320834-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R3",
-    ///           "InstallationTime": "2018-10-03T14:23:37.7842209-04:00"
+    ///           "InstallationTime": "2018-10-25T08:46:46.6320834-04:00"
     ///         }
     ///       ]
     ///     },
@@ -43,7 +43,7 @@ namespace CFX.Production.Assembly
     ///       "UnitIdentifier": "PANEL23423432",
     ///       "UnitPositionNumber": 2,
     ///       "Tool": {
-    ///         "$type": "CFX.Structures.SMTPlacement.SMTHead, CFX",
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTHeadAndNozzle, CFX",
     ///         "HeadId": "HEAD2",
     ///         "HeadNozzleNumber": 3,
     ///         "NozzleType": "409A",
@@ -54,15 +54,15 @@ namespace CFX.Production.Assembly
     ///       "InstalledComponents": [
     ///         {
     ///           "ReferenceDesignator": "R1",
-    ///           "InstallationTime": "2018-10-03T14:23:37.7842209-04:00"
+    ///           "InstallationTime": "2018-10-25T08:46:46.6320834-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R2",
-    ///           "InstallationTime": "2018-10-03T14:23:37.7842209-04:00"
+    ///           "InstallationTime": "2018-10-25T08:46:46.6320834-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R3",
-    ///           "InstallationTime": "2018-10-03T14:23:37.7842209-04:00"
+    ///           "InstallationTime": "2018-10-25T08:46:46.6320834-04:00"
     ///         }
     ///       ]
     ///     }
@@ -100,6 +100,9 @@ namespace CFX.Production.Assembly
     /// </summary>
     public class ToolsUsed : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public ToolsUsed()
         {
             UsedTools = new List<ToolUsed>();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
-    /// Describes a head for an endpoint that is in a machine.
+    /// Describes a particular head of an automated endpoint that uses one or more heads in the course of its work.
     /// </summary>
     public class HeadInformation
     {

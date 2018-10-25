@@ -4,7 +4,10 @@ using System.Text;
 
 namespace CFX.Structures.SMTPlacement
 {
-    public class SMTHead : Tool
+    /// <summary>
+    /// Describes a particular nozzle and head combination that was used in the course of production.
+    /// </summary>
+    public class SMTHeadAndNozzle : Tool
     {
         /// <summary>
         /// The name or identifier of the SMT head associated with this SMT Nozzle.

@@ -52,7 +52,7 @@ namespace CFX.ResourcePerformance
     ///         "Name": "8MMFDR231"
     ///       }
     ///     },
-    ///     "Nozzle": {
+    ///     "HeadAndNozzle": {
     ///       "HeadId": "HEAD1",
     ///       "HeadNozzleNumber": 3,
     ///       "NozzleType": "TYPE914",
@@ -62,7 +62,7 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 3943480",
-    ///     "FaultOccurrenceId": "1806f0fa-ea40-4533-b951-eb74fb13f240",
+    ///     "FaultOccurrenceId": "96801857-3979-45af-bf4a-015730a1e742",
     ///     "Lane": 1,
     ///     "Stage": {
     ///       "StageSequence": 2,

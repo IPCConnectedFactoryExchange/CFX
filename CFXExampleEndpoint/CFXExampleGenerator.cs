@@ -1208,13 +1208,27 @@ namespace CFXExampleEndpoint
                     {
                         new SMTHeadInformation()
                         {
-                            HeadId = "HEAD1",
-                            PlacementAccuracy = 0.001
+                            Head = new Head()
+                            {
+                                HeadId = "HD212343",
+                                HeadName = "HEAD1",
+                                HeadSequence = 1                                
+                            },
+                            PlacementAccuracy = 0.001,
+                            NumberOfNozzleLocations = 6,
+                            SMTHeadType = SMTHeadType.Pulsar
                         },
                         new SMTHeadInformation()
                         {
-                            HeadId = "HEAD2",
-                            PlacementAccuracy = 0.001
+                            Head = new Head()
+                            {
+                                HeadId = "HD212344",
+                                HeadName = "HEAD2",
+                                HeadSequence = 2
+                            },
+                            PlacementAccuracy = 0.001,
+                            NumberOfNozzleLocations = 6,
+                            SMTHeadType = SMTHeadType.Pulsar
                         }
                     })
                 }
@@ -1636,7 +1650,7 @@ namespace CFXExampleEndpoint
                         LaneNumber = 1
                     }
                 },
-                Nozzle = new SMTHead()
+                HeadAndNozzle = new SMTHeadAndNozzle()
                 {
                     UniqueIdentifier = "UID2389432849",
                     Name = "NOZZLE3243244",
@@ -1673,7 +1687,7 @@ namespace CFXExampleEndpoint
             {
                 OldTool = null,
                 ReturnedToHolder = null,
-                NewTool = new SMTHead()
+                NewTool = new SMTHeadAndNozzle()
                 {
                     UniqueIdentifier = "UID23890430",
                     Name = "NOZZLE234324",
@@ -2937,9 +2951,9 @@ namespace CFXExampleEndpoint
                     new SMTNozzleChangeActivity()
                     {
                         TimeStamp = DateTime.Now - TimeSpan.FromSeconds(30),
-                        NewNozzles = new List<SMTHead>(new SMTHead []
+                        NewNozzles = new List<SMTHeadAndNozzle>(new SMTHeadAndNozzle []
                         {
-                            new SMTHead()
+                            new SMTHeadAndNozzle()
                             {
                                 UniqueIdentifier = "UID234213421",
                                 Name = "Nozzle45",
@@ -2947,7 +2961,7 @@ namespace CFXExampleEndpoint
                                 HeadId = "HEAD1",
                                 HeadNozzleNumber = 1
                             },
-                            new SMTHead()
+                            new SMTHeadAndNozzle()
                             {
                                 UniqueIdentifier = "UID234213421",
                                 Name = "Nozzle32",
@@ -3624,7 +3638,7 @@ namespace CFXExampleEndpoint
                 TapePitch = 4
             };
 
-            t1 = new SMTHead()
+            t1 = new SMTHeadAndNozzle()
             {
                 UniqueIdentifier = "UID234213421",
                 Name = "Nozzle45",
@@ -3633,7 +3647,7 @@ namespace CFXExampleEndpoint
                 HeadNozzleNumber = 2
             };
 
-            t2 = new SMTHead()
+            t2 = new SMTHeadAndNozzle()
             {
                 UniqueIdentifier = "UID234223422",
                 Name = "Nozzle47",

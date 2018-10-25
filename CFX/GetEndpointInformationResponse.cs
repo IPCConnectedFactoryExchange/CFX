@@ -124,12 +124,24 @@ namespace CFX
     ///     ],
     ///     "Heads": [
     ///       {
-    ///         "HeadId": "HEAD1",
-    ///         "PlacementAccuracy": 0.001
+    ///         "SMTHeadType": "Pulsar",
+    ///         "NumberOfNozzleLocations": 6,
+    ///         "PlacementAccuracy": 0.001,
+    ///         "Head": {
+    ///           "HeadId": "HD212343",
+    ///           "HeadSequence": 1,
+    ///           "HeadName": "HEAD1"
+    ///         }
     ///       },
     ///       {
-    ///         "HeadId": "HEAD2",
-    ///         "PlacementAccuracy": 0.001
+    ///         "SMTHeadType": "Pulsar",
+    ///         "NumberOfNozzleLocations": 6,
+    ///         "PlacementAccuracy": 0.001,
+    ///         "Head": {
+    ///           "HeadId": "HD212344",
+    ///           "HeadSequence": 2,
+    ///           "HeadName": "HEAD2"
+    ///         }
     ///       }
     ///     ],
     ///     "PlacementConstraints": {

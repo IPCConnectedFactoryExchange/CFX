@@ -18,14 +18,14 @@ namespace CFX.Structures.SMTPlacement
         {
             ActivityName = "NOZZLE CHANGE";
             ValueAddType = ValueAddType.NonValueAdd;
-            OldNozzles = new List<SMTHead>();
-            NewNozzles = new List<SMTHead>();
+            OldNozzles = new List<SMTHeadAndNozzle>();
+            NewNozzles = new List<SMTHeadAndNozzle>();
         }
 
         /// <summary>
         /// The nozzles that were removed (if known)
         /// </summary>
-        public List<SMTHead> OldNozzles
+        public List<SMTHeadAndNozzle> OldNozzles
         {
             get;
             set;
@@ -34,7 +34,7 @@ namespace CFX.Structures.SMTPlacement
         /// <summary>
         /// The new nozzles that were loaded (mandatory)
         /// </summary>
-        public List<SMTHead> NewNozzles
+        public List<SMTHeadAndNozzle> NewNozzles
         {
             get;
             set;
