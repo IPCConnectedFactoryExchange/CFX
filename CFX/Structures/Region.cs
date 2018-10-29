@@ -16,7 +16,8 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// X coordinate of first point in region outline        /// </summary>
+        /// X coordinate of first point in region outline
+        /// </summary>
         public double StartPointX
         {
             get;
@@ -24,7 +25,8 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Y coordinate of first point in region outline        /// </summary>
+        /// Y coordinate of first point in region outline
+        /// </summary>
         public double StartPointY
         {
             get;

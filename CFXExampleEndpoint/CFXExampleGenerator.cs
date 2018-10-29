@@ -31,6 +31,7 @@ using CFX.ResourcePerformance.SolderPastePrinting;
 using CFX.ResourcePerformance.THTInsertion;
 using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
+using CFX.Structures.Coating;
 
 namespace CFXExampleEndpoint
 {
@@ -3450,6 +3451,73 @@ namespace CFXExampleEndpoint
                         },
                     }),
                 }
+            };
+
+            AppendMessage(msg, ref result);
+
+
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                UnitProcessData = new List<ProcessedUnit>(new ProcessedUnit[]
+                {
+                    new ProcessedUnit()
+                    {
+                        UnitIdentifier = "CARRIER55678",
+                        UnitPositionNumber = 1,
+                        UnitProcessData = new CoatingProcessData()
+                        {
+                            Readings = new List<CoatingMeasurement>(new CoatingMeasurement []
+                            {
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidVolume,
+                                    ActualValue = 1.1,
+                                    ExpectedValue = 1.0,
+                                    MinAcceptableValue = 0.8,
+                                    MaxAcceptableValue = 1.2
+                                },
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidPressure,
+                                    ActualValue = 32.5,
+                                    ExpectedValue = 32.0,
+                                    MinAcceptableValue = 31.0,
+                                    MaxAcceptableValue = 33.8
+                                },
+                            }),
+                        }
+                    },
+                    new ProcessedUnit()
+                    {
+                        UnitIdentifier = "CARRIER55678",
+                        UnitPositionNumber = 2,
+                        UnitProcessData = new CoatingProcessData()
+                        {
+                            Readings = new List<CoatingMeasurement>(new CoatingMeasurement []
+                            {
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidVolume,
+                                    ActualValue = 1.1,
+                                    ExpectedValue = 1.0,
+                                    MinAcceptableValue = 0.8,
+                                    MaxAcceptableValue = 1.2
+                                },
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidPressure,
+                                    ActualValue = 32.5,
+                                    ExpectedValue = 32.0,
+                                    MinAcceptableValue = 31.0,
+                                    MaxAcceptableValue = 33.8
+                                },
+                            }),
+                        }
+                    }
+
+                }),
+
             };
 
             AppendMessage(msg, ref result);

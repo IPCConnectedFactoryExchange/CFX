@@ -14,9 +14,12 @@ namespace CFX.Production.Processing
     /// the scope of a work transaction.  Contains dynamic structures that vary
     /// based upon the type of processing that was performed.
     /// <para></para>
+    /// <para>Example 1 (Reflow Oven Processing):</para>
+    /// <para></para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "c01318f4-f6c8-43cc-b90c-eefd8a7994e7",
+    ///   "TransactionId": "a881ac27-9649-41c8-a13e-df118471eb1e",
+    ///   "OverallResult": "Succeeded",
     ///   "CommonProcessData": {
     ///     "$type": "CFX.Structures.SolderReflow.ReflowProcessData, CFX",
     ///     "ConveyorSpeed": 60.0,
@@ -271,6 +274,89 @@ namespace CFX.Production.Processing
     /// }
     /// </code>
     /// <para></para>
+    /// <para>Example 2 (Conformal Coating Process):</para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "d280fd1c-e2cb-4544-be8b-78554c87a0c5",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": null,
+    ///   "UnitProcessData": [
+    ///     {
+    ///       "UnitIdentifier": "CARRIER55678",
+    ///       "UnitPositionNumber": 1,
+    ///       "UnitResult": "Succeeded",
+    ///       "UnitProcessData": {
+    ///         "$type": "CFX.Structures.Coating.CoatingProcessData, CFX",
+    ///         "Readings": [
+    ///           {
+    ///             "MeasurementType": "FluidVolume",
+    ///             "ActualValue": 1.1,
+    ///             "ExpectedValue": 1.0,
+    ///             "MinAcceptableValue": 0.8,
+    ///             "MaxAcceptableValue": 1.2,
+    ///             "UniqueIdentifier": "c3113de4-c3f9-4c9d-8814-fee2ea12e90b",
+    ///             "MeasurementName": "FluidVolume",
+    ///             "TimeRecorded": null,
+    ///             "Sequence": 0,
+    ///             "Result": "Passed",
+    ///             "CRDs": null
+    ///           },
+    ///           {
+    ///             "MeasurementType": "FluidPressure",
+    ///             "ActualValue": 32.5,
+    ///             "ExpectedValue": 32.0,
+    ///             "MinAcceptableValue": 31.0,
+    ///             "MaxAcceptableValue": 33.8,
+    ///             "UniqueIdentifier": "fd246214-573b-40dd-927a-ebfb49d46ae7",
+    ///             "MeasurementName": "FluidPressure",
+    ///             "TimeRecorded": null,
+    ///             "Sequence": 0,
+    ///             "Result": "Passed",
+    ///             "CRDs": null
+    ///           }
+    ///         ]
+    ///       }
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "CARRIER55678",
+    ///       "UnitPositionNumber": 2,
+    ///       "UnitResult": "Succeeded",
+    ///       "UnitProcessData": {
+    ///         "$type": "CFX.Structures.Coating.CoatingProcessData, CFX",
+    ///         "Readings": [
+    ///           {
+    ///             "MeasurementType": "FluidVolume",
+    ///             "ActualValue": 1.1,
+    ///             "ExpectedValue": 1.0,
+    ///             "MinAcceptableValue": 0.8,
+    ///             "MaxAcceptableValue": 1.2,
+    ///             "UniqueIdentifier": "11508f6f-fa11-4533-9db0-d3ff99bb03ba",
+    ///             "MeasurementName": "FluidVolume",
+    ///             "TimeRecorded": null,
+    ///             "Sequence": 0,
+    ///             "Result": "Passed",
+    ///             "CRDs": null
+    ///           },
+    ///           {
+    ///             "MeasurementType": "FluidPressure",
+    ///             "ActualValue": 32.5,
+    ///             "ExpectedValue": 32.0,
+    ///             "MinAcceptableValue": 31.0,
+    ///             "MaxAcceptableValue": 33.8,
+    ///             "UniqueIdentifier": "a0fff961-4fb4-4851-932d-fb811d2fe83d",
+    ///             "MeasurementName": "FluidPressure",
+    ///             "TimeRecorded": null,
+    ///             "Sequence": 0,
+    ///             "Result": "Passed",
+    ///             "CRDs": null
+    ///           }
+    ///         ]
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
+    /// <para></para>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage
@@ -281,12 +367,22 @@ namespace CFX.Production.Processing
         public UnitsProcessed()
         {
             UnitProcessData = new List<ProcessedUnit>();
+            OverallResult = ProcessingResult.Succeeded;
         }
 
         /// <summary>
         /// The id of the work transaction with which this message is associated.
         /// </summary>
         public Guid TransactionId
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The overall result of the processing operation.
+        /// </summary>
+        public ProcessingResult OverallResult
         {
             get;
             set;

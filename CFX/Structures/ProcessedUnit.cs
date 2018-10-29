@@ -16,6 +16,14 @@ namespace CFX.Structures
     public class ProcessedUnit
     {
         /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public ProcessedUnit()
+        {
+            UnitResult = ProcessingResult.Succeeded;
+        }
+
+        /// <summary>
         /// Unique ID of Production Unit, Panel, or Carrier
         /// </summary>
         public string UnitIdentifier
@@ -28,6 +36,15 @@ namespace CFX.Structures
         /// Logical reference of production unit as defined by CFX position rule (see CFX standard)
         /// </summary>
         public int? UnitPositionNumber
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Indicates the overall result of the processing that was performed on the unit.
+        /// </summary>
+        public ProcessingResult UnitResult
         {
             get;
             set;
