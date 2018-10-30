@@ -12,22 +12,38 @@ namespace CFX.Materials.Management
     ///   "Result": {
     ///     "Result": "Success",
     ///     "ResultCode": 0,
-    ///     "Message": "BLOCKED OK"
-    ///   }
+    ///     "Message": "OK"
+    ///   },
+    ///   "MaterialsPackagesNotBlocked": []
     /// }
     /// </code>
     /// </summary>
     public class BlockMaterialsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public BlockMaterialsResponse()
         {
             Result = new RequestResult();
+            MaterialsPackagesNotBlocked = new List<string>();
         }
 
         /// <summary>
         /// The result of the request
         /// </summary>
         public RequestResult Result
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// In the case that some of the material packages identified in the request could not be blocked,
+        /// the Result property will be set to PartialSuccess, and this property will contain a list of the identifiers
+        /// that could not be blocked.
+        /// </summary>
+        public List<string> MaterialsPackagesNotBlocked
         {
             get;
             set;

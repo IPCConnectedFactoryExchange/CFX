@@ -115,6 +115,8 @@
     <Compile Include="NotSupportedResponse.cs" />
     <Compile Include="Production\ActivateRecipeRequest.cs" />
     <Compile Include="Production\ActivateRecipeResponse.cs" />
+    <Compile Include="Production\Application\MaterialsApplied.cs" />
+    <Compile Include="Production\Application\MaterialsUnapplied.cs" />
     <Compile Include="Production\Application\NamespaceDoc.cs" />
     <Compile Include="Production\Application\SolderDispensing\NamespaceDoc.cs" />
     <Compile Include="Production\Application\SolderDispensing\PCBSoldered.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Sensor\Identification\IdentifyUnitsResponse.cs" />
     <Compile Include="Sensor\Identification\NamespaceDoc.cs" />
     <Compile Include="Sensor\NamespaceDoc.cs" />
+    <Compile Include="Structures\AccessType.cs" />
     <Compile Include="Structures\ActorType.cs" />
     <Compile Include="Structures\BlockReason.cs" />
     <Compile Include="Structures\BooleanMeasurement.cs" />
@@ -199,10 +202,13 @@
     <Compile Include="Structures\ConsumedMaterial.cs" />
     <Compile Include="Structures\DataType.cs" />
     <Compile Include="Structures\Defect.cs" />
+    <Compile Include="Structures\DimensionalConstraints.cs" />
+    <Compile Include="Structures\Endpoint.cs" />
     <Compile Include="Structures\EnvironmentalCondition.cs" />
     <Compile Include="Structures\Fault.cs" />
     <Compile Include="Structures\FaultCause.cs" />
     <Compile Include="Structures\FaultSeverity.cs" />
+    <Compile Include="Structures\HermesInformation.cs" />
     <Compile Include="Structures\Humidity.cs" />
     <Compile Include="Structures\Image.cs" />
     <Compile Include="Structures\InspectedUnit.cs" />
@@ -230,7 +236,10 @@
     <Compile Include="Structures\NamespaceDoc.cs" />
     <Compile Include="Structures\NumericMeasurement.cs" />
     <Compile Include="Structures\NumericValue.cs" />
+    <Compile Include="Structures\OperatingRequirements.cs" />
     <Compile Include="Structures\Operator.cs" />
+    <Compile Include="Structures\PCBInspection\NamespaceDoc.cs" />
+    <Compile Include="Structures\PCBInspection\OffsetMeasurement.cs" />
     <Compile Include="Structures\PersonalizedUnit.cs" />
     <Compile Include="Structures\Reading.cs" />
     <Compile Include="Structures\Recipe.cs" />
@@ -243,6 +252,7 @@
     <Compile Include="Structures\ScheduledWorkOrder.cs" />
     <Compile Include="Structures\ScheduledWorkOrderIdentifier.cs" />
     <Compile Include="Structures\Segment.cs" />
+    <Compile Include="Structures\SideLocation.cs" />
     <Compile Include="Structures\SMTPlacement\NamespaceDoc.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTapeFeeder.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTapePitch.cs" />
@@ -250,9 +260,14 @@
     <Compile Include="Structures\SMTPlacement\SMDTapeWidth.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTrayFeeder.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTubeFeeder.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTHeadInformation.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTLaneInformation.cs" />
     <Compile Include="Structures\SMTPlacement\SMTNozzle.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTPlacementConstraints.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTPlacementEndpoint.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementFault.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementFaultType.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTStageInformation.cs" />
     <Compile Include="Structures\SolderDispensing\NamespaceDoc.cs" />
     <Compile Include="Structures\SolderDispensing\SolderedPCB.cs" />
     <Compile Include="Structures\SolderDispensing\SolderingData.cs" />

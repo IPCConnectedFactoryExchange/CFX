@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX
 {
     /// <summary>
     /// Allows any CFX endpoint to request the capabilities of a specified single endpoint. The response
-    /// sends basic information about the endpoint, including its CFX Handle, and network hostname / address.
+    /// includes information about the endpoint, including its CFX Handle, and network hostname / address.
+    /// The endpoint information structure is a dynamic structure, and can vary based on the type of endpoint.
+    /// <para></para>
+    /// Generic example:
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "Result": {
@@ -15,37 +20,214 @@ namespace CFX
     ///     "ResultCode": 0,
     ///     "Message": null
     ///   },
-    ///   "CFXHandle": "SMTPlus.Model_21232.SN23123",
-    ///   "CFXVersion" : "1.0",
-    ///   "RequestNetworkUri": "amqp://host33:5688/",
-    ///   "RequestTargetAddress": "/queue/SN23123",
-    ///   "UniqueIdentifier": "UID564545645645656564",
-    ///   "FriendlyName": "SMD Placer 23123",
-    ///   "Vendor": "SMT Plus",
-    ///   "ModelNumber": "Model_21232",
-    ///   "SerialNumber": "SN23123",
-    ///   "NumberOfStages": 4,
-    ///   "NumberOfLanes": 1,
-    ///   "SupportedTopics": [
-    ///     {
-    ///       "TopicName": "CFX.Production",
-    ///       "TopicSupportType": "PublisherConsumer",
-    ///       "SupportedMessages": []
+    ///   "EndpointInformation": {
+    ///     "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///     "CFXVersion": "1.0",
+    ///     "RequestNetworkUri": "amqp://host55:5688/",
+    ///     "RequestTargetAddress": "/queue/SN23123",
+    ///     "UniqueIdentifier": "UID1111111111111111",
+    ///     "FriendlyName": "SMD Printer 23123",
+    ///     "Vendor": "SMT Plus",
+    ///     "ModelNumber": "Model_11111",
+    ///     "SerialNumber": "SNSN23123",
+    ///     "Stages": [
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 1,
+    ///           "StageName": "INBOUND BUFFER",
+    ///           "StageType": "Buffer"
+    ///         }
+    ///       },
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 2,
+    ///           "StageName": "WORK STAGE 1",
+    ///           "StageType": "Work"
+    ///         }
+    ///       },
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 3,
+    ///           "StageName": "OUTBOUND BUFFER",
+    ///           "StageType": "Buffer"
+    ///         }
+    ///       }
+    ///     ],
+    ///     "NumberOfLanes": 1,
+    ///     "HermesInformation": {
+    ///       "Enabled": true,
+    ///       "Version": "1.0"
     ///     },
-    ///     {
-    ///       "TopicName": "CFX.Production.Assembly",
-    ///       "TopicSupportType": "Publisher",
-    ///       "SupportedMessages": []
+    ///     "OperatingRequirements": {
+    ///       "MinimumHumidity": 0.0,
+    ///       "MaximumHumidity": 0.8,
+    ///       "MinimumTemperature": -1.0,
+    ///       "MaximumTemperature": 40.0
     ///     },
-    ///     {
-    ///       "TopicName": "CFX.ResourcePerformance",
-    ///       "TopicSupportType": "Publisher",
-    ///       "SupportedMessages": []
-    ///     }
-    ///   ]
+    ///     "SupportedTopics": [
+    ///       {
+    ///         "TopicName": "CFX.Production",
+    ///         "TopicSupportType": "PublisherConsumer",
+    ///         "SupportedMessages": []
+    ///       },
+    ///       {
+    ///         "TopicName": "CFX.Production.Application",
+    ///         "TopicSupportType": "Publisher",
+    ///         "SupportedMessages": []
+    ///       },
+    ///       {
+    ///         "TopicName": "CFX.ResourcePerformance",
+    ///         "TopicSupportType": "Publisher",
+    ///         "SupportedMessages": []
+    ///       }
+    ///     ]
+    ///   }
+    /// }
+    /// </code>
+    /// <para></para>
+    /// <para>Example of SMT Placement Machine type endpoint:</para>
+    /// <para></para>
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
+    ///   "EndpointInformation": {
+    ///     "$type": "CFX.Structures.SMTPlacement.SMTPlacementEndpoint, CFX",
+    ///     "NominalPlacementCPH": 10000.0,
+    ///     "NominalUnitsPerHour": 120.0,
+    ///     "SupportedPCBDimensions": {
+    ///       "MinimumLength": 10.0,
+    ///       "MaximumLength": 1000.0,
+    ///       "MinimumWidth": 10.0,
+    ///       "MaximumWidth": 1000.0,
+    ///       "MinimumHeight": 0.0,
+    ///       "MaximumHeight": 50.0,
+    ///       "MinimumWeight": 0.0,
+    ///       "MaximumWeight": 1000.0,
+    ///       "MinimumThickness": 0.5,
+    ///       "MaximumThickness": 10.0
+    ///     },
+    ///     "Lanes": [
+    ///       {
+    ///         "LaneNumber": null,
+    ///         "LaneName": "LANE1",
+    ///         "SupportedPCBDimensions": null
+    ///       },
+    ///       {
+    ///         "LaneNumber": null,
+    ///         "LaneName": "LANE2",
+    ///         "SupportedPCBDimensions": null
+    ///       }
+    ///     ],
+    ///     "Heads": [
+    ///       {
+    ///         "SMTHeadType": "Pulsar",
+    ///         "NumberOfNozzleLocations": 6,
+    ///         "PlacementAccuracy": 0.001,
+    ///         "Head": {
+    ///           "HeadId": "HD212343",
+    ///           "HeadSequence": 1,
+    ///           "HeadName": "HEAD1"
+    ///         }
+    ///       },
+    ///       {
+    ///         "SMTHeadType": "Pulsar",
+    ///         "NumberOfNozzleLocations": 6,
+    ///         "PlacementAccuracy": 0.001,
+    ///         "Head": {
+    ///           "HeadId": "HD212344",
+    ///           "HeadSequence": 2,
+    ///           "HeadName": "HEAD2"
+    ///         }
+    ///       }
+    ///     ],
+    ///     "PlacementConstraints": {
+    ///       "MinumumComponentBodySizeX": 0.0,
+    ///       "MaximumComponentBodySizeX": 0.0,
+    ///       "MinumumComponentBodySizeY": 0.0,
+    ///       "MaximumComponentBodySizeY": 0.0,
+    ///       "MinumumComponentHeight": 0.0,
+    ///       "MaximumComponentHeight": 0.0,
+    ///       "MinimumLeadWidth": 0.0,
+    ///       "MinimumBGAPitch": 0.0,
+    ///       "MinimumSOICPitch": 0.0,
+    ///       "MinimumMountingPressure": 0.0,
+    ///       "MaximumMountingPressure": 0.0
+    ///     },
+    ///     "CFXHandle": "SMTPlus.Model_21232.SN23123",
+    ///     "CFXVersion": "1.0",
+    ///     "RequestNetworkUri": "amqp://host33:5688/",
+    ///     "RequestTargetAddress": "/queue/SN23123",
+    ///     "UniqueIdentifier": "UID564545645645656564",
+    ///     "FriendlyName": "SMD Placer 23123",
+    ///     "Vendor": "SMT Plus",
+    ///     "ModelNumber": "Model_21232",
+    ///     "SerialNumber": "SN23123",
+    ///     "Stages": [
+    ///       {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
+    ///         "NumberOfFeederStations": 0,
+    ///         "Stage": {
+    ///           "StageSequence": 1,
+    ///           "StageName": "BUFFERSTAGE1",
+    ///           "StageType": "Buffer"
+    ///         }
+    ///       },
+    ///       {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
+    ///         "NumberOfFeederStations": 100,
+    ///         "Stage": {
+    ///           "StageSequence": 2,
+    ///           "StageName": "WORKSTAGE1",
+    ///           "StageType": "Work"
+    ///         }
+    ///       },
+    ///       {
+    ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
+    ///         "NumberOfFeederStations": 100,
+    ///         "Stage": {
+    ///           "StageSequence": 3,
+    ///           "StageName": "WORKSTAGE2",
+    ///           "StageType": "Work"
+    ///         }
+    ///       }
+    ///     ],
+    ///     "NumberOfLanes": 1,
+    ///     "HermesInformation": {
+    ///       "Enabled": true,
+    ///       "Version": "1.0"
+    ///     },
+    ///     "OperatingRequirements": {
+    ///       "MinimumHumidity": 0.0,
+    ///       "MaximumHumidity": 0.8,
+    ///       "MinimumTemperature": -1.0,
+    ///       "MaximumTemperature": 40.0
+    ///     },
+    ///     "SupportedTopics": [
+    ///       {
+    ///         "TopicName": "CFX.Production",
+    ///         "TopicSupportType": "PublisherConsumer",
+    ///         "SupportedMessages": []
+    ///       },
+    ///       {
+    ///         "TopicName": "CFX.Production.Assembly",
+    ///         "TopicSupportType": "Publisher",
+    ///         "SupportedMessages": []
+    ///       },
+    ///       {
+    ///         "TopicName": "CFX.ResourcePerformance",
+    ///         "TopicSupportType": "Publisher",
+    ///         "SupportedMessages": []
+    ///       }
+    ///     ]
+    ///   }
     /// }
     /// </code>
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class GetEndpointInformationResponse : CFXMessage
     {
         /// <summary>
@@ -54,8 +236,6 @@ namespace CFX
         public GetEndpointInformationResponse() : base()
         {
             Result = new RequestResult();
-            CFXVersion = CFXEnvelope.CFXVERSION;
-            SupportedTopics = new List<SupportedTopic>();
         }
 
         /// <summary>
@@ -68,108 +248,10 @@ namespace CFX
         }
 
         /// <summary>
-        /// The handle of the endpoint that is responding
+        /// Dynamic structure that describes the details of this endpoint.
         /// </summary>
-        public string CFXHandle
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The version of CFX supported / utilized by this endpoint
-        /// </summary>
-        public string CFXVersion
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The network address / Uri to be used for requests to this endpoint
-        /// </summary>
-        public string RequestNetworkUri
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The AMQP 1.0 target address to be used for requests to this endpoint
-        /// </summary>
-        public string RequestTargetAddress
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The barcode, RFID, or other unique identifier that is used to identify this machine / endpoint.
-        /// </summary>
-        public string UniqueIdentifier
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The name of the endpoint to be used in GUIs or reporting
-        /// </summary>
-        public string FriendlyName
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The name of the vendor of the endpoint.
-        /// </summary>
-        public string Vendor
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The model number of the endpoint
-        /// </summary>
-        public string ModelNumber
-        {
-            get;
-            set;
-        }
-        
-        /// <summary>
-        /// The serial number of the endpoint
-        /// </summary>
-        public string SerialNumber
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The number of stages (zones) of the endpoint
-        /// </summary>
-        public int NumberOfStages
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The number of production lanes of the endpoint
-        /// </summary>
-        public int NumberOfLanes
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// A list of the <see cref="CFX.Structures.SupportedTopic"/>s structures describing the level of support for this endpoint
-        /// </summary>
-        public List<SupportedTopic> SupportedTopics
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public Endpoint EndpointInformation
         {
             get;
             set;

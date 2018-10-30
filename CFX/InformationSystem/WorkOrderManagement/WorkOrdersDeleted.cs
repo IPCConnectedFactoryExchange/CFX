@@ -12,11 +12,11 @@ namespace CFX.InformationSystem.WorkOrderManagement
     /// {
     ///   "WorkOrderIdentifiers": [
     ///     {
-    ///       "WorkOrderNumber": "WO1122334455",
+    ///       "WorkOrderId": "WO1122334455",
     ///       "Batch": null
     ///     },
     ///     {
-    ///       "WorkOrderNumber": "WO9988776666",
+    ///       "WorkOrderId": "WO9988776666",
     ///       "Batch": "Batch1"
     ///     }
     ///   ]

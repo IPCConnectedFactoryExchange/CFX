@@ -11,12 +11,13 @@ namespace CFX.Production.Assembly
     /// endpoint, or, at the end of each stage.
     /// <code language="none">
     /// {
-    ///   "TransactionId": "9ad7e32d-b1ac-4813-b0e4-28d20b9aefba",
+    ///   "TransactionId": "8d152f92-425d-4b5e-8c8a-da6a00f93c1b",
     ///   "UninstalledMaterials": [
     ///     {
     ///       "UnitIdentifier": "PANEL23423432",
     ///       "UnitPositionNumber": 1,
     ///       "QuantityUninstalled": 3.0,
+    ///       "Reason": "DefectiveMaterial",
     ///       "Material": {
     ///         "UniqueIdentifier": "MAT4566556456",
     ///         "InternalPartNumber": "IPN47788",
@@ -25,15 +26,15 @@ namespace CFX.Production.Assembly
     ///       "UninstalledComponents": [
     ///         {
     ///           "ReferenceDesignator": "R1",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+    ///           "InstallationTime": "2018-10-10T08:34:40.1054186-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R2",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+    ///           "InstallationTime": "2018-10-10T08:34:40.1054186-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R3",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+    ///           "InstallationTime": "2018-10-10T08:34:40.1054186-04:00"
     ///         }
     ///       ]
     ///     },
@@ -41,6 +42,7 @@ namespace CFX.Production.Assembly
     ///       "UnitIdentifier": "PANEL23423432",
     ///       "UnitPositionNumber": 2,
     ///       "QuantityUninstalled": 3.0,
+    ///       "Reason": "DefectiveMaterial",
     ///       "Material": {
     ///         "UniqueIdentifier": "MAT4566556456",
     ///         "InternalPartNumber": "IPN47788",
@@ -49,15 +51,15 @@ namespace CFX.Production.Assembly
     ///       "UninstalledComponents": [
     ///         {
     ///           "ReferenceDesignator": "R1",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+    ///           "InstallationTime": "2018-10-10T08:34:40.1054186-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R2",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+    ///           "InstallationTime": "2018-10-10T08:34:40.1054186-04:00"
     ///         },
     ///         {
     ///           "ReferenceDesignator": "R3",
-    ///           "InstallationTime": "2018-03-29T08:29:20.6413886-04:00"
+    ///           "InstallationTime": "2018-10-10T08:34:40.1054186-04:00"
     ///         }
     ///       ]
     ///     }

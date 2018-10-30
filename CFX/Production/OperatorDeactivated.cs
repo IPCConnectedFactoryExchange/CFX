@@ -10,9 +10,8 @@ namespace CFX.Production
     /// <code language="none">
     /// {
     ///   "Operator": {
-    ///     "OperatorIdentifier": "de1f03c5-b432-4603-b0d8-39c97469fe86",
+    ///     "OperatorIdentifier": "ea9da45d-9b1f-4e6a-974f-df06aeede42f",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"
@@ -23,7 +22,7 @@ namespace CFX.Production
     public class OperatorDeactivated : CFXMessage
     {
         /// <summary>
-        /// A structure which defines the Operator
+        /// A structure which defines the Operator (optional)
         /// </summary>
         public Operator Operator
         {

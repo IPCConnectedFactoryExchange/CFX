@@ -24,8 +24,8 @@ namespace CFX.Materials.Storage
     ///         "BaseUniqueIdentifier": null,
     ///         "BaseName": null,
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Pitch8mm",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 8.0,
     ///         "UniqueIdentifier": "234232432424",
     ///         "Name": "FEEDER2245465"
     ///       }
@@ -43,8 +43,8 @@ namespace CFX.Materials.Storage
     ///         "BaseUniqueIdentifier": null,
     ///         "BaseName": null,
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Pitch8mm",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 4.0,
     ///         "UniqueIdentifier": "234232432424",
     ///         "Name": "FEEDER2245465"
     ///       }

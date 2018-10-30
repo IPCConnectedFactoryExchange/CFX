@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -12,7 +13,7 @@ namespace CFX.Production
     /// Otherwise, only the specified Lane and/or Stage is impacted.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
+    ///   "Lane": 1,
     ///   "Stage": null
     /// }
     /// </code>
@@ -23,7 +24,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the affected Lane.
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -32,7 +33,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the affected Stage.
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

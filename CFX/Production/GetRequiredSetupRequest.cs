@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -10,8 +11,12 @@ namespace CFX.Production
     /// the materials/tools must be loaded.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
-    ///   "Stage": "1"
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>
@@ -20,7 +25,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the specific Lane.
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -29,7 +34,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the specific Stage.
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

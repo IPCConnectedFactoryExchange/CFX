@@ -15,7 +15,7 @@ namespace CFX.InformationSystem.ProductionScheduling
     ///   "ScheduledWorkOrderIdentifiers": [
     ///     {
     ///       "WorkOrderIdentifier": {
-    ///         "WorkOrderNumber": "WO1122334455",
+    ///         "WorkOrderId": "WO1122334455",
     ///         "Batch": null
     ///       },
     ///       "WorkArea": "SMT Line 1"

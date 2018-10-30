@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -12,7 +13,11 @@ namespace CFX.Production
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
-    ///   "Stage": "1"
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>
@@ -30,7 +35,7 @@ namespace CFX.Production
         /// <summary>
         /// The stage name or number
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

@@ -33,15 +33,6 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The Full Name of the Operator
-        /// </summary>
-        public string FullName
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// The Family Name of the Operator
         /// </summary>
         public string LastName

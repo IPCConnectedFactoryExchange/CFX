@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CFXnet46">
-      <HintPath>..\CFX\bin\net46\CFXnet46.dll</HintPath>
+    <Reference Include="CFX">
+      <HintPath>..\CFX\bin\net46\CFX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -7,66 +7,160 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures
 {
     /// <summary>
-    /// Endpoint state model
+    /// Endpoint state model.  Based on SEMI E10 and E58.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
     public enum ResourceState
     {
         /// <summary>
-        /// Endpoint is Off (Shutdown)
+        /// Productive Time.  A period of time when the resource is performing its intended function.
         /// </summary>
-        Off,
+        PRD = 1000,
         /// <summary>
-        /// Endpoint is on but not engaged in any activity
+        /// Pruductive Time.  Regular Work.
         /// </summary>
-        On,
+        PRD_RegularWork = 1100,
         /// <summary>
-        /// Endpoint is being set up for production
+        /// Pruductive Time.  Work for Third Parties.
         /// </summary>
-        Setup,
+        PRD_WorkForThirdParties = 1200,
         /// <summary>
-        /// Endpoint is down (scheduled / planned)
+        /// Pruductive Time.  Rework.
         /// </summary>
-        ScheduledDowntime,
+        PRD_Rework = 1300,
         /// <summary>
-        /// Endpoint is undergoing maintenance
+        /// Pruductive Time.  Engineering.
         /// </summary>
-        ScheduledMaintenance,
+        PRD_Engineering = 1400,
+
         /// <summary>
-        /// Endpoint is being used by engineering for experimental / development purposes
+        /// Standby.  A period of time, other than non-scheduled time, when the resource is in a condition to perform
+        /// its intended function, but it is not operating.
         /// </summary>
-        Engineering,
+        SBY = 2000,
         /// <summary>
-        /// Endpoint is performing non-value added work during production
+        /// Standby.  No Operator.
         /// </summary>
-        ReadyProcessingActive,
+        SBY_NoOperator = 2100,
         /// <summary>
-        /// Endpoint is performing value added work during production
+        /// Standby.  No Product (Resource is Starved)
         /// </summary>
-        ReadyProcessingExecuting,
+        SBY_NoProduct = 2200,
         /// <summary>
-        /// Endpoint is ready for production, but not performing any work
+        /// Standby.  No Support Tool (A required Tool is missing.  For example, a stencil on a stencil printer.).
         /// </summary>
-        Idle,
+        SBY_NoSupportTool = 2300,
         /// <summary>
-        /// Endpoint is ready for production, but cannot perform work because downstream process is blocking
+        /// Standby.  Associated Cluster Module Down.
         /// </summary>
-        IdleBlocked,
+        SBY_AssociatedClusterModuleDown = 2400,
         /// <summary>
-        /// Endpoint is ready for production, but cannot perform work because no units are available form upstream process
+        /// Standby.  No Host.  (Communication with a critical upper level controller or system has been lost, and 
+        /// resource cannot operate).
         /// </summary>
-        IdleStarved,
+        SBY_NoHost = 2500,
+
         /// <summary>
-        /// Endpoint is ready for production, but intentionally skipped or left unutilized because it is unecessary
+        /// Engineering.  A period of time when the resource is in a condition to perform its intended function (no equipment or
+        /// process problems exist), but it is operating to conduct engineering experiments.
         /// </summary>
-        Bypass,
+        ENG = 3000,
         /// <summary>
-        /// Endpoint is down (unscheduled / unplanned)
+        /// Engineering.  Process experiments.
         /// </summary>
-        UnplannedDowntime,
+        ENG_ProcessExperiments = 3100,
         /// <summary>
-        /// Endpoint is idle and in low power mode
+        /// Engineering.  Equipment experiments.
         /// </summary>
-        Sleep
+        ENG_EquipmentExperiments = 3200,
+
+        /// <summary>
+        /// Scheduled Downtime.  A period of time when the resource is not available to perform its intended function due to 
+        /// planned downtime events.
+        /// </summary>
+        SDT = 4000,
+        /// <summary>
+        /// Scheduled Downtime.  User Maintenance Delay.  Waiting for required maintenance personnel.
+        /// </summary>
+        SDT_UserMaintenanceDelay = 4100,
+        /// <summary>
+        /// Scheduled Downtime.  Supply Maintenance Delay.  Waiting for parts required to perform maintenance.
+        /// </summary>
+        SDT_SuppliedMaintenanceDelay = 4200,
+        /// <summary>
+        /// Scheduled Downtime.  Actively working on Preventive Maintenance procedures.
+        /// </summary>
+        SDT_PreventiveMaintenance = 4300,
+        /// <summary>
+        /// Scheduled Downtime.  Scheduled changed of supply materials.
+        /// </summary>
+        SDT_ChangeOfConsumables = 4400,
+        /// <summary>
+        /// Scheduled Downtime.  Scheduled setup time.
+        /// </summary>
+        SDT_Setup = 4500,
+        /// <summary>
+        /// Scheduled Downtime.  Scheduled production testing.
+        /// </summary>
+        SDT_ProductionTest = 4600,
+        /// <summary>
+        /// Scheduled Downtime.  Facilities related.
+        /// </summary>
+        SDT_FacilitiesRelated = 4700,
+
+        /// <summary>
+        /// Unscheduled Downtime.  A period of time when the resource is not available to perform its intended
+        /// function due to unplanned downtime events.
+        /// </summary>
+        USD = 5000,
+        /// <summary>
+        /// Unscheduled Downtime.  User Maintenance Delay.  Waiting for required maintenance personnel.
+        /// </summary>
+        USD_UserMaintentanceDelay = 5100,
+        /// <summary>
+        /// Unscheduled Downtime.  User Supply Delay.  Waiting for parts required to perform maintenance.
+        /// </summary>
+        USD_SuppliedMaintenanceDelay = 5200,
+        /// <summary>
+        /// Unscheduled Downtime.  Repair underway.
+        /// </summary>
+        USD_Repair = 5300,
+        /// <summary>
+        /// Unscheduled Downtime.  A condition necessary for proper production is not in order.
+        /// </summary>
+        USD_OutOfSpecInputMaterial = 5400,
+        /// <summary>
+        /// Unscheduled Downtime.  Supply material is empty, and needs to be changed.
+        /// </summary>
+        USD_ChangeOfConsumables = 5500,
+        /// <summary>
+        /// Unscheduled Downtime.  Facilities related.
+        /// </summary>
+        USD_FacilitiesRelated = 5600,
+
+        /// <summary>
+        /// Non-Scheduled Time.  A period of time when the resource is not scheduled to be utilized in production, such as unworked
+        /// shifts, weekends, and holidays (including startup and shutdown).
+        /// </summary>
+        NST = 6000,
+        /// <summary>
+        /// Non-Scheduled Time.  Unworked shifts.
+        /// </summary>
+        NST_UnworkedShifts = 6100,
+        /// <summary>
+        /// Non-Scheduled Time.  Equipment installation.
+        /// </summary>
+        NST_EquipmentInstallation = 6200,
+        /// <summary>
+        /// Non-Scheduled Time.  Equipment modifications.
+        /// </summary>
+        NST_EquipmentModifications = 6300,
+        /// <summary>
+        /// Non-Scheduled Time.  Offline training.
+        /// </summary>
+        NST_OfflineTraining = 6400,
+        /// <summary>
+        /// Non-Scheduled Time.  Shutdown and Startup.
+        /// </summary>
+        NST_ShutdownAndStartup = 6500,
     }
 }

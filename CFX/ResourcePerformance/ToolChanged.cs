@@ -31,7 +31,7 @@ namespace CFX.ResourcePerformance
     ///   "OldTool": null,
     ///   "ReturnedToHolder": null,
     ///   "NewTool": {
-    ///     "$type": "CFX.Structures.SMTPlacement.SMTNozzle, CFX",
+    ///     "$type": "CFX.Structures.SMTPlacement.SMTHeadAndNozzle, CFX",
     ///     "HeadId": "HEAD1",
     ///     "HeadNozzleNumber": 1,
     ///     "NozzleType": "TYPE914",
@@ -43,32 +43,6 @@ namespace CFX.ResourcePerformance
     ///     "LocationName": "HOLDER14",
     ///     "BaseName": "NEST2"
     ///   }
-    /// }
-    /// </code>
-    /// <para>Example 3 (Stencil change on SMT stencil printer):</para>
-    /// <code language="none">
-    /// {
-    ///   "OldTool": null,
-    ///   "ReturnedToHolder": null,
-    ///   "NewTool": {
-    ///     "$type": "CFX.Structures.SolderPastePrinting.SMTStencil, CFX",
-    ///     "UniqueIdentifier": "UID23890430",
-    ///     "Name": "STENCIL234324"
-    ///   },
-    ///   "LoadedFromHolder": null
-    /// }
-    /// </code>
-    /// <para>Example 3 (Squeegee change on SMT stencil printer):</para>
-    /// <code language="none">
-    /// {
-    ///   "OldTool": null,
-    ///   "ReturnedToHolder": null,
-    ///   "NewTool": {
-    ///     "$type": "CFX.Structures.SolderPastePrinting.SMTSqueegee, CFX",
-    ///     "UniqueIdentifier": "UID23890430",
-    ///     "Name": "SQUEEGEE234324"
-    ///   },
-    ///   "LoadedFromHolder": null
     /// }
     /// </code>
     /// </summary>

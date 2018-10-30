@@ -15,8 +15,15 @@ namespace CFX.InformationSystem.ProductionScheduling
     ///   "ScheduledWorkOrders": [
     ///     {
     ///       "WorkOrderIdentifier": {
-    ///         "WorkOrderNumber": "WO1122334455",
+    ///         "WorkOrderId": "WO1122334455",
     ///         "Batch": null
+    ///       },
+    ///       "Scheduler": {
+    ///         "OperatorIdentifier": "BADGE4486",
+    ///         "ActorType": "Human",
+    ///         "LastName": "Doe",
+    ///         "FirstName": "John",
+    ///         "LoginName": "john.doe@domain1.com"
     ///       },
     ///       "WorkArea": "SMT Line 1",
     ///       "StartTime": "2018-08-02T11:00:00",
@@ -35,9 +42,8 @@ namespace CFX.InformationSystem.ProductionScheduling
     ///       ],
     ///       "ReservedOperators": [
     ///         {
-    ///           "OperatorIdentifier": "UID235434324",
+    ///           "OperatorIdentifier": "BADGE489435",
     ///           "ActorType": "Human",
-    ///           "FullName": "Joseph Smith",
     ///           "LastName": "Smith",
     ///           "FirstName": "Joseph",
     ///           "LoginName": "joseph.smith@abcdrepairs.com"

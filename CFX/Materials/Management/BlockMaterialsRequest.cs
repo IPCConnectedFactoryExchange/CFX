@@ -9,25 +9,28 @@ namespace CFX.Materials.Management
     /// A request to block one or more particular lots or instances of material from use in production.
     /// <code language="none">
     /// {
-    ///   "Locations": [
-    ///     {
-    ///       "LocationIdentifier": "23143433",
-    ///       "LocationName": "SLOT45",
-    ///       "MaterialPackage": null,
-    ///       "CarrierInformation": null
-    ///     },
-    ///     {
-    ///       "LocationIdentifier": "23143454",
-    ///       "LocationName": "SLOT46",
-    ///       "MaterialPackage": null,
-    ///       "CarrierInformation": null
-    ///     }
-    ///   ]
+    ///   "MaterialPackageIdentifiers": [
+    ///     "MAT4566556456",
+    ///     "MAT4566554543"
+    ///   ],
+    ///   "Reason": "SuspectedProblem",
+    ///   "Comments": "Suspected Bad Lot of Parts",
+    ///   "Blocker": {
+    ///     "OperatorIdentifier": null,
+    ///     "ActorType": "Human",
+    ///     "FullName": null,
+    ///     "LastName": null,
+    ///     "FirstName": null,
+    ///     "LoginName": null
+    ///   }
     /// }
     /// </code>
     /// </summary>
     public class BlockMaterialsRequest : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public BlockMaterialsRequest()
         {
             MaterialPackageIdentifiers = new List<string>();
@@ -62,7 +65,7 @@ namespace CFX.Materials.Management
         }
 
         /// <summary>
-        /// The person responsible for initiating this block
+        /// The person responsible for initiating this block (optional)
         /// </summary>
         public Operator Blocker
         {

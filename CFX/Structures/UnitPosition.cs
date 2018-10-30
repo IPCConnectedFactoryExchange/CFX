@@ -59,7 +59,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// X coordinate of Production unit origin, as it is known to the endpoint
+        /// X coordinate of Production unit origin, as it is known to the endpoint, expressed in millimeters (mm)
         /// </summary>
 
         public double X
@@ -69,7 +69,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Y coordinate of Production unit origin, as it is known to the endpoint
+        /// Y coordinate of Production unit origin, as it is known to the endpoint, expressed in millimeters (mm)
         /// </summary>
         public double Y
         {
@@ -78,7 +78,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Original rotation of Production unit, as it is known to the endpoint (in degrees)
+        /// Original rotation of Production unit, as it is known to the endpoint, expressed in degrees
         /// </summary>
         public double Rotation
         {

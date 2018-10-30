@@ -27,7 +27,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The operator involved in this event (where applicable)
+        /// The operator involved in this event (optional, where applicable)
         /// </summary>
         public Operator Operator
         {

@@ -10,18 +10,17 @@ namespace CFX.Materials.Transport
     /// materials / WIP / production units from one location to another.
     /// <code language="none">
     /// {
-    ///   "TransportOrderNumber": "TR329483249830000",
+    ///   "TransportOrderId": "TR329483249830000",
     ///   "StartedBy": {
-    ///     "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+    ///     "OperatorIdentifier": "BADGE4485",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"
     ///   },
     ///   "Comments": "Initiating new transport order.  Waiting to be kitted.",
     ///   "Status": "Pending",
-    ///   "RelatedWorkOrderNumber": "WO2384702937403280032",
+    ///   "RelatedWorkOrderId": "WO2384702937403280032",
     ///   "Source": null,
     ///   "FinalDestination": "LINE1",
     ///   "NextCheckpoint": "SMT STAGING AREA 1",
@@ -39,14 +38,14 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The order number of the new transport order
         /// </summary>
-        public string TransportOrderNumber
+        public string TransportOrderId
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The operator who initiated the new transport order (where applicable)
+        /// The operator who initiated the new transport order (optional, where applicable)
         /// </summary>
         public Operator StartedBy
         {
@@ -75,7 +74,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The related production work order number (where applicable)
         /// </summary>
-        public string RelatedWorkOrderNumber
+        public string RelatedWorkOrderId
         {
             get;
             set;

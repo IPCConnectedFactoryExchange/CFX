@@ -20,11 +20,19 @@ namespace CFX.Production
     ///   },
     ///   "RecipeName": "RECIPE4455",
     ///   "RecipeRevision": "C",
-    ///   "Lane": "1",
-    ///   "Stage": "1",
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
     ///   "SetupRequirements": {
-    ///     "Lane": "1",
-    ///     "Stage": "1",
+    ///     "Lane": 1,
+    ///     "Stage": {
+    ///       "StageSequence": 1,
+    ///       "StageName": "STAGE1",
+    ///       "StageType": "Work"
+    ///     },
     ///     "SetupName": "COMMONSETUP45",
     ///     "MaterialSetupRequirements": [
     ///       {
@@ -50,6 +58,18 @@ namespace CFX.Production
     ///           "JP55443",
     ///           "TX554323"
     ///         ]
+    ///       }
+    ///     ],
+    ///     "ToolSetupRequirements": [
+    ///       {
+    ///         "Position": "MODULE1.BEAM1",
+    ///         "PartNumber": "HEADTYPE5566",
+    ///         "ToolIdentifier": null
+    ///       },
+    ///       {
+    ///         "Position": "MODULE1.BEAM2",
+    ///         "PartNumber": "HEADTYPE5577",
+    ///         "ToolIdentifier": null
     ///       }
     ///     ]
     ///   }
@@ -90,7 +110,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the specific Lane associated with this setup.
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -99,7 +119,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional property designating the specific Stage associated with this setup.
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

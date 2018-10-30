@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -9,26 +10,26 @@ namespace CFX.Production
     /// endpoint. The response indicates the name of the recipe.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
-    ///   "Stage": "1"
+    ///   "Lane": 1,
+    ///   "Stage": null
     /// }
     /// </code>
     /// </summary>
     public class GetActiveRecipeRequest : CFXMessage
     {
         /// <summary>
-        /// The optional name or number of the production lane
+        /// The optional number of the production lane
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The optional name or number of the stage
+        /// The optional structure identifying the specific Stage
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

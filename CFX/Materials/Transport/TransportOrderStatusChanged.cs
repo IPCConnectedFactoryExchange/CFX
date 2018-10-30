@@ -6,21 +6,20 @@ using CFX.Structures;
 namespace CFX.Materials.Transport
 {
     /// <summary>
-    /// Sent when a new transport order is initiated.
+    /// Sent when the status of an existing transport order has changed.
     /// <code language="none">
     /// {
-    ///   "TransportOrderNumber": "TR329483249830000",
+    ///   "TransportOrderId": "TR329483249830000",
     ///   "Comments": "Kitting Underway...",
     ///   "Status": "Kitting",
     ///   "UpdatedBy": {
-    ///     "OperatorIdentifier": "2252e28d-102c-4ec1-9f14-1981c1191b95",
+    ///     "OperatorIdentifier": "BADGE4485",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"
     ///   },
-    ///   "RelatedWorkOrderNumber": "WO2384702937403280032",
+    ///   "RelatedWorkOrderId": "WO2384702937403280032",
     ///   "Source": null,
     ///   "FinalDestination": "LINE 1",
     ///   "NextCheckpoint": "SMT STAGING AREA 1"
@@ -36,7 +35,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The order number of the new transport order
         /// </summary>
-        public string TransportOrderNumber
+        public string TransportOrderId
         {
             get;
             set;
@@ -61,7 +60,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The operator who updated the status (where applicable)
+        /// The operator who updated the status (optional, where applicable)
         /// </summary>
         public Operator UpdatedBy
         {
@@ -72,7 +71,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The related production work order number (where applicable)
         /// </summary>
-        public string RelatedWorkOrderNumber
+        public string RelatedWorkOrderId
         {
             get;
             set;

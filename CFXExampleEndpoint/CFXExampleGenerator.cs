@@ -7,10 +7,14 @@ using CFX;
 using CFX.Structures;
 using CFX.Structures.SMTPlacement;
 using CFX.Structures.SolderPastePrinting;
+using CFX.Structures.SolderApplication;
 using CFX.Structures.THTInsertion;
 using CFX.Structures.SolderPasteInspection;
+using CFX.Structures.PCBInspection;
+using CFX.Structures.SolderReflow;
 using CFX.Production;
 using CFX.Production.Assembly;
+using CFX.Production.Application;
 using CFX.Production.TestAndInspection;
 using CFX.InformationSystem.UnitValidation;
 using CFX.InformationSystem.WorkOrderManagement;
@@ -25,6 +29,9 @@ using CFX.ResourcePerformance;
 using CFX.ResourcePerformance.SMTPlacement;
 using CFX.ResourcePerformance.SolderPastePrinting;
 using CFX.ResourcePerformance.THTInsertion;
+using CFX.Production.Application.Solder;
+using CFX.Production.Processing;
+using CFX.Structures.Coating;
 
 namespace CFXExampleEndpoint
 {
@@ -176,6 +183,52 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new MaterialsApplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                AppliedMaterials = new List<InstalledMaterial>(new InstalledMaterial[]
+                {
+                    new InstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityInstalled = 3.57,
+                    },
+                    new InstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityInstalled = 3.45,
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new MaterialsUnapplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                UnappliedMaterials = new List<UninstalledMaterial>(new UninstalledMaterial[]
+                {
+                    new UninstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityUninstalled = 3.55,
+                    },
+                    new UninstalledMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityUninstalled = 3.55,
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
             msg = new ToolsUsed()
             {
                 TransactionId = Guid.NewGuid(),
@@ -271,6 +324,92 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            SelectiveSolderData ssd1 = new SelectiveSolderData()
+            {
+                Process_Status = "Completed",
+                RecipeName = "Panasonic 2up",
+                Nitrogen_Pressure = 54,
+                Air_Pressure = 62,
+                Cycle_Count = 671261,
+                Cycle_Time = new TimeSpan(0, 0, 1, 44, 200),
+                Nitrogen_Purity = 15,
+                Nitrogen_Flow = 39,
+                Fiducial_Enabled = true
+            };
+
+            ZoneData z1 = new ZoneData()
+            {
+                StageSequence = 1,
+                ProcessTime = new TimeSpan(0, 0, 15, 0),
+                Bottle1_Pressure = 7.0,
+                Bottle2_Pressure = 7.0,
+                Flux_Volume = 210,
+                Top_Preheater_Power = 50,
+                Top_Preheater_Soak = 10,
+                Top_Preheater_Temp = 109,
+                Top_Preheater_Time = new TimeSpan(0, 0, 37),
+                Fid_XCorrection = 0.15,
+                Fid_YCorrection = 0.2
+            };
+
+            ZoneData z2 = new ZoneData()
+            {
+                StageSequence = 2,
+                ProcessTime = new TimeSpan(0, 0, 37),
+                Top_Preheater_Power = 50,
+                Top_Preheater_Soak = 10,
+                Top_Preheater_Temp = 109,
+                Top_Preheater_Time = new TimeSpan(0, 0, 37),
+                Bot_Preheater_Power = 50,
+                Bot_Preheater_Soak = 10,
+                Bot_Preheater_Temp = 108,
+                Bot_Preheater_Time = new TimeSpan(0, 0, 37),
+            };
+
+            ZoneData z3 = new ZoneData()
+            {
+                StageSequence = 3,
+                ProcessTime = new TimeSpan(0, 0, 37),
+                Top_Preheater_Power = 50,
+                Top_Preheater_Soak = 10,
+                Top_Preheater_Temp = 109,
+                Top_Preheater_Time = new TimeSpan(0, 0, 37),
+                Bot_Preheater_Power = 50,
+                Bot_Preheater_Soak = 10,
+                Bot_Preheater_Temp = 108,
+                Bot_Preheater_Time = new TimeSpan(0, 0, 37),
+                Bath_Temp = 305,
+                Bath_Wave_Enabled = true,
+                Bath_Wave_Hgt = 0.1,
+                Solder_Quantity_Used = 5,
+                Fid_XCorrection = 0.15,
+                Fid_YCorrection = 0.2
+            };
+
+            msg = new PCBSelectiveSoldered()
+            {
+                TransactionId = Guid.NewGuid(),
+                HeaderData = ssd1,
+                SolderedPCBs = new List<SelectiveSolderedPCB>(new SelectiveSolderedPCB[] {
+                    new SelectiveSolderedPCB()
+                    {
+                        UnitIdentifier = "PANEL4325435",
+                        UnitPositionNumber = 1,
+                        ZoneData = new List<ZoneData>(new ZoneData [] {z1, z2, z3 })
+                    },
+                    new SelectiveSolderedPCB()
+                    {
+                        UnitIdentifier = "PANEL4325435",
+                        UnitPositionNumber = 1,
+                        ZoneData = new List<ZoneData>(new ZoneData [] {z1, z2, z3 })
+                    }
+                })
+            };
+
+
+            AppendMessage(msg, ref result);
+
+
             return result;
         }
 
@@ -283,9 +422,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Joseph",
                 LastName = "Smith",
-                FullName = "Joseph Smith",
                 LoginName = "joseph.smith@abcdrepairs.com",
-                OperatorIdentifier = "UID235434324"
+                OperatorIdentifier = "BADGE489499"
             };
 
             CFXMessage msg = new UnitsInspected()
@@ -438,29 +576,35 @@ namespace CFXExampleEndpoint
                                 {
                                     new SolderPasteMeasurement()
                                     {
-                                        MeasurementName = "MEASURE R1.1",
-                                        DepositImage = new Image() {MimeType = "image/jpg", ImageData = new byte[] {0xff, 0x3d, 0x99,0x87 } },
+                                        MeasurementName = "R1.1",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.1",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
                                     },
                                     new SolderPasteMeasurement()
                                     {
-                                        MeasurementName = "MEASURE R1.1",
-                                        DepositImage = new Image() {MimeType = "image/jpg", ImageData = new byte[] {0xff, 0x3d, 0x99,0x87 } },
+                                        MeasurementName = "R1.2",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.2",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
                                     },
                                 })
                             },
@@ -478,29 +622,170 @@ namespace CFXExampleEndpoint
                                 UniqueIdentifier = Guid.NewGuid().ToString(),
                                 InspectionName = "INSPECT_PASTE_DEPOSITIONS",
                                 Result = TestResult.Passed,
-                                Measurements = new List<Measurement>(new Measurement []
+                               Measurements = new List<Measurement>(new Measurement []
                                 {
                                     new SolderPasteMeasurement()
                                     {
+                                        MeasurementName = "R1.1",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.1",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
                                     },
                                     new SolderPasteMeasurement()
                                     {
+                                        MeasurementName = "R1.2",
                                         Result = TestResult.Passed,
-                                        ComponentPad = "R1.2",
-                                        PasteXOffset = new NumericValue() {Value = 0.2, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteYOffset = new NumericValue() {Value = 0.1, ValueUnits = "um", ExpectedValue = 0, ExpectedValueUnits = "um", MinimumAcceptableValue = -10.2, MaximumAcceptableValue = 10.2},
-                                        PasteXSize = new NumericValue() {Value = 45.6, ValueUnits = "mm", ExpectedValue = 46.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 45.1, MaximumAcceptableValue = 46.9},
-                                        PasteYSize = new NumericValue() {Value = 85.6, ValueUnits = "mm", ExpectedValue = 86.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 85.1, MaximumAcceptableValue = 86.9},
-                                        PasteHeight = new NumericValue() {Value = 2.6, ValueUnits = "mm", ExpectedValue = 2.7, ExpectedValueUnits = "mm", MinimumAcceptableValue = 2.1, MaximumAcceptableValue = 2.9},
-                                        PasteVolume =  new NumericValue() {Value = 28.9, ValueUnits = "ml", ExpectedValue = 28.7, ExpectedValueUnits = "ml", MinimumAcceptableValue = 28.0, MaximumAcceptableValue = 30.0},
+                                        CRDs = "R1.1",
+                                        DX = 0.02,
+                                        DY = 0.03,
+                                        X = 5.62,
+                                        EX = 5.60,
+                                        Y = 8.29,
+                                        EY = 8.30,
+                                        Z = 5.01,
+                                        EZ = 5.00,
+                                        Vol = 5.11,
+                                        EVol = 5.10,
+                                    },
+                                })
+                            },
+                        })
+                    }
+                })
+            };
+            AppendMessage(msg, ref result);
+
+            UnitsInspected ui = msg as UnitsInspected;
+            
+            for (int i = 0; i < ui.InspectedUnits.Count; i++)
+            {
+                for (int j = 0; j < 5000; ++j)
+                {
+                    if (ui.InspectedUnits[i].Inspections.Count > 1)
+                    {
+                        Inspection insp = ui.InspectedUnits[i].Inspections[0];
+                        ui.InspectedUnits[i].Inspections = new List<Inspection>();
+                        ui.InspectedUnits[i].Inspections.Add(insp);
+                    }
+                    ui.InspectedUnits[i].Inspections[0].Measurements.Clear();
+                    ui.InspectedUnits[i].Inspections[0].Measurements.Add(
+                        new SolderPasteMeasurement()
+                        {
+                            MeasurementName = "R1.1",
+                            Result = TestResult.Passed,
+                            CRDs = "R1.1",
+                            DX = 0.02,
+                            DY = 0.03,
+                            X = 5.62,
+                            EX = 5.60,
+                            Y = 8.29,
+                            EY = 8.30,
+                            Z = 5.01,
+                            EZ = 5.00,
+                            Vol = 5.11,
+                            EVol = 5.10,
+                        });
+                }
+            }
+
+            System.IO.File.AppendAllText(@"y:\jjwcode\solderpastetest.txt", msg.ToJson(false));
+
+            /// PCB Inspection Example With Component Offset Measurements
+            msg = new UnitsInspected()
+            {
+                TransactionId = Guid.NewGuid(),
+                Inspector = op1,
+                InspectionMethod = InspectionMethod.SPI,
+                InspectedUnits = new List<InspectedUnit>(new InspectedUnit[]
+                {
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 1,
+                        OverallResult = TestResult.Passed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_COMPONENT_OFFSETS",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R1",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R2",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R3",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R4",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                })
+                            },
+                        })
+                    },
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "PANEL34543535",
+                        UnitPositionNumber = 2,
+                        OverallResult = TestResult.Failed,
+                        Inspections = new List<Inspection>(new Inspection []
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_COMPONENT_OFFSETS",
+                                Result = TestResult.Passed,
+                                Measurements = new List<Measurement>(new Measurement []
+                                {
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R1",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R2",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R3",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
+                                    },
+                                    new OffsetMeasurement()
+                                    {
+                                        CRDs = "R4",
+                                        Result = TestResult.Passed,
+                                        DX = 0.02, DY = 0.01, DZ = 0.01, RXY = 0.01, RZX = 0.15, RZY = 0.15,
                                     },
                                 })
                             },
@@ -535,10 +820,7 @@ namespace CFXExampleEndpoint
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R21",
-                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                        {
-                                            new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
-                                        }),
+                                        CRDs = "R21",
                                         Result = TestResult.Passed,
                                         MeasuredValue = new NumericValue()
                                         {
@@ -584,10 +866,7 @@ namespace CFXExampleEndpoint
                                             {
                                                 UniqueIdentifier = Guid.NewGuid().ToString(),
                                                 MeasurementName = "RESISTANCE_MEASUREMENT_R22",
-                                                Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                                {
-                                                    new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
-                                                }),
+                                                CRDs = "R22",
                                                 MeasuredValue = new NumericValue()
                                                 {
                                                     ExpectedValue = 28.2,
@@ -623,10 +902,7 @@ namespace CFXExampleEndpoint
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R21",
-                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                        {
-                                            new ComponentDesignator() { ReferenceDesignator = "R21", PartNumber = "41234-8897"}
-                                        }),
+                                        CRDs = "R21",
                                         MeasuredValue = new NumericValue()
                                         {
                                             ExpectedValue = 28.2,
@@ -651,10 +927,7 @@ namespace CFXExampleEndpoint
                                     {
                                         UniqueIdentifier = Guid.NewGuid().ToString(),
                                         MeasurementName = "RESISTANCE_MEASUREMENT_R22",
-                                        Components = new List<ComponentDesignator>(new ComponentDesignator []
-                                        {
-                                            new ComponentDesignator() { ReferenceDesignator = "R22", PartNumber = "41234-8897"}
-                                        }),
+                                        CRDs = "R22",
                                         MeasuredValue = new NumericValue()
                                         {
                                             ExpectedValue = 28.2,
@@ -727,7 +1000,23 @@ namespace CFXExampleEndpoint
         {
             string result = "";
 
-            CFXMessage msg = new WhoIsThereRequest();
+            CFXMessage msg = new WhoIsThereRequest()
+            {
+                SupportedTopicQueryType = SupportedTopicQueryType.All,
+                SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                {
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.Production",
+                        TopicSupportType = TopicSupportType.Publisher,
+                    },
+                    new SupportedTopic()
+                    {
+                        TopicName = "CFX.Production.Appplication",
+                        TopicSupportType = TopicSupportType.Publisher,
+                    }
+                })
+            };
             AppendMessage(msg, ref result);
 
             msg = new WhoIsThereResponse()
@@ -760,34 +1049,190 @@ namespace CFXExampleEndpoint
 
             msg = new GetEndpointInformationResponse
             {
-                CFXHandle = "SMTPlus.Model_21232.SN23123",
-                RequestNetworkUri = "amqp://host33:5688/",
-                RequestTargetAddress = "/queue/SN23123",
-                UniqueIdentifier = "UID564545645645656564",
-                FriendlyName = "SMD Placer 23123",
-                Vendor = "SMT Plus",
-                ModelNumber = "Model_21232",
-                SerialNumber = "SN23123",
-                NumberOfLanes = 1,
-                NumberOfStages = 4,
-                SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                EndpointInformation = new Endpoint()
                 {
-                    new SupportedTopic()
+                    CFXHandle = "SMTPlus.Model_21232.SN23123",
+                    RequestNetworkUri = "amqp://host55:5688/",
+                    RequestTargetAddress = "/queue/SN23123",
+                    UniqueIdentifier = "UID1111111111111111",
+                    FriendlyName = "SMD Printer 23123",
+                    Vendor = "SMT Plus",
+                    ModelNumber = "Model_11111",
+                    SerialNumber = "SNSN23123",
+                    NumberOfLanes = 1,
+                    Stages = new List<StageInformation>(new StageInformation []
                     {
-                        TopicName = "CFX.Production",
-                        TopicSupportType = TopicSupportType.PublisherConsumer
-                    },
-                    new SupportedTopic()
+                        new StageInformation() {Stage = new Stage() {StageName = "INBOUND BUFFER", StageSequence = 1, StageType = StageType.Buffer} },
+                        new StageInformation() {Stage = new Stage() {StageName = "WORK STAGE 1", StageSequence = 2, StageType = StageType.Work} },
+                        new StageInformation() {Stage = new Stage() {StageName = "OUTBOUND BUFFER", StageSequence = 3, StageType = StageType.Buffer} },
+                    }),
+                    HermesInformation = new HermesInformation()
                     {
-                        TopicName = "CFX.Production.Assembly",
-                        TopicSupportType = TopicSupportType.Publisher
+                        Enabled = true,
+                        Version = "1.0"
                     },
-                    new SupportedTopic()
+                    OperatingRequirements = new OperatingRequirements()
                     {
-                        TopicName = "CFX.ResourcePerformance",
-                        TopicSupportType = TopicSupportType.Publisher
+                        MinimumHumidity = 0.0,
+                        MaximumHumidity = 0.8,
+                        MinimumTemperature = -1.0,
+                        MaximumTemperature = 40.0
                     },
-                })
+                    SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                    {
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production",
+                            TopicSupportType = TopicSupportType.PublisherConsumer
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production.Application",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.ResourcePerformance",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                    })
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetEndpointInformationResponse
+            {
+                EndpointInformation = new SMTPlacementEndpoint()
+                {
+                    CFXHandle = "SMTPlus.Model_21232.SN23123",
+                    RequestNetworkUri = "amqp://host33:5688/",
+                    RequestTargetAddress = "/queue/SN23123",
+                    UniqueIdentifier = "UID564545645645656564",
+                    FriendlyName = "SMD Placer 23123",
+                    Vendor = "SMT Plus",
+                    ModelNumber = "Model_21232",
+                    SerialNumber = "SN23123",
+                    NumberOfLanes = 1,
+                    HermesInformation = new HermesInformation()
+                    {
+                        Enabled = true,
+                        Version = "1.0"
+                    },
+                    OperatingRequirements = new OperatingRequirements()
+                    {
+                        MinimumHumidity = 0.0,
+                        MaximumHumidity = 0.8,
+                        MinimumTemperature = -1.0,
+                        MaximumTemperature = 40.0
+                    },
+                    SupportedTopics = new List<SupportedTopic>(new SupportedTopic[]
+                    {
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production",
+                            TopicSupportType = TopicSupportType.PublisherConsumer
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.Production.Assembly",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                        new SupportedTopic()
+                        {
+                            TopicName = "CFX.ResourcePerformance",
+                            TopicSupportType = TopicSupportType.Publisher
+                        },
+                    }),
+                    SupportedPCBDimensions = new DimensionalConstraints()
+                    {
+                        MinimumWidth = 10.0,
+                        MaximumWidth = 1000.0,
+                        MinimumLength = 10.0,
+                        MaximumLength = 1000.0,
+                        MinimumHeight = 0.0,
+                        MaximumHeight = 50.0,
+                        MinimumThickness = 0.5,
+                        MaximumThickness = 10.0,
+                        MinimumWeight = 0.0,
+                        MaximumWeight = 1000.0
+                    },
+                    NominalPlacementCPH = 10000,
+                    NominalUnitsPerHour = 120,
+                    PlacementConstraints = new SMTPlacementConstraints()
+                    {
+                    },
+                    Stages = new List<StageInformation>(new SMTStageInformation[]
+                    {
+                        new SMTStageInformation()
+                        {
+                            Stage = new Stage()
+                            {
+                                StageSequence = 1,
+                                StageName = "BUFFERSTAGE1",
+                                StageType = StageType.Buffer
+                            },
+                            NumberOfFeederStations = 0
+                        },
+                        new SMTStageInformation()
+                        {
+                            Stage = new Stage()
+                            {
+                                StageSequence = 2,
+                                StageName = "WORKSTAGE1",
+                                StageType = StageType.Work
+                            },
+                            NumberOfFeederStations = 100
+                        },
+                        new SMTStageInformation()
+                        {
+                            Stage = new Stage()
+                            {
+                                StageSequence = 3,
+                                StageName = "WORKSTAGE2",
+                                StageType = StageType.Work
+                            },
+                            NumberOfFeederStations = 100
+                        }
+                    }),
+                    Lanes = new List<SMTLaneInformation>(new SMTLaneInformation[]
+                    {
+                        new SMTLaneInformation()
+                        {
+                            LaneName = "LANE1",
+                        },
+                        new SMTLaneInformation()
+                        {
+                            LaneName = "LANE2",
+                        }
+                    }),
+                    Heads = new List<SMTHeadInformation>(new SMTHeadInformation[]
+                    {
+                        new SMTHeadInformation()
+                        {
+                            Head = new Head()
+                            {
+                                HeadId = "HD212343",
+                                HeadName = "HEAD1",
+                                HeadSequence = 1                                
+                            },
+                            PlacementAccuracy = 0.001,
+                            NumberOfNozzleLocations = 6,
+                            SMTHeadType = SMTHeadType.Pulsar
+                        },
+                        new SMTHeadInformation()
+                        {
+                            Head = new Head()
+                            {
+                                HeadId = "HD212344",
+                                HeadName = "HEAD2",
+                                HeadSequence = 2
+                            },
+                            PlacementAccuracy = 0.001,
+                            NumberOfNozzleLocations = 6,
+                            SMTHeadType = SMTHeadType.Pulsar
+                        }
+                    })
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -818,6 +1263,17 @@ namespace CFXExampleEndpoint
             string result = "";
             CFXMessage msg = null;
 
+            msg = new CalibrationPerformed()
+            {
+                Calibration = new Calibration()
+                {
+                    CalibrationCode = "FID1",
+                    CalibrationType = CalibrationType.UnitPosition,
+                    Comments = "Position Check.  Fiducial FID1."
+                }
+            };
+            AppendMessage(msg, ref result);
+
             Fault flt = new Fault()
             {
                 Cause = FaultCause.MechanicalFailure,
@@ -827,27 +1283,32 @@ namespace CFXExampleEndpoint
 
             msg = new StationStateChanged()
             {
-                OldState = ResourceState.IdleStarved,
+                OldState = ResourceState.SBY_NoProduct,
                 OldStateDuration = TimeSpan.FromSeconds(85),
-                NewState = ResourceState.ReadyProcessingActive
+                NewState = ResourceState.PRD_RegularWork
             };
             AppendMessage(msg, ref result);
 
             msg = new StationStateChanged()
             {
-                OldState = ResourceState.ReadyProcessingExecuting,
+                OldState = ResourceState.PRD_RegularWork,
                 OldStateDuration = TimeSpan.FromSeconds(25),
-                NewState = ResourceState.UnplannedDowntime,
+                NewState = ResourceState.USD_ChangeOfConsumables,
                 RelatedFault = flt
             };
             AppendMessage(msg, ref result);
 
             msg = new StageStateChanged()
             {
-                Stage = "STAGE2",
-                OldState = ResourceState.IdleStarved,
+                Stage = new Stage()
+                {
+                    StageSequence = 2,
+                    StageName = "STAGE2",
+                    StageType = StageType.Work
+                },
+                OldState = ResourceState.SBY_NoProduct,
                 OldStateDuration = TimeSpan.FromSeconds(85),
-                NewState = ResourceState.ReadyProcessingActive
+                NewState = ResourceState.PRD_RegularWork
             };
             AppendMessage(msg, ref result);
 
@@ -857,9 +1318,31 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new FaultAcknowledged()
+            {
+                FaultOccurrenceId = flt.FaultOccurrenceId,
+                Operator = new Operator()
+                {
+                    ActorType = ActorType.Human,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    LoginName = "john.doe@domain1.com",
+                    OperatorIdentifier = "BADGE4486"
+                }
+            };
+            AppendMessage(msg, ref result);
+
             msg = new FaultCleared()
             {
-                FaultOccurrenceId = flt.FaultOccurrenceId
+                FaultOccurrenceId = flt.FaultOccurrenceId,
+                Operator = new Operator()
+                {
+                    ActorType = ActorType.Human,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    LoginName = "john.doe@domain1.com",
+                    OperatorIdentifier = "BADGE4486"
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -872,14 +1355,20 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new ModifyStationParameterRequest()
+            msg = new ModifyStationParametersRequest()
             {
-                ParameterName = "Torque1",
-                ParameterValue = "35.6"
+                NewParameters = new List<Parameter>(new Parameter[]
+                {
+                    new GenericParameter()
+                    {
+                        Name = "Torque1",
+                        Value = "35.6"
+                    }
+                }),
             };
             AppendMessage(msg, ref result);
 
-            msg = new ModifyStationParameterResponse()
+            msg = new ModifyStationParametersResponse()
             {
                 Result = new RequestResult()
                 {
@@ -887,17 +1376,149 @@ namespace CFXExampleEndpoint
                     ResultCode = 0,
                     Message = "OK"
                 },
-                ParameterName = "Torque1",
-                NewParameterValue = "35.6",
-                OldParameterValue = "22.6"
             };
             AppendMessage(msg, ref result);
 
-            msg = new StationParameterModified()
+            msg = new StationParametersModified()
             {
-                ParameterName = "Torque1",
-                NewParameterValue = "35.6",
-                OldParameterValue = "22.6"
+                ModifiedParameters = new List<Parameter>(new Parameter[]
+                {
+                    new GenericParameter()
+                    {
+                        Name = "Torque1",
+                        Value = "35.6"
+                    }
+                }),
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StationParametersModified()
+            {
+                ModifiedParameters = new List<Parameter>(new Parameter []
+                {
+                    new ReflowOvenParameter()
+                    {
+                        ConveyorSpeedSetpoint = 50,
+                        ConveyorWidth = 25.0,
+                        ZoneParameters = new List<ReflowZoneParameter>(new ReflowZoneParameter []
+                        {
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 1,
+                                    StageName = "Zone1",
+                                    ReflowZoneType = ReflowZoneType.PreHeat
+                                },
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                })
+                            },
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 2,
+                                    StageName = "Zone2",
+                                    ReflowZoneType = ReflowZoneType.Soak
+                                },
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 200
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                })
+                            },
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 3,
+                                    StageName = "Zone3",
+                                    ReflowZoneType = ReflowZoneType.Reflow
+                                },
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 200
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 220
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.WholeZone,
+                                        SetpointType = ReflowSetpointType.O2,
+                                        Setpoint = 500
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.WholeZone,
+                                        SetpointType = ReflowSetpointType.Vacuum,
+                                        Setpoint = 2.0
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.WholeZone,
+                                        SetpointType = ReflowSetpointType.VacuumHoldTime,
+                                        Setpoint = 5.0
+                                    },
+                                })
+                            },
+                            new ReflowZoneParameter()
+                            {
+                                Zone = new ReflowZone()
+                                {
+                                    StageSequence = 4,
+                                    StageName = "Zone4",
+                                    ReflowZoneType = ReflowZoneType.Cool
+                                },
+                                Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                                {
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Top,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 105
+                                    },
+                                    new ReflowSetPoint()
+                                    {
+                                        SubZone = ReflowSubZoneType.Bottom,
+                                        SetpointType = ReflowSetpointType.Temperature,
+                                        Setpoint = 105
+                                    },
+                                })
+                            },
+                        }),
+                    }
+                }),
             };
             AppendMessage(msg, ref result);
 
@@ -906,8 +1527,13 @@ namespace CFXExampleEndpoint
                 Importance = LogImportance.Information,
                 Message = "Beam 1 Zeroed and Homed",
                 InformationId = "INF21321321",
-                Stage = "STAGE1",
-                Lane = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1
             };
             AppendMessage(msg, ref result);
 
@@ -953,9 +1579,8 @@ namespace CFXExampleEndpoint
                             ActorType = ActorType.Human,
                             FirstName = "Joseph",
                             LastName = "Smith",
-                            FullName = "Joseph Smith",
                             LoginName = "joseph.smith@abcdrepairs.com",
-                            OperatorIdentifier = "UID235434324"
+                            OperatorIdentifier = "BADGE489435"
                         }
                     },
                     new MaintenanceTask()
@@ -968,9 +1593,8 @@ namespace CFXExampleEndpoint
                             ActorType = ActorType.Human,
                             FirstName = "Joseph",
                             LastName = "Smith",
-                            FullName = "Joseph Smith",
                             LoginName = "joseph.smith@abcdrepairs.com",
-                            OperatorIdentifier = "UID235434324"
+                            OperatorIdentifier = "BADGE489435"
                         }
                     }
                 })
@@ -1001,8 +1625,13 @@ namespace CFXExampleEndpoint
                 },
                 PlacementFaultType = SMTPlacementFaultType.PickupError,
                 ProgramStep = 56,
-                Lane = "LANE1",
-                Stage = "STAGE2",
+                Lane = 1,
+                Stage = new Stage()
+                {
+                    StageSequence = 2,
+                    StageName = "STAGE2",
+                    StageType = StageType.Work
+                },
                 MaterialLocation = new MaterialLocation()
                 {
                     LocationIdentifier = "UID23948348324",
@@ -1017,12 +1646,12 @@ namespace CFXExampleEndpoint
                     {
                         Name = "8MMFDR231",
                         UniqueIdentifier = "FDR2348934-32890",
-                        Width = SMDTapeWidth.Tape8mm,
-                        Pitch = SMDTapePitch.Pitch8mm,
+                        TapeWidth = 8,
+                        TapePitch = 8,
                         LaneNumber = 1
                     }
                 },
-                Nozzle = new SMTNozzle()
+                HeadAndNozzle = new SMTHeadAndNozzle()
                 {
                     UniqueIdentifier = "UID2389432849",
                     Name = "NOZZLE3243244",
@@ -1059,7 +1688,7 @@ namespace CFXExampleEndpoint
             {
                 OldTool = null,
                 ReturnedToHolder = null,
-                NewTool = new SMTNozzle()
+                NewTool = new SMTHeadAndNozzle()
                 {
                     UniqueIdentifier = "UID23890430",
                     Name = "NOZZLE234324",
@@ -1122,8 +1751,13 @@ namespace CFXExampleEndpoint
                 },
                 InsertionFaultType = THTInsertionFaultType.ClinchError,
                 ProgramStep = 56,
-                Lane = "LANE1",
-                Stage = "STAGE2",
+                Lane = 1,
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE2",
+                    StageType = StageType.Work
+                },
                 MaterialLocation = new MaterialLocation()
                 {
                     LocationIdentifier = "UID23948348324",
@@ -1138,8 +1772,8 @@ namespace CFXExampleEndpoint
                     {
                         Name = "8MMFDR231",
                         UniqueIdentifier = "FDR2348934-32890",
-                        Width = SMDTapeWidth.Tape8mm,
-                        Pitch = SMDTapePitch.Pitch8mm,
+                        TapeWidth = 8,
+                        TapePitch = 8,
                         LaneNumber = 1
                     }
                 },
@@ -1227,6 +1861,13 @@ namespace CFXExampleEndpoint
             {
                 Fault = new SMTSolderPastePrintingFault()
                 {
+                    Lane = 1,
+                    Stage = new Stage()
+                    {
+                        StageSequence = 1,
+                        StageName = "PRINTSTAGE",
+                        StageType = StageType.Work
+                    },
                     FaultOccurrenceId = Guid.NewGuid(),
                     Cause = FaultCause.MechanicalFailure,
                     Severity = FaultSeverity.Error,
@@ -1243,9 +1884,6 @@ namespace CFXExampleEndpoint
         {
             string result = "";
             CFXMessage msg = null;
-
-
-
 
             msg = new MaterialsLoaded()
             {
@@ -1275,8 +1913,8 @@ namespace CFXExampleEndpoint
                             BaseUniqueIdentifier = "123335",
                             Name = "TAPEFEEDER8mm1233335A",
                             BaseName = "MULTILANEFEEDER123335",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                         MaterialPackage = m3.ToMaterialPackage()
                     },
@@ -1291,8 +1929,8 @@ namespace CFXExampleEndpoint
                             Name = "TAPEFEEDER8mm1233335B",
                             BaseName = "MULTILANEFEEDER123335",
                             LaneNumber = 2,
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                         MaterialPackage = m4.ToMaterialPackage()
                     },
@@ -1356,8 +1994,8 @@ namespace CFXExampleEndpoint
                             BaseUniqueIdentifier = "123335",
                             Name = "TAPEFEEDER8mm1233335A",
                             BaseName = "MULTILANEFEEDER123335",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                     },
                     new MaterialCarrierLocation()
@@ -1371,8 +2009,8 @@ namespace CFXExampleEndpoint
                             Name = "TAPEFEEDER8mm1233335B",
                             BaseName = "MULTILANEFEEDER123335",
                             LaneNumber = 2,
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Adjustable
+                            TapeWidth = 8,
+                            TapePitch = 4
                         },
                     }
                 })
@@ -1400,6 +2038,8 @@ namespace CFXExampleEndpoint
             vs.SetupRequirements.MaterialSetupRequirements[1].ApprovedAlternateParts.AddRange(new string[] { "IPN3344", "IPN3376" });
             vs.SetupRequirements.MaterialSetupRequirements[0].ApprovedManufacturerParts.AddRange(new string[] { "MOT4329", "SAM5566" });
             vs.SetupRequirements.MaterialSetupRequirements[1].ApprovedManufacturerParts.AddRange(new string[] { "JP55443", "TX554323" });
+            vs.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5566", Position = "MODULE1.BEAM1" });
+            vs.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5577", Position = "MODULE1.BEAM2" });
             AppendMessage(vs, ref result);
 
             msg = new ValidateStationSetupResponse()
@@ -1477,7 +2117,7 @@ namespace CFXExampleEndpoint
                 Result = new RequestResult()
                 {
                     Result = StatusResult.Success,
-                    Message = "SETUP OK",
+                    Message = "OK",
                     ResultCode = 0
                 }
             };
@@ -1547,8 +2187,8 @@ namespace CFXExampleEndpoint
                             {
                                 UniqueIdentifier = "234232432424",
                                 Name = "FEEDER2245465",
-                                Width = SMDTapeWidth.Tape8mm,
-                                Pitch = SMDTapePitch.Pitch8mm
+                                TapeWidth = 8,
+                                TapePitch = 4
                             }
                         },
                         QuantityUsed = 42,
@@ -1571,8 +2211,8 @@ namespace CFXExampleEndpoint
                             {
                                 UniqueIdentifier = "234232432424",
                                 Name = "FEEDER2245465",
-                                Width = SMDTapeWidth.Tape8mm,
-                                Pitch = SMDTapePitch.Pitch8mm
+                                TapeWidth = 8,
+                                TapePitch = 4
                             }
                         },
                         QuantityUsed = 88,
@@ -1601,8 +2241,8 @@ namespace CFXExampleEndpoint
                         {
                             UniqueIdentifier = "234232432424",
                             Name = "FEEDER2245465",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Pitch8mm
+                            TapeWidth = 8,
+                            TapePitch = 8
                         }
                     },
                     new MaterialLocation()
@@ -1619,11 +2259,52 @@ namespace CFXExampleEndpoint
                         {
                             UniqueIdentifier = "234232432424",
                             Name = "FEEDER2245465",
-                            Width = SMDTapeWidth.Tape8mm,
-                            Pitch = SMDTapePitch.Pitch8mm
+                            TapeWidth = 8,
+                            TapePitch = 4
                         }
                     },
                 })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new SplicePointDetected()
+            {
+                DepletedMaterial = new MaterialLocation()
+                {
+                    LocationIdentifier = "3245434554",
+                    LocationName = "SLOT22",
+                    MaterialPackage = new MaterialPackage()
+                    {
+                        UniqueIdentifier = "MAT238908348903",
+                        InternalPartNumber = "IPN-1222-55555",
+                        Quantity = 0
+                    },
+                    CarrierInformation = new SMDTapeFeeder()
+                    {
+                        UniqueIdentifier = "234232432424",
+                        Name = "FEEDER2245465",
+                        TapeWidth = 8,
+                        TapePitch = 8
+                    }
+                },
+                NewlyActiveMaterial = new MaterialLocation()
+                {
+                    LocationIdentifier = "3245435784",
+                    LocationName = "SLOT28",
+                    MaterialPackage = new MaterialPackage()
+                    {
+                        UniqueIdentifier = "MAT238908348904",
+                        InternalPartNumber = "IPN-1222-55555",
+                        Quantity = 1000
+                    },
+                    CarrierInformation = new SMDTapeFeeder()
+                    {
+                        UniqueIdentifier = "234232432424",
+                        Name = "FEEDER2245465",
+                        TapeWidth = 8,
+                        TapePitch = 8
+                    }
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -1703,9 +2384,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Bill",
                 LastName = "Smith",
-                FullName = "Bill Smith",
                 LoginName = "bill.smith@domain1.com",
-                OperatorIdentifier = Guid.NewGuid().ToString()
+                OperatorIdentifier = "BADGE4485"
             };
 
             Operator o2 = new Operator()
@@ -1713,9 +2393,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "John",
                 LastName = "Doe",
-                FullName = "John Doe",
                 LoginName = "john.doe@domain1.com",
-                OperatorIdentifier = Guid.NewGuid().ToString()
+                OperatorIdentifier = "BADGE4486"
             };
 
             Operator o3 = new Operator()
@@ -1723,61 +2402,60 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Mike",
                 LastName = "Dolittle",
-                FullName = "Mike Dolittle",
                 LoginName = "mike.dolittle@domain1.com",
-                OperatorIdentifier = Guid.NewGuid().ToString()
+                OperatorIdentifier = "BADGE4487"
             };
 
             msg = new TransportOrderStarted()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Status = TransportOrderStatus.Pending,
                 Comments = "Initiating new transport order.  Waiting to be kitted.",
                 FinalDestination = "LINE1",
                 NextCheckpoint = "SMT STAGING AREA 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 StartedBy = o1
             };
             AppendMessage(msg, ref result);
 
             msg = new TransportOrderStatusChanged()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Status = TransportOrderStatus.Kitting,
                 Comments = "Kitting Underway...",
                 FinalDestination = "LINE 1",
                 NextCheckpoint = "SMT STAGING AREA 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 UpdatedBy = o1
             };
             AppendMessage(msg, ref result);
 
             msg = new CheckpointReached()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Status = TransportOrderStatus.InTransit,
                 Comments = "Arrived SMT Production Area",
                 Checkpoint = "SMT STAGING AREA 1",
                 FinalDestination = "LINE 1",
                 NextCheckpoint = "LINE 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 TrackedBy = o2
             };
             AppendMessage(msg, ref result);
 
             msg = new TransportOrderCompleted()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 Comments = "Received at Line 1",
                 FinalDestination = "LINE 1",
-                RelatedWorkOrderNumber = "WO2384702937403280032",
+                RelatedWorkOrderId = "WO2384702937403280032",
                 AcceptedBy = o3
             };
             AppendMessage(msg, ref result);
 
             msg = new GetTransportOrderStatusRequest()
             {
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
             };
             AppendMessage(msg, ref result);
 
@@ -1789,7 +2467,7 @@ namespace CFXExampleEndpoint
                     Message = "OK",
                     ResultCode = 0
                 },
-                TransportOrderNumber = "TR329483249830000",
+                TransportOrderId = "TR329483249830000",
                 FinalDestination = "LINE 1",
                 Status = TransportOrderStatus.Delivered,
                 History = new List<TransportOrderHistory>(new TransportOrderHistory[]
@@ -1844,8 +2522,13 @@ namespace CFXExampleEndpoint
 
             msg = new ActivateRecipeRequest()
             {
-                Stage = "1",
-                Lane = "1",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
                 RecipeName = "RECIPE1234",
                 Revision = "C"
             };
@@ -1864,8 +2547,7 @@ namespace CFXExampleEndpoint
 
             msg = new GetActiveRecipeRequest()
             {
-                Stage = "1",
-                Lane = "1",
+                Lane = 1,
             };
             AppendMessage(msg, ref result);
 
@@ -1901,15 +2583,25 @@ namespace CFXExampleEndpoint
 
             msg = new GetRequiredSetupRequest()
             {
-                Stage = "1",
-                Lane = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
             };
             AppendMessage(msg, ref result);
 
             GetRequiredSetupResponse grsr = new GetRequiredSetupResponse()
             {
-                Stage = "1",
-                Lane = "1",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
                 RecipeName = "RECIPE4455",
                 RecipeRevision = "C",
                 Result = new RequestResult()
@@ -1920,8 +2612,13 @@ namespace CFXExampleEndpoint
                 },
                 SetupRequirements = new StationSetupRequirements()
                 {
-                    Stage = "1",
-                    Lane = "1",
+                    Stage = new Stage()
+                    {
+                        StageSequence = 1,
+                        StageName = "STAGE1",
+                        StageType = StageType.Work
+                    },
+                    Lane = 1,
                     SetupName = "COMMONSETUP45",
                 }
             };
@@ -1931,21 +2628,28 @@ namespace CFXExampleEndpoint
             grsr.SetupRequirements.MaterialSetupRequirements[1].ApprovedAlternateParts.AddRange(new string[] { "IPN3344", "IPN3376" });
             grsr.SetupRequirements.MaterialSetupRequirements[0].ApprovedManufacturerParts.AddRange(new string[] { "MOT4329", "SAM5566" });
             grsr.SetupRequirements.MaterialSetupRequirements[1].ApprovedManufacturerParts.AddRange(new string[] { "JP55443", "TX554323" });
+            grsr.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5566", Position = "MODULE1.BEAM1" });
+            grsr.SetupRequirements.ToolSetupRequirements.Add(new ToolSetupRequirement() { PartNumber = "HEADTYPE5577", Position = "MODULE1.BEAM2" });
+
             AppendMessage(grsr, ref result);
 
             msg = new LockStationRequest()
             {
                 Reason = LockReason.QualityIssue,
-                Lane = "1",
-                Stage = "5",
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Lane = 1,
                 Requestor = new Operator()
                 {
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE4489"
                 }
             };
             AppendMessage(msg, ref result);
@@ -1968,9 +2672,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 }
             };
             AppendMessage(msg, ref result);
@@ -1982,9 +2685,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 }
             };
             AppendMessage(msg, ref result);
@@ -2031,7 +2733,7 @@ namespace CFXExampleEndpoint
 
             msg = new RecipeActivated()
             {
-                Lane = "1",
+                Lane = 1,
                 RecipeName = "RECIPE3234",
                 Revision = "B"
             };
@@ -2046,9 +2748,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 },
                 Reason = RecipeModificationReason.PositionalCorrection
             };
@@ -2056,7 +2757,23 @@ namespace CFXExampleEndpoint
 
             msg = new SetupRequirementsChanged()
             {
-                Lane = "1",
+                Lane = 1,
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsInitialized()
+            {
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO45648798",
+                    Batch = "BATCH45648798-1"
+                },
+                Units = new List<UnitPosition>(
+                    new UnitPosition[]
+                    {
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "UNIT5566687", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "UNIT5566688", X = 50.45, Y = 80.66, Rotation = 90.0},
+                    })
             };
             AppendMessage(msg, ref result);
 
@@ -2065,8 +2782,8 @@ namespace CFXExampleEndpoint
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2076,19 +2793,21 @@ namespace CFXExampleEndpoint
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
 
             msg = new UnitsDisqualified()
             {
+                Reason = DisqualificationReason.DefectiveRepairNotPossible,
+                Comments = "The units were accidentally dropped, and irrepairably damaged",
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2100,9 +2819,8 @@ namespace CFXExampleEndpoint
                     ActorType = ActorType.Human,
                     FirstName = "Bill",
                     LastName = "Smith",
-                    FullName = "Bill Smith",
                     LoginName = "bill.smith@domain1.com",
-                    OperatorIdentifier = Guid.NewGuid().ToString()
+                    OperatorIdentifier = "BADGE489435"
                 }
             };
             AppendMessage(msg, ref result);
@@ -2155,40 +2873,122 @@ namespace CFXExampleEndpoint
             msg = new WorkStageCompleted()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStagePaused()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStageResumed()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStageStarted()
             {
                 TransactionID = transId,
-                Stage = "1"
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+            };
+            AppendMessage(msg, ref result);
+
+            Guid actId = Guid.NewGuid();
+            msg = new ActivitiesExecuted()
+            {
+                TransactionID = transId,
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                },
+                Activities = new List<Activity>(new Activity[]
+                {
+                    new UnitLoadActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(55),
+                        LoadTime = TimeSpan.FromSeconds(5.3),
+                    },
+                    new UnitAlignmentActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(55),
+                        ActivityState = ActivityState.Started,
+                        ActivityInstanceId = actId
+                    },
+                    new UnitAlignmentActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(50),
+                        ActivityInstanceId = actId,
+                        DX = 0.125,
+                        DY = 0.104,
+                        DXY = 0.987
+                    },
+                    new SMTNozzleChangeActivity()
+                    {
+                        TimeStamp = DateTime.Now - TimeSpan.FromSeconds(30),
+                        NewNozzles = new List<SMTHeadAndNozzle>(new SMTHeadAndNozzle []
+                        {
+                            new SMTHeadAndNozzle()
+                            {
+                                UniqueIdentifier = "UID234213421",
+                                Name = "Nozzle45",
+                                NozzleType = "409A",
+                                HeadId = "HEAD1",
+                                HeadNozzleNumber = 1
+                            },
+                            new SMTHeadAndNozzle()
+                            {
+                                UniqueIdentifier = "UID234213421",
+                                Name = "Nozzle32",
+                                NozzleType = "302B",
+                                HeadId = "HEAD1",
+                                HeadNozzleNumber = 2
+                            },
+                        }),
+                    },
+                    new UnitUnloadActivity()
+                    {
+                        UnloadTime = TimeSpan.FromSeconds(3.2),
+                    },
+                }),
             };
             AppendMessage(msg, ref result);
 
             msg = new WorkStarted()
             {
                 TransactionID = transId,
-                Lane = "1",
+                Lane = 1,
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 70.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2205,8 +3005,8 @@ namespace CFXExampleEndpoint
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 70.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2225,7 +3025,7 @@ namespace CFXExampleEndpoint
                     FailureCode = 0,
                 },
 
-                Results = new List<ValidationResult>(new ValidationResult[]
+                ValidationResults = new List<ValidationResult>(new ValidationResult[]
                 {
                     new ValidationResult()
                     {
@@ -2262,8 +3062,8 @@ namespace CFXExampleEndpoint
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
             };
             AppendMessage(msg, ref result);
@@ -2280,14 +3080,27 @@ namespace CFXExampleEndpoint
                 Units = new List<UnitPosition>(
                     new UnitPosition[]
                     {
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 0.254, Y = 0.556, Rotation = 0},
-                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 6.254, Y = 0.556, Rotation = 90.0},
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER21342", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER21342", X = 50.45, Y = 80.66, Rotation = 90.0},
                     })
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new IdentifiersNotRead()
+            {
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new IdentifiersNotRead()
+            {
+                PositionsNotRead = new List<int>(new int[] { 2, 8 })
             };
             AppendMessage(msg, ref result);
 
             msg = new BlockMaterialLocationsRequest()
             {
+                Reason = BlockReason.ExpiredMaterial,
+                Comments = "MSD Material Has Expired",
                 Locations = new List<MaterialLocation>(
                    new MaterialLocation[]
                    {
@@ -2302,7 +3115,7 @@ namespace CFXExampleEndpoint
                 Result = new RequestResult()
                 {
                     Result = StatusResult.Success,
-                    Message = "BLOCKED OK",
+                    Message = "OK",
                     ResultCode = 0
                 }
             };
@@ -2324,10 +3137,389 @@ namespace CFXExampleEndpoint
                 Result = new RequestResult()
                 {
                     Result = StatusResult.Success,
-                    Message = "BLOCKED OK",
+                    Message = "OK",
                     ResultCode = 0
                 }
             };
+            AppendMessage(msg, ref result);
+
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                CommonProcessData = new ReflowProcessData()
+                {
+                    ConveyorSpeed = 60,
+                    ZoneData = new List<ReflowZoneData>(new ReflowZoneData []
+                    {
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 1,
+                                StageName = "Zone1",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.PreHeat
+                            },
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 220
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 210
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 221,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 220,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 55,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 209,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 195,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 45,
+                                },
+                            })
+                        },
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 2,
+                                StageName = "Zone2",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.Soak
+                            },
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 200
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 190
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 201,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 190,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 45,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 189.5,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 185,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 42,
+                                },
+                            })
+                        },
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 3,
+                                StageName = "Zone3",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.Reflow
+                            },
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 250
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 240
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    SetpointType = ReflowSetpointType.O2,
+                                    Setpoint = 500
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    SetpointType = ReflowSetpointType.Vacuum,
+                                    Setpoint = 225
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    SetpointType = ReflowSetpointType.VacuumHoldTime,
+                                    Setpoint = 5
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 251,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 230,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 75,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 239.5,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 220,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 65,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.O2,
+                                    ReadingValue = 498,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.Vacuum,
+                                    ReadingValue = 224,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.VacuumHoldTime,
+                                    ReadingValue = 5,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.WholeZone,
+                                    ReadingType = ReflowReadingType.ConvectionRate,
+                                    ReadingValue = 250,
+                                },
+                            })
+                        },
+                        new ReflowZoneData()
+                        {
+                            Zone = new ReflowZone()
+                            {
+                                StageSequence = 4,
+                                StageName = "Zone4",
+                                StageType = StageType.Work,
+                                ReflowZoneType = ReflowZoneType.Cool
+                            },
+                            Setpoints = new List<ReflowSetPoint>(new ReflowSetPoint []
+                            {
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 150
+                                },
+                                new ReflowSetPoint()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    SetpointType = ReflowSetpointType.Temperature,
+                                    Setpoint = 140
+                                },
+                            }),
+                            Readings = new List<ReflowReading>(new ReflowReading []
+                            {
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 151,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 120,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Top,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 30,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Temperature,
+                                    ReadingValue = 139,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.Power,
+                                    ReadingValue = 110,
+                                },
+                                new ReflowReading()
+                                {
+                                    SubZone = ReflowSubZoneType.Bottom,
+                                    ReadingType = ReflowReadingType.PowerLevel,
+                                    ReadingValue = 25,
+                                },
+                            })
+                        },
+                    }),
+                }
+            };
+
+            AppendMessage(msg, ref result);
+
+
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                UnitProcessData = new List<ProcessedUnit>(new ProcessedUnit[]
+                {
+                    new ProcessedUnit()
+                    {
+                        UnitIdentifier = "CARRIER55678",
+                        UnitPositionNumber = 1,
+                        UnitProcessData = new CoatingProcessData()
+                        {
+                            Readings = new List<CoatingMeasurement>(new CoatingMeasurement []
+                            {
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidVolume,
+                                    ActualValue = 1.1,
+                                    ExpectedValue = 1.0,
+                                    MinAcceptableValue = 0.8,
+                                    MaxAcceptableValue = 1.2
+                                },
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidPressure,
+                                    ActualValue = 32.5,
+                                    ExpectedValue = 32.0,
+                                    MinAcceptableValue = 31.0,
+                                    MaxAcceptableValue = 33.8
+                                },
+                            }),
+                        }
+                    },
+                    new ProcessedUnit()
+                    {
+                        UnitIdentifier = "CARRIER55678",
+                        UnitPositionNumber = 2,
+                        UnitProcessData = new CoatingProcessData()
+                        {
+                            Readings = new List<CoatingMeasurement>(new CoatingMeasurement []
+                            {
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidVolume,
+                                    ActualValue = 1.1,
+                                    ExpectedValue = 1.0,
+                                    MinAcceptableValue = 0.8,
+                                    MaxAcceptableValue = 1.2
+                                },
+                                new CoatingMeasurement()
+                                {
+                                    MeasurementType = CoatingMeasurementType.FluidPressure,
+                                    ActualValue = 32.5,
+                                    ExpectedValue = 32.0,
+                                    MinAcceptableValue = 31.0,
+                                    MaxAcceptableValue = 33.8
+                                },
+                            }),
+                        }
+                    }
+
+                }),
+
+            };
+
             AppendMessage(msg, ref result);
 
             return result;
@@ -2338,9 +3530,10 @@ namespace CFXExampleEndpoint
             string type = msg.GetType().ToString();
             string sep = new string('=', type.Length);
             data += type + "\r\n" + sep + "\r\n";
-            string jsonData = msg.ToJson() + "\r\n";
+            string jsonData = msg.ToJson(true) + "\r\n";
+
             data += "/// <code language=\"none\">\r\n";
-            foreach (string line in jsonData.Split(new string[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries))
+            foreach (string line in jsonData.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
             {
                 data += "/// ";
                 data += line;
@@ -2356,9 +3549,8 @@ namespace CFXExampleEndpoint
                 ActorType = ActorType.Human,
                 FirstName = "Joseph",
                 LastName = "Smith",
-                FullName = "Joseph Smith",
                 LoginName = "joseph.smith@abcdrepairs.com",
-                OperatorIdentifier = "UID235434324"
+                OperatorIdentifier = "BADGE489435"
             };
 
             m1 = new MaterialPackageDetail()
@@ -2367,12 +3559,13 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN47788",
                 Manufacturer = "MOTOROLA",
                 ManufacturerPartNumber = "MOT231234",
-                ManufacuterLotCode = "LOT2016110588",
+                ManufacturerLotCode = "LOT2016110588",
                 ManufactureDate = new DateTime(2016, 11, 5),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG23452442",
                 ReceivedDate = new DateTime(2017, 5, 6),
                 Status = MaterialStatus.Active,
+                HazardousMaterialType = HazardousMaterialType.RoHS,
                 InitialQuantity = 1000,
                 Quantity = 887,
                 MaterialData = new MaterialPackageMSDData()
@@ -2391,7 +3584,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN48899",
                 Manufacturer = "SAMSUNG",
                 ManufacturerPartNumber = "SAM233243",
-                ManufacuterLotCode = "LOT2016101008",
+                ManufacturerLotCode = "LOT2016101008",
                 ManufactureDate = new DateTime(2016, 10, 10),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG44543534",
@@ -2407,7 +3600,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -2431,7 +3624,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -2447,7 +3640,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -2463,7 +3656,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -2479,7 +3672,7 @@ namespace CFXExampleEndpoint
                 InternalPartNumber = "IPN45577",
                 Manufacturer = "FUJITSU",
                 ManufacturerPartNumber = "FJJT234243",
-                ManufacuterLotCode = "LOT2017080355",
+                ManufacturerLotCode = "LOT2017080355",
                 ManufactureDate = new DateTime(2017, 08, 3),
                 Vendor = "Digikey",
                 VendorPartNumber = "DIG543534537",
@@ -2499,8 +3692,8 @@ namespace CFXExampleEndpoint
                 UniqueIdentifier = "1233334",
                 BaseUniqueIdentifier = "123334",
                 Name = "TAPEFEEDER8mm1233334",
-                Width = SMDTapeWidth.Tape8mm,
-                Pitch = SMDTapePitch.Adjustable
+                TapeWidth = 8,
+                TapePitch = 8
             };
 
             c3 = new SMDTapeFeeder()
@@ -2509,11 +3702,11 @@ namespace CFXExampleEndpoint
                 BaseUniqueIdentifier = "123335",
                 Name = "TAPEFEEDER8mm1233335A",
                 BaseName = "MULTILANEFEEDER123335",
-                Width = SMDTapeWidth.Tape8mm,
-                Pitch = SMDTapePitch.Adjustable
+                TapeWidth = 8,
+                TapePitch = 4
             };
 
-            t1 = new SMTNozzle()
+            t1 = new SMTHeadAndNozzle()
             {
                 UniqueIdentifier = "UID234213421",
                 Name = "Nozzle45",
@@ -2522,7 +3715,7 @@ namespace CFXExampleEndpoint
                 HeadNozzleNumber = 2
             };
 
-            t2 = new SMTNozzle()
+            t2 = new SMTHeadAndNozzle()
             {
                 UniqueIdentifier = "UID234223422",
                 Name = "Nozzle47",
@@ -2549,7 +3742,7 @@ namespace CFXExampleEndpoint
                 {
                     WorkOrderIdentifier = new WorkOrderIdentifier()
                     {
-                        WorkOrderNumber = "WO1122334455",
+                        WorkOrderId = "WO1122334455",
                     },
                     StartDate = new DateTime(2018, 9, 9, 0, 0, 0),
                     DateRequired = new DateTime(2018, 9, 15, 17, 0, 0),
@@ -2572,7 +3765,7 @@ namespace CFXExampleEndpoint
                 {
                     WorkOrderIdentifier = new WorkOrderIdentifier()
                     {
-                        WorkOrderNumber = "WO1122334455",
+                        WorkOrderId = "WO1122334455",
                     },
                     StartDate = new DateTime(2018, 9, 9, 0, 0, 0),
                     DateRequired = new DateTime(2018, 9, 15, 17, 0, 0),
@@ -2593,7 +3786,7 @@ namespace CFXExampleEndpoint
             {
                 WorkOrderIdentifier = new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO1122334455",
+                    WorkOrderId = "WO1122334455",
                 },
                 NewStatus = WorkOrderStatus.Scheduled,
                 PreviousStatus = WorkOrderStatus.ApprovedAndPending
@@ -2605,7 +3798,7 @@ namespace CFXExampleEndpoint
             {
                 WorkOrderIdentifier = new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO1122334455",
+                    WorkOrderId = "WO1122334455",
                 },
                 NewQuantity = 250,
                 PreviousQuantity = 220
@@ -2618,11 +3811,11 @@ namespace CFXExampleEndpoint
                 WorkOrderIdentifiers = new List<WorkOrderIdentifier>(new WorkOrderIdentifier[] {
                 new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO1122334455",
+                    WorkOrderId = "WO1122334455",
                 },
                 new WorkOrderIdentifier()
                 {
-                    WorkOrderNumber = "WO9988776666",
+                    WorkOrderId = "WO9988776666",
                     Batch = "Batch1"
                 }
 
@@ -2637,9 +3830,17 @@ namespace CFXExampleEndpoint
                 {
                     WorkOrderIdentifier = new WorkOrderIdentifier()
                     {
-                        WorkOrderNumber = "WO1122334455"
+                        WorkOrderId = "WO1122334455"
                     },
                     WorkArea = "SMT Line 1",
+                    Scheduler = new Operator()
+                    {
+                        ActorType = ActorType.Human,
+                        FirstName = "John",
+                        LastName = "Doe",
+                        LoginName = "john.doe@domain1.com",
+                        OperatorIdentifier = "BADGE4486"
+                    },
                     StartTime = new DateTime(2018,8,2,11,0,0),
                     EndTime = new DateTime(2018,8,2,15,0,0),
                     ReservedResources = new List<string>(new string[] {"L1PRINTER1","L1PLACER1","L1PLACER2","L1OVEN1"}),
@@ -2683,7 +3884,7 @@ namespace CFXExampleEndpoint
                     {
                         WorkOrderIdentifier = new WorkOrderIdentifier()
                         {
-                            WorkOrderNumber = "WO1122334455"
+                            WorkOrderId = "WO1122334455"
                         },
                         WorkArea = "SMT Line 1",
                     }

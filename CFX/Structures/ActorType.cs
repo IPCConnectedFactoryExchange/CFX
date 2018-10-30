@@ -19,6 +19,10 @@ namespace CFX.Structures
         /// <summary>
         /// A robotic / automated device is performing the operation
         /// </summary>
-        Robot
+        Robot,
+        /// <summary>
+        /// A remote system or artificial intelligence entity is performing the operation
+        /// </summary>
+        RemoteSystem
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -11,15 +12,19 @@ namespace CFX.Production
     /// {
     ///   "RecipeName": "RECIPE1234",
     ///   "Revision": "C",
-    ///   "Lane": "1",
-    ///   "Stage": "1"
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   }
     /// }
     /// </code>
     /// </summary>
     public class ActivateRecipeRequest : CFXMessage
     {
         /// <summary>
-        /// The name of the recipe
+        /// The name of the recipe. (may include full path, if applicable)
         /// </summary>
         public string RecipeName
         {
@@ -28,7 +33,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The version indicator for the recipe
+        /// The version indicator for the recipe (optional)
         /// </summary>
         public string Revision
         {
@@ -37,10 +42,10 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The optional name or number of the production lane where 
+        /// The optional number of the production lane where 
         /// the recipe should be activated
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -50,7 +55,7 @@ namespace CFX.Production
         /// The optional name or number of the stage where
         /// the recipe should be activated
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

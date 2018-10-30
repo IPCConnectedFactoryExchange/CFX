@@ -8,8 +8,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Production
 {
     /// <summary>
-    /// Used to activate a named recipe at the process endpoint. 
-    /// The response indicates whether this was successful or not.
+    /// Response to a request to activate a named recipe at the process endpoint. 
     /// <code language="none">
     /// {
     ///   "Result": {

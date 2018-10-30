@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.ResourcePerformance
 {
@@ -8,12 +9,22 @@ namespace CFX.ResourcePerformance
     /// Sent by a process endpoint when a fault is cleared as described in a FaultOccurred message  
     /// <code language="none">
     /// {
-    ///   "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368"
+    ///   "FaultOccurrenceId": "22ac3c8a-9e6d-42f8-85b2-f51bf2224ecc",
+    ///   "Operator": {
+    ///     "OperatorIdentifier": "BADGE4486",
+    ///     "ActorType": "Human",
+    ///     "LastName": "Doe",
+    ///     "FirstName": "John",
+    ///     "LoginName": "john.doe@domain1.com"
+    ///   }
     /// }
     /// </code>
     /// </summary>
     public class FaultCleared : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public FaultCleared()
         {
         }
@@ -23,6 +34,15 @@ namespace CFX.ResourcePerformance
         /// FaultOccurrenceId property of the corresponding FaultOccurred message
         /// </summary>
         public Guid FaultOccurrenceId
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The operator or entity who has cleared the fault (if known, otherwise null) (optional)
+        /// </summary>
+        public Operator Operator
         {
             get;
             set;

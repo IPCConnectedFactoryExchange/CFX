@@ -10,14 +10,15 @@ namespace CFX.Production
     /// This includes logical disqualification in the case that a unit is abandoned during manufacturing
     /// <code language="none">
     /// {
-    ///   "UnitCount": 2,
+    ///   "Reason": "DefectiveRepairNotPossible",
+    ///   "Comments": "The units were accidentally dropped, and irrepairably damaged",
     ///   "Units": [
     ///     {
     ///       "UnitIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT1",
-    ///       "X": 0.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 0.0,
     ///       "FlipX": false,
     ///       "FlipY": false
@@ -26,8 +27,8 @@ namespace CFX.Production
     ///       "UnitIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT2",
-    ///       "X": 6.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 90.0,
     ///       "FlipX": false,
     ///       "FlipY": false
@@ -38,23 +39,30 @@ namespace CFX.Production
     /// </summary>
     public class UnitsDisqualified : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public UnitsDisqualified()
         {
             Units = new List<UnitPosition>();
         }
 
         /// <summary>
-        /// The number of individual production units
+        /// The reason why these units are being disqualified (scrapped).
         /// </summary>
-        public int UnitCount
+        public DisqualificationReason Reason
         {
-            get
-            {
-                return Units.Count;
-            }
-            private set
-            {
-            }
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Additional free-form comments related to this disqualification.
+        /// </summary>
+        public string Comments
+        {
+            get;
+            set;
         }
 
         /// <summary>

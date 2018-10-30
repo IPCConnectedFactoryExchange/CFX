@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.Production
 {
@@ -10,7 +11,7 @@ namespace CFX.Production
     /// {
     ///   "RecipeName": "RECIPE3234",
     ///   "Revision": "B",
-    ///   "Lane": "1",
+    ///   "Lane": 1,
     ///   "Stage": null
     /// }
     /// </code>
@@ -18,7 +19,7 @@ namespace CFX.Production
     public class RecipeActivated : CFXMessage
     {
         /// <summary>
-        /// THe name of the recipe
+        /// THe name of the recipe (may include full path, if applicable)
         /// </summary>
         public string RecipeName
         {
@@ -27,7 +28,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Version number, e.g. “2.0”
+        /// Version number, e.g. “2.0” (Optional)
         /// </summary>
         public string Revision
         {
@@ -36,18 +37,18 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Name or number of the production lane
+        /// Number of the production lane (if applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Name or number of the stage
+        /// An optional stage
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

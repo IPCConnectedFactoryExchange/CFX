@@ -11,6 +11,8 @@ namespace CFX.Production
     /// for example MSD expiry of an SMT material.
     /// <code language="none">
     /// {
+    ///   "Reason": "ExpiredMaterial",
+    ///   "Comments": "MSD Material Has Expired",
     ///   "Locations": [
     ///     {
     ///       "LocationIdentifier": "23143433",
@@ -33,6 +35,24 @@ namespace CFX.Production
         public BlockMaterialLocationsRequest()
         {
             Locations = new List<MaterialLocation>();
+        }
+
+        /// <summary>
+        /// An enumeration indicating the reason for the block.
+        /// </summary>
+        public BlockReason Reason
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Free form comments indicating additional information about this block event.
+        /// </summary>
+        public string Comments
+        {
+            get;
+            set;
         }
 
         /// <summary>

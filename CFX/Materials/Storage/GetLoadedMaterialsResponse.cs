@@ -42,8 +42,8 @@ namespace CFX.Materials.Storage
     ///         "BaseUniqueIdentifier": "123334",
     ///         "BaseName": null,
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Adjustable",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 8.0,
     ///         "UniqueIdentifier": "1233334",
     ///         "Name": "TAPEFEEDER8mm1233334"
     ///       }

@@ -37,8 +37,8 @@ namespace CFX.Materials.Storage
     ///         "BaseUniqueIdentifier": "123334",
     ///         "BaseName": null,
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Adjustable",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 8.0,
     ///         "UniqueIdentifier": "1233334",
     ///         "Name": "TAPEFEEDER8mm1233334"
     ///       }
@@ -56,8 +56,8 @@ namespace CFX.Materials.Storage
     ///         "BaseUniqueIdentifier": "123335",
     ///         "BaseName": "MULTILANEFEEDER123335",
     ///         "LaneNumber": 1,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Adjustable",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 4.0,
     ///         "UniqueIdentifier": "1233335A",
     ///         "Name": "TAPEFEEDER8mm1233335A"
     ///       }
@@ -75,8 +75,8 @@ namespace CFX.Materials.Storage
     ///         "BaseUniqueIdentifier": "123335",
     ///         "BaseName": "MULTILANEFEEDER123335",
     ///         "LaneNumber": 2,
-    ///         "Width": "Tape8mm",
-    ///         "Pitch": "Adjustable",
+    ///         "TapeWidth": 8.0,
+    ///         "TapePitch": 4.0,
     ///         "UniqueIdentifier": "1233335B",
     ///         "Name": "TAPEFEEDER8mm1233335B"
     ///       }

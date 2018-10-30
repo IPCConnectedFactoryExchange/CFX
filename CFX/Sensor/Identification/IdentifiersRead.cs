@@ -20,21 +20,21 @@ namespace CFX.Sensor.Identification
     ///   "PrimaryIdentifier": "CARRIER21342",
     ///   "Units": [
     ///     {
-    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "UnitIdentifier": "CARRIER21342",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT1",
-    ///       "X": 0.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 0.0,
     ///       "FlipX": false,
     ///       "FlipY": false
     ///     },
     ///     {
-    ///       "UnitIdentifier": "CARRIER5566",
-    ///       "PositionNumber": 1,
+    ///       "UnitIdentifier": "CARRIER21342",
+    ///       "PositionNumber": 2,
     ///       "PositionName": "CIRCUIT2",
-    ///       "X": 6.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 90.0,
     ///       "FlipX": false,
     ///       "FlipY": false

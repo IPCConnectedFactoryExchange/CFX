@@ -15,7 +15,11 @@ namespace CFX.Production
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
-    ///   "Stage": "1",
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
     ///   "Result": "Completed"
     /// }
     /// </code>
@@ -34,7 +38,7 @@ namespace CFX.Production
         /// <summary>
         /// The stage name or number
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

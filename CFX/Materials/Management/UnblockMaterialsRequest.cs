@@ -26,7 +26,7 @@ namespace CFX.Materials.Management
     /// }
     /// </code>
     /// </summary>
-    class UnblockMaterialsRequest : CFXMessage
+    public class UnblockMaterialsRequest : CFXMessage
     {
         public UnblockMaterialsRequest()
         {
@@ -52,7 +52,7 @@ namespace CFX.Materials.Management
         }
 
         /// <summary>
-        /// The person responsible for removing the block
+        /// The person responsible for removing the block (optional)
         /// </summary>
         public Operator Unblocker
         {

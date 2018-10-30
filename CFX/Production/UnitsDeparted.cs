@@ -16,8 +16,8 @@ namespace CFX.Production
     ///       "UnitIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT1",
-    ///       "X": 0.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 0.0,
     ///       "FlipX": false,
     ///       "FlipY": false
@@ -26,8 +26,8 @@ namespace CFX.Production
     ///       "UnitIdentifier": "CARRIER5566",
     ///       "PositionNumber": 1,
     ///       "PositionName": "CIRCUIT2",
-    ///       "X": 6.254,
-    ///       "Y": 0.556,
+    ///       "X": 50.45,
+    ///       "Y": 80.66,
     ///       "Rotation": 90.0,
     ///       "FlipX": false,
     ///       "FlipY": false
@@ -59,7 +59,8 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// List of structures that identify each specific instance of production unit that departed (could be within a carrier or panel). 
+        /// An optional list of structures that identify each specific instance of production unit that arrived (if known).
+        /// Could be individual units, or within a carrier, panel, etc. 
         /// </summary>
         public List<UnitPosition> Units
         {

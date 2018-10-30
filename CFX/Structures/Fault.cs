@@ -60,7 +60,7 @@ namespace CFX.Structures
         /// <summary>
         /// The production lane related to this fault (if applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -69,7 +69,7 @@ namespace CFX.Structures
         /// <summary>
         /// The production stage related to this fualt (if applicable)
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;

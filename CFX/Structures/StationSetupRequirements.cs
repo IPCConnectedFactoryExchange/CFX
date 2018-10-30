@@ -15,12 +15,13 @@ namespace CFX.Structures
         public StationSetupRequirements()
         {
             MaterialSetupRequirements = new List<MaterialSetupRequirement>();
+            ToolSetupRequirements = new List<ToolSetupRequirement>();
         }
 
         /// <summary>
         /// The production lane to which this setup applies (when applicable)
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -29,7 +30,7 @@ namespace CFX.Structures
         /// <summary>
         /// The stage to which this setup applies (when applicable)
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;
@@ -46,6 +47,7 @@ namespace CFX.Structures
 
         /// <summary>
         /// A list of the materials that need to be installed / loaded at the process endpoint
+        /// to perform a particular process.
         /// </summary>
         public List<MaterialSetupRequirement> MaterialSetupRequirements
         {
@@ -53,5 +55,14 @@ namespace CFX.Structures
             private set;
         }
 
+        /// <summary>
+        /// A list of the tools (heads, nozzels, hammers, wrenches, etc.) that need to be installed / loaded at the 
+        /// process endpoint to perform a particular process.
+        /// </summary>
+        public List<ToolSetupRequirement> ToolSetupRequirements
+        {
+            get;
+            private set;
+        }
     }
 }

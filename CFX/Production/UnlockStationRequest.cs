@@ -17,9 +17,8 @@ namespace CFX.Production
     ///   "Lane": null,
     ///   "Stage": null,
     ///   "Requestor": {
-    ///     "OperatorIdentifier": "60d8e5c1-ca23-48c6-b56a-3572723176bd",
+    ///     "OperatorIdentifier": "71926954-6b23-4f83-a5b4-ed7ef8cc226d",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"
@@ -29,18 +28,27 @@ namespace CFX.Production
     /// </summary>
     public class UnlockStationRequest : CFXMessage
     {
-        public string Lane
+        /// <summary>
+        /// An optional production lane.  When specified, only that production lane shall be unlocked.
+        /// </summary>
+        public int? Lane
         {
             get;
             set;
         }
 
-        public string Stage
+        /// <summary>
+        /// An optional stage designating the particular production stage to be unlocked
+        /// </summary>
+        public Stage Stage
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Information about the operator who is requesting that the stage be unlocked. (optional)
+        /// </summary>
         public Operator Requestor
         {
             get;

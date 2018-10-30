@@ -9,17 +9,16 @@ namespace CFX.Materials.Transport
     /// Sent when a transport order has arrived at its final destination.
     /// <code language="none">
     /// {
-    ///   "TransportOrderNumber": "TR329483249830000",
+    ///   "TransportOrderId": "TR329483249830000",
     ///   "Comments": "Received at Line 1",
     ///   "AcceptedBy": {
-    ///     "OperatorIdentifier": "b776aee6-0462-4a7d-9976-158a342f898c",
+    ///     "OperatorIdentifier": "BADGE4487",
     ///     "ActorType": "Human",
-    ///     "FullName": "Mike Dolittle",
     ///     "LastName": "Dolittle",
     ///     "FirstName": "Mike",
     ///     "LoginName": "mike.dolittle@domain1.com"
     ///   },
-    ///   "RelatedWorkOrderNumber": "WO2384702937403280032",
+    ///   "RelatedWorkOrderId": "WO2384702937403280032",
     ///   "FinalDestination": "LINE 1"
     /// }
     /// </code>
@@ -29,7 +28,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The order number of the related transport order
         /// </summary>
-        public string TransportOrderNumber
+        public string TransportOrderId
         {
             get;
             set;
@@ -45,7 +44,7 @@ namespace CFX.Materials.Transport
         }
 
         /// <summary>
-        /// The operator who accepted the delivery, and recorded the arrival
+        /// The operator who accepted the delivery, and recorded the arrival (optional)
         /// </summary>
         public Operator AcceptedBy
         {
@@ -56,7 +55,7 @@ namespace CFX.Materials.Transport
         /// <summary>
         /// The related production work order number (where applicable)
         /// </summary>
-        public string RelatedWorkOrderNumber
+        public string RelatedWorkOrderId
         {
             get;
             set;

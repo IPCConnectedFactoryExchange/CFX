@@ -17,13 +17,16 @@ namespace CFX.Production
     /// has stopped.
     /// <code language="none">
     /// {
-    ///   "Lane": "1",
-    ///   "Stage": "5",
+    ///   "Lane": 1,
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
     ///   "Reason": "QualityIssue",
     ///   "Requestor": {
-    ///     "OperatorIdentifier": "bdcb4098-4645-4342-b85d-65a64c52393e",
+    ///     "OperatorIdentifier": "e4d92c77-6a19-4d1e-8c2a-b2b217f59a44",
     ///     "ActorType": "Human",
-    ///     "FullName": "Bill Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Bill",
     ///     "LoginName": "bill.smith@domain1.com"
@@ -36,7 +39,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional production lane.  When specified, only that production lane shall be locked.
         /// </summary>
-        public string Lane
+        public int? Lane
         {
             get;
             set;
@@ -45,7 +48,7 @@ namespace CFX.Production
         /// <summary>
         /// An optional stage.  When specified, only that stage shall be locked.
         /// </summary>
-        public string Stage
+        public Stage Stage
         {
             get;
             set;
@@ -61,7 +64,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Identifies the originator of the request.
+        /// Identifies the originator of the request. (optional)
         /// </summary>
         public Operator Requestor
         {

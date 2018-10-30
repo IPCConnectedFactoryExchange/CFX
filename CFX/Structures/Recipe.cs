@@ -11,7 +11,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The name of the recipe
+        /// The name of the recipe (may include full path, if applicable)
         /// </summary>
         public string Name
         {
@@ -20,7 +20,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Version number, e.g. “2.0”
+        /// An optional version number, e.g. “2.0”
         /// </summary>
         public string Revision
         {

@@ -14,12 +14,11 @@ namespace CFX.Production.TestAndInspection
     /// <para>Example 1 (In-Circuit Test of 2 Circuit PCB Panel):</para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "2d1bacac-c923-4c38-815c-208685bbe319",
+    ///   "TransactionId": "c16bb3f4-8088-4697-b789-80faec48ac5a",
     ///   "TestMethod": "Automated",
     ///   "Tester": {
-    ///     "OperatorIdentifier": "UID235434324",
+    ///     "OperatorIdentifier": "BADGE489499",
     ///     "ActorType": "Human",
-    ///     "FullName": "Joseph Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Joseph",
     ///     "LoginName": "joseph.smith@abcdrepairs.com"
@@ -36,7 +35,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Tests": [
     ///         {
-    ///           "UniqueIdentifier": "0e17d9c7-9137-47fb-bddb-816aee913285",
+    ///           "UniqueIdentifier": "01aed4e8-fd87-46a4-a62e-57b51f2ee20f",
     ///           "TestName": "RESISTANCE_CHECK_R21",
     ///           "TestStartTime": null,
     ///           "TestEndTime": null,
@@ -58,23 +57,17 @@ namespace CFX.Production.TestAndInspection
     ///                 "MinimumAcceptableValue": 28.0,
     ///                 "MaximumAcceptableValue": 28.4
     ///               },
-    ///               "UniqueIdentifier": "a41473f0-81f5-4b2e-8e67-e8c2daf0afd6",
+    ///               "UniqueIdentifier": "e7398b02-e649-4918-96b8-c426629b6762",
     ///               "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": [
-    ///                 {
-    ///                   "ReferenceDesignator": "R21",
-    ///                   "UnitPosition": null,
-    ///                   "PartNumber": "41234-8897"
-    ///                 }
-    ///               ]
+    ///               "CRDs": "R21"
     ///             }
     ///           ]
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "5e7654ce-d62e-43a6-b90d-879af1ad98ca",
+    ///           "UniqueIdentifier": "f0f075ab-baef-4a4d-9264-2d2f2948e0fe",
     ///           "TestName": "RESISTANCE_CHECK_R22",
     ///           "TestStartTime": null,
     ///           "TestEndTime": null,
@@ -85,7 +78,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Error": null,
     ///           "SymptomsFound": [
     ///             {
-    ///               "UniqueIdentifier": "98d7a62e-b411-4e68-b788-40ec6cf4b970",
+    ///               "UniqueIdentifier": "4db5cb60-140c-41ba-9a27-116dfe3a12cd",
     ///               "SymptomCode": "RESFAIL2",
     ///               "SymptomCategory": "Electrical Tests",
     ///               "Description": "Resistance Value Out of Tolerance",
@@ -115,18 +108,12 @@ namespace CFX.Production.TestAndInspection
     ///                     "MinimumAcceptableValue": 28.0,
     ///                     "MaximumAcceptableValue": 28.4
     ///                   },
-    ///                   "UniqueIdentifier": "9f3021f9-dd6e-4cae-955e-014a46d9e665",
+    ///                   "UniqueIdentifier": "3092cb6b-2e90-4ede-b9de-c421e16ae18b",
     ///                   "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
     ///                   "TimeRecorded": null,
     ///                   "Sequence": 0,
     ///                   "Result": "Passed",
-    ///                   "Components": [
-    ///                     {
-    ///                       "ReferenceDesignator": "R22",
-    ///                       "UnitPosition": null,
-    ///                       "PartNumber": "41234-8897"
-    ///                     }
-    ///                   ]
+    ///                   "CRDs": "R22"
     ///                 }
     ///               ]
     ///             }
@@ -142,7 +129,7 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Tests": [
     ///         {
-    ///           "UniqueIdentifier": "68a2dd81-171c-4184-8de0-ec7aeaf76b49",
+    ///           "UniqueIdentifier": "f9127a3a-f349-40f1-9475-e87b83d46ed5",
     ///           "TestName": "RESISTANCE_CHECK_R21",
     ///           "TestStartTime": null,
     ///           "TestEndTime": null,
@@ -164,23 +151,17 @@ namespace CFX.Production.TestAndInspection
     ///                 "MinimumAcceptableValue": 28.0,
     ///                 "MaximumAcceptableValue": 28.4
     ///               },
-    ///               "UniqueIdentifier": "ad809cbc-75cb-4ff0-8bbf-98ea000d104d",
+    ///               "UniqueIdentifier": "12d217c0-1a15-48dd-9b05-ed5cfaaa87f0",
     ///               "MeasurementName": "RESISTANCE_MEASUREMENT_R21",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": [
-    ///                 {
-    ///                   "ReferenceDesignator": "R21",
-    ///                   "UnitPosition": null,
-    ///                   "PartNumber": "41234-8897"
-    ///                 }
-    ///               ]
+    ///               "CRDs": "R21"
     ///             }
     ///           ]
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "dd6478ae-0b30-4a7f-a3f7-2ec0ff2e4b9b",
+    ///           "UniqueIdentifier": "8eebcda8-dbfa-40b3-b963-36c8c6f979b3",
     ///           "TestName": "RESISTANCE_CHECK_R22",
     ///           "TestStartTime": null,
     ///           "TestEndTime": null,
@@ -202,18 +183,12 @@ namespace CFX.Production.TestAndInspection
     ///                 "MinimumAcceptableValue": 28.0,
     ///                 "MaximumAcceptableValue": 28.4
     ///               },
-    ///               "UniqueIdentifier": "36117d8e-718f-4750-b97f-e4d1e488ceb3",
+    ///               "UniqueIdentifier": "787600e1-fd83-49c5-a2d5-8e3e6e4b3b28",
     ///               "MeasurementName": "RESISTANCE_MEASUREMENT_R22",
     ///               "TimeRecorded": null,
     ///               "Sequence": 0,
     ///               "Result": "Passed",
-    ///               "Components": [
-    ///                 {
-    ///                   "ReferenceDesignator": "R22",
-    ///                   "UnitPosition": null,
-    ///                   "PartNumber": "41234-8897"
-    ///                 }
-    ///               ]
+    ///               "CRDs": "R22"
     ///             }
     ///           ]
     ///         }
@@ -225,12 +200,11 @@ namespace CFX.Production.TestAndInspection
     /// <para>Example 2 (Burn-in / Hot / Cold Test of Final Production Unit):</para>
     /// <code language="none">
     /// {
-    ///   "TransactionId": "5dbbe5f6-2b53-4584-a893-229195954789",
+    ///   "TransactionId": "1b3524e0-fd4f-4bd8-93a7-992d12bdb418",
     ///   "TestMethod": "Automated",
     ///   "Tester": {
-    ///     "OperatorIdentifier": "UID235434324",
+    ///     "OperatorIdentifier": "BADGE489499",
     ///     "ActorType": "Human",
-    ///     "FullName": "Joseph Smith",
     ///     "LastName": "Smith",
     ///     "FirstName": "Joseph",
     ///     "LoginName": "joseph.smith@abcdrepairs.com"
@@ -247,10 +221,10 @@ namespace CFX.Production.TestAndInspection
     ///       "OverallResult": "Passed",
     ///       "Tests": [
     ///         {
-    ///           "UniqueIdentifier": "5a94739f-2ad1-423e-b5b2-25601a7e54c0",
+    ///           "UniqueIdentifier": "5de9b7e9-9c7c-4e88-9d40-07c7618248a2",
     ///           "TestName": "HOT_TEST",
-    ///           "TestStartTime": "2018-03-29T13:52:29.6931932-04:00",
-    ///           "TestEndTime": "2018-03-29T13:53:01.6931932-04:00",
+    ///           "TestStartTime": "2018-10-03T16:02:33.2831984-04:00",
+    ///           "TestEndTime": "2018-10-03T16:03:05.2842009-04:00",
     ///           "TestConditions": [
     ///             {
     ///               "$type": "CFX.Structures.Temperature, CFX",
@@ -280,10 +254,10 @@ namespace CFX.Production.TestAndInspection
     ///           "Measurements": []
     ///         },
     ///         {
-    ///           "UniqueIdentifier": "52bb3411-62f1-434a-a3f1-5e44d1484b9e",
+    ///           "UniqueIdentifier": "c2668251-aaba-4ceb-a584-55e8b10f0de1",
     ///           "TestName": "COLD_TEST",
-    ///           "TestStartTime": "2018-03-29T13:52:29.6941918-04:00",
-    ///           "TestEndTime": "2018-03-29T13:53:01.6941918-04:00",
+    ///           "TestStartTime": "2018-10-03T16:02:33.2842009-04:00",
+    ///           "TestEndTime": "2018-10-03T16:03:05.2842009-04:00",
     ///           "TestConditions": [
     ///             {
     ///               "$type": "CFX.Structures.Temperature, CFX",
@@ -347,7 +321,7 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
-        /// Identifies the person who performed the test, or operator of the automated equipment that performed the test.
+        /// Identifies the person who performed the test, or operator of the automated equipment that performed the test. (optional)
         /// </summary>
         public Operator Tester
         {
