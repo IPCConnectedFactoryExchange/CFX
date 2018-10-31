@@ -32,6 +32,7 @@ using CFX.ResourcePerformance.THTInsertion;
 using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
+using CFX.Structures.ReflowProfiling;
 
 namespace CFXExampleEndpoint
 {
@@ -3455,7 +3456,8 @@ namespace CFXExampleEndpoint
 
             AppendMessage(msg, ref result);
 
-
+            List<ReflowZoneData> zoneData = (((msg as UnitsProcessed).CommonProcessData) as ReflowProcessData).ZoneData;
+            
             msg = new UnitsProcessed()
             {
                 TransactionId = Guid.NewGuid(),
@@ -3518,6 +3520,31 @@ namespace CFXExampleEndpoint
 
                 }),
 
+            };
+
+            AppendMessage(msg, ref result);
+
+
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                CommonProcessData = new ReflowProfilingProcessData()
+                {
+                    Barcode = "CARRIER55678",
+                    ConveyorSpeedSetpoint = 100,
+                    MeasuredConveyorSpeed = 102.3,
+                    Lane = 1,
+                    OvenName = "Oven1",
+                    LotID = "Lot5564",
+                    ProductName = "Product1",
+                    RecipeName = "Recipe1",
+                    ProcessWindowName = "ProcessWindow001",
+                    Result = TestResult.Passed,
+                    TimeDateUnitIn = DateTime.Now,
+                    TimeDateUnitOut = DateTime.Now + TimeSpan.FromSeconds(82),
+                    ProductionUnitPWI = 89.6,
+                    ZoneData = zoneData
+                },
             };
 
             AppendMessage(msg, ref result);

@@ -29,7 +29,7 @@ namespace CFX.Structures.SolderReflow
         }
 
         /// <summary>
-        /// The convery speed setpoint (in cm / minute)
+        /// The converyor speed setpoint (in cm / minute)
         /// </summary>
         public double ConveyorSpeedSetpoint
         {

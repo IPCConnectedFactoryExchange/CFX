@@ -21,6 +21,9 @@ namespace CFX.Structures.SolderReflow
             set;
         }
 
+        /// <summary>
+        /// An enumeration describing the type of reading.
+        /// </summary>
         public ReflowReadingType ReadingType
         {
             get;
