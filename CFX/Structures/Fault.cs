@@ -20,7 +20,7 @@ namespace CFX.Structures
             Severity = FaultSeverity.Information;
             FaultOccurrenceId = Guid.NewGuid();
             AccessType = AccessType.Unknown;
-            Created = DateTime.Now;
+            OccurredAt = DateTime.Now;
             SideLocation = SideLocation.Unknown;
             DescriptionTranslations = new Dictionary<string, string>();
         }
@@ -140,9 +140,9 @@ namespace CFX.Structures
 
 
         /// <summary>
-        /// The date / time when this fault was created on the equipment
+        /// The date / time when this fault occurred created on the equipment
         /// </summary>
-        public DateTime Created
+        public DateTime OccurredAt
         {
             get;
             set;

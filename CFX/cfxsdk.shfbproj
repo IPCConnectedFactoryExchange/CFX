@@ -390,6 +390,18 @@
   <Filter entryType="Class" fullName="CFX.ResourcePerformance.FaultOccurred" filterName="FaultOccurred" isExposed="False">
     <Filter entryType="Property" fullName="CFX.ResourcePerformance.FaultOccurred.Fault" filterName="Fault" isExposed="True" />
   </Filter>
+  <Filter entryType="Class" fullName="CFX.ResourcePerformance.GetActiveFaultsRequest" filterName="GetActiveFaultsRequest" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.GetActiveFaultsRequest.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.ResourcePerformance.GetActiveFaultsResponse" filterName="GetActiveFaultsResponse" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.GetActiveFaultsResponse.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.ResourcePerformance.HandleFaultRequest" filterName="HandleFaultRequest" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.HandleFaultRequest.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+  <Filter entryType="Class" fullName="CFX.ResourcePerformance.HandleFaultResponse" filterName="HandleFaultResponse" isExposed="False">
+    <Filter entryType="Property" fullName="CFX.ResourcePerformance.HandleFaultResponse.Result" filterName="Result" isExposed="True" />
+  </Filter>
   <Filter entryType="Class" fullName="CFX.ResourcePerformance.LogEntryRecorded" filterName="LogEntryRecorded" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.ResourcePerformance.LogEntryRecorded.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
@@ -742,6 +754,11 @@
   </Filter>
   <Filter entryType="Class" fullName="CFX.Structures.PressInsertion.SPC" filterName="SPC" isExposed="True">
     <Filter entryType="Constructor" fullName="CFX.Structures.PressInsertion.SPC.#ctor" filterName=".ctor" isExposed="False" />
+  </Filter>
+</Filter>
+<Filter entryType="Namespace" fullName="CFX.Structures.ReflowProfiling" isExposed="True">
+  <Filter entryType="Class" fullName="CFX.Structures.ReflowProfiling.ReflowProfilingProcessData" filterName="ReflowProfilingProcessData" isExposed="True">
+    <Filter entryType="Constructor" fullName="CFX.Structures.ReflowProfiling.ReflowProfilingProcessData.#ctor" filterName=".ctor" isExposed="False" />
   </Filter>
 </Filter>
 <Filter entryType="Namespace" fullName="CFX.Structures.SMTPlacement" isExposed="True">

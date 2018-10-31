@@ -3937,7 +3937,7 @@ namespace CFXExampleEndpoint
                         Severity = FaultSeverity.Error,
                         FaultCode = "ERROR 3943480",
                         AccessType = AccessType.Remote,
-                        Created = DateTime.Now,
+                        OccurredAt = DateTime.Now,
                         Description = "PCB Transport is blocked",
                         DescriptionTranslations = new  Dictionary<string, string>()
                         {
@@ -3953,7 +3953,7 @@ namespace CFXExampleEndpoint
                         Severity = FaultSeverity.Error,
                         FaultCode = "ERROR 3943555",
                         AccessType = AccessType.Local,
-                        Created = DateTime.Now,
+                        OccurredAt = DateTime.Now,
                         Description = "PCB Transport is blocked",
                         DescriptionTranslations = new  Dictionary<string, string>()
                         {

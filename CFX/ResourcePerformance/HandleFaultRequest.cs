@@ -12,6 +12,12 @@ namespace CFX.ResourcePerformance
     /// Basically the fault should be handled remotly and no  operator should be guided by the equipment itself to handle
     /// this fault locally on the equipment. 
     /// <see cref="HandleFaultResponse"/> message that it sends back to the requester.
+    /// <code language="none">
+    /// {
+    ///   "FaultOccurrenceId": "5f643ff3-8928-4079-af7f-926bcafb13f8",
+    ///   "HandleRemote": true
+    /// }
+    /// </code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class HandleFaultRequest : CFXMessage

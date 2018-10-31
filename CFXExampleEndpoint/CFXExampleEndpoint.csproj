@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CFX">
-      <HintPath>..\CFX\bin\netstandard1.6\CFX.dll</HintPath>
+      <HintPath>..\CFX\bin\net46\CFX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

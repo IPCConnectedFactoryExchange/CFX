@@ -28,7 +28,7 @@ namespace CFX.Structures.Coating
             set
             {
                 measurementType = value;
-                if (MeasurementName == null && value != null) MeasurementName = value.ToString();
+                if (MeasurementName == null) MeasurementName = value.ToString();
             }
         }
 

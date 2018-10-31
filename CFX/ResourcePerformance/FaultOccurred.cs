@@ -9,19 +9,28 @@ namespace CFX.ResourcePerformance
     /// <summary>
     /// <para>Sent by a process endpoint whenever a fault is encountered. A data structure must be included in the message related to specific equipment type.</para>
     /// <para>Generic Fault Example:</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "Fault": {
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 3943480",
-    ///     "FaultOccurrenceId": "731ce619-7e80-4bf0-bb82-2985a9fa7368",
+    ///     "FaultOccurrenceId": "ea170e0a-43fb-4b02-af2c-928a8401dd51",
     ///     "Lane": null,
-    ///     "Stage": null
+    ///     "Stage": null,
+    ///     "SideLocation": "Unknown",
+    ///     "AccessType": "Unknown",
+    ///     "Description": null,
+    ///     "DescriptionTranslations": {},
+    ///     "OccurredAt": "2018-10-31T15:13:31.0083597-04:00",
+    ///     "DueDateTime": null
     ///   }
     /// }
     /// </code>
+    /// <para></para>
     /// <para>SMT Placement Fault Example:</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "Fault": {
@@ -62,7 +71,7 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 3943480",
-    ///     "FaultOccurrenceId": "96801857-3979-45af-bf4a-015730a1e742",
+    ///     "FaultOccurrenceId": "a5c05bdc-41a3-4e50-b421-b084eb12ba2b",
     ///     "Lane": 1,
     ///     "Stage": {
     ///       "StageSequence": 2,
@@ -70,7 +79,11 @@ namespace CFX.ResourcePerformance
     ///       "StageType": "Work"
     ///     },
     ///     "SideLocation": "Unknown",
-    ///     "AccessType": "Unknown"
+    ///     "AccessType": "Unknown",
+    ///     "Description": null,
+    ///     "DescriptionTranslations": {},
+    ///     "OccurredAt": "2018-10-31T15:13:31.0552292-04:00",
+    ///     "DueDateTime": null
     ///   }
     /// }
     /// </code>
@@ -108,7 +121,7 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 3943480",
-    ///     "FaultOccurrenceId": "6367fdee-232c-4976-9254-6ea8861f516e",
+    ///     "FaultOccurrenceId": "cdc5d80e-bd0a-4b3b-9d85-9084b23f95e5",
     ///     "Lane": 1,
     ///     "Stage": {
     ///       "StageSequence": 1,
@@ -116,11 +129,17 @@ namespace CFX.ResourcePerformance
     ///       "StageType": "Work"
     ///     },
     ///     "SideLocation": "Unknown",
-    ///     "AccessType": "Unknown"
+    ///     "AccessType": "Unknown",
+    ///     "Description": null,
+    ///     "DescriptionTranslations": {},
+    ///     "OccurredAt": "2018-10-31T15:13:31.0708549-04:00",
+    ///     "DueDateTime": null
     ///   }
     /// }
     /// </code>
+    /// <para></para>
     /// <para>Solder Paste Printing Fault Example:</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "Fault": {
@@ -129,7 +148,7 @@ namespace CFX.ResourcePerformance
     ///     "Cause": "MechanicalFailure",
     ///     "Severity": "Error",
     ///     "FaultCode": "ERROR 234333",
-    ///     "FaultOccurrenceId": "024f9e24-7e4f-4eb7-8ab1-2e16a74891fa",
+    ///     "FaultOccurrenceId": "1610b591-eba0-4d30-b56e-89fdc94f865e",
     ///     "Lane": 1,
     ///     "Stage": {
     ///       "StageSequence": 1,
@@ -137,7 +156,11 @@ namespace CFX.ResourcePerformance
     ///       "StageType": "Work"
     ///     },
     ///     "SideLocation": "Unknown",
-    ///     "AccessType": "Unknown"
+    ///     "AccessType": "Unknown",
+    ///     "Description": null,
+    ///     "DescriptionTranslations": {},
+    ///     "OccurredAt": "2018-10-31T15:13:31.1021044-04:00",
+    ///     "DueDateTime": null
     ///   }
     /// }
     /// </code>
@@ -145,6 +168,9 @@ namespace CFX.ResourcePerformance
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class FaultOccurred : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public FaultOccurred()
         {
             Fault = new Fault();
