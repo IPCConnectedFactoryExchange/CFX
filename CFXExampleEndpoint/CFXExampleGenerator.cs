@@ -3920,6 +3920,66 @@ namespace CFXExampleEndpoint
 
             AppendMessage(msg, ref result);
 
+
+            msg = new GetActiveFaultsRequest()
+            {
+                
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetActiveFaultsResponse()
+            {
+                ActiveFaults = new List<Fault>()
+                {
+                    new Fault()
+                    {
+                        Cause = FaultCause.MechanicalFailure,
+                        Severity = FaultSeverity.Error,
+                        FaultCode = "ERROR 3943480",
+                        AccessType = AccessType.Remote,
+                        Created = DateTime.Now,
+                        Description = "PCB Transport is blocked",
+                        DescriptionTranslations = new  Dictionary<string, string>()
+                        {
+                            { "de-DE", "Der Leiterplattentransport ist blockiert"}
+                        },
+                        DueDateTime = DateTime.Now.AddHours(3),
+                        SideLocation = SideLocation.Right,
+                        FaultOccurrenceId = Guid.NewGuid()
+                    },
+                    new Fault()
+                    {
+                        Cause = FaultCause.LoadError,
+                        Severity = FaultSeverity.Error,
+                        FaultCode = "ERROR 3943555",
+                        AccessType = AccessType.Local,
+                        Created = DateTime.Now,
+                        Description = "PCB Transport is blocked",
+                        DescriptionTranslations = new  Dictionary<string, string>()
+                        {
+                            { "de-DE", "Der Leiterplattentransport ist blockiert"}
+                        },
+                        DueDateTime = DateTime.Now.AddHours(3),
+                        SideLocation = SideLocation.Right,
+                        FaultOccurrenceId = Guid.NewGuid()
+                }
+
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new HandleFaultRequest()
+            {
+                FaultOccurrenceId = Guid.NewGuid(),
+                HandleRemote = true
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new HandleFaultResponse()
+            {
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
     }
