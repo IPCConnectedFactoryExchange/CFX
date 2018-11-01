@@ -458,6 +458,7 @@ namespace CFX.Transport
     }
 
     public delegate void CFXMessageReceivedHandler(AmqpChannelAddress source, CFXEnvelope message);
+    public delegate void CFXMessageReceivedFromListenerHandler(string targetAddress, CFXEnvelope message);
     public delegate ValidateCertificateResult ValidateServerCertificateHandler(Uri source, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors);
     
     public enum AuthenticationMode

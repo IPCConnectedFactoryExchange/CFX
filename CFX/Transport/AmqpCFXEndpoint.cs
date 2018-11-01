@@ -43,6 +43,7 @@ namespace CFX.Transport
 
         public event OnRequestHandler OnRequestReceived;
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
+        public event CFXMessageReceivedFromListenerHandler OnCFXMessageReceivedFromListener;
         public event ValidateServerCertificateHandler OnValidateCertificate;
 
         /// <summary>
@@ -142,6 +143,7 @@ namespace CFX.Transport
                     requestProcessor = new AmqpRequestProcessor();
                     requestProcessor.Open(this.CFXHandle, this.RequestUri, certificate);
                     requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
+                    requestProcessor.OnMessageReceivedFromListener += RequestProcessor_OnCFXMessageReceivedFromListener;
                 }
 
                 IsOpen = true;
@@ -217,7 +219,7 @@ namespace CFX.Transport
             AmqpConnection channel = null;
             if (channels.ContainsKey(key))
             {
-                channel = channels[key];
+                while (!channels.TryRemove(key, out channel)) Task.Yield();
                 channel.RemoveChannel(address);
             }
             else
@@ -268,13 +270,27 @@ namespace CFX.Transport
             AmqpConnection channel = null;
             if (channels.ContainsKey(key))
             {
-                channel = channels[key];
+                while (!channels.TryRemove(key, out channel)) Task.Yield();
                 channel.RemoveChannel(address);
             }
             else
             {
                 throw new ArgumentException("The specified channel does not exist.");
             }
+        }
+
+        public void AddListener(string targetAddress)
+        {
+            if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to receive messages on a listener.");
+
+            requestProcessor.AddListener(targetAddress);
+        }
+
+        public void CloseListener(string targetAddress)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to open or close a listener.");
+            requestProcessor.RemoveListener(targetAddress);
         }
 
         private void Channel_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
@@ -296,6 +312,11 @@ namespace CFX.Transport
         {
             if (OnRequestReceived != null) return OnRequestReceived(request);
             return null;
+        }
+
+        private void RequestProcessor_OnCFXMessageReceivedFromListener(string targetAddress, CFXEnvelope message)
+        {
+            if (OnCFXMessageReceivedFromListener != null) OnCFXMessageReceivedFromListener(targetAddress, message);
         }
 
         public void Close()
@@ -416,6 +437,11 @@ namespace CFX.Transport
                         {
                             factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
                             factory.SASL.Profile = SaslProfile.External;
+                        }
+
+                        if (string.IsNullOrWhiteSpace(targetAddress.UserInfo))
+                        {
+                            factory.SASL.Profile = SaslProfile.Anonymous;
                         }
 
                         reqConn = factory.CreateAsync(new Address(targetAddress.ToString())).Result;
