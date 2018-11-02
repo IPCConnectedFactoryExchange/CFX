@@ -71,6 +71,19 @@ namespace CFX.Transport
             set;
         }
 
+        public int TotalSpoolSize
+        {
+            get
+            {
+                return links.OfType<AmqpSenderLink>().Sum(l => l.Queue.Count);
+            }
+        }
+
+        public int GetSpoolSize(string address)
+        {
+            return links.OfType<AmqpSenderLink>().Where(l => l.Address.ToUpper() == address.ToUpper()).Sum(l => l.Queue.Count);
+        }
+
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
         public event ValidateServerCertificateHandler OnValidateCertificate;
 
@@ -123,7 +136,10 @@ namespace CFX.Transport
 
                         Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
                         t.Wait(5000);
-                        if (t.IsCanceled) throw new Exception("Timeout on CreateAsync");
+                        if (t.IsCanceled)
+                        {
+                            throw new Exception("Timeout on CreateAsync");
+                        }
 
                         connection = t.Result;
                     }
@@ -192,11 +208,21 @@ namespace CFX.Transport
             EnsureConnection();
         }
 
+        private AmqpLink FindLink(IAmqpObject o)
+        {
+            AmqpLink result = null;
+            if (o is SenderLink) result = links.Where(l => l.Address == (o as SenderLink).Name).FirstOrDefault();
+            if (o is ReceiverLink) result = links.Where(l => l.Address == (o as ReceiverLink).Name).FirstOrDefault();
+            return result;
+        }
+
         private void AmqpObject_Closed(IAmqpObject sender, Error error)
         {
             if (error != null)
             {
+                PostConnectionEvent(ConnectionEvent.ConnectionInterrupted, new Exception(error.ToString()));
                 AppLog.Error(string.Format("Connection LOST to endpoint {0}.\r\n\r\n{1}", NetworkUri.ToString(), error.ToString()));
+                Close();
                 EnsureConnection();
             }
         }
@@ -208,6 +234,7 @@ namespace CFX.Transport
             bool madeConnections = false;
             bool connected = true;
             int newLinkCount = 0;
+            Exception connectException = null;
 
             lock (this)
             {
@@ -227,6 +254,7 @@ namespace CFX.Transport
                 }
                 catch (Exception ex)
                 {
+                    connectException = ex;
                     AppLog.Error(ex);
                 }
             }
@@ -249,13 +277,14 @@ namespace CFX.Transport
                         }
                         catch (Exception ex)
                         {
+                            connectException = ex;
                             connected = false;
                             AppLog.Error(ex);
                         }
                     }
                 }
 
-                if (connected && madeConnections) AppLog.Info(string.Format("{0} Links established for {1}", newLinkCount, NetworkUri.ToString()));
+                if (connected && madeConnections) AppLog.Info($"{newLinkCount} Links established for {NetworkUri.ToString()}");
             }
 
             lock (this)
@@ -265,7 +294,8 @@ namespace CFX.Transport
 
             if (!connected)
             {
-                AppLog.Error(string.Format("Connection Failed for {0}.  Will attempt again in {1} seconds...", NetworkUri.ToString(), AmqpCFXEndpoint.ReconnectInterval?.TotalSeconds));
+                AppLog.Error($"Connection Failed for {NetworkUri.ToString()}.  Will attempt again in {AmqpCFXEndpoint.ReconnectInterval?.TotalSeconds} seconds...");
+                PostConnectionEvent(ConnectionEvent.ConnectionFailed, connectException);
                 Task.Run(new Action(() =>
                 {
                     Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval?.TotalMilliseconds));
@@ -274,6 +304,7 @@ namespace CFX.Transport
             }
             else
             {
+                if (madeConnections) PostConnectionEvent(ConnectionEvent.ConnectionEstablished);
                 if (AmqpCFXEndpoint.KeepAliveEnabled.Value)
                 {
                     lock (keepAliveLock)
@@ -455,11 +486,18 @@ namespace CFX.Transport
             session = null;
             connection = null;
         }
+
+        internal void PostConnectionEvent(ConnectionEvent eventType, Exception error = null)
+        {
+            int spoolSize = TotalSpoolSize;
+            Endpoint?.FirePostConnectionEvent(eventType, this.NetworkUri, spoolSize, error);
+        }
     }
 
     public delegate void CFXMessageReceivedHandler(AmqpChannelAddress source, CFXEnvelope message);
     public delegate void CFXMessageReceivedFromListenerHandler(string targetAddress, CFXEnvelope message);
     public delegate ValidateCertificateResult ValidateServerCertificateHandler(Uri source, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors);
+    public delegate void ConnectionEventHandler(ConnectionEvent eventType, Uri uri, int spoolSize, string errorInformation, Exception errorException = null);
     
     public enum AuthenticationMode
     {
@@ -473,5 +511,13 @@ namespace CFX.Transport
         Valid,
         Invalid,
         NotValidated
+    }
+
+    public enum ConnectionEvent
+    {
+        ConnectionEstablished,
+        ConnectionFailed,
+        ConnectionInterrupted,
+        ConnectionClosed
     }
 }

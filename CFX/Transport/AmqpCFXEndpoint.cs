@@ -41,10 +41,35 @@ namespace CFX.Transport
         private AmqpRequestProcessor requestProcessor;
         private ConcurrentDictionary<string, AmqpConnection> channels;
 
+        /// <summary>
+        /// Event that fires whenever a request type CFX message is received by this Endpoint
+        /// from another Endpoint.  Implement this event with your own handler to process incoming
+        /// point-to-point Request / Response type CFX messages.
+        /// </summary>
         public event OnRequestHandler OnRequestReceived;
+
+        /// <summary>
+        /// Event that fires whenever a CFX message is received from a subscription type channel.
+        /// </summary>
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
+
+        /// <summary>
+        /// Event that fires whenever a CFX message is received from a listener type channel.
+        /// </summary>
         public event CFXMessageReceivedFromListenerHandler OnCFXMessageReceivedFromListener;
+        
+        /// <summary>
+        /// Implement this event with your own handler if you wish to validate the server certificate used for
+        /// secure, encrypted, AMQPS communications.
+        /// </summary>
         public event ValidateServerCertificateHandler OnValidateCertificate;
+
+        /// <summary>
+        /// Event that fires whenever a publish or subscription type connection is established, interrupted, or disconnected.
+        /// The AmqpCFXEndpoint class will continuously attempt to reconnect any connection that has been 
+        /// interrupted.
+        /// </summary>
+        public event ConnectionEventHandler OnConnectionEvent;
 
         /// <summary>
         /// Returns the CFXHandle of the endpoint currently associated with this AMQP endpoint.
@@ -476,6 +501,25 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// Returns the total number of messages spooled for a particular 
+        /// </summary>
+        /// <param name="addr"></param>
+        /// <returns></returns>
+        public int GetSpoolSize(AmqpChannelAddress addr)
+        {
+            string key = addr.Uri.ToString();
+            
+            if (channels.ContainsKey(key))
+            {
+                return channels[key].GetSpoolSize(addr.Address);
+            }
+            else
+            {
+                throw new ArgumentException("The specified channel does not exist.");
+            }
+        }
+
+        /// <summary>
         /// Publishes a CFX message.  The message will be transmitted to all publish channels.
         /// </summary>
         /// <param name="env">The CFX envelope containing the message to publish.</param>
@@ -664,6 +708,11 @@ namespace CFX.Transport
             }
 
             return true;
+        }
+
+        internal void FirePostConnectionEvent(ConnectionEvent eventType, Uri uri, int spoolSize, Exception error = null)
+        {
+            OnConnectionEvent?.Invoke(eventType, uri, spoolSize, error?.Message, error);
         }
     }
 }
