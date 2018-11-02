@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 
 namespace CFX.Utilities
 {
+    /// <summary>
+    /// Allows for diagnostic logging of CFX transactions.
+    /// </summary>
     public static class AppLog
     {
         static AppLog()

@@ -35,7 +35,7 @@ namespace CFX.Transport
             if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
-            if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(5);
+            if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -70,54 +70,99 @@ namespace CFX.Transport
             get;
             set;
         }
+
+        /// <summary>
+        /// The time interval between attempts to reconnect publish or subscriber channels after a
+        /// network interruption.  The default setting is false.
+        /// </summary>
         public static TimeSpan? ReconnectInterval
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// When enabled, the endpoint will automatically refresh (disconnect/reconnect) all of its
+        /// subscription channels.  This is to prevent brokers from timing out the connection when
+        /// the channel has been dormant for a period of time.  The default setting is 60 seconds.
+        /// </summary>
         public static bool? KeepAliveEnabled
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// If keep alive is enabled, this property specifies the time period between keep alive reconnects.
+        /// </summary>
         public static TimeSpan? KeepAliveInterval
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// When executing a point to point request/response call to another CFX endpoint, this time span
+        /// specifies the maximum amount of time that this endpoint will wait for the other endpoint to respond
+        /// before timing out.  The default is 30 seconds.
+        /// </summary>
         public static TimeSpan? RequestTimeout
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// When applicable, the endpoint will attempt to publish multiple messages in one AMQP transaction.
+        /// This is done to maximize effeciency.  This property sets the maximum number of messages that may be
+        /// grouped together in a single AMQP message.  The default value is 30 messages.
+        /// </summary>
         public static int? MaxMessagesPerTransmit
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The AMQP 1.0 message framing header includes a "Durable" property that notifies recipients that this message
+        /// should be maintained in durable storage on the message broker until delivered to all recipients, surviving broker system restarts.
+        /// When this property is set to true, all messages published by the endpoint will be tagged with the Durable framing header.
+        /// The default value is true.
+        /// </summary>
         public static bool? DurableMessages
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Establishes the value of the Durable framing header flag for subscription channels.  Different brokers
+        /// will interprety this value differently.  Refer to your broker documentation to determine how to set this flag.
+        /// The default setting is 1 (which signals to RabbitMQ that durable messages should be removed from their queue
+        /// once successfully delivered to this endpoint).
+        /// </summary>
         public static uint? DurableReceiverSetting
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Read-only property indicating whether or not the endpoint is in an open state.
+        /// </summary>
         public bool IsOpen
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Opens and inintializes the Endpoint.  This should be called only once prior to closing the endpoint.
+        /// </summary>
+        /// <param name="cfxHandle">The unique CFX Handle for this endpoint.</param>
+        /// <param name="requestAddress">The IP address on which this endpoint will listen for incoming requests.</param>
+        /// <param name="requestPort">The TCP port on which this endpoint will listen for incoming requests.  Default is 5672.</param>
+        /// <param name="certificate">An X509 certificate that has been loaded from the certificate store.  This is optional, and only must be set when using secure, encrypted AMQPS</param>
         public void Open(string cfxHandle, IPAddress requestAddress, int requestPort = 5672, X509Certificate2 certificate = null)
         {
             Uri uri = null;
@@ -129,6 +174,16 @@ namespace CFX.Transport
             Open(cfxHandle, uri, certificate);
         }
 
+        /// <summary>
+        /// Opens and inintializes the Endpoint.  This should be called only once prior to closing the endpoint.
+        /// </summary>
+        /// <param name="cfxHandle">The unique CFX Handle for this endpoint.</param>
+        /// <param name="requestUri">The Uri / network address on which this endpoint will listen for incoming requests for this endpoint.  amqp:// prefix
+        /// may be used for unencrypted AMQP on port 5672.  amqps:// prefix may be used for secure AMQP on port 5671.  You may also specify
+        /// custom ports using normal hostname:port notation.  Authentication may also be specified using standard user notation:  eg.
+        /// amqps://user1:password1@myhost/
+        /// </param>
+        /// <param name="certificate">An X509 certificate that has been loaded from the certificate store.  This is optional, and only must be set when using secure, encrypted AMQPS</param>
         public void Open(string cfxHandle, Uri requestUri = null, X509Certificate2 certificate = null)
         {
             IsOpen = false;
@@ -155,6 +210,13 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Tests is the specified network address is capable of establishing an AMQP connection from this endpoint.
+        /// </summary>
+        /// <param name="channelUri">The network address of the target channel.</param>
+        /// <param name="authMode">The authentication mode to use to connect to the target channel</param>
+        /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
+        /// <returns></returns>
         public bool TestChannel(Uri channelUri, AuthenticationMode authMode, out Exception error)
         {
             bool result = false;
@@ -177,11 +239,32 @@ namespace CFX.Transport
             return result;
         }
 
+        /// <summary>
+        /// Adds a new publish channel for this endpoint.  All messages published by the endpoint will be transmitted to one or more publish channels that
+        /// are established using this method.  Only call this methoud after this endpoint has been opened by the Open method.
+        /// </summary>
+        /// <param name="address">Represents the network address and AMQP target address of the target channel</param>
+        /// <param name="authMode">The authentication mode for this channel.</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
+        /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
+        /// using the server's certificate (if using amqps).</param>
+        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
         public void AddPublishChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
             AddPublishChannel(address.Uri, address.Address, authMode, certificate, targetHostName);
         }
 
+        /// <summary>
+        /// Adds a new publish channel for this endpoint.  All messages published by the endpoint will be transmitted to one or more publish channels that
+        /// are established using this method.  Only call this methoud after this endpoint has been opened by the Open method.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the target channel.</param>
+        /// <param name="address">The AMQP target address of the target channel.</param>
+        /// <param name="authMode">The authentication mode for this channel.</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
+        /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
+        /// using the server's certificate (if using amqps).</param>
+        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
         public void AddPublishChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -206,11 +289,20 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Closes the specified publish channel (that was opened previously via a call to AddPublishChannel.
+        /// </summary>
+        /// <param name="address">The channel address to be closed.</param>
         public void ClosePublishChannel(AmqpChannelAddress address)
         {
             ClosePublishChannel(address.Uri, address.Address);
         }
 
+        /// <summary>
+        /// Closes the specified publish channel (that was opened previously via a call to AddPublishChannel.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the channel to be closed.</param>
+        /// <param name="address">The AMQP target address of the channel to be closed.</param>
         public void ClosePublishChannel(Uri networkAddress, string address)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -228,11 +320,30 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Adds a new subscription channel for this endpoint.
+        /// </summary>
+        /// <param name="address">The address (network address + AMQP source address) of the source.</param>
+        /// <param name="authMode">The authentication mode to use to connect to the source.</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
+        /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
+        /// using the server's certificate (if using amqps).</param>
+        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
         public void AddSubscribeChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
             AddSubscribeChannel(address.Uri, address.Address, authMode, certificate, targetHostName);
         }
 
+        /// <summary>
+        /// Adds a new subscription channel for this endpoint.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the message source.</param>
+        /// <param name="address">The AMQP source address of the message source.</param>
+        /// <param name="authMode">The authentication mode to use to connect to the source.</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
+        /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
+        /// using the server's certificate (if using amqps).</param>
+        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
         public void AddSubscribeChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -257,11 +368,20 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Closes the specified subscription channel (that was opened previously via a call to AddSubscribeChannel.
+        /// </summary>
+        /// <param name="address">The channel address to be closed.</param>
         public void CloseSubscribeChannel(AmqpChannelAddress address)
         {
             CloseSubscribeChannel(address.Uri, address.Address);
         }
 
+        /// <summary>
+        /// Closes the specified subscription channel (that was opened previously via a call to AddSubscribeChannel.
+        /// </summary>
+        /// <param name="networkAddress"></param>
+        /// <param name="address"></param>
         public void CloseSubscribeChannel(Uri networkAddress, string address)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -279,6 +399,11 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Allows this endpoint to listen for and receive unsolicited (published) messages directly from multiple CFX endpoints that have been configured to publish messages to this
+        /// endpoint, just like a message broker.  Your endpoint must be configured to receive requests (via the Open method requestUri parameter) before adding a listener.
+        /// </summary>
+        /// <param name="targetAddress">The AMQP target address on which to receive messages (like a broker exchange address).</param>
         public void AddListener(string targetAddress)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -287,6 +412,10 @@ namespace CFX.Transport
             requestProcessor.AddListener(targetAddress);
         }
 
+        /// <summary>
+        /// Closes a previously added listener (added with AddListener method).
+        /// </summary>
+        /// <param name="targetAddress">The AMQP target address to close.</param>
         public void CloseListener(string targetAddress)
         {
             if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to open or close a listener.");
@@ -346,6 +475,10 @@ namespace CFX.Transport
             IsOpen = false;
         }
 
+        /// <summary>
+        /// Publishes a CFX message.  The message will be transmitted to all publish channels.
+        /// </summary>
+        /// <param name="env">The CFX envelope containing the message to publish.</param>
         public void Publish(CFXEnvelope env)
         {
             FillSource(env);
@@ -355,6 +488,11 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Publishes a CFX message.  A CFX envelope will be automatically generated for
+        /// your message.  The message will be transmitted to all publish channels.
+        /// </summary>
+        /// <param name="msg">The CFX message to publish.</param>
         public void Publish(CFXMessage msg)
         {
             CFXEnvelope env = new CFXEnvelope();
@@ -363,6 +501,10 @@ namespace CFX.Transport
             Publish(env);
         }
 
+        /// <summary>
+        /// Publishes multiple CFX messages at one time.  The messages will be transmitted to all publish channels.
+        /// </summary>
+        /// <param name="envelopes"></param>
         public void PublishMany(IEnumerable<CFXEnvelope> envelopes)
         {
             FillSource(envelopes);
@@ -372,6 +514,11 @@ namespace CFX.Transport
             }
         }
 
+        /// <summary>
+        /// Publishes multiple CFX messages at one time. CFX envelopes will be automatically generated
+        /// for your messages.  The messages will be transmitted to all publish channels.
+        /// </summary>
+        /// <param name="msgs"></param>
         public void PublishMany(IEnumerable<CFXMessage> msgs)
         {
             List<CFXEnvelope> envelopes = new List<CFXEnvelope>();
@@ -405,6 +552,15 @@ namespace CFX.Transport
             set;
         }
 
+        /// <summary>
+        /// Performs a direct, point-to-point request/response transaction with another CFX Endpoint.
+        /// </summary>
+        /// <param name="targetUri">The network address of the Endpoint to which the request will be sent.
+        /// May use amqp:// or amqps:// topic (amqps for secure communications).
+        /// May also include user information (for authentication), as well as a custom TCP port.
+        /// </param>
+        /// <param name="request">A CFX envelope containing the request.</param>
+        /// <returns>A CFX envelope containing the response from the Endpoint.</returns>
         public CFXEnvelope ExecuteRequest(string targetUri, CFXEnvelope request)
         {
             CFXEnvelope response = null;
