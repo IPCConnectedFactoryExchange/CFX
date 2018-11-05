@@ -225,6 +225,10 @@ namespace CFX.Transport
                 Close();
                 EnsureConnection();
             }
+            else
+            {
+                PostConnectionEvent(ConnectionEvent.ConnectionClosed);
+            }
         }
 
         protected void EnsureConnection()
