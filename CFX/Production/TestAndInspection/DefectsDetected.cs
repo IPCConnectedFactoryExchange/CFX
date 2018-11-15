@@ -14,7 +14,7 @@ namespace CFX.Production.TestAndInspection
     public Guid HermesID;
     public String Barcode;
 
-    /// <summary> The inspection time includes feed in, image capture and anlysis. (Currently not feed out.) </summary>
+    /// <summary> The inspection time includes feed in, image capture and analysis. (Currently not feed out.) </summary>
     public DateTime InspectionStart;
     /// <summary> Start of image capture and analysis (without feed in and out). </summary>
     public DateTime AnalysisStart;
@@ -35,7 +35,7 @@ namespace CFX.Production.TestAndInspection
     //TODO Naming: "panel" or "board" as name for the toplevel object (that itself conatains several sub-elements)?
     /// <summary>
     ///   The topmost "physical inspection object" (containing boards and components), but only
-    ///   whith the defect components.
+    ///   with the defect components.
     /// </summary>
     public CFXSPTI.Panel Panel;
   }
