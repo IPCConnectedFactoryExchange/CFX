@@ -125,6 +125,19 @@ namespace CFX.Structures
             set;
         }
 
+
+        /// <summary>
+        /// Gets or sets the expiry date of this material package based on manufacture definitions.
+        /// </summary>
+        /// <value>The expiry date.</value>
+        public DateTime? ExpiryDate
+        {
+            get;
+            set;
+        }
+
+        
+
         /// <summary>
         /// The unit of measure for this material (items, liters, meters, grams, etc.)
         /// Only valid SI units of measure should be utilized

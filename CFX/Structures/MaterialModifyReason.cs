@@ -24,5 +24,9 @@ namespace CFX.Structures
         /// Quantity updated after manual count / measurement
         /// </summary>
         ManualCountAndQuantityUpdate,
+        /// <summary>
+        /// The sensor triggered correction, which is typically the quantity correction when a splice is been detected.
+        /// </summary>
+        SensorTriggeredCorrection,
     }
 }
