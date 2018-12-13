@@ -36,6 +36,7 @@ namespace CFX.Transport
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
+            if (!MaxFrameSize.HasValue) MaxFrameSize = 500000;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -143,6 +144,17 @@ namespace CFX.Transport
         /// grouped together in a single AMQP message.  The default value is 30 messages.
         /// </summary>
         public static int? MaxMessagesPerTransmit
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Used by the AMQP protocol to establish the maximum number of bytes to transmit per "frame" (aka "chunk").  
+        /// Larger messages may be broken down into multiple frames if their size exceeds the max frame size.
+        /// The default size is 500,000 bytes.
+        /// </summary>
+        public static int? MaxFrameSize
         {
             get;
             set;

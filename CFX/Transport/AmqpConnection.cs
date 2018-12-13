@@ -103,6 +103,7 @@ namespace CFX.Transport
             {
                 try
                 {
+                    int maxFrameSize = AmqpCFXEndpoint.MaxFrameSize.HasValue ? AmqpCFXEndpoint.MaxFrameSize.Value : 500000;
                     bool anonymous = false;
                     if (AuthenticationMode == AuthenticationMode.Anonymous)
                     {
@@ -116,7 +117,8 @@ namespace CFX.Transport
                     Open o = new Open()
                     {
                         ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
-                        HostName = TargetHostName
+                        HostName = TargetHostName,
+                        MaxFrameSize = (uint)maxFrameSize,
                     };
 
                     if (!anonymous || Certificate != null)
@@ -124,6 +126,7 @@ namespace CFX.Transport
                         isAsync = true;
 
                         ConnectionFactory factory = new ConnectionFactory();
+                        factory.AMQP.MaxFrameSize = maxFrameSize;
                         if (anonymous)
                         {
                             factory.SASL.Profile = SaslProfile.External;
