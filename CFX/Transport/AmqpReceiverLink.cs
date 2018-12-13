@@ -34,25 +34,22 @@ namespace CFX.Transport
 
             ReceiverLink receiver = null;
 
-            Task.Run(() =>
+            try
             {
-                try
+                Amqp.Framing.Source s = new Amqp.Framing.Source()
                 {
-                    Amqp.Framing.Source s = new Amqp.Framing.Source()
-                    {
-                        Address = this.Address,
-                        Durable = AmqpCFXEndpoint.DurableReceiverSetting.Value
-                    };
+                    Address = this.Address,
+                    Durable = AmqpCFXEndpoint.DurableReceiverSetting.Value
+                };
 
-                    receiver = new ReceiverLink(session, Address, s, null);
-                    receiver.Start(linkCredit, callback);
-                }
-                catch (Exception ex)
-                {
-                    AppLog.Error(ex);
-                    receiver = null;
-                }
-            }).Wait();
+                receiver = new ReceiverLink(session, Address, s, null);
+                receiver.Start(linkCredit, callback);
+            }
+            catch (Exception ex)
+            {
+                AppLog.Error(ex);
+                receiver = null;
+            }
 
             ReceiverLink = receiver;
             return true;

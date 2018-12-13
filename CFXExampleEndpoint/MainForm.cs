@@ -134,7 +134,7 @@ namespace CFXExampleEndpoint
                     requestCert = AmqpUtilities.GetCertificate("aishqcfx01v");
                 }
 
-                theEndpoint.Open(CFXHandle, RequestUri, requestCert);
+                theEndpoint.Open(CFXHandle, RequestUri, certificate:requestCert);
                 theEndpoint.OnCFXMessageReceived -= TheEndpoint_OnCFXMessageReceived;
                 theEndpoint.OnCFXMessageReceived += TheEndpoint_OnCFXMessageReceived;
                 theEndpoint.OnRequestReceived -= TheEndpoint_OnRequestReceived;
@@ -142,17 +142,17 @@ namespace CFXExampleEndpoint
 
                 //X509Certificate cert = AmqpUtilities.GetCertificate("aishqcfx01v");
                 X509Certificate cert = null;
-                //string targetHostName = "vhost:/jjwtesthost";
-                string targetHostName = null; 
+                //string virtualHostName = "vhost:/jjwtesthost";
+                string virtualHostName = null; 
 
                 foreach (AmqpChannelAddress addr in TransmitChannels)
                 {
-                    theEndpoint.AddPublishChannel(addr, AuthenticationMode.Auto, cert, targetHostName);
+                    theEndpoint.AddPublishChannel(addr, virtualHostName, cert);
                 }
 
                 foreach (AmqpChannelAddress addr in ReceiveChannels)
                 {
-                    theEndpoint.AddSubscribeChannel(addr, AuthenticationMode.Auto, cert, targetHostName);
+                    theEndpoint.AddSubscribeChannel(addr, virtualHostName, cert);
                 }
             }
             catch (Exception ex)
