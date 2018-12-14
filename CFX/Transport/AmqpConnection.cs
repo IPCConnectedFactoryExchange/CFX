@@ -118,7 +118,9 @@ namespace CFX.Transport
                 o = null;
 
                 ConnectionFactory factory = new ConnectionFactory();
+#if NET462
                 if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+#endif
                 Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
                 t.Wait(5000);
                 if (t.Status != TaskStatus.RanToCompletion)
