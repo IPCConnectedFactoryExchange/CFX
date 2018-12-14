@@ -121,7 +121,7 @@ namespace CFX.Transport
                 if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
                 Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
                 t.Wait(5000);
-                if (t.IsCanceled)
+                if (t.Status != TaskStatus.RanToCompletion)
                 {
                     throw new Exception("Timeout on CreateAsync");
                 }

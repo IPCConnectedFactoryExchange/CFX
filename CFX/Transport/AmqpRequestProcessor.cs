@@ -79,28 +79,30 @@ namespace CFX.Transport
 
             var listener = inboundHost.Listeners[0];
 
-            //if (string.Compare(requestUri.Scheme, "amqps", true) == 0)
-            //{
-            //    listener.SSL.Certificate = certificate;
-            //    listener.SSL.ClientCertificateRequired = true;
-            //    listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
-            //    listener.SASL.EnableExternalMechanism = true;
-            //}
+            if (string.Compare(requestUri.Scheme, "amqps", true) == 0)
+            {
+                listener.SSL.Certificate = certificate;
+                listener.SSL.ClientCertificateRequired = true;
+                listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                listener.SASL.EnableExternalMechanism = true;
+            }
 
-            //if (string.IsNullOrWhiteSpace(RequestUri.UserInfo))
-            //{
-            //    listener.SASL.EnableExternalMechanism = false;
-            //    listener.SASL.EnableAnonymousMechanism = true;
-            //}
+            if (string.IsNullOrWhiteSpace(RequestUri.UserInfo))
+            {
+                listener.SASL.EnableExternalMechanism = false;
+                listener.SASL.EnableAnonymousMechanism = true;
+            }
+            else
+            {
+                listener.SASL.EnableExternalMechanism = true;
+                listener.SASL.EnableAnonymousMechanism = false;
+                //listener.SASL.EnablePlainMechanism(RequestUri.UserInfo.Split(':')[0], RequestUri.UserInfo.Split(':')[1]);
+            }
 
-            //listener.SSL.Certificate = certificate;
-            //listener.SSL.ClientCertificateRequired = true;
-            //listener.SSL.ClientCertificateRequired = false;
-            //listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
-            //listener.SASL.EnableExternalMechanism = true;
-            listener.SASL.EnableAnonymousMechanism = true;
-            listener.SASL.EnablePlainMechanism(null, null);
-
+            listener.SSL.Certificate = certificate;
+            listener.SSL.ClientCertificateRequired = true;
+            listener.SSL.ClientCertificateRequired = false;
+            listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
 
             inboundHost.Open();
             AppLog.Info($"Container host is listening on {RequestUri.Host}:{RequestUri.Port}.  User {requestUri.UserInfo}");
@@ -276,10 +278,10 @@ namespace CFX.Transport
 
         class InternalLinkProcessor : ILinkProcessor
         {
-            public InternalLinkProcessor(AmqpRequestProcessor requestProcessor, string targetAddress)
+            public InternalLinkProcessor(AmqpRequestProcessor requestProcessor)
             {
                 parentProcessor = requestProcessor;
-                TargetAddress = targetAddress;
+                //TargetAddress = targetAddress;
             }
 
             private AmqpRequestProcessor parentProcessor;

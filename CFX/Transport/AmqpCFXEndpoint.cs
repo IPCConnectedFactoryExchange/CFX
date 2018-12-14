@@ -36,6 +36,7 @@ namespace CFX.Transport
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
+            if (!MaxFrameSize.HasValue) MaxFrameSize = 500000;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -149,6 +150,17 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// Used by the AMQP protocol to establish the maximum number of bytes to transmit per "frame" (aka "chunk").  
+        /// Larger messages may be broken down into multiple frames if their size exceeds the max frame size.
+        /// The default size is 500,000 bytes.
+        /// </summary>
+        public static int? MaxFrameSize
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The AMQP 1.0 message framing header includes a "Durable" property that notifies recipients that this message
         /// should be maintained in durable storage on the message broker until delivered to all recipients, surviving broker system restarts.
         /// When this property is set to true, all messages published by the endpoint will be tagged with the Durable framing header.
@@ -236,110 +248,185 @@ namespace CFX.Transport
         }
 
         /// <summary>
-        /// Tests is the specified network address is capable of establishing an AMQP connection from this endpoint.
+        /// Tests if the specified network address is capable of establishing an AMQP connection from this endpoint.
         /// </summary>
         /// <param name="channelUri">The network address of the target channel.</param>
         /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched against the server's certificate </param>
         /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
         /// <returns></returns>
-        public bool TestChannel(Uri channelUri, out Exception error, string virtualHostName = null, X509Certificate certificate = null)
-        {
-            bool result = false;
-            error = null;
-            string handleBackup = CFXHandle;
-
-            try
-            {
-                CFXHandle = Guid.NewGuid().ToString();
-                AmqpConnection conn = new AmqpConnection(channelUri, this, virtualHostName, certificate);
-                conn.OpenConnection();
-                conn.Close();
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                error = ex;
-                Debug.WriteLine(ex.Message);
-            }
-
-            CFXHandle = handleBackup;
-            return result;
-        }
-
-
-        public bool TestPublishChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
+        public bool TestChannel(Uri channelUri, out Exception error, string virtualHostName = null)
         {
             error = null;
             Connection conn = null;
             Session sess = null;
-            SenderLink link = null;
+            Exception ex = null;
 
             try
             {
                 Open o = new Open()
                 {
-                    HostName = virtualHostName
+                    ContainerId = Guid.NewGuid().ToString(),
+                    HostName = virtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
                 };
 
-                conn = new Connection(new Address(networkAddress.ToString()), null, o, null);
+                ConnectionFactory fact = new ConnectionFactory();
+                if (string.IsNullOrWhiteSpace(channelUri.UserInfo))
+                {
+                    fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                Task<Connection> tConn = fact.CreateAsync(new Address(channelUri.ToString()), o);
+                tConn.Wait(3000);
+                if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
+
+                conn = tConn.Result;
+                conn.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
                 sess = new Session(conn);
-                //link = new SenderLink(sess, address, address);
-                //link.Close();
-                sess.Close();
-                conn.Close();
+                sess.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                if (ex != null) throw ex;
+                Task.Delay(10).Wait();
+                if (ex != null) throw ex;
             }
-            catch (Exception ex)
+            catch (Exception ex2)
             {
-                error = ex;
-                Debug.WriteLine(ex.Message);
+                error = ex2;
+                Debug.WriteLine(ex2.Message);
             }
             finally
             {
-                if (sess != null && !sess.IsClosed) sess.Close();
-                if (conn != null && !conn.IsClosed) conn.Close();
+                if (sess != null && !sess.IsClosed) sess.CloseAsync();
+                if (conn != null && !conn.IsClosed) conn.CloseAsync();
             }
 
             if (error == null) return true;
             return false;
         }
 
+
+        /// <summary>
+        /// Tests if the specified network address and AMQP target address is capable of receiving messages published from this endpoint.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the target channel.</param>
+        /// <param name="address">The AMQP target address to which messages will be published.</param>
+        /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <returns>A boolean value indicated whether or not the channel is valid.</returns>
+        public bool TestPublishChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
+        {
+            error = null;
+            Connection conn = null;
+            Session sess = null;
+            SenderLink link = null;
+            Exception ex = null;
+
+            try
+            {
+                Open o = new Open()
+                {
+                    ContainerId = Guid.NewGuid().ToString(),
+                    HostName = virtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
+                };
+
+                ConnectionFactory fact = new ConnectionFactory();
+                if (string.IsNullOrWhiteSpace(networkAddress.UserInfo))
+                {
+                    fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
+                tConn.Wait(3000);
+                if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
+
+                conn = tConn.Result;
+                conn.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                sess = new Session(conn);
+                sess.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                if (ex != null) throw ex;
+                link = new SenderLink(sess, address, address);
+                link.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                link.Close();
+                Task.Delay(10).Wait();
+                if (ex != null) throw ex;
+            }
+            catch (Exception ex2)
+            {
+                error = ex2;
+                Debug.WriteLine(ex2.Message);
+            }
+            finally
+            {
+                if (sess != null && !sess.IsClosed) sess.CloseAsync();
+                if (conn != null && !conn.IsClosed) conn.CloseAsync();
+            }
+
+            if (error == null) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Tests if this endpoint is capable of subscribing to and receiving message from the specified network address and AMQP source address.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the target channel.</param>
+        /// <param name="address">The AMQP source address from which messages will be received.</param>
+        /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <returns>A boolean value indicated whether or not the channel is valid.</returns>
         public bool TestSubscribeChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
         {
             error = null;
             Connection conn = null;
             Session sess = null;
             ReceiverLink link = null;
+            Exception ex = null;
 
             try
             {
                 Open o = new Open()
                 {
-                    HostName = virtualHostName
+                    ContainerId = Guid.NewGuid().ToString(),
+                    HostName = virtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
                 };
 
-                Amqp.Framing.Source s = new Amqp.Framing.Source()
+                Amqp.Framing.Source source = new Amqp.Framing.Source()
                 {
                     Address = address,
                     Durable = AmqpCFXEndpoint.DurableReceiverSetting.Value
                 };
 
-                conn = new Connection(new Address(networkAddress.ToString()), null, o, null);
+                ConnectionFactory fact = new ConnectionFactory();
+                if (string.IsNullOrWhiteSpace(networkAddress.UserInfo))
+                {
+                    fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
+                tConn.Wait(3000);
+                if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
+
+                conn = tConn.Result;
+                conn.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
                 sess = new Session(conn);
-                link = new ReceiverLink(sess, address, s, null);
+                sess.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                if (ex != null) throw ex;
+                link = new ReceiverLink(sess, address, source, null);
+                link.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
                 link.Close();
-                sess.Close();
-                conn.Close();
+                Task.Delay(10).Wait();
+                if (ex != null) throw ex;
             }
-            catch (Exception ex)
+            catch (Exception ex2)
             {
-                error = ex;
-                Debug.WriteLine(ex.Message);
+                error = ex2;
+                Debug.WriteLine(ex2.Message);
             }
             finally
             {
-                if (sess != null && !sess.IsClosed) sess.Close();
-                if (conn != null && !conn.IsClosed) conn.Close();
+                if (sess != null && !sess.IsClosed) sess.CloseAsync();
+                if (conn != null && !conn.IsClosed) conn.CloseAsync();
             }
 
             if (error == null) return true;
