@@ -72,36 +72,44 @@ namespace CFX.Transport
 
             inboundHost = new ContainerHost(RequestUri);
             
-            Task.Run(() =>
+            if (!string.IsNullOrWhiteSpace(RequestUri.UserInfo))
+                inboundHost = new ContainerHost(new Uri[] { RequestUri }, null, RequestUri.UserInfo);
+            else
+                inboundHost = new ContainerHost(RequestUri);
+
+            var listener = inboundHost.Listeners[0];
+
+            if (string.Compare(requestUri.Scheme, "amqps", true) == 0)
             {
-                if (!string.IsNullOrWhiteSpace(RequestUri.UserInfo))
-                    inboundHost = new ContainerHost(new Uri[] { RequestUri }, null, RequestUri.UserInfo);
-                else
-                    inboundHost = new ContainerHost(RequestUri);
+                listener.SSL.Certificate = certificate;
+                listener.SSL.ClientCertificateRequired = true;
+                listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                listener.SASL.EnableExternalMechanism = true;
+            }
 
-                var listener = inboundHost.Listeners[0];
+            if (string.IsNullOrWhiteSpace(RequestUri.UserInfo))
+            {
+                listener.SASL.EnableExternalMechanism = false;
+                listener.SASL.EnableAnonymousMechanism = true;
+            }
+            else
+            {
+                listener.SASL.EnableExternalMechanism = true;
+                listener.SASL.EnableAnonymousMechanism = false;
+                //listener.SASL.EnablePlainMechanism(RequestUri.UserInfo.Split(':')[0], RequestUri.UserInfo.Split(':')[1]);
+            }
 
-                if (certificate != null)
-                {
-                    listener.SSL.Certificate = certificate;
-                    listener.SSL.ClientCertificateRequired = true;
-                    listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
-                    listener.SASL.EnableExternalMechanism = true;
-                }
+            listener.SSL.Certificate = certificate;
+            listener.SSL.ClientCertificateRequired = true;
+            listener.SSL.ClientCertificateRequired = false;
+            listener.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
 
-                if (string.IsNullOrWhiteSpace(RequestUri.UserInfo))
-                {
-                    listener.SASL.EnableExternalMechanism = false;
-                    listener.SASL.EnableAnonymousMechanism = true;
-                }
+            inboundHost.Open();
+            AppLog.Info($"Container host is listening on {RequestUri.Host}:{RequestUri.Port}.  User {requestUri.UserInfo}");
 
-                inboundHost.Open();
-                AppLog.Info($"Container host is listening on {RequestUri.Host}:{RequestUri.Port}.  User {requestUri.UserInfo}");
-
-                inboundHost.RegisterRequestProcessor(RequestHandle, new InternalRequestProcessor(this));
-                AppLog.Info($"Request processor is registered on {RequestHandle}");
-                IsOpen = true;
-            }).Wait();
+            inboundHost.RegisterRequestProcessor(RequestHandle, new InternalRequestProcessor(this));
+            AppLog.Info($"Request processor is registered on {RequestHandle}");
+            IsOpen = true;
         }
 
         public void AddListener(string targetAddress)
@@ -112,21 +120,18 @@ namespace CFX.Transport
             if (listeners.ContainsKey(t)) throw new Exception("The specified targetAddress is already in use.");
 
             Exception ex = null;
-            Task.Run(() =>
+            try
             {
-                try
-                {
-                    InternalMessageProcessor p = new InternalMessageProcessor(this, targetAddress);
-                    inboundHost.RegisterMessageProcessor(targetAddress, p);
-                    AppLog.Info($"Listener registered on {targetAddress}");
-                    listeners[t] = p;
-                }
-                catch (Exception exception)
-                {
-                    ex = exception;
-                    AppLog.Error(ex);
-                }
-            }).Wait();
+                InternalMessageProcessor p = new InternalMessageProcessor(this, targetAddress);
+                inboundHost.RegisterMessageProcessor(targetAddress, p);
+                AppLog.Info($"Listener registered on {targetAddress}");
+                listeners[t] = p;
+            }
+            catch (Exception exception)
+            {
+                ex = exception;
+                AppLog.Error(ex);
+            }
 
             if (ex != null) throw ex;
         }
@@ -204,27 +209,24 @@ namespace CFX.Transport
 
             void IRequestProcessor.Process(RequestContext requestContext)
             {
-                Task.Run(() =>
+                CFXEnvelope request = AmqpUtilities.EnvelopeFromMessage(requestContext.Message);
+                CFXEnvelope response = processor.Fire_OnRequestReceived(request);
+                if (response != null)
                 {
-                    CFXEnvelope request = AmqpUtilities.EnvelopeFromMessage(requestContext.Message);
-                    CFXEnvelope response = processor.Fire_OnRequestReceived(request);
-                    if (response != null)
+                    response.Source = processor.CFXHandle;
+                    response.Target = request.Source;
+                    response.RequestID = request.RequestID;
+                    requestContext.Complete(AmqpUtilities.MessageFromEnvelope(response));
+                }
+                else
+                {
+                    requestContext.Complete(AmqpUtilities.MessageFromEnvelope(new CFXEnvelope(new CFX.NotSupportedResponse())
                     {
-                        response.Source = processor.CFXHandle;
-                        response.Target = request.Source;
-                        response.RequestID = request.RequestID;
-                        requestContext.Complete(AmqpUtilities.MessageFromEnvelope(response));
-                    }
-                    else
-                    {
-                        requestContext.Complete(AmqpUtilities.MessageFromEnvelope(new CFXEnvelope(new CFX.NotSupportedResponse())
-                        {
-                            Source = processor.CFXHandle,
-                            Target = request.Source,
-                            RequestID = request.RequestID
-                        }));
-                    }
-                }).Wait();
+                        Source = processor.CFXHandle,
+                        Target = request.Source,
+                        RequestID = request.RequestID
+                    }));
+                }
             }
         }
 
@@ -276,10 +278,10 @@ namespace CFX.Transport
 
         class InternalLinkProcessor : ILinkProcessor
         {
-            public InternalLinkProcessor(AmqpRequestProcessor requestProcessor, string targetAddress)
+            public InternalLinkProcessor(AmqpRequestProcessor requestProcessor)
             {
                 parentProcessor = requestProcessor;
-                TargetAddress = targetAddress;
+                //TargetAddress = targetAddress;
             }
 
             private AmqpRequestProcessor parentProcessor;
@@ -318,6 +320,8 @@ namespace CFX.Transport
                         }
                     }
                 }
+
+                await Task.Yield();
             }
         }
 
@@ -326,6 +330,7 @@ namespace CFX.Transport
             public InternalIncomingLinkEndpoint(AmqpRequestProcessor requestProcessor, string targetAddress)
             {
                 parentProcessor = requestProcessor;
+                this.targetAddress = targetAddress;
             }
 
             private AmqpRequestProcessor parentProcessor;

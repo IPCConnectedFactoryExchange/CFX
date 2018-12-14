@@ -17,15 +17,14 @@ namespace CFX.Transport
 {
     internal class AmqpConnection : IDisposable
     {
-        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, AuthenticationMode authMode, X509Certificate certificate = null, string targetHostName = null)
+        public AmqpConnection(Uri uri, AmqpCFXEndpoint endpoint, string virtualHostName = null, X509Certificate certificate = null)
         {
             SendTimout = TimeSpan.FromSeconds(5);
             links = new List<AmqpLink>();
             NetworkUri = uri;
             Endpoint = endpoint;
-            AuthenticationMode = authMode;
             Certificate = certificate;
-            TargetHostName = targetHostName;
+            VirtualHostName = virtualHostName;
         }
 
         public TimeSpan SendTimout
@@ -54,18 +53,12 @@ namespace CFX.Transport
             }
         }
 
-        public AuthenticationMode AuthenticationMode
-        {
-            get;
-            set;
-        }
-
         public X509Certificate Certificate
         {
             get;
             set;
         }
-        public string TargetHostName
+        public string VirtualHostName
         {
             get;
             set;
@@ -84,6 +77,22 @@ namespace CFX.Transport
             return links.OfType<AmqpSenderLink>().Where(l => l.Address.ToUpper() == address.ToUpper()).Sum(l => l.Queue.Count);
         }
 
+        public Connection InternalConnection
+        {
+            get
+            {
+                return connection;
+            }
+        }
+
+        public Session InternalSession
+        {
+            get
+            {
+                return session;
+            }
+        }
+
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
         public event ValidateServerCertificateHandler OnValidateCertificate;
 
@@ -91,7 +100,6 @@ namespace CFX.Transport
         private Session session;
         private List<AmqpLink> links;
         private bool connecting = false;
-        private bool isAsync = false;
 
         public void OpenConnection()
         {
@@ -99,70 +107,36 @@ namespace CFX.Transport
 
             Exception connectException = null;
 
-            Task.Run(() =>
+            try
             {
-                try
+                Open o = new Open()
                 {
-                    int maxFrameSize = AmqpCFXEndpoint.MaxFrameSize.HasValue ? AmqpCFXEndpoint.MaxFrameSize.Value : 500000;
-                    bool anonymous = false;
-                    if (AuthenticationMode == AuthenticationMode.Anonymous)
-                    {
-                        anonymous = true;
-                    }
-                    else if (AuthenticationMode == AuthenticationMode.Auto)
-                    {
-                        if (!NetworkUri.ToString().Contains("@")) anonymous = true;
-                    }
+                    ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
+                    HostName = VirtualHostName
+                };
 
-                    Open o = new Open()
-                    {
-                        ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
-                        HostName = TargetHostName,
-                        MaxFrameSize = (uint)maxFrameSize,
-                    };
+                o = null;
 
-                    if (!anonymous || Certificate != null)
-                    {
-                        isAsync = true;
-
-                        ConnectionFactory factory = new ConnectionFactory();
-                        factory.AMQP.MaxFrameSize = maxFrameSize;
-                        if (anonymous)
-                        {
-                            factory.SASL.Profile = SaslProfile.External;
-                        }
-                        else
-                        {
-                            factory.SASL.Profile = SaslProfile.Anonymous;
-                        }
-                        //if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
-
-                        Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
-                        t.Wait(5000);
-                        if (t.IsCanceled)
-                        {
-                            throw new Exception("Timeout on CreateAsync");
-                        }
-
-                        connection = t.Result;
-                    }
-                    else
-                    {
-                        isAsync = false;
-                        connection = new Connection(new Address(NetworkUri.ToString()), SaslProfile.Anonymous, o, null);
-                    }
-                    
-                    connection.Closed += AmqpObject_Closed;
-                    session = new Session(connection);
-                    session.Closed += AmqpObject_Closed;
-                }
-                catch (Exception ex)
+                ConnectionFactory factory = new ConnectionFactory();
+                if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
+                t.Wait(5000);
+                if (t.Status != TaskStatus.RanToCompletion)
                 {
-                    connectException = ex;
-                    Debug.WriteLine(ex.Message);
-                    Cleanup();
+                    throw new Exception("Timeout on CreateAsync");
                 }
-            }).Wait();
+                connection = t.Result;
+
+                connection.Closed += AmqpObject_Closed;
+                session = new Session(connection);
+                session.Closed += AmqpObject_Closed;
+            }
+            catch (Exception ex)
+            {
+                connectException = ex;
+                Debug.WriteLine(ex.Message);
+                Cleanup();
+            }
 
             if (connectException != null)
             {
@@ -303,9 +277,9 @@ namespace CFX.Transport
             {
                 AppLog.Error($"Connection Failed for {NetworkUri.ToString()}.  Will attempt again in {AmqpCFXEndpoint.ReconnectInterval?.TotalSeconds} seconds...");
                 PostConnectionEvent(ConnectionEvent.ConnectionFailed, connectException);
-                Task.Run(new Action(() =>
+                Task.Run(new Action(async () =>
                 {
-                    Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval?.TotalMilliseconds));
+                    await Task.Delay(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval?.TotalMilliseconds));
                     EnsureConnection();
                 }));
             }
@@ -325,7 +299,7 @@ namespace CFX.Transport
                 }
             }
         }
-        public void AddPublishChannel(string address)
+        public void AddPublishChannel(string address, bool connectImmediately = false)
         {
             lock (this)
             {
@@ -334,6 +308,8 @@ namespace CFX.Transport
                 AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle);
                 links.Add(link);
             }
+
+            if (connectImmediately) EnsureConnection();
         }
 
         public void AddSubscribeChannel(string address)
@@ -354,12 +330,12 @@ namespace CFX.Transport
             AmqpLink channel = links.Where(s => s.Address == address).FirstOrDefault();
             if (channel == null) return;
 
-            channel.CloseLink();
-
             lock (this)
             {
                 links.Remove(channel);
             }
+
+            channel.CloseLink();
         }
 
         public void Close()
@@ -454,35 +430,20 @@ namespace CFX.Transport
             }
         }
 
-        private async void Cleanup()
+        private void Cleanup()
         {
             try
             {
-                if (isAsync)
-                {
-                    if (session != null && !session.IsClosed)
-                    {
-                        await session.CloseAsync();
-                    }
+                links.ForEach(l => l.CloseLink());
 
-                    if (connection != null && !connection.IsClosed)
-                    {
-                        await connection.CloseAsync();
-                    }
+                if (session != null && !session.IsClosed)
+                {
+                    session.Close();
                 }
-                else
+
+                if (connection != null && !connection.IsClosed)
                 {
-                    links.ForEach(l => l.CloseLink());
-
-                    if (session != null && !session.IsClosed)
-                    {
-                        session.Close();
-                    }
-
-                    if (connection != null && !connection.IsClosed)
-                    {
-                        connection.Close();
-                    }
+                    connection.Close();
                 }
             }
             catch (Exception ex)
