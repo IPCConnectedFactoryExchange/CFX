@@ -141,7 +141,8 @@ namespace CFX.Transport
             string t = targetAddress.ToUpper();
             if (!listeners.ContainsKey(t)) throw new Exception("The specified targetAddress does not have an active listener.");
             inboundHost.UnregisterMessageProcessor(targetAddress);
-            while (!listeners.TryRemove(targetAddress, out InternalMessageProcessor p)) Task.Yield();
+            InternalMessageProcessor p = null;
+            while (!listeners.TryRemove(targetAddress, out p)) Task.Yield();
         }
 
         public void Close()
