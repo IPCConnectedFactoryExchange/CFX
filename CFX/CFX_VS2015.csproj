@@ -140,6 +140,8 @@
     <Compile Include="Production\GetRecipeResponse.cs" />
     <Compile Include="Production\GetRequiredSetupRequest.cs" />
     <Compile Include="Production\GetRequiredSetupResponse.cs" />
+    <Compile Include="Production\Hermes\GetWorkOrderDataRequest.cs" />
+    <Compile Include="Production\Hermes\GetWorkOrderDataResponse.cs" />
     <Compile Include="Production\LockStationRequest.cs" />
     <Compile Include="Production\LockStationResponse.cs" />
     <Compile Include="Production\NamespaceDoc.cs" />

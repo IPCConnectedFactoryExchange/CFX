@@ -787,12 +787,17 @@ namespace CFX.Transport
                 {
                     request.RequestID = "REQUEST-" + Guid.NewGuid().ToString();
                 }
+                if (string.IsNullOrWhiteSpace(request.Source))
+                {
+                    request.Source = CFXHandle;
+                }
+
                 Message req = AmqpUtilities.MessageFromEnvelope(request, UseCompression.Value);
                 req.Properties.MessageId = "command-request";
                 req.Properties.ReplyTo = CFXHandle;
                 req.ApplicationProperties = new ApplicationProperties();
                 req.ApplicationProperties["offset"] = 1;
-
+                
                 Task.Run(() =>
                 {
                     try
@@ -810,7 +815,6 @@ namespace CFX.Transport
                         }
 
                         reqConn = factory.CreateAsync(new Address(targetAddress.ToString())).Result;
-                        //reqConn = new Connection(new Address(targetAddress.ToString()));
                         reqSession = new Session(reqConn);
                         Attach recvAttach = new Attach()
                         {
