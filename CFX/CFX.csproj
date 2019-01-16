@@ -65,7 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AMQPNetLite" Version="2.1.3" />
+    <PackageReference Include="AMQPNetLite" Version="2.1.5" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
   </ItemGroup>

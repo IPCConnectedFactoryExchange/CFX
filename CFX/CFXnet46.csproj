@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>net462</TargetFramework>
     <PackageId>CFX.CFXSDK</PackageId>
     <PackageVersion>1.0.12</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
@@ -22,11 +22,13 @@
     <FileVersion>1.0.12.0</FileVersion>
     <RootNamespace>CFX</RootNamespace>
     <AssemblyName>CFX</AssemblyName>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>bin\net46\CFX.xml</DocumentationFile>
+    <DefineConstants>TRACE;NET46</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -71,9 +73,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AMQPNetLite" Version="2.1.3" />
+    <PackageReference Include="AMQPNetLite" Version="2.1.5" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
   </ItemGroup>
 
 </Project>

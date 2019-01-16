@@ -1534,6 +1534,7 @@ namespace CFX.Structures.Geometry
     // Additions
     // 
 
+#if NET46
     public Vector3 (System.Windows.Media.Media3D.Vector3D x_vector3D)
     {
       X = x_vector3D.X;
@@ -1557,18 +1558,32 @@ namespace CFX.Structures.Geometry
     {
       return new Vector3 (x_size3D);
     }
+#endif
 
 
+    /// <summary>
+    ///   The modulo operator, element by element (componentwise), of two vectors.
+    /// </summary>
+    /// <param name="x_a"></param>
+    /// <param name="x_b"></param>
+    /// <returns></returns>
     public static Vector3 operator % (Vector3 x_a, Vector3 x_b)
     {
       return new Vector3 (x_a.X % x_b.X, x_a.Y % x_b.Y, x_a.Z % x_b.Z);
     }
 
+    /// <summary>
+    ///   The modulo operator, element by element (componentwise) of the vector x_a
+    ///   on the left, but always with the number x_b on the right.
+    /// </summary>
+    /// <param name="x_a"></param>
+    /// <param name="x_b"></param>
+    /// <returns></returns>
     public static Vector3 operator % (Vector3 x_a, double x_b)
     {
       return new Vector3 (x_a.X % x_b, x_a.Y % x_b, x_a.Z % x_b);
     }
 
-    #endregion
+#endregion
   }
 }
