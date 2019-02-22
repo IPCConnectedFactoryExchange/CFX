@@ -29,7 +29,7 @@ namespace CFXExampleEndpoint
 
             Exception ex;
             AmqpCFXEndpoint endPoint = new AmqpCFXEndpoint();
-            if (!endPoint.TestChannel(new Uri(txtAddress.Text), AuthenticationMode.Auto, out ex))
+            if (!endPoint.TestChannel(new Uri(txtAddress.Text), out ex))
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

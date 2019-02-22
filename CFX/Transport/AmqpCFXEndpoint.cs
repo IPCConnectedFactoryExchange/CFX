@@ -36,6 +36,7 @@ namespace CFX.Transport
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
+            if (!MaxFrameSize.HasValue) MaxFrameSize = 500000;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -149,6 +150,17 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// Used by the AMQP protocol to establish the maximum number of bytes to transmit per "frame" (aka "chunk").  
+        /// Larger messages may be broken down into multiple frames if their size exceeds the max frame size.
+        /// The default size is 500,000 bytes.
+        /// </summary>
+        public static int? MaxFrameSize
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The AMQP 1.0 message framing header includes a "Durable" property that notifies recipients that this message
         /// should be maintained in durable storage on the message broker until delivered to all recipients, surviving broker system restarts.
         /// When this property is set to true, all messages published by the endpoint will be tagged with the Durable framing header.
@@ -236,32 +248,189 @@ namespace CFX.Transport
         }
 
         /// <summary>
-        /// Tests is the specified network address is capable of establishing an AMQP connection from this endpoint.
+        /// Tests if the specified network address is capable of establishing an AMQP connection from this endpoint.
         /// </summary>
         /// <param name="channelUri">The network address of the target channel.</param>
-        /// <param name="authMode">The authentication mode to use to connect to the target channel</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched against the server's certificate </param>
         /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
         /// <returns></returns>
-        public bool TestChannel(Uri channelUri, AuthenticationMode authMode, out Exception error)
+        public bool TestChannel(Uri channelUri, out Exception error, string virtualHostName = null)
         {
-            bool result = false;
             error = null;
+            Connection conn = null;
+            Session sess = null;
+            Exception ex = null;
 
             try
             {
-                CFXHandle = Guid.NewGuid().ToString();
-                AmqpConnection conn = new AmqpConnection(channelUri, this, authMode);
-                conn.OpenConnection();
-                conn.Close();
-                result = true;
+                Open o = new Open()
+                {
+                    ContainerId = Guid.NewGuid().ToString(),
+                    HostName = virtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
+                };
+
+                ConnectionFactory fact = new ConnectionFactory();
+                if (string.IsNullOrWhiteSpace(channelUri.UserInfo))
+                {
+                    fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                Task<Connection> tConn = fact.CreateAsync(new Address(channelUri.ToString()), o);
+                tConn.Wait(3000);
+                if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
+
+                conn = tConn.Result;
+                conn.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                sess = new Session(conn);
+                sess.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                if (ex != null) throw ex;
+                Task.Delay(10).Wait();
+                if (ex != null) throw ex;
             }
-            catch (Exception ex)
+            catch (Exception ex2)
             {
-                error = ex;
-                Debug.WriteLine(ex.Message);
+                error = ex2;
+                Debug.WriteLine(ex2.Message);
+            }
+            finally
+            {
+                if (sess != null && !sess.IsClosed) sess.CloseAsync();
+                if (conn != null && !conn.IsClosed) conn.CloseAsync();
             }
 
-            return result;
+            if (error == null) return true;
+            return false;
+        }
+
+
+        /// <summary>
+        /// Tests if the specified network address and AMQP target address is capable of receiving messages published from this endpoint.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the target channel.</param>
+        /// <param name="address">The AMQP target address to which messages will be published.</param>
+        /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <returns>A boolean value indicated whether or not the channel is valid.</returns>
+        public bool TestPublishChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
+        {
+            error = null;
+            Connection conn = null;
+            Session sess = null;
+            SenderLink link = null;
+            Exception ex = null;
+
+            try
+            {
+                Open o = new Open()
+                {
+                    ContainerId = Guid.NewGuid().ToString(),
+                    HostName = virtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
+                };
+
+                ConnectionFactory fact = new ConnectionFactory();
+                if (string.IsNullOrWhiteSpace(networkAddress.UserInfo))
+                {
+                    fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
+                tConn.Wait(3000);
+                if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
+
+                conn = tConn.Result;
+                conn.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                sess = new Session(conn);
+                sess.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                if (ex != null) throw ex;
+                link = new SenderLink(sess, address, address);
+                link.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                link.Close();
+                Task.Delay(10).Wait();
+                if (ex != null) throw ex;
+            }
+            catch (Exception ex2)
+            {
+                error = ex2;
+                Debug.WriteLine(ex2.Message);
+            }
+            finally
+            {
+                if (sess != null && !sess.IsClosed) sess.CloseAsync();
+                if (conn != null && !conn.IsClosed) conn.CloseAsync();
+            }
+
+            if (error == null) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Tests if this endpoint is capable of subscribing to and receiving message from the specified network address and AMQP source address.
+        /// </summary>
+        /// <param name="networkAddress">The network address of the target channel.</param>
+        /// <param name="address">The AMQP source address from which messages will be received.</param>
+        /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <returns>A boolean value indicated whether or not the channel is valid.</returns>
+        public bool TestSubscribeChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
+        {
+            error = null;
+            Connection conn = null;
+            Session sess = null;
+            ReceiverLink link = null;
+            Exception ex = null;
+
+            try
+            {
+                Open o = new Open()
+                {
+                    ContainerId = Guid.NewGuid().ToString(),
+                    HostName = virtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
+                };
+
+                Amqp.Framing.Source source = new Amqp.Framing.Source()
+                {
+                    Address = address,
+                    Durable = AmqpCFXEndpoint.DurableReceiverSetting.Value
+                };
+
+                ConnectionFactory fact = new ConnectionFactory();
+                if (string.IsNullOrWhiteSpace(networkAddress.UserInfo))
+                {
+                    fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
+                tConn.Wait(3000);
+                if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
+
+                conn = tConn.Result;
+                conn.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                sess = new Session(conn);
+                sess.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                if (ex != null) throw ex;
+                link = new ReceiverLink(sess, address, source, null);
+                link.Closed += (IAmqpObject s, Error e) => { if (e != null) ex = new Exception(e.Description); };
+                link.Close();
+                Task.Delay(10).Wait();
+                if (ex != null) throw ex;
+            }
+            catch (Exception ex2)
+            {
+                error = ex2;
+                Debug.WriteLine(ex2.Message);
+            }
+            finally
+            {
+                if (sess != null && !sess.IsClosed) sess.CloseAsync();
+                if (conn != null && !conn.IsClosed) conn.CloseAsync();
+            }
+
+            if (error == null) return true;
+            return false;
         }
 
         /// <summary>
@@ -269,14 +438,13 @@ namespace CFX.Transport
         /// are established using this method.  Only call this methoud after this endpoint has been opened by the Open method.
         /// </summary>
         /// <param name="address">Represents the network address and AMQP target address of the target channel</param>
-        /// <param name="authMode">The authentication mode for this channel.</param>
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
         /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
         /// using the server's certificate (if using amqps).</param>
-        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
-        public void AddPublishChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
+        /// <param name="virtualHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
+        public void AddPublishChannel(AmqpChannelAddress address, string virtualHostName = null, X509Certificate certificate = null)
         {
-            AddPublishChannel(address.Uri, address.Address, authMode, certificate, targetHostName);
+            AddPublishChannel(address.Uri, address.Address, virtualHostName, certificate);
         }
 
         /// <summary>
@@ -285,12 +453,11 @@ namespace CFX.Transport
         /// </summary>
         /// <param name="networkAddress">The network address of the target channel.</param>
         /// <param name="address">The AMQP target address of the target channel.</param>
-        /// <param name="authMode">The authentication mode for this channel.</param>
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
         /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
         /// using the server's certificate (if using amqps).</param>
-        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
-        public void AddPublishChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
+        /// <param name="virtualHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
+        public void AddPublishChannel(Uri networkAddress, string address, string virtualHostName = null, X509Certificate certificate = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -302,7 +469,7 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress, this, authMode, certificate, targetHostName);
+                channel = new AmqpConnection(networkAddress, this, virtualHostName, certificate);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channel.OnValidateCertificate += Channel_OnValidateCertificate;
                 channels[key] = channel;
@@ -349,14 +516,13 @@ namespace CFX.Transport
         /// Adds a new subscription channel for this endpoint.
         /// </summary>
         /// <param name="address">The address (network address + AMQP source address) of the source.</param>
-        /// <param name="authMode">The authentication mode to use to connect to the source.</param>
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
         /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
         /// using the server's certificate (if using amqps).</param>
-        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
-        public void AddSubscribeChannel(AmqpChannelAddress address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
+        /// <param name="virtualHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
+        public void AddSubscribeChannel(AmqpChannelAddress address, string virtualHostName = null, X509Certificate certificate = null)
         {
-            AddSubscribeChannel(address.Uri, address.Address, authMode, certificate, targetHostName);
+            AddSubscribeChannel(address.Uri, address.Address, virtualHostName, certificate);
         }
 
         /// <summary>
@@ -364,12 +530,11 @@ namespace CFX.Transport
         /// </summary>
         /// <param name="networkAddress">The network address of the message source.</param>
         /// <param name="address">The AMQP source address of the message source.</param>
-        /// <param name="authMode">The authentication mode to use to connect to the source.</param>
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
         /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
         /// using the server's certificate (if using amqps).</param>
-        /// <param name="targetHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
-        public void AddSubscribeChannel(Uri networkAddress, string address, AuthenticationMode authMode = AuthenticationMode.Auto, X509Certificate certificate = null, string targetHostName = null)
+        /// <param name="virtualHostHame">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
+        public void AddSubscribeChannel(Uri networkAddress, string address, string virtualHostHame = null, X509Certificate certificate = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
             string key = networkAddress.ToString();
@@ -381,7 +546,7 @@ namespace CFX.Transport
             }
             else
             {
-                channel = new AmqpConnection(networkAddress, this, authMode, certificate, targetHostName);
+                channel = new AmqpConnection(networkAddress, this, virtualHostHame, certificate);
                 channel.OnCFXMessageReceived += Channel_OnCFXMessageReceived;
                 channel.OnValidateCertificate += Channel_OnValidateCertificate;
                 channels[key] = channel;
@@ -622,12 +787,17 @@ namespace CFX.Transport
                 {
                     request.RequestID = "REQUEST-" + Guid.NewGuid().ToString();
                 }
+                if (string.IsNullOrWhiteSpace(request.Source))
+                {
+                    request.Source = CFXHandle;
+                }
+
                 Message req = AmqpUtilities.MessageFromEnvelope(request, UseCompression.Value);
                 req.Properties.MessageId = "command-request";
                 req.Properties.ReplyTo = CFXHandle;
                 req.ApplicationProperties = new ApplicationProperties();
                 req.ApplicationProperties["offset"] = 1;
-
+                
                 Task.Run(() =>
                 {
                     try
@@ -645,7 +815,6 @@ namespace CFX.Transport
                         }
 
                         reqConn = factory.CreateAsync(new Address(targetAddress.ToString())).Result;
-                        //reqConn = new Connection(new Address(targetAddress.ToString()));
                         reqSession = new Session(reqConn);
                         Attach recvAttach = new Attach()
                         {

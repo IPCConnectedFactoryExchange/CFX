@@ -77,18 +77,7 @@ namespace CFX.Transport
             AppLog.Error(ex);
         }
 
-        private Task processingTask = null;
-
-        private bool Processing
-        {
-            get
-            {
-                lock (this)
-                {
-                    return processingTask != null && !(processingTask.IsCompleted || processingTask.IsFaulted);
-                }
-            }
-        }
+        private bool isProcessing = false;
 
         public void Publish(CFXEnvelope [] envelopes)
         {
@@ -101,18 +90,16 @@ namespace CFX.Transport
         {
             lock (this)
             {
-                if (!Processing)
+                if (!isProcessing)
                 {
+                    isProcessing = true;
                     LogDebug("Triggering Processing...");
-                    processingTask = Task.Run(() =>
-                    {
-                        Process();
-                    });
+                    Task.Run((Action)Process);
                 }
             }
         }
 
-        private void Process()
+        private async void Process()
         {
             while (!Queue.IsEmpty)
             {
@@ -152,11 +139,18 @@ namespace CFX.Transport
                 }
                 else
                 {
-                    Thread.Sleep(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval.Value.TotalMilliseconds));
                     int remainingCount = Queue.Count;
                     if (remainingCount > 0) LogWarn($"Connection Bad or Error.  {Queue.Count} messages remaining in spool.");
+                    await Task.Delay(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval.Value.TotalMilliseconds));
                 }
             }
+
+            lock (this)
+            {
+                isProcessing = false;
+            }
+
+            await Task.Yield();
         }
 
         public override bool CreateLink(Session session)
@@ -165,18 +159,15 @@ namespace CFX.Transport
 
             SenderLink sender = null;
 
-            Task.Run(() =>
+            try
             {
-                try
-                {
-                    sender = new SenderLink(session, Address, Address);
-                }
-                catch (Exception ex)
-                {
-                    AppLog.Error(ex);
-                    sender = null;
-                }
-            }).Wait();
+                sender = new SenderLink(session, Address, Address);
+            }
+            catch (Exception ex)
+            {
+                AppLog.Error(ex);
+                sender = null;
+            }
 
             this.SenderLink = sender;
             return true;

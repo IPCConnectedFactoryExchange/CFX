@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net46</TargetFramework>
     <PackageId>CFX.CFXSDK</PackageId>
-    <PackageVersion>1.0.12</PackageVersion>
+    <PackageVersion>1.0.15</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,18 +17,16 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
     <PackageIconUrl>https://ipcconnectedfactoryexchange.github.io/CFX/CFX_Logo.PNG</PackageIconUrl>
-    <Version>1.0.12</Version>
-    <AssemblyVersion>1.0.12.0</AssemblyVersion>
-    <FileVersion>1.0.12.0</FileVersion>
+    <Version>1.0.15</Version>
+    <AssemblyVersion>1.0.15.0</AssemblyVersion>
+    <FileVersion>1.0.15.0</FileVersion>
     <RootNamespace>CFX</RootNamespace>
     <AssemblyName>CFX</AssemblyName>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>bin\net46\CFX.xml</DocumentationFile>
-    <DefineConstants>TRACE;NET46</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -74,12 +72,7 @@
 
   <ItemGroup>
     <PackageReference Include="AMQPNetLite" Version="2.1.5" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="PresentationCore" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
 </Project>
