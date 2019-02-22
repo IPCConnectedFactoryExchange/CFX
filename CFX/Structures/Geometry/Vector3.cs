@@ -1584,6 +1584,6 @@ namespace CFX.Structures.Geometry
       return new Vector3 (x_a.X % x_b, x_a.Y % x_b, x_a.Z % x_b);
     }
 
-#endregion
+    #endregion
   }
 }
