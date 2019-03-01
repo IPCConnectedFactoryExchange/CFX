@@ -11,15 +11,21 @@ namespace CFX.Production.TestAndInspection
   /// </summary>
   public class DefectsDetected : CFXMessage
   {
-    public Guid HermesID;
-    public String Barcode;
+    /// <summary> As defined in the WorkStarted message. </summary>
+    public Guid TransactionID;
+    /// <summary> As defined in the UnitsArrived message. </summary>
+    public String UnitIdentifier;
+    //TODO Remove
+    //public Guid HermesID;
 
+    //TODO Remove
+    //     Measurement of timings should be done via WorkStarted/Completed and/or WorkStageStarted/Completed.
     /// <summary> The inspection time includes feed in, image capture and analysis. (Currently not feed out.) </summary>
-    public DateTime InspectionStart;
-    /// <summary> Start of image capture and analysis (without feed in and out). </summary>
-    public DateTime AnalysisStart;
-    public DateTime AnalysisEnd;
-    public DateTime InspectionEnd;
+    //public DateTime InspectionStart;
+    ///// <summary> Start of image capture and analysis (without feed in and out). </summary>
+    //public DateTime AnalysisStart;
+    //public DateTime AnalysisEnd;
+    //public DateTime InspectionEnd;
 
     /// <summary> In debug mode an operator is configuring the station and/or the inspection program. </summary>
     public bool? DebugMode;

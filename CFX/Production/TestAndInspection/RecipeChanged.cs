@@ -16,6 +16,7 @@ namespace CFX.Production.TestAndInspection
   {
     public RecipeChanged () { }
 
+    public Guid RecipeID;
     public CFXSPTI.Panel Panel;
   }
 
