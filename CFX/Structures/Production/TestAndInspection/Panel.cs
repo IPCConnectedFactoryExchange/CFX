@@ -30,6 +30,9 @@ namespace CFX.Structures.Production.TestAndInspection
     public List<Component> Components;
 
 
+    /// <summary>
+    ///   Even if a panel is defective, one of its boards can still be (and typically will be) Ok. 
+    /// </summary>
     [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
     public override bool IsDefect
     {

@@ -60,7 +60,6 @@ namespace CFX.Structures.Production.TestAndInspection
         {
           return Position ?? Vector3.Zero;
         }
-        throw new NotImplementedException ();
       }
     }
 
