@@ -150,7 +150,7 @@ namespace CFX.Structures.Production.TestAndInspection
 
 
     //TODO Depending on the message we serialize for, we need different behaviour:
-    //     - for RecipeChanged IsInspected should default to false,  and
+    //     - for InspectionBaseInfo IsInspected should default to false,  and
     //     - for DefectsDetected IsInspected should default to true.
     //     And then the "default" should _not_ be serialized to JSON.
     //TODO But how to do that?

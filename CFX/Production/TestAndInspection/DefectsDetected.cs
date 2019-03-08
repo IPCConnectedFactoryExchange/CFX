@@ -7,14 +7,25 @@ namespace CFX.Production.TestAndInspection
 
   /// <summary>
   ///   List of only the defect components.
-  ///   Always refers to a previously sent recipe (i.e. sent in a RecipeChanged message).
+  ///   Always refers to a previously sent InspectionBaseInfo message.
   /// </summary>
   public class DefectsDetected : CFXMessage
   {
-    /// <summary> As defined in the WorkStarted message. </summary>
-    public Guid TransactionID;
-    /// <summary> As defined in the UnitsArrived message. </summary>
-    public String UnitIdentifier;
+    /// <summary> The TransactionID as defined in the WorkStarted message, where you can find Lane and Units. </summary>
+    public Guid WorkTransactionID;
+    //TODO If WorkStageStarted had a TransactionID itself (in addition to the WorkStarted.TransactionID), then
+    //     we could reference that and omit the Stage property below.
+    /// <summary>
+    ///   The TransactionID as defined in the WorkStageStarted message, where you can find the Stage
+    ///   where this inspection results were produced.
+    ///   Maybe null if not assignable to a specific stage.
+    /// </summary>
+    //public Guid WorkStageTransactionID;
+    /// <summary> Stage where this inspection results were produced. Maybe null if not assignable to a specific stage.</summary>
+    public CFX.Structures.Stage Stage;
+    //TODO Not necessary if all units are always processed together anyway.
+    ///// <summary> As defined in the WorkStarted and UnitsArrived messages. </summary>
+    //public String UnitIdentifier;
     //TODO Remove
     //public Guid HermesID;
 
@@ -32,11 +43,8 @@ namespace CFX.Production.TestAndInspection
     /// <summary> The inspection may have been aborted, either manually (by an operator) or due to machine errors. </summary>
     public bool? InspectionAborted;
 
-    /// <summary>
-    ///   UniqueID identifying the recipe this ("differential") list is based on.
-    ///   Actually the UniqueID of the enevlope containing the RecipeChanged message.
-    /// </summary>
-    public Guid RecipeID;
+    /// <summary> Unique ID identifying the InspectionBaseInfo message this ("differential") list is based on. </summary>
+    public Guid RecipeBaseInfoID;
 
     //TODO Naming: "panel" or "board" as name for the toplevel object (that itself conatains several sub-elements)?
     /// <summary>
