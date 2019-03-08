@@ -216,6 +216,12 @@
     <Compile Include="Structures\Activity.cs" />
     <Compile Include="Structures\ActivityState.cs" />
     <Compile Include="Structures\ActorType.cs" />
+    <Compile Include="Structures\BadOpticalTestRejectionDetails.cs" />
+    <Compile Include="Structures\BadPressureTestRejectionDetails.cs" />
+    <Compile Include="Structures\ComponentVisionTest.cs" />
+    <Compile Include="Structures\ComponentPressureTest.cs" />
+    <Compile Include="Structures\ComponentOpticalTest.cs" />
+    <Compile Include="Structures\ComponentElectricalTest.cs" />
     <Compile Include="Structures\BlockReason.cs" />
     <Compile Include="Structures\BooleanMeasurement.cs" />
     <Compile Include="Structures\Calibration.cs" />
@@ -231,6 +237,8 @@
     <Compile Include="Structures\Defect.cs" />
     <Compile Include="Structures\DimensionalConstraints.cs" />
     <Compile Include="Structures\DisqualificationReason.cs" />
+    <Compile Include="Structures\BadElectricalTestRejectionDetails.cs" />
+    <Compile Include="Structures\ComponentElectricalTestUnit.cs" />
     <Compile Include="Structures\Endpoint.cs" />
     <Compile Include="Structures\EnvironmentalCondition.cs" />
     <Compile Include="Structures\Fault.cs" />
@@ -267,6 +275,8 @@
     <Compile Include="Structures\MSDLevel.cs" />
     <Compile Include="Structures\MSDState.cs" />
     <Compile Include="Structures\NamespaceDoc.cs" />
+    <Compile Include="Structures\NonInstalledComponent.cs" />
+    <Compile Include="Structures\NonInstalledComponentLocation.cs" />
     <Compile Include="Structures\NumericMeasurement.cs" />
     <Compile Include="Structures\NumericValue.cs" />
     <Compile Include="Structures\OperatingRequirements.cs" />
@@ -275,6 +285,7 @@
     <Compile Include="Structures\PCBInspection\NamespaceDoc.cs" />
     <Compile Include="Structures\PCBInspection\OffsetMeasurement.cs" />
     <Compile Include="Structures\PersonalizedUnit.cs" />
+    <Compile Include="Structures\BadVisionTestRejectionDetails.cs" />
     <Compile Include="Structures\PressInsertion\BoardData.cs" />
     <Compile Include="Structures\PressInsertion\Condition.cs" />
     <Compile Include="Structures\PressInsertion\ConditionResult.cs" />
@@ -303,6 +314,8 @@
     <Compile Include="Structures\ReflowProfiling\NamespaceDoc.cs" />
     <Compile Include="Structures\ReflowProfiling\ReflowProfilingProcessData.cs" />
     <Compile Include="Structures\Region.cs" />
+    <Compile Include="Structures\RejectionDetails.cs" />
+    <Compile Include="Structures\RejectionReason.cs" />
     <Compile Include="Structures\RequestResult.cs" />
     <Compile Include="Structures\ResourceState.cs" />
     <Compile Include="Structures\SamplingInformation.cs" />

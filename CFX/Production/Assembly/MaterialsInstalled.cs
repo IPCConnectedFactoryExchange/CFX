@@ -87,6 +87,27 @@ namespace CFX.Production.Assembly
     ///           "ReferenceDesignator": "R3",
     ///           "InstallationTime": "2018-10-03T16:03:05.1091909-04:00"
     ///         }
+    ///       ],
+    ///       "NonInstalledComponents": [
+    ///         {
+    ///           "ReferenceDesignator": "R1",
+    ///           "NonInstallationTime": "2018-10-03T16:03:05.1091909-04:00",
+    ///           "Location" : "RejectionBox",
+    ///           "RejectionBoxId" : "RejectionBox1",
+    ///           "RejectionComment" : "Bad electrical test measure",
+    ///           "RejectionReason": "BadElectricalTest",
+    ///           "RejectionDetails": {
+    ///             "$type": "CFX.Structures.BadElectricalTestRejectionDetails, CFX",
+    ///             "TesterSerialNumber" : "ELECTRICAL-TESTER-0123456789"
+    ///             "Frequency": "1000"
+    ///             "ExpectedValue": "3300",
+    ///             "MeasuredValue": "3100",
+    ///             "ToleranceMin": "100",
+    ///             "ToleranceMax": "100",
+    ///             "ValueUnit": "Ohm",
+    ///             "result": "false",
+    ///           }
+    ///         }
     ///       ]
     ///     }
     ///   ]
