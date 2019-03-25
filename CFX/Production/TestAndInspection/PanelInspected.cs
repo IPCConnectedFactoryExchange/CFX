@@ -9,7 +9,7 @@ namespace CFX.Production.TestAndInspection
   ///   List of only the defect components.
   ///   Always refers to a previously sent InspectionBaseInfo message.
   /// </summary>
-  public class DefectsDetected : CFXMessage
+  public class PanelInspected : CFXMessage
   {
     /// <summary> The TransactionID as defined in the WorkStarted message, where you can find Lane and Units. </summary>
     public Guid WorkTransactionID;
@@ -47,6 +47,9 @@ namespace CFX.Production.TestAndInspection
     public Guid RecipeBaseInfoID;
 
     //TODO Naming: "panel" or "board" as name for the toplevel object (that itself conatains several sub-elements)?
+    //TODO Should be configurable, if only defects or all inspection results are transmitted.
+    //     On demand, even the positions (and rotation values) could be included, so no RecipeBaseInfo
+    //     would be necessary.
     /// <summary>
     ///   The topmost "physical inspection object" (containing boards and components), but only
     ///   with the defect components.
