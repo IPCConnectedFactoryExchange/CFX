@@ -30,7 +30,11 @@ namespace CFX.Production.TestAndInspection
     //public Guid HermesID;
 
     //TODO Remove
-    //     Measurement of timings should be done via WorkStarted/Completed and/or WorkStageStarted/Completed.
+    //     Measurement of timings should be done via either
+    //     - WorkStarted/Completed,
+    //     - WorkStageStarted/Completed,
+    //     - ActivitiesExecited   and/or
+    //     - WorkStepStarted/Completed or ActivityStarted/Completed (both would be TBD).
     /// <summary> The inspection time includes feed in, image capture and analysis. (Currently not feed out.) </summary>
     //public DateTime InspectionStart;
     ///// <summary> Start of image capture and analysis (without feed in and out). </summary>
