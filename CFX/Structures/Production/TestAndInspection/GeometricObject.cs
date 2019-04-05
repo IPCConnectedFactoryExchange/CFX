@@ -13,17 +13,17 @@ namespace CFX.Structures.Production.TestAndInspection
   /// </summary>
   public class GeometricObject : InspectionObject
   {
-    //TODO Discuss units. Would mm be more appropriate?
+    //TODO Discuss units. Would µm be more appropriate?
 
     /// <summary>
-    ///   X=Width, Y=Height, Z=Depth, in µm.
+    ///   X=Width, Y=Height, Z=Depth, in mm.
     /// </summary>
     [JsonProperty (Order = -2)]  // The property should come right after the name.
     public Vector3? Size;
 
     /// <summary>
     ///   Position of the center point of this object, relative to the center point
-    ///   of the parent object, in µm, as right handed coordinates.
+    ///   of the parent object, in mm, as right handed coordinates.
     /// </summary>
     [JsonProperty (Order = -2)]
     public Vector3? Position;
@@ -41,7 +41,7 @@ namespace CFX.Structures.Production.TestAndInspection
     /// <summary>
     ///   The position in global coordinates, i.e. all position shifts and rotations of the
     ///   parent objects (recursively) are factored in.
-    ///   Given in µm, as right handed coordinates.
+    ///   Given in mm, as right handed coordinates.
     /// </summary>
     [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
     public Vector3 PositionGlobal
