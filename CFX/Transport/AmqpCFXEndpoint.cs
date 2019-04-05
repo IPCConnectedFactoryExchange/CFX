@@ -772,6 +772,23 @@ namespace CFX.Transport
         /// <returns>A CFX envelope containing the response from the Endpoint.</returns>
         public CFXEnvelope ExecuteRequest(string targetUri, CFXEnvelope request)
         {
+            return ExecuteRequestAsync(targetUri, request)
+                .ConfigureAwait(false)
+                .GetAwaiter()
+                .GetResult();
+        }
+
+        /// <summary>
+        /// Performs a direct, point-to-point request/response transaction with another CFX Endpoint.
+        /// </summary>
+        /// <param name="targetUri">The network address of the Endpoint to which the request will be sent.
+        /// May use amqp:// or amqps:// topic (amqps for secure communications).
+        /// May also include user information (for authentication), as well as a custom TCP port.
+        /// </param>
+        /// <param name="request">A CFX envelope containing the request.</param>
+        /// <returns>A CFX envelope containing the response from the Endpoint.</returns>
+        public async Task<CFXEnvelope> ExecuteRequestAsync(string targetUri, CFXEnvelope request)
+        {
             CFXEnvelope response = null;
             Connection reqConn = null;
             Session reqSession = null;
@@ -798,7 +815,7 @@ namespace CFX.Transport
                 req.ApplicationProperties = new ApplicationProperties();
                 req.ApplicationProperties["offset"] = 1;
                 
-                Task.Run(() =>
+                await Task.Run(() =>
                 {
                     try
                     {
@@ -843,7 +860,7 @@ namespace CFX.Transport
                         AppLog.Error(ex3);
                         ex = ex3;
                     }
-                }).Wait();
+                });
             }
             catch (Exception ex2)
             {
@@ -852,10 +869,10 @@ namespace CFX.Transport
             }
             finally
             {
-                if (receiver != null && !receiver.IsClosed) receiver.CloseAsync();
-                if (sender != null && !sender.IsClosed) sender.CloseAsync();
-                if (reqSession != null && !reqSession.IsClosed) reqSession.CloseAsync();
-                if (reqConn != null && !reqConn.IsClosed) reqConn.CloseAsync();
+                if (receiver != null && !receiver.IsClosed) await receiver.CloseAsync();
+                if (sender != null && !sender.IsClosed) await sender.CloseAsync();
+                if (reqSession != null && !reqSession.IsClosed) await reqSession.CloseAsync();
+                if (reqConn != null && !reqConn.IsClosed) await reqConn.CloseAsync();
             }
 
             if (ex != null)
