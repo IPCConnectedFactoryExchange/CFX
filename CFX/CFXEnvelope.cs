@@ -81,7 +81,7 @@ namespace CFX
             {
                 messageName = value;
             }
-        }
+        } 
 
         [JsonProperty]
         public string Version
