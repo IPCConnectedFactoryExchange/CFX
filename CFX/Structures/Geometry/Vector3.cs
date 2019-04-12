@@ -1221,17 +1221,16 @@ namespace CFX.Structures.Geometry
       }
     }
 
-    /// <summary>
-
-    /// Apply transformation on vectors within array of <see cref="Vector3"/> by the specified <see cref="Quaternion"/> and places the results in an another array.
-    /// </summary>
-    /// <param name="sourceArray">Source array.</param>
-    /// <param name="sourceIndex">The starting index of transformation in the source array.</param>
-    /// <param name="rotation">The <see cref="Quaternion"/> which contains rotation transformation.</param>
-    /// <param name="destinationArray">Destination array.</param>
-    /// <param name="destinationIndex">The starting index in the destination array, where the first <see cref="Vector3"/> should be written.</param>
-    /// <param name="length">The number of vectors to be transformed.</param>
-    public static void Transform (
+        /// <summary>
+        /// Apply transformation on vectors within array of <see cref="Vector3"/> by the specified <see cref="Quaternion"/> and places the results in an another array.
+        /// <param name="sourceArray">Source array.</param>
+        /// <param name="sourceIndex">The starting index of transformation in the source array.</param>
+        /// <param name="rotation">The <see cref="Quaternion"/> which contains rotation transformation.</param>
+        /// <param name="destinationArray">Destination array.</param>
+        /// <param name="destinationIndex">The starting index in the destination array, where the first <see cref="Vector3"/> should be written.</param>
+        /// <param name="length">The number of vectors to be transformed.</param>
+        /// </summary>
+        public static void Transform (
       Vector3[] sourceArray,
       int sourceIndex,
       ref Quaternion rotation,

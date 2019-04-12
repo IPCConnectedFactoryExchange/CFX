@@ -14,8 +14,6 @@ namespace CFX.Structures.Production.TestAndInspection
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Feature : NamedObject
   {
-    //public String MethodName;  //TODO Unclear meaning
-
     /// <summary>
     ///   The feature is detected as defect.
     ///   A defect detected during inspection may be be identified a "false call" in verification
@@ -39,22 +37,36 @@ namespace CFX.Structures.Production.TestAndInspection
       }
     }
 
+    /// <summary>
+    /// This feature was checked. (The inspection may have been skipped due to an defect detected earlier, so further time consuming inspections are pointless.)
+    /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     [DefaultValue (true)]  // Special default for serialization.
-    public bool? IsInspected;              // This feature was checked. (The inspection may have been skipped due to an defect detected earlier, so further time consuming inspections are pointless.)
-    [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public bool IsDetectedDefect = false;  // The inspection has detected/classified this feature as defect.
+    public bool? IsInspected { get; set; }
 
+    /// <summary>
+    /// The inspection has detected/classified this feature as defect.
+    /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public bool IsVerified = false;        // This (usually defect) feature was verified (AKA "classified") by a human.
+    public bool IsDetectedDefect { get; set; } = false;
+
+    /// <summary>
+    /// This (usually defect) feature was verified (AKA "classified") by a human.
+    /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public bool IsVerifiedDefect = false;  // The verification (AKA "classification) by a human has confirmed a defect.
+    public bool IsVerified { get; set; } = false;
 
+    /// <summary>
+    /// The verification (AKA "classification) by a human has confirmed a defect.
+    /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public bool IsRepaired = false;        // The (eventual) defect was repaired successfully.
+    public bool IsVerifiedDefect { get; set; } = false;
 
-    //TODO Skipped "Local" variables as their meaning is unclear.
-
+    /// <summary>
+    /// The (eventual) defect was repaired successfully.
+    /// </summary>
+    [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public bool IsRepaired { get; set; } = false;       
 
     /// <summary>
     ///   It is cleaner to have several subclasses with specific value type (float and int in
@@ -64,16 +76,17 @@ namespace CFX.Structures.Production.TestAndInspection
     [JsonConverter (typeof (Value.Converter))]
     public class Value : NamedObject
     {
-      public string Unit;
-      //TODO?
-      //public class Threshold { ... }
-      //public List<Threshold> Thresholds;
+        /// <summary>
+        /// The name of the units for this value
+        /// </summary>
+      public string Unit { get; set; }
 
-      /// <summary>
-      ///   A custom Feature.Value-converter to correctly deserialize all its different subclasses 
-      ///   (i.e. StringValue, FloatValue, and IntValue).
-      /// </summary>
-      class Converter : JsonConverter
+
+     /// <summary>
+     ///   A custom Feature.Value-converter to correctly deserialize all its different subclasses 
+     ///   (i.e. StringValue, FloatValue, and IntValue).
+     /// </summary>
+    class Converter : JsonConverter
       {
         public override bool CanConvert (Type objectType)
         {
@@ -131,33 +144,45 @@ namespace CFX.Structures.Production.TestAndInspection
       }
     }
 
+    /// <summary>
+    /// representation of an string value
+    /// </summary>
     public class StringValue : Value
     {
-      public string Value;
+        /// <summary>
+        /// representation of the value
+        /// </summary>
+        public string Value { get; set; }
     }
 
+    /// <summary>
+    /// representation of an Float value
+    /// </summary>
     public class FloatValue : Value
     {
-      public double Value;
-    }
+        /// <summary>
+        /// representation of the value
+        /// </summary>
+        public double Value { get; set; }
+        }
 
-    public class IntValue : Value
+        /// <summary>
+        /// representation of an Integer value
+        /// </summary>
+        public class IntValue : Value
     {
-      public Int64 Value;
+        /// <summary>
+        /// representation of the value
+        /// </summary>
+        public Int64 Value { get; set; }
     }
 
-    public List<Value> Values;
+    /// <summary>
+    /// List of values
+    /// </summary>
+    public List<Value> Values { get; set; }
 
 
-    //TODO Depending on the message we serialize for, we need different behaviour:
-    //     - for InspectionBaseInfo IsInspected should default to false,  and
-    //     - for DefectsDetected IsInspected should default to true.
-    //     And then the "default" should _not_ be serialized to JSON.
-    //TODO But how to do that?
-    protected bool ShouldSerializeIsInspected ()
-    {
-      return IsDetectedDefect;
     }
-  }
 
 }

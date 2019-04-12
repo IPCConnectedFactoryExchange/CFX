@@ -8,21 +8,31 @@ namespace CFX.Structures.Production.TestAndInspection
 
   /// <summary>
   ///   A board typically is part of a (multi-)panel and may contain fiducials, components
-  ///   (an even subboards).
+  ///   (an even sub boards).
   ///   It is an inspection object itself, too (with feature on its own).
   /// </summary>
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Board : GeometricObject
   {
-    [JsonProperty (Order = 1)]  // The children should come at the end.
-    public List<Fiducial> Fiducials;
-    [JsonProperty (Order = 1)]
-    public List<Component> Components;
-    /// <summary> Usually empty, but it allows to have panels with n boards and m "subboards", even recursivly. </summary>
-    [JsonProperty (Order = 1)]
+      /// <summary>
+      /// This is a list of fiducials
+      /// </summary>
+      [JsonProperty(Order = 1)] // The children should come at the end.
+      public List<Fiducial> Fiducials { get; set; }
+
+    /// <summary>
+    /// This is the list of components in the board definition
+    /// </summary>
+      [JsonProperty (Order = 1)]
+    public List<Component> Components { get; set; }
+        /// <summary> Usually empty, but it allows to have panels with n boards and m "sub-boards", even recursivly. </summary>
+        [JsonProperty (Order = 1)]
     public List<Board> Boards;
 
 
+    /// <summary>
+    /// Validate if there is a detected defect in the result of the inspection
+    /// </summary>
     [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
     public override bool IsDefect
     {

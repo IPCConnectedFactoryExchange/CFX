@@ -17,8 +17,16 @@ namespace CFX.Production.TestAndInspection
   {
     public RecipeBaseInfo () { }
 
-    public Guid ID;
-    public CFXSPTI.Panel Panel;
+
+    /// <summary>
+    /// A new recipe is activated in this station and all events related to this recipe instance share the same 
+    /// Id of the transaction. One example is the RecipeBaseInfo which provides more recipe content information. 
+    /// </summary>
+    public Guid TransactionId { get; set; }
+
+        public Guid ID { get; set; }
+     
+     public CFXSPTI.Panel Panel { get; set; }
   }
 
 }

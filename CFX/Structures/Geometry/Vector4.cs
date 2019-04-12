@@ -588,10 +588,10 @@ namespace CFX.Structures.Geometry
     /// <summary>
     /// Returns a dot product of two vectors.
     /// </summary>
-    /// <param name="value1">The first vector.</param>
-    /// <param name="value2">The second vector.</param>
+    /// <param name="vector1">The first vector.</param>
+    /// <param name="vector2">The second vector.</param>
     /// <returns>The dot product of two vectors.</returns>
-    public static double Dot (Vector4 vector1, Vector4 vector2)
+        public static double Dot (Vector4 vector1, Vector4 vector2)
     {
       return (
         vector1.X * vector2.X +
@@ -604,8 +604,8 @@ namespace CFX.Structures.Geometry
     /// <summary>
     /// Returns a dot product of two vectors.
     /// </summary>
-    /// <param name="value1">The first vector.</param>
-    /// <param name="value2">The second vector.</param>
+    /// <param name="vector1">The first vector.</param>
+    /// <param name="vector2">The second vector.</param>
     /// <param name="result">The dot product of two vectors as an output parameter.</param>
     public static void Dot (ref Vector4 vector1, ref Vector4 vector2, out double result)
     {

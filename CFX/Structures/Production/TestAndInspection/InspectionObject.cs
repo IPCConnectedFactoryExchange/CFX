@@ -12,13 +12,15 @@ namespace CFX.Structures.Production.TestAndInspection
   /// </summary>
   public class InspectionObject : NamedObject
   {
-    /// <summary> Reference to the parent inspection object. Allows to calculate the absolute position and rotation. </summary>
+    /// <summary>
+    /// Reference to the parent inspection object. Allows to calculate the absolute position and rotation.
+    /// </summary>
     [JsonIgnore]  // This property is reconstructed _after_ deserialization via UpdateParent(). It would be nice, if JSON.NET could fill
                   // it automatically, but that seems impossible for now. Maybe with future serialization techniques...
-    public InspectionObject Parent = null;
+    public InspectionObject Parent { get; set; } = null;
 
     /// <summary> Features to check during inspection, like "Presence", "Displacement", "Height". </summary>
-    public List<Feature> Features;
+    public List<Feature> Features { get; set; }
 
 
     /// <summary> The inspection object was detected as defect. </summary>
@@ -40,13 +42,9 @@ namespace CFX.Structures.Production.TestAndInspection
       }
     }
 
-    //TODO?
-    //public bool HasDetectedDefect { get }   // At least one of the features was detected as defect.
-    //public bool HasVerifiedDefect { get }   // At least one of the features was verified as defect.
-
     /// <summary> The inspection object as a whole was repaired. (E.g. by replacing the whole component.) </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public bool IsRepaired = false;
+    public bool IsRepaired { get; set; } = false;
 
 
     /// <summary>

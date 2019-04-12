@@ -20,14 +20,23 @@ namespace CFX.Structures.Production.TestAndInspection
     /// <summary> Size of the panel (in µm). </summary>
     public Vector3? Size = null;
 
-    [JsonProperty (Order = 1)]  // The children should come at the end.
-    public List<Fiducial> Fiducials;
-    [JsonProperty (Order = 1)]
-    public List<Board> Boards;
+    /// <summary>
+    /// The list of fiducials
+    /// </summary>
+    [JsonProperty(Order = 1)] // The children should come at the end.
+    public List<Fiducial> Fiducials { get; set; }
 
-    /// <summary> Usually empty (a panel consist of n boards), but allows to omit boards and assign the components directly to the panel. </summary>
+    /// <summary>
+    /// The list of boards
+    /// </summary>
     [JsonProperty (Order = 1)]
-    public List<Component> Components;
+    public List<Board> Boards { get; set; }
+
+    /// <summary>
+    /// Usually empty (a panel consist of n boards), but allows to omit boards and assign the components directly to the panel.
+    /// </summary>
+    [JsonProperty (Order = 1)]
+    public List<Component> Components { get; set; }
 
 
     /// <summary>

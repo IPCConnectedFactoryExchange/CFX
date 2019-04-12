@@ -19,6 +19,12 @@ namespace CFX.Production
     public class RecipeActivated : CFXMessage
     {
         /// <summary>
+        /// A new recipe is activated in this station and all events related to this recipe instance share the same 
+        /// Id of the transaction. One example is the RecipeBaseInfo which provides more recipe detailed information. 
+        /// </summary>
+        public Guid TransactionId { get; set; }
+
+        /// <summary>
         /// THe name of the recipe (may include full path, if applicable)
         /// </summary>
         public string RecipeName

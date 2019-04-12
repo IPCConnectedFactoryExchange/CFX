@@ -13,20 +13,18 @@ namespace CFX.Structures.Production.TestAndInspection
   /// </summary>
   public class GeometricObject : InspectionObject
   {
-    //TODO Discuss units. Would µm be more appropriate?
-
     /// <summary>
     ///   X=Width, Y=Height, Z=Depth, in mm.
     /// </summary>
-    [JsonProperty (Order = -2)]  // The property should come right after the name.
-    public Vector3? Size;
+    [JsonProperty(Order = -2)] // The property should come right after the name.
+    public Vector3? Size { get; set; }
 
     /// <summary>
     ///   Position of the center point of this object, relative to the center point
     ///   of the parent object, in mm, as right handed coordinates.
     /// </summary>
     [JsonProperty (Order = -2)]
-    public Vector3? Position;
+    public Vector3? Position { get; set; }
 
     /// <summary>
     ///   X=RotationAroundXAxis, Y=RotationAroundYAxis, Z=RotationAroundZAxis, in degrees [0..360]
@@ -34,9 +32,7 @@ namespace CFX.Structures.Production.TestAndInspection
     ///   Optional value. If missing in the RecipeBaseInfo message, then it is assumed to be (0.0, 0.0, 0.0).
     /// </summary>
     [JsonProperty (Order = -2)]
-    public Vector3? Rotation;
-    //TODO Only rotation around z-axis necessary?
-
+    public Vector3? Rotation { get; set; }
 
     /// <summary>
     ///   The position in global coordinates, i.e. all position shifts and rotations of the
@@ -53,8 +49,6 @@ namespace CFX.Structures.Production.TestAndInspection
         {
           GeometricObject parent = Parent as GeometricObject;
 
-          //TODO Drehrichtung, d.h. Vorzeichen klären.
-          //TODO Cache transformation matrix (i.e. rotation and translation, so we need a 4x4 matrix) of parent.
           Matrix44 RX = Matrix44.CreateRotationX (parent.RotationGlobal.X * 2.0 * PI / 360.0);
           Matrix44 RY = Matrix44.CreateRotationY (parent.RotationGlobal.Y * 2.0 * PI / 360.0);
           Matrix44 RZ = Matrix44.CreateRotationZ (parent.RotationGlobal.Z * 2.0 * PI / 360.0);
@@ -91,7 +85,6 @@ namespace CFX.Structures.Production.TestAndInspection
           rotation = rotation + parent.RotationGlobal;
 
           // Restrict the rotation values to the range 0..<360 (degrees).
-          //TODO Better use a glovbal/static object for this.
           Vector3 vec360 = new Vector3 (360);
           // The modulo-operator may return negative values, so a simple "rotation % vec360" is not sufficient.
           rotation = ((rotation % vec360) + vec360) % vec360;

@@ -13,14 +13,26 @@ namespace CFX.Structures.Production.TestAndInspection
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Component : GeometricObject
   {
-    //TODO Maybe use "Type" (resistor, capacitor, diode) and "Package" instead?
-    public String Type;        // "C1206", "R1206", "TO252AA"
-    public String Group;       // "Capacitor", "Resistor", "DPAK"
+    /// <summary>
+    /// Maybe use "Type" (resistor, capacitor, diode) and "Package" instead?
+    /// </summary>
+    public String Type { get; set; }        // "C1206", "R1206", "TO252AA"
 
-    [JsonProperty (Order = 1)]   // The children should come at the end.
-    public List<Pin> Pins;
+    /// <summary>
+    /// This is the group of component classification like "Capacitor", "Resistor", "DPAK"
+    /// </summary>
+    public String Group { get; set; }       // "Capacitor", "Resistor", "DPAK"
+
+    /// <summary>
+    /// List of Pins
+    /// </summary>
+        [JsonProperty (Order = 1)]   // The children should come at the end.
+    public List<Pin> Pins { get; set; }
 
 
+    /// <summary>
+    /// Check if the component definition contains an inspected defect 
+    /// </summary>
     [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
     public override bool IsDefect
     {
