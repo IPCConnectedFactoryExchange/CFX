@@ -205,7 +205,7 @@ namespace CFX.Structures.Geometry
       double sCubed = s * s * s;
       double sSquared = s * s;
 
-      if (WithinEpsilon (amount, 0f))
+      if (WithinEpsilon (amount, 0.0))
       {
         result = value1;
       }
@@ -282,8 +282,8 @@ namespace CFX.Structures.Geometry
 			 * If amount < 0, return value1.
 			 * If amount > 1, return value2.
 			 */
-      double result = MathHelper.Clamp (amount, 0f, 1.0);
-      result = MathHelper.Hermite (value1, 0f, value2, 0f, result);
+      double result = MathHelper.Clamp (amount, 0.0, 1.0);
+      result = MathHelper.Hermite (value1, 0.0, value2, 0.0, result);
 
       return result;
     }

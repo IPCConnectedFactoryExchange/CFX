@@ -7,15 +7,15 @@ namespace CFX.Production.TestAndInspection
 
   /// <summary>
   ///   List of only the defect components.
-  ///   Always refers to a previously sent InspectionBaseInfo message.
+  ///   Always refers to a previously sent RecipeBaseInfo message.
   /// </summary>
   public class PanelInspected : CFXMessage
   {
-      /// <summary>
-      /// The TransactionID as defined in the WorkStarted message, where you can find Lane and Units.
-      /// </summary>
-      // ReSharper disable once InconsistentNaming
-      public Guid WorkTransactionID { get; set; }
+    /// <summary>
+    /// The TransactionID as defined in the WorkStarted message, where you can find Lane and Units.
+    /// </summary>
+    // ReSharper disable once InconsistentNaming
+    public Guid WorkTransactionID { get; set; }
 
     /// <summary>
     /// Stage where this inspection results were produced. Maybe null if not assignable to a specific stage.
@@ -33,10 +33,15 @@ namespace CFX.Production.TestAndInspection
     public bool? InspectionAborted { get; set; }
 
     /// <summary>
-    ///   The topmost "physical inspection object" (containing boards and components), but only
-    ///   with the defect components.
+    /// Unique ID identifying the RecipeBaseInfo message this ("differential") list is based on.
+    /// </summary>
+    public Guid RecipeBaseInfoID { get; set; }
+
+    /// <summary>
+    /// The topmost "physical inspection object" (containing boards and components), but typically 
+    /// only with the defect components (may be configurable).
     /// </summary>
     public CFXSPTI.Panel Panel { get; set; }
-    }
+  }
 
 }

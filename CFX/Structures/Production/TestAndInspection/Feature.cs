@@ -38,7 +38,9 @@ namespace CFX.Structures.Production.TestAndInspection
     }
 
     /// <summary>
-    /// This feature was checked. (The inspection may have been skipped due to an defect detected earlier, so further time consuming inspections are pointless.)
+    /// This feature was checked.
+    /// (The inspection may have been skipped due to a defect detected earlier, so further
+    /// time consuming inspections are pointless.)
     /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     [DefaultValue (true)]  // Special default for serialization.
@@ -76,17 +78,17 @@ namespace CFX.Structures.Production.TestAndInspection
     [JsonConverter (typeof (Value.Converter))]
     public class Value : NamedObject
     {
-        /// <summary>
-        /// The name of the units for this value
-        /// </summary>
+      /// <summary>
+      /// The name of the unit for this value.
+      /// </summary>
       public string Unit { get; set; }
 
 
-     /// <summary>
-     ///   A custom Feature.Value-converter to correctly deserialize all its different subclasses 
-     ///   (i.e. StringValue, FloatValue, and IntValue).
-     /// </summary>
-    class Converter : JsonConverter
+      /// <summary>
+      ///   A custom Feature.Value-converter to correctly deserialize all its different subclasses 
+      ///   (i.e. StringValue, FloatValue, and IntValue).
+      /// </summary>
+      class Converter : JsonConverter
       {
         public override bool CanConvert (Type objectType)
         {
@@ -145,44 +147,42 @@ namespace CFX.Structures.Production.TestAndInspection
     }
 
     /// <summary>
-    /// representation of an string value
+    /// Representation of a string value.
     /// </summary>
     public class StringValue : Value
     {
-        /// <summary>
-        /// representation of the value
-        /// </summary>
-        public string Value { get; set; }
+      /// <summary>
+      /// A string value.
+      /// </summary>
+      public string Value { get; set; }
     }
 
     /// <summary>
-    /// representation of an Float value
+    /// Representation of a float value.
     /// </summary>
     public class FloatValue : Value
     {
-        /// <summary>
-        /// representation of the value
-        /// </summary>
-        public double Value { get; set; }
-        }
-
-        /// <summary>
-        /// representation of an Integer value
-        /// </summary>
-        public class IntValue : Value
-    {
-        /// <summary>
-        /// representation of the value
-        /// </summary>
-        public Int64 Value { get; set; }
+      /// <summary>
+      /// A float value.
+      /// </summary>
+      public double Value { get; set; }
     }
 
     /// <summary>
-    /// List of values
+    /// Representation of an integer value.
+    /// </summary>
+    public class IntValue : Value
+    {
+      /// <summary>
+      /// An integer value.
+      /// </summary>
+      public Int64 Value { get; set; }
+    }
+
+    /// <summary>
+    /// List of values (of varying types).
     /// </summary>
     public List<Value> Values { get; set; }
-
-
-    }
+  }
 
 }

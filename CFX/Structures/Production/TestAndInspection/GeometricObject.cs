@@ -16,7 +16,7 @@ namespace CFX.Structures.Production.TestAndInspection
     /// <summary>
     ///   X=Width, Y=Height, Z=Depth, in mm.
     /// </summary>
-    [JsonProperty(Order = -2)] // The property should come right after the name.
+    [JsonProperty (Order = -2)]  // The property should come right after the name.
     public Vector3? Size { get; set; }
 
     /// <summary>

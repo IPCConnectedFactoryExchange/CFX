@@ -13,4 +13,5 @@ namespace CFX.Structures.Production.TestAndInspection
   public class Pin : GeometricObject
   {
   }
+
 }

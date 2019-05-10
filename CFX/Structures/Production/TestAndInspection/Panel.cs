@@ -15,25 +15,30 @@ namespace CFX.Structures.Production.TestAndInspection
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Panel : InspectionObject
   {
-    /// <summary> Name of the assembly variant. May be empty. </summary>
+    /// <summary>
+    /// Name of the assembly variant. May be empty.
+    /// </summary>
     public string Variant;
     /// <summary> Size of the panel (in µm). </summary>
     public Vector3? Size = null;
 
     /// <summary>
-    /// The list of fiducials
+    /// The list of fiducials of this panel.
+    /// (Only the top-level fiducials, not the fiducials of a board.)
     /// </summary>
     [JsonProperty(Order = 1)] // The children should come at the end.
     public List<Fiducial> Fiducials { get; set; }
 
     /// <summary>
-    /// The list of boards
+    /// The list of boards, that are part of this panel.
+    /// (Only the top-level boards, not the sub-boards of a top-level board.)
     /// </summary>
     [JsonProperty (Order = 1)]
     public List<Board> Boards { get; set; }
 
     /// <summary>
-    /// Usually empty (a panel consist of n boards), but allows to omit boards and assign the components directly to the panel.
+    /// List of components directly assigned to this panel, not those assigned to one of its boards.
+    /// Usually empty (as a panel consist of n boards), but allows to omit boards and assign the components directly to the panel.
     /// </summary>
     [JsonProperty (Order = 1)]
     public List<Component> Components { get; set; }
@@ -97,6 +102,7 @@ namespace CFX.Structures.Production.TestAndInspection
         component.UpdateParentReference (this);
     }
 
+
     /// <summary>
     ///   A custom JSON-converter to correctly update all Parent-references after deserialization.
     /// </summary>
@@ -119,7 +125,7 @@ namespace CFX.Structures.Production.TestAndInspection
         return panel;
       }
 
-      /// <summary> For writing the default serialization is used. </summary>
+      /// <summary> For writing the default serialization is used instead. </summary>
       public override bool CanWrite
       {
         get
@@ -127,6 +133,7 @@ namespace CFX.Structures.Production.TestAndInspection
           return false;
         }
       }
+
       public override void WriteJson (JsonWriter writer, object value, JsonSerializer serializer)
       {
         throw new NotImplementedException ();

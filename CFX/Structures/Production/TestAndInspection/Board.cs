@@ -8,32 +8,37 @@ namespace CFX.Structures.Production.TestAndInspection
 
   /// <summary>
   ///   A board typically is part of a (multi-)panel and may contain fiducials, components
-  ///   (an even sub boards).
-  ///   It is an inspection object itself, too (with feature on its own).
+  ///   (an even sub-boards).
+  ///   It is an inspection object itself, too (with features on its own).
   /// </summary>
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Board : GeometricObject
   {
-      /// <summary>
-      /// This is a list of fiducials
-      /// </summary>
-      [JsonProperty(Order = 1)] // The children should come at the end.
-      public List<Fiducial> Fiducials { get; set; }
+    /// <summary>
+    /// This is a list of fiducials.
+    /// </summary>
+    [JsonProperty (Order = 1)] // The children should come at the end.
+    public List<Fiducial> Fiducials { get; set; }
 
     /// <summary>
-    /// This is the list of components in the board definition
+    /// This is the list of components in the board definition.
     /// </summary>
-      [JsonProperty (Order = 1)]
+    [JsonProperty (Order = 1)]
     public List<Component> Components { get; set; }
-        /// <summary> Usually empty, but it allows to have panels with n boards and m "sub-boards", even recursivly. </summary>
-        [JsonProperty (Order = 1)]
+
+    /// <summary> 
+    /// List of "sub-boards" of this board.
+    /// Usually empty, but it allows to have panels with several boards, where each board may have some "sub-boards", even recursivly. 
+    /// </summary>
+    [JsonProperty (Order = 1)]
     public List<Board> Boards;
 
 
     /// <summary>
-    /// Validate if there is a detected defect in the result of the inspection
+    /// A board is considered defect if there is a defect in (the features / checks of) the board itself
+    /// or in one of it components, fiducials, or sub-boards.
     /// </summary>
-    [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
+    [JsonIgnore] // A calculated property, so no need to serialize and transmit it.
     public override bool IsDefect
     {
       get

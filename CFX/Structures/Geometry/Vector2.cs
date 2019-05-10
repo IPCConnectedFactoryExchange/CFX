@@ -114,10 +114,10 @@ namespace CFX.Structures.Geometry
 
     #region Private Static Fields
 
-    private static readonly Vector2 zeroVector = new Vector2 (0f, 0f);
+    private static readonly Vector2 zeroVector = new Vector2 (0.0, 0.0);
     private static readonly Vector2 unitVector = new Vector2 (1.0, 1.0);
-    private static readonly Vector2 unitXVector = new Vector2 (1.0, 0f);
-    private static readonly Vector2 unitYVector = new Vector2 (0f, 1.0);
+    private static readonly Vector2 unitXVector = new Vector2 (1.0, 0.0);
+    private static readonly Vector2 unitYVector = new Vector2 (0.0, 1.0);
 
     #endregion
 

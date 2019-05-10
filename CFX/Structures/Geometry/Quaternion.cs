@@ -642,7 +642,7 @@ namespace CFX.Structures.Geometry
         (quaternion1.Z * quaternion2.Z) +
         (quaternion1.W * quaternion2.W)
       );
-      if (num5 >= 0f)
+      if (num5 >= 0.0)
       {
         result.X = (num2 * quaternion1.X) + (num * quaternion2.X);
         result.Y = (num2 * quaternion1.Y) + (num * quaternion2.Y);
@@ -711,7 +711,7 @@ namespace CFX.Structures.Geometry
         (quaternion1.W * quaternion2.W)
       );
       double flag = 1.0;
-      if (num4 < 0f)
+      if (num4 < 0.0)
       {
         flag = -1.0;
         num4 = -num4;

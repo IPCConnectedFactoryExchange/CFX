@@ -149,10 +149,10 @@ namespace CFX.Structures.Geometry
 
     private static Vector4 zero = new Vector4 (); // Not readonly for performance -flibit
     private static readonly Vector4 unit = new Vector4 (1.0, 1.0, 1.0, 1.0);
-    private static readonly Vector4 unitX = new Vector4 (1.0, 0f, 0f, 0f);
-    private static readonly Vector4 unitY = new Vector4 (0f, 1.0, 0f, 0f);
-    private static readonly Vector4 unitZ = new Vector4 (0f, 0f, 1.0, 0f);
-    private static readonly Vector4 unitW = new Vector4 (0f, 0f, 0f, 1.0);
+    private static readonly Vector4 unitX = new Vector4 (1.0, 0.0, 0.0, 0.0);
+    private static readonly Vector4 unitY = new Vector4 (0.0, 1.0, 0.0, 0.0);
+    private static readonly Vector4 unitZ = new Vector4 (0.0, 0.0, 1.0, 0.0);
+    private static readonly Vector4 unitW = new Vector4 (0.0, 0.0, 0.0, 1.0);
 
     #endregion
 
@@ -591,7 +591,7 @@ namespace CFX.Structures.Geometry
     /// <param name="vector1">The first vector.</param>
     /// <param name="vector2">The second vector.</param>
     /// <returns>The dot product of two vectors.</returns>
-        public static double Dot (Vector4 vector1, Vector4 vector2)
+    public static double Dot (Vector4 vector1, Vector4 vector2)
     {
       return (
         vector1.X * vector2.X +

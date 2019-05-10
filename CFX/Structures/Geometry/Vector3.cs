@@ -178,17 +178,17 @@ namespace CFX.Structures.Geometry
 
     #region Private Static Fields
 
-    private static Vector3 zero = new Vector3 (0f, 0f, 0f); // Not readonly for performance -flibit
+    private static Vector3 zero = new Vector3 (0.0, 0.0, 0.0); // Not readonly for performance -flibit
     private static readonly Vector3 one = new Vector3 (1.0, 1.0, 1.0);
-    private static readonly Vector3 unitX = new Vector3 (1.0, 0f, 0f);
-    private static readonly Vector3 unitY = new Vector3 (0f, 1.0, 0f);
-    private static readonly Vector3 unitZ = new Vector3 (0f, 0f, 1.0);
-    private static readonly Vector3 up = new Vector3 (0f, 1.0, 0f);
-    private static readonly Vector3 down = new Vector3 (0f, -1.0, 0f);
-    private static readonly Vector3 right = new Vector3 (1.0, 0f, 0f);
-    private static readonly Vector3 left = new Vector3 (-1.0, 0f, 0f);
-    private static readonly Vector3 forward = new Vector3 (0f, 0f, -1.0);
-    private static readonly Vector3 backward = new Vector3 (0f, 0f, 1.0);
+    private static readonly Vector3 unitX = new Vector3 (1.0, 0.0, 0.0);
+    private static readonly Vector3 unitY = new Vector3 (0.0, 1.0, 0.0);
+    private static readonly Vector3 unitZ = new Vector3 (0.0, 0.0, 1.0);
+    private static readonly Vector3 up = new Vector3 (0.0, 1.0, 0.0);
+    private static readonly Vector3 down = new Vector3 (0.0, -1.0, 0.0);
+    private static readonly Vector3 right = new Vector3 (1.0, 0.0, 0.0);
+    private static readonly Vector3 left = new Vector3 (-1.0, 0.0, 0.0);
+    private static readonly Vector3 forward = new Vector3 (0.0, 0.0, -1.0);
+    private static readonly Vector3 backward = new Vector3 (0.0, 0.0, 1.0);
 
     #endregion
 
@@ -1221,16 +1221,16 @@ namespace CFX.Structures.Geometry
       }
     }
 
-        /// <summary>
-        /// Apply transformation on vectors within array of <see cref="Vector3"/> by the specified <see cref="Quaternion"/> and places the results in an another array.
-        /// <param name="sourceArray">Source array.</param>
-        /// <param name="sourceIndex">The starting index of transformation in the source array.</param>
-        /// <param name="rotation">The <see cref="Quaternion"/> which contains rotation transformation.</param>
-        /// <param name="destinationArray">Destination array.</param>
-        /// <param name="destinationIndex">The starting index in the destination array, where the first <see cref="Vector3"/> should be written.</param>
-        /// <param name="length">The number of vectors to be transformed.</param>
-        /// </summary>
-        public static void Transform (
+    /// <summary>
+    /// Apply transformation on vectors within array of <see cref="Vector3"/> by the specified <see cref="Quaternion"/> and places the results in an another array.
+    /// <param name="sourceArray">Source array.</param>
+    /// <param name="sourceIndex">The starting index of transformation in the source array.</param>
+    /// <param name="rotation">The <see cref="Quaternion"/> which contains rotation transformation.</param>
+    /// <param name="destinationArray">Destination array.</param>
+    /// <param name="destinationIndex">The starting index in the destination array, where the first <see cref="Vector3"/> should be written.</param>
+    /// <param name="length">The number of vectors to be transformed.</param>
+    /// </summary>
+    public static void Transform (
       Vector3[] sourceArray,
       int sourceIndex,
       ref Quaternion rotation,

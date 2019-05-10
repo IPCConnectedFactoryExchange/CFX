@@ -13,7 +13,10 @@ namespace CFX.Structures.Production.TestAndInspection
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Fiducial : GeometricObject
   {
-    public String Type;        // "Circle", "Rect"
+    /// <summary>
+    /// Type of the fiducial, like "Circle" or "Rect".
+    /// </summary>
+    public String Type { get; set; }
   }
 
 }
