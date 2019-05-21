@@ -121,6 +121,7 @@ namespace CFX.Transport
 #if NET462
                 if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
 #endif
+                if (string.IsNullOrWhiteSpace(this.NetworkUri.UserInfo)) factory.SASL.Profile = SaslProfile.Anonymous;
                 Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
                 t.Wait(5000);
                 if (t.Status != TaskStatus.RanToCompletion)
