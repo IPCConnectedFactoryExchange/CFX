@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CFXUnitTests.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ListenerHandle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CFX.Test.Listener</Value>
+    </Setting>
+    <Setting Name="ClientHandle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CFX.Test.Initiator</Value>
+    </Setting>
+    <Setting Name="DefaultUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cfxtestuser</Value>
+    </Setting>
+    <Setting Name="DefaultPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cfxtestpassword</Value>
+    </Setting>
+    <Setting Name="CertificateThumbprint" Type="System.String" Scope="User">
+      <Value Profile="(Default)">db759f1c9661b0f916ba5e9710bf132ae14bd818</Value>
+    </Setting>
+    <Setting Name="ListenerAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CFXListener</Value>
+    </Setting>
+    <Setting Name="CustomPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5672</Value>
+    </Setting>
+    <Setting Name="BrokerHostname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">aishqcfx01v</Value>
+    </Setting>
+    <Setting Name="BrokerExchange" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/exchange/CFXTestExchange</Value>
+    </Setting>
+    <Setting Name="BrokerQueue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/queue/CFXTestQueue</Value>
+    </Setting>
+    <Setting Name="BrokerUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cfxtest</Value>
+    </Setting>
+    <Setting Name="BrokerPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cfxtest</Value>
+    </Setting>
+    <Setting Name="BrokerVirtualHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">vhost:CFXTestHost</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
