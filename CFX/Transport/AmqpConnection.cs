@@ -115,13 +115,10 @@ namespace CFX.Transport
                     HostName = VirtualHostName
                 };
 
-                o = null;
-
                 ConnectionFactory factory = new ConnectionFactory();
-#if NET462
-                if (Certificate != null) factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
-#endif
+                if (this.NetworkUri.Scheme.ToUpper() == "AMQPS") factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
                 if (string.IsNullOrWhiteSpace(this.NetworkUri.UserInfo)) factory.SASL.Profile = SaslProfile.Anonymous;
+
                 Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
                 t.Wait(5000);
                 if (t.Status != TaskStatus.RanToCompletion)
