@@ -28,6 +28,9 @@ namespace CFX.Transport
         {
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
+            ValidateCertificates = true;
+            LastCertificate = null;
+            LastUri = null;
             if (!UseCompression.HasValue) UseCompression = false;
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
@@ -185,12 +188,34 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// If set to false, certificate validation will be disabled.  This should only be used for testing purposes when a
+        /// valid, commercial SSL certificate is not available for testing.
+        /// </summary>
+        public bool ValidateCertificates
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Read-only property indicating whether or not the endpoint is in an open state.
         /// </summary>
         public bool IsOpen
         {
             get;
             private set;
+        }
+
+        private X509Certificate LastCertificate
+        {
+            get;
+            set;
+        }
+
+        private Uri LastUri
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -311,9 +336,12 @@ namespace CFX.Transport
         /// <param name="networkAddress">The network address of the target channel.</param>
         /// <param name="address">The AMQP target address to which messages will be published.</param>
         /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
-        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.  For RabbitMQ broker, use format vhost:MYVHOST</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
+        /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
+        /// using the server's certificate (if using amqps).</param>
         /// <returns>A boolean value indicated whether or not the channel is valid.</returns>
-        public bool TestPublishChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
+        public bool TestPublishChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null, X509Certificate certificate = null)
         {
             error = null;
             Connection conn = null;
@@ -336,6 +364,13 @@ namespace CFX.Transport
                     fact.SASL.Profile = SaslProfile.Anonymous;
                 }
 
+                if (networkAddress.Scheme.ToUpper() == "AMQPS")
+                {
+                    LastCertificate = certificate;
+                    LastUri = networkAddress;
+                    fact.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                }
+                                
                 Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
                 tConn.Wait(3000);
                 if (tConn.Status != TaskStatus.RanToCompletion) throw new Exception("Timeout");
@@ -372,9 +407,12 @@ namespace CFX.Transport
         /// <param name="networkAddress">The network address of the target channel.</param>
         /// <param name="address">The AMQP source address from which messages will be received.</param>
         /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
-        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
+        /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.  For RabbitMQ broker, use format vhost:MYVHOST</param>
+        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
+        /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
+        /// using the server's certificate (if using amqps).</param>
         /// <returns>A boolean value indicated whether or not the channel is valid.</returns>
-        public bool TestSubscribeChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null)
+        public bool TestSubscribeChannel(Uri networkAddress, string address, out Exception error, string virtualHostName = null, X509Certificate certificate = null)
         {
             error = null;
             Connection conn = null;
@@ -401,6 +439,13 @@ namespace CFX.Transport
                 if (string.IsNullOrWhiteSpace(networkAddress.UserInfo))
                 {
                     fact.SASL.Profile = SaslProfile.Anonymous;
+                }
+
+                if (networkAddress.Scheme.ToUpper() == "AMQPS")
+                {
+                    LastCertificate = certificate;
+                    LastUri = networkAddress;
+                    fact.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
                 }
 
                 Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
@@ -433,6 +478,30 @@ namespace CFX.Transport
             return false;
         }
 
+        private bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            AppLog.Debug(string.Format("Validating remote certificate. Subject: {0}, Policy errors: {1}", certificate.Subject, sslPolicyErrors));
+
+            if (!ValidateCertificates) return true;
+            
+            if (OnValidateCertificate != null)
+            {
+                // Validate Certificate Externally
+                ValidateCertificateResult result = OnValidateCertificate(LastUri, certificate, chain, sslPolicyErrors);
+                if (result == ValidateCertificateResult.Valid) return true;
+                if (result == ValidateCertificateResult.Invalid) return false;
+            }
+
+            if (certificate != null && LastCertificate != null)
+            {
+                byte[] key1 = certificate.GetPublicKey();
+                byte[] key2 = LastCertificate.GetPublicKey();
+                if (key1.SequenceEqual(key2)) return true;
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Adds a new publish channel for this endpoint.  All messages published by the endpoint will be transmitted to one or more publish channels that
         /// are established using this method.  Only call this methoud after this endpoint has been opened by the Open method.
@@ -456,7 +525,7 @@ namespace CFX.Transport
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
         /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
         /// using the server's certificate (if using amqps).</param>
-        /// <param name="virtualHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
+        /// <param name="virtualHostName">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.  For RabbitMQ broker, use format vhost:MYVHOST</param>
         public void AddPublishChannel(Uri networkAddress, string address, string virtualHostName = null, X509Certificate certificate = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -533,7 +602,7 @@ namespace CFX.Transport
         /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched
         /// against the server's certificate.  Leave null if you do not wish to perform certificate matching (secure communications will still be established
         /// using the server's certificate (if using amqps).</param>
-        /// <param name="virtualHostHame">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.</param>
+        /// <param name="virtualHostHame">If using a broker with multiple virtual hosts, the virtual host name to be used on the broker.  For RabbitMQ broker, use format vhost:MYVHOST</param>
         public void AddSubscribeChannel(Uri networkAddress, string address, string virtualHostHame = null, X509Certificate certificate = null)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
@@ -619,6 +688,8 @@ namespace CFX.Transport
 
         private ValidateCertificateResult Channel_OnValidateCertificate(Uri source, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
+            if (!ValidateCertificates) return ValidateCertificateResult.Valid;
+
             if (OnValidateCertificate != null)
             {
                 return OnValidateCertificate(source, certificate, chain, sslPolicyErrors);
