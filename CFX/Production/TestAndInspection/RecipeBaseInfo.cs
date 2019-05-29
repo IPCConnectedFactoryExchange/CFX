@@ -15,6 +15,9 @@ namespace CFX.Production.TestAndInspection
   /// </summary>
   public class RecipeBaseInfo : CFXMessage
   {
+    /// <summary>
+    /// The constructor for the RecipeBaseInfo  class
+    /// </summary>
     public RecipeBaseInfo () { }
 
     /// <summary>
@@ -29,6 +32,9 @@ namespace CFX.Production.TestAndInspection
     /// </summary>
     public Guid ID { get; set; }
 
+    /// <summary>
+    /// The panel description for the the recipe 
+    /// </summary>
     public CFXSPTI.Panel Panel { get; set; }
   }
 
