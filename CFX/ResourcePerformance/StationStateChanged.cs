@@ -107,7 +107,7 @@ namespace CFX.ResourcePerformance
         {
             get
             {
-                return StateConverter.GetSemiE58State(OldState);
+                return StateConverter.GetSemiE58State(NewState);
             }
         }
 
