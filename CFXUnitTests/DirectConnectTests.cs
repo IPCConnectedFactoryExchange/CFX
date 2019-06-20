@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography.X509Certificates;
 using CFX;
 using CFX.Transport;
+using System.Threading.Tasks;
 
 namespace CFXUnitTests
 {
@@ -10,30 +11,30 @@ namespace CFXUnitTests
     public class DirectConnectTests
     {
         [TestMethod]
-        public void NoAuthNoSec()
+        public async Task NoAuthNoSec()
         {
-            DoTests(false, false);
+            await DoTests(false, false);
         }
 
         [TestMethod]
-        public void AuthNoSec()
+        public async Task AuthNoSec()
         {
-            DoTests(true, false);
+            await DoTests(true, false);
         }
 
         [TestMethod]
-        public void NoAuthSec()
+        public async Task NoAuthSec()
         {
-            DoTests(false, true);
+            await DoTests(false, true);
         }
 
         [TestMethod]
-        public void AuthAndSec()
+        public async Task AuthAndSec()
         {
-            DoTests(true, true);
+            await DoTests(true, true);
         }
 
-        private void DoTests(bool auth, bool sec)
+        private async Task DoTests(bool auth, bool sec)
         {
             InitializeTest(auth, sec);
 
@@ -50,7 +51,25 @@ namespace CFXUnitTests
             req.Source = endpoint.CFXHandle;
             req.Target = listener.CFXHandle;
             CFXEnvelope resp = endpoint.ExecuteRequest(listener.RequestUri.ToString(), req);
-            if (resp == null) throw new Exception("Invalid response to command request");
+            Assert.IsTrue(resp != null, "Response is null");
+            Assert.IsTrue(resp.MessageBody is AreYouThereResponse, "Response is not AreYouThereReponse");
+            Assert.IsTrue(resp.Source == listener.CFXHandle, "Bad response Source handle");
+            Assert.IsTrue(resp.Target == endpoint.CFXHandle, "Bad response Target handle");
+
+            await RunAsyncRequest();
+        }
+
+        private async Task RunAsyncRequest()
+        {
+            // Send Request/Reponse pattern command, and ensure response
+            CFXEnvelope req = new CFXEnvelope(new AreYouThereRequest() { CFXHandle = listener.CFXHandle });
+            req.Source = endpoint.CFXHandle;
+            req.Target = listener.CFXHandle;
+            CFXEnvelope resp = await endpoint.ExecuteRequestAsync(listener.RequestUri.ToString(), req);
+            Assert.IsTrue(resp != null, "async Response is null");
+            Assert.IsTrue(resp.MessageBody is AreYouThereResponse, "async Response is not AreYouThereReponse");
+            Assert.IsTrue(resp.Source == listener.CFXHandle, "async Bad response Source handle");
+            Assert.IsTrue(resp.Target == endpoint.CFXHandle, "async Bad response Target handle");
         }
 
         private AmqpCFXEndpoint endpoint = null;
@@ -111,6 +130,8 @@ namespace CFXUnitTests
             if (request.MessageBody is AreYouThereRequest)
             {
                 CFXEnvelope resp = new CFXEnvelope(new AreYouThereResponse() { CFXHandle = listener.CFXHandle, RequestNetworkUri = listener.RequestUri.ToString(), RequestTargetAddress = null });
+                resp.Target = request.Source;
+                resp.Source = listener.CFXHandle;
                 return resp;
             }
 
