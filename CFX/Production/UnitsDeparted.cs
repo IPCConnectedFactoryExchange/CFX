@@ -67,5 +67,14 @@ namespace CFX.Production
             get;
             set;
         }
+
+        /// <summary>
+        /// Lane identifier.  Null if no specific lane
+        /// </summary>
+        public int? Lane
+        {
+            get;
+            set;
+        }
     }
 }
