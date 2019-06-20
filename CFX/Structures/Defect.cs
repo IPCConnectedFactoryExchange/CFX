@@ -13,14 +13,14 @@ namespace CFX.Structures
     {
         public Defect()
         {
-            RelatedMeasurements = new List<Measurement>();
-            RelatedSymptoms = new List<Symptom>();
-            ComponentOfInterest = new ComponentDesignator();
-            RegionOfInterest = new Region();
-            DefectImages = new List<Image>();
+            //RelatedMeasurements = new List<Measurement>();
+            //RelatedSymptoms = new List<Symptom>();
+            //ComponentOfInterest = new ComponentDesignator();
+            //RegionOfInterest = new Region();
+            //DefectImages = new List<Image>();
             UniqueIdentifier = Guid.NewGuid().ToString();
-            Priority = 1;
-            ConfidenceLevel = 100.0;
+            //Priority = 1;
+            //ConfidenceLevel = 100.0;
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace CFX.Structures
         /// The priority of this defect as compared to other defects discovered for this unit.
         /// A priority of 1 indicates the highest priority.
         /// </summary>
-        public int Priority
+        public int? Priority
         {
             get;
             set;
@@ -115,7 +115,7 @@ namespace CFX.Structures
         /// the results of inspections made by automated inspection equipment, 
         /// which may produce false defects from time to time.
         /// </summary>
-        public double ConfidenceLevel
+        public double? ConfidenceLevel
         {
             get;
             set;
