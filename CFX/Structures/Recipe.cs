@@ -5,6 +5,12 @@ using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Represents a collection of instructions used by a piece of automated equipment to perform
+    /// a function (typically upon a production unit) during production.
+    /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+
     public class Recipe
     {
         /// <summary>

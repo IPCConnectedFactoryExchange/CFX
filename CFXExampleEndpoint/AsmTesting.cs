@@ -7,6 +7,7 @@ using CFX;
 using CFX.Production;
 using CFX.Production.TestAndInspection;
 using CFX.Structures;
+using CFX.Structures.PCBInspection;
 
 namespace CFXExampleEndpoint
 {
@@ -23,9 +24,38 @@ namespace CFXExampleEndpoint
             set;
         }
 
-        public void CreateUnitsInspected()
+        public void CreateGetRecipe()
         {
             Messages = new List<CFXEnvelope>();
+
+            GetRecipeResponse rsp = new GetRecipeResponse()
+            {
+                Result = new RequestResult() { Message = "OK", Result = StatusResult.Success },
+                Recipe = new Recipe()
+                {
+                    Name = "AOIRecipe1",
+                    Revision = "1",
+                    Assembly = new PCBAssembly()
+                    {
+                        InternalPartNumber = "12345-6789",
+                        Revision = "A",
+                        Panel = new Panel()
+                        {
+                            Name = "Panel23434",
+                            
+                        }
+                    }
+                }
+            };
+            Messages.Add(new CFXEnvelope(rsp));
+
+            SetClipboard();
+        }
+
+
+        public void CreateUnitsInspected()
+        {
+            //Messages = new List<CFXEnvelope>();
             
             Guid tid = Guid.NewGuid();
             Stage stg = new Stage() { StageName = "INSP1", StageSequence = 1, StageType = StageType.Work };
