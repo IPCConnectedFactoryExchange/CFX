@@ -38,6 +38,16 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// Information about the assembly(ies) that this Recipe is used to process.
+        /// </summary>
+
+        public Assembly Assembly
+        {
+            get;
+            set;
+        }
+       
+        /// <summary>
         /// A binary representation of the recipe data.
         /// </summary>
         public byte [] RecipeData
