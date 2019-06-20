@@ -45,18 +45,23 @@ namespace CFX.Structures
  
 
         /// <summary>
-        /// Gets or sets the spliced material package.
+        /// Gets or sets the next spliced material package.
         /// <remarks>
         /// When the placement machine is using tape material the operator can splice a new tape onto the existing material.
         /// This will lead to a chain of material. Physically the existing reel with the barcode will be separated from the
-        /// already mounted tape and a new tape with its reel will be appended to the material. This leads to teh situation that
-        /// the material chain can only be identified by the "head" of the chain with the reel and barocde.
-        /// Typically the placemennt machine is consuming from the "tail" of the chain.
-        /// So the assumption is that the material A will result in a chain B->A after splicing B to A. 
+        /// already mounted tape and a new tape with its reel will be appended to the material. This leads to the situation that
+        /// the material chain can only be identified by the newest material added to the chain (known as the "trailing" material package)
+        /// using the barcode on its reel.  Typically the placement machine is consuming from the "leading" package of the chain.
+        /// So the assumption is that we may build a chain B->A by splicing B to A, where A is the "leading"
+        /// material package (consumed first), and B is the "trailing" material package (consumed last).  In this situation, the chain
+        /// will be identified only by the barcode of B, and the MaterialPackage structure of B will have its LeadingMaterialPackage
+        /// property set to A.  It should be noted that it is possible and permissible to form chains of more than 2 material packages.
+        /// In this situation, each material package in the chain will have the LeadingMaterialPackage property set to the next package
+        /// in the chain (with the exception of the material package that is currently being consumed (the "leading" material package).
         /// </remarks>
         /// </summary>
-        /// <value>The spliced material package.</value>
-        public MaterialPackage SplicedMaterialPackage
+        /// <value>The next material package in the chain (heading towards the consumption point).</value>
+        public MaterialPackage LeadingMaterialPackage
         {
             get;
             set;
@@ -107,11 +112,11 @@ namespace CFX.Structures
         ///     the feeder are using optional splice sensor detectors or not.
         ///     Background is, that some sensors can detect the splice plate and the splice plate has a length
         /// which covers a number of components which hide the real end of tape. Therefore the verifcation system
-        /// will report a greyzone between the "tail" and the "head" in the chain.
+        /// will report a greyzone between the "leading package" and the "trailing" in the chain.
         /// The greyzone will be maintained typically by the machine, based on the feeder configuration. When the feeder has a sploice sensor the
         /// grey zone will be calculated when the sensor detects the splice, and will be adjusted when components are consumed.
-        /// When the greyzone reached zero, the "tail" will be consumed and the chain will be modified by removing the "tail" material packages
-        /// 
+        /// When the greyzone reached zero, the "leading" package will be consumed and the chain will be modified by removing the "leading" package
+        /// from the chain, resulting in the next package in the chain becoming the new "leading" package.
         /// </remarks>
         ///<summary>
         /// This sample scenarion explains the data change when consuming the material with a feeder with sensor:
