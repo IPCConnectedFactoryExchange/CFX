@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace CFX.Structures.PCBInspection
 {
     /// <summary>
-    /// Represents a PCB Assembly that is processed and inspected by a piece of inspection equipment (such as an AOI or SPI machine),
+    /// Represents a specialized type of recipe that is used to drive the inspection of
+    /// a Printed Circuit Board (PCB) by a piece of inspection equipment (such as an AOI or SPI machine),
     /// or by a human inspector.
     /// </summary>
-    public class PCBAssembly : Assembly
+    public class PCBInspectionRecipe : Recipe
     {
         /// <summary>
-        /// Default Constructor
+        /// Default Constructor.
         /// </summary>
-        public PCBAssembly()
+        public PCBInspectionRecipe()
         {
-
         }
 
         /// <summary>

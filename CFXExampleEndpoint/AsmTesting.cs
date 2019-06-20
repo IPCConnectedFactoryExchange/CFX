@@ -31,19 +31,13 @@ namespace CFXExampleEndpoint
             GetRecipeResponse rsp = new GetRecipeResponse()
             {
                 Result = new RequestResult() { Message = "OK", Result = StatusResult.Success },
-                Recipe = new Recipe()
+                Recipe = new PCBInspectionRecipe()
                 {
                     Name = "AOIRecipe1",
                     Revision = "1",
-                    Assembly = new PCBAssembly()
+                    Panel = new Panel()
                     {
-                        InternalPartNumber = "12345-6789",
-                        Revision = "A",
-                        Panel = new Panel()
-                        {
-                            Name = "Panel23434",
-                            
-                        }
+                        Name = "Panel23434",
                     }
                 }
             };
