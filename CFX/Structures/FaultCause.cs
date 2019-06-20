@@ -70,5 +70,13 @@ namespace CFX.Structures
         /// A stop was induced because required consumable material is missing 
         /// </summary>
         MissingComponent,
+        /// <summary>
+        /// A stop was triggered by an electrical device failure (i.e. Sensor failed) 
+        /// </summary>
+        ElectricalFailure,        
+        /// <summary>
+        /// A stop was triggered by a services failure (i.e. Lack of air pressure)
+        /// </summary>
+        ServicesFailure,         
     }
 }
