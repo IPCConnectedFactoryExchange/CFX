@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
     public class Recipe
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public Recipe()
         {
         }
@@ -41,6 +45,7 @@ namespace CFX.Structures
         /// Information about the assembly(ies) that this Recipe is used to process.
         /// </summary>
 
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public Assembly Assembly
         {
             get;
