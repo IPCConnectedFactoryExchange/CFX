@@ -55,6 +55,7 @@
     <Compile Include="AddChannelForm.Designer.cs">
       <DependentUpon>AddChannelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsmTesting.cs" />
     <Compile Include="CFXExampleGenerator.cs" />
     <Compile Include="ExampleCodeSnippets.cs" />
     <Compile Include="MainForm.cs">
@@ -97,10 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AMQPNetLite">
-      <Version>2.1.3</Version>
+      <Version>2.1.7</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>11.0.2</Version>
+      <Version>12.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
