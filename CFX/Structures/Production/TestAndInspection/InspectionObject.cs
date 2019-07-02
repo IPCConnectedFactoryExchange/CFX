@@ -15,15 +15,22 @@ namespace CFX.Structures.Production.TestAndInspection
     /// <summary>
     /// Reference to the parent inspection object. Allows to calculate the absolute position and rotation.
     /// </summary>
-    [JsonIgnore]  // This property is reconstructed _after_ deserialization via UpdateParent(). It would be nice, if JSON.NET could fill
+    [JsonIgnore]  // This property is reconstructed _after_ deserialization via UpdateParentReference(). It would be nice, if JSON.NET could fill
                   // it automatically, but that seems impossible for now. Maybe with future serialization techniques...
     public InspectionObject Parent { get; set; } = null;
 
-    /// <summary> Features to check during inspection, like "Presence", "Displacement", "Height". </summary>
+    /// <summary>
+    ///   Features to check during inspection, like "Presence", "Displacement", "Height".
+    /// </summary>
     public List<Feature> Features { get; set; }
 
 
-    /// <summary> The inspection object was detected as defect. </summary>
+    /// <summary>
+    ///   The inspection object is defective, i.e.
+    ///   - it was detected as defect,
+    ///   - not verified as "false call",  and
+    ///   - not repaired.
+    /// </summary>
     [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
     public virtual bool IsDefect
     {
@@ -35,14 +42,16 @@ namespace CFX.Structures.Production.TestAndInspection
         foreach (Feature feature in Features ?? Enumerable.Empty<Feature> ())
         {
           if (feature.IsDefect)
-            return true; // At least one feature is defect, so this inspection object is defect.
+            return true; // At least one feature is defective, so this inspection object is defective.
         }
 
         return false; // No defect in any of our features.
       }
     }
 
-    /// <summary> The inspection object as a whole was repaired. (E.g. by replacing the whole component.) </summary>
+    /// <summary>
+    ///   The inspection object as a whole was repaired. (E.g. by replacing the whole component.)
+    /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     public bool IsRepaired { get; set; } = false;
 

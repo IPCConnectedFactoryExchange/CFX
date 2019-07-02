@@ -45,6 +45,8 @@ namespace CFX.Structures.Production.TestAndInspection
 
 
     /// <summary>
+    ///   A panel is considered defect if there is a defect in (the features / checks of) the panel itself
+    ///   or in one of its fiducials, boards, or components.
     ///   Even if a panel is defective, one of its boards can still be (and typically will be) Ok. 
     /// </summary>
     [JsonIgnore]  // A calculated property, so no need to serialize and transmit it.
@@ -52,27 +54,30 @@ namespace CFX.Structures.Production.TestAndInspection
     {
       get
       {
+        if (IsRepaired)
+          return false;  // The panel as a whole was repaired, so it is not defect anymore.
+
         if (base.IsDefect)
-          return true;  // The inspection object itself is defect.
+          return true;  // The panel itself is defective.
 
         // Check all children recursively.
 
         foreach (Fiducial fiducial in Fiducials ?? Enumerable.Empty<Fiducial> ())
         {
           if (fiducial.IsDefect)
-            return true; // At least one fiducial is defect, so this inspection object is considered defect.
+            return true; // At least one fiducial is defective, so this panel is considered defective.
         }
 
         foreach (Board board in Boards ?? Enumerable.Empty<Board> ())
         {
           if (board.IsDefect)
-            return true; // At least one board is defect, so this inspection object is considered defect.
+            return true; // At least one board is defective, so this panel is considered defective.
         }
 
         foreach (Component component in Components ?? Enumerable.Empty<Component> ())
         {
           if (component.IsDefect)
-            return true; // At least one component is defect, so this inspection object is considered defect.
+            return true; // At least one component is defective, so this panel is considered defective.
         }
 
         return false; // No defect in any of our features or children.

@@ -15,8 +15,8 @@ namespace CFX.Structures.Production.TestAndInspection
   public class Feature : NamedObject
   {
     /// <summary>
-    ///   The feature is detected as defect.
-    ///   A defect detected during inspection may be be identified a "false call" in verification
+    ///   The feature is out of its allowed limits, so it is assumed to be a defect.
+    ///   But a defect detected during inspection may have been identified as a "false call" in verification
     ///   or may have been repaired.
     /// </summary>
     [JsonIgnore]
@@ -27,45 +27,45 @@ namespace CFX.Structures.Production.TestAndInspection
         if (IsRepaired)
           return false;  // Feature was repaired successfully, so not a defect anymore.
 
-        if (IsVerified && IsVerifiedDefect)
-          return true;   // The verification (by a human) has confirmed the defect.
+        if (IsVerified)             // The verification (by a human) has
+          return IsVerifiedDefect;  // either confirmed the defect or has corrected the inspection result (i.e. it was a "false call").
 
         if (IsInspected.HasValue && !IsInspected.Value)
-          return true;   // If this feature was not inspected/checked at all, that is rated like a defect (as a precaution).
+          return true;   // This feature was not inspected/checked at all, as a precaution it is rated like a defect (.
 
         return IsDetectedDefect;   // The (automatic) inspection may have detected a defect.
       }
     }
 
     /// <summary>
-    /// This feature was checked.
-    /// (The inspection may have been skipped due to a defect detected earlier, so further
-    /// time consuming inspections are pointless.)
+    ///   This feature was checked.
+    ///   (The inspection may have been skipped due to a defect detected earlier, so further
+    ///   time consuming inspections are pointless.)
     /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     [DefaultValue (true)]  // Special default for serialization.
     public bool? IsInspected { get; set; }
 
     /// <summary>
-    /// The inspection has detected/classified this feature as defect.
+    ///   The inspection has detected/classified this feature as defect.
     /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     public bool IsDetectedDefect { get; set; } = false;
 
     /// <summary>
-    /// This (usually defect) feature was verified (AKA "classified") by a human.
+    ///   This (usually defective) feature was verified (AKA "classified") by a human.
     /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     public bool IsVerified { get; set; } = false;
 
     /// <summary>
-    /// The verification (AKA "classification) by a human has confirmed a defect.
+    ///   The verification (AKA "classification") by a human has confirmed a defect.
     /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     public bool IsVerifiedDefect { get; set; } = false;
 
     /// <summary>
-    /// The (eventual) defect was repaired successfully.
+    ///   The (eventual) defect was repaired successfully.
     /// </summary>
     [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
     public bool IsRepaired { get; set; } = false;       
@@ -79,7 +79,7 @@ namespace CFX.Structures.Production.TestAndInspection
     public class Value : NamedObject
     {
       /// <summary>
-      /// The name of the unit for this value.
+      ///   The name of the unit for this value.
       /// </summary>
       public string Unit { get; set; }
 
@@ -147,40 +147,40 @@ namespace CFX.Structures.Production.TestAndInspection
     }
 
     /// <summary>
-    /// Representation of a string value.
+    ///   Representation of a string value.
     /// </summary>
     public class StringValue : Value
     {
       /// <summary>
-      /// A string value.
+      ///   A string value.
       /// </summary>
       public string Value { get; set; }
     }
 
     /// <summary>
-    /// Representation of a float value.
+    ///   Representation of a float value.
     /// </summary>
     public class FloatValue : Value
     {
       /// <summary>
-      /// A float value.
+      ///   A float value.
       /// </summary>
       public double Value { get; set; }
     }
 
     /// <summary>
-    /// Representation of an integer value.
+    ///   Representation of an integer value.
     /// </summary>
     public class IntValue : Value
     {
       /// <summary>
-      /// An integer value.
+      ///   An integer value.
       /// </summary>
       public Int64 Value { get; set; }
     }
 
     /// <summary>
-    /// List of values (of varying types).
+    ///   List of values (of varying types).
     /// </summary>
     public List<Value> Values { get; set; }
   }

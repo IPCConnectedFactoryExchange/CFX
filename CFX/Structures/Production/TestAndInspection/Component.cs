@@ -38,6 +38,9 @@ namespace CFX.Structures.Production.TestAndInspection
     {
       get
       {
+        if (IsRepaired)
+          return false;  // The component as a whole was repaired, so it is not defect anymore.
+
         if (base.IsDefect)
           return true;  // The inspection object itself is defect.
 
