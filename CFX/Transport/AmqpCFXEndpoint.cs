@@ -883,52 +883,49 @@ namespace CFX.Transport
                 req.ApplicationProperties = new ApplicationProperties();
                 req.ApplicationProperties["offset"] = 1;
                 
-                await Task.Run(() =>
+                try
                 {
-                    try
+                    ConnectionFactory factory = new ConnectionFactory();
+                    if (targetAddress.Scheme.ToLower() == "amqps")
                     {
-                        ConnectionFactory factory = new ConnectionFactory();
-                        if (targetAddress.Scheme.ToLower() == "amqps")
-                        {
-                            factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
-                            factory.SASL.Profile = SaslProfile.External;
-                        }
-
-                        if (string.IsNullOrWhiteSpace(targetAddress.UserInfo))
-                        {
-                            factory.SASL.Profile = SaslProfile.Anonymous;
-                        }
-
-                        reqConn = factory.CreateAsync(new Address(targetAddress.ToString())).Result;
-                        reqSession = new Session(reqConn);
-                        Attach recvAttach = new Attach()
-                        {
-                            Source = new Source() { Address = request.Target },
-                            Target = new Target() { Address = CFXHandle }
-                        };
-
-                        receiver = new ReceiverLink(reqSession, "request-receiver", recvAttach, null);
-                        receiver.Start(300);
-                        sender = new SenderLink(reqSession, CFXHandle, request.Target);
-
-                        sender.Send(req);
-                        Message resp = receiver.Receive(RequestTimeout.Value);
-                        if (resp != null)
-                        {
-                            receiver.Accept(resp);
-                            response = AmqpUtilities.EnvelopeFromMessage(resp);
-                        }
-                        else
-                        {
-                            throw new TimeoutException("A response was not received from target CFX endpoint in the alloted time.");
-                        }
+                        factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
+                        factory.SASL.Profile = SaslProfile.External;
                     }
-                    catch (Exception ex3)
+
+                    if (string.IsNullOrWhiteSpace(targetAddress.UserInfo))
                     {
-                        AppLog.Error(ex3);
-                        ex = ex3;
+                        factory.SASL.Profile = SaslProfile.Anonymous;
                     }
-                });
+
+                    reqConn = await factory.CreateAsync(new Address(targetAddress.ToString()));
+                    reqSession = new Session(reqConn);
+                    Attach recvAttach = new Attach()
+                    {
+                        Source = new Source() { Address = request.Target },
+                        Target = new Target() { Address = CFXHandle }
+                    };
+
+                    receiver = new ReceiverLink(reqSession, "request-receiver", recvAttach, null);
+                    receiver.Start(300);
+                    sender = new SenderLink(reqSession, CFXHandle, request.Target);
+
+                    await sender.SendAsync(req);
+                    Message resp = await receiver.ReceiveAsync(RequestTimeout.Value);
+                    if (resp != null)
+                    {
+                        receiver.Accept(resp);
+                        response = AmqpUtilities.EnvelopeFromMessage(resp);
+                    }
+                    else
+                    {
+                        throw new TimeoutException("A response was not received from target CFX endpoint in the alloted time.");
+                    }
+                }
+                catch (Exception ex3)
+                {
+                    AppLog.Error(ex3);
+                    ex = ex3;
+                }
             }
             catch (Exception ex2)
             {
