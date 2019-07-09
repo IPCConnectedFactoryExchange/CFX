@@ -42,8 +42,6 @@ namespace CFX.Transport
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
             ValidateCertificates = true;
-            LastCertificate = null;
-            LastUri = null;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -210,18 +208,6 @@ namespace CFX.Transport
             private set;
         }
 
-        private X509Certificate LastCertificate
-        {
-            get;
-            set;
-        }
-
-        private Uri LastUri
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Opens and inintializes the Endpoint.  This should be called only once prior to closing the endpoint.
         /// </summary>
@@ -370,9 +356,8 @@ namespace CFX.Transport
 
                 if (networkAddress.Scheme.ToUpper() == "AMQPS")
                 {
-                    LastCertificate = certificate;
-                    LastUri = networkAddress;
-                    fact.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                    fact.SSL.RemoteCertificateValidationCallback =
+                        (sender, cert, chain, sslPolicyErrors) => ValidateServerCertificate(sender, cert, chain, sslPolicyErrors, certificate, networkAddress);
                 }
                                 
                 Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
@@ -447,9 +432,8 @@ namespace CFX.Transport
 
                 if (networkAddress.Scheme.ToUpper() == "AMQPS")
                 {
-                    LastCertificate = certificate;
-                    LastUri = networkAddress;
-                    fact.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+                    fact.SSL.RemoteCertificateValidationCallback =
+                        (sender, cert, chain, sslPolicyErrors) => ValidateServerCertificate(sender, cert, chain, sslPolicyErrors, certificate, networkAddress);
                 }
 
                 Task<Connection> tConn = fact.CreateAsync(new Address(networkAddress.ToString()), o);
@@ -482,7 +466,12 @@ namespace CFX.Transport
             return false;
         }
 
-        private bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        private bool ValidateServerCertificate(object sender,
+            X509Certificate certificate,
+            X509Chain chain,
+            SslPolicyErrors sslPolicyErrors,
+            X509Certificate lastCertificate,
+            Uri lastUri)
         {
             AppLog.Debug(string.Format("Validating remote certificate. Subject: {0}, Policy errors: {1}", certificate.Subject, sslPolicyErrors));
 
@@ -491,15 +480,15 @@ namespace CFX.Transport
             if (OnValidateCertificate != null)
             {
                 // Validate Certificate Externally
-                ValidateCertificateResult result = OnValidateCertificate(LastUri, certificate, chain, sslPolicyErrors);
+                ValidateCertificateResult result = OnValidateCertificate(lastUri, certificate, chain, sslPolicyErrors);
                 if (result == ValidateCertificateResult.Valid) return true;
                 if (result == ValidateCertificateResult.Invalid) return false;
             }
 
-            if (certificate != null && LastCertificate != null)
+            if (certificate != null && lastCertificate != null)
             {
                 byte[] key1 = certificate.GetPublicKey();
-                byte[] key2 = LastCertificate.GetPublicKey();
+                byte[] key2 = lastCertificate.GetPublicKey();
                 if (key1.SequenceEqual(key2)) return true;
             }
 
@@ -830,12 +819,6 @@ namespace CFX.Transport
             }
         }
 
-        private Uri CurrentRequestTargetUri
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Performs a direct, point-to-point request/response transaction with another CFX Endpoint.
         /// </summary>
@@ -868,7 +851,6 @@ namespace CFX.Transport
             SenderLink sender = null;
             Exception ex = null;
             Uri targetAddress = new Uri(targetUri);
-            CurrentRequestTargetUri = targetAddress;
 
             try
             {
@@ -892,7 +874,8 @@ namespace CFX.Transport
                     ConnectionFactory factory = new ConnectionFactory();
                     if (targetAddress.Scheme.ToLower() == "amqps")
                     {
-                        factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
+                        factory.SSL.RemoteCertificateValidationCallback =
+                            (s, certificate, chain, sslPolicyErrors) => ValidateRequestServerCertificate(s, certificate, chain, sslPolicyErrors, targetAddress);
                         factory.SASL.Profile = SaslProfile.External;
                     }
 
@@ -953,12 +936,12 @@ namespace CFX.Transport
             return response;
         }
 
-        bool ValidateRequestServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        bool ValidateRequestServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors, Uri requestTargetUri)
         {
             ValidateCertificateResult result = ValidateCertificateResult.NotValidated;
             if (certificate != null && OnValidateCertificate != null)
             {
-                result = OnValidateCertificate(CurrentRequestTargetUri, certificate, chain, sslPolicyErrors);
+                result = OnValidateCertificate(requestTargetUri, certificate, chain, sslPolicyErrors);
                 if (result == ValidateCertificateResult.Invalid) return false;
             }
 
