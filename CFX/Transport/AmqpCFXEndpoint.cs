@@ -24,13 +24,8 @@ namespace CFX.Transport
     /// </summary>
     public class AmqpCFXEndpoint : IDisposable
     {
-        public AmqpCFXEndpoint()
+        static AmqpCFXEndpoint()
         {
-            channels = new ConcurrentDictionary<string, AmqpConnection>();
-            IsOpen = false;
-            ValidateCertificates = true;
-            LastCertificate = null;
-            LastUri = null;
             if (!UseCompression.HasValue) UseCompression = false;
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
@@ -40,6 +35,15 @@ namespace CFX.Transport
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
             if (!MaxFrameSize.HasValue) MaxFrameSize = 500000;
+        }
+
+        public AmqpCFXEndpoint()
+        {
+            channels = new ConcurrentDictionary<string, AmqpConnection>();
+            IsOpen = false;
+            ValidateCertificates = true;
+            LastCertificate = null;
+            LastUri = null;
         }
 
         private AmqpRequestProcessor requestProcessor;
