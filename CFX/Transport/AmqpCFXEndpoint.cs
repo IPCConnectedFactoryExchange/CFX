@@ -843,10 +843,7 @@ namespace CFX.Transport
         /// <returns>A CFX envelope containing the response from the Endpoint.</returns>
         public CFXEnvelope ExecuteRequest(string targetUri, CFXEnvelope request)
         {
-            return ExecuteRequestAsync(targetUri, request)
-                .ConfigureAwait(false)
-                .GetAwaiter()
-                .GetResult();
+            return Task.Run(async () => await ExecuteRequestAsync(targetUri, request)).Result;
         }
 
         /// <summary>
