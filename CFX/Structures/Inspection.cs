@@ -84,6 +84,16 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The overall result of the verification of the defect
+        /// </summary>
+        public VerificationResult Verification
+        {
+            get;
+            set;
+        }
+
+
+        /// <summary>
         /// In the case that the inspection cannot be completed, the error that was the cause of this outcome.
         /// </summary>
         public string Error
