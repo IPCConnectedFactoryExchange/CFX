@@ -12,7 +12,7 @@
     <PackageTags>ipc cfx connected factory exchange</PackageTags>
     <Company>Association of Connecting Electronics Industries</Company>
     <Product>Connected Factory Exchange Software Development Kit</Product>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/IPCConnectedFactoryExchange/CFX</PackageProjectUrl>
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
