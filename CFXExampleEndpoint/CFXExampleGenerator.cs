@@ -32,7 +32,7 @@ using CFX.ResourcePerformance.THTInsertion;
 using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
-using CFX.Structures.ReflowProfiling;
+//using CFX.Structures.ReflowProfiling;
 
 namespace CFXExampleEndpoint
 {

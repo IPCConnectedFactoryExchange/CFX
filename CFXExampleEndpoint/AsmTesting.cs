@@ -33,6 +33,7 @@ namespace CFXExampleEndpoint
             WorkStarted ws = new WorkStarted()
             {
                 TransactionID = tid,
+                
                 Units = new UnitPosition[]
                 {
                     new UnitPosition() { PositionName = "1", PositionNumber = 1, UnitIdentifier = "PANEL_SERIALNUM_1234567"},
