@@ -590,5 +590,23 @@ namespace CFX.Production.TestAndInspection
             get;
             set;
         }
+
+        /// <summary>
+        /// The name of the active recipe (may include full path, if applicable)
+        /// </summary>
+        public string ActiveRecipeName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Version number, e.g. “2.0” (Optional)
+        /// </summary>
+        public string ActiveRecipeRevision
+        {
+            get;
+            set;
+        }
     }
 }

@@ -43,9 +43,18 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The overall result of the verification of the defect
+        /// The name of the active recipe (may include full path, if applicable)
         /// </summary>
-        public VerificationResult Verification
+        public string ActiveRecipeName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Version number, e.g. “2.0” (Optional)
+        /// </summary>
+        public string ActiveRecipeRevision
         {
             get;
             set;
