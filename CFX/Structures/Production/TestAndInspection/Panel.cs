@@ -120,11 +120,11 @@ namespace CFX.Structures.Production.TestAndInspection
 
             public override object ReadJson (JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
             {
+                if (reader.TokenType == JsonToken.Null)
+                    return null;
+
                 Panel panel = new Panel ();
-
-                JToken jToken = JToken.Load (reader);
-                serializer.Populate (jToken.CreateReader (), panel);
-
+                serializer.Populate (reader, panel);
                 panel.UpdateParentReference (null);
 
                 return panel;
