@@ -37,6 +37,7 @@ namespace CFX.Structures.Production.TestAndInspection
             }
         }
 
+
         /// <summary>
         /// This feature was checked.
         /// (The inspection may have been skipped due to a defect detected earlier, so further
@@ -52,6 +53,7 @@ namespace CFX.Structures.Production.TestAndInspection
         [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsDetectedDefect { get; set; } = false;
 
+
         /// <summary>
         /// This (usually defective) feature was verified (AKA "classified") by a human.
         /// </summary>
@@ -65,10 +67,50 @@ namespace CFX.Structures.Production.TestAndInspection
         public bool IsVerifiedDefect { get; set; } = false;
 
         /// <summary>
+        ///   The defect that led to the faulty feature, determined manually during verification.
+        ///   Suggested values are:
+        ///   - ClearenceSurfaceError
+        ///   - ComponentDefective
+        ///   - ComponentMissing
+        ///   - ComponentRotated
+        ///   - ComponentShifted
+        ///   - ComponentTilted
+        ///   - ConformalCoatingError
+        ///   - Contamination
+        ///   - ExcessiveSolder
+        ///   - FaceDownComponent
+        ///   - InsufficientSolder
+        ///   - LiftedLead
+        ///   - Miscellaneous
+        ///   - PasteShort
+        ///   - PinMissing
+        ///   - PinShifted
+        ///   - ReferencePlaneError
+        ///   - ShiftedPaste
+        ///   - Short
+        ///   - Solderball
+        ///   - SolderDefect
+        ///   - SolderPasteDefect
+        ///   - Tombstone
+        ///   - WrongCode
+        ///   - WrongComponent
+        ///   - WrongComponentHeight
+        ///   - WrongPasteArea
+        ///   - WrongPasteHeight
+        ///   - WrongPasteVolume
+        ///   - WrongPinHeight
+        ///   - WrongPolarity
+        /// </summary>
+        [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string ClassificationCode { get; set; } = null;
+
+
+        /// <summary>
         /// The (eventual) defect was repaired successfully.
         /// </summary>
         [JsonProperty (DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsRepaired { get; set; } = false;
+
 
         /// <summary>
         /// It is cleaner to have several subclasses with specific value type (float and int in
