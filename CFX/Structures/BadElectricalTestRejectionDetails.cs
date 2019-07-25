@@ -16,5 +16,5 @@ namespace CFX.Structures
         {
             Result = false;
         }
-}
+    }
 }
