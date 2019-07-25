@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -334,7 +335,9 @@
     <Compile Include="Structures\SMTPlacement\SMTHeadAndNozzle.cs" />
     <Compile Include="Structures\SMTPlacement\SMTHeadInformation.cs" />
     <Compile Include="Structures\SMTPlacement\SMTHeadType.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTInstalledComponent.cs" />
     <Compile Include="Structures\SMTPlacement\SMTLaneInformation.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTNonInstalledComponent.cs" />
     <Compile Include="Structures\SMTPlacement\SMTNozzleChangeActivity.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementActivity.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementConstraints.cs" />
@@ -405,6 +408,7 @@
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />
     <Compile Include="Structures\ValueAddType.cs" />
+    <Compile Include="Structures\VerificationResult.cs" />
     <Compile Include="Structures\WorkOrder.cs" />
     <Compile Include="Structures\WorkOrderIdentifier.cs" />
     <Compile Include="Structures\WorkOrderStatus.cs" />
