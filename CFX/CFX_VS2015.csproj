@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -405,6 +406,7 @@
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />
     <Compile Include="Structures\ValueAddType.cs" />
+    <Compile Include="Structures\VerificationResult.cs" />
     <Compile Include="Structures\WorkOrder.cs" />
     <Compile Include="Structures\WorkOrderIdentifier.cs" />
     <Compile Include="Structures\WorkOrderStatus.cs" />
