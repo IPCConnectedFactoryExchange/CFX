@@ -23,6 +23,14 @@ namespace CFX.Structures
         /// <summary>
         /// The activity successfullly completed.
         /// </summary>
-        Completed
+        Completed,
+        /// <summary>
+        /// The item/activity has switched ON
+        /// </summary>
+        On,
+        /// <summary>
+        /// The item/activity has switched OFF
+        /// </summary>
+        Off
     }
 }

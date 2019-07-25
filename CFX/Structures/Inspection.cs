@@ -15,7 +15,7 @@ namespace CFX.Structures
         public Inspection()
         {
             DefectsFound = new List<Defect>();
-            Measurements = new List<Measurement>();
+            //Measurements = new List<Measurement>();
         }
 
         /// <summary>
@@ -82,6 +82,16 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// The overall result of the verification of the defect
+        /// </summary>
+        public VerificationResult Verification
+        {
+            get;
+            set;
+        }
+
 
         /// <summary>
         /// In the case that the inspection cannot be completed, the error that was the cause of this outcome.

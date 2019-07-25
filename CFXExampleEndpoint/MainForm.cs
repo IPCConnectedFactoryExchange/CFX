@@ -40,6 +40,11 @@ namespace CFXExampleEndpoint
             //File.WriteAllText(@"y:\JJWCode\CFX_JSON_Examples.txt", result, Encoding.UTF8);
             //return;
 
+            AsmTesting t = new AsmTesting();
+            t.CreateGetRecipe();
+            t.CreateUnitsInspected();
+            return;
+
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
 

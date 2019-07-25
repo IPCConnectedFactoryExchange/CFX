@@ -141,11 +141,10 @@ private void btnOpen_Click(object sender, EventArgs e)
         <para><code>
 private void btnSend_Click(object sender, EventArgs e)
 {
-     CFXEnvelope msg = new CFXEnvelope(new StationStateChanged()
+     CFXEnvelope env = new CFXEnvelope(new CFX.ResourcePerformance.LogEntryRecorded()
      {
-          NewState = ResourceState.On,
-          OldState = ResourceState.Off,
-          OldStateDuration = TimeSpan.FromMinutes(43)
+     	Importance = CFX.Structures.LogImportance.Debug,
+        Message = "Debug Log Entry"
      });
 
      theEndpoint.Publish(env);
