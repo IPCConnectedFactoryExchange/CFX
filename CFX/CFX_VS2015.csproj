@@ -396,6 +396,7 @@
     <Compile Include="Structures\WorkOrderIdentifier.cs" />
     <Compile Include="Structures\WorkOrderStatus.cs" />
     <Compile Include="Structures\WorkResult.cs" />
+    <Compile Include="Structures\WorkStagePauseReason.cs" />
     <Compile Include="Transport\AmqpCFXEndpoint.cs" />
     <Compile Include="Transport\AmqpCFXLink.cs" />
     <Compile Include="Transport\AmqpChannelAddress.cs" />
