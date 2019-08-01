@@ -31,5 +31,14 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// The electrical test result of this component (optional)
+        /// </summary>
+        public ComponentElectricalTest ElectricalTest
+        {
+            get;
+            set;
+        }
     }
 }
