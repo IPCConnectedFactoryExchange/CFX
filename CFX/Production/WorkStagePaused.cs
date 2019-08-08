@@ -39,5 +39,14 @@ namespace CFX.Production
             get;
             set;
         }
+
+        /// <summary>
+        /// The stage name or number
+        /// </summary>
+        public WorkStagePauseReason PauseReason
+        {
+            get;
+            set;
+        }
     }
 }
