@@ -32,6 +32,7 @@ using CFX.ResourcePerformance.THTInsertion;
 using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
+using CFX.Structures.ReflowProfiling;
 //using CFX.Structures.ReflowProfiling;
 
 namespace CFXExampleEndpoint
@@ -338,6 +339,19 @@ namespace CFXExampleEndpoint
                 Fiducial_Enabled = true
             };
 
+            SelectiveSolderProcessData sspd1 = new SelectiveSolderProcessData()
+            {
+                Process_Status = "Completed",
+                RecipeName = "Panasonic 2up",
+                Nitrogen_Pressure = 54,
+                Air_Pressure = 62,
+                Cycle_Count = 671261,
+                Cycle_Time = new TimeSpan(0, 0, 1, 44, 200),
+                Nitrogen_Purity = 15,
+                Nitrogen_Flow = 39,
+                Fiducial_Enabled = true
+            };
+
             ZoneData z1 = new ZoneData()
             {
                 StageSequence = 1,
@@ -401,7 +415,7 @@ namespace CFXExampleEndpoint
                     new SelectiveSolderedPCB()
                     {
                         UnitIdentifier = "PANEL4325435",
-                        UnitPositionNumber = 1,
+                        UnitPositionNumber = 2,
                         ZoneData = new List<ZoneData>(new ZoneData [] {z1, z2, z3 })
                     }
                 })
@@ -409,6 +423,37 @@ namespace CFXExampleEndpoint
 
 
             AppendMessage(msg, ref result);
+
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                CommonProcessData = sspd1,
+                OverallResult = ProcessingResult.Succeeded,
+                UnitProcessData = new List<ProcessedUnit>()
+                {
+                    new ProcessedUnit()
+                    {
+                        UnitIdentifier = "PANEL4325435",
+                        UnitPositionNumber = 1,
+                        UnitProcessData = new SelectiveSolderPCBProcessData()
+                        {
+                            ZoneData = new List<ZoneData>()  {z1, z2, z3 }
+                        }
+                    },
+                    new ProcessedUnit()
+                    {
+                        UnitIdentifier = "PANEL4325435",
+                        UnitPositionNumber = 2,
+                        UnitProcessData = new SelectiveSolderPCBProcessData()
+                        {
+                            ZoneData = new List<ZoneData>()  {z1, z2, z3 }
+                        }
+                    }
+                }
+            };
+
+            AppendMessage(msg, ref result);
+
 
 
             return result;
@@ -698,7 +743,6 @@ namespace CFXExampleEndpoint
                 }
             }
 
-            System.IO.File.AppendAllText(@"y:\jjwcode\solderpastetest.txt", msg.ToJson(false));
 
             /// PCB Inspection Example With Component Offset Measurements
             msg = new UnitsInspected()

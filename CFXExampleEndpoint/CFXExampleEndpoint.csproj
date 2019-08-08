@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CFX">
+    <Reference Include="CFX, Version=1.1.0.0, Culture=neutral, PublicKeyToken=545a74e2dca3496a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CFX\bin\net46\CFX.dll</HintPath>
     </Reference>
     <Reference Include="System" />

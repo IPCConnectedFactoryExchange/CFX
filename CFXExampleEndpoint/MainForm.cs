@@ -35,10 +35,10 @@ namespace CFXExampleEndpoint
             reqUsername.Text = Properties.Settings.Default.RequestUsername;
             reqPassword.Text = Properties.Settings.Default.RequestPassword;
 
-            //CFXExampleGenerator gen = new CFXExampleGenerator();
-            //string result = gen.GenerateAll();
-            //File.WriteAllText(@"y:\JJWCode\CFX_JSON_Examples.txt", result, Encoding.UTF8);
-            //return;
+            CFXExampleGenerator gen = new CFXExampleGenerator();
+            string result = gen.GenerateAll();
+            File.WriteAllText(@"d:\JJWCode\CFX_JSON_Examples.txt", result, Encoding.UTF8);
+            return;
 
             AsmTesting t = new AsmTesting();
             t.CreateGetRecipe();
