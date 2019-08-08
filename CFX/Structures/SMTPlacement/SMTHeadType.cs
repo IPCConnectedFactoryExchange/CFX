@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CFX.Structures
+namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// An enumeration indicating different types of SMT heads that might exist at an endpoint.

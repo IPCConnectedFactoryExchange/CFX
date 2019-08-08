@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CFX.Structures
+namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// An enumeration indicating different types of placement for an SMT machine

@@ -1,6 +1,6 @@
 ﻿using CFX.Structures.SMTPlacement;
 
-namespace CFX.Structures
+namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// Describes a particular NonInstalledComponent for SMT Placement
