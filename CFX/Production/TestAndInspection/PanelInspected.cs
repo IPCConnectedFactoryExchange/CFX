@@ -14,8 +14,16 @@ namespace CFX.Production.TestAndInspection
         /// <summary>
         /// The TransactionID as defined in the WorkStarted message, where you can find Lane and Units.
         /// </summary>
-        // ReSharper disable once InconsistentNaming
         public Guid WorkTransactionID { get; set; }
+
+        /// <summary>
+        /// A unique identifier of the current inspection. It is created during inspection and later used for
+        /// reference during verification or repair.
+        /// So even if the physically same board (i.e. same barcode) is inspected twice, both inspections can
+        /// be distinguished using this ID.
+        /// May be realized as barcode & timestamp or as GUID.
+        /// </summary>
+        public String InspectionID { get; set; }
 
         /// <summary>
         /// Stage where this inspection results were produced. Maybe null if not assignable to a specific stage.
