@@ -2168,6 +2168,24 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new GetMaterialInformationRequest()
+            {
+                MaterialPackageIdentifiers = new List<string>()
+                {
+                    m1.UniqueIdentifier, m2.UniqueIdentifier
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetMaterialInformationResponse()
+            {
+                Materials = new List<MaterialPackageDetail>(new MaterialPackageDetail[]
+                {
+                    m1, m2
+                })
+            };
+            AppendMessage(msg, ref result);
+
             msg = new MaterialsInitialized()
             {
                 Materials = new List<MaterialPackageDetail>(new MaterialPackageDetail[]
