@@ -125,6 +125,11 @@
     <Compile Include="Production\Application\NamespaceDoc.cs" />
     <Compile Include="Production\Application\Solder\NamespaceDoc.cs" />
     <Compile Include="Production\Application\Solder\PCBSelectiveSoldered.cs" />
+    <Compile Include="Production\Application\VacuumDeposition\CurrentProcessData.cs" />
+    <Compile Include="Production\Application\VacuumDeposition\LoadedUnitsId.cs" />
+    <Compile Include="Production\Application\VacuumDeposition\NamespaceDoc.cs" />
+    <Compile Include="Production\Application\VacuumDeposition\ProcessStatus.cs" />
+    <Compile Include="Production\Application\VacuumDeposition\ThickenessMeasurements.cs" />
     <Compile Include="Production\Assembly\MaterialsInstalled.cs" />
     <Compile Include="Production\Assembly\MaterialsUninstalled.cs" />
     <Compile Include="Production\Assembly\NamespaceDoc.cs" />
@@ -388,6 +393,10 @@
     <Compile Include="Structures\UnitLoadActivity.cs" />
     <Compile Include="Structures\UnitPosition.cs" />
     <Compile Include="Structures\UnitUnloadActivity.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingMeasurement.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingProcessData.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingProcessState.cs" />
+    <Compile Include="Structures\VacuumDeposition\UnitId.cs" />
     <Compile Include="Structures\ValidationResult.cs" />
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />
