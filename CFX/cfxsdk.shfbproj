@@ -14,7 +14,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.6.2</FrameworkVersion>
-    <OutputPath>..\..\SDK\</OutputPath>
+    <OutputPath>D:\Stuff\CFX\</OutputPath>
     <HtmlHelpName>CFXSDK</HtmlHelpName>
     <Language>en-US</Language>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>

@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CFXStrongNameKey.snk</AssemblyOriginatorKeyFile>
-    <Version>1.1.0</Version>
+    <Version>1.1.4-alpha</Version>
     <PackageId>CFX.CFXSDK.NetCore</PackageId>
     <AssemblyName>CFX</AssemblyName>
     <RootNamespace>CFX</RootNamespace>
