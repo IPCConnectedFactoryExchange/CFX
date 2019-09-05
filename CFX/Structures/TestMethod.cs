@@ -19,6 +19,22 @@ namespace CFX.Structures
         /// <summary>
         /// The test was performed by automated equipment / device
         /// </summary>
-        Automated
+        Automated,
+        /// <summary>
+        /// The test was performed by an in-circuit test equipment / device
+        /// </summary>
+        ICT,
+        /// <summary>
+        /// The test was performed by a flying probe test machine / equipment / device
+        /// </summary>
+        FPT,
+        /// <summary>
+        /// The test was performed by a functional test machine / equipment / device
+        /// </summary>
+        FCT,
+        /// <summary>
+        /// The test was performed by a boundary scan test machine / equipment / deivce
+        /// </summary>
+        BST
     }
 }
