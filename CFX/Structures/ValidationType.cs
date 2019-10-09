@@ -26,6 +26,10 @@ namespace CFX.Structures
         /// </summary>
         UnitAndSubsStatusValidation,
         /// <summary>
+        /// Validates that the trace data has been recived for this unit from the sender by a factory level software system
+        /// </summary>
+        UnitTraceValidation,
+        /// <summary>
         /// All known validations should be performed
         /// </summary>
         All

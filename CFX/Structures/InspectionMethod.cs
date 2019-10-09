@@ -23,6 +23,10 @@ namespace CFX.Structures
         /// <summary>
         /// The inspection was performed by automated solder paste inspection equipment / device
         /// </summary>
-        SPI
+        SPI,
+        /// <summary>
+        /// The test was performed by an automated X-Ray inspection machine
+        /// </summary>
+        AXI
     }
 }

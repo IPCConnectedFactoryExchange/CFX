@@ -49,6 +49,36 @@ namespace CFX.Production
         }
 
         /// <summary>
+        /// The barcode, RFID, etc. that was most recently acquired by the scanner / reader.  If a single production unit is moving through the
+        /// process, this would be the actual unique identifier of that individual unition unit.  However, if multiple production units are moving
+        /// through the process as a group (as in the case of a PCB panel, a fixture, or any sort of carrier), this would be an identifier that
+        /// represents the entire group of units, such as a carrier UID, a PCB panel UID, etc.
+        /// </summary>
+        public string PrimaryIdentifier
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The Hermes BoardId of the carrier, a PCB panel or single production unit. If a single production unit is moving through the
+        /// process, this would be the actual unique identifier of that individual unition unit.  However, if multiple production units are moving
+        /// through the process as a group (as in the case of a PCB panel, a fixture, or any sort of carrier), this would be an identifier that
+        /// represents the entire group of units, such as a carrier UID, a PCB panel UID, etc.
+        /// HermesIdentifier will be transfered between all machines which support Hermes. The PrimaryIdentifier is containing a barcode information.
+        /// Both can be transferred.
+        /// <remarks>
+        /// Espcially when the line does not support the Hermes standard in the hole line, the Hermes Identifier can be unique only in the a part
+        /// of the line. The Primary Identifier can be used to correlate the parts of hermes sublines to correlate this data as well. 
+        /// </remarks>
+        /// </summary>
+        public string HermesIdentifier 
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Transaction ID used to attach events and data during subsequent processing, until WorkCompleted
         /// </summary>
         public Guid TransactionID
