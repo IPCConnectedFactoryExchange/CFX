@@ -79,22 +79,5 @@ namespace CFX.Structures.PCBInspection
     {
       return ((Boards != null) && (Boards.Count > 0));
     }
-
-
-    public override void UpdateParentReference (InspectionObject x_parent)
-    {
-      base.UpdateParentReference (x_parent);
-
-      // Update all children.
-      foreach (Fiducial fiducial in Fiducials ?? Enumerable.Empty<Fiducial> ())
-        fiducial.UpdateParentReference (this);
-
-      foreach (Component component in Components ?? Enumerable.Empty<Component> ())
-        component.UpdateParentReference (this);
-
-      foreach (Board board in Boards ?? Enumerable.Empty<Board> ())
-        board.UpdateParentReference (this);
-    }
   }
-
 }

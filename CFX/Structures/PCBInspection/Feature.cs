@@ -84,6 +84,8 @@ namespace CFX.Structures.PCBInspection
       public string Unit { get; set; }
 
 
+            // CHECK: Is this converter really
+
       /// <summary>
       ///   A custom Feature.Value-converter to correctly deserialize all its different subclasses 
       ///   (i.e. StringValue, FloatValue, and IntValue).
