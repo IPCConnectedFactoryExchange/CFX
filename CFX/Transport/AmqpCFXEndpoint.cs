@@ -39,7 +39,7 @@ namespace CFX.Transport
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
-            if (!MaxFrameSize.HasValue) MaxFrameSize = 500000;
+            if (!MaxFrameSize.HasValue) MaxFrameSize = 250000;
         }
 
         private AmqpRequestProcessor requestProcessor;
