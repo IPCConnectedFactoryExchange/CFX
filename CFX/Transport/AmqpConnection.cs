@@ -112,7 +112,8 @@ namespace CFX.Transport
                 Open o = new Open()
                 {
                     ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
-                    HostName = VirtualHostName
+                    HostName = VirtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
                 };
 
                 ConnectionFactory factory = new ConnectionFactory();
