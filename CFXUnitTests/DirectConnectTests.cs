@@ -3,13 +3,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography.X509Certificates;
 using CFX;
 using CFX.Transport;
+using CFX.Production.TestAndInspection;
+using CFX.Structures;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CFXUnitTests
 {
     [TestClass]
     public class DirectConnectTests
     {
+        private TestContext testContext = null;
+
+        public TestContext TestContext
+        {
+            get { return testContext; }
+            set { testContext = value; }
+        }
+
         [TestMethod]
         public async Task NoAuthNoSec()
         {
@@ -32,6 +44,58 @@ namespace CFXUnitTests
         public async Task AuthAndSec()
         {
             await DoTests(true, true);
+        }
+
+        [TestMethod]
+        public async Task SendBigData()
+        {
+            InitializeTest(false, false);
+
+            UnitsInspected un = new UnitsInspected()
+            {
+                InspectedUnits = new List<InspectedUnit>()
+                {
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "121354546",
+                    }
+                }
+            };
+
+            for (int i = 0; i < 100000; i++)
+            {
+                Inspection insp = new Inspection()
+                {
+                    Measurements = new List<Measurement>()
+                    {
+                        new NumericMeasurement()
+                        {
+                            MeasurementName = "Measurement 1",
+                            MeasuredValue = new NumericValue()
+                            {
+                                Value = 1.232546546,
+                                ValueUnits = "mm",
+                                ExpectedValue = 1.2364564,
+                                MaximumAcceptableValue = 7.8854546,
+                                MinimumAcceptableValue = 8.67867876,
+                            }
+                        }
+                    }
+                };
+
+                un.InspectedUnits[0].Inspections.Add(insp);
+            }
+
+            //un = new UnitsInspected();
+
+            string json = un.ToJson();
+
+            System.Diagnostics.Debug.WriteLine($"Sending Message of Size:  {Encoding.UTF8.GetBytes(json).Length} bytes");
+
+            FireAndWait(un);
+
+            System.Diagnostics.Debug.WriteLine($"Message Received:  {Encoding.UTF8.GetBytes(json).Length} bytes");
+
         }
 
         private async Task DoTests(bool auth, bool sec)
@@ -101,6 +165,14 @@ namespace CFXUnitTests
             endpoint.Open(TestSettings.ClientHandle, certificate: TestSettings.GetCertificate(sec));
             endpoint.ValidateCertificates = false;
 
+            //CFX.Utilities.AppLog.LoggingEnabled = true;
+            //CFX.Utilities.AppLog.LogFilePath = @"c:\stuff\cfxlog.txt";
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Warn;
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Warn;
+            //CFX.Utilities.AppLog.AmqpTraceEnabled = true;
+
+            //AmqpCFXEndpoint.MaxFrameSize = 1000000;
+            
             Exception ex = null;
             Uri uri = TestSettings.GetListenerUri(auth, sec);
             if (!endpoint.TestPublishChannel(uri, TestSettings.ListenerAddress, out ex))
@@ -118,7 +190,7 @@ namespace CFXUnitTests
             using (evt = new System.Threading.AutoResetEvent(false))
             {
                 endpoint.Publish(msg);
-                if (!evt.WaitOne(1000))
+                if (!evt.WaitOne(60000))
                 {
                     throw new TimeoutException("The message was not received by listener.  Timeout");
                 }
