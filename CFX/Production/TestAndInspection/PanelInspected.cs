@@ -17,6 +17,21 @@ namespace CFX.Production.TestAndInspection
         public Guid WorkTransactionID { get; set; }
 
         /// <summary>
+        /// The barcode/DMC/QR-code that identifies the PCB (the "master barcode" for the whole panel).
+        /// Copy from WorkStarted message, may be removed in the future.
+        /// 
+        /// Included here (as well as in UnitsArrived and in WorkStarted), as the real barcode is not
+        /// necessarily know when the former messages are send.
+        /// </summary>
+        public String UnitIdentifier { get; set; }
+
+        /// <summary>
+        /// Lane identifier. Null if no specific lane.
+        /// Copy from WorkStarted message, may be removed in the future.
+        /// </summary>
+        public int? Lane { get; set; }
+
+        /// <summary>
         /// A unique identifier of the current inspection. It is created during inspection and later used for
         /// reference during verification or repair.
         /// So even if the physically same board (i.e. same barcode) is inspected twice, both inspections can
