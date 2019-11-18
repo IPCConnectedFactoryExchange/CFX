@@ -612,7 +612,7 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
-        /// The name of the recipe used to perform the inspection(s) for this transaction.
+        /// The name of the recipe used to perform the inspection(s) for this transaction (may include full path, if applicable).
         /// </summary>
         public string RecipeName
         {
@@ -634,24 +634,6 @@ namespace CFX.Production.TestAndInspection
         /// and inspection results.
         /// </summary>
         public List<InspectedUnit> InspectedUnits
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The name of the active recipe (may include full path, if applicable)
-        /// </summary>
-        public string ActiveRecipeName
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Version number, e.g. “2.0” (Optional)
-        /// </summary>
-        public string ActiveRecipeRevision
         {
             get;
             set;
