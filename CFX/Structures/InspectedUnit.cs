@@ -43,24 +43,6 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The name of the active recipe (may include full path, if applicable)
-        /// </summary>
-        public string ActiveRecipeName
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Version number, e.g. “2.0” (Optional)
-        /// </summary>
-        public string ActiveRecipeRevision
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// A list of the inspections performed, along with the results
         /// </summary>
         public List<Inspection> Inspections
