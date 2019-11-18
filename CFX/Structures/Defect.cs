@@ -44,6 +44,39 @@ namespace CFX.Structures
 
         /// <summary>
         /// An optional defect category for this particular type of defect
+        ///   The defect that led to the faulty feature, determined manually during verification.
+        ///   Suggested values are:
+        ///   - ClearenceSurfaceError
+        ///   - ComponentDefective
+        ///   - ComponentMissing
+        ///   - ComponentRotated
+        ///   - ComponentShifted
+        ///   - ComponentTilted
+        ///   - ConformalCoatingError
+        ///   - Contamination
+        ///   - ExcessiveSolder
+        ///   - FaceDownComponent
+        ///   - InsufficientSolder
+        ///   - LiftedLead
+        ///   - Miscellaneous
+        ///   - PasteShort
+        ///   - PinMissing
+        ///   - PinShifted
+        ///   - ReferencePlaneError
+        ///   - ShiftedPaste
+        ///   - Short
+        ///   - Solderball
+        ///   - SolderDefect
+        ///   - SolderPasteDefect
+        ///   - Tombstone
+        ///   - WrongCode
+        ///   - WrongComponent
+        ///   - WrongComponentHeight
+        ///   - WrongPasteArea
+        ///   - WrongPasteHeight
+        ///   - WrongPasteVolume
+        ///   - WrongPinHeight
+        ///   - WrongPolarity
         /// </summary>
         public string DefectCategory
         {
