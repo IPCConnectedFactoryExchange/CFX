@@ -24,7 +24,7 @@ namespace CFX.Production
     ///     },
     ///     {
     ///       "UnitIdentifier": "CARRIER5566",
-    ///       "PositionNumber": 1,
+    ///       "PositionNumber": 2,
     ///       "PositionName": "CIRCUIT2",
     ///       "X": 50.45,
     ///       "Y": 80.66,

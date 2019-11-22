@@ -117,7 +117,9 @@ namespace CFX.Transport
                 };
 
                 ConnectionFactory factory = new ConnectionFactory();
+#if !NETSTANDARD1_6
                 if (this.NetworkUri.Scheme.ToUpper() == "AMQPS") factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+#endif
                 if (string.IsNullOrWhiteSpace(this.NetworkUri.UserInfo)) factory.SASL.Profile = SaslProfile.Anonymous;
 
                 Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
