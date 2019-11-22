@@ -12,12 +12,6 @@ namespace CFX.Structures.PCBInspection
   /// </summary>
   public class InspectionObject : NamedObject
   {
-    /// <summary>
-    /// Reference to the parent inspection object. Allows to calculate the absolute position and rotation.
-    /// </summary>
-    [JsonIgnore]  // This property is reconstructed _after_ deserialization via UpdateParent(). It would be nice, if JSON.NET could fill
-                  // it automatically, but that seems impossible for now. Maybe with future serialization techniques...
-    public InspectionObject Parent { get; set; } = null;
 
     /// <summary> Features to check during inspection, like "Presence", "Displacement", "Height". </summary>
     public List<Feature> Features { get; set; }
@@ -47,17 +41,6 @@ namespace CFX.Structures.PCBInspection
     public bool IsRepaired { get; set; } = false;
 
 
-    /// <summary>
-    ///   Update the reference to the parent object, recursively for all children.
-    /// </summary>
-    /// <param name="x_parent">The parent inspection object.</param>
-    public virtual void UpdateParentReference (InspectionObject x_parent)
-    {
-      Parent = x_parent;
-
-      // Derived classes need to update all their children, too.
-      // (Typically with "this" as parent, of course.)
-    }
   }
 
 }

@@ -63,15 +63,6 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The overall result of the verification of the measurement
-        /// </summary>
-        public VerificationResult Verification
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// An optional list of component designators (instances of a part) on a production unit(s) to be associated with this measurement.
         /// May include sub-components in "." notation.  Examples:  R1, R2, R3   or  R2.3 (R2, pin 3)
         /// 

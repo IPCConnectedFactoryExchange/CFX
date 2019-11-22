@@ -11,7 +11,6 @@ namespace CFX.Structures.PCBInspection
   /// <summary>
   ///   The root element for the CFX recipe export.
   /// </summary>
-  [JsonConverter (typeof (Panel.Converter))]
   [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Panel : InspectionObject
   {
@@ -85,61 +84,5 @@ namespace CFX.Structures.PCBInspection
     {
       return ((Components != null) && (Components.Count > 0));
     }
-
-
-    public override void UpdateParentReference (InspectionObject x_parent)
-    {
-      base.UpdateParentReference (x_parent);
-
-      // Update all children.
-      foreach (Fiducial fiducial in Fiducials ?? Enumerable.Empty<Fiducial> ())
-        fiducial.UpdateParentReference (this);
-
-      foreach (Board board in Boards ?? Enumerable.Empty<Board> ())
-        board.UpdateParentReference (this);
-
-      foreach (Component component in Components ?? Enumerable.Empty<Component> ())
-        component.UpdateParentReference (this);
-    }
-
-
-    /// <summary>
-    ///   A custom JSON-converter to correctly update all Parent-references after deserialization.
-    /// </summary>
-    class Converter : JsonConverter
-    {
-      public override bool CanConvert (Type objectType)
-      {
-        return objectType == typeof (Panel);
-      }
-
-      public override object ReadJson (JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-      {
-        Panel panel = new Panel ();
-
-        JToken jToken = JToken.Load (reader);
-        serializer.Populate (jToken.CreateReader (), panel);
-
-        panel.UpdateParentReference (null);
-
-        return panel;
-      }
-
-      /// <summary> For writing the default serialization is used instead. </summary>
-      public override bool CanWrite
-      {
-        get
-        {
-          return false;
-        }
-      }
-
-      public override void WriteJson (JsonWriter writer, object value, JsonSerializer serializer)
-      {
-        throw new NotImplementedException ();
-      }
-    }
-
   }
-
 }

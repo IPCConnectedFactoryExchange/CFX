@@ -53,17 +53,6 @@ namespace CFX.Structures.PCBInspection
       }
     }
 
-
-    public override void UpdateParentReference (InspectionObject x_parent)
-    {
-      base.UpdateParentReference (x_parent);
-
-      // Update all children.
-      foreach (Pin pin in Pins ?? Enumerable.Empty<Pin> ())
-      {
-        pin.UpdateParentReference (this);
-      }
-    }
   }
 
 }
