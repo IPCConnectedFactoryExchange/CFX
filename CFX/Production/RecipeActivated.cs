@@ -12,7 +12,10 @@ namespace CFX.Production
     ///   "RecipeName": "RECIPE3234",
     ///   "Revision": "B",
     ///   "Lane": 1,
-    ///   "Stage": null
+    ///   "Stage": null,
+    ///   "ExpectedCycleTime": 60,
+    ///   "ExpectedUnitsPerWorkTransaction": 1,
+    ///   "NumberOfComponentsPerUnit": 500
     /// }
     /// </code>
     /// </summary>
@@ -71,6 +74,15 @@ namespace CFX.Production
         /// variable number of units per transaction, this should represent the average number of units expected to be processed per transaction.
         /// </summary>
         public double ExpectedUnitsPerWorkTransaction
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The number of components to install for each unit of a work.
+        /// </summary>
+        public double NumberOfComponentsPerUnit
         {
             get;
             set;
