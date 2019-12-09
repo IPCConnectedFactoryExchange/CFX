@@ -9,13 +9,13 @@
       <Value Profile="(Default)">CFX.Test.Initiator</Value>
     </Setting>
     <Setting Name="DefaultUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)">cfxtestuser</Value>
+      <Value Profile="(Default)">cfxtest</Value>
     </Setting>
     <Setting Name="DefaultPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">cfxtestpassword</Value>
     </Setting>
     <Setting Name="CertificateThumbprint" Type="System.String" Scope="User">
-      <Value Profile="(Default)">db759f1c9661b0f916ba5e9710bf132ae14bd818</Value>
+      <Value Profile="(Default)">3faa6b00e8982499bafe87273d3e7647c388bad5</Value>
     </Setting>
     <Setting Name="ListenerAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)">CFXListener</Value>

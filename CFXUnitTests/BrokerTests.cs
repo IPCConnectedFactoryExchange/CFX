@@ -114,6 +114,11 @@ namespace CFXUnitTests
 
         }
 
+        [TestMethod]
+        public void JJWTest()
+        {
+        }
+
         private void DoTests(bool auth, bool sec, bool useAltHost = false)
         {
             InitializeTest(auth, sec, useAltHost);
@@ -143,7 +148,7 @@ namespace CFXUnitTests
             KillListener();
 
             listener = new AmqpCFXEndpoint();
-            listener.ValidateCertificates = false;
+            listener.ValidateCertificates = true;
             listener.Open(TestSettings.ClientHandle, certificate: TestSettings.GetCertificate(sec));
             listener.OnCFXMessageReceived += Listener_OnCFXMessageReceived;
 
@@ -152,12 +157,12 @@ namespace CFXUnitTests
 
             Exception ex = null;
             Uri uri = TestSettings.GetBrokerUri(auth, sec);
-            if (!listener.TestSubscribeChannel(uri, TestSettings.BrokerQueue, out ex, virtualHost))
+            if (!listener.TestSubscribeChannel(uri, TestSettings.BrokerQueue, out ex, virtualHost, TestSettings.GetCertificate(sec)))
             {
                 throw new Exception($"Cannot subscribe to broker at {uri.ToString()}, Queue {TestSettings.BrokerQueue}:  {ex.Message}", ex);
             }
 
-            listener.AddSubscribeChannel(uri, TestSettings.BrokerQueue, TestSettings.BrokerVirtualHost);
+            listener.AddSubscribeChannel(uri, TestSettings.BrokerQueue, TestSettings.BrokerVirtualHost, TestSettings.GetCertificate(sec));
         }
 
         private void Listener_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
@@ -178,18 +183,18 @@ namespace CFXUnitTests
             endpoint = new AmqpCFXEndpoint();
             endpoint.ValidateCertificates = false;
             endpoint.Open(TestSettings.ClientHandle, certificate: TestSettings.GetCertificate(sec));
-
+                                    
             string virtualHost = null;
             if (useAltHost) virtualHost = TestSettings.BrokerVirtualHost;
 
             Exception ex = null;
             Uri uri = TestSettings.GetBrokerUri(auth, sec);
-            if (!endpoint.TestPublishChannel(uri, TestSettings.BrokerExchange, out ex, virtualHost))
+            if (!endpoint.TestPublishChannel(uri, TestSettings.BrokerExchange, out ex, virtualHost))  //, TestSettings.GetCertificate(sec)))
             {
                 throw new Exception($"Cannot connect to broker at {uri.ToString()}, Exchange {TestSettings.BrokerExchange}:  {ex.Message}", ex);
             }
 
-            endpoint.AddPublishChannel(uri, TestSettings.BrokerExchange, TestSettings.BrokerVirtualHost);
+            endpoint.AddPublishChannel(uri, TestSettings.BrokerExchange, TestSettings.BrokerVirtualHost, TestSettings.GetCertificate(sec));
         }
 
         private System.Threading.AutoResetEvent evt;
