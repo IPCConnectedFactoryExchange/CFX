@@ -82,6 +82,10 @@ namespace CFX.Production
         /// <summary>
         /// The number of components to install for each unit of a work.
         /// </summary>
+        /// <remarks>
+        /// available since version cfx 1.1
+        /// </remarks>
+        [CFX_Version("1.1")]
         public double NumberOfComponentsPerUnit
         {
             get;
