@@ -44,6 +44,39 @@ namespace CFX.Structures
 
         /// <summary>
         /// An optional defect category for this particular type of defect
+        ///   The defect that led to the faulty feature, determined manually during verification.
+        ///   Suggested values are:
+        ///   - ClearenceSurfaceError
+        ///   - ComponentDefective
+        ///   - ComponentMissing
+        ///   - ComponentRotated
+        ///   - ComponentShifted
+        ///   - ComponentTilted
+        ///   - ConformalCoatingError
+        ///   - Contamination
+        ///   - ExcessiveSolder
+        ///   - FaceDownComponent
+        ///   - InsufficientSolder
+        ///   - LiftedLead
+        ///   - Miscellaneous
+        ///   - PasteShort
+        ///   - PinMissing
+        ///   - PinShifted
+        ///   - ReferencePlaneError
+        ///   - ShiftedPaste
+        ///   - Short
+        ///   - Solderball
+        ///   - SolderDefect
+        ///   - SolderPasteDefect
+        ///   - Tombstone
+        ///   - WrongCode
+        ///   - WrongComponent
+        ///   - WrongComponentHeight
+        ///   - WrongPasteArea
+        ///   - WrongPasteHeight
+        ///   - WrongPasteVolume
+        ///   - WrongPinHeight
+        ///   - WrongPolarity
         /// </summary>
         public string DefectCategory
         {
@@ -135,6 +168,26 @@ namespace CFX.Structures
         /// A list of symptoms that were discovered in the course of identifying this defect.
         /// </summary>
         public List<Symptom> RelatedSymptoms
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The overall result of the verification of the measurement
+        /// </summary>
+        public VerificationResult Verification
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// When a verification took place, the VerificationDetail will contain a classification or more detailed description
+        /// of the root cause of the defect or why the defect is a false fail.
+        /// This description is typically maintained by the customer and the operator will choose from a predefined list.
+        /// </summary>
+        public string VerificationDetail 
         {
             get;
             set;

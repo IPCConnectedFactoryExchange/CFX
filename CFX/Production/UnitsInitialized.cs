@@ -14,6 +14,7 @@ namespace CFX.Production
     ///     "WorkOrderId": "WO45648798",
     ///     "Batch": "BATCH45648798-1"
     ///   },
+    ///   "TransactionID": null,
     ///   "Units": [
     ///     {
     ///       "UnitIdentifier": "UNIT5566687",
@@ -47,6 +48,16 @@ namespace CFX.Production
         public UnitsInitialized()
         {
             Units = new List<UnitPosition>();
+        }
+
+        /// <summary>
+        /// If units are being initialized as part of a Work transaction, the related Transaction ID specified previously by the WorkStarted Message.
+        /// Only required if initialization is occurring as part of a Work transaction, such as in the case of a laser marking machine or labeler.
+        /// </summary>
+        public Guid? TransactionID
+        {
+            get;
+            set;
         }
 
         /// <summary>

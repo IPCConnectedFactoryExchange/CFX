@@ -47,7 +47,7 @@ namespace CFXUnitTests
         }
 
         [TestMethod]
-        public async Task SendBigData()
+        public void SendBigData()
         {
             InitializeTest(false, false);
 

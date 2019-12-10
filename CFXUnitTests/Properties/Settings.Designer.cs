@@ -49,7 +49,7 @@ namespace CFXUnitTests.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("cfxtestuser")]
+        [global::System.Configuration.DefaultSettingValueAttribute("cfxtest")]
         public string DefaultUser {
             get {
                 return ((string)(this["DefaultUser"]));
@@ -73,7 +73,7 @@ namespace CFXUnitTests.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("db759f1c9661b0f916ba5e9710bf132ae14bd818")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3faa6b00e8982499bafe87273d3e7647c388bad5")]
         public string CertificateThumbprint {
             get {
                 return ((string)(this["CertificateThumbprint"]));

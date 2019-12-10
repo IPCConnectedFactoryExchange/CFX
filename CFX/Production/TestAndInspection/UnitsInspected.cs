@@ -582,7 +582,7 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
-        /// The name of the recipe used to perform the inspection(s) for this transaction.
+        /// The name of the recipe used to perform the inspection(s) for this transaction (may include full path, if applicable).
         /// </summary>
         public string RecipeName
         {
