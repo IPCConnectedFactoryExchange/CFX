@@ -24,7 +24,7 @@ namespace CFX.Production
         /// <summary>
         /// Default constructor
         /// </summary>
-        WorkCompleted()
+        public WorkCompleted()
         {
             Units = new List<UnitPosition>();
         }
