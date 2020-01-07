@@ -46,7 +46,7 @@ namespace CFX.Structures
         public List<string> ApprovedAlternateParts
         {
             get;
-            private set;
+            set;
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace CFX.Structures
         public List<string> ApprovedManufacturerParts
         {
             get;
-            private set;
+            set;
         }
     }
 }
