@@ -52,7 +52,7 @@ namespace CFX.Structures
         public List<MaterialSetupRequirement> MaterialSetupRequirements
         {
             get;
-            private set;
+            set;
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace CFX.Structures
         public List<ToolSetupRequirement> ToolSetupRequirements
         {
             get;
-            private set;
+            set;
         }
     }
 }

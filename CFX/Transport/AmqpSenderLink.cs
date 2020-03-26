@@ -113,7 +113,7 @@ namespace CFX.Transport
                     {
                         try
                         {
-                            Message msg = AmqpUtilities.MessageFromEnvelopes(messages, AmqpCFXEndpoint.UseCompression.Value);
+                            Message msg = AmqpUtilities.MessageFromEnvelopes(messages, AmqpCFXEndpoint.Codec.Value);
                             SenderLink.Send(msg);
                             success = true;
                         }
