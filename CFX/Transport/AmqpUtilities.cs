@@ -12,59 +12,72 @@ using Amqp.Framing;
 
 namespace CFX.Transport
 {
+    /// <summary>
+    /// An enumeration that describes the encoding method that will be used to serialize/deserialize
+    /// CFX messages for transmission across the wire.  Similar to Content-Encoding header in HTTP,
+    /// </summary>
+    public enum CFXCodec
+    {
+        /// <summary>
+        /// Messages are transmitted uncompressed in raw JSON format with UTF-8 encoding
+        /// </summary>
+        raw = 0,
+        /// <summary>
+        /// Messages are transmitted in compressed GZIP format
+        /// </summary>
+        gzip = 1
+    }
+
     public static class AmqpUtilities
     {
-        public static Message MessageFromEnvelope(CFXEnvelope env, bool compressed = false)
+        public static Message MessageFromEnvelope(CFXEnvelope env, CFXCodec codec = CFXCodec.raw)
         {
-            byte[] msgData = env.ToBytes();
-            if (compressed)
-            {
-                msgData = Compress(msgData);
-            }
+            byte[] msgData = Encode(env.ToBytes(), codec);
 
             Message msg = new Message(msgData);
             msg.Properties = new Amqp.Framing.Properties
             {
                 MessageId = env.UniqueID.ToString(),
-                CreationTime = env.TimeStamp
+                CreationTime = env.TimeStamp,
+                ContentType = "application/json; charset=\"utf-8\""
             };
+
+            if (codec == CFXCodec.gzip) msg.Properties.ContentEncoding = "gzip";
+
             msg.Header = new Amqp.Framing.Header()
             {
                 Durable = AmqpCFXEndpoint.DurableMessages.Value
             };
-            
-            if (compressed) msg.Properties.ContentEncoding = "CFX-COMPRESSED";
 
             return msg;
         }
 
-        public static Message MessageFromEnvelopes(CFXEnvelope [] envelopes, bool compressed = false)
+        public static Message MessageFromEnvelopes(CFXEnvelope [] envelopes, CFXCodec codec = CFXCodec.raw)
         {
             if (envelopes.Length == 1)
             {
-                return MessageFromEnvelope(envelopes.First());
+                return MessageFromEnvelope(envelopes.First(), codec);
             }
 
             List<CFXEnvelope> container = new List<CFXEnvelope>(envelopes);
             byte[] msgData = Encoding.UTF8.GetBytes(CFXJsonSerializer.SerializeObject(container));
-            if (compressed)
-            {
-                msgData = Compress(msgData);
-            }
+            msgData = Encode(msgData, codec);
 
             Message msg = new Message(msgData);
             msg.Properties = new Amqp.Framing.Properties
             {
                 MessageId = Guid.NewGuid().ToString(),
-                CreationTime = DateTime.Now
+                CreationTime = DateTime.Now,
+                ContentType = "application/json; charset=\"utf-8\""
             };
+
+            if (codec == CFXCodec.gzip) msg.Properties.ContentEncoding = "gzip";
+
             msg.Header = new Amqp.Framing.Header()
             {
                 Durable = AmqpCFXEndpoint.DurableMessages.Value
             };
             
-            if (compressed) msg.Properties.ContentEncoding = "CFX-COMPRESSED";
-
             return msg;
         }
 
@@ -73,10 +86,9 @@ namespace CFX.Transport
             if (msg.Body is byte[])
             {
                 byte[] msgData = msg.Body as byte[];
-                if (msg.Properties?.ContentEncoding == "CFX-COMPRESSED")
-                {
-                    msgData = Decompress(msgData);
-                }
+                CFXCodec codec = CFXCodec.raw;
+                if (string.Compare(msg.Properties.ContentEncoding, "gzip", true) == 0) codec = CFXCodec.gzip;
+                msgData = Decode(msgData, codec);
 
                 List<CFXEnvelope> results;
 
@@ -109,66 +121,65 @@ namespace CFX.Transport
             if (msg.Body is byte[])
             {
                 byte[] msgData = msg.Body as byte[];
-                if (msg.Properties?.ContentEncoding == "CFX-COMPRESSED")
-                {
-                    msgData = Decompress(msgData);
-                }
-
+                CFXCodec codec = CFXCodec.raw;
+                if (string.Compare(msg.Properties.ContentEncoding, "gzip", true) == 0) codec = CFXCodec.gzip;
+                msgData = Decode(msgData, codec);
                 return CFXEnvelope.FromBytes(msgData);
             }
 
             throw new ArgumentException("AMQP Message Body does not contain a valid CFX Envelope");
         }
 
-        private static byte[] Compress(byte[] data)
+        private static byte[] Encode(byte[] data, CFXCodec codec = CFXCodec.raw)
         {
-            // JJW:  No Compression for now.
-            return data;
-            
-            //byte [] compressedData = null;
-            //using (MemoryStream zip = new MemoryStream())
-            //{
-            //    using (ZipArchive archive = new ZipArchive(zip, ZipArchiveMode.Update))
-            //    {
-            //        ZipArchiveEntry entry = archive.CreateEntry("CFXMessages.json");
-            //        using (BinaryWriter writer = new BinaryWriter(entry.Open()))
-            //        {
-            //            writer.Write(data);
-            //        }
-            //    }
+            byte[] result = null;
 
-            //    compressedData = zip.ToArray();
-            //}
+            if (codec == CFXCodec.gzip)
+            {
+                using (MemoryStream output = new MemoryStream())
+                {
+                    using (MemoryStream input = new MemoryStream(data))
+                    using (GZipStream dstream = new GZipStream(output, CompressionMode.Compress))
+                    {
+                        input.CopyTo(dstream);
+                    }
 
-            //return compressedData;
+                    result = output.ToArray();
+                }
+
+                AppLog.Debug($"GZIP Compressed Message(s) of Size {data.Length} bytes to {result.Length} bytes");
+            }
+            else
+            {
+                result = data;
+            }
+
+            return result;
         }
 
-        private static byte[] Decompress(byte[] data)
+        private static byte[] Decode(byte[] data, CFXCodec codec = CFXCodec.raw)
         {
-            // JJW:  No compression for now.
-            return data;
-            
-            //byte[] uncompressedData = null;
-            //using (MemoryStream zip = new MemoryStream(data))
-            //{
-            //    using (ZipArchive archive = new ZipArchive(zip, ZipArchiveMode.Read))
-            //    {
-            //        ZipArchiveEntry entry = archive.Entries.FirstOrDefault();
-            //        if (entry != null)
-            //        {
-            //            using (MemoryStream dataFile = new MemoryStream())
-            //            {
-            //                using (Stream s = entry.Open())
-            //                {
-            //                    s.CopyTo(dataFile);
-            //                    uncompressedData = dataFile.ToArray();
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
+            byte[] result = null;
 
-            //return uncompressedData;
+            if (codec == CFXCodec.gzip)
+            {
+                using (MemoryStream output = new MemoryStream())
+                {
+                    using (MemoryStream input = new MemoryStream(data))
+                    using (GZipStream dstream = new GZipStream(input, CompressionMode.Decompress))
+                    {
+                        dstream.CopyTo(output);
+                    }
+
+                    result = output.ToArray();
+                }
+            }
+            else
+            {
+                result = data;
+            }
+
+            return result;
         }
 
         public static string MessagePreview(Message message, int count = 200)

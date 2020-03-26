@@ -19,7 +19,7 @@ namespace CFX
     /// <code language="none">
     /// {
     ///    "MessageName": "CFX.EndpointConnected",
-    ///    "Version": "1.1",
+    ///    "Version": "1.2",
     ///    "TimeStamp": "2018-03-26T16:52:25.3769532-04:00",
     ///    "UniqueID": "f3b2c8ec-50b7-4c63-9cb3-2ed57c01880f",
     ///    "Source": null,
@@ -33,7 +33,7 @@ namespace CFX
     /// }
     /// </code>
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
+    [JsonObject(MemberSerialization.OptIn, ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class CFXEnvelope
     {
         public CFXEnvelope()
@@ -45,7 +45,7 @@ namespace CFX
             Transmitted = false;
         }
 
-        public const string CFXVERSION = "1.1";
+        public const string CFXVERSION = "1.2";
         
         public CFXEnvelope(Type messageType) : this()
         {
@@ -130,7 +130,7 @@ namespace CFX
         /// <summary>
         /// The message payload (The CFX message enclosed in this envelope).
         /// </summary>
-        [JsonProperty]
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public object MessageBody
         {
             get
@@ -166,8 +166,15 @@ namespace CFX
         public static CFXEnvelope FromJson(string jsonData)
         {
             CFXEnvelope env = CFXJsonSerializer.DeserializeObject<CFXEnvelope>(jsonData);
-            Type tp = Type.GetType(env.MessageName);
-            env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
+
+            // For backwards compatibility.  Older versions of the SDK did not properly decorate the $type of the MessageBody property,
+            // so the message portion had to be deserialized individually, which was inefficient.
+            if (!(env.MessageBody is CFXMessage))
+            {
+                Type tp = Type.GetType(env.MessageName);
+                env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
+            }
+
             return env;
         }
 
@@ -176,8 +183,13 @@ namespace CFX
             List<CFXEnvelope> list = CFXJsonSerializer.DeserializeObject<List<CFXEnvelope>>(jsonData);
             foreach (CFXEnvelope env in list)
             {
-                Type tp = Type.GetType(env.MessageName);
-                env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
+                // For backwards compatibility.  Older versions of the SDK did not properly decorate the $type of the MessageBody property,
+                // so the message portion had to be deserialized individually, which was inefficient.
+                if (!(env.MessageBody is CFXMessage))
+                {
+                    Type tp = Type.GetType(env.MessageName);
+                    env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
+                }
             }
 
             return list;

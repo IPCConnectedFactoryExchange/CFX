@@ -31,7 +31,7 @@ namespace CFX.Transport
             ValidateCertificates = true;
             LastCertificate = null;
             LastUri = null;
-            if (!UseCompression.HasValue) UseCompression = false;
+            if (!Codec.HasValue) Codec = CFXCodec.raw;
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
             if (!KeepAliveInterval.HasValue) KeepAliveInterval = TimeSpan.FromSeconds(60);
@@ -94,7 +94,7 @@ namespace CFX.Transport
         }
 
         // JJW:  Compression not fully implemented yet.  Private for now and not enabled.
-        internal static bool? UseCompression
+        public static CFXCodec? Codec
         {
             get;
             set;
@@ -880,7 +880,7 @@ namespace CFX.Transport
                     request.Source = CFXHandle;
                 }
 
-                Message req = AmqpUtilities.MessageFromEnvelope(request, UseCompression.Value);
+                Message req = AmqpUtilities.MessageFromEnvelope(request, Codec.Value);
                 req.Properties.MessageId = "command-request";
                 req.Properties.ReplyTo = CFXHandle;
                 req.ApplicationProperties = new ApplicationProperties();

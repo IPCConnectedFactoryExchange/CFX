@@ -7,6 +7,7 @@ using CFX.Production.TestAndInspection;
 using CFX.Structures;
 using System.Text;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace CFXUnitTests
 {
@@ -65,7 +66,10 @@ namespace CFXUnitTests
         [TestMethod]
         public void SendBigData()
         {
-            InitializeTest(false, false, true);
+            Stopwatch sw = Stopwatch.StartNew();
+            InitializeTest(false, false, false);
+
+            Debug.WriteLine($"Initialized at {sw.ElapsedMilliseconds} ms");
 
             UnitsInspected un = new UnitsInspected()
             {
@@ -104,19 +108,31 @@ namespace CFXUnitTests
 
             //un = new UnitsInspected();
 
-            string json = un.ToJson();
+            Debug.WriteLine($"Created Big Message at {sw.ElapsedMilliseconds} ms");
 
-            System.Diagnostics.Debug.WriteLine($"Sending Message of Size:  {Encoding.UTF8.GetBytes(json).Length} bytes");
+            //string json = un.ToJson();
+
+            //Debug.WriteLine($"Serialized to JSON at {sw.ElapsedMilliseconds} ms,  Raw Message size = {json.Length} bytes");
 
             FireAndWait(un);
 
-            System.Diagnostics.Debug.WriteLine($"Message Received:  {Encoding.UTF8.GetBytes(json).Length} bytes");
-
+            Debug.WriteLine($"Got message back at {sw.ElapsedMilliseconds} ms");
         }
 
+
         [TestMethod]
-        public void JJWTest()
+        public void ListenerTest()
         {
+            AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
+            ep.Open("Supplier.MyModel.MySerialNumber", new Uri("amqp://mymachine:5700"));
+            ep.AddListener("ReceiveChannel1");
+            ep.AddListener("RecevieChannel2");
+            ep.OnCFXMessageReceivedFromListener += Ep_OnCFXMessageReceivedFromListener;
+        }
+
+        private void Ep_OnCFXMessageReceivedFromListener(string targetAddress, CFXEnvelope message)
+        {
+            System.Diagnostics.Debug.WriteLine($"Message received from endpoint {message.Source} on listener {targetAddress}");
         }
 
         private void DoTests(bool auth, bool sec, bool useAltHost = false)
@@ -138,7 +154,7 @@ namespace CFXUnitTests
         private void InitializeTest(bool auth, bool sec, bool useAltHost)
         {
             AmqpCFXEndpoint.MaxFrameSize = 250000;
-
+            AmqpCFXEndpoint.Codec = CFXCodec.gzip;
             SetupListener(auth, sec, useAltHost);
             SetupEndpoint(auth, sec, useAltHost);
         }
@@ -162,7 +178,7 @@ namespace CFXUnitTests
                 throw new Exception($"Cannot subscribe to broker at {uri.ToString()}, Queue {TestSettings.BrokerQueue}:  {ex.Message}", ex);
             }
 
-            listener.AddSubscribeChannel(uri, TestSettings.BrokerQueue, TestSettings.BrokerVirtualHost, TestSettings.GetCertificate(sec));
+            listener.AddSubscribeChannel(uri, TestSettings.BrokerQueue, virtualHost, TestSettings.GetCertificate(sec));
         }
 
         private void Listener_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
@@ -194,7 +210,7 @@ namespace CFXUnitTests
                 throw new Exception($"Cannot connect to broker at {uri.ToString()}, Exchange {TestSettings.BrokerExchange}:  {ex.Message}", ex);
             }
 
-            endpoint.AddPublishChannel(uri, TestSettings.BrokerExchange, TestSettings.BrokerVirtualHost, TestSettings.GetCertificate(sec));
+            endpoint.AddPublishChannel(uri, TestSettings.BrokerExchange, virtualHost, TestSettings.GetCertificate(sec));
         }
 
         private System.Threading.AutoResetEvent evt;
@@ -207,7 +223,7 @@ namespace CFXUnitTests
                 CFXEnvelope env = CFXEnvelope.FromCFXMessage(msg);
                 testEnv = env;
                 endpoint.Publish(env);
-                if (!evt.WaitOne(60000))
+                if (!evt.WaitOne(120000))
                 {
                     throw new TimeoutException("The message was not received by listener.  Timeout");
                 }
