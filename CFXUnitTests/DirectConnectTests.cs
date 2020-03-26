@@ -46,58 +46,6 @@ namespace CFXUnitTests
             await DoTests(true, true);
         }
 
-        [TestMethod]
-        public void SendBigData()
-        {
-            InitializeTest(false, false);
-
-            UnitsInspected un = new UnitsInspected()
-            {
-                InspectedUnits = new List<InspectedUnit>()
-                {
-                    new InspectedUnit()
-                    {
-                        UnitIdentifier = "121354546",
-                    }
-                }
-            };
-
-            for (int i = 0; i < 100000; i++)
-            {
-                Inspection insp = new Inspection()
-                {
-                    Measurements = new List<Measurement>()
-                    {
-                        new NumericMeasurement()
-                        {
-                            MeasurementName = "Measurement 1",
-                            MeasuredValue = new NumericValue()
-                            {
-                                Value = 1.232546546,
-                                ValueUnits = "mm",
-                                ExpectedValue = 1.2364564,
-                                MaximumAcceptableValue = 7.8854546,
-                                MinimumAcceptableValue = 8.67867876,
-                            }
-                        }
-                    }
-                };
-
-                un.InspectedUnits[0].Inspections.Add(insp);
-            }
-
-            //un = new UnitsInspected();
-
-            string json = un.ToJson();
-
-            System.Diagnostics.Debug.WriteLine($"Sending Message of Size:  {Encoding.UTF8.GetBytes(json).Length} bytes");
-
-            FireAndWait(un);
-
-            System.Diagnostics.Debug.WriteLine($"Message Received:  {Encoding.UTF8.GetBytes(json).Length} bytes");
-
-        }
-
         private async Task DoTests(bool auth, bool sec)
         {
             InitializeTest(auth, sec);

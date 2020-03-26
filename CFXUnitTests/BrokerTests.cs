@@ -123,11 +123,11 @@ namespace CFXUnitTests
         [TestMethod]
         public void ListenerTest()
         {
-            AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
-            ep.Open("Supplier.MyModel.MySerialNumber", new Uri("amqp://mymachine:5700"));
-            ep.AddListener("ReceiveChannel1");
-            ep.AddListener("RecevieChannel2");
-            ep.OnCFXMessageReceivedFromListener += Ep_OnCFXMessageReceivedFromListener;
+            //AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
+            //ep.Open("Supplier.MyModel.MySerialNumber", new Uri("amqp://mymachine:5700"));
+            //ep.AddListener("ReceiveChannel1");
+            //ep.AddListener("RecevieChannel2");
+            //ep.OnCFXMessageReceivedFromListener += Ep_OnCFXMessageReceivedFromListener;
         }
 
         private void Ep_OnCFXMessageReceivedFromListener(string targetAddress, CFXEnvelope message)
