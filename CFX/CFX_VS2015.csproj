@@ -312,6 +312,7 @@
     <Compile Include="Structures\Reading.cs" />
     <Compile Include="Structures\Recipe.cs" />
     <Compile Include="Structures\RecipeModificationReason.cs" />
+    <Compile Include="Structures\RecipeStageInformation.cs" />
     <Compile Include="Structures\ReflowProfiling\NamespaceDoc.cs" />
     <Compile Include="Structures\ReflowProfiling\ReflowProfilingProcessData.cs" />
     <Compile Include="Structures\Region.cs" />
