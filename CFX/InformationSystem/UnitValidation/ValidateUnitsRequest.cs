@@ -100,5 +100,20 @@ namespace CFX.InformationSystem.UnitValidation
             get;
             set;
         }
+
+        /// <summary>
+        /// Lane identifier.  Null if no specific lane
+        /// </summary>
+        /// <remarks>
+        /// This field allows distinguishing between requests when different kinds of units enter the machine and all need to be validated.
+        /// For instance, a depaneling cell where both panels and carriers would need to be validated.
+        /// - The panel has a data matrix for id and a set of modules whose statuses need to be validated.
+        /// - The carrier (pallet, fixture, tray, etc) has a data matrix for id and a set of nests whose statuses need to be validated.
+        /// </remarks>
+        public int? Lane
+        {
+            get;
+            set;
+        }
     }
 }
