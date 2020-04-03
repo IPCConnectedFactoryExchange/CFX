@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX.Production
 {
@@ -15,12 +16,37 @@ namespace CFX.Production
     ///   "Stage": null,
     ///   "ExpectedCycleTime": 60,
     ///   "ExpectedUnitsPerWorkTransaction": 1,
-    ///   "NumberOfComponentsPerUnit": 500
+    ///   "NumberOfComponentsPerUnit": 500,
+    ///   "RecipeStagesInformation”: [
+    ///   {
+    ///     "Stage": {
+    ///       "StageSequence": 1,
+    ///       "StageName": "STAGE1",
+    ///       "StageType": "Work"
+    ///     }
+    ///     "ExpectedCycleTime": 80,
+    ///     "NumberOfComponentsPerUnit": 200
+    ///   },
+    ///   {
+    ///     "Stage": {
+    ///       "StageSequence": 2,
+    ///       "StageName": "STAGE2",
+    ///       "StageType": "Work"
+    ///     }
+    ///     "ExpectedCycleTime": 120,
+    ///     "NumberOfComponentsPerUnit": 250
+    ///   }
+    ///   ]
     /// }
     /// </code>
     /// </summary>
     public class RecipeActivated : CFXMessage
     {
+        RecipeActivated()
+        {
+            RecipeStagesInformation = new List<RecipeStageInformation>();
+        }
+
         /// <summary>
         /// THe name of the recipe (may include full path, if applicable)
         /// </summary>
@@ -83,6 +109,16 @@ namespace CFX.Production
         /// The number of components to install for each unit of a work.
         /// </summary>
         public double NumberOfComponentsPerUnit
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// An optional list of information about the recipe for each stage of the machine
+        /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public List<RecipeStageInformation> RecipeStagesInformation
         {
             get;
             set;
