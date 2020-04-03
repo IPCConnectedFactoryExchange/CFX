@@ -31,7 +31,7 @@ namespace CFX.Transport
             ValidateCertificates = true;
             LastCertificate = null;
             LastUri = null;
-            if (!Codec.HasValue) Codec = CFXCodec.raw;
+            if (!Codec.HasValue) Codec = CFXCodec.gzip;
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
             if (!KeepAliveInterval.HasValue) KeepAliveInterval = TimeSpan.FromSeconds(60);
@@ -93,7 +93,9 @@ namespace CFX.Transport
             private set;
         }
 
-        // JJW:  Compression not fully implemented yet.  Private for now and not enabled.
+        /// <summary>
+        /// Sets the codec used to transmit messages across the wire, including the newly introduced GZIP Compressed Codec, which is now the default.
+        /// </summary>
         public static CFXCodec? Codec
         {
             get;

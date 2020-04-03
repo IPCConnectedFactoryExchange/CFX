@@ -9,6 +9,7 @@ namespace CFX.Structures
     /// <summary>
     /// Describes some information about a recipe for a specific  stage
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class RecipeStageInformation
     {
         /// <summary>

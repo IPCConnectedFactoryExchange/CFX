@@ -16,6 +16,7 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class RecipeDeactivated : CFXMessage
     {
         /// <summary>

@@ -47,6 +47,7 @@ namespace CFX.Structures
         /// <summary>
         /// The recipe has been deleted
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
         RecipeDeleted,
     }
 }

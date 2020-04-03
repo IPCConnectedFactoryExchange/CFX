@@ -48,6 +48,7 @@ namespace CFX.Structures
         /// <summary>
         /// The stage is waiting because it has been stopped by the operator
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
         ProductionStoppedByOperator,
     }
 }
