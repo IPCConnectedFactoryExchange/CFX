@@ -152,6 +152,7 @@
     <Compile Include="Production\Processing\UnitsProcessed.cs" />
     <Compile Include="Production\ReadingsRecorded.cs" />
     <Compile Include="Production\RecipeActivated.cs" />
+    <Compile Include="Production\RecipeDeactivated.cs" />
     <Compile Include="Production\RecipeModified.cs" />
     <Compile Include="Production\SetupRequirementsChanged.cs" />
     <Compile Include="Production\TestAndInspection\NamespaceDoc.cs" />
