@@ -926,6 +926,11 @@ namespace CFX.Transport
                         throw new TimeoutException("A response was not received from target CFX endpoint in the alloted time.");
                     }
                 }
+                catch (Exception ex3)
+                {
+                    AppLog.Error(ex3);
+                    ex = ex3;
+                }
             }
             catch (Exception ex2)
             {
