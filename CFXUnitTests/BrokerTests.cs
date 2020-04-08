@@ -123,6 +123,8 @@ namespace CFXUnitTests
         [TestMethod]
         public void ListenerTest()
         {
+            AmqpCFXEndpoint.Codec = CFXCodec.gzip;
+
             //AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
             //ep.Open("Supplier.MyModel.MySerialNumber", new Uri("amqp://mymachine:5700"));
             //ep.AddListener("ReceiveChannel1");
