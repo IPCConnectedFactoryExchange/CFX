@@ -358,7 +358,7 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
-        /// A list of the units that were tested, along with the tests made, and test results.
+        /// Dynamic structure providing a list of the units that were tested, along with the tests made, and test results.
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<TestedUnit> TestedUnits

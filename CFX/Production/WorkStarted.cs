@@ -111,7 +111,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Data that identifies each specific instance of production unit with a carrier or panel. 
+        /// Dynamic structure providing data that identifies each specific instance of production unit with a carrier or panel. 
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<UnitPosition> Units

@@ -77,6 +77,10 @@ namespace CFX.Structures
         /// <summary>
         /// A stop was triggered by a services failure (i.e. Lack of air pressure)
         /// </summary>
-        ServicesFailure,         
+        ServicesFailure,
+        /// <summary>
+        /// A stop was triggered due to process error.
+        /// </summary>
+        ProcessError,
     }
 }

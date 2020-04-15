@@ -26,6 +26,16 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// If the fault related to this message is associated with a work transaction, this property
+        /// contains the Id of the transaction.
+        /// </summary>
+        public Guid? TransactionID
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The cause of this fault.
         /// </summary>
         public FaultCause Cause

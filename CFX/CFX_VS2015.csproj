@@ -406,11 +406,8 @@
     <Compile Include="Structures\UnitLoadActivity.cs" />
     <Compile Include="Structures\UnitPosition.cs" />
     <Compile Include="Structures\UnitUnloadActivity.cs" />
-    <Compile Include="Structures\VacuumDeposition\CoatingActivity.cs" />
-    <Compile Include="Structures\VacuumDeposition\CoatingFault.cs" />
     <Compile Include="Structures\VacuumDeposition\CoatingProcessReading.cs" />
     <Compile Include="Structures\VacuumDeposition\CoatingThicknessMeasurement.cs" />
-    <Compile Include="Structures\VacuumDeposition\LoadedUnitId.cs" />
     <Compile Include="Structures\ValidationResult.cs" />
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />

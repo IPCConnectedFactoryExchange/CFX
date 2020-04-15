@@ -1,40 +1,35 @@
-﻿
+﻿using System;
+
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
-    /// Structure contains process data.
+    /// Structure base class representing process data.
+    /// Chamber pressure units in mbar.
+    /// Vaporizer temperature in degrees Celsius.
     /// <code language="none">
     /// {
-    ///   "Chamber Pressure": "100 mT",
-    ///   "Vaporizer Temperature" : "150 °C",
-    ///   "ElapsedTime" : "0 00:00:10"
+    ///   "Chamber Pressure": "100",
+    ///   "Vaporizer Temperature" : "150"
     ///   }
     /// </code>
     /// </summary>
+    /// 
+
     public class CoatingProcessReading : Reading
     {
         /// <summary>
-        /// Current Chamber Pressure in milliTor.
+        /// Current chamber pressure in mbar.
         /// </summary>
-        public string ChamberPressure
+        public double ChamberPressure
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Current vaporizer temperature in degree Celsius.
+        /// Current vaporizer temperature in degrees Celsius.
         /// </summary>
-        public string VaporizerTemperature
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Elapsed time since process start.
-        /// </summary>
-        public string ElapsedTime
+        public double VaporizerTemperature
         {
             get;
             set;

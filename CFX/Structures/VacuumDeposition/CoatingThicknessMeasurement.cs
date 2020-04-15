@@ -3,7 +3,8 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
-    /// Structure representing slide position and coating thickness measured in mils.
+    /// Structure base class representing slide position.
+    /// Average coating thickness measured in micrometers.
     /// </summary>
     public class CoatingThicknessMeasurement : Measurement
     {
@@ -11,15 +12,15 @@ namespace CFX.Structures.VacuumDeposition
         /// <summary>
         /// Position of measured slide.
         /// </summary>
-        public byte Position
+        public ushort Position
         {
             get;
             set;
         }
         /// <summary>
-        /// Average coating thickness.
+        /// Average coating thickness in micrometers.
         /// </summary>
-        public string Thickness
+        public double Thickness
         {
             get;
             set;
