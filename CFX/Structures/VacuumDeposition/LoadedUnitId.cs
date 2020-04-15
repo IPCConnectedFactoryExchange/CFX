@@ -3,7 +3,7 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
-    /// Structure representing work units.
+    /// Dynamic structure base class representing work units.
     /// </summary>
     public class LoadedUnitId : UnitPosition
     {

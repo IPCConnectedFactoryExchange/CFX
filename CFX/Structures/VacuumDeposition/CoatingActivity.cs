@@ -5,7 +5,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures
 {
     /// <summary>
-    /// Structure contains current process state and time stamp.
+    /// Dynamic structure base class for current process state and time stamp.
     /// <code language="none">
     /// {
     ///     "CoatingActiviy" : "System Pressure Test",

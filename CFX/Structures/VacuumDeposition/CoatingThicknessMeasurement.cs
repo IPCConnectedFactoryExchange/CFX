@@ -3,7 +3,7 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
-    /// Structure representing slide position and coating thickness measured in mils.
+    /// Dynamic structure base class representing slide position and coating thickness measured in mils.
     /// </summary>
     public class CoatingThicknessMeasurement : Measurement
     {

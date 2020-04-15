@@ -2,7 +2,7 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
-    /// Structure contains process data.
+    /// Dynamic structure base class contains process data.
     /// <code language="none">
     /// {
     ///   "Chamber Pressure": "100 mT",

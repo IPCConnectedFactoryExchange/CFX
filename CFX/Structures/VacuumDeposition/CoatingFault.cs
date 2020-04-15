@@ -3,7 +3,7 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
-    /// Structure representing coating process fault.
+    /// Dynamic structure base class representing coating process fault.
     /// <code language="none">
     /// {
     ///   "TransactionId": "c16bb3f4-8088-4697-b789-80faec48ac5a",
