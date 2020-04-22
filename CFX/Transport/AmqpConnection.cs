@@ -77,6 +77,22 @@ namespace CFX.Transport
             return links.OfType<AmqpSenderLink>().Where(l => l.Address.ToUpper() == address.ToUpper()).Sum(l => l.Queue.Count);
         }
 
+        public void PurgeSpool(AmqpChannelAddress addr)
+        {
+            foreach (AmqpSenderLink sender in links.Where(l => l.Address.ToUpper() == addr.Address.ToUpper()).OfType<AmqpSenderLink>())
+            {
+                sender.PurgeSpool();
+            }
+        }
+
+        public void PurgeAllSpools()
+        {
+            foreach (AmqpSenderLink sender in links.OfType<AmqpSenderLink>())
+            {
+                sender.PurgeSpool();
+            }
+        }
+
         public Connection InternalConnection
         {
             get

@@ -86,6 +86,11 @@ namespace CFX.Transport
             TriggerProcessing();
         }
 
+        public void PurgeSpool()
+        {
+            Queue.Clear();
+        }
+
         private void TriggerProcessing()
         {
             lock (this)

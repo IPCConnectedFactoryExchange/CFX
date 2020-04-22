@@ -758,6 +758,35 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// Permanently deletes all spooled messages from the specified Publish channel.
+        /// </summary>
+        /// <param name="addr">The channel address of the publish channel to be purged.</param>
+        public void PurgeSpool(AmqpChannelAddress addr)
+        {
+            string key = addr.Uri.ToString();
+
+            if (channels.ContainsKey(key))
+            {
+                channels[key].PurgeSpool(addr);
+            }
+            else
+            {
+                throw new ArgumentException("The specified channel does not exist.");
+            }
+        }
+
+        /// <summary>
+        /// Permanently deletes all spooled messages from all Publish channels associated with this endpoint.
+        /// </summary>
+        public void PurgeAllSpools()
+        {
+            foreach (AmqpConnection channel in channels.Values)
+            {
+                channel.PurgeAllSpools();
+            }
+        }
+
+        /// <summary>
         /// Publishes a CFX message.  The message will be transmitted to all publish channels.
         /// </summary>
         /// <param name="env">The CFX envelope containing the message to publish.</param>
