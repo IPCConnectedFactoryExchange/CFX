@@ -30,55 +30,73 @@ namespace CFX.Transport
 
     public static class AmqpUtilities
     {
-        public static Message MessageFromEnvelope(CFXEnvelope env, CFXCodec codec = CFXCodec.raw)
+        public static Message MessageFromEnvelope(CFXEnvelope env, CFXCodec codec = CFXCodec.raw, string subjectFormat = null)
         {
             byte[] msgData = Encode(env.ToBytes(), codec);
 
             Message msg = new Message(msgData);
-            msg.Properties = new Amqp.Framing.Properties
-            {
-                MessageId = env.UniqueID.ToString(),
-                CreationTime = env.TimeStamp,
-                ContentType = "application/json; charset=\"utf-8\""
-            };
-
-            if (codec == CFXCodec.gzip) msg.Properties.ContentEncoding = "gzip";
-
-            msg.Header = new Amqp.Framing.Header()
-            {
-                Durable = AmqpCFXEndpoint.DurableMessages.Value
-            };
+            SetHeaders(msg, env, codec, subjectFormat);
 
             return msg;
         }
 
-        public static Message MessageFromEnvelopes(CFXEnvelope [] envelopes, CFXCodec codec = CFXCodec.raw)
+        public static Message MessageFromEnvelopes(CFXEnvelope [] envelopes, CFXCodec codec = CFXCodec.raw, string subjectFormat = null)
         {
-            if (envelopes.Length == 1)
+            if (envelopes.Length < 1)
             {
-                return MessageFromEnvelope(envelopes.First(), codec);
+                return null;
+            }
+            else if (envelopes.Length == 1)
+            {
+                return MessageFromEnvelope(envelopes.First(), codec, subjectFormat);
             }
 
+            CFXEnvelope env = envelopes.First();
             List<CFXEnvelope> container = new List<CFXEnvelope>(envelopes);
             byte[] msgData = Encoding.UTF8.GetBytes(CFXJsonSerializer.SerializeObject(container));
             msgData = Encode(msgData, codec);
 
             Message msg = new Message(msgData);
-            msg.Properties = new Amqp.Framing.Properties
-            {
-                MessageId = Guid.NewGuid().ToString(),
-                CreationTime = DateTime.Now,
-                ContentType = "application/json; charset=\"utf-8\""
-            };
+            SetHeaders(msg, env, codec, subjectFormat);
+            
+            return msg;
+        }
 
-            if (codec == CFXCodec.gzip) msg.Properties.ContentEncoding = "gzip";
-
+        private static void SetHeaders(Message msg, CFXEnvelope env, CFXCodec codec, string subjectFormat)
+        {
             msg.Header = new Amqp.Framing.Header()
             {
                 Durable = AmqpCFXEndpoint.DurableMessages.Value
             };
-            
-            return msg;
+
+            msg.Properties = new Amqp.Framing.Properties
+            {
+                MessageId = env.UniqueID.ToString(),
+                To = env.Target,
+                ReplyTo = env.Source,
+                CorrelationId = env.RequestID,
+                ContentType = "application/json; charset=\"utf-8\"",
+                CreationTime = env.TimeStamp,
+            };
+
+            if (string.IsNullOrWhiteSpace(subjectFormat))
+            {
+                msg.Properties.Subject = $"{env.Source}.{env.MessageName}";
+            }
+            else
+            {
+                msg.Properties.Subject = subjectFormat.Replace("${cfx-handle}", env.Source);
+                msg.Properties.Subject = msg.Properties.Subject.Replace("${cfx-topic}", env.MessageBody.GetType().Namespace);
+                msg.Properties.Subject = msg.Properties.Subject.Replace("${cfx-messagename}", env.MessageName);
+            }
+
+            if (codec == CFXCodec.gzip) msg.Properties.ContentEncoding = "gzip";
+
+            msg.ApplicationProperties = new ApplicationProperties();
+            msg.ApplicationProperties["cfx-topic"] = env.MessageBody.GetType().Namespace;
+            msg.ApplicationProperties["cfx-message"] = env.MessageName;
+            msg.ApplicationProperties["cfx-handle"] = env.Source;
+            msg.ApplicationProperties["cfx-target"] = env.Target;
         }
 
         public static List<CFXEnvelope> EnvelopesFromMessage(Message msg)

@@ -35,7 +35,7 @@ namespace CFX.Transport
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
             if (!KeepAliveInterval.HasValue) KeepAliveInterval = TimeSpan.FromSeconds(60);
-            if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
+            if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 1;
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
@@ -160,6 +160,22 @@ namespace CFX.Transport
         /// The default size is 500,000 bytes.
         /// </summary>
         public static int? MaxFrameSize
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Establishes the format for the subject property of the AMQP message envelope on all messages published 
+        /// by this endpoint.  The following tags may be used in the format string:
+        /// <list type="bullet">
+        /// <item>${cfx-handle}      Will be replaced with the handle of your endpoint (CFXEnvelope.Source}</item>
+        /// <item>${cfx-topic}       Will be replaced with the topic of the message ("CFX.Production" for example)</item>
+        /// <item>${cfx-messagename} Will be replaced with the fully qualified name of the message ("CFX.Production.WorkStarted" for example)</item>
+        /// </list>
+        /// If this property is null or an empty string, the default subject format will be utilized:  "${Source}.${MessageName}"
+        /// </summary>
+        public string SubjectFormat
         {
             get;
             set;

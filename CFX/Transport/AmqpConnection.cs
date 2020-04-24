@@ -324,7 +324,7 @@ namespace CFX.Transport
             {
                 if (links.Any(l => l.Address == address)) throw new Exception("A channel already exists for this address");
 
-                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle);
+                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle, this);
                 links.Add(link);
             }
 
@@ -363,7 +363,7 @@ namespace CFX.Transport
             Cleanup();
         }
 
-        public void Publish(CFXEnvelope env, string replyTo = null)
+        public void Publish(CFXEnvelope env)
         {
             EnsureConnection();
 
