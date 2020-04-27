@@ -8,8 +8,7 @@ using CFX.Structures;
 namespace CFX.Production.LoadingAndUnloading
 {
     /// <summary>
-    /// Sent when a unit is unloaded into any form of carrier, including fixtures, pallets, trays, tubs, totes, carts, etc.
-    /// Associates unit with a carrier.
+    /// Sent when a unit is loaded from any form of carrier, including fixtures, pallets, trays, tubs, totes, carts, etc.
     /// <code language="none">
     /// {
     ///   "UniqueIdentifier": "PALLET123",
@@ -38,12 +37,12 @@ namespace CFX.Production.LoadingAndUnloading
     /// }
     /// </code>
     /// </summary>
-    public class UnitsUnloaded : CFXMessage
+    public class UnitsLoaded : CFXMessage
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public UnitsUnloaded()
+        public UnitsLoaded()
         {
             Units = new List<UnitPosition>();
         }
@@ -58,7 +57,7 @@ namespace CFX.Production.LoadingAndUnloading
         }
 
         /// <summary>
-        /// A list of the specific units that were unloaded along with positions they were unloaded to.
+        /// A list of the specific units that were loaded along with positions they were loaded from.
         /// </summary>
         public List<UnitPosition> Units
         {
