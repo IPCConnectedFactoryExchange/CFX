@@ -173,7 +173,7 @@ namespace CFX.Transport
         /// <item>${cfx-topic}       Will be replaced with the topic of the message ("CFX.Production" for example)</item>
         /// <item>${cfx-messagename} Will be replaced with the fully qualified name of the message ("CFX.Production.WorkStarted" for example)</item>
         /// </list>
-        /// If this property is null or an empty string, the default subject format will be utilized:  "${Source}.${MessageName}"
+        /// If this property is null or an empty string, the default subject format will be utilized:  "${cfx-handle}.${cfx-messagename}"
         /// </summary>
         public string SubjectFormat
         {
