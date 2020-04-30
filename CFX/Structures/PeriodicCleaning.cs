@@ -10,7 +10,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class PeriodicCleaning
     {
-        PeriodicCleaning()
+        /// <summary>
+        /// Periodic cleaning constructor
+        public PeriodicCleaning()
         {
 
         }
@@ -20,9 +22,10 @@ namespace CFX.Structures
         /// </summary>
         public int? CleanFrequency { get; set; }
         /// <summary>
-        /// Clean mode 
+        /// Clean mode - string to enable combination of values
+        /// In a second stage, an enum could be defined
         /// </summary>
-        public SMTStencilCleanMode CleanMode { get; set; }
+        public string CleanMode { get; set; }
             
         
     }

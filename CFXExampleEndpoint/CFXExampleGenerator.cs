@@ -2794,13 +2794,18 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            msg = new RecipeActivated()
-            {
-                Lane = 1,
-                RecipeName = "RECIPE3234",
-                Revision = "B"
-            };
-            AppendMessage(msg, ref result);
+            /********       Commented by DanieleASM because the compilation fail:
+             * No constructor for the RecipeActivated() as provided in this message.
+             * Please fix this bug with the appropriate constructor
+             *****************************************************************************/
+            //msg = new RecipeActivated()
+            //{
+            //    Lane = 1,
+            //    RecipeName = "RECIPE3234",
+            //    Revision = "B"
+               
+            //};
+            //AppendMessage(msg, ref result);
 
             msg = new RecipeModified()
             {
@@ -2911,6 +2916,37 @@ namespace CFXExampleEndpoint
                 },
                 Reason = RecipeModificationReason.NewRevision
             };
+            AppendMessage(msg, ref result);
+
+            //Including printing extension in CommonRecipeData
+            msg = new UpdateRecipeRequest()
+            {
+                Overwrite = true,
+                Recipe = new Recipe()
+                {
+                    Name = "RECIPE234324",
+                    Revision = "C"
+                },
+                Reason = RecipeModificationReason.NewRevision,
+                CommonRecipeData = new SolderPastePrintingProcessData()
+                {
+                    Strokes = new List<Stroke>(
+                        new Stroke[]
+                        {
+                        new Stroke() {PrintPressure = 1, PrintSpeed = 12 },
+                        new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
+                        }),
+                    PrintGap = 1.2,
+                    Separation = new Separation() {SeparationDistance = 1.2, SeparationSpeed = 1.6 },
+
+                    PeriodicCleanings = new List<PeriodicCleaning>(
+                           new PeriodicCleaning[]
+                           {
+                               new PeriodicCleaning(){CleanFrequency = 2, CleanMode= "W"}
+                           })    
+                }
+            };
+
             AppendMessage(msg, ref result);
 
             msg = new UpdateRecipeResponse()
@@ -3606,6 +3642,40 @@ namespace CFXExampleEndpoint
                     TimeDateUnitOut = DateTime.Now + TimeSpan.FromSeconds(82),
                     ProductionUnitPWI = 89.6,
                     ZoneData = zoneData
+                },
+            };
+
+            AppendMessage(msg, ref result);
+
+            //New UnitsProcess to have the PrintigPCB data
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                OverallResult = ProcessingResult.Succeeded,
+                CommonProcessData = new SolderPastePrintingPCBProcessData()
+                {
+                    Strokes = new List<Stroke>(
+                        new Stroke[]
+                        {
+                        new Stroke() {PrintPressure = 1, PrintSpeed = 12, SqueegeeDirection=SolderPasteSqueegeeDirection.forward},
+                        new Stroke() { PrintPressure = 2, PrintSpeed = 9, SqueegeeDirection=SolderPasteSqueegeeDirection.backward }
+                        }),
+                    
+                    Separation = new Separation() { SeparationDistance = 1.2, SeparationSpeed = 1.6 },
+
+                    PeriodicCleanings = new List<PeriodicCleaning>(
+                           new PeriodicCleaning[]
+                           {
+                               new PeriodicCleaning(){CleanFrequency = 2, CleanMode= "W"}
+                           }),
+                    RecipeName = "RECIPE_123",
+                    //CycleTime = null,
+                   
+                    FirstPrintDirection = "FrontToRear",
+                    OffsetX= 1.5,
+                    OffsetY= 0.5,
+                    OffsetTheta= 2.5
+
                 },
             };
 

@@ -35,6 +35,6 @@ namespace CFX.Structures.SolderPastePrinting
         /// <summary>
         /// Periodic cleaning object List. Normally it shall be one, but in this way it may be extended more easily 
         /// </summary>
-        public List<PeriodicCleaning> PeriodicCleaning { get; set; }
+        public List<PeriodicCleaning> PeriodicCleanings { get; set; }
     }
 }

@@ -23,10 +23,6 @@ namespace CFX.Structures
         /// </summary>
         public double? SeparationDistance { get; set; }
         /// <summary>
-        /// Separation direction for Solder Paste Printing - UnitsProcessed 
-        /// </summary>
-        public string SqueegeeDirection { get; set; }
-        /// <summary>
         /// Separation delay for Solder Paste Printing. For future use.
         /// </summary>
         public double? SeparationDelay { get; set; }

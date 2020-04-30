@@ -16,11 +16,14 @@ using CFX.ResourcePerformance;
 using CFX.InformationSystem.UnitValidation;
 using CFX.Sensor.Identification;
 using System.Security.Cryptography.X509Certificates;
+using System.Configuration;
 
 namespace CFXExampleEndpoint
 {
     public partial class MainForm : Form
     {
+        private readonly string CFX_JSON_Examples = ConfigurationManager.AppSettings["CFX_JSON_Examples"];
+        private readonly string LogFilePath = ConfigurationManager.AppSettings["LogFilePath"];
         public MainForm()
         {
             InitializeComponent();
@@ -37,7 +40,7 @@ namespace CFXExampleEndpoint
 
             CFXExampleGenerator gen = new CFXExampleGenerator();
             string result = gen.GenerateAll();
-            File.WriteAllText(@"d:\JJWCode\CFX_JSON_Examples.txt", result, Encoding.UTF8);
+            File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
             return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
@@ -46,7 +49,7 @@ namespace CFXExampleEndpoint
             RefreshControls();
 
             CFX.Utilities.AppLog.LoggingEnabled = true;
-            CFX.Utilities.AppLog.LogFilePath = @"c:\stuff\mylog.txt";
+            CFX.Utilities.AppLog.LogFilePath = LogFilePath;
             //CFX.Utilities.AppLog.AmqpTraceEnabled = false;
             CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Warn;
         }
