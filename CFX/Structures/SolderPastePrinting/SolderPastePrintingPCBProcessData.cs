@@ -13,7 +13,7 @@ namespace CFX.Structures.SolderPastePrinting
     public class SolderPastePrintingPCBProcessData : ProcessData
     {
         /// <summary>
-        /// Constructore class.
+        /// Constructor class for the new object.
         /// </summary>
         public SolderPastePrintingPCBProcessData()
         {
