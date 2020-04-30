@@ -18,11 +18,11 @@ namespace CFX.Structures
         /// <summary>
         /// After how many Panels the Printer executes the cleaning process - nominal clean rate
         /// </summary>
-        public int? Clean_Frequency { get; set; }
+        public int? CleanFrequency { get; set; }
         /// <summary>
         /// Clean mode 
         /// </summary>
-        public SMTStencilCleanMode Clean_Mode { get; set; }
+        public SMTStencilCleanMode CleanMode { get; set; }
             
         
     }

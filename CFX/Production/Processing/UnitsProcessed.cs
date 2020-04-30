@@ -795,7 +795,40 @@ namespace CFX.Production.Processing
     ///   ]
     /// }
     /// </code>
-    /// <para></para>
+    /// <para>Printer Operation Data: for each printed PCB send used Printer process parameters</para>
+    /// {
+    /// "TransactionId": "a4275a83-4a6a-4656-a92d-402ddd4458d8",
+    /// "OverallResult": "Succeeded",
+    /// /// "CommonProcessData ": {
+    /// "$type": "CFX.Structures.SolderPastePrinting.SolderPastePrintingPCBProcessData, CFX",
+    /// "Strokes": [
+    ///		{
+    ///			"PrintPressure": 15,
+    ///			"PrintSpeed": 50
+    ///
+    ///        },
+    ///		{
+    ///			"PrintPressure": 10,
+    ///			"PrintSpeed": 40
+    ///		}
+    ///	],
+    ///	"SeparationSpeed": 10,
+    ///	"SeparationDistance": 5,
+    ///	"SqueegeeDirection": "down",
+    ///	"PeriodicCleaning": [
+    ///		{
+    ///			"CleanFrequency": 15,
+    ///			"CleanMode": "W"
+    ///		}
+    ///	],
+    ///	"RecipeName": "Print PCB_1",
+    ///	"CycleTime": "00:00:14.2000000",
+    ///	"FirstPrintDirection": "FrontToRear",
+    ///	"OffsetX": 1.5,
+    ///	"OffsetY": 0.5,
+    ///	"OffsetTheta": 2.5
+    ///}
+    ///}
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage

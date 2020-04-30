@@ -7,27 +7,46 @@ using CFX.Structures;
 
 namespace CFX.Structures.SolderPastePrinting
 {
-    public class SolderPastePrintingPCBProcessData
+    /// <summary>
+    /// The new Process Data for the PCB processed.
+    /// </summary>
+    public class SolderPastePrintingPCBProcessData : ProcessData
     {
         /// <summary>
-        /// The new Process Data for the PCB processed.
+        /// Constructore class.
         /// </summary>
         public SolderPastePrintingPCBProcessData()
         {
 
         }
         /// <summary>
+        /// List of Stroke objects for Solder Paste Printing PCB Process Data
+        /// </summary>
+        public List<Stroke> Strokes { get; set; }
+        /// <summary>
+        /// Separation object 
+        /// </summary>
+        public Separation Separation { get; set; }
+        /// <summary>
+        /// Periodic cleaning object List. Normally it shall be one, but in this way it may be extended more easily 
+        /// </summary>
+        public List<PeriodicCleaning> PeriodicCleaning { get; set; }
+        /// <summary>
+        /// Recipe name for the process data
+        /// </summary>
+        public string RecipeName { get; set; }
+        /// <summary>
         /// Printing offset on the X-Axis
         /// </summary>
-        public double? Offset_X { get; set; }
+        public double? OffsetX { get; set; }
         /// <summary>
         /// Printing offset on the Y-Axis
         /// </summary>
-        public double? Offset_Y { get; set; }
+        public double? OffsetY { get; set; }
         /// <summary>
         /// Printing offset on the Theta-Axis
         /// </summary>
-        public double ? Offset_Theta { get; set; }
+        public double ? OffsetTheta { get; set; }
         /// <summary>
         /// First direction of the Printing process
         /// </summary>
@@ -35,7 +54,7 @@ namespace CFX.Structures.SolderPastePrinting
         /// <summary>
         /// Cycle time for the Printing process, in the format hh:mm:ss.fffffff
         /// </summary>
-        public string Cycle_Time { get; set; }
+        public TimeSpan CycleTime { get; set; }
 
     }
 }

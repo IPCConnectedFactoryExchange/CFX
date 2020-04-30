@@ -11,8 +11,11 @@ namespace CFX.Structures.SolderPastePrinting
     /// Describes the Solder paster printing ProcessData structure 
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
-    public class SolderPastePrintingProcessData
+    public class SolderPastePrintingProcessData : ProcessData
     {
+        /// <summary>
+        /// Class constructor 
+        /// </summary>
         public SolderPastePrintingProcessData()
         {
 
@@ -24,7 +27,7 @@ namespace CFX.Structures.SolderPastePrinting
         /// <summary>
         /// Print gap value 
         /// </summary>
-        public double? Print_Gap { get; set; }
+        public double? PrintGap { get; set; }
         /// <summary>
         /// Separation object 
         /// </summary>

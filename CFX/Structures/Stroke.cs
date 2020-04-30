@@ -19,10 +19,10 @@ namespace CFX.Structures
         /// <summary>
         /// Stroke property Print pressure
         /// </summary>
-        public double? Print_Pressure { get; set; }
+        public double? PrintPressure { get; set; }
         /// <summary>
         /// Stroke property Print speed
         /// </summary>
-        public double? Print_Speed { get; set; }
+        public double? PrintSpeed { get; set; }
     }
 }

@@ -10,25 +10,25 @@ namespace CFX.Structures
     public class Separation
     {
         /// <summary>
-        /// Separation object name for Solder Paste Printing
+        /// Separation object name for Solder Paste Printing. For future use.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
         /// Separation speed value for Solder Paste Printing - UpdateRecipeRequest
         /// </summary>
-        public double? Separation_Speed { get; set; }
+        public double? SeparationSpeed { get; set; }
         /// <summary>
         /// Separation distance for Solder Paste Printing - UpdateRecipeRequest
         /// </summary>
-        public double? Separation_Distance { get; set; }
+        public double? SeparationDistance { get; set; }
         /// <summary>
         /// Separation direction for Solder Paste Printing - UnitsProcessed 
         /// </summary>
-        public string Separation_Direction { get; set; }
+        public string SqueegeeDirection { get; set; }
         /// <summary>
-        /// Separation delay for Solder Paste Printing - UnitsProcessed 
+        /// Separation delay for Solder Paste Printing. For future use.
         /// </summary>
-        public double? Separation_Delay { get; set; }
+        public double? SeparationDelay { get; set; }
     }
 }
