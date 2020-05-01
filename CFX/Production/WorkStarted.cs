@@ -72,7 +72,7 @@ namespace CFX.Production
         /// of the line. The Primary Identifier can be used to correlate the parts of hermes sublines to correlate this data as well. 
         /// </remarks>
         /// </summary>
-        public string HermesIdentifier 
+        public string HermesIdentifier
         {
             get;
             set;
@@ -111,7 +111,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// Structure providing data that identifies each specific instance of production unit with a carrier or panel. 
+        /// Data that identifies each specific instance of production unit with a carrier or panel. 
         /// </summary>
         public List<UnitPosition> Units
         {

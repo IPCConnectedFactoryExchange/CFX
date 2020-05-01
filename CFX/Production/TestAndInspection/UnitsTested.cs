@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
-using Newtonsoft.Json;
 
 namespace CFX.Production.TestAndInspection
 {
@@ -358,7 +357,7 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
-        /// Structure providing a list of the units that were tested, along with the tests made, and test results.
+        /// A list of the units that were tested, along with the tests made, and test results.
         /// </summary>
         public List<TestedUnit> TestedUnits
         {

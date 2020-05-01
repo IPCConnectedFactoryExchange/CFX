@@ -6,6 +6,7 @@ namespace CFX.Structures.VacuumDeposition
     /// Structure base class representing slide position.
     /// Average coating thickness measured in micrometers.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class CoatingThicknessMeasurement : Measurement
     {
 

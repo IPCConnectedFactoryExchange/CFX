@@ -13,8 +13,7 @@ namespace CFX.Structures.VacuumDeposition
     ///   }
     /// </code>
     /// </summary>
-    /// 
-
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class CoatingProcessReading : Reading
     {
         /// <summary>
