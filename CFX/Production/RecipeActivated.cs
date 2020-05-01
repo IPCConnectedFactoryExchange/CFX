@@ -42,7 +42,7 @@ namespace CFX.Production
     /// </summary>
     public class RecipeActivated : CFXMessage
     {
-        RecipeActivated()
+        public RecipeActivated()
         {
             RecipeStagesInformation = new List<RecipeStageInformation>();
         }
