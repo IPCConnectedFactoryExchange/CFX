@@ -257,18 +257,38 @@ namespace CFX.Utilities
         }
     }
 
+    /// <summary>
+    /// An flag type enumeration that indicates which types of messages should be recorded during CFX diagnostic logging.
+    /// </summary>
     [Flags]
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum LogMessageType
     {
+        /// <summary>
+        /// Debug Level
+        /// </summary>
         [Description("DEBUG")]
         Debug = 1,
+        /// <summary>
+        /// Information Level
+        /// </summary>
         [Description("INFO")]
         Info = 2,
+        /// <summary>
+        /// Warning Level
+        /// </summary>
         [Description("WARN")]
         Warn = 4,
+        /// <summary>
+        /// Error Level
+        /// </summary>
         [Description("ERROR")]
-        Error = 8
+        Error = 8,
+        /// <summary>
+        /// All Levels Recorded
+        /// </summary>
+        [Description("ALL")]
+        All = 0xffff
     }
 
     public delegate void TraceListenerHandler(LogMessageType type, string traceMessage);
