@@ -140,7 +140,7 @@ namespace CFXUnitTests
             //ep.Publish(ssc);
 
             //DateTime start = DateTime.Now;
-            //while ((DateTime.Now - start) < TimeSpan.FromSeconds(10))
+            //while ((DateTime.Now - start) < TimeSpan.FromSeconds(80))
             //{
             //    System.Threading.Thread.Sleep(200);
             //}
