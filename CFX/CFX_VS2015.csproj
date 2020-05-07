@@ -152,6 +152,7 @@
     <Compile Include="Production\Processing\UnitsProcessed.cs" />
     <Compile Include="Production\ReadingsRecorded.cs" />
     <Compile Include="Production\RecipeActivated.cs" />
+    <Compile Include="Production\RecipeDeactivated.cs" />
     <Compile Include="Production\RecipeModified.cs" />
     <Compile Include="Production\SetupRequirementsChanged.cs" />
     <Compile Include="Production\TestAndInspection\NamespaceDoc.cs" />
@@ -312,6 +313,7 @@
     <Compile Include="Structures\Reading.cs" />
     <Compile Include="Structures\Recipe.cs" />
     <Compile Include="Structures\RecipeModificationReason.cs" />
+    <Compile Include="Structures\RecipeStageInformation.cs" />
     <Compile Include="Structures\ReflowProfiling\NamespaceDoc.cs" />
     <Compile Include="Structures\ReflowProfiling\ReflowProfilingProcessData.cs" />
     <Compile Include="Structures\Region.cs" />
@@ -404,6 +406,8 @@
     <Compile Include="Structures\UnitLoadActivity.cs" />
     <Compile Include="Structures\UnitPosition.cs" />
     <Compile Include="Structures\UnitUnloadActivity.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingProcessReading.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingThicknessMeasurement.cs" />
     <Compile Include="Structures\ValidationResult.cs" />
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />
@@ -429,6 +433,7 @@
     <Compile Include="Transport\sha.cs" />
     <Compile Include="Utilities\AppLog.cs" />
     <Compile Include="Utilities\AppLogSettings.cs" />
+    <Compile Include="Utilities\CreatedVersionAttribute.cs" />
     <Compile Include="Utilities\EnvironmentHelper.cs" />
     <Compile Include="Utilities\JsonConvert.cs" />
     <Compile Include="Utilities\NamespaceDoc.cs" />

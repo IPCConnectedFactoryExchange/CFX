@@ -77,6 +77,22 @@ namespace CFX.Transport
             return links.OfType<AmqpSenderLink>().Where(l => l.Address.ToUpper() == address.ToUpper()).Sum(l => l.Queue.Count);
         }
 
+        public void PurgeSpool(AmqpChannelAddress addr)
+        {
+            foreach (AmqpSenderLink sender in links.Where(l => l.Address.ToUpper() == addr.Address.ToUpper()).OfType<AmqpSenderLink>())
+            {
+                sender.PurgeSpool();
+            }
+        }
+
+        public void PurgeAllSpools()
+        {
+            foreach (AmqpSenderLink sender in links.OfType<AmqpSenderLink>())
+            {
+                sender.PurgeSpool();
+            }
+        }
+
         public Connection InternalConnection
         {
             get
@@ -308,7 +324,7 @@ namespace CFX.Transport
             {
                 if (links.Any(l => l.Address == address)) throw new Exception("A channel already exists for this address");
 
-                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle);
+                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle, this);
                 links.Add(link);
             }
 
@@ -347,7 +363,7 @@ namespace CFX.Transport
             Cleanup();
         }
 
-        public void Publish(CFXEnvelope env, string replyTo = null)
+        public void Publish(CFXEnvelope env)
         {
             EnsureConnection();
 

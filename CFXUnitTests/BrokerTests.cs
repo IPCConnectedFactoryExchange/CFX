@@ -119,10 +119,88 @@ namespace CFXUnitTests
             Debug.WriteLine($"Got message back at {sw.ElapsedMilliseconds} ms");
         }
 
+        [TestMethod]
+        public void PublishTest()
+        {
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.All;
+
+            //AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
+            ////ep.HeartbeatFrequency = TimeSpan.FromSeconds(5);
+
+            //Uri broker = new Uri("amqp://cfxbroker.connectedfactoryexchange.com");
+            //ep.Open("Aegis.CFXSimulator.Machine1");
+            //ep.AddPublishChannel(broker, "/exchange/AegisCloud");
+
+            //CFX.ResourcePerformance.StationStateChanged ssc = new CFX.ResourcePerformance.StationStateChanged()
+            //{
+            //    NewState = ResourceState.NST,
+            //    OldState = ResourceState.PRD
+            //};
+
+            //ep.Publish(ssc);
+
+            //DateTime start = DateTime.Now;
+            //while ((DateTime.Now - start) < TimeSpan.FromSeconds(80))
+            //{
+            //    System.Threading.Thread.Sleep(200);
+            //}
+        }
+
+        [TestMethod]
+        public void TestHeaders()
+        {
+            //SetupListener(false, false, false);
+
+            //endpoint = new AmqpCFXEndpoint();
+            //endpoint.ValidateCertificates = false;
+            //endpoint.Open("JJWTest.Endpoint1");
+
+            //endpoint.SubjectFormat = "Route1.${CFX-MessageName}";
+
+            //Exception ex = null;
+            //Uri uri = TestSettings.GetBrokerUri(false, false);
+            //endpoint.AddPublishChannel(uri, "/exchange/jjwtestex");
+            //endpoint.PurgeAllSpools();
+            
+            //UnitsInspected un = new UnitsInspected()
+            //{
+            //    InspectedUnits = new List<InspectedUnit>()
+            //    {
+            //        new InspectedUnit()
+            //        {
+            //            UnitIdentifier = "121354546",
+            //        }
+            //    }
+            //};
+
+            //try { FireAndWait(un, 2000); Debug.WriteLine($"Received Message {un.GetType().Name}"); }
+            //catch { Debug.WriteLine($"DID NOT Receive Message {un.GetType().Name}"); }
+
+            //CFX.Production.WorkStarted ws = new CFX.Production.WorkStarted()
+            //{
+            //    PrimaryIdentifier = "UNIT100001"
+            //};
+
+            //try { FireAndWait(ws, 2000); Debug.WriteLine($"Received Message {ws.GetType().Name}"); }
+            //catch { Debug.WriteLine($"DID NOT Receive Message {ws.GetType().Name}"); }
+
+            //CFX.ResourcePerformance.StationStateChanged sc = new CFX.ResourcePerformance.StationStateChanged()
+            //{
+            //    NewState = ResourceState.ENG,
+            //    OldState = ResourceState.NST
+            //};
+
+            //try { FireAndWait(sc, 2000); Debug.WriteLine($"Received Message {sc.GetType().Name}"); }
+            //catch { Debug.WriteLine($"DID NOT Receive Message {sc.GetType().Name}"); }
+
+            //KillAll();
+        }
 
         [TestMethod]
         public void ListenerTest()
         {
+            AmqpCFXEndpoint.Codec = CFXCodec.gzip;
+
             //AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
             //ep.Open("Supplier.MyModel.MySerialNumber", new Uri("amqp://mymachine:5700"));
             //ep.AddListener("ReceiveChannel1");
@@ -216,14 +294,14 @@ namespace CFXUnitTests
         private System.Threading.AutoResetEvent evt;
         private CFXEnvelope testEnv = null;
         
-        private void FireAndWait(CFXMessage msg)
+        private void FireAndWait(CFXMessage msg, int timeout = 60000)
         {
             using (evt = new System.Threading.AutoResetEvent(false))
             {
                 CFXEnvelope env = CFXEnvelope.FromCFXMessage(msg);
                 testEnv = env;
                 endpoint.Publish(env);
-                if (!evt.WaitOne(120000))
+                if (!evt.WaitOne(timeout))
                 {
                     throw new TimeoutException("The message was not received by listener.  Timeout");
                 }

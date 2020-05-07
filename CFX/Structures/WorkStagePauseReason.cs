@@ -45,5 +45,10 @@ namespace CFX.Structures
         /// The stage is waiting for the operator to confirm an information message
         /// </summary>
         InformationMessageConfirmation,
+        /// <summary>
+        /// The stage is waiting because it has been stopped by the operator
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        ProductionStoppedByOperator,
     }
 }

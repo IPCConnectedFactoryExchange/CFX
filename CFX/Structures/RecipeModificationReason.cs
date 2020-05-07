@@ -44,5 +44,10 @@ namespace CFX.Structures
         /// Correction to information needed by vision system.
         /// </summary>
         VisionSystemCorrection,
+        /// <summary>
+        /// The recipe has been deleted
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        RecipeDeleted,
     }
 }

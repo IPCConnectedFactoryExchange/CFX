@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX.Production
 {
@@ -29,8 +30,9 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// A list of readings to be recorded.
+        /// Dynamic structure providing a list of readings to be recorded.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<Reading> Readings
         {
             get;

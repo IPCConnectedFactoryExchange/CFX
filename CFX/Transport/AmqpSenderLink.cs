@@ -11,13 +11,20 @@ namespace CFX.Transport
 {
     internal class AmqpSenderLink : AmqpLink, IDisposable
     {
-        public AmqpSenderLink(Uri uri, string address, string sourceHandle) : base(address)
+        public AmqpSenderLink(Uri uri, string address, string sourceHandle, AmqpConnection conn) : base(address)
         {
             Queue = new DurableQueue(GetLinkFileName(uri, address, sourceHandle));
             LinkType = LinkType.Sender;
+            Connection = conn;
         }
 
         protected static readonly char[] invalidFileNameChars = System.IO.Path.GetInvalidFileNameChars();
+
+        protected AmqpConnection Connection
+        {
+            get;
+            set;
+        }
 
         protected static string GetLinkFileName(Uri uri, string address, string sourceHandle)
         {
@@ -86,6 +93,11 @@ namespace CFX.Transport
             TriggerProcessing();
         }
 
+        public void PurgeSpool()
+        {
+            Queue.Clear();
+        }
+
         private void TriggerProcessing()
         {
             lock (this)
@@ -113,7 +125,7 @@ namespace CFX.Transport
                     {
                         try
                         {
-                            Message msg = AmqpUtilities.MessageFromEnvelopes(messages, AmqpCFXEndpoint.Codec.Value);
+                            Message msg = AmqpUtilities.MessageFromEnvelopes(messages, AmqpCFXEndpoint.Codec.Value, Connection.Endpoint.SubjectFormat);
                             SenderLink.Send(msg);
                             success = true;
                         }
