@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -151,6 +152,7 @@
     <Compile Include="Production\Processing\UnitsProcessed.cs" />
     <Compile Include="Production\ReadingsRecorded.cs" />
     <Compile Include="Production\RecipeActivated.cs" />
+    <Compile Include="Production\RecipeDeactivated.cs" />
     <Compile Include="Production\RecipeModified.cs" />
     <Compile Include="Production\SetupRequirementsChanged.cs" />
     <Compile Include="Production\TestAndInspection\NamespaceDoc.cs" />
@@ -216,6 +218,12 @@
     <Compile Include="Structures\Activity.cs" />
     <Compile Include="Structures\ActivityState.cs" />
     <Compile Include="Structures\ActorType.cs" />
+    <Compile Include="Structures\BadOpticalTestRejectionDetails.cs" />
+    <Compile Include="Structures\BadPressureTestRejectionDetails.cs" />
+    <Compile Include="Structures\ComponentVisionTest.cs" />
+    <Compile Include="Structures\ComponentPressureTest.cs" />
+    <Compile Include="Structures\ComponentOpticalTest.cs" />
+    <Compile Include="Structures\ComponentElectricalTest.cs" />
     <Compile Include="Structures\BlockReason.cs" />
     <Compile Include="Structures\BooleanMeasurement.cs" />
     <Compile Include="Structures\Calibration.cs" />
@@ -231,6 +239,8 @@
     <Compile Include="Structures\Defect.cs" />
     <Compile Include="Structures\DimensionalConstraints.cs" />
     <Compile Include="Structures\DisqualificationReason.cs" />
+    <Compile Include="Structures\BadElectricalTestRejectionDetails.cs" />
+    <Compile Include="Structures\ComponentElectricalTestUnit.cs" />
     <Compile Include="Structures\Endpoint.cs" />
     <Compile Include="Structures\EnvironmentalCondition.cs" />
     <Compile Include="Structures\Fault.cs" />
@@ -267,6 +277,8 @@
     <Compile Include="Structures\MSDLevel.cs" />
     <Compile Include="Structures\MSDState.cs" />
     <Compile Include="Structures\NamespaceDoc.cs" />
+    <Compile Include="Structures\NonInstalledComponent.cs" />
+    <Compile Include="Structures\NonInstalledComponentLocation.cs" />
     <Compile Include="Structures\NumericMeasurement.cs" />
     <Compile Include="Structures\NumericValue.cs" />
     <Compile Include="Structures\OperatingRequirements.cs" />
@@ -275,6 +287,7 @@
     <Compile Include="Structures\PCBInspection\NamespaceDoc.cs" />
     <Compile Include="Structures\PCBInspection\OffsetMeasurement.cs" />
     <Compile Include="Structures\PersonalizedUnit.cs" />
+    <Compile Include="Structures\BadVisionTestRejectionDetails.cs" />
     <Compile Include="Structures\PressInsertion\BoardData.cs" />
     <Compile Include="Structures\PressInsertion\Condition.cs" />
     <Compile Include="Structures\PressInsertion\ConditionResult.cs" />
@@ -300,9 +313,12 @@
     <Compile Include="Structures\Reading.cs" />
     <Compile Include="Structures\Recipe.cs" />
     <Compile Include="Structures\RecipeModificationReason.cs" />
+    <Compile Include="Structures\RecipeStageInformation.cs" />
     <Compile Include="Structures\ReflowProfiling\NamespaceDoc.cs" />
     <Compile Include="Structures\ReflowProfiling\ReflowProfilingProcessData.cs" />
     <Compile Include="Structures\Region.cs" />
+    <Compile Include="Structures\RejectionDetails.cs" />
+    <Compile Include="Structures\RejectionReason.cs" />
     <Compile Include="Structures\RequestResult.cs" />
     <Compile Include="Structures\ResourceState.cs" />
     <Compile Include="Structures\SamplingInformation.cs" />
@@ -321,7 +337,9 @@
     <Compile Include="Structures\SMTPlacement\SMTHeadAndNozzle.cs" />
     <Compile Include="Structures\SMTPlacement\SMTHeadInformation.cs" />
     <Compile Include="Structures\SMTPlacement\SMTHeadType.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTInstalledComponent.cs" />
     <Compile Include="Structures\SMTPlacement\SMTLaneInformation.cs" />
+    <Compile Include="Structures\SMTPlacement\SMTNonInstalledComponent.cs" />
     <Compile Include="Structures\SMTPlacement\SMTNozzleChangeActivity.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementActivity.cs" />
     <Compile Include="Structures\SMTPlacement\SMTPlacementConstraints.cs" />
@@ -388,14 +406,18 @@
     <Compile Include="Structures\UnitLoadActivity.cs" />
     <Compile Include="Structures\UnitPosition.cs" />
     <Compile Include="Structures\UnitUnloadActivity.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingProcessReading.cs" />
+    <Compile Include="Structures\VacuumDeposition\CoatingThicknessMeasurement.cs" />
     <Compile Include="Structures\ValidationResult.cs" />
     <Compile Include="Structures\ValidationStatus.cs" />
     <Compile Include="Structures\ValidationType.cs" />
     <Compile Include="Structures\ValueAddType.cs" />
+    <Compile Include="Structures\VerificationResult.cs" />
     <Compile Include="Structures\WorkOrder.cs" />
     <Compile Include="Structures\WorkOrderIdentifier.cs" />
     <Compile Include="Structures\WorkOrderStatus.cs" />
     <Compile Include="Structures\WorkResult.cs" />
+    <Compile Include="Structures\WorkStagePauseReason.cs" />
     <Compile Include="Transport\AmqpCFXEndpoint.cs" />
     <Compile Include="Transport\AmqpCFXLink.cs" />
     <Compile Include="Transport\AmqpChannelAddress.cs" />
@@ -411,6 +433,7 @@
     <Compile Include="Transport\sha.cs" />
     <Compile Include="Utilities\AppLog.cs" />
     <Compile Include="Utilities\AppLogSettings.cs" />
+    <Compile Include="Utilities\CreatedVersionAttribute.cs" />
     <Compile Include="Utilities\EnvironmentHelper.cs" />
     <Compile Include="Utilities\JsonConvert.cs" />
     <Compile Include="Utilities\NamespaceDoc.cs" />

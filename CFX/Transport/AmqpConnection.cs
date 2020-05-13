@@ -77,6 +77,22 @@ namespace CFX.Transport
             return links.OfType<AmqpSenderLink>().Where(l => l.Address.ToUpper() == address.ToUpper()).Sum(l => l.Queue.Count);
         }
 
+        public void PurgeSpool(AmqpChannelAddress addr)
+        {
+            foreach (AmqpSenderLink sender in links.Where(l => l.Address.ToUpper() == addr.Address.ToUpper()).OfType<AmqpSenderLink>())
+            {
+                sender.PurgeSpool();
+            }
+        }
+
+        public void PurgeAllSpools()
+        {
+            foreach (AmqpSenderLink sender in links.OfType<AmqpSenderLink>())
+            {
+                sender.PurgeSpool();
+            }
+        }
+
         public Connection InternalConnection
         {
             get
@@ -112,11 +128,14 @@ namespace CFX.Transport
                 Open o = new Open()
                 {
                     ContainerId = Endpoint.CFXHandle != null ? Endpoint.CFXHandle : Guid.NewGuid().ToString(),
-                    HostName = VirtualHostName
+                    HostName = VirtualHostName,
+                    MaxFrameSize = (uint)AmqpCFXEndpoint.MaxFrameSize.Value
                 };
 
                 ConnectionFactory factory = new ConnectionFactory();
+#if !NETSTANDARD1_6
                 if (this.NetworkUri.Scheme.ToUpper() == "AMQPS") factory.SSL.RemoteCertificateValidationCallback = ValidateServerCertificate;
+#endif
                 if (string.IsNullOrWhiteSpace(this.NetworkUri.UserInfo)) factory.SASL.Profile = SaslProfile.Anonymous;
 
                 Task<Connection> t = factory.CreateAsync(new Address(NetworkUri.ToString()), o, null);
@@ -305,7 +324,7 @@ namespace CFX.Transport
             {
                 if (links.Any(l => l.Address == address)) throw new Exception("A channel already exists for this address");
 
-                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle);
+                AmqpSenderLink link = new AmqpSenderLink(NetworkUri, address, Endpoint.CFXHandle, this);
                 links.Add(link);
             }
 
@@ -344,7 +363,7 @@ namespace CFX.Transport
             Cleanup();
         }
 
-        public void Publish(CFXEnvelope env, string replyTo = null)
+        public void Publish(CFXEnvelope env)
         {
             EnsureConnection();
 

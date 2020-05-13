@@ -84,6 +84,26 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The overall result of the verification of the defect
+        /// </summary>
+        public VerificationResult Verification
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// When a verification took place, the VerificationDetail will contain a classification or more detailed description
+        /// of the root cause of the defect or why the defect is a false fail.
+        /// This description is typically maintained by the customer and the operator will choose from a predefined list.
+        /// </summary>
+        public string VerificationDetail 
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// In the case that the inspection cannot be completed, the error that was the cause of this outcome.
         /// </summary>
         public string Error

@@ -330,6 +330,24 @@ namespace CFX.Production.TestAndInspection
         }
 
         /// <summary>
+        /// The name of the recipe used to perform the inspection(s) for this transaction.
+        /// </summary>
+        public string RecipeName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// An optional Revision Number of the recipe used to perform the inspection(s) for this transaction.
+        /// </summary>
+        public string RecipeRevision
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Describes the sampling method that was used during the test (if any).  
         /// </summary>
         public SamplingInformation SamplingInformation

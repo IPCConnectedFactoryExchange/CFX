@@ -38,7 +38,6 @@ namespace CFX.Structures
         /// </summary>
         [EnumMember(Value = "1400")]
         PRD_Engineering = 1400,
-
         /// <summary>
         /// Standby.  A period of time, other than non-scheduled time, when the resource is in a condition to perform
         /// its intended function, but it is not operating.
@@ -51,10 +50,20 @@ namespace CFX.Structures
         [EnumMember(Value = "2100")]
         SBY_NoOperator = 2100,
         /// <summary>
-        /// Standby.  No Product (Resource is Starved)
+        /// Standby.  No Product 
         /// </summary>
         [EnumMember(Value = "2200")]
         SBY_NoProduct = 2200,
+        /// <summary>
+        /// Standby.  No Product (Resource is Blocked)
+        /// </summary>
+        [EnumMember(Value = "22A0")]
+        SBY_NoProductBlocked = 2201,
+        /// <summary>
+        /// Standby.  No Product (Resource is Starved)
+        /// </summary>
+        [EnumMember(Value = "22B0")]
+        SBY_NoProductStarved = 2202,
         /// <summary>
         /// Standby.  No Support Tool (A required Tool is missing.  For example, a stencil on a stencil printer.).
         /// </summary>

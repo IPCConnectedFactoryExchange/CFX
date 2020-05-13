@@ -14,6 +14,7 @@ namespace CFX.Structures
         public InstalledMaterial()
         {
             InstalledComponents = new List<InstalledComponent>();
+            NonInstalledComponents = new List<NonInstalledComponent>();
         }
 
         /// <summary>
@@ -65,7 +66,18 @@ namespace CFX.Structures
         /// <summary>
         /// A list of where the on the production unit the materials / parts were installed.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<InstalledComponent> InstalledComponents
+        {
+            get;
+            set;
+        }
+		
+		/// <summary>
+        /// A list of where the on the production unit the materials / parts were not installed.
+        /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public List<NonInstalledComponent> NonInstalledComponents
         {
             get;
             set;

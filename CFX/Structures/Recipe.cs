@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// Represents a collection of instructions used by a piece of automated equipment to perform
+    /// a function (typically upon a production unit) during production.
+    /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+
     public class Recipe
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public Recipe()
         {
         }
@@ -23,6 +33,28 @@ namespace CFX.Structures
         /// An optional version number, e.g. “2.0”
         /// </summary>
         public string Revision
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The total amount of time that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB), 
+        /// assuming no blocked or starved conditions at the station.  This includes both productive and non-productive time, such as transfer, 
+        /// positioning, etc.
+        /// </summary>
+        public double ExpectedCycleTime
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The number of units that are to be processed simulataneously by this recipe.  For example, in the case of a 2 x 2 panelized PCB, this
+        /// property would be 4 because 4 units (PCB's) are procesed at one time per work transaction.  In the case that a station processes a
+        /// variable number of units per transaction, this should represent the average number of units expected to be processed per transaction.
+        /// </summary>
+        public double ExpectedUnitsPerWorkTransaction
         {
             get;
             set;

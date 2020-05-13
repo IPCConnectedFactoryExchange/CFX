@@ -3,13 +3,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography.X509Certificates;
 using CFX;
 using CFX.Transport;
+using CFX.Production.TestAndInspection;
+using CFX.Structures;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CFXUnitTests
 {
     [TestClass]
     public class DirectConnectTests
     {
+        private TestContext testContext = null;
+
+        public TestContext TestContext
+        {
+            get { return testContext; }
+            set { testContext = value; }
+        }
+
         [TestMethod]
         public async Task NoAuthNoSec()
         {
@@ -101,6 +113,14 @@ namespace CFXUnitTests
             endpoint.Open(TestSettings.ClientHandle, certificate: TestSettings.GetCertificate(sec));
             endpoint.ValidateCertificates = false;
 
+            //CFX.Utilities.AppLog.LoggingEnabled = true;
+            //CFX.Utilities.AppLog.LogFilePath = @"c:\stuff\cfxlog.txt";
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Debug | CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Info | CFX.Utilities.LogMessageType.Warn;
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.Error | CFX.Utilities.LogMessageType.Warn;
+            //CFX.Utilities.AppLog.AmqpTraceEnabled = true;
+
+            //AmqpCFXEndpoint.MaxFrameSize = 1000000;
+            
             Exception ex = null;
             Uri uri = TestSettings.GetListenerUri(auth, sec);
             if (!endpoint.TestPublishChannel(uri, TestSettings.ListenerAddress, out ex))
@@ -118,7 +138,7 @@ namespace CFXUnitTests
             using (evt = new System.Threading.AutoResetEvent(false))
             {
                 endpoint.Publish(msg);
-                if (!evt.WaitOne(1000))
+                if (!evt.WaitOne(60000))
                 {
                     throw new TimeoutException("The message was not received by listener.  Timeout");
                 }

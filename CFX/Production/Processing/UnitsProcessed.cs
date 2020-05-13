@@ -628,6 +628,174 @@ namespace CFX.Production.Processing
     /// }
     /// </code>
     /// <para></para>
+    /// <para>Example 4 (Selective Soldering Process):</para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "a4275a83-4a6a-4656-a92d-402ddd4458d8",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": {
+    ///     "$type": "CFX.Structures.SolderApplication.SelectiveSolderProcessData, CFX",
+    ///     "Process_Status": "Completed",
+    ///     "RecipeName": "Panasonic 2up",
+    ///     "Nitrogen_Pressure": 54.0,
+    ///     "Air_Pressure": 62.0,
+    ///     "Cycle_Count": 671261,
+    ///     "Cycle_Time": "00:01:44.2000000",
+    ///     "Nitrogen_Purity": 15.0,
+    ///     "Nitrogen_Flow": 39.0,
+    ///     "Fiducial_Enabled": true
+    ///   },
+    ///   "UnitProcessData": [
+    ///     {
+    ///       "UnitIdentifier": "PANEL4325435",
+    ///       "UnitPositionNumber": 1,
+    ///       "UnitResult": "Succeeded",
+    ///       "UnitProcessData": {
+    ///         "$type": "CFX.Structures.SolderApplication.SelectiveSolderPCBProcessData, CFX",
+    ///         "ZoneData": [
+    ///           {
+    ///             "StageSequence": 1,
+    ///             "ProcessTime": "00:15:00",
+    ///             "Bottle1_Pressure": 7.0,
+    ///             "Bottle2_Pressure": 7.0,
+    ///             "Flux_Volume": 210.0,
+    ///             "Top_Preheater_Power": 50.0,
+    ///             "Top_Preheater_Soak": 10.0,
+    ///             "Top_Preheater_Temp": 109.0,
+    ///             "Top_Preheater_Time": "00:00:37",
+    ///             "Bot_Preheater_Power": 0.0,
+    ///             "Bot_Preheater_Soak": 0.0,
+    ///             "Bot_Preheater_Temp": 0.0,
+    ///             "Bot_Preheater_Time": "00:00:00",
+    ///             "Bath_Temp": 0.0,
+    ///             "Bath_Wave_Enabled": false,
+    ///             "Bath_Wave_Hgt": 0.0,
+    ///             "Solder_Quantity_Used": 0.0,
+    ///             "Fid_XCorrection": 0.15,
+    ///             "Fid_YCorrection": 0.2
+    ///           },
+    ///           {
+    ///             "StageSequence": 2,
+    ///             "ProcessTime": "00:00:37",
+    ///             "Bottle1_Pressure": 0.0,
+    ///             "Bottle2_Pressure": 0.0,
+    ///             "Flux_Volume": 0.0,
+    ///             "Top_Preheater_Power": 50.0,
+    ///             "Top_Preheater_Soak": 10.0,
+    ///             "Top_Preheater_Temp": 109.0,
+    ///             "Top_Preheater_Time": "00:00:37",
+    ///             "Bot_Preheater_Power": 50.0,
+    ///             "Bot_Preheater_Soak": 10.0,
+    ///             "Bot_Preheater_Temp": 108.0,
+    ///             "Bot_Preheater_Time": "00:00:37",
+    ///             "Bath_Temp": 0.0,
+    ///             "Bath_Wave_Enabled": false,
+    ///             "Bath_Wave_Hgt": 0.0,
+    ///             "Solder_Quantity_Used": 0.0,
+    ///             "Fid_XCorrection": 0.0,
+    ///             "Fid_YCorrection": 0.0
+    ///           },
+    ///           {
+    ///             "StageSequence": 3,
+    ///             "ProcessTime": "00:00:37",
+    ///             "Bottle1_Pressure": 0.0,
+    ///             "Bottle2_Pressure": 0.0,
+    ///             "Flux_Volume": 0.0,
+    ///             "Top_Preheater_Power": 50.0,
+    ///             "Top_Preheater_Soak": 10.0,
+    ///             "Top_Preheater_Temp": 109.0,
+    ///             "Top_Preheater_Time": "00:00:37",
+    ///             "Bot_Preheater_Power": 50.0,
+    ///             "Bot_Preheater_Soak": 10.0,
+    ///             "Bot_Preheater_Temp": 108.0,
+    ///             "Bot_Preheater_Time": "00:00:37",
+    ///             "Bath_Temp": 305.0,
+    ///             "Bath_Wave_Enabled": true,
+    ///             "Bath_Wave_Hgt": 0.1,
+    ///             "Solder_Quantity_Used": 5.0,
+    ///             "Fid_XCorrection": 0.15,
+    ///             "Fid_YCorrection": 0.2
+    ///           }
+    ///         ]
+    ///       }
+    ///     },
+    ///     {
+    ///       "UnitIdentifier": "PANEL4325435",
+    ///       "UnitPositionNumber": 2,
+    ///       "UnitResult": "Succeeded",
+    ///       "UnitProcessData": {
+    ///         "$type": "CFX.Structures.SolderApplication.SelectiveSolderPCBProcessData, CFX",
+    ///         "ZoneData": [
+    ///           {
+    ///             "StageSequence": 1,
+    ///             "ProcessTime": "00:15:00",
+    ///             "Bottle1_Pressure": 7.0,
+    ///             "Bottle2_Pressure": 7.0,
+    ///             "Flux_Volume": 210.0,
+    ///             "Top_Preheater_Power": 50.0,
+    ///             "Top_Preheater_Soak": 10.0,
+    ///             "Top_Preheater_Temp": 109.0,
+    ///             "Top_Preheater_Time": "00:00:37",
+    ///             "Bot_Preheater_Power": 0.0,
+    ///             "Bot_Preheater_Soak": 0.0,
+    ///             "Bot_Preheater_Temp": 0.0,
+    ///             "Bot_Preheater_Time": "00:00:00",
+    ///             "Bath_Temp": 0.0,
+    ///             "Bath_Wave_Enabled": false,
+    ///             "Bath_Wave_Hgt": 0.0,
+    ///             "Solder_Quantity_Used": 0.0,
+    ///             "Fid_XCorrection": 0.15,
+    ///             "Fid_YCorrection": 0.2
+    ///           },
+    ///           {
+    ///             "StageSequence": 2,
+    ///             "ProcessTime": "00:00:37",
+    ///             "Bottle1_Pressure": 0.0,
+    ///             "Bottle2_Pressure": 0.0,
+    ///             "Flux_Volume": 0.0,
+    ///             "Top_Preheater_Power": 50.0,
+    ///             "Top_Preheater_Soak": 10.0,
+    ///             "Top_Preheater_Temp": 109.0,
+    ///             "Top_Preheater_Time": "00:00:37",
+    ///             "Bot_Preheater_Power": 50.0,
+    ///             "Bot_Preheater_Soak": 10.0,
+    ///             "Bot_Preheater_Temp": 108.0,
+    ///             "Bot_Preheater_Time": "00:00:37",
+    ///             "Bath_Temp": 0.0,
+    ///             "Bath_Wave_Enabled": false,
+    ///             "Bath_Wave_Hgt": 0.0,
+    ///             "Solder_Quantity_Used": 0.0,
+    ///             "Fid_XCorrection": 0.0,
+    ///             "Fid_YCorrection": 0.0
+    ///           },
+    ///           {
+    ///             "StageSequence": 3,
+    ///             "ProcessTime": "00:00:37",
+    ///             "Bottle1_Pressure": 0.0,
+    ///             "Bottle2_Pressure": 0.0,
+    ///             "Flux_Volume": 0.0,
+    ///             "Top_Preheater_Power": 50.0,
+    ///             "Top_Preheater_Soak": 10.0,
+    ///             "Top_Preheater_Temp": 109.0,
+    ///             "Top_Preheater_Time": "00:00:37",
+    ///             "Bot_Preheater_Power": 50.0,
+    ///             "Bot_Preheater_Soak": 10.0,
+    ///             "Bot_Preheater_Temp": 108.0,
+    ///             "Bot_Preheater_Time": "00:00:37",
+    ///             "Bath_Temp": 305.0,
+    ///             "Bath_Wave_Enabled": true,
+    ///             "Bath_Wave_Hgt": 0.1,
+    ///             "Solder_Quantity_Used": 5.0,
+    ///             "Fid_XCorrection": 0.15,
+    ///             "Fid_YCorrection": 0.2
+    ///           }
+    ///         ]
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
+    /// <para></para>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage

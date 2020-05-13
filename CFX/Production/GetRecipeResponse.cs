@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX.Production
 {
@@ -25,8 +26,12 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class GetRecipeResponse : CFXMessage
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public GetRecipeResponse()
         {
             Result = new RequestResult();
@@ -42,8 +47,10 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The recipe
+        /// The recipe.  This is a dynamic structure tha supports specialized recipe types 
+        /// for different types of equipment.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public Recipe Recipe
         {
             get;

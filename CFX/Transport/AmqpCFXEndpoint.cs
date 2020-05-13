@@ -24,22 +24,26 @@ namespace CFX.Transport
     /// </summary>
     public class AmqpCFXEndpoint : IDisposable
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public AmqpCFXEndpoint()
         {
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
             ValidateCertificates = true;
+            HeartbeatFrequency = TimeSpan.FromMinutes(1);
             LastCertificate = null;
             LastUri = null;
-            if (!UseCompression.HasValue) UseCompression = false;
+            if (!Codec.HasValue) Codec = CFXCodec.gzip;
             if (!ReconnectInterval.HasValue) ReconnectInterval = TimeSpan.FromSeconds(5);
             if (!KeepAliveEnabled.HasValue) KeepAliveEnabled = false;
             if (!KeepAliveInterval.HasValue) KeepAliveInterval = TimeSpan.FromSeconds(60);
-            if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 30;
+            if (!MaxMessagesPerTransmit.HasValue) MaxMessagesPerTransmit = 1;
             if (!DurableReceiverSetting.HasValue) DurableReceiverSetting = 1;
             if (!DurableMessages.HasValue) DurableMessages = true;
             if (!RequestTimeout.HasValue) RequestTimeout = TimeSpan.FromSeconds(30);
-            if (!MaxFrameSize.HasValue) MaxFrameSize = 500000;
+            if (!MaxFrameSize.HasValue) MaxFrameSize = 250000;
         }
 
         private AmqpRequestProcessor requestProcessor;
@@ -93,8 +97,10 @@ namespace CFX.Transport
             private set;
         }
 
-        // JJW:  Compression not fully implemented yet.  Private for now and not enabled.
-        internal static bool? UseCompression
+        /// <summary>
+        /// Sets the codec used to transmit messages across the wire, including the newly introduced GZIP Compressed Codec, which is now the default.
+        /// </summary>
+        public static CFXCodec? Codec
         {
             get;
             set;
@@ -164,6 +170,22 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// Establishes the format for the subject property of the AMQP message envelope on all messages published 
+        /// by this endpoint.  The following tags may be used in the format string:
+        /// <list type="bullet">
+        /// <item>${cfx-handle}      Will be replaced with the handle of your endpoint (CFXEnvelope.Source}</item>
+        /// <item>${cfx-topic}       Will be replaced with the topic of the message ("CFX.Production" for example)</item>
+        /// <item>${cfx-messagename} Will be replaced with the fully qualified name of the message ("CFX.Production.WorkStarted" for example)</item>
+        /// </list>
+        /// If this property is null or an empty string, the default subject format will be utilized:  "${cfx-handle}.${cfx-messagename}"
+        /// </summary>
+        public string SubjectFormat
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The AMQP 1.0 message framing header includes a "Durable" property that notifies recipients that this message
         /// should be maintained in durable storage on the message broker until delivered to all recipients, surviving broker system restarts.
         /// When this property is set to true, all messages published by the endpoint will be tagged with the Durable framing header.
@@ -206,6 +228,31 @@ namespace CFX.Transport
             private set;
         }
 
+        private TimeSpan heartbeatFrequency;
+
+        /// <summary>
+        /// The AmqpCFXEndpoint class automatically publishies CFX Heartbeat messages on 1 minute intervals by default.
+        /// You can adjust this frequency using this property.  If set to zero (0), automatic publication of
+        /// Heartbeat messages will be disabled.  The minimum frequency is 1 second and the maximum frequency is 5 minutes.
+        /// </summary>
+        public TimeSpan HeartbeatFrequency
+        {
+            get
+            {
+                return heartbeatFrequency;
+            }
+            set
+            {
+                if (value.TotalSeconds != 0 && (value.TotalSeconds < 1 || value.TotalMinutes > 5))
+                {
+                    throw new ArgumentOutOfRangeException("HeartBeatFrequency", $"Value must be greater than or equal to 1 seconds and less than or equal to 5 minutes.");
+                }
+
+                heartbeatFrequency = value;
+                StartHeartbeat();
+            }
+        }
+
         private X509Certificate LastCertificate
         {
             get;
@@ -216,6 +263,42 @@ namespace CFX.Transport
         {
             get;
             set;
+        }
+
+        private System.Timers.Timer HeartbeatTimer
+        {
+            get;
+            set;
+        }
+
+        private void StopHeartbeat()
+        {
+            if (HeartbeatTimer != null)
+            {
+                HeartbeatTimer.Dispose();
+                HeartbeatTimer = null;
+            }
+        }
+
+        private void StartHeartbeat()
+        {
+            lock (this)
+            {
+                StopHeartbeat();
+                if (HeartbeatFrequency.TotalSeconds >= 1)
+                {
+                    HeartbeatTimer = new System.Timers.Timer(HeartbeatFrequency.TotalMilliseconds);
+                    HeartbeatTimer.AutoReset = true;
+                    HeartbeatTimer.Elapsed += (object sender, System.Timers.ElapsedEventArgs e) =>
+                    {
+                        if (this.IsOpen)
+                        {
+                            Publish(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
+                        }
+                    };
+                    HeartbeatTimer.Start();
+                }
+            }
         }
 
         /// <summary>
@@ -547,6 +630,10 @@ namespace CFX.Transport
             if (channel != null)
             {
                 channel.AddPublishChannel(address);
+
+                CFXEnvelope env = new CFXEnvelope(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
+                FillSource(env);
+                channel.Publish(env);
             }
         }
 
@@ -756,6 +843,35 @@ namespace CFX.Transport
         }
 
         /// <summary>
+        /// Permanently deletes all spooled messages from the specified Publish channel.
+        /// </summary>
+        /// <param name="addr">The channel address of the publish channel to be purged.</param>
+        public void PurgeSpool(AmqpChannelAddress addr)
+        {
+            string key = addr.Uri.ToString();
+
+            if (channels.ContainsKey(key))
+            {
+                channels[key].PurgeSpool(addr);
+            }
+            else
+            {
+                throw new ArgumentException("The specified channel does not exist.");
+            }
+        }
+
+        /// <summary>
+        /// Permanently deletes all spooled messages from all Publish channels associated with this endpoint.
+        /// </summary>
+        public void PurgeAllSpools()
+        {
+            foreach (AmqpConnection channel in channels.Values)
+            {
+                channel.PurgeAllSpools();
+            }
+        }
+
+        /// <summary>
         /// Publishes a CFX message.  The message will be transmitted to all publish channels.
         /// </summary>
         /// <param name="env">The CFX envelope containing the message to publish.</param>
@@ -880,58 +996,55 @@ namespace CFX.Transport
                     request.Source = CFXHandle;
                 }
 
-                Message req = AmqpUtilities.MessageFromEnvelope(request, UseCompression.Value);
+                Message req = AmqpUtilities.MessageFromEnvelope(request, Codec.Value);
                 req.Properties.MessageId = "command-request";
                 req.Properties.ReplyTo = CFXHandle;
                 req.ApplicationProperties = new ApplicationProperties();
                 req.ApplicationProperties["offset"] = 1;
                 
-                await Task.Run(() =>
+                try
                 {
-                    try
+                    ConnectionFactory factory = new ConnectionFactory();
+                    if (targetAddress.Scheme.ToLower() == "amqps")
                     {
-                        ConnectionFactory factory = new ConnectionFactory();
-                        if (targetAddress.Scheme.ToLower() == "amqps")
-                        {
-                            factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
-                            factory.SASL.Profile = SaslProfile.External;
-                        }
-
-                        if (string.IsNullOrWhiteSpace(targetAddress.UserInfo))
-                        {
-                            factory.SASL.Profile = SaslProfile.Anonymous;
-                        }
-
-                        reqConn = factory.CreateAsync(new Address(targetAddress.ToString())).Result;
-                        reqSession = new Session(reqConn);
-                        Attach recvAttach = new Attach()
-                        {
-                            Source = new Source() { Address = request.Target },
-                            Target = new Target() { Address = CFXHandle }
-                        };
-
-                        receiver = new ReceiverLink(reqSession, "request-receiver", recvAttach, null);
-                        receiver.Start(300);
-                        sender = new SenderLink(reqSession, CFXHandle, request.Target);
-
-                        sender.Send(req);
-                        Message resp = receiver.Receive(RequestTimeout.Value);
-                        if (resp != null)
-                        {
-                            receiver.Accept(resp);
-                            response = AmqpUtilities.EnvelopeFromMessage(resp);
-                        }
-                        else
-                        {
-                            throw new TimeoutException("A response was not received from target CFX endpoint in the alloted time.");
-                        }
+                        factory.SSL.RemoteCertificateValidationCallback = ValidateRequestServerCertificate;
+                        factory.SASL.Profile = SaslProfile.External;
                     }
-                    catch (Exception ex3)
+
+                    if (string.IsNullOrWhiteSpace(targetAddress.UserInfo))
                     {
-                        AppLog.Error(ex3);
-                        ex = ex3;
+                        factory.SASL.Profile = SaslProfile.Anonymous;
                     }
-                });
+
+                    reqConn = await factory.CreateAsync(new Address(targetAddress.ToString())).ConfigureAwait(false);
+                    reqSession = new Session(reqConn);
+                    Attach recvAttach = new Attach()
+                    {
+                        Source = new Source() { Address = request.Target },
+                        Target = new Target() { Address = CFXHandle }
+                    };
+
+                    receiver = new ReceiverLink(reqSession, "request-receiver", recvAttach, null);
+                    receiver.Start(300);
+                    sender = new SenderLink(reqSession, CFXHandle, request.Target);
+
+                    sender.Send(req);
+                    Message resp = receiver.Receive(RequestTimeout.Value);
+                    if (resp != null)
+                    {
+                        receiver.Accept(resp);
+                        response = AmqpUtilities.EnvelopeFromMessage(resp);
+                    }
+                    else
+                    {
+                        throw new TimeoutException("A response was not received from target CFX endpoint in the alloted time.");
+                    }
+                }
+                catch (Exception ex3)
+                {
+                    AppLog.Error(ex3);
+                    ex = ex3;
+                }
             }
             catch (Exception ex2)
             {
@@ -940,10 +1053,10 @@ namespace CFX.Transport
             }
             finally
             {
-                if (receiver != null && !receiver.IsClosed) await receiver.CloseAsync();
-                if (sender != null && !sender.IsClosed) await sender.CloseAsync();
-                if (reqSession != null && !reqSession.IsClosed) await reqSession.CloseAsync();
-                if (reqConn != null && !reqConn.IsClosed) await reqConn.CloseAsync();
+                if (receiver != null && !receiver.IsClosed) await receiver.CloseAsync().ConfigureAwait(false);
+                if (sender != null && !sender.IsClosed) await sender.CloseAsync().ConfigureAwait(false);
+                if (reqSession != null && !reqSession.IsClosed) await reqSession.CloseAsync().ConfigureAwait(false);
+                if (reqConn != null && !reqConn.IsClosed) await reqConn.CloseAsync().ConfigureAwait(false);
             }
 
             if (ex != null)
