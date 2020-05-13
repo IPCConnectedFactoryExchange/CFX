@@ -106,6 +106,24 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The software version of the endpoint
+        /// </summary>
+        public string SoftwareVersion
+        {
+            get;
+            set;
+        }
+        
+        /// <summary>
+        /// The firmware version of the endpoint
+        /// </summary>
+        public string FirmwareVersion
+        {
+            get;
+            set;
+        }        
+        
+        /// <summary>
         /// Describes the stages (zones) of the endpoint, including buffer stages.
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
@@ -151,6 +169,54 @@ namespace CFX.Structures
         {
             get;
             set;
+        }
+        
+        public enum OperatingSystem
+        {
+    	    /// <summary>
+    	    /// Unknown Operating System
+    	    /// </summary>    
+    	    Unknown
+            /// <summary>
+            /// Windows 7 32-bit
+            /// </summary>
+            Windows7_32,
+            /// <summary>
+            /// Windows 7 64-bit
+            /// </summary>
+            Windows7_64,
+            /// <summary>
+            /// Windows 8 32-bit
+            /// </summary>
+            Windows8_32,
+            /// <summary>
+            /// Windows 8 64-bit
+            /// </summary>
+            Windows8_64,
+            /// <summary>
+            /// Windows 10 32-bit
+            /// </summary>
+            Windows10_32,
+            /// <summary>
+            /// Windows 10 64-bit
+            /// </summary>
+            Windows10_64,
+            /// <summary>
+            /// Windows Server 2008
+            /// </summary>
+            WindowsServer2008,
+            /// <summary>
+            /// Windows Server 2012
+            /// </summary>
+            WindowsServer2012,
+            /// <summary>
+            /// Windows Server 2016
+            /// </summary>
+            WindowsServer2016,                             
+            /// <summary>
+            /// Linux
+            /// </summary>
+            Linux,         
         }
     }
 }
