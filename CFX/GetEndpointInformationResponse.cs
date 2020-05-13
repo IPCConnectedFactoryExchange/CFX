@@ -30,6 +30,9 @@ namespace CFX
     ///     "Vendor": "SMT Plus",
     ///     "ModelNumber": "Model_11111",
     ///     "SerialNumber": "SNSN23123",
+    ///     "SoftwareVersion": "18.2.2.",
+    ///     "FirmwareVersion": "1.1.23",
+    ///     "OperatingSystem": "Windows10_64",
     ///     "Stages": [
     ///       {
     ///         "Stage": {
@@ -166,6 +169,9 @@ namespace CFX
     ///     "Vendor": "SMT Plus",
     ///     "ModelNumber": "Model_21232",
     ///     "SerialNumber": "SN23123",
+    ///     "SoftwareVersion": "18.2.2.",
+    ///     "FirmwareVersion": "1.1.23",
+    ///     "OperatingSystem": "Windows10_64",
     ///     "Stages": [
     ///       {
     ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
