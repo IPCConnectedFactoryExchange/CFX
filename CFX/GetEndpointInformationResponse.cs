@@ -32,7 +32,9 @@ namespace CFX
     ///     "SerialNumber": "SNSN23123",
     ///     "SoftwareVersion": "18.2.2.",
     ///     "FirmwareVersion": "1.1.23",
-    ///     "OperatingSystem": "Windows10_64",
+    ///     "OperatingSystem": "Windows10",
+    ///     "OperatingSystemPlatform" : "Platform64bit",
+    ///     "OperatingSystemVersion" : "1809",
     ///     "Stages": [
     ///       {
     ///         "Stage": {
