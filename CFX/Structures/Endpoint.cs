@@ -108,21 +108,53 @@ namespace CFX.Structures
         /// <summary>
         /// The software version of the endpoint
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
         public string SoftwareVersion
         {
             get;
             set;
         }
-        
+
         /// <summary>
         /// The firmware version of the endpoint
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
         public string FirmwareVersion
         {
             get;
             set;
-        }        
-        
+        }
+
+        /// <summary>
+        /// The operating system in place at this endpoint
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public OperatingSystem OperatingSystem
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The platform of the operating system in place at this endpoint
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public OperatingSystemPlatform OperatingSystemPlatform
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The firmware version of the endpoint
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public string OperatingSystemVersion
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Describes the stages (zones) of the endpoint, including buffer stages.
         /// </summary>
@@ -170,53 +202,141 @@ namespace CFX.Structures
             get;
             set;
         }
-        
-        public enum OperatingSystem
-        {
-    	    /// <summary>
-    	    /// Unknown Operating System
-    	    /// </summary>    
-    	    Unknown
-            /// <summary>
-            /// Windows 7 32-bit
-            /// </summary>
-            Windows7_32,
-            /// <summary>
-            /// Windows 7 64-bit
-            /// </summary>
-            Windows7_64,
-            /// <summary>
-            /// Windows 8 32-bit
-            /// </summary>
-            Windows8_32,
-            /// <summary>
-            /// Windows 8 64-bit
-            /// </summary>
-            Windows8_64,
-            /// <summary>
-            /// Windows 10 32-bit
-            /// </summary>
-            Windows10_32,
-            /// <summary>
-            /// Windows 10 64-bit
-            /// </summary>
-            Windows10_64,
-            /// <summary>
-            /// Windows Server 2008
-            /// </summary>
-            WindowsServer2008,
-            /// <summary>
-            /// Windows Server 2012
-            /// </summary>
-            WindowsServer2012,
-            /// <summary>
-            /// Windows Server 2016
-            /// </summary>
-            WindowsServer2016,                             
-            /// <summary>
-            /// Linux
-            /// </summary>
-            Linux,         
-        }
+    }
+
+    /// <summary>
+    /// An enumeration indicating a computer operating system
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
+    public enum OperatingSystem
+    {
+        /// <summary>
+        /// Other Operating System (not listed here)
+        /// </summary>    
+        Other,
+        /// <summary>
+        /// Other Embedded Operating Sytem (not listed here)
+        /// </summary>
+        OtherEmbedded,
+        /// <summary>
+        /// Windows XP
+        /// </summary>
+        WindowsXP,
+        /// <summary>
+        /// Windows 7
+        /// </summary>
+        Windows7,
+        /// <summary>
+        /// Windows Vista
+        /// </summary>
+        WindowsVista,
+        /// <summary>
+        /// Windows 8
+        /// </summary>
+        Windows8,
+        /// <summary>
+        /// Windows 10
+        /// </summary>
+        Windows10,
+        /// <summary>
+        /// Windows Server 2008
+        /// </summary>
+        WindowsServer2008,
+        /// <summary>
+        /// Windows Server 2008 R2
+        /// </summary>
+        WindowsServer2008R2,
+        /// <summary>
+        /// Windows Server 2012
+        /// </summary>
+        WindowsServer2012,
+        /// <summary>
+        /// Windows Server 2016
+        /// </summary>
+        WindowsServer2016,
+        /// <summary>
+        /// Windows CD
+        /// </summary>
+        WindowsCE,
+        /// <summary>
+        /// Windows Embedded
+        /// </summary>
+        WindowsEmbedded,
+        /// <summary>
+        /// Windows Compact
+        /// </summary>
+        WindowsCompact,
+        /// <summary>
+        /// Windows IoT Core
+        /// </summary>
+        WindowsIoTCore,
+        /// <summary>
+        /// Ubuntu Linux Distro
+        /// </summary>
+        UbuntuLinux,
+        /// <summary>
+        /// Fedora Linux Distro
+        /// </summary>
+        FedoraLinux,
+        /// <summary>
+        /// Linux Mint Distro
+        /// </summary>
+        LinuxMint,
+        /// <summary>
+        /// openSUSE Linux Distro
+        /// </summary>
+        openSUSELinux,
+        /// <summary>
+        /// PC Linux Distro
+        /// </summary>
+        PCLinuxOS,
+        /// <summary>
+        /// Debian Linux Distro
+        /// </summary>
+        DebianLinux,
+        /// <summary>
+        /// Other Linux Distro
+        /// </summary>
+        OtherLinux,
+        /// <summary>
+        /// Apple MacOS
+        /// </summary>
+        AppleMacOS,
+        /// <summary>
+        /// Apple IOS or sub-variant
+        /// </summary>
+        AppleIOS,
+        /// <summary>
+        /// Raspberry Pi Operating System
+        /// </summary>
+        Raspbian
+    }
+
+    /// <summary>
+    /// An enumeration indicating the platform of a computer operating system
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
+    public enum OperatingSystemPlatform
+    {
+        /// <summary>
+        /// Other Platform (not listed here)
+        /// </summary>    
+        Other,
+        /// <summary>
+        /// 32-bit Platform
+        /// </summary>
+        Platform32bit,
+        /// <summary>
+        /// 64-bit Platform
+        /// </summary>
+        Platform64bit,
+        /// <summary>
+        /// 32-bit ARM Platform
+        /// </summary>
+        ARM32,
+        /// <summary>
+        /// 64-bit ARM Platform
+        /// </summary>
+        AR64
     }
 }
