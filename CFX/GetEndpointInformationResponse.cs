@@ -32,9 +32,9 @@ namespace CFX
     ///     "SerialNumber": "SNSN23123",
     ///     "SoftwareVersion": "18.2.2.",
     ///     "FirmwareVersion": "1.1.23",
-    ///     "OperatingSystem": "Windows10",
+    ///     "OperatingSystem": "UbuntuLinux",
     ///     "OperatingSystemPlatform" : "Platform64bit",
-    ///     "OperatingSystemVersion" : "1809",
+    ///     "OperatingSystemVersion" : "18.04.4",
     ///     "Stages": [
     ///       {
     ///         "Stage": {
@@ -173,7 +173,9 @@ namespace CFX
     ///     "SerialNumber": "SN23123",
     ///     "SoftwareVersion": "18.2.2.",
     ///     "FirmwareVersion": "1.1.23",
-    ///     "OperatingSystem": "Windows10_64",
+    ///     "OperatingSystem": "Windows10",
+    ///     "OperatingSystemPlatform" : "Platform64bit",
+    ///     "OperatingSystemVersion" : "1809",
     ///     "Stages": [
     ///       {
     ///         "$type": "CFX.Structures.SMTPlacement.SMTStageInformation, CFX",
