@@ -818,7 +818,6 @@ namespace CFX.Production.Processing
     ///       "SeparationDistance": 1.2,
     ///       "SeparationDelay": null
     ///     },
-    ///     "SqueegeeDirection": "Down",
     ///     "PeriodicCleanings": [
     ///       {
     ///         "CleanFrequency": 2,

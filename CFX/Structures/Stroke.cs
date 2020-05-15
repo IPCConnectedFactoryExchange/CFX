@@ -25,10 +25,6 @@ namespace CFX.Structures
         /// Stroke property Print speed
         /// </summary>
         public double? PrintSpeed { get; set; }
-        /// <summary>
-        /// Squeegee direction for Solder Paste Printing (forward / backward, to be replace by enum - UnitsProcessed 
-        /// </summary>
-        public SolderPasteSqueegeeDirection SqueegeeDirection { get; set; }
     }
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SolderPasteSqueegeeDirection

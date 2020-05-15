@@ -10,7 +10,6 @@ namespace CFX.Structures.SolderPastePrinting
     /// <summary>
     /// Describes the Solder paster printing ProcessData structure 
     /// </summary>
-    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class SolderPastePrintingProcessData : ProcessData
     {
         /// <summary>

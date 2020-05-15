@@ -37,6 +37,9 @@ namespace CFX.Production
     ///     "RecipeData": null
     ///   },
     ///   "Reason": "NewRevision",
+    ///   "UnitLength": 160.0,
+    ///   "UnitWidth":100.0,
+    ///   "UnitHeight": 1.5,
     ///   "CommonRecipeData": {
     ///     "Strokes": [
     ///       {
@@ -96,6 +99,33 @@ namespace CFX.Production
         /// The reason for the update
         /// </summary>
         public RecipeModificationReason? Reason
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Length (X-Axis) of the Units processed within this Recipe
+        /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public double? UnitLength
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Width (Y-Axis) of the Units processed within this Recipe
+        /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public double? UnitWidth
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Heigth (Z-Axis) of the Units processed within this Recipe
+        /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public double? UnitHeight
         {
             get;
             set;

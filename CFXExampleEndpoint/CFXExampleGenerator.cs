@@ -2928,6 +2928,9 @@ namespace CFXExampleEndpoint
                     Revision = "C"
                 },
                 Reason = RecipeModificationReason.NewRevision,
+                UnitLength = 160.0,
+                UnitWidth = 100.0,
+                UnitHeight = 1.5,
                 CommonRecipeData = new SolderPastePrintingProcessData()
                 {
                     Strokes = new List<Stroke>(
@@ -3657,8 +3660,8 @@ namespace CFXExampleEndpoint
                     Strokes = new List<Stroke>(
                         new Stroke[]
                         {
-                        new Stroke() {PrintPressure = 1, PrintSpeed = 12, SqueegeeDirection=SolderPasteSqueegeeDirection.forward},
-                        new Stroke() { PrintPressure = 2, PrintSpeed = 9, SqueegeeDirection=SolderPasteSqueegeeDirection.backward }
+                        new Stroke() {PrintPressure = 1, PrintSpeed = 12},
+                        new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
                         }),
                     
                     Separation = new Separation() { SeparationDistance = 1.2, SeparationSpeed = 1.6 },
@@ -3669,13 +3672,10 @@ namespace CFXExampleEndpoint
                                new PeriodicCleaning(){CleanFrequency = 2, CleanMode= "W"}
                            }),
                     RecipeName = "RECIPE_123",
-                    //CycleTime = null,
-                   
                     FirstPrintDirection = "FrontToRear",
                     OffsetX= 1.5,
                     OffsetY= 0.5,
                     OffsetTheta= 2.5
-
                 },
             };
 
