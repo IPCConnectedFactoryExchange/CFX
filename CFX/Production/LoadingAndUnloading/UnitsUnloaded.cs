@@ -38,6 +38,7 @@ namespace CFX.Production.LoadingAndUnloading
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class UnitsUnloaded : CFXMessage
     {
         /// <summary>

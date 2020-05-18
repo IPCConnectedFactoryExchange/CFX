@@ -110,6 +110,7 @@ namespace CFX.InformationSystem.UnitValidation
         /// - The panel has a data matrix for id and a set of modules whose statuses need to be validated.
         /// - The carrier (pallet, fixture, tray, etc) has a data matrix for id and a set of nests whose statuses need to be validated.
         /// </remarks>
+        [CFX.Utilities.CreatedVersion("1.2")]
         public int? Lane
         {
             get;
