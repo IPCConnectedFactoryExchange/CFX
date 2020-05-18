@@ -215,7 +215,7 @@ namespace CFX.Structures
         /// </summary>    
         Other,
         /// <summary>
-        /// Other Embedded Operating Sytem (not listed here)
+        /// Other Embedded Operating System (not listed here)
         /// </summary>
         OtherEmbedded,
         /// <summary>
