@@ -795,7 +795,44 @@ namespace CFX.Production.Processing
     ///   ]
     /// }
     /// </code>
-    /// <para></para>
+    /// <para>Example 5: Printer Operation Data: for each printed PCB send used Printer process parameters</para>
+    /// {
+    /// {
+    ///   "TransactionId": "b063df28-715d-4ba3-bd39-e9b542e4333c",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": {
+    ///     "$type": "CFX.Structures.SolderPastePrinting.SolderPastePrintingPCBProcessData, CFX",
+    ///     "Strokes": [
+    ///       {
+    ///         "PrintPressure": 1.0,
+    ///         "PrintSpeed": 12.0
+    ///       },
+    ///       {
+    ///         "PrintPressure": 2.0,
+    ///         "PrintSpeed": 9.0
+    ///       }
+    ///     ],
+    ///     "Separation": {
+    ///       "Name": null,
+    ///       "SeparationSpeed": 1.6,
+    ///       "SeparationDistance": 1.2,
+    ///       "SeparationDelay": null
+    ///     },
+    ///     "PeriodicCleanings": [
+    ///       {
+    ///         "CleanFrequency": 2,
+    ///         "CleanMode": "W"
+    ///       }
+    ///     ],
+    ///     "RecipeName": "RECIPE_123",
+    ///     "OffsetX": 1.5,
+    ///     "OffsetY": 0.5,
+    ///     "OffsetTheta": 2.5,
+    ///     "FirstPrintDirection": "FrontToRear",
+    ///     "CycleTime": "00:00:00"
+    ///   },
+    ///   "UnitProcessData": []
+    /// }
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage
