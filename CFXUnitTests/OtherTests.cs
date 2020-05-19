@@ -28,7 +28,7 @@ namespace CFXUnitTests
                     continue;
                 }
 
-                foreach (PropertyInfo prop in type.GetProperties().Where(p => p.GetCustomAttribute<CreatedVersionAttribute>()?.CreatedVersion == version))
+                foreach (PropertyInfo prop in type.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public).Where(p => p.GetCustomAttribute<CreatedVersionAttribute>()?.CreatedVersion == version))
                 {
                     lines.Add($"New Property:  {type.FullName} :: {prop.Name}");
                 }
