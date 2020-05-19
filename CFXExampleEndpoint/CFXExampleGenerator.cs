@@ -33,7 +33,7 @@ using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
 using CFX.Structures.ReflowProfiling;
-using CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe;
+//using CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe;
 
 namespace CFXExampleEndpoint
 {

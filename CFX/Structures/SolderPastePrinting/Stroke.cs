@@ -11,6 +11,7 @@ namespace CFX.Structures.SolderPastePrinting
     /// </summary>
 
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class Stroke
     {
         public Stroke()

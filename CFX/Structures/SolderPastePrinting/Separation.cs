@@ -10,6 +10,7 @@ namespace CFX.Structures.SolderPastePrinting
     /// Describes the separation structure as modelled in the SolderPastePrintingRecipe
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class Separation
     {
         /// <summary>

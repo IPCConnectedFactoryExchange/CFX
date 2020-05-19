@@ -10,6 +10,7 @@ namespace CFX.Structures.SolderPastePrinting
     /// <summary>
     /// The new Process Data for the PCB processed.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class SolderPastePrintingPCBProcessData : ProcessData
     {
         /// <summary>

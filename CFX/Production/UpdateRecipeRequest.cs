@@ -104,7 +104,7 @@ namespace CFX.Production
         /// <summary>
         /// Length (X-Axis) of the Units processed within this Recipe
         /// </summary>
-        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        [CFX.Utilities.CreatedVersion("1.2")]
         public double? UnitLength
         {
             get;
@@ -113,7 +113,7 @@ namespace CFX.Production
         /// <summary>
         /// Width (Y-Axis) of the Units processed within this Recipe
         /// </summary>
-        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        [CFX.Utilities.CreatedVersion("1.2")]
         public double? UnitWidth
         {
             get;
@@ -122,7 +122,7 @@ namespace CFX.Production
         /// <summary>
         /// Heigth (Z-Axis) of the Units processed within this Recipe
         /// </summary>
-        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        [CFX.Utilities.CreatedVersion("1.2")]
         public double? UnitHeight
         {
             get;
