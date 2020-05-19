@@ -5,8 +5,11 @@ using CFX.Structures;
 using CFX.Structures.SolderPastePrinting;
 using Newtonsoft.Json;
 
-namespace CFX.Structures
+namespace CFX.Structures.SolderPastePrinting
 {
+    /// <summary>
+    /// Describes the periodic cleaning structure as modelled in the SolderPastePrintingRecipe
+    /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class PeriodicCleaning
     {

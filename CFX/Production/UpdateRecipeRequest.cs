@@ -25,22 +25,10 @@ namespace CFX.Production
     /// }
     /// </code>
     /// <para>Load Printer Recipe / Modify Printer Recipe based on UpdateRecipeRequest and UpdateRecipeResponse </para>
-    /// <code>
+    /// <code language="none">
     /// {
     ///   "Overwrite": true,
     ///   "Recipe": {
-    ///     "Name": "RECIPE234324",
-    ///     "Revision": "C",
-    ///     "ExpectedCycleTime": 0.0,
-    ///     "ExpectedUnitsPerWorkTransaction": 0.0,
-    ///     "MimeType": null,
-    ///     "RecipeData": null
-    ///   },
-    ///   "Reason": "NewRevision",
-    ///   "UnitLength": 160.0,
-    ///   "UnitWidth":100.0,
-    ///   "UnitHeight": 1.5,
-    ///   "CommonRecipeData": {
     ///     "Strokes": [
     ///       {
     ///         "PrintPressure": 1.0,
@@ -51,7 +39,7 @@ namespace CFX.Production
     ///         "PrintSpeed": 9.0
     ///       }
     ///     ],
-    ///     "PrintGap": 1.3,
+    ///     "PrintGap": 1.2,
     ///     "Separation": {
     ///       "Name": null,
     ///       "SeparationSpeed": 1.6,
@@ -63,8 +51,18 @@ namespace CFX.Production
     ///         "CleanFrequency": 2,
     ///         "CleanMode": "W"
     ///       }
-    ///     ]
-    ///   }
+    ///     ],
+    ///     "Name": "RECIPE234324",
+    ///     "Revision": "C",
+    ///     "ExpectedCycleTime": 0.0,
+    ///     "ExpectedUnitsPerWorkTransaction": 0.0,
+    ///     "MimeType": null,
+    ///     "RecipeData": null
+    ///   },
+    ///   "Reason": "NewRevision",
+    ///   "UnitLength": 160.0,
+    ///   "UnitWidth": 100.0,
+    ///   "UnitHeight": 1.5
     /// }
     /// </code>
     /// </summary>
@@ -126,16 +124,6 @@ namespace CFX.Production
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public double? UnitHeight
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// Dynamic structure containing data that is common to all production units processed
-        /// within this Recipe. New for CFX 1.2, Printer management
-        /// </summary>
-        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
-        public ProcessData CommonRecipeData
         {
             get;
             set;

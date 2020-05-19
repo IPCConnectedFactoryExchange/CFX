@@ -4,10 +4,10 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CFX.Structures
+namespace CFX.Structures.SolderPastePrinting
 {
     /// <summary>
-    /// Describes the stroke structure as modelled in the Solder Paster Printing Process Data
+    /// Describes the stroke structure as modelled in the SolderPastePrintingRecipe
     /// </summary>
 
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]

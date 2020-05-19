@@ -4,8 +4,11 @@ using System.Text;
 using Newtonsoft.Json;
 using CFX.Structures;
 
-namespace CFX.Structures
+namespace CFX.Structures.SolderPastePrinting
 {
+    /// <summary>
+    /// Describes the separation structure as modelled in the SolderPastePrintingRecipe
+    /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Separation
     {

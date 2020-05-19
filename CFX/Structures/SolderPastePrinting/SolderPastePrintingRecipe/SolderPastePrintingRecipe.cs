@@ -5,17 +5,17 @@ using Newtonsoft.Json;
 using CFX;
 using CFX.Structures;
 
-namespace CFX.Structures.SolderPastePrinting
+namespace CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe
 {
     /// <summary>
-    /// Describes the Solder paster printing ProcessData structure 
+    /// Describes the Solder paste printing structure 
     /// </summary>
-    public class SolderPastePrintingProcessData : ProcessData
+    public class SolderPastePrintingRecipe : Recipe
     {
         /// <summary>
-        /// Class constructor 
+        /// Class constructor for the derived Class SolderPastePrintingRecipe
         /// </summary>
-        public SolderPastePrintingProcessData()
+        public SolderPastePrintingRecipe()
         {
 
         }

@@ -33,7 +33,7 @@ using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
 using CFX.Structures.ReflowProfiling;
-//using CFX.Structures.ReflowProfiling;
+using CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe;
 
 namespace CFXExampleEndpoint
 {
@@ -2918,36 +2918,33 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            //Including printing extension in CommonRecipeData
+            //Including printing extension from Recipe base class
+            //Modified according to email thread ASM - John W.
             msg = new UpdateRecipeRequest()
             {
                 Overwrite = true,
-                Recipe = new Recipe()
+                Recipe = new SolderPastePrintingRecipe()
                 {
                     Name = "RECIPE234324",
-                    Revision = "C"
+                    Revision = "C",
+                    Strokes = new List<Stroke>(
+                        new Stroke[]
+                        {
+                            new Stroke() {PrintPressure = 1, PrintSpeed = 12 },
+                            new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
+                        }),
+                    PrintGap = 1.2,
+                    Separation = new Separation() { SeparationDistance = 1.2, SeparationSpeed = 1.6 },
+                    PeriodicCleanings = new List<PeriodicCleaning>(
+                        new PeriodicCleaning[]
+                        {
+                            new PeriodicCleaning(){CleanFrequency = 2, CleanMode= "W"}
+                        })
                 },
                 Reason = RecipeModificationReason.NewRevision,
                 UnitLength = 160.0,
                 UnitWidth = 100.0,
-                UnitHeight = 1.5,
-                CommonRecipeData = new SolderPastePrintingProcessData()
-                {
-                    Strokes = new List<Stroke>(
-                        new Stroke[]
-                        {
-                        new Stroke() {PrintPressure = 1, PrintSpeed = 12 },
-                        new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
-                        }),
-                    PrintGap = 1.2,
-                    Separation = new Separation() {SeparationDistance = 1.2, SeparationSpeed = 1.6 },
-
-                    PeriodicCleanings = new List<PeriodicCleaning>(
-                           new PeriodicCleaning[]
-                           {
-                               new PeriodicCleaning(){CleanFrequency = 2, CleanMode= "W"}
-                           })    
-                }
+                UnitHeight = 1.5
             };
 
             AppendMessage(msg, ref result);
