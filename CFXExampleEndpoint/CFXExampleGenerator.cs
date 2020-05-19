@@ -33,7 +33,6 @@ using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
 using CFX.Structures.ReflowProfiling;
-//using CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe;
 
 namespace CFXExampleEndpoint
 {
@@ -2927,6 +2926,11 @@ namespace CFXExampleEndpoint
                 {
                     Name = "RECIPE234324",
                     Revision = "C",
+                    UnitLength = 22.46,
+                    UnitWidth = 19.21,
+                    UnitHeight = 0.85,
+                    ExpectedCycleTime = 46.25,
+                    ExpectedUnitsPerWorkTransaction = 4,
                     Strokes = new List<Stroke>(
                         new Stroke[]
                         {
@@ -2942,9 +2946,6 @@ namespace CFXExampleEndpoint
                         })
                 },
                 Reason = RecipeModificationReason.NewRevision,
-                UnitLength = 160.0,
-                UnitWidth = 100.0,
-                UnitHeight = 1.5
             };
 
             AppendMessage(msg, ref result);

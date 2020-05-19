@@ -18,6 +18,11 @@ namespace CFX.Production
     ///   "Recipe": {
     ///     "Name": "RECIPE234324",
     ///     "Revision": "C",
+    ///     "ExpectedCycleTime": 0.0,
+    ///     "ExpectedUnitsPerWorkTransaction": 0.0,
+    ///     "UnitLength": 22.46,
+    ///     "UnitWidth": 19.21,
+    ///     "UnitHeight": 0.85,
     ///     "MimeType": "application/octet-stream",
     ///     "RecipeData": "//w0"
     ///   },
@@ -29,6 +34,7 @@ namespace CFX.Production
     /// {
     ///   "Overwrite": true,
     ///   "Recipe": {
+    ///     "$type": "CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe, CFX",
     ///     "Strokes": [
     ///       {
     ///         "PrintPressure": 1.0,
@@ -54,18 +60,19 @@ namespace CFX.Production
     ///     ],
     ///     "Name": "RECIPE234324",
     ///     "Revision": "C",
-    ///     "ExpectedCycleTime": 0.0,
-    ///     "ExpectedUnitsPerWorkTransaction": 0.0,
+    ///     "ExpectedCycleTime": 46.25,
+    ///     "ExpectedUnitsPerWorkTransaction": 4.0,
+    ///     "UnitLength": 22.46,
+    ///     "UnitWidth": 19.21,
+    ///     "UnitHeight": 0.85,
     ///     "MimeType": null,
     ///     "RecipeData": null
     ///   },
-    ///   "Reason": "NewRevision",
-    ///   "UnitLength": 160.0,
-    ///   "UnitWidth": 100.0,
-    ///   "UnitHeight": 1.5
+    ///   "Reason": "NewRevision"
     /// }
     /// </code>
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UpdateRecipeRequest : CFXMessage
     {
         public UpdateRecipeRequest()
@@ -87,6 +94,7 @@ namespace CFX.Production
         /// <summary>
         /// The new Recipe to be sent to the Endpoint.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public Recipe Recipe
         {
             get;
@@ -97,33 +105,6 @@ namespace CFX.Production
         /// The reason for the update
         /// </summary>
         public RecipeModificationReason? Reason
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// Length (X-Axis) of the Units processed within this Recipe
-        /// </summary>
-        [CFX.Utilities.CreatedVersion("1.2")]
-        public double? UnitLength
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// Width (Y-Axis) of the Units processed within this Recipe
-        /// </summary>
-        [CFX.Utilities.CreatedVersion("1.2")]
-        public double? UnitWidth
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// Heigth (Z-Axis) of the Units processed within this Recipe
-        /// </summary>
-        [CFX.Utilities.CreatedVersion("1.2")]
-        public double? UnitHeight
         {
             get;
             set;
