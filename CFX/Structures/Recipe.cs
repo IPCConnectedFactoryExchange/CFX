@@ -61,6 +61,34 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// Length (X-Axis) of the Units processed within this Recipe, in centimeters.  Parallel to direction of production flow.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public double? UnitLength
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Width (Y-Axis) of the Units processed within this Recipe, in centimeters.  Perpendicular to direction of production flow when viewed from above.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public double? UnitWidth
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Heigth (Z-Axis) of the Units processed within this Recipe, in centimeters.  Perpendicular to direction of production flow when viewed from the side.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public double? UnitHeight
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The MIME type of the binary data contained by the RecipeData property.
         /// </summary>
         public string MimeType

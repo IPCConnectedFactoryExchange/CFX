@@ -120,53 +120,80 @@ namespace CFXUnitTests
         }
 
         [TestMethod]
+        public void PublishTest()
+        {
+            //CFX.Utilities.AppLog.LoggingLevel = CFX.Utilities.LogMessageType.All;
+
+            //AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
+            ////ep.HeartbeatFrequency = TimeSpan.FromSeconds(5);
+
+            //Uri broker = new Uri("amqp://cfxbroker.connectedfactoryexchange.com");
+            //ep.Open("Aegis.CFXSimulator.Machine1");
+            //ep.AddPublishChannel(broker, "/exchange/AegisCloud");
+
+            //CFX.ResourcePerformance.StationStateChanged ssc = new CFX.ResourcePerformance.StationStateChanged()
+            //{
+            //    NewState = ResourceState.NST,
+            //    OldState = ResourceState.PRD
+            //};
+
+            //ep.Publish(ssc);
+
+            //DateTime start = DateTime.Now;
+            //while ((DateTime.Now - start) < TimeSpan.FromSeconds(80))
+            //{
+            //    System.Threading.Thread.Sleep(200);
+            //}
+        }
+
+        [TestMethod]
         public void TestHeaders()
         {
-            SetupListener(false, false, false);
+            //SetupListener(false, false, false);
 
-            endpoint = new AmqpCFXEndpoint();
-            endpoint.ValidateCertificates = false;
-            endpoint.Open("JJWTest.Endpoint1");
+            //endpoint = new AmqpCFXEndpoint();
+            //endpoint.ValidateCertificates = false;
+            //endpoint.Open("JJWTest.Endpoint1");
 
-            endpoint.SubjectFormat = "Route1.${CFX-MessageName}";
+            //endpoint.SubjectFormat = "Route1.${CFX-MessageName}";
 
-            Exception ex = null;
-            Uri uri = TestSettings.GetBrokerUri(false, false);
-            endpoint.AddPublishChannel(uri, "/exchange/jjwtestex");
-            endpoint.PurgeAllSpools();
+            //Exception ex = null;
+            //Uri uri = TestSettings.GetBrokerUri(false, false);
+            //endpoint.AddPublishChannel(uri, "/exchange/jjwtestex");
+            //endpoint.PurgeAllSpools();
             
-            UnitsInspected un = new UnitsInspected()
-            {
-                InspectedUnits = new List<InspectedUnit>()
-                {
-                    new InspectedUnit()
-                    {
-                        UnitIdentifier = "121354546",
-                    }
-                }
-            };
+            //UnitsInspected un = new UnitsInspected()
+            //{
+            //    InspectedUnits = new List<InspectedUnit>()
+            //    {
+            //        new InspectedUnit()
+            //        {
+            //            UnitIdentifier = "121354546",
+            //        }
+            //    }
+            //};
 
-            try { FireAndWait(un, 2000); Debug.WriteLine($"Received Message {un.GetType().Name}"); }
-            catch { Debug.WriteLine($"DID NOT Receive Message {un.GetType().Name}"); }
+            //try { FireAndWait(un, 2000); Debug.WriteLine($"Received Message {un.GetType().Name}"); }
+            //catch { Debug.WriteLine($"DID NOT Receive Message {un.GetType().Name}"); }
 
-            CFX.Production.WorkStarted ws = new CFX.Production.WorkStarted()
-            {
-                PrimaryIdentifier = "UNIT100001"
-            };
+            //CFX.Production.WorkStarted ws = new CFX.Production.WorkStarted()
+            //{
+            //    PrimaryIdentifier = "UNIT100001"
+            //};
 
-            try { FireAndWait(ws, 2000); Debug.WriteLine($"Received Message {ws.GetType().Name}"); }
-            catch { Debug.WriteLine($"DID NOT Receive Message {ws.GetType().Name}"); }
+            //try { FireAndWait(ws, 2000); Debug.WriteLine($"Received Message {ws.GetType().Name}"); }
+            //catch { Debug.WriteLine($"DID NOT Receive Message {ws.GetType().Name}"); }
 
-            CFX.ResourcePerformance.StationStateChanged sc = new CFX.ResourcePerformance.StationStateChanged()
-            {
-                NewState = ResourceState.ENG,
-                OldState = ResourceState.NST
-            };
+            //CFX.ResourcePerformance.StationStateChanged sc = new CFX.ResourcePerformance.StationStateChanged()
+            //{
+            //    NewState = ResourceState.ENG,
+            //    OldState = ResourceState.NST
+            //};
 
-            try { FireAndWait(sc, 2000); Debug.WriteLine($"Received Message {sc.GetType().Name}"); }
-            catch { Debug.WriteLine($"DID NOT Receive Message {sc.GetType().Name}"); }
+            //try { FireAndWait(sc, 2000); Debug.WriteLine($"Received Message {sc.GetType().Name}"); }
+            //catch { Debug.WriteLine($"DID NOT Receive Message {sc.GetType().Name}"); }
 
-            KillAll();
+            //KillAll();
         }
 
         [TestMethod]

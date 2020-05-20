@@ -33,7 +33,6 @@ using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
 using CFX.Structures.ReflowProfiling;
-//using CFX.Structures.SolderPastePrinting.SolderPastePrintingRecipe;
 
 namespace CFXExampleEndpoint
 {
@@ -2916,6 +2915,39 @@ namespace CFXExampleEndpoint
                 },
                 Reason = RecipeModificationReason.NewRevision
             };
+            AppendMessage(msg, ref result);
+
+            //Including printing extension from Recipe base class
+            //Modified according to email thread ASM - John W.
+            msg = new UpdateRecipeRequest()
+            {
+                Overwrite = true,
+                Recipe = new SolderPastePrintingRecipe()
+                {
+                    Name = "RECIPE234324",
+                    Revision = "C",
+                    UnitLength = 22.46,
+                    UnitWidth = 19.21,
+                    UnitHeight = 0.85,
+                    ExpectedCycleTime = 46.25,
+                    ExpectedUnitsPerWorkTransaction = 4,
+                    Strokes = new List<Stroke>(
+                        new Stroke[]
+                        {
+                            new Stroke() {PrintPressure = 1, PrintSpeed = 12 },
+                            new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
+                        }),
+                    PrintGap = 1.2,
+                    Separation = new Separation() { SeparationDistance = 1.2, SeparationSpeed = 1.6 },
+                    PeriodicCleanings = new List<PeriodicCleaning>(
+                        new PeriodicCleaning[]
+                        {
+                            new PeriodicCleaning(){CleanFrequency = 2, CleanMode= "W"}
+                        })
+                },
+                Reason = RecipeModificationReason.NewRevision,
+            };
+
             AppendMessage(msg, ref result);
 
             //Including printing extension from Recipe base class

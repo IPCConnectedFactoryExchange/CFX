@@ -24,11 +24,15 @@ namespace CFX.Transport
     /// </summary>
     public class AmqpCFXEndpoint : IDisposable
     {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public AmqpCFXEndpoint()
         {
             channels = new ConcurrentDictionary<string, AmqpConnection>();
             IsOpen = false;
             ValidateCertificates = true;
+            HeartbeatFrequency = TimeSpan.FromMinutes(1);
             LastCertificate = null;
             LastUri = null;
             if (!Codec.HasValue) Codec = CFXCodec.gzip;
@@ -224,6 +228,31 @@ namespace CFX.Transport
             private set;
         }
 
+        private TimeSpan heartbeatFrequency;
+
+        /// <summary>
+        /// The AmqpCFXEndpoint class automatically publishies CFX Heartbeat messages on 1 minute intervals by default.
+        /// You can adjust this frequency using this property.  If set to zero (0), automatic publication of
+        /// Heartbeat messages will be disabled.  The minimum frequency is 1 second and the maximum frequency is 5 minutes.
+        /// </summary>
+        public TimeSpan HeartbeatFrequency
+        {
+            get
+            {
+                return heartbeatFrequency;
+            }
+            set
+            {
+                if (value.TotalSeconds != 0 && (value.TotalSeconds < 1 || value.TotalMinutes > 5))
+                {
+                    throw new ArgumentOutOfRangeException("HeartBeatFrequency", $"Value must be greater than or equal to 1 seconds and less than or equal to 5 minutes.");
+                }
+
+                heartbeatFrequency = value;
+                StartHeartbeat();
+            }
+        }
+
         private X509Certificate LastCertificate
         {
             get;
@@ -234,6 +263,42 @@ namespace CFX.Transport
         {
             get;
             set;
+        }
+
+        private System.Timers.Timer HeartbeatTimer
+        {
+            get;
+            set;
+        }
+
+        private void StopHeartbeat()
+        {
+            if (HeartbeatTimer != null)
+            {
+                HeartbeatTimer.Dispose();
+                HeartbeatTimer = null;
+            }
+        }
+
+        private void StartHeartbeat()
+        {
+            lock (this)
+            {
+                StopHeartbeat();
+                if (HeartbeatFrequency.TotalSeconds >= 1)
+                {
+                    HeartbeatTimer = new System.Timers.Timer(HeartbeatFrequency.TotalMilliseconds);
+                    HeartbeatTimer.AutoReset = true;
+                    HeartbeatTimer.Elapsed += (object sender, System.Timers.ElapsedEventArgs e) =>
+                    {
+                        if (this.IsOpen)
+                        {
+                            Publish(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
+                        }
+                    };
+                    HeartbeatTimer.Start();
+                }
+            }
         }
 
         /// <summary>
@@ -565,6 +630,10 @@ namespace CFX.Transport
             if (channel != null)
             {
                 channel.AddPublishChannel(address);
+
+                CFXEnvelope env = new CFXEnvelope(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
+                FillSource(env);
+                channel.Publish(env);
             }
         }
 
