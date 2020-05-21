@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using CFX;
+using CFX.Transport;
 using CFX.Utilities;
 
 namespace CFXUnitTests
@@ -49,6 +51,23 @@ namespace CFXUnitTests
             System.Diagnostics.Debug.WriteLine(report.ToString());
             System.Windows.Forms.Clipboard.SetText(report.ToString());
 
+        }
+
+        [TestMethod]
+        public void HeartbeatTest()
+        {
+            string handle = "Aegis.CFXSimulator.Machine1";
+            AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
+            ep.HeartbeatFrequency = TimeSpan.FromSeconds(4);
+            ep.Open(handle);
+            ep.AddPublishChannel(new Uri("amqp://cfxbroker.connectedfactoryexchange.com"), "/exchange/AegisCloud");
+            //ep.Publish(new CFX.EndpointConnected() { CFXHandle = handle });
+
+            DateTime start = DateTime.Now;
+            while ((DateTime.Now - start) < TimeSpan.FromSeconds(30))
+            {
+                System.Threading.Thread.Sleep(1);
+            }
         }
     }
 }
