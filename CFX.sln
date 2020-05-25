@@ -3,18 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFXnet46", "CFX\CFXnet46.csproj", "{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFX", "CFX\CFX.csproj", "{A681A172-1BCA-4C46-8275-FA7990C7C825}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFXUnitTests", "CFXUnitTests\CFXUnitTests.csproj", "{D8FE6265-D68B-4A02-BD01-B6254B7D042F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A} = {FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFXcore", "CFX\CFXcore.csproj", "{BC4BCCBF-7DBC-4E90-90E0-668972E35882}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFXExampleEndpoint", "CFXExampleEndpoint\CFXExampleEndpoint.csproj", "{29975296-19AF-46C9-A58D-F99776491E4F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFXnet46", "CFX\CFXnet46.csproj", "{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEC0E3C1-C45A-4CBB-9CD3-952F53FE708A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A681A172-1BCA-4C46-8275-FA7990C7C825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A681A172-1BCA-4C46-8275-FA7990C7C825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A681A172-1BCA-4C46-8275-FA7990C7C825}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,6 +35,10 @@ Global
 		{29975296-19AF-46C9-A58D-F99776491E4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29975296-19AF-46C9-A58D-F99776491E4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29975296-19AF-46C9-A58D-F99776491E4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

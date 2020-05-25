@@ -265,7 +265,7 @@ namespace CFX.Transport
             set;
         }
 
-        private System.Timers.Timer HeartbeatTimer
+        private System.Threading.Timer HeartbeatTimer
         {
             get;
             set;
@@ -287,16 +287,13 @@ namespace CFX.Transport
                 StopHeartbeat();
                 if (HeartbeatFrequency.TotalSeconds >= 1)
                 {
-                    HeartbeatTimer = new System.Timers.Timer(HeartbeatFrequency.TotalMilliseconds);
-                    HeartbeatTimer.AutoReset = true;
-                    HeartbeatTimer.Elapsed += (object sender, System.Timers.ElapsedEventArgs e) =>
+                    HeartbeatTimer = new System.Threading.Timer((object state) =>
                     {
                         if (this.IsOpen)
                         {
                             Publish(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
                         }
-                    };
-                    HeartbeatTimer.Start();
+                    }, null, 0, Convert.ToInt32(this.HeartbeatFrequency.TotalMilliseconds));
                 }
             }
         }
