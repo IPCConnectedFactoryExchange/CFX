@@ -26,7 +26,10 @@ namespace CFXUnitTests
             {
                 if (type.GetCustomAttribute<CreatedVersionAttribute>(false)?.CreatedVersion == version)
                 {
-                    lines.Add($"New Class:  {type.FullName}");
+                    if (type.IsEnum)
+                        lines.Add($"New Enumeration:  {type.FullName}");
+                    else
+                        lines.Add($"New Class:  {type.FullName}");
                     continue;
                 }
 

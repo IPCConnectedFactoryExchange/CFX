@@ -20,12 +20,12 @@ namespace CFX.Production
     /// </code>
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.2")]
-    public class WorkOrdersActionExecuted : CFXMessage
+    public class WorkOrderActionExecuted : CFXMessage
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public WorkOrdersActionExecuted() : base()
+        public WorkOrderActionExecuted() : base()
         {
             WorkOrderActionInstanceId = Guid.NewGuid();
             WorkOrderIdentifier = new WorkOrderIdentifier();
