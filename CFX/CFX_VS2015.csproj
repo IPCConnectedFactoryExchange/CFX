@@ -75,7 +75,6 @@
     <Compile Include="InformationSystem\UnitValidation\ValidateUnitsRequest.cs" />
     <Compile Include="InformationSystem\UnitValidation\ValidateUnitsResponse.cs" />
     <Compile Include="InformationSystem\WorkOrderManagement\NamespaceDoc.cs" />
-    <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderActionExecuted.cs" />
     <Compile Include="InformationSystem\WorkOrderManagement\WorkOrderQuantityUpdated.cs" />
     <Compile Include="InformationSystem\WorkOrderManagement\WorkOrdersCreated.cs" />
     <Compile Include="InformationSystem\WorkOrderManagement\WorkOrdersDeleted.cs" />
@@ -171,6 +170,7 @@
     <Compile Include="Production\UpdateRecipeRequest.cs" />
     <Compile Include="Production\UpdateRecipeResponse.cs" />
     <Compile Include="Production\WorkCompleted.cs" />
+    <Compile Include="Produciion\WorkOrderActionExecuted.cs" />    
     <Compile Include="Production\WorkStageCompleted.cs" />
     <Compile Include="Production\WorkStagePaused.cs" />
     <Compile Include="Production\WorkStageResumed.cs" />
