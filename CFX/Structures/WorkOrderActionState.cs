@@ -7,6 +7,7 @@ namespace CFX.Structures
     /// Describes the state of a work order action.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
+    [CFX.Utilities.CreatedVersion("1.2")]
     public enum WorkOrderActionState
     {
         /// <summary>

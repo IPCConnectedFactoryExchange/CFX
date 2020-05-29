@@ -1,7 +1,7 @@
 ﻿using System;
 using CFX.Structures;
 
-namespace CFX.InformationSystem.WorkOrderManagement
+namespace CFX.Production
 {
     /// <summary>
     /// Sent when a non-added value action (out of production) relative to a work order is started, aborted or completed by a process endpoint.
@@ -19,6 +19,7 @@ namespace CFX.InformationSystem.WorkOrderManagement
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.2")]
     public class WorkOrdersActionExecuted : CFXMessage
     {
         /// <summary>
@@ -29,7 +30,7 @@ namespace CFX.InformationSystem.WorkOrderManagement
             WorkOrderActionInstanceId = Guid.NewGuid();
             WorkOrderIdentifier = new WorkOrderIdentifier();
             TimeStamp = DateTime.Now;
-            Type = WorkOrderActionType.Unknown;
+            Type = WorkOrderActionType.Uncategorized;
             State = WorkOrderActionState.Completed;
         }
 
