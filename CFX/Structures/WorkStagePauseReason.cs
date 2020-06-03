@@ -46,7 +46,7 @@ namespace CFX.Structures
         /// </summary>
         InformationMessageConfirmation,
         /// <summary>
-        /// NOTE:  ADDED in CFX 1.2
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// The stage is waiting because it has been stopped by the operator
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]

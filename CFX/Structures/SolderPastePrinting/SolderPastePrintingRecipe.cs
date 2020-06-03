@@ -8,7 +8,7 @@ using CFX.Structures;
 namespace CFX.Structures.SolderPastePrinting
 {
     /// <summary>
-    /// NOTE:  ADDED in CFX 1.2
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Describes the Solder paste printing structure 
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.2")]

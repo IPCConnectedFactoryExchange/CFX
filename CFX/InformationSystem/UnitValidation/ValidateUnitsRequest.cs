@@ -102,7 +102,7 @@ namespace CFX.InformationSystem.UnitValidation
         }
 
         /// <summary>
-        /// NOTE:  ADDED in CFX 1.2
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// Lane identifier.  Null if no specific lane
         /// </summary>
         /// <remarks>

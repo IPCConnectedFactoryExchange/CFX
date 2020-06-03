@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace CFX.Structures.SolderPastePrinting
 {
     /// <summary>
-    /// NOTE:  ADDED in CFX 1.2
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Describes the periodic cleaning structure as modelled in the SolderPastePrintingRecipe
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]

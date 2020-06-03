@@ -4,7 +4,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures
 {
     /// <summary>
-    /// NOTE:  ADDED in CFX 1.2
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Describes the type of action of a work order action.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]

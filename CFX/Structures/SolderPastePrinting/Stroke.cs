@@ -7,7 +7,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures.SolderPastePrinting
 {
     /// <summary>
-    /// NOTE:  ADDED in CFX 1.2
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Describes the stroke structure as modelled in the SolderPastePrintingRecipe
     /// </summary>
 

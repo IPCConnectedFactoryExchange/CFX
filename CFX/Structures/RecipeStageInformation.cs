@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CFX.Structures
 {
     /// <summary>
-    /// NOTE:  ADDED in CFX 1.2
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Describes some information about a recipe for a specific  stage
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.2")]

@@ -61,7 +61,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// NOTE:  ADDED in CFX 1.2
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// Length (X-Axis) of the Units processed within this Recipe, in centimeters.  Parallel to direction of production flow.
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -71,7 +71,7 @@ namespace CFX.Structures
             set;
         }
         /// <summary>
-        /// NOTE:  ADDED in CFX 1.2
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// Width (Y-Axis) of the Units processed within this Recipe, in centimeters.  Perpendicular to direction of production flow when viewed from above.
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -81,7 +81,7 @@ namespace CFX.Structures
             set;
         }
         /// <summary>
-        /// NOTE:  ADDED in CFX 1.2
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// Heigth (Z-Axis) of the Units processed within this Recipe, in centimeters.  Perpendicular to direction of production flow when viewed from the side.
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
