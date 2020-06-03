@@ -4,6 +4,7 @@ using CFX.Structures;
 namespace CFX.Production
 {
     /// <summary>
+    /// NOTE:  ADDED in CFX 1.2
     /// Sent when a non-added value action (out of production) relative to a work order is started, aborted or completed by a process endpoint.
     /// <code language="none">
     /// {

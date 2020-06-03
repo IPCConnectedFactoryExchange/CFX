@@ -106,6 +106,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// The software version of the endpoint
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -116,6 +117,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// The firmware version of the endpoint
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -126,6 +128,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// The operating system in place at this endpoint
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -136,6 +139,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// The platform of the operating system in place at this endpoint
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -146,6 +150,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// The firmware version of the endpoint
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
@@ -205,6 +210,7 @@ namespace CFX.Structures
     }
 
     /// <summary>
+    /// NOTE:  ADDED in CFX 1.2
     /// An enumeration indicating a computer operating system
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.2")]
@@ -313,6 +319,7 @@ namespace CFX.Structures
     }
 
     /// <summary>
+    /// NOTE:  ADDED in CFX 1.2
     /// An enumeration indicating the platform of a computer operating system
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.2")]

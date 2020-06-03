@@ -8,6 +8,7 @@ using CFX.Structures;
 namespace CFX.Production.LoadingAndUnloading
 {
     /// <summary>
+    /// NOTE:  ADDED in CFX 1.2
     /// Sent when a unit is loaded from any form of carrier, including fixtures, pallets, trays, tubs, totes, carts, etc.
     /// <code language="none">
     /// {

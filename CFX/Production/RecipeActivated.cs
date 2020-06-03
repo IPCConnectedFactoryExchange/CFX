@@ -115,6 +115,7 @@ namespace CFX.Production
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// An optional list of information about the recipe for each stage of the machine
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]

@@ -8,6 +8,7 @@ using CFX.Structures;
 namespace CFX.Structures.SolderPastePrinting
 {
     /// <summary>
+    /// NOTE:  ADDED in CFX 1.2
     /// The new Process Data for the PCB processed.
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.2")]

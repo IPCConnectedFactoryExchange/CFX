@@ -7,6 +7,7 @@ using CFX.Structures;
 namespace CFX.Structures.SolderPastePrinting
 {
     /// <summary>
+    /// NOTE:  ADDED in CFX 1.2
     /// Describes the separation structure as modelled in the SolderPastePrintingRecipe
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]

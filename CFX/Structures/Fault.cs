@@ -26,6 +26,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// NOTE:  ADDED in CFX 1.2
         /// If the fault related to this message is associated with a work transaction, this property
         /// contains the Id of the transaction.
         /// </summary>

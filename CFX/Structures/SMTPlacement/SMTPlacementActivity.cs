@@ -31,8 +31,10 @@ namespace CFX.Structures.SMTPlacement
         }
 
         /// <summary>
+        /// NOTE:  CHANGED in CFX 1.2 from single head to multiple heads
         /// The Heads used for the placement
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.2")]
         public List<SMTHeadInformation> Heads
         {
             get;
