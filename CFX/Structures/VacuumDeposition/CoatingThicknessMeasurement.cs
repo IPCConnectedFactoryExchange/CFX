@@ -3,6 +3,7 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Structure base class representing slide position.
     /// Average coating thickness measured in micrometers.
     /// </summary>

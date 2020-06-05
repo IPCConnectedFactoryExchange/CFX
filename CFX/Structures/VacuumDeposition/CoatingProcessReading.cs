@@ -3,6 +3,7 @@
 namespace CFX.Structures.VacuumDeposition
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Structure base class representing process data.
     /// Chamber pressure units in mbar.
     /// Vaporizer temperature in degrees Celsius.

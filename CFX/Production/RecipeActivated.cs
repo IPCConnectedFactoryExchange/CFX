@@ -115,9 +115,11 @@ namespace CFX.Production
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// An optional list of information about the recipe for each stage of the machine
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        [CFX.Utilities.CreatedVersion("1.2")]
         public List<RecipeStageInformation> RecipeStagesInformation
         {
             get;

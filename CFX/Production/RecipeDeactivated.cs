@@ -6,6 +6,7 @@ using CFX.Structures;
 namespace CFX.Production
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.2 **</para>
     /// Sent by a process endpoint to indicate the deactivation of a recipe by its name
     /// <code language="none">
     /// {

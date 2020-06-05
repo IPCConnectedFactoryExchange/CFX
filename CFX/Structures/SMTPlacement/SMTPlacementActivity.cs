@@ -18,6 +18,7 @@ namespace CFX.Structures.SMTPlacement
         {
             ActivityName = "PLACEMENT";
             ValueAddType = ValueAddType.RealValueAdd;
+            Heads = new List<SMTHeadInformation>();
         }
 
         /// <summary>
@@ -30,9 +31,11 @@ namespace CFX.Structures.SMTPlacement
         }
 
         /// <summary>
-        /// The Head used for the placement
+        /// <para>** NOTE: CHANGED in CFX 1.2 from single head to multiple heads **</para>
+        /// The Heads used for the placement
         /// </summary>
-        public SMTHeadInformation Head
+        [CFX.Utilities.CreatedVersion("1.2")]
+        public List<SMTHeadInformation> Heads
         {
             get;
             set;

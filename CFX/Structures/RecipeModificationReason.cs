@@ -45,6 +45,7 @@ namespace CFX.Structures
         /// </summary>
         VisionSystemCorrection,
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// The recipe has been deleted
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]

@@ -196,18 +196,6 @@ namespace CFXUnitTests
             //KillAll();
         }
 
-        [TestMethod]
-        public void ListenerTest()
-        {
-            AmqpCFXEndpoint.Codec = CFXCodec.gzip;
-
-            //AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
-            //ep.Open("Supplier.MyModel.MySerialNumber", new Uri("amqp://mymachine:5700"));
-            //ep.AddListener("ReceiveChannel1");
-            //ep.AddListener("RecevieChannel2");
-            //ep.OnCFXMessageReceivedFromListener += Ep_OnCFXMessageReceivedFromListener;
-        }
-
         private void Ep_OnCFXMessageReceivedFromListener(string targetAddress, CFXEnvelope message)
         {
             System.Diagnostics.Debug.WriteLine($"Message received from endpoint {message.Source} on listener {targetAddress}");

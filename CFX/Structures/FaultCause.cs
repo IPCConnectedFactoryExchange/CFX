@@ -79,6 +79,7 @@ namespace CFX.Structures
         /// </summary>
         ServicesFailure,
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.2 **</para>
         /// A stop was triggered due to process error.
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
