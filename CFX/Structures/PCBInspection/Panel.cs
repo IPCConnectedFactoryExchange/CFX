@@ -51,6 +51,9 @@ namespace CFX.Structures.PCBInspection
     {
       get
       {
+        if (IsRepaired)
+          return false;  // The panel as a whole was repaired, so it is not a defect anymore.
+
         if (base.IsDefect)
           return true;  // The inspection object itself is defect.
 

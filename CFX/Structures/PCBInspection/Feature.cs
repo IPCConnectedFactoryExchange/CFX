@@ -27,8 +27,8 @@ namespace CFX.Structures.PCBInspection
         if (IsRepaired)
           return false;  // Feature was repaired successfully, so not a defect anymore.
 
-        if (IsVerified && IsVerifiedDefect)
-          return true;   // The verification (by a human) has confirmed the defect.
+        if (IsVerified)             // The verification (by a human) has
+          return IsVerifiedDefect;  // either confirmed the defect or has corrected the inspection result (i.e. it was a "false call").
 
         if (IsInspected.HasValue && !IsInspected.Value)
           return true;   // If this feature was not inspected/checked at all, that is rated like a defect (as a precaution).
