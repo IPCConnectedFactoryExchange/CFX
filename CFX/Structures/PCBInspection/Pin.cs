@@ -6,12 +6,12 @@ using Newtonsoft.Json.Serialization;
 namespace CFX.Structures.PCBInspection
 {
 
-  /// <summary>
-  ///   The pins of a component (typically two on resistores, many more on ICs).
-  /// </summary>
-  [JsonObject (ItemNullValueHandling = NullValueHandling.Ignore)]
-  public class Pin : GeometricObject
-  {
-  }
+    /// <summary>
+    /// The pins of a component (typically two on resistors, many more on ICs).
+    /// </summary>
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+    public class Pin : GeometricObject
+    {
+    }
 
 }
