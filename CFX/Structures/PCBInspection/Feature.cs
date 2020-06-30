@@ -66,44 +66,6 @@ namespace CFX.Structures.PCBInspection
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsVerifiedDefect { get; set; } = false;
 
-        /// <summary>
-        /// The defect that led to the faulty feature, determined manually during verification.
-        /// Suggested values are:
-        /// - ClearenceSurfaceError
-        /// - ComponentDefective
-        /// - ComponentMissing
-        /// - ComponentRotated
-        /// - ComponentShifted
-        /// - ComponentTilted
-        /// - ConformalCoatingError
-        /// - Contamination
-        /// - ExcessiveSolder
-        /// - FaceDownComponent
-        /// - InsufficientSolder
-        /// - LiftedLead
-        /// - Miscellaneous
-        /// - PasteShort
-        /// - PinMissing
-        /// - PinShifted
-        /// - ReferencePlaneError
-        /// - ShiftedPaste
-        /// - Short
-        /// - Solderball
-        /// - SolderDefect
-        /// - SolderPasteDefect
-        /// - Tombstone
-        /// - WrongCode
-        /// - WrongComponent
-        /// - WrongComponentHeight
-        /// - WrongPasteArea
-        /// - WrongPasteHeight
-        /// - WrongPasteVolume
-        /// - WrongPinHeight
-        /// - WrongPolarity
-        /// </summary>
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string ClassificationCode { get; set; } = null;
-
 
         /// <summary>
         /// The (eventual) defect was repaired successfully.
