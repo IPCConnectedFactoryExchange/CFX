@@ -357,7 +357,6 @@ namespace CFX.Transport
         /// </summary>
         /// <param name="channelUri">The network address of the target channel.</param>
         /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
-        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched against the server's certificate </param>
         /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
         /// <returns></returns>
         public bool TestChannel(Uri channelUri, out Exception error, string virtualHostName = null)
