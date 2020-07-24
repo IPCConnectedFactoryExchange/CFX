@@ -169,9 +169,9 @@ namespace CFX
 
             // For backwards compatibility.  Older versions of the SDK did not properly decorate the $type of the MessageBody property,
             // so the message portion had to be deserialized individually, which was inefficient.
-            if (!(env.MessageBody is CFXMessage))
+            if (!(env.MessageBody is CFXMessage) && !string.IsNullOrWhiteSpace(env.messageName))
             {
-                Type tp = Type.GetType(env.MessageName);
+                Type tp = Type.GetType(env.messageName);
                 env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
             }
 
@@ -185,9 +185,9 @@ namespace CFX
             {
                 // For backwards compatibility.  Older versions of the SDK did not properly decorate the $type of the MessageBody property,
                 // so the message portion had to be deserialized individually, which was inefficient.
-                if (!(env.MessageBody is CFXMessage))
+                if (!(env.MessageBody is CFXMessage) && !string.IsNullOrWhiteSpace(env.messageName))
                 {
-                    Type tp = Type.GetType(env.MessageName);
+                    Type tp = Type.GetType(env.messageName);
                     env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
                 }
             }
