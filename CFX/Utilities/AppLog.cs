@@ -87,7 +87,7 @@ namespace CFX.Utilities
             if (level != 0) Amqp.Trace.TraceListener = (l, f, a) =>
             {
                 string msg = string.Format(f, a);
-                OnTraceMessage?.Invoke(LogMessageType.Debug, msg);
+                OnTraceMessage?.BeginInvoke(LogMessageType.Debug, msg, null, null);
                 System.Diagnostics.Debug.WriteLine(msg);
                 WriteMessageToLog(msg);
             };
@@ -195,7 +195,7 @@ namespace CFX.Utilities
 
             if ((LoggingLevel & type) == 0) return;
             System.Diagnostics.Debug.WriteLine(string.Format("{0}  {1}", type, message));
-            OnTraceMessage?.Invoke(type, message);
+            OnTraceMessage?.BeginInvoke(type, message, null, null);
 
             if (!LoggingEnabled) return;
             string msg = FormatMessage(type, message);

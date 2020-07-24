@@ -414,6 +414,7 @@ namespace CFX.Transport
                 {
                     receiver.Accept(message);
                     AppLog.Error(string.Format("Malformed Message Received:  {0}", AmqpUtilities.MessagePreview(message)));
+                    Endpoint?.Channel_OnMalformedMessageReceived(new AmqpChannelAddress() { Uri = NetworkUri, Address = receiver.Name }, AmqpUtilities.StringFromEnvelopes(message));
                 }
                 catch (Exception ex)
                 {
@@ -482,6 +483,7 @@ namespace CFX.Transport
     }
 
     public delegate void CFXMessageReceivedHandler(AmqpChannelAddress source, CFXEnvelope message);
+    public delegate void CFXMalformedMessageReceivedHandler(AmqpChannelAddress source, string message);
     public delegate void CFXMessageReceivedFromListenerHandler(string targetAddress, CFXEnvelope message);
     public delegate ValidateCertificateResult ValidateServerCertificateHandler(Uri source, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors);
     public delegate void ConnectionEventHandler(ConnectionEvent eventType, Uri uri, int spoolSize, string errorInformation, Exception errorException = null);

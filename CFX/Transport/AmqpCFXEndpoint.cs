@@ -62,6 +62,11 @@ namespace CFX.Transport
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
 
         /// <summary>
+        /// Event that fires whenever a message is received that is not a valid, properly formatted CFX Message
+        /// </summary>
+        public event CFXMalformedMessageReceivedHandler OnMalformedMessageReceived;
+
+        /// <summary>
         /// Event that fires whenever a CFX message is received from a listener type channel.
         /// </summary>
         public event CFXMessageReceivedFromListenerHandler OnCFXMessageReceivedFromListener;
@@ -767,6 +772,11 @@ namespace CFX.Transport
         private void Channel_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
         {
             OnCFXMessageReceived?.Invoke(source, message);
+        }
+
+        internal void Channel_OnMalformedMessageReceived(AmqpChannelAddress source, string message)
+        {
+            OnMalformedMessageReceived?.Invoke(source, message);
         }
 
         private ValidateCertificateResult Channel_OnValidateCertificate(Uri source, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)

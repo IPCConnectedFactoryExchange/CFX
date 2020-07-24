@@ -8,6 +8,7 @@ using System.Reflection;
 using CFX;
 using CFX.Transport;
 using CFX.Utilities;
+using System.IO;
 
 namespace CFXUnitTests
 {
@@ -71,6 +72,46 @@ namespace CFXUnitTests
             {
                 System.Threading.Thread.Sleep(1);
             }
+        }
+
+
+        [TestMethod]
+        public void MalformedTest()
+        {
+            CFX.Utilities.AppLog.LoggingEnabled = true;
+            CFX.Utilities.AppLog.LoggingLevel = LogMessageType.All;
+            //CFX.Utilities.AppLog.AmqpTraceEnabled = true;
+            CFX.Utilities.AppLog.OnTraceMessage += AppLog_OnTraceMessage;
+
+            
+            string handle = "Aegis.CFXSimulator.Machine1";
+            AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
+            ep.HeartbeatFrequency = TimeSpan.FromSeconds(4);
+            ep.Open(handle);
+            ep.OnCFXMessageReceived += Ep_OnCFXMessageReceived;
+            ep.OnMalformedMessageReceived += Ep_OnMalformedMessageReceived;
+            ep.AddSubscribeChannel(new Uri("amqp://jwalls:Aegis220*@cfxbroker.connectedfactoryexchange.com"), "/queue/JJWTestQueue");
+
+            DateTime start = DateTime.Now;
+            while ((DateTime.Now - start) < TimeSpan.FromSeconds(30))
+            {
+                System.Threading.Thread.Sleep(1);
+            }
+        }
+
+        private void Ep_OnMalformedMessageReceived(AmqpChannelAddress source, string message)
+        {
+            Console.WriteLine($"MALFORMED MESSAGE RECEIVED:  \r\n{message}");
+        }
+
+        private void Ep_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
+        {
+            int z1 = 0;
+        }
+
+        private void AppLog_OnTraceMessage(LogMessageType type, string traceMessage)
+        {
+            Console.WriteLine($"{traceMessage}");
         }
     }
 }
