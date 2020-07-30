@@ -27,6 +27,14 @@ namespace CFXUnitTests
             get { return Settings.Default.ListenerAddress; }
         }
 
+        public static string ListenerMessageSourceAddress
+        {
+            get
+            {
+                return $"/queue/{ListenerHandle}";
+            }
+        }
+
         public static string BrokerHostname
         {
             get { return Settings.Default.BrokerHostname; }

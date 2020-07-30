@@ -343,7 +343,7 @@ namespace CFX.Transport
                 {
                     this.RequestUri = requestUri;
                     requestProcessor = new AmqpRequestProcessor();
-                    requestProcessor.Open(this.CFXHandle, this.RequestUri, certificate);
+                    requestProcessor.Open(this, certificate);
                     requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
                     requestProcessor.OnMessageReceivedFromListener += RequestProcessor_OnCFXMessageReceivedFromListener;
                 }
@@ -767,6 +767,65 @@ namespace CFX.Transport
         {
             if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to open or close a listener.");
             requestProcessor.RemoveListener(targetAddress);
+        }
+
+        /// <summary>
+        /// Set up a message source on this endpoint that other endpoints may subscribe to.  Messages published to a message source are placed in a queue, and remain there until
+        /// a subscriber connects and removes them.  The queue is volatile, and will be deleted when the hosting process is restarted.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        public void AddMessageSource(string sourceAddress)
+        {
+            if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to act as a message source.");
+
+            requestProcessor.AddSource(sourceAddress);
+        }
+
+        /// <summary>
+        /// Closes a previously added message source.  All messages in the source's queue will be purged upon closing.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        public void CloseMessageSource(string sourceAddress)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have a request processor set up via the Open method in order to open or close a message source.");
+            requestProcessor.RemoveSource(sourceAddress);
+        }
+
+        /// <summary>
+        /// Purges all queued messages for the given message source.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        public void PurgeMessageSource(string sourceAddress)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to open or close a message source.");
+            requestProcessor.PurgeSource(sourceAddress);
+        }
+
+        /// <summary>
+        /// Publishes a single message to a message source.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        /// <param name="env"></param>
+        public void PublishToMessageSource(string sourceAddress, CFXEnvelope env)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to publish to a message source.");
+
+            FillSource(env);
+            requestProcessor.PublishToSource(sourceAddress, new CFXEnvelope[] { env });
+        }
+
+        /// <summary>
+        /// Publishes multiple messages to a message source.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        /// <param name="envelopes"></param>
+        public void PublishManyToMessageSource(string sourceAddress, IEnumerable<CFXEnvelope> envelopes)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to publish to a message source.");
+
+            FillSource(envelopes);
+            requestProcessor.PublishToSource(sourceAddress, envelopes);
         }
 
         private void Channel_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)

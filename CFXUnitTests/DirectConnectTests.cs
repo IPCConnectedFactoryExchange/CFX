@@ -67,8 +67,13 @@ namespace CFXUnitTests
             Assert.IsTrue(resp.MessageBody is AreYouThereResponse, "Response is not AreYouThereReponse");
             Assert.IsTrue(resp.Source == listener.CFXHandle, "Bad response Source handle");
             Assert.IsTrue(resp.Target == endpoint.CFXHandle, "Bad response Target handle");
-
+            
+            // Test Async request / response call
             await RunAsyncRequest();
+
+            // Test message source
+            WhoIsThereRequest wr = new WhoIsThereRequest();
+            FireAndWaitForSource(wr);
         }
 
         private async Task RunAsyncRequest()
@@ -103,6 +108,7 @@ namespace CFXUnitTests
             listener.OnRequestReceived += Listener_OnRequestReceived;
 
             listener.AddListener(TestSettings.ListenerAddress);
+            listener.AddMessageSource(TestSettings.ListenerMessageSourceAddress);
         }
 
         private void SetupEndpoint(bool auth, bool sec)
@@ -129,6 +135,14 @@ namespace CFXUnitTests
             }
 
             endpoint.AddPublishChannel(uri, TestSettings.ListenerAddress);
+
+            endpoint.OnCFXMessageReceived += Endpoint_OnCFXMessageReceived;
+            endpoint.AddSubscribeChannel(uri, TestSettings.ListenerMessageSourceAddress);
+        }
+
+        private void Endpoint_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
+        {
+            if (evt != null) evt.Set();
         }
 
         private System.Threading.AutoResetEvent evt;
@@ -142,6 +156,20 @@ namespace CFXUnitTests
                 {
                     throw new TimeoutException("The message was not received by listener.  Timeout");
                 }
+                System.Threading.Thread.Sleep(100);
+            }
+        }
+
+        private void FireAndWaitForSource(CFXMessage msg)
+        {
+            using (evt = new System.Threading.AutoResetEvent(false))
+            {
+                listener.PublishToMessageSource(TestSettings.ListenerMessageSourceAddress, new CFXEnvelope(msg));
+                if (!evt.WaitOne(60000))
+                {
+                    throw new TimeoutException("The message was not received from the message source.  Timeout");
+                }
+                System.Threading.Thread.Sleep(100);
             }
         }
 

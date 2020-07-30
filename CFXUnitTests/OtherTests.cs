@@ -85,7 +85,7 @@ namespace CFXUnitTests
             //CFX.Utilities.AppLog.AmqpTraceEnabled = true;
             CFX.Utilities.AppLog.OnTraceMessage += AppLog_OnTraceMessage;
 
-            
+
             string handle = "Aegis.CFXSimulator.Machine1";
             AmqpCFXEndpoint ep = new AmqpCFXEndpoint();
             ep.HeartbeatFrequency = TimeSpan.FromSeconds(4);
@@ -151,7 +151,7 @@ namespace CFXUnitTests
             messages.Reverse();
 
             foreach (string msg in messages)
-            { 
+            {
                 CFXEnvelope env = CFXEnvelope.FromJson(msg);
                 if (!startTime.HasValue) startTime = env.TimeStamp;
                 env.TimeStamp = actualStart + (env.TimeStamp - startTime.Value);
@@ -180,7 +180,7 @@ namespace CFXUnitTests
 
         }
 
-        private string GetNextMessage(string data, ref int startPos)
+        public static string GetNextMessage(string data, ref int startPos)
         {
             int depth = 0;
             string result = null;
@@ -207,6 +207,13 @@ namespace CFXUnitTests
             return result;
         }
 
-
+        public static void Wait(int seconds)
+        {
+            DateTime start = DateTime.Now;
+            while ((DateTime.Now - start) < TimeSpan.FromSeconds(seconds))
+            {
+                System.Threading.Thread.Sleep(1);
+            }
+        }
     }
 }
