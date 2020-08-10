@@ -12,7 +12,6 @@ using CFX.Utilities;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using System.Collections.Concurrent;
-using System.Security.Permissions;
 
 namespace CFX.Transport
 {

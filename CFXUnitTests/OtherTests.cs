@@ -108,7 +108,6 @@ namespace CFXUnitTests
 
         private void Ep_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
         {
-            int z1 = 0;
         }
 
         private void AppLog_OnTraceMessage(LogMessageType type, string traceMessage)
