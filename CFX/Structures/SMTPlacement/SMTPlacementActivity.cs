@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,16 @@ namespace CFX.Structures.SMTPlacement
         {
             get;
             set;
+        }
+
+        [JsonProperty("Head")]
+        private SMTHeadInformation OldHeadSetter
+        {
+            set
+            {
+                Heads = new List<SMTHeadInformation>();
+                Heads.Add(value);
+            }
         }
 
         /// <summary>

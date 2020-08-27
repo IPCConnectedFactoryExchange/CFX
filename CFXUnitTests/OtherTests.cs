@@ -11,6 +11,7 @@ using CFX.Utilities;
 using System.IO;
 using CFX.ResourcePerformance;
 using CFX.Production;
+using CFX.Structures.SMTPlacement;
 
 namespace CFXUnitTests
 {
@@ -213,6 +214,52 @@ namespace CFXUnitTests
             {
                 System.Threading.Thread.Sleep(1);
             }
+        }
+
+        [TestMethod]
+        public void UpgradeTest()
+        {
+            // Write old SMTPlacementActivity
+            //SMTPlacementActivity act = new SMTPlacementActivity();
+            //act.Head = new SMTHeadInformation()
+            //{
+            //    Head = new CFX.Structures.Head()
+            //    {
+            //        HeadId = "10001000",
+            //        HeadName = "HEAD1",
+            //        HeadSequence = 1
+            //    },
+            //    NumberOfNozzleLocations = 2,
+            //    PlacementAccuracy = 0.00001,
+            //    SMTHeadType = SMTHeadType.Pulsar
+            //};
+
+            //ActivitiesExecuted ae = new ActivitiesExecuted()
+            //{
+            //    Activities = new List<CFX.Structures.Activity>()
+            //    {
+            //        act
+            //    }
+            //};
+
+            //using (StreamWriter writer = new StreamWriter(@"d:\stuff\test.txt"))
+            //{
+            //    writer.Write(ae.ToJson());
+            //}
+
+            ActivitiesExecuted ae2 = null;
+            using (StreamReader reader = new StreamReader(@"d:\stuff\test.txt"))
+            {
+                string json = reader.ReadToEnd();
+                ae2 = CFXMessage.FromJson<ActivitiesExecuted>(json);
+
+            }
+
+            string test = ae2.ToJson(true);
+
+
+
+            int z1 = 0;
         }
     }
 }
