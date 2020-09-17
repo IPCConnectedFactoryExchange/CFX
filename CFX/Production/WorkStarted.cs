@@ -118,5 +118,14 @@ namespace CFX.Production
             get;
             set;
         }
+
+        /// <summary>
+        /// The Work Order (and Batch, if applicable) to which this work is associated.
+        /// </summary>
+        public WorkOrderIdentifier WorkOrderIdentifier
+        {
+            get;
+            set;
+        }
     }
 }
