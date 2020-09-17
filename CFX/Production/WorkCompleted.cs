@@ -109,7 +109,7 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The Work Order (and Batch, if applicable) to which this work is associated.
+        /// OPTIONAL. The Work Order (and Batch, if applicable) to which this work is associated.
         /// </summary>
         public WorkOrderIdentifier WorkOrderIdentifier
         {
