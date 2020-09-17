@@ -33,6 +33,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The stage name or number
+        /// </summary>
+        public Stage Stage
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The electrical test result of this component (optional)
         /// </summary>
         public ComponentElectricalTest ElectricalTest

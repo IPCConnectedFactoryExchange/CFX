@@ -45,6 +45,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The stage name or number
+        /// </summary>
+        public Stage Stage
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Id of the rejection box where the component has been rejected (if applicable)
         /// </summary>
         public string RejectionBoxId
