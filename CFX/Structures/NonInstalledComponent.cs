@@ -70,10 +70,11 @@ namespace CFX.Structures
             get;
             set;
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// The rejection details, depending on the rejection reason (optional)
         /// </summary>
+        [JsonProperty(TypeNameHandling = TypeNameHandling.Auto)]
         public RejectionDetails RejectionDetails
         {
             get;
