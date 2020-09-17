@@ -127,6 +127,20 @@ namespace CFX.Transport
 
         }
 
+        public static string StringFromEnvelopes(Message msg)
+        {
+            if (msg?.Body is byte[])
+            {
+                return Encoding.UTF8.GetString(msg.Body as byte[]);
+            }
+            else if (msg?.Body is string)
+            {
+                return msg.Body as string;
+            }
+
+            return null;
+        }
+
         public static bool IsMessageList(string jsonData)
         {
             string test = jsonData.Substring(0, jsonData.Length >= 20 ? 20 : jsonData.Length).TrimStart();

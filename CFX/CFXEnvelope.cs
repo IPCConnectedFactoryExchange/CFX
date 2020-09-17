@@ -69,6 +69,9 @@ namespace CFX
 
         private string messageName;
 
+        /// <summary>
+        /// The fully qualified name of the CFX message contained within the envelope.  For example, "CFX.Production.WorkStarted"
+        /// </summary>
         [JsonProperty]
         public string MessageName
         {
@@ -83,6 +86,10 @@ namespace CFX
             }
         }
 
+        /// <summary>
+        /// The version of the CFX message contained within the payload of this envelope.  This is the version number
+        /// (revision) of the published standard.
+        /// </summary>
         [JsonProperty]
         public string Version
         {
@@ -90,6 +97,10 @@ namespace CFX
             set;
         }
 
+        /// <summary>
+        /// The date and time when the event associated with this CFX message took place, NOT the time when the message was
+        /// transmitted.
+        /// </summary>
         [JsonProperty]
         public DateTime TimeStamp
         {
@@ -97,6 +108,11 @@ namespace CFX
             set;
         }
 
+        /// <summary>
+        /// A globally unique ID used to identify this particualar message instance.  This ID is used to ensure messages are not
+        /// processed more than once.  It is also used in cases where the receiver needs to identify the specific message that is 
+        /// being replied to.
+        /// </summary>
         [JsonProperty]
         public Guid UniqueID
         {
@@ -104,6 +120,9 @@ namespace CFX
             set;
         }
                
+        /// <summary>
+        /// The CFX Handle of the creator/publisher of this message.
+        /// </summary>
         [JsonProperty]
         public string Source
         {
@@ -111,6 +130,9 @@ namespace CFX
             set;
         }
 
+        /// <summary>
+        /// For request/response type messages, this is the CFX Handle of the endpoint to which the request is being made.
+        /// </summary>
         [JsonProperty]
         public string Target
         {
@@ -118,6 +140,10 @@ namespace CFX
             set;
         }
 
+        /// <summary>
+        /// For request/response type messages, this is a globally unique id which identifies a specific request/response pairing.  
+        /// Each request/response pairing will have a unique and matching RequestId.
+        /// </summary>
         [JsonProperty]
         public string RequestID
         {
@@ -169,9 +195,9 @@ namespace CFX
 
             // For backwards compatibility.  Older versions of the SDK did not properly decorate the $type of the MessageBody property,
             // so the message portion had to be deserialized individually, which was inefficient.
-            if (!(env.MessageBody is CFXMessage))
+            if (!(env.MessageBody is CFXMessage) && !string.IsNullOrWhiteSpace(env.messageName))
             {
-                Type tp = Type.GetType(env.MessageName);
+                Type tp = Type.GetType(env.messageName);
                 env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
             }
 
@@ -185,9 +211,9 @@ namespace CFX
             {
                 // For backwards compatibility.  Older versions of the SDK did not properly decorate the $type of the MessageBody property,
                 // so the message portion had to be deserialized individually, which was inefficient.
-                if (!(env.MessageBody is CFXMessage))
+                if (!(env.MessageBody is CFXMessage) && !string.IsNullOrWhiteSpace(env.messageName))
                 {
-                    Type tp = Type.GetType(env.MessageName);
+                    Type tp = Type.GetType(env.messageName);
                     env.MessageBody = CFXJsonSerializer.DeserializeObject(env.MessageBody.ToString(), tp);
                 }
             }

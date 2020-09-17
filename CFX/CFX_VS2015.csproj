@@ -82,6 +82,8 @@
     <Compile Include="InformationSystem\WorkOrderManagement\WorkOrdersUpdated.cs" />
     <Compile Include="Materials\Management\BlockMaterialsRequest.cs" />
     <Compile Include="Materials\Management\BlockMaterialsResponse.cs" />
+    <Compile Include="Materials\Management\GetMaterialInformationRequest.cs" />
+    <Compile Include="Materials\Management\GetMaterialInformationResponse.cs" />
     <Compile Include="Materials\Management\MaterialsConsumed.cs" />
     <Compile Include="Materials\Management\MaterialsInitialized.cs" />
     <Compile Include="Materials\Management\MaterialsJoined.cs" />

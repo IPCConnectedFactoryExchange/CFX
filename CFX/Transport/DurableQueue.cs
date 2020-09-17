@@ -13,7 +13,9 @@ namespace CFX.Transport
             : base()
         {
             dataName = System.IO.Path.GetTempPath();
-            dataName += (@"\" + name + ".cache");
+            string safeName = name.Replace('\\', '-');
+            safeName = safeName.Replace('/', '-');
+            dataName += (@"\" + safeName + ".cache");
             Initialize();
         }
 

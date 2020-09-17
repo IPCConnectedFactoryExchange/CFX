@@ -62,6 +62,11 @@ namespace CFX.Transport
         public event CFXMessageReceivedHandler OnCFXMessageReceived;
 
         /// <summary>
+        /// Event that fires whenever a message is received that is not a valid, properly formatted CFX Message
+        /// </summary>
+        public event CFXMalformedMessageReceivedHandler OnMalformedMessageReceived;
+
+        /// <summary>
         /// Event that fires whenever a CFX message is received from a listener type channel.
         /// </summary>
         public event CFXMessageReceivedFromListenerHandler OnCFXMessageReceivedFromListener;
@@ -338,7 +343,7 @@ namespace CFX.Transport
                 {
                     this.RequestUri = requestUri;
                     requestProcessor = new AmqpRequestProcessor();
-                    requestProcessor.Open(this.CFXHandle, this.RequestUri, certificate);
+                    requestProcessor.Open(this, certificate);
                     requestProcessor.OnRequestReceived += RequestProcessor_OnRequestReceived;
                     requestProcessor.OnMessageReceivedFromListener += RequestProcessor_OnCFXMessageReceivedFromListener;
                 }
@@ -357,7 +362,6 @@ namespace CFX.Transport
         /// </summary>
         /// <param name="channelUri">The network address of the target channel.</param>
         /// <param name="virtualHostName">The name of the virtual host at the destination endpoint.  Default is null for default virtual host.</param>
-        /// <param name="certificate">If secure amqps is being used, this property may optionally include the certificate that will be matched against the server's certificate </param>
         /// <param name="error">In the case of an error, returns information about the nature of the error.</param>
         /// <returns></returns>
         public bool TestChannel(Uri channelUri, out Exception error, string virtualHostName = null)
@@ -765,9 +769,73 @@ namespace CFX.Transport
             requestProcessor.RemoveListener(targetAddress);
         }
 
+        /// <summary>
+        /// Set up a message source on this endpoint that other endpoints may subscribe to.  Messages published to a message source are placed in a queue, and remain there until
+        /// a subscriber connects and removes them.  The queue is volatile, and will be deleted when the hosting process is restarted.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        public void AddMessageSource(string sourceAddress)
+        {
+            if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to act as a message source.");
+
+            requestProcessor.AddSource(sourceAddress);
+        }
+
+        /// <summary>
+        /// Closes a previously added message source.  All messages in the source's queue will be purged upon closing.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        public void CloseMessageSource(string sourceAddress)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have a request processor set up via the Open method in order to open or close a message source.");
+            requestProcessor.RemoveSource(sourceAddress);
+        }
+
+        /// <summary>
+        /// Purges all queued messages for the given message source.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        public void PurgeMessageSource(string sourceAddress)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to open or close a message source.");
+            requestProcessor.PurgeSource(sourceAddress);
+        }
+
+        /// <summary>
+        /// Publishes a single message to a message source.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        /// <param name="env"></param>
+        public void PublishToMessageSource(string sourceAddress, CFXEnvelope env)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to publish to a message source.");
+
+            FillSource(env);
+            requestProcessor.PublishToSource(sourceAddress, new CFXEnvelope[] { env });
+        }
+
+        /// <summary>
+        /// Publishes multiple messages to a message source.
+        /// </summary>
+        /// <param name="sourceAddress"></param>
+        /// <param name="envelopes"></param>
+        public void PublishManyToMessageSource(string sourceAddress, IEnumerable<CFXEnvelope> envelopes)
+        {
+            if (requestProcessor == null || !requestProcessor.IsOpen) throw new Exception("The Endpoint must have an a request processor set up via the Open method in order to publish to a message source.");
+
+            FillSource(envelopes);
+            requestProcessor.PublishToSource(sourceAddress, envelopes);
+        }
+
         private void Channel_OnCFXMessageReceived(AmqpChannelAddress source, CFXEnvelope message)
         {
             OnCFXMessageReceived?.Invoke(source, message);
+        }
+
+        internal void Channel_OnMalformedMessageReceived(AmqpChannelAddress source, string message)
+        {
+            OnMalformedMessageReceived?.Invoke(source, message);
         }
 
         private ValidateCertificateResult Channel_OnValidateCertificate(Uri source, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)

@@ -344,6 +344,6 @@ namespace CFX.Structures
         /// <summary>
         /// 64-bit ARM Platform
         /// </summary>
-        AR64
+        ARM64
     }
 }
