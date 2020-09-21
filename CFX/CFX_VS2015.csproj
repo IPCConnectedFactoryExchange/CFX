@@ -68,6 +68,7 @@
     <Compile Include="EndpointShuttingDown.cs" />
     <Compile Include="GetEndpointInformationRequest.cs" />
     <Compile Include="GetEndpointInformationResponse.cs" />
+	<Compile Include="Heartbeat.cs" />
     <Compile Include="InformationSystem\NamespaceDoc.cs" />
     <Compile Include="InformationSystem\ProductionScheduling\WorkOrdersScheduled.cs" />
     <Compile Include="InformationSystem\ProductionScheduling\WorkOrdersUnscheduled.cs" />
@@ -172,7 +173,7 @@
     <Compile Include="Production\UpdateRecipeRequest.cs" />
     <Compile Include="Production\UpdateRecipeResponse.cs" />
     <Compile Include="Production\WorkCompleted.cs" />
-    <Compile Include="Produciion\WorkOrderActionExecuted.cs" />    
+    <Compile Include="Production\WorkOrderActionExecuted.cs" />
     <Compile Include="Production\WorkStageCompleted.cs" />
     <Compile Include="Production\WorkStagePaused.cs" />
     <Compile Include="Production\WorkStageResumed.cs" />
