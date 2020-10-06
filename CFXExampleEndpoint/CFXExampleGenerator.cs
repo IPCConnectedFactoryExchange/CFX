@@ -1313,7 +1313,9 @@ namespace CFXExampleEndpoint
                 {
                     CalibrationCode = "FID1",
                     CalibrationType = CalibrationType.UnitPosition,
-                    Comments = "Position Check.  Fiducial FID1."
+                    Comments = "Position Check.  Fiducial FID1.",
+                    Status = OperationStatus.Ok,
+                    CalibrationTime = null
                 }
             };
             AppendMessage(msg, ref result);
@@ -4109,6 +4111,290 @@ namespace CFXExampleEndpoint
             {
             };
             AppendMessage(msg, ref result);
+            //*******************************//
+            //*********New in CFX 1.3********//
+            msg = new CFX.Maintenance.GetResourceInformationRequest
+            {
+                CFXHandle = "SMT.SIPLACE_SX4.10000000"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Maintenance.GetResourceInformationResponse()
+            {
+                ResourceInformation = new SMTPlacementResource()
+                {
+                    UniqueIdentifier = "UID1111111111111111",
+                    SoftwareVersion = "713",
+                    Vendor = "ASM",
+                    ModelNumber = "SIPLACE SX4",
+                    FriendlyName = "SMT SIPLACE SX 4",
+                    SerialNumber = "10000000",
+                    Cameras = new List<Camera>()
+                    {
+                        new Camera()
+                        {
+                            ResourceName = "SST34_1",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G1-GC__",
+                            ResourcePosition = "1.1"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST34_2",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G2-GC__",
+                            ResourcePosition = "2.2"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST34_3",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G3-GC__",
+                            ResourcePosition = "2.3"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST34_4",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G4-GC__",
+                            ResourcePosition = "1.4"
+                        },
+                    },
+                    Conveyors = new List<Conveyor>()
+                    {
+                        new Conveyor()
+                        {
+                            ResourceName = "Dual",
+                            ResourceType = "Dual",
+                            ResourceIdentifier = "10000000_Conveyor_0_E_1",
+                            ResourcePosition = null
+                        }
+                    },
+                    ElectricCards = new List<ElectricCard>()
+                    {
+
+                    },
+                    Gantries = new List<Gantry>()
+                    {
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_1",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_1_R_1",
+                            ResourcePosition = "1.1"
+                        },
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_2",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_2_R_1",
+                            ResourcePosition = "2.2"
+                        },
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_3",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_2_L_1",
+                            ResourcePosition = "2.3"
+                        },
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_4",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_1_L_1",
+                            ResourcePosition = "1.4"
+                        }
+                    },
+                    NozzleChangers = new List<NozzleChanger>()
+                    {
+                        new NozzleChanger()
+                        {
+                            ResourceName = "NozzleCarrier_14_4.1",
+                            ResourceType = "NozzleCarrier_14",
+                            ResourceIdentifier = "10000000_NozzleChanger_1_L_1",
+                            ResourcePosition = "1.4.1.1"
+                        },
+                         new NozzleChanger()
+                        {
+                            ResourceName = "NozzleCarrier_10_3.1",
+                            ResourceType = "NozzleCarrier_10_3",
+                            ResourceIdentifier = "10000000_NozzleChanger_2_L_1",
+                            ResourcePosition = "2.3.1.3"
+                        }
+                    },
+                    PlacementHeads = new List<HeadResource>()
+                    {
+                       new HeadResource()
+                       {
+                          ResourceName = "C&P20_1",
+                          ResourceType = "C&P20",
+                          ResourceIdentifier = "00000000-00 000-H1-_____",
+                          ResourcePosition = "1.1.1",
+                          Cameras = new List<Camera>()
+                          {
+                               new Camera()
+                               {
+                                   ResourceName = "SST23_1.1",
+                                   ResourceType = "SST23",
+                                   ResourceIdentifier = "10000000-00 000-H1-HC__",
+                                   ResourcePosition = "1.1.1"
+                               }
+                          },
+                          RotationAxes = new List<RotationAxis>()
+                          {
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_1_DpAxis1",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H1-DP1_",
+                                  ResourcePosition = "1.1.1.1"
+                              },
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_1_DpAxis10",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H1-DP10",
+                                  ResourcePosition = "1.1.1.10"
+                              }
+                          }
+                       },
+                       new HeadResource()
+                       {
+                          ResourceName = "C&C&P20_3",
+                          ResourceType = "C&P20",
+                          ResourceIdentifier = "00000000-00 000-H3-_____",
+                          ResourcePosition = "2.3.1",
+                          Cameras = new List<Camera>()
+                          {
+                               new Camera()
+                               {
+                                   ResourceName = "SST23_3.1",
+                                   ResourceType = "SST23",
+                                   ResourceIdentifier = "10000000-00 000-H3-HC__",
+                                   ResourcePosition = "2.3.1"
+                               }
+                          },
+                          RotationAxes = new List<RotationAxis>()
+                          {
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_3_DpAxis1",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H3-DP1_",
+                                  ResourcePosition = "2.3.1.1"
+                              },
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_3_DpAxis10",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H3-DP10",
+                                  ResourcePosition = "2.3.1.10"
+                              }
+                          }
+                       }
+                    },
+                    TapeCutters = new List<TapeCutter>()
+                    {
+                        new TapeCutter()
+                        {
+                            ResourceName = "TapeCutter_1.4",
+                            ResourceType = "",
+                            ResourceIdentifier = "10000000_TapeCutter_1_L_1",
+                            ResourcePosition = "1.0.4"
+                        },
+                        new TapeCutter()
+                        {
+                            ResourceName = "TapeCutter_1.1",
+                            ResourceType = "",
+                            ResourceIdentifier = "10000000_TapeCutter_1_R_1",
+                            ResourcePosition = "1.0.1"
+                        }
+                    },
+                    VacuumPumps = new List<VacuumPump>()
+                    {
+
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Maintenance.GetResourceSetupRequest()
+            {
+                CFXHandle = "SMT.SIPLACE_SX4.10000000"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Maintenance.GetResourceSetupResponse()
+            {
+                ResourceSetup = new SMTPlacementSetup()
+                {
+                    FeederLocations = new List<MaterialCarrierLocation>()
+                    {
+                       new MaterialCarrierLocation()
+                       {
+                           //If mapping of the Track is needed, the CarrierInfo should be probably duplicated 
+                           LocationIdentifier = "3.2",
+                           LocationName = "Location name",
+                           CarrierInformation = new SMDTapeFeeder()
+                           {
+                               UniqueIdentifier = "09ASMS500302",
+                               Name = "2x8mm-X Tape_3.2",
+                               LaneNumber = 1,
+                               BaseUniqueIdentifier = "09ASMS500302"
+                           }
+                       },
+                       new MaterialCarrierLocation()
+                       {
+                           LocationIdentifier = "4.7",
+                           LocationName = "Location name",
+                           CarrierInformation = new SMDTapeFeeder()
+                           {
+                               UniqueIdentifier = "08ASMS500407",
+                               Name = "8mm-X Tape_4.7",
+                               LaneNumber = 1,
+                               BaseUniqueIdentifier = "08ASMS500407"
+                           }
+                       }
+                    },
+                    NozzleChangerGarages = new List<NozzleChangerGarage>()
+                    {
+                        new NozzleChangerGarage()
+                        {
+                            ResourceName = "10000000_NozzleChanger_1_L_1_1_2_2_1006",
+                            ResourceType = "1006",
+                            ResourceIdentifier = "10000000_466",
+                            ResourcePosition = "4.1.2.2"
+                        },
+                        new NozzleChangerGarage()
+                        {
+                            ResourceName = "10000000_NozzleChanger_1_L_1_1_2_1_1006",
+                            ResourceType = "1006",
+                            ResourceIdentifier = "10000000_467",
+                            ResourcePosition = "4.1.2.1"
+                        },
+                    },
+                    Tables = new List<Table>()
+                    {
+                        new Table()
+                        {
+                            ResourceName = "Table_4",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_FeederDevice_1_L",
+                            ResourcePosition = "4.1.1"
+                        },
+                        new Table()
+                        {
+                            ResourceName = "Table_1",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_FeederDevice_1_R",
+                            ResourcePosition = "1.1.1"
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            //******************************//
 
             return result;
         }

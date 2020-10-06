@@ -35,5 +35,82 @@ namespace CFX.Structures
         /// potentially by other means)
         /// </summary>
         UnitPosition,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// The robotic / automated device has calibrated the travel range
+        /// of a part (typically head)
+        /// </summary>
+        TravelRange,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// The robotic / automated device has calibrated the identification system
+        /// </summary>
+        SystemIdentification,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// The robotic / automated device has calibrated the zero reference position
+        /// </summary>
+        ZeroPointOffset,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        BoardCamera,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        FeedUnitsTable,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        NozzleChanger,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        BoardReferenceCorner,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        ComponentSensorCamera,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        SegmentOffset,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        ComponentSensorLightBarrier,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        ZeroPressure,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        BoardMapping,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        HeadMapping,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        HeadsAndCameras,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// T.B.D.
+        /// </summary>
+        VacuumTooling
+
     }
 }
