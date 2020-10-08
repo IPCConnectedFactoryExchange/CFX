@@ -33,6 +33,7 @@ using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
 using CFX.Structures.ReflowProfiling;
+using CFX.Structures.Maintenance;
 
 namespace CFXExampleEndpoint
 {
@@ -4388,6 +4389,111 @@ namespace CFXExampleEndpoint
                             ResourceType = null,
                             ResourceIdentifier = "10000000_FeederDevice_1_R",
                             ResourcePosition = "1.1.1"
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Maintenance.GetResourceMaintenanceAndServiceRequest()
+            {
+                CFXHandle = "SMT.SIPLACE_SX4.10000000"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Maintenance.GetResourceMaintenanceAndServiceResponse()
+            {
+                UniqueIdentifier = "10000000",
+                MachineServiceAndMaintenanceData = new List<ServiceAndMaintenanceData>()
+                {
+                    new ServiceAndMaintenanceData()
+                    {
+                        UniqueIdentifier = "00000000-00 000-H2-_____",
+                        Name = "C&P20_2",
+                        CalibrationDetails = new List<Calibration>()
+                        {
+                            new Calibration()
+                            {
+                                CalibrationCode = "SegmentOffset",
+                                CalibrationType = CalibrationType.SegmentOffset,
+                                CalibrationTime =  DateTime.Now,
+                                Status = OperationStatus.Ok,
+                                Comments = ""
+                            },
+                            new Calibration()
+                            {
+                                CalibrationCode = "HeadMapping_0_R",
+                                CalibrationType = CalibrationType.HeadMapping,
+                                CalibrationTime =  DateTime.Now,
+                                Status = OperationStatus.Failed,
+                                Comments = "Calibration failed. Check log"
+                            }
+                        },
+                        MaintenanceDetails = new List<MaintenanceInformation>()
+                        {
+                            new MaintenanceInformation()
+                            {
+                                Name = "HeadCompleteMileage",
+                                CounterType = CounterType.HeadMaintenanceCounter,
+                                CurrentCounterValue = 0.0,
+                                CurrentRatio = 97.9,
+                                CurrentRatioValid = true,
+                                CurrentTimeStamp = DateTime.Now,
+                                LastMaintenanceCounterValue=102,
+                                LastMaintenanceTimeStamp = DateTime.Now.AddMonths(-1),
+                                LastMaintenanceValid = false,
+                                MeasurementLocation = null
+                            }
+                        },
+                        SensorDetails = new List<SensorInformation>()
+                        {
+                            new SensorInformation()
+                            {
+                                Type = SensorType.Temperature,
+                                Value = 19.2,
+                                LowLimit = 15.0,
+                                HighLimit = 30,
+                                UnitOfMeasure = SensorUnitOfMeasure.DegreeCelsius,
+                                SampleTime = DateTime.Now,
+                                SensorLocation = "2_R"
+                            }
+                        }
+                    },
+                    new ServiceAndMaintenanceData()
+                    {
+                        UniqueIdentifier = "10000000-00 000-G1-GC__",
+                        Name = "SST34_1",
+                        CalibrationDetails = new List<Calibration>()
+                        {
+                            new Calibration()
+                            {
+                                CalibrationCode = "C123456",
+                                CalibrationType = CalibrationType.BoardCamera,
+                                CalibrationTime =  DateTime.Now,
+                                Status = OperationStatus.Ok,
+                                Comments = ""
+                            }
+                        },
+                        VerificationDetails = new List<VerificationInformation>()
+                        {
+                            new VerificationInformation()
+                            {
+                                Type = VerificationType.HeadCameraVerification,
+                                Status = OperationStatus.Ok,
+                                IsValid = true,
+                                Name = "FCCSCalibration",
+                                Value = 0.0,
+                                LastExecution = DateTime.Now
+                            },
+                            new VerificationInformation()
+                            {
+                                Type = VerificationType.HeadCameraVerification,
+                                Status = OperationStatus.Failed,
+                                IsValid = true,
+                                Name = "FCCSCleaningRequired",
+                                Value = 0.0,
+                                LastExecution = DateTime.Now
+                            }
                         }
                     }
                 }
