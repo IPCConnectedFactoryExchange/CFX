@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures.SMTPlacement
+namespace CFX.Structures.Maintenance
 {
     /// <summary>
     /// Describes the resources / sub-resources of a particular Endpoint that is participating in a CFX network, 

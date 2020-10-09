@@ -35,7 +35,7 @@ namespace CFX.Structures
         /// <summary>
         /// The name of the resource to be used in GUIs or reporting (optional)
         /// </summary>
-        public string FriendlyName
+        public string Name
         {
             get;
             set;

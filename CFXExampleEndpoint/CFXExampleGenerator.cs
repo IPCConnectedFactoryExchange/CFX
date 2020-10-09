@@ -4124,12 +4124,12 @@ namespace CFXExampleEndpoint
             {
                 ResourceInformation = new SMTPlacementResource()
                 {
-                    UniqueIdentifier = "UID1111111111111111",
+                    UniqueIdentifier = "10000000",
                     SoftwareVersion = "713",
                     Vendor = "ASM",
                     ModelNumber = "SIPLACE SX4",
-                    FriendlyName = "SMT SIPLACE SX 4",
-                    SerialNumber = "10000000",
+                    Name = "SMT SIPLACE SX 4",
+                    SerialNumber = "UID1111111111111111",
                     Cameras = new List<Camera>()
                     {
                         new Camera()
@@ -4329,31 +4329,43 @@ namespace CFXExampleEndpoint
             {
                 ResourceSetup = new SMTPlacementSetup()
                 {
-                    FeederLocations = new List<MaterialCarrierLocation>()
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                    Feeders = new List<ResourceInformation>()
                     {
-                       new MaterialCarrierLocation()
+                       new SMTTapeFeederInformation()
                        {
-                           //If mapping of the Track is needed, the CarrierInfo should be probably duplicated 
-                           LocationIdentifier = "3.2",
-                           LocationName = "Location name",
-                           CarrierInformation = new SMDTapeFeeder()
+                           ResourceIdentifier = "08ASMS500240",
+                           ResourceName = "8mm-X Tape_2.40",
+                           ResourcePosition ="2.40",
+                           ResourceType = "8mm-X Tape",
+                           MultiLanes = new List<MultiLane>()
                            {
-                               UniqueIdentifier = "09ASMS500302",
-                               Name = "2x8mm-X Tape_3.2",
-                               LaneNumber = 1,
-                               BaseUniqueIdentifier = "09ASMS500302"
+                               new MultiLane()
+                               {
+                                   LaneNumber = 1,
+                                   UniqueIdentifier = "08ASMS500240_1"
+                               }
                            }
                        },
-                       new MaterialCarrierLocation()
+                       new SMTTapeFeederInformation()
                        {
-                           LocationIdentifier = "4.7",
-                           LocationName = "Location name",
-                           CarrierInformation = new SMDTapeFeeder()
+                           ResourceIdentifier = "09ASMS500302",
+                           ResourceName = "2x8mm-X Tape_3.2",
+                           ResourcePosition ="3.2",
+                           ResourceType = "2x8mm-X Tape",
+                           MultiLanes = new List<MultiLane>()
                            {
-                               UniqueIdentifier = "08ASMS500407",
-                               Name = "8mm-X Tape_4.7",
-                               LaneNumber = 1,
-                               BaseUniqueIdentifier = "08ASMS500407"
+                               new MultiLane()
+                               {
+                                   LaneNumber = 1,
+                                   UniqueIdentifier = "09ASMS500302_Lane_1"
+                               },
+                               new MultiLane()
+                               {
+                                   LaneNumber = 2,
+                                   UniqueIdentifier = "09ASMS500302_Lane_2"
+                               }
                            }
                        }
                     },
@@ -4403,7 +4415,11 @@ namespace CFXExampleEndpoint
 
             msg = new CFX.Maintenance.GetResourceMaintenanceAndServiceResponse()
             {
-                UniqueIdentifier = "10000000",
+                Machine = new Resource()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                },
                 MachineServiceAndMaintenanceData = new List<ServiceAndMaintenanceData>()
                 {
                     new ServiceAndMaintenanceData()
@@ -4449,13 +4465,16 @@ namespace CFXExampleEndpoint
                         {
                             new SensorInformation()
                             {
+                                ResourceIdentifier = null,
+                                ResourceName = "Temperature sensor",
+                                ResourcePosition = "2_R",
+                                ResourceType = "Sensor",
                                 Type = SensorType.Temperature,
                                 Value = 19.2,
                                 LowLimit = 15.0,
                                 HighLimit = 30,
                                 UnitOfMeasure = SensorUnitOfMeasure.DegreeCelsius,
                                 SampleTime = DateTime.Now,
-                                SensorLocation = "2_R"
                             }
                         }
                     },
@@ -4471,7 +4490,7 @@ namespace CFXExampleEndpoint
                                 CalibrationType = CalibrationType.BoardCamera,
                                 CalibrationTime =  DateTime.Now,
                                 Status = OperationStatus.Ok,
-                                Comments = ""
+                                Comments = "Done ok"
                             }
                         },
                         VerificationDetails = new List<VerificationInformation>()
@@ -4495,11 +4514,91 @@ namespace CFXExampleEndpoint
                                 LastExecution = DateTime.Now
                             }
                         }
+                    },
+                    new ServiceAndMaintenanceData()
+                    {
+                        UniqueIdentifier = "08ASMS500240",
+                        Name = "8mm-X Tape_2.40",
+                        MaintenanceDetails = new List<MaintenanceInformation>()
+                        {
+                            new MaintenanceInformation()
+                            {
+                                Name = "FeederCycleCount",
+                                CounterType = CounterType.FeederCycleCount,
+                                CurrentCounterValue = 57002,
+                                CurrentRatio = 31.2,
+                                CurrentRatioValid = true,
+                                CurrentTimeStamp = DateTime.Now,
+                                LastMaintenanceCounterValue = 23456,
+                                LastMaintenanceTimeStamp = DateTime.Now.AddMonths(-2),
+                                LastMaintenanceValid = false,
+                                MeasurementLocation = "08ASMS500240_Lane_1"
+                            }
+                        }
                     }
                 }
             };
             AppendMessage(msg, ref result);
 
+            msg = new CFX.Maintenance.GetResourceMaintenanceStatusRequest()
+            {
+               Machine = new Resource()
+               {
+                   UniqueIdentifier = "10000000",
+                   Name = "SIPLACE SX4",
+               },
+              ResourceMaintenanceDetails = new List<ResourceInformation>()
+              {
+                  new SMTTapeFeederInformation()
+                  {
+                    ResourceIdentifier = "08FAUT901183",
+                    ResourceType = "8mm-X Tape",
+                    ResourcePosition = "2.14",
+                    ResourceName = "8mm-X Tape_2.14",
+                  }
+              }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Maintenance.GetResourceMaintenanceStatusResponse()
+            {
+                Machine = new Resource()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                },
+                ResourceMaintenanceDetails = new List<ResourceInformation>()
+              {
+                  new SMTTapeFeederInformation()
+                  {
+                    ResourceIdentifier = "08FAUT901183",
+                    ResourceType = "8mm-X Tape",
+                    ResourcePosition = "2.14",
+                    ResourceName = "8mm-X Tape_2.14",
+                    MaintenanceStatus = new MaintenanceStatus()
+                    {
+                        Reason = "No reason",
+                        ResultState = MaintenanceState.Ok
+                    },
+                    MultiLanes = new List<MultiLane>()
+                    {
+                        new MultiLane()
+                        {
+                            LaneNumber = 1,
+                            UniqueIdentifier = "09ASMS500302_Lane_1",
+                            CycleCount = 1002
+                        },
+                        new MultiLane()
+                        {
+                            LaneNumber = 2,
+                            UniqueIdentifier = "09ASMS500302_Lane_2",
+                            CycleCount = 3451
+                        }
+                    },
+                  }
+              }
+            };
+            AppendMessage(msg, ref result);
             //******************************//
 
             return result;

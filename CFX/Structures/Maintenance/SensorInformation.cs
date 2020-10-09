@@ -13,16 +13,8 @@ namespace CFX.Structures.Maintenance
     /// It may be used to model the sensor on  
     /// parts that may require traceable operations (i.e. maintenance)
     /// </summary>
-    public class SensorInformation
+    public class SensorInformation : ResourceInformation
     {
-        /// <summary>
-        /// If available, the identifier of the sensor performing the reading
-        /// </summary>
-        public string SensorIdentifier
-        {
-            get;
-            set;
-        }
         /// <summary>
         /// The type of the sensor in this position of the resource / machine.
         /// </summary>
@@ -31,15 +23,7 @@ namespace CFX.Structures.Maintenance
             get;
             set;
         }
-        /// <summary>
-        /// The location of the sensor in the resource / machine.
-        /// </summary>
-        public string SensorLocation
-        {
-            get;
-            set;
-        }
-
+        
         /// <summary>
         /// The value of the performed verification.
         /// </summary>
@@ -75,8 +59,6 @@ namespace CFX.Structures.Maintenance
             get;
             set;
         }
-
-        
 
         /// <summary>
         /// The last time when the verification has been executed

@@ -4,15 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
-/// <summary>
-/// <para>** NOTE: ADDED in CFX 1.3 **</para>
-/// An enumeration indicating the type of verification that can be executed during the process (i.e. maintenance)
-/// </summary>
 namespace CFX.Structures.Maintenance
 {
     /// <summary>
-    /// Supported verification types
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+    /// An enumeration indicating the type of verification that can be executed during the process (i.e. maintenance)
     /// </summary>
     public enum VerificationType
     {

@@ -20,19 +20,21 @@ namespace CFX.Maintenance
     ///     "Message": null
     ///   },
     ///   "ResourceSetup": {
-    ///     "$type": "CFX.Structures.SMTPlacement.SMTPlacementSetup, CFX",
+    ///     "$type": "CFX.Structures.Maintenance.SMTPlacementSetup, CFX",
     ///     "NozzleChangerGarages": [
     ///       {
     ///         "ResourceName": "10000000_NozzleChanger_1_L_1_1_2_2_1006",
     ///         "ResourceIdentifier": "10000000_466",
     ///         "ResourceType": "1006",
-    ///         "ResourcePosition": "4.1.2.2"
+    ///         "ResourcePosition": "4.1.2.2",
+    ///         "MaintenanceStatus": null
     ///       },
     ///       {
     ///         "ResourceName": "10000000_NozzleChanger_1_L_1_1_2_1_1006",
     ///         "ResourceIdentifier": "10000000_467",
     ///         "ResourceType": "1006",
-    ///         "ResourcePosition": "4.1.2.1"
+    ///         "ResourcePosition": "4.1.2.1",
+    ///         "MaintenanceStatus": null
     ///       }
     ///     ],
     ///     "Tables": [
@@ -40,47 +42,59 @@ namespace CFX.Maintenance
     ///         "ResourceName": "Table_4",
     ///         "ResourceIdentifier": "10000000_FeederDevice_1_L",
     ///         "ResourceType": null,
-    ///         "ResourcePosition": "4.1.1"
+    ///         "ResourcePosition": "4.1.1",
+    ///         "MaintenanceStatus": null
     ///       },
     ///       {
     ///         "ResourceName": "Table_1",
     ///         "ResourceIdentifier": "10000000_FeederDevice_1_R",
     ///         "ResourceType": null,
-    ///         "ResourcePosition": "1.1.1"
+    ///         "ResourcePosition": "1.1.1",
+    ///         "MaintenanceStatus": null
     ///       }
     ///     ],
-    ///     "FeederLocations": [
+    ///     "Feeders": [
     ///       {
-    ///         "LocationIdentifier": "3.2",
-    ///         "LocationName": "Location name",
-    ///         "CarrierInformation": {
-    ///           "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
-    ///           "BaseUniqueIdentifier": "09ASMS500302",
-    ///           "BaseName": null,
-    ///           "LaneNumber": 1,
-    ///           "TapeWidth": 0.0,
-    ///           "TapePitch": 0.0,
-    ///           "UniqueIdentifier": "09ASMS500302",
-    ///           "Name": "2x8mm-X Tape_3.2"
-    ///         }
+    ///         "MultiLanes": [
+    ///           {
+    ///             "CycleCount": null,
+    ///             "LaneNumber": 1,
+    ///             "UniqueIdentifier": "08ASMS500240_1"
+    ///           }
+    ///         ],
+    ///         "ResourceName": "8mm-X Tape_2.40",
+    ///         "ResourceIdentifier": "08ASMS500240",
+    ///         "ResourceType": "8mm-X Tape",
+    ///         "ResourcePosition": "2.40",
+    ///         "MaintenanceStatus": null
     ///       },
     ///       {
-    ///         "LocationIdentifier": "4.7",
-    ///         "LocationName": "Location name",
-    ///         "CarrierInformation": {
-    ///           "$type": "CFX.Structures.SMTPlacement.SMDTapeFeeder, CFX",
-    ///           "BaseUniqueIdentifier": "08ASMS500407",
-    ///           "BaseName": null,
-    ///           "LaneNumber": 1,
-    ///           "TapeWidth": 0.0,
-    ///           "TapePitch": 0.0,
-    ///           "UniqueIdentifier": "08ASMS500407",
-    ///           "Name": "8mm-X Tape_4.7"
-    ///         }
+    ///         "MultiLanes": [
+    ///           {
+    ///             "CycleCount": null,
+    ///             "LaneNumber": 1,
+    ///             "UniqueIdentifier": "09ASMS500302_Lane_1"
+    ///           },
+    ///           {
+    ///             "CycleCount": null,
+    ///             "LaneNumber": 2,
+    ///             "UniqueIdentifier": "09ASMS500302_Lane_2"
+    ///           }
+    ///         ],
+    ///         "ResourceName": "2x8mm-X Tape_3.2",
+    ///         "ResourceIdentifier": "09ASMS500302",
+    ///         "ResourceType": "2x8mm-X Tape",
+    ///         "ResourcePosition": "3.2",
+    ///         "MaintenanceStatus": null
     ///       }
     ///     ],
-    ///     "UniqueIdentifier": null,
-    ///     "Name": null
+    ///     "UniqueIdentifier": "10000000",
+    ///     "Name": "SIPLACE SX4",
+    ///     "Vendor": null,
+    ///     "ModelNumber": null,
+    ///     "SerialNumber": null,
+    ///     "SoftwareVersion": null,
+    ///     "FirmwareVersion": null
     ///   }
     /// }
     /// </code>
@@ -110,7 +124,7 @@ namespace CFX.Maintenance
         /// Dynamic structure that describes the details of this resource.
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
-        public  ResourceSetup ResourceSetup
+        public  Resource ResourceSetup
         {
             get;
             set;

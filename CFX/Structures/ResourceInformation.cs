@@ -51,5 +51,14 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// The maintenance status for this resource
+        /// </summary>
+        public MaintenanceStatus MaintenanceStatus
+        {
+            get;
+            set;
+        }
     }
 }
