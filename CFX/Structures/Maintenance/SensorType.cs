@@ -42,7 +42,7 @@ namespace CFX.Structures.Maintenance
             /// </summary>
             Time,
             /// <summary>
-            /// Umidity sensor
+            /// Humidity sensor
             /// </summary>
             Humidity,
             /// <summary>

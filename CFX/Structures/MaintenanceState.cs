@@ -15,7 +15,7 @@ namespace CFX.Structures
     public class MaintenanceStatus
     {
         /// <summary>
-        /// The reason why the feeder should be locked in case of result state is not ok  
+        /// The reason why the resource should be locked in case of result state is not ok  
         /// </summary>
         public string Reason
         {
