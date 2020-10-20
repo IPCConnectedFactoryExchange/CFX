@@ -53,8 +53,8 @@ namespace CFX.Maintenance
     ///       "MaintenanceDetails": [
     ///         {
     ///           "Name": "HeadCompleteMileage",
-    ///           "CounterType": "HeadMaintenanceCounter",
-    ///           "MeasurementLocation": null,
+    ///           "CounterType": "Odometer",
+    ///           "MeasurementLocation": "1.1.1",
     ///           "CurrentCounterValue": 0.0,
     ///           "CurrentRatio": 97.9,
     ///           "CurrentRatioValid": true,
@@ -102,7 +102,7 @@ namespace CFX.Maintenance
     ///           "Status": "Ok",
     ///           "Value": 0.0,
     ///           "UnitOfMeasure": null,
-    ///           "Type": 4,
+    ///           "Type": "General",
     ///           "IsValid": true,
     ///           "LastExecution": "2020-10-09T13:24:46.4581568+02:00",
     ///           "Comment": null
@@ -112,7 +112,7 @@ namespace CFX.Maintenance
     ///           "Status": "Failed",
     ///           "Value": 0.0,
     ///           "UnitOfMeasure": null,
-    ///           "Type": 4,
+    ///           "Type": "Special",
     ///           "IsValid": true,
     ///           "LastExecution": "2020-10-09T13:24:46.4581568+02:00",
     ///           "Comment": null
@@ -127,7 +127,7 @@ namespace CFX.Maintenance
     ///       "MaintenanceDetails": [
     ///         {
     ///           "Name": "FeederCycleCount",
-    ///           "CounterType": "FeederCycleCount",
+    ///           "CounterType": "ActivityCount",
     ///           "MeasurementLocation": "08ASMS500240_Lane_1",
     ///           "CurrentCounterValue": 57002.0,
     ///           "CurrentRatio": 31.2,

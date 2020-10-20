@@ -52,6 +52,18 @@ namespace CFX.Structures.Maintenance
         }
 
         /// <summary>
+        /// The location of the data source providing the verification information (optional, only if available).
+        /// It may be used to distinguish, for example, the type and location of the part: head, camera, nozzle
+        /// Where applicable, a dot (".") notation should be utilized to designate specific positions.
+        /// Examples: MODULE1.BEAM1.HEADPOS2, MODULE1.NEST3.NOZZLESLOT4, etc.
+        /// </summary>
+        public string VerificationLocation
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The type of the verification that is performed on this resource / machine.
         /// </summary>
         public VerificationType Type

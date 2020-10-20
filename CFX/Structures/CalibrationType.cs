@@ -13,6 +13,10 @@ namespace CFX.Structures
     public enum CalibrationType
     {
         /// <summary>
+        /// Unknown calibration type
+        /// </summary>
+        Unkwnown,
+        /// <summary>
         /// Specified when the calibration cannot be characterized by one of the other
         /// options of this enumeration
         /// </summary>
@@ -53,62 +57,62 @@ namespace CFX.Structures
         ZeroPointOffset,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Camera reading the board
         /// </summary>
         BoardCamera,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Unit feed table
         /// </summary>
         FeedUnitsTable,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Changer of the nozzle
         /// </summary>
         NozzleChanger,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Corner reference for the vboard
         /// </summary>
         BoardReferenceCorner,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Component sensor camera
         /// </summary>
         ComponentSensorCamera,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Offset
         /// </summary>
         SegmentOffset,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Barrier for the light sensor
         /// </summary>
         ComponentSensorLightBarrier,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Pressure
         /// </summary>
         ZeroPressure,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Mapping of the board 
         /// </summary>
         BoardMapping,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Mapping of the head
         /// </summary>
         HeadMapping,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Head and camera
         /// </summary>
         HeadsAndCameras,
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
-        /// T.B.D.
+        /// Vacuum tool
         /// </summary>
         VacuumTooling
 

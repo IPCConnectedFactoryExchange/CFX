@@ -18,13 +18,13 @@ namespace CFX.Structures.Maintenance
     public enum SensorType
     {
             /// <summary>
-            /// General sensor
-            /// </summary>    
-            General,
-            /// <summary>
             /// Unknown sensor
             /// </summary>
             Unkwnown,
+            /// <summary>
+            /// General sensor
+            /// </summary>    
+            General,
             /// <summary>
             /// Temperature sensor
             /// </summary>

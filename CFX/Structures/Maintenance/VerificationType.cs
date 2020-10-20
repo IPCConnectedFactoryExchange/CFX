@@ -10,32 +10,20 @@ namespace CFX.Structures.Maintenance
     /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// An enumeration indicating the type of verification that can be executed during the process (i.e. maintenance)
     /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum VerificationType
     {
-        /// <summary>
-        /// General verification of the machine
-        /// </summary>    
-        General,
         /// <summary>
         /// Unknown verification type
         /// </summary>
         Unkwnown,
         /// <summary>
-        /// Verification of the head in the machine
-        /// </summary>
-        HeadVerification,
+        /// General verification of the machine
+        /// </summary>    
+        General,
         /// <summary>
-        /// Verification of the camera in the machine
+        /// Special verification, specific for a given part
         /// </summary>
-        CameraVerification,
-        /// <summary>
-        /// Verification of the camera in the head
-        /// </summary>
-        HeadCameraVerification,
-        /// <summary>
-        /// Verification of the nozzle
-        /// </summary>
-        NozzleVerification
+        Special
     }
-
 }

@@ -16,68 +16,25 @@ namespace CFX.Structures.Maintenance
     public enum CounterType
     {
         /// <summary>
-        /// General sensor
-        /// </summary>    
-        General,
-        /// <summary>
         /// Unknown sensor
         /// </summary>
         Unkwnown,
         /// <summary>
-        /// Rotation axis
-        /// </summary>
-        RotationAxis,
+        /// General sensor
+        /// </summary>    
+        General,
         /// <summary>
-        /// Head machine - time based
+        /// Rotation, mileage measured by a sensor
         /// </summary>
-        HeadMaintenanceTime,
+        Odometer,
         /// <summary>
-        /// Head machine - count based
+        /// Time based sensor, in hour
         /// </summary>
-        HeadMaintenanceCounter,
+        Timer,
         /// <summary>
-        /// Star axis
+        /// Counter for the sensor specified by the name and position
+        /// It can be, among the others: cuts, flashes, pumps, picking components, placed components, rotations
         /// </summary>
-        StarAxis,
-        /// <summary>
-        /// Tape cutter number of cuts
-        /// </summary>
-        TapeCutterCuts,
-        /// <summary>
-        /// Vacuum pump filter pumps
-        /// </summary>
-        VacuumPumpFilter,
-        /// <summary>
-        /// X axis mileage
-        /// </summary>
-        xAxis,
-        /// <summary>
-        /// Y axis mileage
-        /// </summary>
-        yAxis,
-        /// <summary>
-        /// Z Axis moves
-        /// </summary>
-        zAxis,
-        /// <summary>
-        /// Vacuum pump slider pumps
-        /// </summary>
-        VacuumPumpSlider,
-        /// <summary>
-        /// Feeder Cycle count
-        /// </summary>
-        FeederCycleCount,
-        /// <summary>
-        /// Feeder Cycle count
-        /// </summary>
-        RotationAxisCount,
-        /// <summary>
-        /// Camera flash count
-        /// </summary>
-        CameraFlashCount,
-        /// <summary>
-        /// Camera count
-        /// </summary>
-        CameraCount
+        ActivityCount
     }
 }

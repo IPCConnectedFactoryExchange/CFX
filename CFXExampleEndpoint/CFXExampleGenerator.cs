@@ -4450,7 +4450,7 @@ namespace CFXExampleEndpoint
                             new MaintenanceInformation()
                             {
                                 Name = "HeadCompleteMileage",
-                                CounterType = CounterType.HeadMaintenanceCounter,
+                                CounterType = CounterType.Odometer,
                                 CurrentCounterValue = 0.0,
                                 CurrentRatio = 97.9,
                                 CurrentRatioValid = true,
@@ -4458,7 +4458,7 @@ namespace CFXExampleEndpoint
                                 LastMaintenanceCounterValue=102,
                                 LastMaintenanceTimeStamp = DateTime.Now.AddMonths(-1),
                                 LastMaintenanceValid = false,
-                                MeasurementLocation = null
+                                MeasurementLocation = "1.1.1"
                             }
                         },
                         SensorDetails = new List<SensorInformation>()
@@ -4497,18 +4497,20 @@ namespace CFXExampleEndpoint
                         {
                             new VerificationInformation()
                             {
-                                Type = VerificationType.HeadCameraVerification,
+                                Type = VerificationType.Special,
                                 Status = OperationStatus.Ok,
                                 IsValid = true,
+                                VerificationLocation = "1.2",
                                 Name = "FCCSCalibration",
                                 Value = 0.0,
                                 LastExecution = DateTime.Now
                             },
                             new VerificationInformation()
                             {
-                                Type = VerificationType.HeadCameraVerification,
+                                Type = VerificationType.General,
                                 Status = OperationStatus.Failed,
                                 IsValid = true,
+                                VerificationLocation = "2.3",
                                 Name = "FCCSCleaningRequired",
                                 Value = 0.0,
                                 LastExecution = DateTime.Now
@@ -4524,7 +4526,7 @@ namespace CFXExampleEndpoint
                             new MaintenanceInformation()
                             {
                                 Name = "FeederCycleCount",
-                                CounterType = CounterType.FeederCycleCount,
+                                CounterType = CounterType.ActivityCount,
                                 CurrentCounterValue = 57002,
                                 CurrentRatio = 31.2,
                                 CurrentRatioValid = true,
