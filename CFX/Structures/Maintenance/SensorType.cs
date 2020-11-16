@@ -26,6 +26,11 @@ namespace CFX.Structures.Maintenance
             /// </summary>    
             General,
             /// <summary>
+            /// Non standard sensor.
+            /// It shall be used in combination with the CustomSensorType field
+            /// </summary>    
+            NonStandard,
+            /// <summary>
             /// Temperature sensor
             /// </summary>
             Temperature,
@@ -75,6 +80,11 @@ namespace CFX.Structures.Maintenance
         /// Unknown sensor
         /// </summary>
         Unkwnown,
+        ///<summary>
+        /// Non standard unit of measure
+        /// It shall be used in combination with the CustomUnitOfMeasure field
+        /// </summary>
+        NonStandard,
         /// <summary>
         /// Temperature type
         /// </summary>

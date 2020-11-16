@@ -31,6 +31,15 @@ namespace CFX.Structures.Maintenance
             set;
         }
         /// <summary>
+        /// Optional field. 
+        /// When CounterType = NonStandard, this field allows the sender to specify a custom counter
+        /// </summary>
+        public string CustomCounterType
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// The location of the data source providing the counter information (optional, only if available).
         /// It may be used to distinguish, for example, the counters of multi-lane feeder
         /// Where applicable, a dot (".") notation should be utilized to designate specific positions.

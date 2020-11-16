@@ -23,7 +23,17 @@ namespace CFX.Structures.Maintenance
             get;
             set;
         }
-        
+
+        /// <summary>
+        /// Optional field. 
+        /// When SensorType = NonStandard, this field allows the sender to specify a custom sensor
+        /// </summary>
+        public string CustomSensorType
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// The value of the performed verification.
         /// </summary>
@@ -55,6 +65,16 @@ namespace CFX.Structures.Maintenance
         /// The unit of measure of the performed sample (if applicable)
         /// </summary>
         public SensorUnitOfMeasure UnitOfMeasure
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Optional field. 
+        /// When UnitOfMeasure = NonStandard, this field allows the sender to specify a custom unit of measure
+        /// </summary>
+        public string CustomUnitOfMeasure
         {
             get;
             set;

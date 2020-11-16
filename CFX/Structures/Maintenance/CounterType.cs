@@ -16,13 +16,18 @@ namespace CFX.Structures.Maintenance
     public enum CounterType
     {
         /// <summary>
-        /// Unknown sensor
+        /// Unknown counter
         /// </summary>
         Unkwnown,
         /// <summary>
-        /// General sensor
+        /// General counter
         /// </summary>    
         General,
+        ///<summary>
+        /// Non standard counter.
+        /// It shall be used in combination with the CustomCounterType field
+        /// </summary>
+        NonStandard,
         /// <summary>
         /// Rotation, mileage measured by a sensor
         /// </summary>
