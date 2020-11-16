@@ -4319,6 +4319,209 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            //Event based ResourceInformation
+            msg = new CFX.Maintenance.ResourceInformationEvent()
+            {
+                EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
+                DateTime.Now.Kind),
+
+                ResourceInformation = new SMTPlacementResource()
+                {
+                    UniqueIdentifier = "10000000",
+                    SoftwareVersion = "713",
+                    Vendor = "ASM",
+                    ModelNumber = "SIPLACE SX4",
+                    Name = "SMT SIPLACE SX 4",
+                    SerialNumber = "UID1111111111111111",
+                    Cameras = new List<Camera>()
+                    {
+                        new Camera()
+                        {
+                            ResourceName = "SST34_1",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G1-GC__",
+                            ResourcePosition = "1.1"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST34_2",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G2-GC__",
+                            ResourcePosition = "2.2"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST34_3",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G3-GC__",
+                            ResourcePosition = "2.3"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST34_4",
+                            ResourceType = "SST34",
+                            ResourceIdentifier = "10000000-00 000-G4-GC__",
+                            ResourcePosition = "1.4"
+                        },
+                    },
+                    Conveyors = new List<Conveyor>()
+                    {
+                        new Conveyor()
+                        {
+                            ResourceName = "Dual",
+                            ResourceType = "Dual",
+                            ResourceIdentifier = "10000000_Conveyor_0_E_1",
+                            ResourcePosition = null
+                        }
+                    },
+                    ElectricCards = new List<ElectricCard>()
+                    {
+
+                    },
+                    Gantries = new List<Gantry>()
+                    {
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_1",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_1_R_1",
+                            ResourcePosition = "1.1"
+                        },
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_2",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_2_R_1",
+                            ResourcePosition = "2.2"
+                        },
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_3",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_2_L_1",
+                            ResourcePosition = "2.3"
+                        },
+                        new Gantry()
+                        {
+                            ResourceName = "Gantry_4",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_Gantry_X_1_L_1",
+                            ResourcePosition = "1.4"
+                        }
+                    },
+                    NozzleChangers = new List<NozzleChanger>()
+                    {
+                        new NozzleChanger()
+                        {
+                            ResourceName = "NozzleCarrier_14_4.1",
+                            ResourceType = "NozzleCarrier_14",
+                            ResourceIdentifier = "10000000_NozzleChanger_1_L_1",
+                            ResourcePosition = "1.4.1.1"
+                        },
+                         new NozzleChanger()
+                        {
+                            ResourceName = "NozzleCarrier_10_3.1",
+                            ResourceType = "NozzleCarrier_10_3",
+                            ResourceIdentifier = "10000000_NozzleChanger_2_L_1",
+                            ResourcePosition = "2.3.1.3"
+                        }
+                    },
+                    PlacementHeads = new List<HeadResource>()
+                    {
+                       new HeadResource()
+                       {
+                          ResourceName = "C&P20_1",
+                          ResourceType = "C&P20",
+                          ResourceIdentifier = "00000000-00 000-H1-_____",
+                          ResourcePosition = "1.1.1",
+                          Cameras = new List<Camera>()
+                          {
+                               new Camera()
+                               {
+                                   ResourceName = "SST23_1.1",
+                                   ResourceType = "SST23",
+                                   ResourceIdentifier = "10000000-00 000-H1-HC__",
+                                   ResourcePosition = "1.1.1"
+                               }
+                          },
+                          RotationAxes = new List<RotationAxis>()
+                          {
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_1_DpAxis1",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H1-DP1_",
+                                  ResourcePosition = "1.1.1.1"
+                              },
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_1_DpAxis10",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H1-DP10",
+                                  ResourcePosition = "1.1.1.10"
+                              }
+                          }
+                       },
+                       new HeadResource()
+                       {
+                          ResourceName = "C&C&P20_3",
+                          ResourceType = "C&P20",
+                          ResourceIdentifier = "00000000-00 000-H3-_____",
+                          ResourcePosition = "2.3.1",
+                          Cameras = new List<Camera>()
+                          {
+                               new Camera()
+                               {
+                                   ResourceName = "SST23_3.1",
+                                   ResourceType = "SST23",
+                                   ResourceIdentifier = "10000000-00 000-H3-HC__",
+                                   ResourcePosition = "2.3.1"
+                               }
+                          },
+                          RotationAxes = new List<RotationAxis>()
+                          {
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_3_DpAxis1",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H3-DP1_",
+                                  ResourcePosition = "2.3.1.1"
+                              },
+                              new RotationAxis()
+                              {
+                                  ResourceName = "C&P20_3_DpAxis10",
+                                  ResourceType = null,
+                                  ResourceIdentifier = "10000000-00 000-H3-DP10",
+                                  ResourcePosition = "2.3.1.10"
+                              }
+                          }
+                       }
+                    },
+                    TapeCutters = new List<TapeCutter>()
+                    {
+                        new TapeCutter()
+                        {
+                            ResourceName = "TapeCutter_1.4",
+                            ResourceType = "",
+                            ResourceIdentifier = "10000000_TapeCutter_1_L_1",
+                            ResourcePosition = "1.0.4"
+                        },
+                        new TapeCutter()
+                        {
+                            ResourceName = "TapeCutter_1.1",
+                            ResourceType = "",
+                            ResourceIdentifier = "10000000_TapeCutter_1_R_1",
+                            ResourcePosition = "1.0.1"
+                        }
+                    },
+                    VacuumPumps = new List<VacuumPump>()
+                    {
+
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
             msg = new CFX.Maintenance.GetResourceSetupRequest()
             {
                 CFXHandle = "SMT.SIPLACE_SX4.10000000"
@@ -4327,6 +4530,91 @@ namespace CFXExampleEndpoint
 
             msg = new CFX.Maintenance.GetResourceSetupResponse()
             {
+                ResourceSetup = new SMTPlacementSetup()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                    Feeders = new List<ResourceInformation>()
+                    {
+                       new SMTTapeFeederInformation()
+                       {
+                           ResourceIdentifier = "08ASMS500240",
+                           ResourceName = "8mm-X Tape_2.40",
+                           ResourcePosition ="2.40",
+                           ResourceType = "8mm-X Tape",
+                           MultiLanes = new List<MultiLane>()
+                           {
+                               new MultiLane()
+                               {
+                                   LaneNumber = 1,
+                                   UniqueIdentifier = "08ASMS500240_1"
+                               }
+                           }
+                       },
+                       new SMTTapeFeederInformation()
+                       {
+                           ResourceIdentifier = "09ASMS500302",
+                           ResourceName = "2x8mm-X Tape_3.2",
+                           ResourcePosition ="3.2",
+                           ResourceType = "2x8mm-X Tape",
+                           MultiLanes = new List<MultiLane>()
+                           {
+                               new MultiLane()
+                               {
+                                   LaneNumber = 1,
+                                   UniqueIdentifier = "09ASMS500302_Lane_1"
+                               },
+                               new MultiLane()
+                               {
+                                   LaneNumber = 2,
+                                   UniqueIdentifier = "09ASMS500302_Lane_2"
+                               }
+                           }
+                       }
+                    },
+                    NozzleChangerGarages = new List<NozzleChangerGarage>()
+                    {
+                        new NozzleChangerGarage()
+                        {
+                            ResourceName = "10000000_NozzleChanger_1_L_1_1_2_2_1006",
+                            ResourceType = "1006",
+                            ResourceIdentifier = "10000000_466",
+                            ResourcePosition = "4.1.2.2"
+                        },
+                        new NozzleChangerGarage()
+                        {
+                            ResourceName = "10000000_NozzleChanger_1_L_1_1_2_1_1006",
+                            ResourceType = "1006",
+                            ResourceIdentifier = "10000000_467",
+                            ResourcePosition = "4.1.2.1"
+                        },
+                    },
+                    Tables = new List<Table>()
+                    {
+                        new Table()
+                        {
+                            ResourceName = "Table_4",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_FeederDevice_1_L",
+                            ResourcePosition = "4.1.1"
+                        },
+                        new Table()
+                        {
+                            ResourceName = "Table_1",
+                            ResourceType = null,
+                            ResourceIdentifier = "10000000_FeederDevice_1_R",
+                            ResourcePosition = "1.1.1"
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            //Event based ResourceSetup
+            msg = new CFX.Maintenance.ResourceSetupEvent()
+            {
+                EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
+                DateTime.Now.Kind),
                 ResourceSetup = new SMTPlacementSetup()
                 {
                     UniqueIdentifier = "10000000",
@@ -4542,6 +4830,138 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            //Event based MaintenanceAndService
+            msg = new CFX.Maintenance.ResourceMaintenanceAndServiceEvent()
+            {
+                EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
+                DateTime.Now.Kind),
+                Machine = new Resource()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                },
+                MachineServiceAndMaintenanceData = new List<ServiceAndMaintenanceData>()
+                {
+                    new ServiceAndMaintenanceData()
+                    {
+                        UniqueIdentifier = "00000000-00 000-H2-_____",
+                        Name = "C&P20_2",
+                        CalibrationDetails = new List<Calibration>()
+                        {
+                            new Calibration()
+                            {
+                                CalibrationCode = "SegmentOffset",
+                                CalibrationType = CalibrationType.SegmentOffset,
+                                CalibrationTime =  DateTime.Now,
+                                Status = OperationStatus.Ok,
+                                Comments = ""
+                            },
+                            new Calibration()
+                            {
+                                CalibrationCode = "HeadMapping_0_R",
+                                CalibrationType = CalibrationType.HeadMapping,
+                                CalibrationTime =  DateTime.Now,
+                                Status = OperationStatus.Failed,
+                                Comments = "Calibration failed. Check log"
+                            }
+                        },
+                        MaintenanceDetails = new List<MaintenanceInformation>()
+                        {
+                            new MaintenanceInformation()
+                            {
+                                Name = "HeadCompleteMileage",
+                                CounterType = CounterType.Odometer,
+                                CurrentCounterValue = 0.0,
+                                CurrentRatio = 97.9,
+                                CurrentRatioValid = true,
+                                CurrentTimeStamp = DateTime.Now,
+                                LastMaintenanceCounterValue=102,
+                                LastMaintenanceTimeStamp = DateTime.Now.AddMonths(-1),
+                                LastMaintenanceValid = false,
+                                MeasurementLocation = "1.1.1"
+                            }
+                        },
+                        SensorDetails = new List<SensorInformation>()
+                        {
+                            new SensorInformation()
+                            {
+                                ResourceIdentifier = null,
+                                ResourceName = "Temperature sensor",
+                                ResourcePosition = "2_R",
+                                ResourceType = "Sensor",
+                                Type = SensorType.Temperature,
+                                Value = 19.2,
+                                LowLimit = 15.0,
+                                HighLimit = 30,
+                                UnitOfMeasure = SensorUnitOfMeasure.DegreeCelsius,
+                                SampleTime = DateTime.Now,
+                            }
+                        }
+                    },
+                    new ServiceAndMaintenanceData()
+                    {
+                        UniqueIdentifier = "10000000-00 000-G1-GC__",
+                        Name = "SST34_1",
+                        CalibrationDetails = new List<Calibration>()
+                        {
+                            new Calibration()
+                            {
+                                CalibrationCode = "C123456",
+                                CalibrationType = CalibrationType.BoardCamera,
+                                CalibrationTime =  DateTime.Now,
+                                Status = OperationStatus.Ok,
+                                Comments = "Done ok"
+                            }
+                        },
+                        VerificationDetails = new List<VerificationInformation>()
+                        {
+                            new VerificationInformation()
+                            {
+                                Type = VerificationType.Special,
+                                Status = OperationStatus.Ok,
+                                IsValid = true,
+                                VerificationLocation = "1.2",
+                                Name = "FCCSCalibration",
+                                Value = 0.0,
+                                LastExecution = DateTime.Now
+                            },
+                            new VerificationInformation()
+                            {
+                                Type = VerificationType.General,
+                                Status = OperationStatus.Failed,
+                                IsValid = true,
+                                VerificationLocation = "2.3",
+                                Name = "FCCSCleaningRequired",
+                                Value = 0.0,
+                                LastExecution = DateTime.Now
+                            }
+                        }
+                    },
+                    new ServiceAndMaintenanceData()
+                    {
+                        UniqueIdentifier = "08ASMS500240",
+                        Name = "8mm-X Tape_2.40",
+                        MaintenanceDetails = new List<MaintenanceInformation>()
+                        {
+                            new MaintenanceInformation()
+                            {
+                                Name = "FeederCycleCount",
+                                CounterType = CounterType.ActivityCount,
+                                CurrentCounterValue = 57002,
+                                CurrentRatio = 31.2,
+                                CurrentRatioValid = true,
+                                CurrentTimeStamp = DateTime.Now,
+                                LastMaintenanceCounterValue = 23456,
+                                LastMaintenanceTimeStamp = DateTime.Now.AddMonths(-2),
+                                LastMaintenanceValid = false,
+                                MeasurementLocation = "08ASMS500240_Lane_1"
+                            }
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
             msg = new CFX.Maintenance.GetResourceMaintenanceStatusRequest()
             {
                Machine = new Resource()
@@ -4564,6 +4984,49 @@ namespace CFXExampleEndpoint
 
             msg = new CFX.Maintenance.GetResourceMaintenanceStatusResponse()
             {
+                Machine = new Resource()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                },
+                ResourceMaintenanceDetails = new List<ResourceInformation>()
+              {
+                  new SMTTapeFeederInformation()
+                  {
+                    ResourceIdentifier = "08FAUT901183",
+                    ResourceType = "8mm-X Tape",
+                    ResourcePosition = "2.14",
+                    ResourceName = "8mm-X Tape_2.14",
+                    MaintenanceStatus = new MaintenanceStatus()
+                    {
+                        Reason = "No reason",
+                        ResultState = MaintenanceState.Ok
+                    },
+                    MultiLanes = new List<MultiLane>()
+                    {
+                        new MultiLane()
+                        {
+                            LaneNumber = 1,
+                            UniqueIdentifier = "09ASMS500302_Lane_1",
+                            CycleCount = 1002
+                        },
+                        new MultiLane()
+                        {
+                            LaneNumber = 2,
+                            UniqueIdentifier = "09ASMS500302_Lane_2",
+                            CycleCount = 3451
+                        }
+                    },
+                  }
+              }
+            };
+            AppendMessage(msg, ref result);
+
+            //Event based MaintenanceStatus
+            msg = new CFX.Maintenance.ResourceMaintenanceStatusEvent()
+            {
+                EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
+                DateTime.Now.Kind),
                 Machine = new Resource()
                 {
                     UniqueIdentifier = "10000000",
