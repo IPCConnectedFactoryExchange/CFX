@@ -4,14 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
-/// <summary>
-/// <para>** NOTE: ADDED in CFX 1.3 **</para>
-/// An enumeration indicating the type of sensor that is located in a resource / sub-resource / endpoint
-/// </summary>
 namespace CFX.Structures.Maintenance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+    /// An enumeration indicating the type of sensor that is located in a resource / sub-resource / endpoint
     /// The type of the sensor (distance, temperature, time etc.). It shall be used together with the SensorUnitOfMeasure
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]

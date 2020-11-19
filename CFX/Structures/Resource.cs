@@ -26,6 +26,7 @@ namespace CFX.Structures
         /// <summary>
         /// The barcode, RFID, or other unique identifier that is used to identify this machine / resource.
         /// </summary>
+        [JsonProperty(Order = -3)]
         public string UniqueIdentifier
         {
             get;
@@ -35,6 +36,7 @@ namespace CFX.Structures
         /// <summary>
         /// The name of the resource to be used in GUIs or reporting (optional)
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string Name
         {
             get;
@@ -44,6 +46,7 @@ namespace CFX.Structures
         /// <summary>
         /// The name of the vendor of the machine / resource (optional)
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string Vendor
         {
             get;
@@ -53,6 +56,7 @@ namespace CFX.Structures
         /// <summary>
         /// The model number of the machine / resource
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string ModelNumber
         {
             get;
@@ -62,6 +66,7 @@ namespace CFX.Structures
         /// <summary>
         /// The serial number of the machine / resource
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string SerialNumber
         {
             get;
@@ -71,6 +76,7 @@ namespace CFX.Structures
         /// <summary>
         /// The software version of the machine / resource
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string SoftwareVersion
         {
             get;
@@ -80,6 +86,7 @@ namespace CFX.Structures
         /// <summary>
         /// The firmware version of the  machine / resource (optional)
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string FirmwareVersion
         {
             get;

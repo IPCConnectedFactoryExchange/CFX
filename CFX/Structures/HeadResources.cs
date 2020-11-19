@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,11 @@ namespace CFX.Structures
         {
             
         }
-       
+
         /// <summary>
         /// A list of camera located on the Head
         /// </summary>
+        [JsonProperty(Order = 1)]
         public List<Camera> Cameras
         {
             get;
@@ -32,6 +34,7 @@ namespace CFX.Structures
         /// <summary>
         /// If applicable, the rotation axis of the part located on the Head
         /// </summary>
+        [JsonProperty(Order = 1)]
         public List<RotationAxis> RotationAxes
         {
             get;

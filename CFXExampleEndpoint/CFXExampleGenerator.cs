@@ -5066,6 +5066,104 @@ namespace CFXExampleEndpoint
             AppendMessage(msg, ref result);
             //******************************//
 
+            //Maintenance message for flat resource (machine) modelling
+
+            msg = new CFX.Maintenance.ResourceInformationEvent()
+            {
+                EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
+                DateTime.Now.Kind),
+                ResourceInformation = new MaintenanceResource()
+                {
+                    UniqueIdentifier = "10000000",
+                    SoftwareVersion = "713",
+                    Vendor = "ASM",
+                    ModelNumber = "SIPLACE SX4",
+                    Name = "SMT SIPLACE SX 4",
+                    SerialNumber = "UID1111111111111111",
+                    FirmwareVersion= "0",
+
+                    Resources = new List<ResourceInformation>(new ResourceInformation[]
+                    {
+                        new Camera()
+                        {
+                            ResourceName = "SST23_1.1",
+                            ResourceType = "CameraSST23",
+                            ResourceIdentifier = "10000000-00 000-H1-HC__",
+                            ResourcePosition = "1.1.1"
+                        },
+                        new Camera()
+                        {
+                            ResourceName = "SST23_1.2",
+                            ResourceType = "CameraSST23",
+                            ResourceIdentifier = "10000000-00 000-H2-HC__",
+                            ResourcePosition = "1.2.1"
+                        },
+                        new RotationAxis()
+                        {
+                            ResourceName = "C&P20_1_DpAxis1",
+                            ResourceType = "RotationAxis",
+                            ResourceIdentifier = "10000000-00 000-H1-DP1_",
+                            ResourcePosition = "1.1.1.1"
+                        },
+                        new RotationAxis()
+                        {
+                            ResourceName = "C&P20_1_DpAxis10",
+                            ResourceType = "RotationAxis",
+                            ResourceIdentifier = "10000000-00 000-H1-DP10",
+                            ResourcePosition = "1.1.1.10"
+                        },
+                        new HeadResource()
+                        {
+                            ResourceName = "C&C&P20_3",
+                            ResourceType = "Head_C&P20",
+                            ResourceIdentifier = "00000000-00 000-H3-_____",
+                            ResourcePosition = "2.3.1",
+                            Cameras = new List<Camera>()
+                            {
+                                new Camera()
+                                {
+                                    ResourceName = "SST23_3.1",
+                                    ResourceType = "SST23",
+                                    ResourceIdentifier = "10000000-00 000-H3-HC__",
+                                    ResourcePosition = "2.3.1"
+                                }
+                             },
+                            RotationAxes = new List<RotationAxis>()
+                            {
+                                new RotationAxis()
+                                {
+                                    ResourceName = "C&P20_3_DpAxis1",
+                                    ResourceType = "RotationAxis",
+                                    ResourceIdentifier = "10000000-00 000-H3-DP1_",
+                                    ResourcePosition = "2.3.1.1"
+                                },
+                                new RotationAxis()
+                                {
+                                  ResourceName = "C&P20_3_DpAxis10",
+                                  ResourceType = "RotationAxis",
+                                  ResourceIdentifier = "10000000-00 000-H3-DP10",
+                                  ResourcePosition = "2.3.1.10"
+                                }
+                            }
+                        },
+                        new TapeCutter()
+                        {
+                            ResourceName = "TapeCutter_1.4",
+                            ResourceType = "Cutter",
+                            ResourceIdentifier = "10000000_TapeCutter_1_L_1",
+                            ResourcePosition = "1.0.4"
+                        },
+                        new TapeCutter()
+                        {
+                            ResourceName = "TapeCutter_1.1",
+                            ResourceType = "Cutter",
+                            ResourceIdentifier = "10000000_TapeCutter_1_R_1",
+                            ResourcePosition = "1.0.1"
+                        }
+                    }),
+                }
+            };
+            AppendMessage(msg, ref result);
             return result;
         }
     }

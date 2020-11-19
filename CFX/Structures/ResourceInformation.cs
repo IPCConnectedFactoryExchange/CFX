@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,13 @@ namespace CFX.Structures
     /// It may be used to model, among the others: camera, conveyor, gantries and other 
     /// parts that may require traceable operations (i.e. maintenance)
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ResourceInformation
     {
         /// <summary>
         /// Name of the resource / sub-resource in the endpoint
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string ResourceName
         {
             get;
@@ -26,6 +29,7 @@ namespace CFX.Structures
         /// <summary>
         /// The internal identifier (if applicable) of the part that is installed at this position.
         /// </summary>
+        [JsonProperty(Order = -3)]
         public string ResourceIdentifier
         {
             get;
@@ -35,6 +39,7 @@ namespace CFX.Structures
         /// <summary>
         /// The type of the part that is installed at this position.
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string ResourceType
         {
             get;
@@ -46,6 +51,7 @@ namespace CFX.Structures
         /// Where applicable, a dot (".") notation should be utilized to designate specific positions.
         /// Examples: MODULE1.BEAM1.HEADPOS2, MODULE1.NEST3.NOZZLESLOT4, etc.
         /// </summary>
+        [JsonProperty(Order = -2)]
         public string ResourcePosition
         {
             get;
@@ -55,6 +61,7 @@ namespace CFX.Structures
         /// <summary>
         /// The maintenance status for this resource
         /// </summary>
+        [JsonProperty(Order = -2)]
         public MaintenanceStatus MaintenanceStatus
         {
             get;
