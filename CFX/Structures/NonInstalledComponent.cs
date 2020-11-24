@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -70,10 +71,11 @@ namespace CFX.Structures
             get;
             set;
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// The rejection details, depending on the rejection reason (optional)
         /// </summary>
+        [JsonProperty(TypeNameHandling = TypeNameHandling.Auto)]
         public RejectionDetails RejectionDetails
         {
             get;
