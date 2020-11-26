@@ -4122,74 +4122,71 @@ namespace CFXExampleEndpoint
 
             msg = new CFX.Maintenance.GetResourceInformationResponse()
             {
-                ResourceInformation = new SMTPlacementResource()
+                ResourceInformation = new MaintenanceResource()
                 {
                     UniqueIdentifier = "10000000",
                     SoftwareVersion = "713",
                     Vendor = "ASM",
+                    ResourceType = "SMT",
                     ModelNumber = "SIPLACE SX4",
                     Name = "SMT SIPLACE SX 4",
                     SerialNumber = "UID1111111111111111",
-                    Cameras = new List<Camera>()
+                    Resources = new List<ResourceInformation>()
                     {
                         new Camera()
                         {
                             ResourceName = "SST34_1",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G1-GC__",
-                            ResourcePosition = "1.1"
+                            ResourcePosition = "1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Camera()
                         {
                             ResourceName = "SST34_2",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G2-GC__",
-                            ResourcePosition = "2.2"
+                            ResourcePosition = "2.2",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Camera()
                         {
                             ResourceName = "SST34_3",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G3-GC__",
-                            ResourcePosition = "2.3"
+                            ResourcePosition = "2.3",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Camera()
                         {
                             ResourceName = "SST34_4",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G4-GC__",
-                            ResourcePosition = "1.4"
+                            ResourcePosition = "1.4",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
-                    },
-                    Conveyors = new List<Conveyor>()
-                    {
-                        new Conveyor()
-                        {
+                        new Conveyor() {
                             ResourceName = "Dual",
-                            ResourceType = "Dual",
+                            ResourceType = "Conveyor",
                             ResourceIdentifier = "10000000_Conveyor_0_E_1",
-                            ResourcePosition = null
-                        }
-                    },
-                    ElectricCards = new List<ElectricCard>()
-                    {
-
-                    },
-                    Gantries = new List<Gantry>()
-                    {
+                            ResourcePosition = null,
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
+                        },
                         new Gantry()
                         {
                             ResourceName = "Gantry_1",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_Gantry_X_1_R_1",
-                            ResourcePosition = "1.1"
+                            ResourcePosition = "1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Gantry()
                         {
                             ResourceName = "Gantry_2",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_Gantry_X_2_R_1",
-                            ResourcePosition = "2.2"
+                            ResourcePosition = "2.2",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Gantry()
                         {
@@ -4203,76 +4200,79 @@ namespace CFXExampleEndpoint
                             ResourceName = "Gantry_4",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_Gantry_X_1_L_1",
-                            ResourcePosition = "1.4"
-                        }
-                    },
-                    NozzleChangers = new List<NozzleChanger>()
-                    {
-                        new NozzleChanger()
+                            ResourcePosition = "1.4",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
+                        },
+                        new SMTNozzleChanger()
                         {
                             ResourceName = "NozzleCarrier_14_4.1",
                             ResourceType = "NozzleCarrier_14",
                             ResourceIdentifier = "10000000_NozzleChanger_1_L_1",
-                            ResourcePosition = "1.4.1.1"
+                            ResourcePosition = "1.4.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.Unkwnown
                         },
-                         new NozzleChanger()
+                        new SMTNozzleChanger()
                         {
                             ResourceName = "NozzleCarrier_10_3.1",
                             ResourceType = "NozzleCarrier_10_3",
                             ResourceIdentifier = "10000000_NozzleChanger_2_L_1",
-                            ResourcePosition = "2.3.1.3"
-                        }
-                    },
-                    PlacementHeads = new List<HeadResource>()
-                    {
-                       new HeadResource()
-                       {
-                          ResourceName = "C&P20_1",
-                          ResourceType = "C&P20",
-                          ResourceIdentifier = "00000000-00 000-H1-_____",
-                          ResourcePosition = "1.1.1",
-                          Cameras = new List<Camera>()
-                          {
-                               new Camera()
-                               {
-                                   ResourceName = "SST23_1.1",
-                                   ResourceType = "SST23",
-                                   ResourceIdentifier = "10000000-00 000-H1-HC__",
-                                   ResourcePosition = "1.1.1"
-                               }
-                          },
-                          RotationAxes = new List<RotationAxis>()
-                          {
-                              new RotationAxis()
-                              {
-                                  ResourceName = "C&P20_1_DpAxis1",
-                                  ResourceType = null,
-                                  ResourceIdentifier = "10000000-00 000-H1-DP1_",
-                                  ResourcePosition = "1.1.1.1"
-                              },
-                              new RotationAxis()
-                              {
-                                  ResourceName = "C&P20_1_DpAxis10",
-                                  ResourceType = null,
-                                  ResourceIdentifier = "10000000-00 000-H1-DP10",
-                                  ResourcePosition = "1.1.1.10"
-                              }
-                          }
-                       },
-                       new HeadResource()
-                       {
-                          ResourceName = "C&C&P20_3",
-                          ResourceType = "C&P20",
-                          ResourceIdentifier = "00000000-00 000-H3-_____",
-                          ResourcePosition = "2.3.1",
-                          Cameras = new List<Camera>()
-                          {
-                               new Camera()
-                               {
-                                   ResourceName = "SST23_3.1",
-                                   ResourceType = "SST23",
-                                   ResourceIdentifier = "10000000-00 000-H3-HC__",
-                                   ResourcePosition = "2.3.1"
+                            ResourcePosition = "2.3.1.3",
+                            IdentiferUniqueness = IdentiferUniquenessType.Unkwnown
+                        },
+                        new SMTHeadResource()
+                        {
+                            ResourceName = "C&P20_1",
+                            ResourceType = "C&P20",
+                            ResourceIdentifier = "00000000-00 000-H1-_____",
+                            ResourcePosition = "1.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent,
+                            Cameras = new List<Camera>()
+                            {
+                                new Camera()
+                                {
+                                    ResourceName = "SST23_1.1",
+                                    ResourceType = "SST23",
+                                    ResourceIdentifier = "10000000-00 000-H1-HC__",
+                                    ResourcePosition = "1.1.1",
+                                    IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
+                                }
+                            },
+                            RotationAxes = new List<RotationAxis>()
+                            {
+                                new RotationAxis()
+                                {
+                                    ResourceName = "C&P20_1_DpAxis1",
+                                    ResourceType = null,
+                                    ResourceIdentifier = "10000000-00 000-H1-DP1_",
+                                    ResourcePosition = "1.1.1.1",
+                                    IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
+                                },
+                                new RotationAxis()
+                                 {
+                                    ResourceName = "C&P20_1_DpAxis10",
+                                    ResourceType = null,
+                                    ResourceIdentifier = "10000000-00 000-H1-DP10",
+                                    ResourcePosition = "1.1.1.10",
+                                    IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
+                                }
+                            },
+                        },
+                        new SMTHeadResource()
+                        {
+                            ResourceName = "C&C&P20_3",
+                            ResourceType = "C&P20",
+                            ResourceIdentifier = "00000000-00 000-H3-_____",
+                            ResourcePosition = "2.3.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent,
+                            Cameras = new List<Camera>()
+                            {
+                                new Camera()
+                                {
+                                    ResourceName = "SST23_3.1",
+                                    ResourceType = "SST23",
+                                    ResourceIdentifier = "10000000-00 000-H3-HC__",
+                                    ResourcePosition = "2.3.1",
+                                    IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                                }
                           },
                           RotationAxes = new List<RotationAxis>()
@@ -4282,38 +4282,35 @@ namespace CFXExampleEndpoint
                                   ResourceName = "C&P20_3_DpAxis1",
                                   ResourceType = null,
                                   ResourceIdentifier = "10000000-00 000-H3-DP1_",
-                                  ResourcePosition = "2.3.1.1"
+                                  ResourcePosition = "2.3.1.1",
+                                  IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                               },
                               new RotationAxis()
                               {
                                   ResourceName = "C&P20_3_DpAxis10",
                                   ResourceType = null,
                                   ResourceIdentifier = "10000000-00 000-H3-DP10",
-                                  ResourcePosition = "2.3.1.10"
+                                  ResourcePosition = "2.3.1.10",
+                                  IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                               }
                           }
-                       }
-                    },
-                    TapeCutters = new List<TapeCutter>()
-                    {
-                        new TapeCutter()
+                        },
+                        new SMTTapeCutter()
                         {
                             ResourceName = "TapeCutter_1.4",
                             ResourceType = "",
                             ResourceIdentifier = "10000000_TapeCutter_1_L_1",
-                            ResourcePosition = "1.0.4"
+                            ResourcePosition = "1.0.4",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         },
-                        new TapeCutter()
+                        new SMTTapeCutter()
                         {
                             ResourceName = "TapeCutter_1.1",
                             ResourceType = "",
                             ResourceIdentifier = "10000000_TapeCutter_1_R_1",
-                            ResourcePosition = "1.0.1"
+                            ResourcePosition = "1.0.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         }
-                    },
-                    VacuumPumps = new List<VacuumPump>()
-                    {
-
                     }
                 }
             };
@@ -4325,74 +4322,71 @@ namespace CFXExampleEndpoint
                 EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
                 DateTime.Now.Kind),
 
-                ResourceInformation = new SMTPlacementResource()
+                ResourceInformation = new MaintenanceResource()
                 {
                     UniqueIdentifier = "10000000",
                     SoftwareVersion = "713",
                     Vendor = "ASM",
+                    ResourceType = "SMT",
                     ModelNumber = "SIPLACE SX4",
                     Name = "SMT SIPLACE SX 4",
                     SerialNumber = "UID1111111111111111",
-                    Cameras = new List<Camera>()
+                    Resources = new List<ResourceInformation>()
                     {
                         new Camera()
                         {
                             ResourceName = "SST34_1",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G1-GC__",
-                            ResourcePosition = "1.1"
+                            ResourcePosition = "1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Camera()
                         {
                             ResourceName = "SST34_2",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G2-GC__",
-                            ResourcePosition = "2.2"
+                            ResourcePosition = "2.2",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Camera()
                         {
                             ResourceName = "SST34_3",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G3-GC__",
-                            ResourcePosition = "2.3"
+                            ResourcePosition = "2.3",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Camera()
                         {
                             ResourceName = "SST34_4",
                             ResourceType = "SST34",
                             ResourceIdentifier = "10000000-00 000-G4-GC__",
-                            ResourcePosition = "1.4"
+                            ResourcePosition = "1.4",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
-                    },
-                    Conveyors = new List<Conveyor>()
-                    {
-                        new Conveyor()
-                        {
+                        new Conveyor() {
                             ResourceName = "Dual",
-                            ResourceType = "Dual",
+                            ResourceType = "Conveyor",
                             ResourceIdentifier = "10000000_Conveyor_0_E_1",
-                            ResourcePosition = null
-                        }
-                    },
-                    ElectricCards = new List<ElectricCard>()
-                    {
-
-                    },
-                    Gantries = new List<Gantry>()
-                    {
+                            ResourcePosition = null,
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
+                        },
                         new Gantry()
                         {
                             ResourceName = "Gantry_1",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_Gantry_X_1_R_1",
-                            ResourcePosition = "1.1"
+                            ResourcePosition = "1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Gantry()
                         {
                             ResourceName = "Gantry_2",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_Gantry_X_2_R_1",
-                            ResourcePosition = "2.2"
+                            ResourcePosition = "2.2",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                         },
                         new Gantry()
                         {
@@ -4406,76 +4400,79 @@ namespace CFXExampleEndpoint
                             ResourceName = "Gantry_4",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_Gantry_X_1_L_1",
-                            ResourcePosition = "1.4"
-                        }
-                    },
-                    NozzleChangers = new List<NozzleChanger>()
-                    {
-                        new NozzleChanger()
+                            ResourcePosition = "1.4",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
+                        },
+                        new SMTNozzleChanger()
                         {
                             ResourceName = "NozzleCarrier_14_4.1",
                             ResourceType = "NozzleCarrier_14",
                             ResourceIdentifier = "10000000_NozzleChanger_1_L_1",
-                            ResourcePosition = "1.4.1.1"
+                            ResourcePosition = "1.4.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.Unkwnown
                         },
-                         new NozzleChanger()
+                        new SMTNozzleChanger()
                         {
                             ResourceName = "NozzleCarrier_10_3.1",
                             ResourceType = "NozzleCarrier_10_3",
                             ResourceIdentifier = "10000000_NozzleChanger_2_L_1",
-                            ResourcePosition = "2.3.1.3"
-                        }
-                    },
-                    PlacementHeads = new List<HeadResource>()
-                    {
-                       new HeadResource()
-                       {
-                          ResourceName = "C&P20_1",
-                          ResourceType = "C&P20",
-                          ResourceIdentifier = "00000000-00 000-H1-_____",
-                          ResourcePosition = "1.1.1",
-                          Cameras = new List<Camera>()
-                          {
-                               new Camera()
-                               {
-                                   ResourceName = "SST23_1.1",
-                                   ResourceType = "SST23",
-                                   ResourceIdentifier = "10000000-00 000-H1-HC__",
-                                   ResourcePosition = "1.1.1"
-                               }
-                          },
-                          RotationAxes = new List<RotationAxis>()
-                          {
-                              new RotationAxis()
-                              {
-                                  ResourceName = "C&P20_1_DpAxis1",
-                                  ResourceType = null,
-                                  ResourceIdentifier = "10000000-00 000-H1-DP1_",
-                                  ResourcePosition = "1.1.1.1"
-                              },
-                              new RotationAxis()
-                              {
-                                  ResourceName = "C&P20_1_DpAxis10",
-                                  ResourceType = null,
-                                  ResourceIdentifier = "10000000-00 000-H1-DP10",
-                                  ResourcePosition = "1.1.1.10"
-                              }
-                          }
-                       },
-                       new HeadResource()
-                       {
-                          ResourceName = "C&C&P20_3",
-                          ResourceType = "C&P20",
-                          ResourceIdentifier = "00000000-00 000-H3-_____",
-                          ResourcePosition = "2.3.1",
-                          Cameras = new List<Camera>()
-                          {
-                               new Camera()
-                               {
-                                   ResourceName = "SST23_3.1",
-                                   ResourceType = "SST23",
-                                   ResourceIdentifier = "10000000-00 000-H3-HC__",
-                                   ResourcePosition = "2.3.1"
+                            ResourcePosition = "2.3.1.3",
+                            IdentiferUniqueness = IdentiferUniquenessType.Unkwnown
+                        },
+                        new SMTHeadResource()
+                        {
+                            ResourceName = "C&P20_1",
+                            ResourceType = "C&P20",
+                            ResourceIdentifier = "00000000-00 000-H1-_____",
+                            ResourcePosition = "1.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent,
+                            Cameras = new List<Camera>()
+                            {
+                                new Camera()
+                                {
+                                    ResourceName = "SST23_1.1",
+                                    ResourceType = "SST23",
+                                    ResourceIdentifier = "10000000-00 000-H1-HC__",
+                                    ResourcePosition = "1.1.1",
+                                    IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
+                                }
+                            },
+                            RotationAxes = new List<RotationAxis>()
+                            {
+                                new RotationAxis()
+                                {
+                                    ResourceName = "C&P20_1_DpAxis1",
+                                    ResourceType = null,
+                                    ResourceIdentifier = "10000000-00 000-H1-DP1_",
+                                    ResourcePosition = "1.1.1.1",
+                                    IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
+                                },
+                                new RotationAxis()
+                                 {
+                                    ResourceName = "C&P20_1_DpAxis10",
+                                    ResourceType = null,
+                                    ResourceIdentifier = "10000000-00 000-H1-DP10",
+                                    ResourcePosition = "1.1.1.10",
+                                    IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
+                                }
+                            },
+                        },
+                        new SMTHeadResource()
+                        {
+                            ResourceName = "C&C&P20_3",
+                            ResourceType = "C&P20",
+                            ResourceIdentifier = "00000000-00 000-H3-_____",
+                            ResourcePosition = "2.3.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent,
+                            Cameras = new List<Camera>()
+                            {
+                                new Camera()
+                                {
+                                    ResourceName = "SST23_3.1",
+                                    ResourceType = "SST23",
+                                    ResourceIdentifier = "10000000-00 000-H3-HC__",
+                                    ResourcePosition = "2.3.1",
+                                    IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent
                                }
                           },
                           RotationAxes = new List<RotationAxis>()
@@ -4485,38 +4482,35 @@ namespace CFXExampleEndpoint
                                   ResourceName = "C&P20_3_DpAxis1",
                                   ResourceType = null,
                                   ResourceIdentifier = "10000000-00 000-H3-DP1_",
-                                  ResourcePosition = "2.3.1.1"
+                                  ResourcePosition = "2.3.1.1",
+                                  IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                               },
                               new RotationAxis()
                               {
                                   ResourceName = "C&P20_3_DpAxis10",
                                   ResourceType = null,
                                   ResourceIdentifier = "10000000-00 000-H3-DP10",
-                                  ResourcePosition = "2.3.1.10"
+                                  ResourcePosition = "2.3.1.10",
+                                  IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                               }
                           }
-                       }
-                    },
-                    TapeCutters = new List<TapeCutter>()
-                    {
-                        new TapeCutter()
+                        },
+                        new SMTTapeCutter()
                         {
                             ResourceName = "TapeCutter_1.4",
                             ResourceType = "",
                             ResourceIdentifier = "10000000_TapeCutter_1_L_1",
-                            ResourcePosition = "1.0.4"
+                            ResourcePosition = "1.0.4",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         },
-                        new TapeCutter()
+                        new SMTTapeCutter()
                         {
                             ResourceName = "TapeCutter_1.1",
                             ResourceType = "",
                             ResourceIdentifier = "10000000_TapeCutter_1_R_1",
-                            ResourcePosition = "1.0.1"
+                            ResourcePosition = "1.0.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         }
-                    },
-                    VacuumPumps = new List<VacuumPump>()
-                    {
-
                     }
                 }
             };
@@ -4572,38 +4566,42 @@ namespace CFXExampleEndpoint
                            }
                        }
                     },
-                    NozzleChangerGarages = new List<NozzleChangerGarage>()
+                    NozzleChangerPockets = new List<SMTNozzleChangerPocket>()
                     {
-                        new NozzleChangerGarage()
+                        new SMTNozzleChangerPocket()
                         {
                             ResourceName = "10000000_NozzleChanger_1_L_1_1_2_2_1006",
                             ResourceType = "1006",
                             ResourceIdentifier = "10000000_466",
-                            ResourcePosition = "4.1.2.2"
+                            ResourcePosition = "4.1.2.2",
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                         },
-                        new NozzleChangerGarage()
+                        new SMTNozzleChangerPocket()
                         {
                             ResourceName = "10000000_NozzleChanger_1_L_1_1_2_1_1006",
                             ResourceType = "1006",
                             ResourceIdentifier = "10000000_467",
-                            ResourcePosition = "4.1.2.1"
+                            ResourcePosition = "4.1.2.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                         },
                     },
-                    Tables = new List<Table>()
+                    Tables = new List<SMTTable>()
                     {
-                        new Table()
+                        new SMTTable()
                         {
                             ResourceName = "Table_4",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_FeederDevice_1_L",
-                            ResourcePosition = "4.1.1"
+                            ResourcePosition = "4.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         },
-                        new Table()
+                        new SMTTable()
                         {
                             ResourceName = "Table_1",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_FeederDevice_1_R",
-                            ResourcePosition = "1.1.1"
+                            ResourcePosition = "1.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         }
                     }
                 }
@@ -4657,38 +4655,42 @@ namespace CFXExampleEndpoint
                            }
                        }
                     },
-                    NozzleChangerGarages = new List<NozzleChangerGarage>()
+                    NozzleChangerPockets = new List<SMTNozzleChangerPocket>()
                     {
-                        new NozzleChangerGarage()
+                        new SMTNozzleChangerPocket()
                         {
                             ResourceName = "10000000_NozzleChanger_1_L_1_1_2_2_1006",
                             ResourceType = "1006",
                             ResourceIdentifier = "10000000_466",
-                            ResourcePosition = "4.1.2.2"
+                            ResourcePosition = "4.1.2.2",
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                         },
-                        new NozzleChangerGarage()
+                        new SMTNozzleChangerPocket()
                         {
                             ResourceName = "10000000_NozzleChanger_1_L_1_1_2_1_1006",
                             ResourceType = "1006",
                             ResourceIdentifier = "10000000_467",
-                            ResourcePosition = "4.1.2.1"
+                            ResourcePosition = "4.1.2.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent
                         },
                     },
-                    Tables = new List<Table>()
+                    Tables = new List<SMTTable>()
                     {
-                        new Table()
+                        new SMTTable()
                         {
                             ResourceName = "Table_4",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_FeederDevice_1_L",
-                            ResourcePosition = "4.1.1"
+                            ResourcePosition = "4.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         },
-                        new Table()
+                        new SMTTable()
                         {
                             ResourceName = "Table_1",
                             ResourceType = null,
                             ResourceIdentifier = "10000000_FeederDevice_1_R",
-                            ResourcePosition = "1.1.1"
+                            ResourcePosition = "1.1.1",
+                            IdentiferUniqueness = IdentiferUniquenessType.UnserializedLocation
                         }
                     }
                 }
@@ -4988,6 +4990,7 @@ namespace CFXExampleEndpoint
                 {
                     UniqueIdentifier = "10000000",
                     Name = "SIPLACE SX4",
+                    ResourceType = "SMT"
                 },
                 ResourceMaintenanceDetails = new List<ResourceInformation>()
               {
@@ -4995,6 +4998,7 @@ namespace CFXExampleEndpoint
                   {
                     ResourceIdentifier = "08FAUT901183",
                     ResourceType = "8mm-X Tape",
+                    IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent,
                     ResourcePosition = "2.14",
                     ResourceName = "8mm-X Tape_2.14",
                     MaintenanceStatus = new MaintenanceStatus()
@@ -5031,6 +5035,12 @@ namespace CFXExampleEndpoint
                 {
                     UniqueIdentifier = "10000000",
                     Name = "SIPLACE SX4",
+                    ResourceType = "SMT",
+                    FirmwareVersion = "0",
+                    ModelNumber = "1234",
+                    SerialNumber = "1234567890",
+                    SoftwareVersion = "730",
+                    Vendor = "ASM"
                 },
                 ResourceMaintenanceDetails = new List<ResourceInformation>()
               {
@@ -5040,6 +5050,7 @@ namespace CFXExampleEndpoint
                     ResourceType = "8mm-X Tape",
                     ResourcePosition = "2.14",
                     ResourceName = "8mm-X Tape_2.14",
+                    IdentiferUniqueness = IdentiferUniquenessType.GloballyPersistent,
                     MaintenanceStatus = new MaintenanceStatus()
                     {
                         Reason = "No reason",
@@ -5066,104 +5077,6 @@ namespace CFXExampleEndpoint
             AppendMessage(msg, ref result);
             //******************************//
 
-            //Maintenance message for flat resource (machine) modelling
-
-            msg = new CFX.Maintenance.ResourceInformationEvent()
-            {
-                EventDateTime = new DateTime(DateTime.Now.Ticks - (DateTime.Now.Ticks % TimeSpan.TicksPerSecond),
-                DateTime.Now.Kind),
-                ResourceInformation = new MaintenanceResource()
-                {
-                    UniqueIdentifier = "10000000",
-                    SoftwareVersion = "713",
-                    Vendor = "ASM",
-                    ModelNumber = "SIPLACE SX4",
-                    Name = "SMT SIPLACE SX 4",
-                    SerialNumber = "UID1111111111111111",
-                    FirmwareVersion= "0",
-
-                    Resources = new List<ResourceInformation>(new ResourceInformation[]
-                    {
-                        new Camera()
-                        {
-                            ResourceName = "SST23_1.1",
-                            ResourceType = "CameraSST23",
-                            ResourceIdentifier = "10000000-00 000-H1-HC__",
-                            ResourcePosition = "1.1.1"
-                        },
-                        new Camera()
-                        {
-                            ResourceName = "SST23_1.2",
-                            ResourceType = "CameraSST23",
-                            ResourceIdentifier = "10000000-00 000-H2-HC__",
-                            ResourcePosition = "1.2.1"
-                        },
-                        new RotationAxis()
-                        {
-                            ResourceName = "C&P20_1_DpAxis1",
-                            ResourceType = "RotationAxis",
-                            ResourceIdentifier = "10000000-00 000-H1-DP1_",
-                            ResourcePosition = "1.1.1.1"
-                        },
-                        new RotationAxis()
-                        {
-                            ResourceName = "C&P20_1_DpAxis10",
-                            ResourceType = "RotationAxis",
-                            ResourceIdentifier = "10000000-00 000-H1-DP10",
-                            ResourcePosition = "1.1.1.10"
-                        },
-                        new HeadResource()
-                        {
-                            ResourceName = "C&C&P20_3",
-                            ResourceType = "Head_C&P20",
-                            ResourceIdentifier = "00000000-00 000-H3-_____",
-                            ResourcePosition = "2.3.1",
-                            Cameras = new List<Camera>()
-                            {
-                                new Camera()
-                                {
-                                    ResourceName = "SST23_3.1",
-                                    ResourceType = "SST23",
-                                    ResourceIdentifier = "10000000-00 000-H3-HC__",
-                                    ResourcePosition = "2.3.1"
-                                }
-                             },
-                            RotationAxes = new List<RotationAxis>()
-                            {
-                                new RotationAxis()
-                                {
-                                    ResourceName = "C&P20_3_DpAxis1",
-                                    ResourceType = "RotationAxis",
-                                    ResourceIdentifier = "10000000-00 000-H3-DP1_",
-                                    ResourcePosition = "2.3.1.1"
-                                },
-                                new RotationAxis()
-                                {
-                                  ResourceName = "C&P20_3_DpAxis10",
-                                  ResourceType = "RotationAxis",
-                                  ResourceIdentifier = "10000000-00 000-H3-DP10",
-                                  ResourcePosition = "2.3.1.10"
-                                }
-                            }
-                        },
-                        new TapeCutter()
-                        {
-                            ResourceName = "TapeCutter_1.4",
-                            ResourceType = "Cutter",
-                            ResourceIdentifier = "10000000_TapeCutter_1_L_1",
-                            ResourcePosition = "1.0.4"
-                        },
-                        new TapeCutter()
-                        {
-                            ResourceName = "TapeCutter_1.1",
-                            ResourceType = "Cutter",
-                            ResourceIdentifier = "10000000_TapeCutter_1_R_1",
-                            ResourcePosition = "1.0.1"
-                        }
-                    }),
-                }
-            };
-            AppendMessage(msg, ref result);
             return result;
         }
     }

@@ -23,6 +23,7 @@ namespace CFX.Maintenance
     ///   "Machine": {
     ///     "UniqueIdentifier": "10000000",
     ///     "Name": "SIPLACE SX4",
+    ///     "ResourceType": null,
     ///     "Vendor": null,
     ///     "ModelNumber": null,
     ///     "SerialNumber": null,
@@ -39,14 +40,14 @@ namespace CFX.Maintenance
     ///           "CalibrationType": "SegmentOffset",
     ///           "Comments": "",
     ///           "Status": "Ok",
-    ///           "CalibrationTime": "2020-10-09T13:24:46.4551564+02:00"
+    ///           "CalibrationTime": "2020-11-26T18:27:14.8761185+01:00"
     ///         },
     ///         {
     ///           "CalibrationCode": "HeadMapping_0_R",
     ///           "CalibrationType": "HeadMapping",
     ///           "Comments": "Calibration failed. Check log",
     ///           "Status": "Failed",
-    ///           "CalibrationTime": "2020-10-09T13:24:46.4551564+02:00"
+    ///           "CalibrationTime": "2020-11-26T18:27:14.8771196+01:00"
     ///         }
     ///       ],
     ///       "ErrorDetails": null,
@@ -54,29 +55,34 @@ namespace CFX.Maintenance
     ///         {
     ///           "Name": "HeadCompleteMileage",
     ///           "CounterType": "Odometer",
+    ///           "CustomCounterType": null,
     ///           "MeasurementLocation": "1.1.1",
     ///           "CurrentCounterValue": 0.0,
     ///           "CurrentRatio": 97.9,
     ///           "CurrentRatioValid": true,
-    ///           "CurrentTimeStamp": "2020-10-09T13:24:46.4561573+02:00",
+    ///           "CurrentTimeStamp": "2020-11-26T18:27:14.8771196+01:00",
     ///           "LastMaintenanceCounterValue": 102.0,
-    ///           "LastMaintenanceTimeStamp": "2020-09-09T13:24:46.4561573+02:00",
+    ///           "LastMaintenanceTimeStamp": "2020-10-26T18:27:14.8771196+01:00",
     ///           "LastMaintenanceValid": false
     ///         }
     ///       ],
     ///       "SensorDetails": [
     ///         {
+    ///           "ResourceIdentifier": null,
+    ///           "IdentiferUniqueness": "Unkwnown",
+    ///           "ResourceName": "Temperature sensor",
+    ///           "ResourceType": "Sensor",
+    ///           "ResourcePosition": "2_R",
+    ///           "MaintenanceStatus": null,
+    ///           "AdditionalSubResources": null,
     ///           "Type": "Temperature",
+    ///           "CustomSensorType": null,
     ///           "Value": 19.2,
     ///           "LowLimit": 15.0,
     ///           "HighLimit": 30.0,
     ///           "UnitOfMeasure": "DegreeCelsius",
-    ///           "SampleTime": "2020-10-09T13:24:46.4571567+02:00",
-    ///           "ResourceName": "Temperature sensor",
-    ///           "ResourceIdentifier": null,
-    ///           "ResourceType": "Sensor",
-    ///           "ResourcePosition": "2_R",
-    ///           "MaintenanceStatus": null
+    ///           "CustomUnitOfMeasure": null,
+    ///           "SampleTime": "2020-11-26T18:27:14.8781183+01:00"
     ///         }
     ///       ],
     ///       "VerificationDetails": null
@@ -90,7 +96,7 @@ namespace CFX.Maintenance
     ///           "CalibrationType": "BoardCamera",
     ///           "Comments": "Done ok",
     ///           "Status": "Ok",
-    ///           "CalibrationTime": "2020-10-09T13:24:46.4571567+02:00"
+    ///           "CalibrationTime": "2020-11-26T18:27:14.8781183+01:00"
     ///         }
     ///       ],
     ///       "ErrorDetails": null,
@@ -102,9 +108,10 @@ namespace CFX.Maintenance
     ///           "Status": "Ok",
     ///           "Value": 0.0,
     ///           "UnitOfMeasure": null,
-    ///           "Type": "General",
+    ///           "VerificationLocation": "1.2",
+    ///           "Type": "Special",
     ///           "IsValid": true,
-    ///           "LastExecution": "2020-10-09T13:24:46.4581568+02:00",
+    ///           "LastExecution": "2020-11-26T18:27:14.8791189+01:00",
     ///           "Comment": null
     ///         },
     ///         {
@@ -112,9 +119,10 @@ namespace CFX.Maintenance
     ///           "Status": "Failed",
     ///           "Value": 0.0,
     ///           "UnitOfMeasure": null,
-    ///           "Type": "Special",
+    ///           "VerificationLocation": "2.3",
+    ///           "Type": "General",
     ///           "IsValid": true,
-    ///           "LastExecution": "2020-10-09T13:24:46.4581568+02:00",
+    ///           "LastExecution": "2020-11-26T18:27:14.8791189+01:00",
     ///           "Comment": null
     ///         }
     ///       ]
@@ -128,13 +136,14 @@ namespace CFX.Maintenance
     ///         {
     ///           "Name": "FeederCycleCount",
     ///           "CounterType": "ActivityCount",
+    ///           "CustomCounterType": null,
     ///           "MeasurementLocation": "08ASMS500240_Lane_1",
     ///           "CurrentCounterValue": 57002.0,
     ///           "CurrentRatio": 31.2,
     ///           "CurrentRatioValid": true,
-    ///           "CurrentTimeStamp": "2020-10-09T13:24:46.4581568+02:00",
+    ///           "CurrentTimeStamp": "2020-11-26T18:27:14.8791189+01:00",
     ///           "LastMaintenanceCounterValue": 23456.0,
-    ///           "LastMaintenanceTimeStamp": "2020-08-09T13:24:46.4581568+02:00",
+    ///           "LastMaintenanceTimeStamp": "2020-09-26T18:27:14.8791189+02:00",
     ///           "LastMaintenanceValid": false
     ///         }
     ///       ],

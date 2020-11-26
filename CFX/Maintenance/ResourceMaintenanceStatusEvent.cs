@@ -17,19 +17,30 @@ namespace CFX.Maintenance
     /// Example for SMT Endpoint:
     /// <code language="none">
     /// {
-    ///   "EventDateTime": "2020-11-16T15:03:34+01:00",
+    ///   "EventDateTime": "2020-11-26T18:43:29+01:00",
     ///   "Machine": {
     ///     "UniqueIdentifier": "10000000",
     ///     "Name": "SIPLACE SX4",
-    ///     "Vendor": null,
-    ///     "ModelNumber": null,
-    ///     "SerialNumber": null,
-    ///     "SoftwareVersion": null,
-    ///     "FirmwareVersion": null
+    ///     "ResourceType": "SMT",
+    ///     "Vendor": "ASM",
+    ///     "ModelNumber": "1234",
+    ///     "SerialNumber": "1234567890",
+    ///     "SoftwareVersion": "730",
+    ///     "FirmwareVersion": "0"
     ///   },
     ///   "ResourceMaintenanceDetails": [
     ///     {
     ///       "$type": "CFX.Structures.Maintenance.SMTTapeFeederInformation, CFX",
+    ///       "ResourceIdentifier": "08FAUT901183",
+    ///       "IdentiferUniqueness": "GloballyPersistent",
+    ///       "ResourceName": "8mm-X Tape_2.14",
+    ///       "ResourceType": "8mm-X Tape",
+    ///       "ResourcePosition": "2.14",
+    ///       "MaintenanceStatus": {
+    ///         "Reason": "No reason",
+    ///         "ResultState": "Ok"
+    ///       },
+    ///       "AdditionalSubResources": null,
     ///       "MultiLanes": [
     ///         {
     ///           "CycleCount": 1002,
@@ -41,15 +52,7 @@ namespace CFX.Maintenance
     ///           "LaneNumber": 2,
     ///           "UniqueIdentifier": "09ASMS500302_Lane_2"
     ///         }
-    ///       ],
-    ///       "ResourceName": "8mm-X Tape_2.14",
-    ///       "ResourceIdentifier": "08FAUT901183",
-    ///       "ResourceType": "8mm-X Tape",
-    ///       "ResourcePosition": "2.14",
-    ///       "MaintenanceStatus": {
-    ///         "Reason": "No reason",
-    ///         "ResultState": "Ok"
-    ///       }
+    ///       ]
     ///     }
     ///   ]
     /// }

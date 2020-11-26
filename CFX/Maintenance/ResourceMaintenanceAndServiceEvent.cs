@@ -16,10 +16,11 @@ namespace CFX.Maintenance
     /// <para></para>
     /// <code language="none">
     /// {
-    ///   "EventDateTime": "2020-11-16T14:50:03+01:00",
+    ///   "EventDateTime": "2020-11-26T18:27:14+01:00",
     ///   "Machine": {
     ///     "UniqueIdentifier": "10000000",
     ///     "Name": "SIPLACE SX4",
+    ///     "ResourceType": null,
     ///     "Vendor": null,
     ///     "ModelNumber": null,
     ///     "SerialNumber": null,
@@ -36,14 +37,14 @@ namespace CFX.Maintenance
     ///           "CalibrationType": "SegmentOffset",
     ///           "Comments": "",
     ///           "Status": "Ok",
-    ///           "CalibrationTime": "2020-11-16T14:50:03.5513363+01:00"
+    ///           "CalibrationTime": "2020-11-26T18:27:14.9231201+01:00"
     ///         },
     ///         {
     ///           "CalibrationCode": "HeadMapping_0_R",
     ///           "CalibrationType": "HeadMapping",
     ///           "Comments": "Calibration failed. Check log",
     ///           "Status": "Failed",
-    ///           "CalibrationTime": "2020-11-16T14:50:03.5513363+01:00"
+    ///           "CalibrationTime": "2020-11-26T18:27:14.9231201+01:00"
     ///         }
     ///       ],
     ///       "ErrorDetails": null,
@@ -56,14 +57,21 @@ namespace CFX.Maintenance
     ///           "CurrentCounterValue": 0.0,
     ///           "CurrentRatio": 97.9,
     ///           "CurrentRatioValid": true,
-    ///           "CurrentTimeStamp": "2020-11-16T14:50:03.5513363+01:00",
+    ///           "CurrentTimeStamp": "2020-11-26T18:27:14.9231201+01:00",
     ///           "LastMaintenanceCounterValue": 102.0,
-    ///           "LastMaintenanceTimeStamp": "2020-10-16T14:50:03.5513363+02:00",
+    ///           "LastMaintenanceTimeStamp": "2020-10-26T18:27:14.9231201+01:00",
     ///           "LastMaintenanceValid": false
     ///         }
     ///       ],
     ///       "SensorDetails": [
     ///         {
+    ///           "ResourceIdentifier": null,
+    ///           "IdentiferUniqueness": "Unkwnown",
+    ///           "ResourceName": "Temperature sensor",
+    ///           "ResourceType": "Sensor",
+    ///           "ResourcePosition": "2_R",
+    ///           "MaintenanceStatus": null,
+    ///           "AdditionalSubResources": null,
     ///           "Type": "Temperature",
     ///           "CustomSensorType": null,
     ///           "Value": 19.2,
@@ -71,12 +79,7 @@ namespace CFX.Maintenance
     ///           "HighLimit": 30.0,
     ///           "UnitOfMeasure": "DegreeCelsius",
     ///           "CustomUnitOfMeasure": null,
-    ///           "SampleTime": "2020-11-16T14:50:03.5513363+01:00",
-    ///           "ResourceName": "Temperature sensor",
-    ///           "ResourceIdentifier": null,
-    ///           "ResourceType": "Sensor",
-    ///           "ResourcePosition": "2_R",
-    ///           "MaintenanceStatus": null
+    ///           "SampleTime": "2020-11-26T18:27:14.9231201+01:00"
     ///         }
     ///       ],
     ///       "VerificationDetails": null
@@ -90,7 +93,7 @@ namespace CFX.Maintenance
     ///           "CalibrationType": "BoardCamera",
     ///           "Comments": "Done ok",
     ///           "Status": "Ok",
-    ///           "CalibrationTime": "2020-11-16T14:50:03.5513363+01:00"
+    ///           "CalibrationTime": "2020-11-26T18:27:14.9231201+01:00"
     ///         }
     ///       ],
     ///       "ErrorDetails": null,
@@ -105,7 +108,7 @@ namespace CFX.Maintenance
     ///           "VerificationLocation": "1.2",
     ///           "Type": "Special",
     ///           "IsValid": true,
-    ///           "LastExecution": "2020-11-16T14:50:03.5513363+01:00",
+    ///           "LastExecution": "2020-11-26T18:27:14.9231201+01:00",
     ///           "Comment": null
     ///         },
     ///         {
@@ -116,7 +119,7 @@ namespace CFX.Maintenance
     ///           "VerificationLocation": "2.3",
     ///           "Type": "General",
     ///           "IsValid": true,
-    ///           "LastExecution": "2020-11-16T14:50:03.5513363+01:00",
+    ///           "LastExecution": "2020-11-26T18:27:14.9231201+01:00",
     ///           "Comment": null
     ///         }
     ///       ]
@@ -135,9 +138,9 @@ namespace CFX.Maintenance
     ///           "CurrentCounterValue": 57002.0,
     ///           "CurrentRatio": 31.2,
     ///           "CurrentRatioValid": true,
-    ///           "CurrentTimeStamp": "2020-11-16T14:50:03.5513363+01:00",
+    ///           "CurrentTimeStamp": "2020-11-26T18:27:14.9231201+01:00",
     ///           "LastMaintenanceCounterValue": 23456.0,
-    ///           "LastMaintenanceTimeStamp": "2020-09-16T14:50:03.5513363+02:00",
+    ///           "LastMaintenanceTimeStamp": "2020-09-26T18:27:14.9231201+02:00",
     ///           "LastMaintenanceValid": false
     ///         }
     ///       ],
