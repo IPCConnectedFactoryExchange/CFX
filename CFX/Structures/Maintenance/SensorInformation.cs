@@ -13,6 +13,7 @@ namespace CFX.Structures.Maintenance
     /// It may be used to model the sensor on  
     /// parts that may require traceable operations (i.e. maintenance)
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class SensorInformation : ResourceInformation
     {
         /// <summary>

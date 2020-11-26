@@ -11,6 +11,7 @@ namespace CFX.Structures
     /// Describes the details of a particular Resource.
     /// This is a dynamic structure.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Resource
     {
@@ -38,6 +39,16 @@ namespace CFX.Structures
         /// </summary>
         [JsonProperty(Order = -2)]
         public string Name
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The type of resource (e.g. SMT, AOI, Oven). 
+        /// </summary>
+        [JsonProperty(Order = -2)]
+        public string ResourceType
         {
             get;
             set;

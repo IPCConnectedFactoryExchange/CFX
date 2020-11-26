@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 
 namespace CFX.Maintenance
 {
-#pragma warning disable 1570
     /// <summary>
     /// Allows any CFX endpoint to request the resource and sub-resources of a specified single endpoint. 
     /// The endpoint information structure is a dynamic structure, and can vary based on the type of endpoint.
@@ -203,7 +202,8 @@ namespace CFX.Maintenance
     /// </code>
     /// <para></para>
     /// </summary>
-#pragma warning restore 1570
+
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class GetResourceInformationResponse : CFXMessage
     {

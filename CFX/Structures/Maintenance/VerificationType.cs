@@ -10,6 +10,7 @@ namespace CFX.Structures.Maintenance
     /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// An enumeration indicating the type of verification that can be executed during the process (i.e. maintenance)
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum VerificationType
     {

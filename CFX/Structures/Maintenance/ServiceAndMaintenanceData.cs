@@ -13,6 +13,7 @@ namespace CFX.Structures.Maintenance
     /// of the resources / sub-resources in an Endpoint.
     /// It may be used to model as base class for other specific maintenance parts or services
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class ServiceAndMaintenanceData
     {
         /// <summary>

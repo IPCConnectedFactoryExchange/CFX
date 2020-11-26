@@ -12,6 +12,7 @@ namespace CFX.Structures.Maintenance
     /// resources / sub-resources in an Endpoint.
     /// It is used in maintenance context
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class ErrorInformation
     {
         /// <summary>

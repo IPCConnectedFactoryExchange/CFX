@@ -12,6 +12,7 @@ namespace CFX.Structures.Maintenance
     /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// An enumeration indicating the type of counter that is capture by the Endpoint and its resources / sensors
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CounterType
     {

@@ -13,6 +13,7 @@ namespace CFX.Structures
     /// It may be used to model, among the others: camera, conveyor, gantries and other 
     /// parts that may require traceable operations (i.e. maintenance)
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ResourceInformation
     {
@@ -31,6 +32,16 @@ namespace CFX.Structures
         /// </summary>
         [JsonProperty(Order = -3)]
         public string ResourceIdentifier
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// An enumeration indicating the type of unique identifier for the specified resource
+        /// Values: GloballyPersistent, LocallyPersistent, UnserializedLocation or Unknown
+        /// </summary>
+        [JsonProperty(Order = -3)]
+        public IdentiferUniquenessType IdentiferUniqueness    
         {
             get;
             set;
@@ -67,5 +78,17 @@ namespace CFX.Structures
             get;
             set;
         }
+        /// <summary>
+        /// Optional:In case a nonstandard additional resource shall be modelled.
+        /// This list gives the flexibility of modelling objects which are not explicitly specified in the model.
+        /// The recommendation is to use this field only in case of unknown resource types 
+        /// </summary>
+        [JsonProperty(Order = -2)]
+        public List<ResourceInformation> AdditionalSubResources
+        {
+            get;
+            set;
+        }
+
     }
 }

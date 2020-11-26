@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 
 namespace CFX.Maintenance
 {
-#pragma warning disable 1570
     /// <summary>
     /// Allows any CFX endpoint to send the resource and sub-resources of a specified single endpoint. 
     /// The event can be sent "on change" or "time" base.
@@ -200,7 +199,8 @@ namespace CFX.Maintenance
     /// </code>
     /// <para></para>
     /// </summary>
-#pragma warning restore 1570
+    
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ResourceInformationEvent : CFXMessage
     {

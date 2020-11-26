@@ -12,6 +12,7 @@ namespace CFX.Structures
     /// It may have a meaning for the lifecycle of the resource, which may be independent
     /// from the Endpoint where it is located (e.g. maintenance operations)
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class RotationAxis : ResourceInformation
     {
         

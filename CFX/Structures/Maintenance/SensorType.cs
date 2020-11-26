@@ -11,6 +11,7 @@ namespace CFX.Structures.Maintenance
     /// An enumeration indicating the type of sensor that is located in a resource / sub-resource / endpoint
     /// The type of the sensor (distance, temperature, time etc.). It shall be used together with the SensorUnitOfMeasure
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SensorType
     {
@@ -70,6 +71,7 @@ namespace CFX.Structures.Maintenance
     /// The unit of measure of the sensor (meter, degree, hour etc. according to derived SI where applicable).
     /// It shall be used together with the SensorType
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SensorUnitOfMeasure
     {

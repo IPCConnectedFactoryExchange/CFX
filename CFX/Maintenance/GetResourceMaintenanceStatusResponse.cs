@@ -55,6 +55,7 @@ namespace CFX.Maintenance
     /// </code>
     /// <para></para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class GetResourceMaintenanceStatusResponse : CFXMessage
     {
         /// <summary>

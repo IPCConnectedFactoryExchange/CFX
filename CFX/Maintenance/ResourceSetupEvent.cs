@@ -97,6 +97,7 @@ namespace CFX.Maintenance
     /// </code>
     /// <para></para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ResourceSetupEvent : CFXMessage
     {

@@ -10,6 +10,7 @@ namespace CFX.Structures.Maintenance
     /// Describes the resources / sub-resources of a particular Endpoint that is participating in a CFX network, 
     /// and more specifically, is an SMT placement machine.  This is a dynamic structure.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class MaintenanceResource : Resource
     {
         /// <summary>

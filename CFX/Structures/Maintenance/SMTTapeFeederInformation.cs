@@ -11,6 +11,7 @@ namespace CFX.Structures.Maintenance
     /// Structure that contains information related to the feeder lifecycle. 
     /// It is used in maintenance context for maintenance scheduling and control etc.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class SMTTapeFeederInformation : ResourceInformation
     {
         /// <summary>

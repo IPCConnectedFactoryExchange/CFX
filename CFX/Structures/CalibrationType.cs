@@ -9,6 +9,7 @@ namespace CFX.Structures
     /// <summary>
     /// Types of calibrations
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CalibrationType
     {

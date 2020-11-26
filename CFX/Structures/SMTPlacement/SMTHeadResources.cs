@@ -5,18 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures
+namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// Represents the generic sub-resources of a generic head. For example, camera 
     /// mounted on the head in a specific position
     /// </summary>
-    public class HeadResource : ResourceInformation
+    [CFX.Utilities.CreatedVersion("1.3")]
+    public class SMTHeadResource : ResourceInformation
     {
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public HeadResource()
+        public  SMTHeadResource()
         {
             
         }

@@ -205,6 +205,7 @@ namespace CFX.Structures
         /// to in order to be processed by this SMT Placement machine.
         /// May be overridden for each lane (see <see cref="CFX.Structures.SMTPlacement.SMTLaneInformation"/>).
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public DimensionalConstraints DefaultSupportedPCBDimensions
         {
             get;

@@ -14,6 +14,7 @@ namespace CFX.Maintenance
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class GetResourceSetupRequest : CFXMessage
     {
         /// <summary>

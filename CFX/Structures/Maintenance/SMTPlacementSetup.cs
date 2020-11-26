@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CFX.Structures.SMTPlacement;
 
 namespace CFX.Structures.Maintenance
 {
@@ -10,6 +11,7 @@ namespace CFX.Structures.Maintenance
     /// Describes the actual setup resources / sub-resources of a particular Endpoint that is participating in a CFX network, 
     /// and more specifically, is an SMT placement machine.  This is a dynamic structure.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class SMTPlacementSetup : Resource
     {
         /// <summary>
@@ -23,7 +25,7 @@ namespace CFX.Structures.Maintenance
         /// <summary>
         /// Information about the nozzle changer garages of this SMT placement machine.
         /// </summary>
-        public List<NozzleChangerGarage> NozzleChangerGarages
+        public List<SMTNozzleChangerPocket> NozzleChangerPockets
         {
             get;
             set;
@@ -32,7 +34,7 @@ namespace CFX.Structures.Maintenance
         /// <summary>
         /// Information about the table of this SMT placement machine.
         /// </summary>
-        public List<Table> Tables
+        public List<SMTTable> Tables
         {
             get;
             set;

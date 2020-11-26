@@ -146,6 +146,7 @@ namespace CFX.Maintenance
     /// </code>
     /// <para></para>
     /// </summary>
+
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class GetResourceMaintenanceAndServiceResponse : CFXMessage
     {

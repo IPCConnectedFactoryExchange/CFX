@@ -11,6 +11,7 @@ namespace CFX.Structures
     /// Conveyor resource in an Endpoint. It may have a lifecycle independent
     /// from the Endpoint where it is located (e.g. maintenance operations)
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class Conveyor : ResourceInformation
     {
         

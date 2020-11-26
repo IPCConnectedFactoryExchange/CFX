@@ -12,6 +12,7 @@ namespace CFX.Structures.Maintenance
     /// resources / sub-resources in an Endpoint. It is the information that allows the
     /// receiving system to plan / execute the maintenance operations
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class MaintenanceInformation
     {
         /// <summary>
