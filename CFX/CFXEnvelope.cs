@@ -169,7 +169,6 @@ namespace CFX
                 if (messageBody != null && MessageBody.GetType().FullName.StartsWith("CFX."))
                 {
                     MessageName = messageBody.GetType().FullName;
-                    Version = CFXVERSION;
                 }
             }
         }
