@@ -12,6 +12,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Inspection
     {
+        /// <summary>
+        /// Inspection class
+        /// </summary>
         public Inspection()
         {
             DefectsFound = new List<Defect>();
@@ -97,7 +100,7 @@ namespace CFX.Structures
         /// of the root cause of the defect or why the defect is a false fail.
         /// This description is typically maintained by the customer and the operator will choose from a predefined list.
         /// </summary>
-        public string VerificationDetail 
+        public string VerificationDetail
         {
             get;
             set;
@@ -140,5 +143,11 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// Unique Number of the inspection object, The RefNo is the unique link between the Inspection class and the InspectionObject class
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public int? RefNo { get; set; }
     }
 }

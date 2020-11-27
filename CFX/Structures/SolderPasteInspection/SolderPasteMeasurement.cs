@@ -107,5 +107,62 @@ namespace CFX.Structures.SolderPasteInspection
             get;
             set;
         }
+        /// <summary>
+        /// The area of the paste deposition, expressed in square millimeters 
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double A
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// The expected area of the paste deposition, expressed in square millimeters 
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double EA
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// The position X value in millimeters (mm).
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double PX
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// The position X value in millimeters (mm).
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double PY
+        {
+            get;
+            set;
+        }
+        // Rotation related information
+        // This information is optional, if not available the angles are supposed to be zero
+        /// <summary>
+        /// The counter-clockwise rotational offset on the X-Y plane (in degrees)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double? RXY
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// Area Ratio of the related Aperture (Area/WallArea)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double AR
+        {
+            get;
+            set;
+        }
+
     }
 }
