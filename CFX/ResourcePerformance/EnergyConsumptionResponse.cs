@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX.ResourcePerformance
 {
     /// <summary>
-    /// Sent by a process endpoint on a sampled interval of between 1 minute and 1 hour
-    /// to indicate the energy usage and power consumption.
+    /// Response to an external source inquiring data regarding energy consumption of the endpoint.
     /// <code language="none">
     /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "OK"
+    ///   },
     ///   "StartTime": "2018-04-05T09:33:06.1358356-04:00",
     ///   "EndTime": "2018-04-05T09:38:06.1358356-04:00",
     ///   "EnergyUsed": 0.012,
@@ -46,10 +51,28 @@ namespace CFX.ResourcePerformance
     /// }
     /// </code>
     /// </summary>
-    public class EnergyConsumed : CFXMessage
+    public class EnergyConsumptionResponse : CFXMessage
     {
         /// <summary>
-        /// The start time of the sample period
+        /// Initializes a new instance of the <see cref="EnergyConsumptionResponse"/> class.
+        /// </summary>
+        public EnergyConsumptionResponse()
+        {
+            Result = new RequestResult();
+        }
+
+        /// <summary>
+        /// The result of the request
+        /// </summary>
+        public RequestResult Result
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The start time of the sample period. 
+        /// Start time is set as the start time of the immediately prior CFX.ResourcePerformance.EnergyConsumed message
         /// </summary>
         public DateTime StartTime
         {
@@ -58,7 +81,7 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
-        /// The end time of the sample period
+        /// The end time of the sample period. Coincides with the time when request was received.
         /// </summary>
         public DateTime EndTime
         {
@@ -385,6 +408,5 @@ namespace CFX.ResourcePerformance
             get;
             set;
         }
-
     }
 }

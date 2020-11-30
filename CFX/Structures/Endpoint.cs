@@ -207,6 +207,15 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// Contains information related to the Endpoint's sleep states.
+        /// </summary>
+        public List<SleepState> SleepStates
+        {
+            get;
+            set;
+        }
     }
 
     /// <summary>

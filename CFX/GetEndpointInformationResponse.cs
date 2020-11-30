@@ -85,6 +85,28 @@ namespace CFX
     ///         "TopicSupportType": "Publisher",
     ///         "SupportedMessages": []
     ///       }
+    ///     ],
+    ///     "SleepStates": [
+    ///         {
+    ///             "SleepType": "Awake",            
+    ///             "PowerSaving": 0,
+    ///             "WakeupTime": 0
+    ///         },
+    ///         {
+    ///             "SleepType": "Shallow",            
+    ///             "PowerSaving": 10,
+    ///             "WakeupTime": 30
+    ///         },
+    ///         {
+    ///             "SleepType": "Sleep",            
+    ///             "PowerSaving": 60,
+    ///             "WakeupTime": 120
+    ///         },
+    ///         {
+    ///             "SleepType": "Hibernate",            
+    ///             "PowerSaving": 95,
+    ///             "WakeupTime": 600
+    ///         }
     ///     ]
     ///   }
     /// }
