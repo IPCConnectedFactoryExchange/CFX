@@ -10,7 +10,7 @@ namespace CFX.Structures
     /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     ///Provide information of the inspection object type
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum InspectionObjectType
+    public enum InspectionItemType
     {
         /// <summary>
         /// Unknown object

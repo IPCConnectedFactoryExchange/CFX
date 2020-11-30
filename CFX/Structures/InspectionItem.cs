@@ -9,7 +9,7 @@ namespace CFX.Structures
     ///Provide information of the object to be inspected
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.3")]
-    public class InspectionObject
+    public class InspectionItem
     {
         /// <summary>
         /// An optional field to specify the classification, like "Capacitor", "Resistor", "DPAK"
@@ -22,7 +22,7 @@ namespace CFX.Structures
         /// <summary>
         /// Inspection object type enumeration 
         /// </summary>
-        public InspectionObjectType Type { get; set; }
+        public InspectionItemType Type { get; set; }
 
         /// <summary>
         /// Unique Number of the inspection object, The No will be used in the Unit inspection messages to uniquely identify the Inspection step

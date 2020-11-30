@@ -29,6 +29,6 @@ namespace CFX.Structures
         /// <summary>
         /// A list of child object which are to be inspected
         /// </summary>
-        public List<InspectionObject> ChildObjects { get; set; }
+        public List<InspectionItem> ChildObjects { get; set; }
     }
 }

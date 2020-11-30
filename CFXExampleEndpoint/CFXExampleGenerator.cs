@@ -4110,6 +4110,147 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            //CFX 1.3 Proposal to extend SPI / Inspection messages
+            //New GetRecipeResponse example (UnitsInspectionRecipe)
+            msg = new GetRecipeResponse()
+            {
+                Recipe = new UnitsInspectionRecipe()
+                { 
+                    RecipeGenerationDate = DateTime.Now,
+                    Name = "SolderRecipeXYZ_TextBoard1",
+                    Revision = "1.3.3.33",
+
+                    UnitsToInspect = new List<RecipeUnit>()
+                    {
+                        new RecipeUnit()
+                        {
+                            UnitPositionNumber = 1,
+                            ChildObjects = new List<InspectionItem>()
+                            {
+                                new InspectionItem()
+                                {
+                                    RefNo = 1,
+                                    CRD = "R100.1",
+                                    PartNumber = "A2C000628080001",
+                                    PackageType = "0201",
+                                    Type = InspectionItemType.Pad,
+                                    Group = "Resistor",
+
+                                    Steps = new List<InspectionStep>()
+                                    {
+                                        new InspectionStep()
+                                        {
+                                            Sequence = 1,
+                                            Name = "PasteDeposit",
+                                            TargetValue = new InspectionMeasurementExpected()
+                                            {
+                                                PX = 1000,
+                                                PY = 1200,
+                                                EX = 0.8,
+                                                EY = 1.5,
+                                                EZ = 0.1,
+                                                EA = 1.2,
+                                                EVol = 0.0001,
+                                                AR = 1.8,
+                                                RXY = 0,
+                                            }
+                                        }
+                                    }
+                                },
+                                new InspectionItem
+                                {
+                                    RefNo = 2,
+                                    CRD = "R100.2",
+                                    PartNumber = "A2C000628080001",
+                                    PackageType = "0201",
+                                    Type = InspectionItemType.Pad,
+                                    Group = "Resistor",
+
+                                    Steps = new List<InspectionStep>
+                                    {
+                                        new InspectionStep
+                                        {
+                                            Sequence = 1,
+                                            Name = "PasteDeposit",
+                                            TargetValue = new InspectionMeasurementExpected
+                                            {
+                                                PX = 3000,
+                                                PY = 1200,
+                                                EX = 0.8,
+                                                EY = 1.5,
+                                                EA = 1.2,
+                                                EVol = 0.0001,
+                                                AR = 1.8,
+                                                RXY = 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //CFX 1.3 New example for UnitsInspected based on new InspectionMeasurementLean
+            msg = new UnitsInspected()
+            {
+                RecipeName = "SolderRecipeXYZ_TextBoard1",
+                RecipeRevision = "1.3.3.33",
+                InspectedUnits = new List<InspectedUnit>()
+                {
+                    new InspectedUnit()
+                    {
+                        UnitIdentifier = "FFSHkkskamJDHS",
+                        UnitPositionNumber = 1,
+                        Inspections = new List<Inspection>()
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = "11122344567",
+                                RefNo = 1,
+                                Measurements = new List<Measurement>()
+                               {
+                                    new InspectionMeasurementLean()
+                                    {
+                                        Sequence = 1,
+                                        X = 0.76,
+                                        Y = 1.53,
+                                        DX = 0.035,
+                                        DY = 0.009,
+                                        Z = 0.086,
+                                        A = 1.234,
+                                        Vol = 0.000078,
+                                    }
+                                }
+                            },
+                            new Inspection()
+                            {
+                                UniqueIdentifier = "11122344568",
+                                RefNo = 2,
+                                Measurements = new List<Measurement>()
+                                {
+                                    new InspectionMeasurementLean()
+                                    {
+                                        Sequence = 1,
+                                        X = 0.78,
+                                        Y = 1.48,
+                                        DX = 0.039,
+                                        DY = 0.017,
+                                        Z = 0.092,
+                                        A = 1.226,
+                                        Vol = 0.000074,
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+
+            };
+            AppendMessage(msg, ref result);
             return result;
         }
     }
