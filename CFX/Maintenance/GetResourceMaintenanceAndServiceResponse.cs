@@ -157,6 +157,7 @@ namespace CFX.Maintenance
     /// </summary>
 
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class GetResourceMaintenanceAndServiceResponse : CFXMessage
     {
         /// <summary>
