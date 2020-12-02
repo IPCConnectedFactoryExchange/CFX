@@ -24,7 +24,7 @@ namespace CFX.ResourcePerformance
     ///     "StageType": "Work"
     ///   },
     ///   "Lane": null,
-    ///   "TransitionTimeRemaining": 45
+    ///   "TransitionTimeRemaining": "00:00:45"
     /// }
     /// </code>
     /// </summary>
@@ -91,10 +91,10 @@ namespace CFX.ResourcePerformance
 
         /// <summary>
         /// If the new sleep state requires less wake up time than the old, this indicates that the state is in the process of being changed.
-        /// Units are in seconds.
+        /// Time interval can be nullable (for example if there is no time remaining).
         /// </summary>
         [JsonProperty]
-        public int TransitionTimeRemaining
+        public TimeSpan? TransitionTimeRemaining
         {
             get;
             set;

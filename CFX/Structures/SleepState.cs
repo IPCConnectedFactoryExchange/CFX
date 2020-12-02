@@ -17,8 +17,8 @@ namespace CFX.Structures
         public SleepState()
         {
             SleepType = SleepType.Awake;
-            PowerSaving = 0;
-            WakeupTime = 0;
+            PowerSaving = 0.0;
+            WakeupTime = TimeSpan.FromSeconds(0.0);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace CFX.Structures
         /// Power consumption saving achieved through this sleep state.
         /// PowerSaving units are percentages
         /// </summary>
-        public int PowerSaving
+        public double PowerSaving
         {
             get;
             set;
@@ -44,7 +44,7 @@ namespace CFX.Structures
         /// Time interval required to go from the current sleep state to the "Awake" state.
         /// WakeupTime units are seconds
         /// </summary>
-        public int WakeupTime
+        public TimeSpan WakeupTime
         {
             get;
             set;

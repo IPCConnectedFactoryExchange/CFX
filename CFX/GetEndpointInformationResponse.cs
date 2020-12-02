@@ -89,23 +89,23 @@ namespace CFX
     ///     "SleepStates": [
     ///         {
     ///             "SleepType": "Awake",            
-    ///             "PowerSaving": 0,
-    ///             "WakeupTime": 0
+    ///             "PowerSaving": 0.0,
+    ///             "WakeupTime": "00:00:00"
     ///         },
     ///         {
     ///             "SleepType": "Shallow",            
-    ///             "PowerSaving": 10,
-    ///             "WakeupTime": 30
+    ///             "PowerSaving": 10.0,
+    ///             "WakeupTime": "00:00:30"
     ///         },
     ///         {
     ///             "SleepType": "Sleep",            
-    ///             "PowerSaving": 60,
-    ///             "WakeupTime": 120
+    ///             "PowerSaving": 60.0,
+    ///             "WakeupTime": "00:02:00"
     ///         },
     ///         {
     ///             "SleepType": "Hibernate",            
-    ///             "PowerSaving": 95,
-    ///             "WakeupTime": 600
+    ///             "PowerSaving": 95.0,
+    ///             "WakeupTime": "00:10:00"
     ///         }
     ///     ]
     ///   }
