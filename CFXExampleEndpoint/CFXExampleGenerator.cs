@@ -2797,14 +2797,21 @@ namespace CFXExampleEndpoint
              * No constructor for the RecipeActivated() as provided in this message.
              * Please fix this bug with the appropriate constructor
              *****************************************************************************/
-            //msg = new RecipeActivated()
-            //{
-            //    Lane = 1,
-            //    RecipeName = "RECIPE3234",
-            //    Revision = "B"
-               
-            //};
-            //AppendMessage(msg, ref result);
+            msg = new RecipeActivated()
+            {
+                Lane = 1,
+                RecipeName = "RECIPE3234",
+                Revision = "B",
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO-1000-1000",
+                    Batch = "WO-1000-1000-B1"
+                },
+                RelevantSurface = Surface.PrimarySurface,
+                TargetQuantity = 500
+                               
+            };
+            AppendMessage(msg, ref result);
 
             msg = new RecipeModified()
             {
