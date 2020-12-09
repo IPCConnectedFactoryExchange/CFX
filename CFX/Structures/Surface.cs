@@ -27,6 +27,6 @@ namespace CFX.Structures
         /// <summary>
         /// The secondary surface is relevant
         /// </summary>
-        SecondarySurace
+        SecondarySurface
     }
 }
