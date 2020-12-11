@@ -37,5 +37,25 @@ namespace CFX.Structures
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// Describes the status of the calibration that was performed (e.g. Undefined, Failed, Ok)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public OperationStatus? Status
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// Optional, when the calibration was performed
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public DateTime? CalibrationTime
+        {
+            get;
+            set;
+        }
     }
 }
