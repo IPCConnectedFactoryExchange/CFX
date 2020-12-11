@@ -33,6 +33,7 @@ using CFX.Production.Application.Solder;
 using CFX.Production.Processing;
 using CFX.Structures.Coating;
 using CFX.Structures.ReflowProfiling;
+using CFX.Production.Hermes;
 using CFX.Structures.Maintenance;
 
 namespace CFXExampleEndpoint
@@ -5083,6 +5084,191 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
             //******************************//
+
+            //New CFX 1.3 Proposal for Hermes Magazine management
+            msg = new GetMagazineDataRequest()
+            {
+                MagazineId = "ID12345"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetMagazineDataResponse()
+            {
+               Result = new RequestResult()
+               {
+                   
+               },
+               MagazineData = new Magazine()
+               {
+                   MagazineId = "ID12345",
+                   HermesUnits = new List<HermesUnit>()
+                   {
+                       new HermesUnit()
+                       {
+                           BoardId =Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500001",
+                           TopBarcode = "BT_M20206500001",
+                           BottomClearanceHeight = 1.2,
+                           ConveyorSpeed = 1200,
+                           Lenght = 160,
+                           SlotId = 1,
+                           TopClearanceHeight = 2.5,
+                           Width = 100,
+                           Thickness = 10,
+                           Weight = 80,
+                           FailedBoard = 1,
+                           FlippedBoard = 1,
+                           ProductTypeId = "Product_A",
+                           WorkOrderIdentifier = new WorkOrderIdentifier()
+                           {
+                                WorkOrderId = "WO9988776666",
+                                Batch = "Batch1"
+                           }
+                       },
+                       new HermesUnit()
+                       {
+                           BoardId = Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500002",
+                           TopBarcode = "BT_M20206500002",
+                           BottomClearanceHeight = 1.2,
+                           ConveyorSpeed = 1200,
+                           Lenght = 160,
+                           SlotId = 2,
+                           TopClearanceHeight = 2.5,
+                           Width = 100,
+                           Thickness = 10,
+                           Weight = 80,
+                           FailedBoard = 1,
+                           FlippedBoard = 1,
+                           ProductTypeId = "Product_A",
+                           WorkOrderIdentifier = new WorkOrderIdentifier()
+                           {
+                                WorkOrderId = "WO9988776666",
+                                Batch = "Batch1"
+                           }
+                       }
+                   }
+               }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new MagazineArrived()
+            {
+                MagazineData = new Magazine()
+                {
+                    MagazineId = "ID12345",
+                    HermesUnits = new List<HermesUnit>()
+                    {
+                       new HermesUnit()
+                       {
+                           BoardId = Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500001",
+                           TopBarcode = "BT_M20206500001",
+                           BottomClearanceHeight = 1.2,
+                           ConveyorSpeed = 1200,
+                           Lenght = 160,
+                           SlotId = 1,
+                           TopClearanceHeight = 2.5,
+                           Width = 100,
+                           Thickness = 10,
+                           Weight = 80,
+                           FailedBoard = 1,
+                           FlippedBoard = 1,
+                           ProductTypeId = "Product_A",
+                           WorkOrderIdentifier = new WorkOrderIdentifier()
+                           {
+                                WorkOrderId = "WO9988776666",
+                                Batch = "Batch1"
+                           }
+                       },
+                       new HermesUnit()
+                       {
+                           BoardId = Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500002",
+                           TopBarcode = "BT_M20206500002",
+                           BottomClearanceHeight = 1.2,
+                           ConveyorSpeed = 1200,
+                           Lenght = 160,
+                           SlotId = 2,
+                           TopClearanceHeight = 2.5,
+                           Width = 100,
+                           Thickness = 10,
+                           Weight = 80,
+                           FailedBoard = 1,
+                           FlippedBoard = 1,
+                           ProductTypeId = "Product_A",
+                           WorkOrderIdentifier = new WorkOrderIdentifier()
+                           {
+                                WorkOrderId = "WO9988776666",
+                                Batch = "Batch1"
+                           }
+                       }
+                   }
+                }
+            };
+            AppendMessage(msg, ref result);
+            
+            msg = new MagazineDeparted()
+            {
+                MagazineData = new Magazine()
+                {
+                    MagazineId = "ID12345",
+                    HermesUnits = new List<HermesUnit>()
+                    {
+                       new HermesUnit()
+                       {
+                           BoardId = Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500001",
+                           TopBarcode = "BT_M20206500001",
+                           BottomClearanceHeight = 1.2,
+                           ConveyorSpeed = 1200,
+                           Lenght = 160,
+                           SlotId = 1,
+                           TopClearanceHeight = 2.5,
+                           Width = 100,
+                           Thickness = 10,
+                           Weight = 80,
+                           FailedBoard = 1,
+                           FlippedBoard = 1,
+                           ProductTypeId = "Product_A",
+                           WorkOrderIdentifier = new WorkOrderIdentifier()
+                           {
+                                WorkOrderId = "WO9988776666",
+                                Batch = "Batch1"
+                           }
+                       },
+                       new HermesUnit()
+                       {
+                           BoardId = Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500002",
+                           TopBarcode = "BT_M20206500002",
+                           BottomClearanceHeight = 1.2,
+                           ConveyorSpeed = 1200,
+                           Lenght = 160,
+                           SlotId = 2,
+                           TopClearanceHeight = 2.5,
+                           Width = 100,
+                           Thickness = 10,
+                           Weight = 80,
+                           FailedBoard = 1,
+                           FlippedBoard = 1,
+                           ProductTypeId = "Product_A",
+                           WorkOrderIdentifier = new WorkOrderIdentifier()
+                           {
+                                WorkOrderId = "WO9988776666",
+                                Batch = "Batch1"
+                           }
+                       }
+                   }
+                }
+            };
+            AppendMessage(msg, ref result);
 
             return result;
         }
