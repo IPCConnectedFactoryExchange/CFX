@@ -45,7 +45,7 @@ namespace CFX
             Transmitted = false;
         }
 
-        public const string CFXVERSION = "1.2";
+        public const string CFXVERSION = "1.3";
         
         public CFXEnvelope(Type messageType) : this()
         {
@@ -169,7 +169,6 @@ namespace CFX
                 if (messageBody != null && MessageBody.GetType().FullName.StartsWith("CFX."))
                 {
                     MessageName = messageBody.GetType().FullName;
-                    Version = CFXVERSION;
                 }
             }
         }
