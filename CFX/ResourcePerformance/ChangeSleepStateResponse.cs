@@ -8,6 +8,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.ResourcePerformance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Response to an external source to modify a generic configuration parameter of a process endpoint.
     /// <code language="none">
     /// {
@@ -28,6 +29,7 @@ namespace CFX.ResourcePerformance
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class ChangeSleepStateResponse : CFXMessage
     {
         /// <summary>
@@ -36,8 +38,8 @@ namespace CFX.ResourcePerformance
         public ChangeSleepStateResponse()
         {
             Result = new RequestResult();
-            OldSleepState = SleepType.Awake;
-            NewSleepState = SleepType.Awake;
+            OldSleepState = "Awake";
+            NewSleepState = "Awake";
         }
 
         /// <summary>
@@ -53,7 +55,7 @@ namespace CFX.ResourcePerformance
         /// An enumeration indicating the previous sleep state prior to this state change
         /// </summary>
         [JsonProperty]
-        public SleepType OldSleepState
+        public string OldSleepState
         {
             get;
             set;
@@ -63,7 +65,7 @@ namespace CFX.ResourcePerformance
         /// The new sleep state
         /// </summary>
         [JsonProperty]
-        public SleepType NewSleepState
+        public string NewSleepState
         {
             get;
             set;

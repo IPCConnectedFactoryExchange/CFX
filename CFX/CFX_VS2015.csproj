@@ -337,7 +337,6 @@
     <Compile Include="Structures\Segment.cs" />
     <Compile Include="Structures\SideLocation.cs" />
     <Compile Include="Structures\SleepState.cs" />
-    <Compile Include="Structures\SleepType.cs" />
     <Compile Include="Structures\SMTPlacement\NamespaceDoc.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTapeFeeder.cs" />
     <Compile Include="Structures\SMTPlacement\SMDTapePitch.cs" />

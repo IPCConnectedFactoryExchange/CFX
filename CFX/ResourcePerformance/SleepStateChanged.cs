@@ -9,6 +9,7 @@ using CFX.Utilities;
 namespace CFX.ResourcePerformance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Sent by a process endpoint when the sleep state transitions
     /// from one state to another. 
     /// <para>Example 1 (Sleep State change to deeper sleep state):</para>
@@ -36,6 +37,7 @@ namespace CFX.ResourcePerformance
     /// </code>
     /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class SleepStateChanged : CFXMessage
     {
         /// <summary>
@@ -43,15 +45,15 @@ namespace CFX.ResourcePerformance
         /// </summary>
         public SleepStateChanged()
         {
-            OldSleepState = SleepType.Awake;
-            NewSleepState = SleepType.Awake;
+            OldSleepState = "Awake";
+            NewSleepState = "Awake";
         }
 
         /// <summary>
         /// An enumeration indicating the previous sleep state prior to this state change
         /// </summary>
         [JsonProperty]
-        public SleepType OldSleepState
+        public string OldSleepState
         {
             get;
             set;
@@ -61,7 +63,7 @@ namespace CFX.ResourcePerformance
         /// The new sleep state
         /// </summary>
         [JsonProperty]
-        public SleepType NewSleepState
+        public string NewSleepState
         {
             get;
             set;

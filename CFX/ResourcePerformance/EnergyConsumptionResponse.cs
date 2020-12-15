@@ -6,6 +6,7 @@ using CFX.Structures;
 namespace CFX.ResourcePerformance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Response to an external source inquiring data regarding energy consumption of the endpoint.
     /// <code language="none">
     /// {
@@ -21,36 +22,37 @@ namespace CFX.ResourcePerformance
     ///   "MinimumPower": 120.3,
     ///   "MeanPower": 124.6,
     ///   "PowerNow": 121.1,         
-	///   "PowerFactorNow": 0.95,
-	///   "PeakCurrent": 0.82,       
-	///   "MinimumCurrent": 0.00,    
-	///   "MeanCurrent": 0.68,       
-	///   "CurrentNow": 0.69,       
-	///   "PeakVoltage": 239.1,      
-	///   "MinimumVoltage": 231.6,   
-	///   "MeanVoltage": 232.9,      
-	///   "VoltageNow": 212.1,       
-	///   "PeakFrequency": 52,
-	///   "MinimumFrequency": 50.5,
-	///   "MeanFrequency": 50.6,
-	///   “FrequencyNow": 50.6,
-	///   "PeakPowerRYB": [ 125.6, 77.4, 10.2 ],
-	///   "MinimumPowerRYB": [ 120.3, 68.5, 8.5 ],    
-	///   "MeanPowerRYB": [ 124.6, 70.2, 9.8 ], 
-	///   "PowerNowRYB": [ 121.1, 68.9, 10.1 ], 
-	///   "PowerFactorNowRYB": [ 0.95, 0.92, 0.80 ],
-	///   "PeakCurrentRYB": [ 0.82, 0.65, 0.33 ], 
-	///   "MinimumCurrentRYB": [ 0.00, 0.01, 0.32 ], 
-	///   "MeanCurrentRYB": [ 0.68, 0.58, 0.32 ],
-	///   "CurrentNowRYB": [ 0.69, 0.57, 0.32 ], 
-	///   "PeakVoltageRYB": [ 420.1, 413.7, 404.6 ], 
-	///   "MinimumVoltageRYB": [ 393.6, 399.8, 397.4 ],
-	///   "MeanVoltageRYB": [ 402.9, 400.1, 402.3 ],
-	///   "VoltageNowRYB": [ 401.1, 401.5, 402.3 ], 
-	///   "ThreePhaseNeutralCurrentNow": 0.06 
+    ///   "PowerFactorNow": 0.95,
+    ///   "PeakCurrent": 0.82,       
+    ///   "MinimumCurrent": 0.00,    
+    ///   "MeanCurrent": 0.68,       
+    ///   "CurrentNow": 0.69,       
+    ///   "PeakVoltage": 239.1,      
+    ///   "MinimumVoltage": 231.6,   
+    ///   "MeanVoltage": 232.9,      
+    ///   "VoltageNow": 212.1,       
+    ///   "PeakFrequency": 52,
+    ///   "MinimumFrequency": 50.5,
+    ///   "MeanFrequency": 50.6,
+    ///   “FrequencyNow": 50.6,
+    ///   "PeakPowerRYB": [ 125.6, 77.4, 10.2 ],
+    ///   "MinimumPowerRYB": [ 120.3, 68.5, 8.5 ],    
+    ///   "MeanPowerRYB": [ 124.6, 70.2, 9.8 ], 
+    ///   "PowerNowRYB": [ 121.1, 68.9, 10.1 ], 
+    ///   "PowerFactorNowRYB": [ 0.95, 0.92, 0.80 ],
+    ///   "PeakCurrentRYB": [ 0.82, 0.65, 0.33 ], 
+    ///   "MinimumCurrentRYB": [ 0.00, 0.01, 0.32 ], 
+    ///   "MeanCurrentRYB": [ 0.68, 0.58, 0.32 ],
+    ///   "CurrentNowRYB": [ 0.69, 0.57, 0.32 ], 
+    ///   "PeakVoltageRYB": [ 420.1, 413.7, 404.6 ], 
+    ///   "MinimumVoltageRYB": [ 393.6, 399.8, 397.4 ],
+    ///   "MeanVoltageRYB": [ 402.9, 400.1, 402.3 ],
+    ///   "VoltageNowRYB": [ 401.1, 401.5, 402.3 ], 
+    ///   "ThreePhaseNeutralCurrentNow": 0.06 
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class EnergyConsumptionResponse : CFXMessage
     {
         /// <summary>

@@ -7,10 +7,12 @@ using Newtonsoft.Json;
 namespace CFX.ResourcePerformance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// This request allows an external source to inquire data regarding energy consumption of the endpoint
     /// <see cref="EnergyConsumptionResponse"/> message that it sends back to the requester.
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class EnergyConsumptionRequest : CFXMessage
     {
         /// <summary>

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace CFX.Structures
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Definition of Sleep State
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.3")]
     public class SleepState
     {
         /// <summary>
@@ -16,15 +18,15 @@ namespace CFX.Structures
         /// </summary>
         public SleepState()
         {
-            SleepType = SleepType.Awake;
+            SleepName = "Awake";
             PowerSaving = 0.0;
             WakeupTime = TimeSpan.FromSeconds(0.0);
         }
 
         /// <summary>
-        /// An enumeration identifying this particular sleep state
+        /// A descriptive name for this sleep state
         /// </summary>
-        public SleepType SleepType
+        public string SleepName
         {
             get;
             set;
