@@ -90,6 +90,9 @@ namespace CFX.Materials.Transport
     /// </summary>
     public class GetTransportOrderStatusResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GetTransportOrderStatusResponse()
         {
             Result = new RequestResult();

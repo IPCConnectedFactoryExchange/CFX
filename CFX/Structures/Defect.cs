@@ -11,6 +11,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Defect
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Defect()
         {
             //RelatedMeasurements = new List<Measurement>();

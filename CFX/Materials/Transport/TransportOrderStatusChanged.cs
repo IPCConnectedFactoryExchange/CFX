@@ -28,6 +28,9 @@ namespace CFX.Materials.Transport
     /// </summary>
     public class TransportOrderStatusChanged : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public TransportOrderStatusChanged()
         {
         }

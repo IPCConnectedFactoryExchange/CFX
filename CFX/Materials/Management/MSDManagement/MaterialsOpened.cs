@@ -68,6 +68,9 @@ namespace CFX.Materials.Management.MSDManagement
     /// </summary>
     public class MaterialsOpened : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsOpened()
         {
             Materials = new List<MaterialPackageDetail>();

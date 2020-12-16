@@ -12,6 +12,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Inspection
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Inspection()
         {
             DefectsFound = new List<Defect>();

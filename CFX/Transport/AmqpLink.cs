@@ -73,9 +73,18 @@ namespace CFX.Transport
         }
     }
 
-    public enum LinkType
+    /// <summary>
+    /// An enumeration indicating the type of link
+    /// </summary>
+    internal enum LinkType
     {
+        /// <summary>
+        /// Sender link
+        /// </summary>
         Sender,
+        /// <summary>
+        /// Receiver link
+        /// </summary>
         Receiver
     }
 }

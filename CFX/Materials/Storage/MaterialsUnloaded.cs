@@ -20,6 +20,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class MaterialsUnloaded : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsUnloaded()
         {
             MaterialPackageIdentifiers = new List<string>();

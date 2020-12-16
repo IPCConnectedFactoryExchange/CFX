@@ -74,6 +74,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class GetLoadedMaterialsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GetLoadedMaterialsResponse()
         {
             Materials = new List<MaterialLocation>();

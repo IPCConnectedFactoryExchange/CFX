@@ -864,11 +864,17 @@ namespace CFX.Transport
             if (OnCFXMessageReceivedFromListener != null) OnCFXMessageReceivedFromListener(targetAddress, message);
         }
 
+        /// <summary>
+        /// Closes the endpoint, including all inbound and outbound channels.
+        /// </summary>
         public void Close()
         {
             Cleanup();
         }
 
+        /// <summary>
+        /// Disposes the endpoint, closing all inbound and outbound channels.
+        /// </summary>
         public void Dispose()
         {
             Cleanup();

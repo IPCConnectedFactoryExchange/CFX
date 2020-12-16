@@ -41,6 +41,9 @@ namespace CFX.Utilities
         private static object queueLockObject = new object();
         private static Queue<string> logEntries = new Queue<string>();
 
+        /// <summary>
+        /// Delegate for receiving trace events from CFX AppLog class
+        /// </summary>
         public static event TraceListenerHandler OnTraceMessage;
 
         private static void LoadSettings()
@@ -93,6 +96,11 @@ namespace CFX.Utilities
             };
         }
 
+        /// <summary>
+        /// Defines the full path and file name of a file containing diagnostic log settings (in JSON format).
+        /// The running application will search for this file at runtime (every 10 seconds), and apply the logging
+        /// settings specified.
+        /// </summary>
         public static string SettingsPath
         {
             get
@@ -110,6 +118,9 @@ namespace CFX.Utilities
             }
         }
 
+        /// <summary>
+        /// Global enable/disable flag for logging.  If false, all CFX diagnostic logging is disabled.
+        /// </summary>
         public static bool LoggingEnabled
         {
             get
@@ -125,6 +136,9 @@ namespace CFX.Utilities
             }
         }
 
+        /// <summary>
+        /// The full path and filename where diagnostic log entries should be written.  If null or empty, no log is written to disk.
+        /// </summary>
         public static string LogFilePath
         {
             get
@@ -140,6 +154,9 @@ namespace CFX.Utilities
             }
         }
 
+        /// <summary>
+        /// A flag type enumeration indicating which logging levels are to be enabled
+        /// </summary>
         public static LogMessageType LoggingLevel
         {
             get
@@ -157,6 +174,10 @@ namespace CFX.Utilities
             }
         }
 
+        /// <summary>
+        /// If true, transport oritented diagnostic trace information from the underlying Microsoft Amqp.Net library will also
+        /// be included in the CFX diagnostic logs
+        /// </summary>
         public static bool AmqpTraceEnabled
         {
             get
@@ -174,17 +195,17 @@ namespace CFX.Utilities
             }
         }
 
-        public static void Info(string message)
+        internal static void Info(string message)
         {
             Message(LogMessageType.Info, message);
         }
 
-        public static void Warn(string message)
+        internal static void Warn(string message)
         {
             Message(LogMessageType.Warn, message);
         }
 
-        public static void Debug(string message)
+        internal static void Debug(string message)
         {
             Message(LogMessageType.Debug, message);
         }
@@ -202,13 +223,13 @@ namespace CFX.Utilities
             WriteMessageToLog(msg);
         }
 
-        public static void Error(Exception ex)
+        internal static void Error(Exception ex)
         {
             Message(LogMessageType.Error, ex.Message);
             Message(LogMessageType.Error, ex.StackTrace);
         }
 
-        public static void Error(string message)
+        internal static void Error(string message)
         {
             Message(LogMessageType.Error, message);
         }
@@ -291,5 +312,10 @@ namespace CFX.Utilities
         All = 0xffff
     }
 
+    /// <summary>
+    /// Delegate for receiving CFX diagnostic log trace message events
+    /// </summary>
+    /// <param name="type">The type of trace message</param>
+    /// <param name="traceMessage">The trace message</param>
     public delegate void TraceListenerHandler(LogMessageType type, string traceMessage);
 }

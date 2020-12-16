@@ -47,7 +47,10 @@ namespace CFX.Production.Assembly.PressInsertion
             set;
         }
         
-	public StatusResult ResultOfCondition
+        /// <summary>
+        /// An enumeration indicating the result of the condition
+        /// </summary>
+	    public StatusResult ResultOfCondition
         {
             get;
             set;

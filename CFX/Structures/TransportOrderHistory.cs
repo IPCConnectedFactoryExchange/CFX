@@ -11,6 +11,11 @@ namespace CFX.Structures
     /// </summary>
     public class TransportOrderHistory
     {
+        /// <summary>
+        /// The date and time when the event took place.  If null, this implies
+        /// that the date and time provided by the parent message should be applied
+        /// to this event.
+        /// </summary>
         public DateTime? EventDateTime
         {
             get;

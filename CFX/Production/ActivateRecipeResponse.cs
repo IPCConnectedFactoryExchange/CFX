@@ -21,6 +21,9 @@ namespace CFX.Production
     /// </summary>
     public class ActivateRecipeResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ActivateRecipeResponse()
         {
             Result = new RequestResult();

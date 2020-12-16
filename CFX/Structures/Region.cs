@@ -10,6 +10,9 @@ namespace CFX.Structures
     /// </summary>
     public class Region
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Region()
         {
             RegionSegments = new List<Segment>();

@@ -30,6 +30,9 @@ namespace CFX.Materials.Transport
     /// </summary>
     public class TransportOrderStarted : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public TransportOrderStarted()
         {
             Materials = new List<MaterialPackage>();

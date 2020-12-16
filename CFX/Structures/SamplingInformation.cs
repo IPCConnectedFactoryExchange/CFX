@@ -9,6 +9,9 @@ namespace CFX.Structures
     /// </summary>
     public class SamplingInformation
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SamplingInformation()
         {
             SamplingMethod = SamplingMethod.NoSampling;

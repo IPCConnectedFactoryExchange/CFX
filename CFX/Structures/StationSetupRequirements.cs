@@ -12,6 +12,9 @@ namespace CFX.Structures
     /// </summary>
     public class StationSetupRequirements
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public StationSetupRequirements()
         {
             MaterialSetupRequirements = new List<MaterialSetupRequirement>();

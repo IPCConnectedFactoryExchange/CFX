@@ -256,10 +256,6 @@ namespace CFXUnitTests
             }
 
             string test = ae2.ToJson(true);
-
-
-
-            int z1 = 0;
         }
     }
 }

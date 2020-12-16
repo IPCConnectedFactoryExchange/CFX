@@ -12,6 +12,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Test
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Test()
         {
             SymptomsFound = new List<Symptom>();

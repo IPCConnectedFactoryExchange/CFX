@@ -24,6 +24,9 @@ namespace CFX.Production
     /// </summary>
     public class UnlockStationResponse : CFXMessage
     {
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

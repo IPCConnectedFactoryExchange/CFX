@@ -49,6 +49,9 @@ namespace CFX.ResourcePerformance
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class ToolChanged : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ToolChanged()
         {
         }

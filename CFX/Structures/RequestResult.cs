@@ -12,6 +12,9 @@ namespace CFX.Structures
     /// </summary>
     public class RequestResult
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public RequestResult() { }
 
         /// <summary>

@@ -44,6 +44,9 @@ namespace CFX.Production
             set;
         }
 
+        /// <summary>
+        /// An enumeration indicating the overall result of the Work transaction
+        /// </summary>
         public WorkResult Result
         {
             get;

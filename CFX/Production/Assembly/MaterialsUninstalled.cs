@@ -69,6 +69,9 @@ namespace CFX.Production.Assembly
     /// </summary>
     public class MaterialsUninstalled : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsUninstalled()
         {
             UninstalledMaterials = new List<UninstalledMaterial>();

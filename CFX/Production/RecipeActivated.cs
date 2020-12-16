@@ -48,6 +48,9 @@ namespace CFX.Production
     /// </summary>
     public class RecipeActivated : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public RecipeActivated()
         {
             RecipeStagesInformation = new List<RecipeStageInformation>();

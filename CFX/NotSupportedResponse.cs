@@ -32,6 +32,9 @@ namespace CFX
     /// </summary>
     public class NotSupportedResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public NotSupportedResponse()
         {
             RequestResult = new RequestResult()
@@ -40,6 +43,9 @@ namespace CFX
             };
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult RequestResult
         {
             get;

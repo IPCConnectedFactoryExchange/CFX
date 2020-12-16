@@ -28,8 +28,18 @@ namespace CFX.Transport
         gzip = 1
     }
 
+    /// <summary>
+    /// A static class containing a variety of useful helper functions related to the AMQP 1.0 protocol
+    /// </summary>
     public static class AmqpUtilities
     {
+        /// <summary>
+        /// Converts a CFXEnvelope into an AMQP message
+        /// </summary>
+        /// <param name="env">The CFX envelope containing a CFX message</param>
+        /// <param name="codec">The CODEC to be used</param>
+        /// <param name="subjectFormat">The subject format to be applied.  If null, default is used.</param>
+        /// <returns>An AMQP message</returns>
         public static Message MessageFromEnvelope(CFXEnvelope env, CFXCodec codec = CFXCodec.raw, string subjectFormat = null)
         {
             byte[] msgData = Encode(env.ToBytes(), codec);
@@ -40,6 +50,13 @@ namespace CFX.Transport
             return msg;
         }
 
+        /// <summary>
+        /// Converts multiple CFXEnvelope(s) into a single AMQP message
+        /// </summary>
+        /// <param name="envelopes">An array of CFX envelopes containing CFX messages</param>
+        /// <param name="codec">The CODEC to be used</param>
+        /// <param name="subjectFormat">The subject format to be applied.  If null, default is used.</param>
+        /// <returns>An AMQP message</returns>
         public static Message MessageFromEnvelopes(CFXEnvelope [] envelopes, CFXCodec codec = CFXCodec.raw, string subjectFormat = null)
         {
             if (envelopes.Length < 1)
@@ -99,6 +116,11 @@ namespace CFX.Transport
             msg.ApplicationProperties["cfx-target"] = env.Target;
         }
 
+        /// <summary>
+        /// Decodes a list of CFX envelopes containing CFX messages given a single AMQP message
+        /// </summary>
+        /// <param name="msg">The AMQP message to decode</param>
+        /// <returns>The resultant list of CFX envelopes containing CFX messages</returns>
         public static List<CFXEnvelope> EnvelopesFromMessage(Message msg)
         {
             if (msg.Body is byte[])
@@ -127,7 +149,7 @@ namespace CFX.Transport
 
         }
 
-        public static string StringFromEnvelopes(Message msg)
+        internal static string StringFromEnvelopes(Message msg)
         {
             if (msg?.Body is byte[])
             {
@@ -141,13 +163,18 @@ namespace CFX.Transport
             return null;
         }
 
-        public static bool IsMessageList(string jsonData)
+        private static bool IsMessageList(string jsonData)
         {
             string test = jsonData.Substring(0, jsonData.Length >= 20 ? 20 : jsonData.Length).TrimStart();
             if (test.StartsWith("[")) return true;
             return false;
         }
 
+        /// <summary>
+        /// Decodes and returns a single CFX envelope given a single AMQP Message
+        /// </summary>
+        /// <param name="msg">The AMQP message to decode</param>
+        /// <returns>A CFXEnvelope containing a CFX message</returns>
         public static CFXEnvelope EnvelopeFromMessage(Message msg)
         {
             if (msg.Body is byte[])
@@ -214,6 +241,12 @@ namespace CFX.Transport
             return result;
         }
 
+        /// <summary>
+        /// Returns the first x characters of the payload of an AMQP message, assuming UTF8 encoding
+        /// </summary>
+        /// <param name="message">The AMQP message to decode</param>
+        /// <param name="count">The number of characters to return.  Defaults to 200</param>
+        /// <returns>A string containing the first x characters of the AMQP message payload</returns>
         public static string MessagePreview(Message message, int count = 200)
         {
             if (message.Body is byte [])
@@ -247,6 +280,13 @@ namespace CFX.Transport
             return "";
         }
 
+        /// <summary>
+        /// Looks in the both the machine and user level certificate stores for a certificate
+        /// whose subject name OR thumbprint matches the value specified by the certFindName parameter.
+        /// Will throw an ArumentException if not found.
+        /// </summary>
+        /// <param name="certFindValue">The certificate subject name OR thumbprint to search for</param>
+        /// <returns>The resultant certificate</returns>
         public static X509Certificate2 GetCertificate(string certFindValue)
         {
             StoreLocation[] locations = new StoreLocation[] { StoreLocation.LocalMachine, StoreLocation.CurrentUser };
@@ -301,7 +341,7 @@ namespace CFX.Transport
             return output.ToArray();
         }
 
-        public static bool SendAzureAuthenticationToken(Connection connection, string host, string shareAccessSignature, string audience)
+        private static bool SendAzureAuthenticationToken(Connection connection, string host, string shareAccessSignature, string audience)
         {
             bool result = true;
             Session session = new Session(connection);
@@ -347,7 +387,7 @@ namespace CFX.Transport
 
         private static readonly long UtcReference = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).Ticks;
 
-        public static string GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
+        private static string GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
         {
             // http://msdn.microsoft.com/en-us/library/azure/dn170477.aspx
             // the canonical Uri scheme is http because the token is not amqp specific

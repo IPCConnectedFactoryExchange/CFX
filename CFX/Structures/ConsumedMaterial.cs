@@ -9,6 +9,9 @@ namespace CFX.Structures
     /// </summary>
     public class ConsumedMaterial
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ConsumedMaterial()
         {
         }

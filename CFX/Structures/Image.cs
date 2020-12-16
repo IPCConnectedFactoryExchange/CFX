@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// A data structure that representing a two dimensional image, in the designated MIME format.
+    /// </summary>
     public class Image
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Image ()
         {
             MimeType = "image/jpg";

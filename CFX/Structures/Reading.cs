@@ -7,8 +7,14 @@ using CFX;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// A data structure that represents a reading that was taken against a production unit or piece of equipment
+    /// </summary>
     public class Reading
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Reading()
         {
             Components = new List<ComponentDesignator>();

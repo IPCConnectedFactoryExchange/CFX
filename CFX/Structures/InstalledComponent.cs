@@ -9,6 +9,9 @@ namespace CFX.Structures
     /// </summary>
     public class InstalledComponent
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public InstalledComponent(bool setDateTime = false)
         {
             if (setDateTime) InstallationTime = DateTime.Now;

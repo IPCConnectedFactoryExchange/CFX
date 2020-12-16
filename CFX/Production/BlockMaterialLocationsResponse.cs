@@ -21,6 +21,9 @@ namespace CFX.Production
     /// </summary>
     public class BlockMaterialLocationsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public BlockMaterialLocationsResponse()
         {
             Result = new RequestResult();

@@ -537,6 +537,9 @@ namespace CFX.Production.TestAndInspection
     /// </summary>
     public class UnitsInspected : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnitsInspected()
         {
             InspectedUnits = new List<InspectedUnit>();

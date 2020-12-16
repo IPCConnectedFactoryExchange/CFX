@@ -45,6 +45,9 @@ namespace CFX.InformationSystem.UnitValidation
     /// </summary>
     public class ValidateUnitsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ValidateUnitsResponse()
         {
             Result = new RequestResult();

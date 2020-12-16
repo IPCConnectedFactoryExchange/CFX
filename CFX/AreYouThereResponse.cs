@@ -24,6 +24,9 @@ namespace CFX
     /// </summary>
     public class AreYouThereResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public AreYouThereResponse()
         {
             Result = new RequestResult();

@@ -9,6 +9,9 @@ namespace CFX.Structures
     /// </summary>
     public class Operator
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Operator()
         {
             ActorType = ActorType.Human;

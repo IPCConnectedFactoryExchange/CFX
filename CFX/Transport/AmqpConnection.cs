@@ -482,31 +482,105 @@ namespace CFX.Transport
         }
     }
 
+    /// <summary>
+    /// Delegate for CFX Message received events from subscribed channels
+    /// </summary>
+    /// <param name="source">The source of the message</param>
+    /// <param name="message">The envelope containing the message</param>
     public delegate void CFXMessageReceivedHandler(AmqpChannelAddress source, CFXEnvelope message);
+
+    /// <summary>
+    /// Delegate for malformed CFX Message received events
+    /// </summary>
+    /// <param name="source">The source of the message</param>
+    /// <param name="message">The text that was received that is not a valid CFX message</param>
     public delegate void CFXMalformedMessageReceivedHandler(AmqpChannelAddress source, string message);
+
+    /// <summary>
+    /// Delegate for published messages received via self-hosted exchanges
+    /// </summary>
+    /// <param name="targetAddress">The AMQP target that was specified by the publisher</param>
+    /// <param name="message">The CFX envelope containing the published message</param>
     public delegate void CFXMessageReceivedFromListenerHandler(string targetAddress, CFXEnvelope message);
+
+    /// <summary>
+    /// Delegate for certificate self-validation
+    /// </summary>
+    /// <param name="source">The Uri of the source</param>
+    /// <param name="certificate">The certificate</param>
+    /// <param name="chain">The certification chain</param>
+    /// <param name="sslPolicyErrors">Policy Errors</param>
+    /// <returns></returns>
     public delegate ValidateCertificateResult ValidateServerCertificateHandler(Uri source, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors);
+
+    /// <summary>
+    /// Delegate for connection related events
+    /// </summary>
+    /// <param name="eventType">The type of event</param>
+    /// <param name="uri">The related Uri</param>
+    /// <param name="spoolSize">The current size of the related spool (message count)</param>
+    /// <param name="errorInformation">Human interpretable information related to the event</param>
+    /// <param name="errorException">An optional Exception indicating error details</param>
     public delegate void ConnectionEventHandler(ConnectionEvent eventType, Uri uri, int spoolSize, string errorInformation, Exception errorException = null);
     
+    /// <summary>
+    /// An enumeration indicating the authentication mode
+    /// </summary>
     public enum AuthenticationMode
     {
+        /// <summary>
+        /// Authentication is handled automatically
+        /// </summary>
         Auto,
+        /// <summary>
+        /// Anonymous authentication shoudl be utilized
+        /// </summary>
         Anonymous,
+        /// <summary>
+        /// External authentication should be utilized
+        /// </summary>
         External
     }
 
+    /// <summary>
+    /// An enumeration that indicates the result of an SSL certificate validation
+    /// </summary>
     public enum ValidateCertificateResult
     {
+        /// <summary>
+        /// The certificate is valid
+        /// </summary>
         Valid,
+        /// <summary>
+        /// The certificate is not valid
+        /// </summary>
         Invalid,
+        /// <summary>
+        /// The certificate was not validated.  Apply default validation.
+        /// </summary>
         NotValidated
     }
 
+    /// <summary>
+    /// An enumeration that indicates the type of a connection event
+    /// </summary>
     public enum ConnectionEvent
     {
+        /// <summary>
+        /// Connection with established successfully
+        /// </summary>
         ConnectionEstablished,
+        /// <summary>
+        /// Connection could not be established
+        /// </summary>
         ConnectionFailed,
+        /// <summary>
+        /// Connection was previously established, but has been interrupted
+        /// </summary>
         ConnectionInterrupted,
+        /// <summary>
+        /// Connection has been ended
+        /// </summary>
         ConnectionClosed
     }
 }

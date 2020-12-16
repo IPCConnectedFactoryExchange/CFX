@@ -25,6 +25,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class ConnectorCoordinates
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ConnectorCoordinates()
         {
         }

@@ -13,6 +13,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class MaterialPackageDetail
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialPackageDetail()
         {
             Created = DateTime.Now;
