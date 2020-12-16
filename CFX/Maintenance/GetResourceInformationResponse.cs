@@ -132,8 +132,8 @@ namespace CFX.Maintenance
     ///       {
     ///         "ResourceIdentifier": "00000000-00 000-H1-_____",
     ///         "IdentiferUniqueness": "GloballyPersistent",
-    ///         "ResourceName": "C&P20_1",
-    ///         "ResourceType": "C&P20",
+    ///         "ResourceName": "C&amp;P20_1",
+    ///         "ResourceType": "C&amp;P20",
     ///         "ResourcePosition": "1.1.1",
     ///         "MaintenanceStatus": null,
     ///         "AdditionalSubResources": null,
@@ -152,7 +152,7 @@ namespace CFX.Maintenance
     ///           {
     ///             "ResourceIdentifier": "10000000-00 000-H1-DP1_",
     ///             "IdentiferUniqueness": "LocallyPersistent",
-    ///             "ResourceName": "C&P20_1_DpAxis1",
+    ///             "ResourceName": "C&amp;P20_1_DpAxis1",
     ///             "ResourceType": null,
     ///             "ResourcePosition": "1.1.1.1",
     ///             "MaintenanceStatus": null,
@@ -161,7 +161,7 @@ namespace CFX.Maintenance
     ///           {
     ///             "ResourceIdentifier": "10000000-00 000-H1-DP10",
     ///             "IdentiferUniqueness": "LocallyPersistent",
-    ///             "ResourceName": "C&P20_1_DpAxis10",
+    ///             "ResourceName": "C&amp;P20_1_DpAxis10",
     ///             "ResourceType": null,
     ///             "ResourcePosition": "1.1.1.10",
     ///             "MaintenanceStatus": null,
@@ -172,8 +172,8 @@ namespace CFX.Maintenance
     ///       {
     ///         "ResourceIdentifier": "00000000-00 000-H3-_____",
     ///         "IdentiferUniqueness": "GloballyPersistent",
-    ///         "ResourceName": "C&C&P20_3",
-    ///         "ResourceType": "C&P20",
+    ///         "ResourceName": "C&amp;P20_3",
+    ///         "ResourceType": "C&amp;P20",
     ///         "ResourcePosition": "2.3.1",
     ///         "MaintenanceStatus": null,
     ///         "AdditionalSubResources": null,
@@ -192,7 +192,7 @@ namespace CFX.Maintenance
     ///           {
     ///             "ResourceIdentifier": "10000000-00 000-H3-DP1_",
     ///             "IdentiferUniqueness": "LocallyPersistent",
-    ///             "ResourceName": "C&P20_3_DpAxis1",
+    ///             "ResourceName": "C&amp;P20_3_DpAxis1",
     ///             "ResourceType": null,
     ///             "ResourcePosition": "2.3.1.1",
     ///             "MaintenanceStatus": null,
@@ -201,7 +201,7 @@ namespace CFX.Maintenance
     ///           {
     ///             "ResourceIdentifier": "10000000-00 000-H3-DP10",
     ///             "IdentiferUniqueness": "LocallyPersistent",
-    ///             "ResourceName": "C&P20_3_DpAxis10",
+    ///             "ResourceName": "C&amp;P20_3_DpAxis10",
     ///             "ResourceType": null,
     ///             "ResourcePosition": "2.3.1.10",
     ///             "MaintenanceStatus": null,

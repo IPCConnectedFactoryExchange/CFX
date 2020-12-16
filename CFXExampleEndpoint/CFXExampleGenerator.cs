@@ -4114,6 +4114,9 @@ namespace CFXExampleEndpoint
             AppendMessage(msg, ref result);
             //*******************************//
             //*********New in CFX 1.3********//
+            //*******************************//
+            //NOTE: before copying the JSON in the documentation of the corresponding .cs
+            //remember to change the & with the &amp; representation to avoid problems with the xml/html documentation
             msg = new CFX.Maintenance.GetResourceInformationRequest
             {
                 CFXHandle = "SMT.SIPLACE_SX4.10000000"
@@ -4259,7 +4262,7 @@ namespace CFXExampleEndpoint
                         },
                         new SMTHeadResource()
                         {
-                            ResourceName = "C&C&P20_3",
+                            ResourceName = "C&P20_3",
                             ResourceType = "C&P20",
                             ResourceIdentifier = "00000000-00 000-H3-_____",
                             ResourcePosition = "2.3.1",
@@ -4459,7 +4462,7 @@ namespace CFXExampleEndpoint
                         },
                         new SMTHeadResource()
                         {
-                            ResourceName = "C&C&P20_3",
+                            ResourceName = "C&P20_3",
                             ResourceType = "C&P20",
                             ResourceIdentifier = "00000000-00 000-H3-_____",
                             ResourcePosition = "2.3.1",
