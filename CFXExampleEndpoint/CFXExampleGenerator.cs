@@ -5094,6 +5094,13 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            //New CFX 1.3 Proposal for Hermes Magazine management
+            msg = new GetMagazineDataRequest()
+            {
+                MagazineId = "ID12345"
+            };
+            AppendMessage(msg, ref result);
+
             msg = new GetMagazineDataResponse()
             {
                Result = new RequestResult()
