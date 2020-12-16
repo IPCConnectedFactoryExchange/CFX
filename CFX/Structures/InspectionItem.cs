@@ -33,7 +33,7 @@ namespace CFX.Structures
         /// <summary>
         /// An optional designators (instances of a part) on a production unit(s)
         /// May include sub-components in "." notation.  Examples:  R1, R2, R3   or  R2.3 (R2, pin 3)
-        /// 
+        /// </summary>
         public string CRD
         {
             get;
