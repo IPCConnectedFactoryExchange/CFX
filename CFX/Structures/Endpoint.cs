@@ -209,8 +209,10 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// Contains information related to the Endpoint's sleep states.
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<SleepState> SleepStates
         {
             get;
