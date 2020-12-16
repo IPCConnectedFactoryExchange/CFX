@@ -15,6 +15,9 @@ namespace CFX.Structures.SolderPastePrinting
     [CFX.Utilities.CreatedVersion("1.2")]
     public class Stroke
     {
+        /// <summary>
+        /// Default constructur
+        /// </summary>
         public Stroke()
         {
            
@@ -28,6 +31,9 @@ namespace CFX.Structures.SolderPastePrinting
         /// </summary>
         public double? PrintSpeed { get; set; }
     }
+    /// <summary>
+    /// Squeegee direction enumeration
+    /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SolderPasteSqueegeeDirection
     {

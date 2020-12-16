@@ -33,7 +33,7 @@ namespace CFX.Maintenance
     ///   "MachineServiceAndMaintenanceData": [
     ///     {
     ///       "UniqueIdentifier": "00000000-00 000-H2-_____",
-    ///       "Name": "C&P20_2",
+    ///       "Name": "C&amp;P20_2",
     ///       "CalibrationDetails": [
     ///         {
     ///           "CalibrationCode": "SegmentOffset",
