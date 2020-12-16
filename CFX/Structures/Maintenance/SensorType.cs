@@ -124,6 +124,7 @@ namespace CFX.Structures.Maintenance
         /// Power unit
         /// </summary>
         W,
+        ///<summary>
         /// Frequency unit
         /// </summary>
         Hz
