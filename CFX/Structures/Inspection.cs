@@ -15,7 +15,8 @@ namespace CFX.Structures
         public Inspection()
         {
             DefectsFound = new List<Defect>();
-            //Measurements = new List<Measurement>();
+            Measurements = new List<Measurement>();
+            Symptoms = new List<Symptom>();
         }
 
         /// <summary>

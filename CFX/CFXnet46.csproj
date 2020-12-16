@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
-    <PackageId>CFX.CFXSDK-beta</PackageId>
-    <PackageVersion>1.3.0</PackageVersion>
+    <PackageId>CFX.CFXSDK</PackageId>
+    <PackageVersion>1.3.0-beta</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
