@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Represents the generic sub-resources of a generic head. For example, camera 
     /// mounted on the head in a specific position
     /// </summary>

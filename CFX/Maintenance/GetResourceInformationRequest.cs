@@ -5,6 +5,7 @@ using System.Text;
 namespace CFX.Maintenance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Requests detailed resource information about a single endpoint, as specified by its CFX Handle.
     /// The response includes information regarding the endpoint’s resource and sub-resources
     /// that may undergo maintenance operations

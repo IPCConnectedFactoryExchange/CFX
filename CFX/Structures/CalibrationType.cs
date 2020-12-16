@@ -7,6 +7,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Types of calibrations
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.3")]

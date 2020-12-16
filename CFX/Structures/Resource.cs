@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 namespace CFX.Structures
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Describes the details of a particular Resource.
     /// This is a dynamic structure.
     /// </summary>

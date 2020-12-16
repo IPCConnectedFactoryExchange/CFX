@@ -8,6 +8,7 @@ using CFX.Structures.Maintenance;
 namespace CFX.Maintenance
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.3 **</para>
     /// Allows any CFX endpoint to send the resource and sub-resources maintenance and services of a specified single endpoint. 
     /// The event can be sent "on change" or "time" base.
     /// The endpoint information structure is a dynamic structure, and can vary based on the type of endpoint.
