@@ -631,10 +631,13 @@ namespace CFX.Transport
             if (channel != null)
             {
                 channel.AddPublishChannel(address);
-
-                CFXEnvelope env = new CFXEnvelope(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
-                FillSource(env);
-                channel.Publish(env);
+                
+                if (this.HeartbeatFrequency != TimeSpan.Zero)
+                {
+                    CFXEnvelope env = new CFXEnvelope(new Heartbeat() { CFXHandle = this.CFXHandle, HeartbeatFrequency = this.HeartbeatFrequency });
+                    FillSource(env);
+                    channel.Publish(env);
+                }
             }
         }
 
