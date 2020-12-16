@@ -97,9 +97,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average amount of power consumed during the sample period
         /// (in watts)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MeanPower
         {
             get;
@@ -107,9 +109,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous amount of power recorded at EndTime
         /// (in watts)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double PowerNow
         {
             get;
@@ -117,9 +121,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// Description
         /// (Coefficient number between 0.0 and 1.0 )
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double PowerFactorNow
         {
             get;
@@ -127,9 +133,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The maximum amount of current recorded during the sample period
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double PeakCurrent
         {
             get;
@@ -137,9 +145,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The minimum amount of current recorded during the sample period
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MinimumCurrent
         {
             get;
@@ -147,9 +157,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average amount of current consumed during the sample period
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MeanCurrent
         {
             get;
@@ -157,9 +169,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous amount of current recorded at EndTime
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double CurrentNow
         {
             get;
@@ -167,9 +181,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The maximum amount of voltage recorded during the sample period
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double PeakVoltage
         {
             get;
@@ -177,9 +193,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The minimum amount of voltage recorded during the sample period
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MinimumVoltage
         {
             get;
@@ -187,9 +205,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average value of voltage measured during the sample period
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MeanVoltage
         {
             get;
@@ -197,9 +217,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous value of voltage recorded at EndTime
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double VoltageNow
         {
             get;
@@ -207,9 +229,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The maximum frequency value recorded during the sample period
         /// (in Hertz)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double PeakFrequency
         {
             get;
@@ -217,9 +241,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The minimum frequency value recorded during the sample period
         /// (in Hertz)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MinimumFrequency
         {
             get;
@@ -227,9 +253,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average frequency value recorded during the sample period
         /// (in Hertz)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double MeanFrequency
         {
             get;
@@ -237,9 +265,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous frequency value recorded at EndTime
         /// (in Hertz)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double FrequencyNow
         {
             get;
@@ -247,9 +277,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The maximum amount of power recorded during the sample period on three phases
         /// (in watts)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> PeakPowerRYB
         {
             get;
@@ -257,9 +289,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The lowest amount of power recorded during the sample period on three phases
         /// (in watts)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> MinimumPowerRYB
         {
             get;
@@ -267,9 +301,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average amount of power consumed during the sample period on three phases
         /// (in watts)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> MeanPowerRYB
         {
             get;
@@ -277,9 +313,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous amount of power recorded at EndTime on three phases
         /// (in watts)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> PowerNowRYB
         {
             get;
@@ -287,9 +325,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// Description
         /// (Coefficient number between 0.0 and 1.0 )
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> PowerFactorNowRYB
         {
             get;
@@ -297,9 +337,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The maximum amount of current recorded during the sample period on three phases
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> PeakCurrentRYB
         {
             get;
@@ -307,9 +349,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The minimum amount of current recorded during the sample period on three phases
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> MinimumCurrentRYB
         {
             get;
@@ -317,9 +361,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average amount of current consumed during the sample period on three phases
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> MeanCurrentRYB
         {
             get;
@@ -327,9 +373,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous amount of current recorded at EndTime on three phases
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> CurrentNowRYB
         {
             get;
@@ -337,9 +385,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The maximum amount of voltage recorded during the sample period on three phases
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> PeakVoltageRYB
         {
             get;
@@ -347,9 +397,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The minimum amount of voltage recorded during the sample period on three phases
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> MinimumVoltageRYB
         {
             get;
@@ -357,9 +409,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The average value of voltage measured during the sample period on three phases
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> MeanVoltageRYB
         {
             get;
@@ -367,9 +421,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantaneous amount of voltage recorded at EndTime on three phases
         /// (in Volts DC or AC (RMS))
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public List<double> VoltageNowRYB
         {
             get;
@@ -377,9 +433,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The instantanous amount of current on Neutral at EndTime 
         /// (in Ampere)
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
         public double ThreePhaseNeutralCurrentNow
         {
             get;
