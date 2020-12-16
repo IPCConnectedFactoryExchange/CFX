@@ -49,7 +49,6 @@ namespace CFX.Structures
         /// 0	Board of unknown quality available
         /// 1	Good board available
         /// 2	Failed board available
-
         /// </summary>
         public int FailedBoard
         {
@@ -71,7 +70,6 @@ namespace CFX.Structures
         /// 0	Side up is unknown
         /// 1	Board top side is up
         /// 2	Board bottom side is up
-
         /// </summary>
         public int FlippedBoard
         {
