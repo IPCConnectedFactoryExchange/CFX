@@ -36,6 +36,17 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// The stage name or number
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public Stage Stage
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The electrical test result of this component (optional)
         /// </summary>
         public ComponentElectricalTest ElectricalTest
