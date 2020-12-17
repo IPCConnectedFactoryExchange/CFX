@@ -45,6 +45,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// The stage name or number
         /// </summary>
         public Stage Stage
