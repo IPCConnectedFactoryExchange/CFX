@@ -37,7 +37,7 @@ namespace CFX.Production
     ///     "Message": null
     ///   },
     ///   "Recipe": {
-    ///     "$type": "CFX.Structures.UnitsInspectionRecipe, CFX",
+    ///     "$type": "CFX.Structures.SolderPasteInspection.SolderPasteInspectionRecipe, CFX",
     ///     "Name": "SolderRecipeXYZ_TextBoard1",
     ///     "Revision": "1.3.3.33",
     ///     "ExpectedCycleTime": 0.0,
@@ -125,7 +125,7 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
-    
+
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class GetRecipeResponse : CFXMessage
     {

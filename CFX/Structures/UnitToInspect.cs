@@ -10,7 +10,7 @@ namespace CFX.Structures
     /// Rules to generate the UnitPositionNumber are described in the CFX documentation
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.3")]
-    public class RecipeUnit
+    public class UnitToInspect
     {
         /// <summary>
         /// Logical reference of production unit as defined by CFX position rule (see CFX standard)

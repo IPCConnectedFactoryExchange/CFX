@@ -4114,15 +4114,15 @@ namespace CFXExampleEndpoint
             //New GetRecipeResponse example (UnitsInspectionRecipe)
             msg = new GetRecipeResponse()
             {
-                Recipe = new UnitsInspectionRecipe()
+                Recipe = new SolderPasteInspectionRecipe()
                 { 
                     RecipeGenerationDate = DateTime.Now,
                     Name = "SolderRecipeXYZ_TextBoard1",
                     Revision = "1.3.3.33",
 
-                    UnitsToInspect = new List<RecipeUnit>()
+                    UnitsToInspect = new List<UnitToInspect>()
                     {
-                        new RecipeUnit()
+                        new UnitToInspect()
                         {
                             UnitPositionNumber = 1,
                             ChildObjects = new List<InspectionItem>()
