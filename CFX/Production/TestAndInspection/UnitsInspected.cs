@@ -577,7 +577,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.InspectionMeasurementLean, CFX",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.InspectionMeasurementLean, CFX",
     ///               "X": 0.76,
     ///               "Y": 1.53,
     ///               "Z": 0.086,
@@ -611,7 +611,7 @@ namespace CFX.Production.TestAndInspection
     ///           "Symptoms": null,
     ///           "Measurements": [
     ///             {
-    ///               "$type": "CFX.Structures.InspectionMeasurementLean, CFX",
+    ///               "$type": "CFX.Structures.SolderPasteInspection.InspectionMeasurementLean, CFX",
     ///               "X": 0.78,
     ///               "Y": 1.48,
     ///               "Z": 0.092,
@@ -637,7 +637,7 @@ namespace CFX.Production.TestAndInspection
     /// }
     /// </code>    
     /// </summary>
-    
+
     public class UnitsInspected : CFXMessage
     {
         ///<summary>

@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CFX.Structures
+namespace CFX.Structures.SolderPasteInspection
 {
     // <summary>
     /// <para>** NOTE: ADDED in CFX 1.3 **</para>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX.Structures
+namespace CFX.Structures.SolderPasteInspection
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 1.3 **</para>
