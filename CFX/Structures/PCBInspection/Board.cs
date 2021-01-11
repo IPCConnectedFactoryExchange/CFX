@@ -79,5 +79,16 @@ namespace CFX.Structures.PCBInspection
         {
             return ((Boards != null) && (Boards.Count > 0));
         }
+
+        /// <summary>
+        /// Logical reference of production unit as defined by CFX position rule (see CFX standard)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public int? UnitPositionNumber
+        {
+            get;
+            set;
+        }
+
     }
 }

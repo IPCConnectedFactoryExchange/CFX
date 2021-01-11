@@ -27,6 +27,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>bin\netstandard1.6\CFX.xml</DocumentationFile>
+    <WarningLevel>3</WarningLevel>
     <NoWarn>1701;1702;1570</NoWarn>
   </PropertyGroup>
 
