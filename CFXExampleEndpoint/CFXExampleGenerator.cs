@@ -4624,7 +4624,7 @@ namespace CFXExampleEndpoint
             msg = new GetRecipeResponse()
             {
                 Recipe = new SolderPasteInspectionRecipe()
-                { 
+                {
                     RecipeGenerationDate = DateTime.Now,
                     Name = "SolderRecipeXYZ_TextBoard1",
                     Revision = "1.3.3.33",
@@ -4695,6 +4695,11 @@ namespace CFXExampleEndpoint
                                         }
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            };
 
             //Event based ResourceSetup
             msg = new CFX.Maintenance.ResourceSetupEvent()
@@ -4975,6 +4980,7 @@ namespace CFXExampleEndpoint
                         }
                     }
                 }
+            };
 
             //Event based MaintenanceAndService
             msg = new CFX.Maintenance.ResourceMaintenanceAndServiceEvent()
