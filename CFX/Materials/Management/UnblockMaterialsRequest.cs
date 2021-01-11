@@ -28,6 +28,9 @@ namespace CFX.Materials.Management
     /// </summary>
     public class UnblockMaterialsRequest : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnblockMaterialsRequest()
         {
             MaterialPackageIdentifiers = new List<string>();

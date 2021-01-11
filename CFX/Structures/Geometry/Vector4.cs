@@ -284,6 +284,10 @@ namespace CFX.Structures.Geometry
             W *= factor;
         }
 
+        /// <summary>
+        /// Represents the vector in string format
+        /// </summary>
+        /// <returns>A string representation of the matrix</returns>
         public override string ToString()
         {
             return (
@@ -1416,11 +1420,22 @@ namespace CFX.Structures.Geometry
 
         #region Public Static Operators
 
+        /// <summary>
+        /// Subtracts one vector from another
+        /// </summary>
+        /// <param name="value">Source vector</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator -(Vector4 value)
         {
             return new Vector4(-value.X, -value.Y, -value.Z, -value.W);
         }
 
+        /// <summary>
+        /// Determines equality between two vecrors
+        /// </summary>
+        /// <param name="value1">Vector 1</param>
+        /// <param name="value2">Vector 2</param>
+        /// <returns>Equality boolean</returns>
         public static bool operator ==(Vector4 value1, Vector4 value2)
         {
             return (value1.X == value2.X &&
@@ -1429,11 +1444,23 @@ namespace CFX.Structures.Geometry
                 value1.W == value2.W);
         }
 
+        /// <summary>
+        /// Determines if two vectors are not equal
+        /// </summary>
+        /// <param name="value1">Vector 1</param>
+        /// <param name="value2">Vector 2</param>
+        /// <returns>Inequality boolean</returns>
         public static bool operator !=(Vector4 value1, Vector4 value2)
         {
             return !(value1 == value2);
         }
 
+        /// <summary>
+        /// Adds two vectors
+        /// </summary>
+        /// <param name="value1">Vector 1</param>
+        /// <param name="value2">Vectory2</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator +(Vector4 value1, Vector4 value2)
         {
             value1.W += value2.W;
@@ -1443,6 +1470,12 @@ namespace CFX.Structures.Geometry
             return value1;
         }
 
+        /// <summary>
+        /// Subtracts two vectors
+        /// </summary>
+        /// <param name="value1">Vector 1</param>
+        /// <param name="value2">Vectory2</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator -(Vector4 value1, Vector4 value2)
         {
             value1.W -= value2.W;
@@ -1452,6 +1485,12 @@ namespace CFX.Structures.Geometry
             return value1;
         }
 
+        /// <summary>
+        /// Multiples two vectors
+        /// </summary>
+        /// <param name="value1">Vector 1</param>
+        /// <param name="value2">Vectory2</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator *(Vector4 value1, Vector4 value2)
         {
             value1.W *= value2.W;
@@ -1461,6 +1500,12 @@ namespace CFX.Structures.Geometry
             return value1;
         }
 
+        /// <summary>
+        /// Scales a vactor
+        /// </summary>
+        /// <param name="value1">Source vector</param>
+        /// <param name="scaleFactor">Amount to scale</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator *(Vector4 value1, double scaleFactor)
         {
             value1.W *= scaleFactor;
@@ -1470,6 +1515,12 @@ namespace CFX.Structures.Geometry
             return value1;
         }
 
+        /// <summary>
+        /// Scales a vector
+        /// </summary>
+        /// <param name="scaleFactor">Amount to scale</param>
+        /// <param name="value1">Source vector</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator *(double scaleFactor, Vector4 value1)
         {
             value1.W *= scaleFactor;
@@ -1479,6 +1530,12 @@ namespace CFX.Structures.Geometry
             return value1;
         }
 
+        /// <summary>
+        /// Divides one vector by another
+        /// </summary>
+        /// <param name="value1">Numerator vector</param>
+        /// <param name="value2">Denominator vector</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator /(Vector4 value1, Vector4 value2)
         {
             value1.W /= value2.W;
@@ -1488,6 +1545,12 @@ namespace CFX.Structures.Geometry
             return value1;
         }
 
+        /// <summary>
+        /// Divides a vector by a floating point value
+        /// </summary>
+        /// <param name="value1">Source vector</param>
+        /// <param name="divider">Devisor</param>
+        /// <returns>Resultant vector</returns>
         public static Vector4 operator /(Vector4 value1, double divider)
         {
             double factor = 1.0 / divider;

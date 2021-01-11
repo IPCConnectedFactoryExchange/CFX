@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// A data structure that represents a work area or step within a production related endpoint through 
+    /// which production units flow
+    /// </summary>
     public class Stage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Stage()
         {
             StageSequence = 1;

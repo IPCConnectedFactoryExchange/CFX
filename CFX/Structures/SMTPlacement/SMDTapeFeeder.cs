@@ -11,6 +11,9 @@ namespace CFX.Structures.SMTPlacement
     /// </summary>
     public class SMDTapeFeeder : MaterialCarrier
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SMDTapeFeeder()
         {
             LaneNumber = 1;

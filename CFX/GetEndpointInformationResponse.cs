@@ -35,6 +35,18 @@ namespace CFX
     ///     "OperatingSystem": "UbuntuLinux",
     ///     "OperatingSystemPlatform" : "Platform64bit",
     ///     "OperatingSystemVersion" : "18.04.4",
+    ///     "SupportedPCBDimensions": {
+    ///       "MinimumLength": 10.0,
+    ///       "MaximumLength": 1000.0,
+    ///       "MinimumWidth": 10.0,
+    ///       "MaximumWidth": 1000.0,
+    ///       "MinimumHeight": 0.0,
+    ///       "MaximumHeight": 50.0,
+    ///       "MinimumWeight": 0.0,
+    ///       "MaximumWeight": 1000.0,
+    ///       "MinimumThickness": 0.5,
+    ///       "MaximumThickness": 10.0
+    ///     },
     ///     "Stages": [
     ///       {
     ///         "Stage": {
@@ -85,6 +97,28 @@ namespace CFX
     ///         "TopicSupportType": "Publisher",
     ///         "SupportedMessages": []
     ///       }
+    ///     ],
+    ///     "SleepStates": [
+    ///         {
+    ///             "SleepName": "Awake",            
+    ///             "PowerSaving": 0.0,
+    ///             "WakeupTime": "00:00:00"
+    ///         },
+    ///         {
+    ///             "SleepName": "Shallow",            
+    ///             "PowerSaving": 10.0,
+    ///             "WakeupTime": "00:00:30"
+    ///         },
+    ///         {
+    ///             "SleepName": "Sleep",            
+    ///             "PowerSaving": 60.0,
+    ///             "WakeupTime": "00:02:00"
+    ///         },
+    ///         {
+    ///             "SleepName": "Hibernate",            
+    ///             "PowerSaving": 95.0,
+    ///             "WakeupTime": "00:10:00"
+    ///         }
     ///     ]
     ///   }
     /// }

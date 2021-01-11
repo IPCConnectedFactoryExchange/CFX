@@ -32,6 +32,9 @@ namespace CFX.Production
     /// </summary>
     public class BlockMaterialLocationsRequest : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public BlockMaterialLocationsRequest()
         {
             Locations = new List<MaterialLocation>();

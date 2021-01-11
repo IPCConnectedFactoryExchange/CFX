@@ -23,11 +23,17 @@ namespace CFX.Production
     /// </summary>
     public class UpdateRecipeResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UpdateRecipeResponse()
         {
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

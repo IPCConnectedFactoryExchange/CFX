@@ -20,6 +20,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class ValidateStationSetupResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ValidateStationSetupResponse()
         {
             Result = new RequestResult();

@@ -21,7 +21,7 @@ namespace CFXUnitTests
         [TestMethod]
         public void GetChanges()
         {
-            string version = "1.2";
+            string version = "1.3";
             List<string> lines = new List<string>();
 
             Assembly assembly = Assembly.GetAssembly(typeof(CFX.CFXEnvelope));
@@ -256,10 +256,6 @@ namespace CFXUnitTests
             }
 
             string test = ae2.ToJson(true);
-
-
-
-            int z1 = 0;
         }
     }
 }

@@ -37,6 +37,9 @@ namespace CFX.Production.Assembly
     /// </summary>
     public class UnitsPersonalized : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnitsPersonalized()
         {
             PersonalizedUnits = new List<PersonalizedUnit>();

@@ -13,12 +13,13 @@ namespace CFX.Structures
     public class Inspection
     {
         /// <summary>
-        /// Inspection class
+        /// Default constructor
         /// </summary>
         public Inspection()
         {
             DefectsFound = new List<Defect>();
-            //Measurements = new List<Measurement>();
+            Measurements = new List<Measurement>();
+            Symptoms = new List<Symptom>();
         }
 
         /// <summary>

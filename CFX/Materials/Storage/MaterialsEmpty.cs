@@ -55,6 +55,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class MaterialsEmpty : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsEmpty()
         {
             EmptyMaterials = new List<MaterialLocation>();

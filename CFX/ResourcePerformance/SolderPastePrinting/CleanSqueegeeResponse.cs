@@ -20,6 +20,9 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
     /// </summary>
     public class CleanSqueegeeResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public CleanSqueegeeResponse()
         {
             Result = new RequestResult();

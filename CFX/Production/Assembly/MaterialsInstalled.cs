@@ -116,6 +116,9 @@ namespace CFX.Production.Assembly
     /// </summary>
     public class MaterialsInstalled : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsInstalled()
         {
             InstalledMaterials = new List<InstalledMaterial>();

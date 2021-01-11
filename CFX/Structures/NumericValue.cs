@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// A data structure that represents a numeric value with defined units and thresholds
+    /// </summary>
     public class NumericValue
     {
         /// <summary>

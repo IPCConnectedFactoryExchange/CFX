@@ -27,6 +27,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class Connector : ComponentDesignator
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Connector()
         {
             ConnectorTool = new PressTool();

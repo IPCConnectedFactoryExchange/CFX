@@ -25,6 +25,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class FPTDataPoint
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public FPTDataPoint()
         {
         }

@@ -39,6 +39,9 @@ namespace CFX.Production.Assembly.PressInsertion
     /// </summary>
     public class GetConditionPermissionResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GetConditionPermissionResponse()
         {
             Result = new RequestResult();

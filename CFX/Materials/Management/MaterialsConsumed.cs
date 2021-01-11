@@ -64,6 +64,9 @@ namespace CFX.Materials.Management
     /// </summary>
     public class MaterialsConsumed : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsConsumed()
         {
             ConsumedMaterials = new List<ConsumedMaterial>();

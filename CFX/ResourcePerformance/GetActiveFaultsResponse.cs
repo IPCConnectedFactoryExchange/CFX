@@ -71,7 +71,9 @@ namespace CFX.ResourcePerformance
             set;
         }
 
-
+        /// <summary>
+        /// A list of faults that are currently active at the endpoint
+        /// </summary>
         public List<Fault> ActiveFaults
         {
             get;

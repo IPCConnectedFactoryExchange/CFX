@@ -294,6 +294,9 @@ namespace CFX.Production.TestAndInspection
     /// </summary>
     public class UnitsTested : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnitsTested()
         {
             TestedUnits = new List<TestedUnit>();

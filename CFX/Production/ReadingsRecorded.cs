@@ -14,6 +14,9 @@ namespace CFX.Production
     /// </summary>
     public class ReadingsRecorded : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ReadingsRecorded()
         {
             Readings = new List<Reading>();

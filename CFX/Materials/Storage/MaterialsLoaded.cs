@@ -126,6 +126,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class MaterialsLoaded : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsLoaded()
         {
             Materials = new List<MaterialLocation>();

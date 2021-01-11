@@ -27,6 +27,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class Condition
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Condition()
         {
             Steps = new ConditionStep[1];

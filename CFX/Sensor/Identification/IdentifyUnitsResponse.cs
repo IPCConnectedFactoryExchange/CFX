@@ -43,6 +43,9 @@ namespace CFX.Sensor.Identification
     /// </summary>
     public class IdentifyUnitsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public IdentifyUnitsResponse()
         {
             Units = new List<UnitPosition>();

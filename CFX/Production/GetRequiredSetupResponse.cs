@@ -78,6 +78,9 @@ namespace CFX.Production
     /// </summary>
     public class GetRequiredSetupResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GetRequiredSetupResponse()
         {
             Result = new RequestResult();
@@ -101,6 +104,9 @@ namespace CFX.Production
             set;
         }
 
+        /// <summary>
+        /// The revision of the recipe that is required (eg. "A", "B", etc.)
+        /// </summary>
         public string RecipeRevision
         {
             get;
@@ -125,6 +131,9 @@ namespace CFX.Production
             set;
         }
 
+        /// <summary>
+        /// A structure indicating the setup requirements.
+        /// </summary>
         public StationSetupRequirements SetupRequirements
         {
             get;

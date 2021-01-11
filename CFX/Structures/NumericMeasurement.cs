@@ -10,6 +10,9 @@ namespace CFX.Structures
     /// </summary>
     public class NumericMeasurement : Measurement
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public NumericMeasurement() : base()
         {
             MeasuredValue = new NumericValue();

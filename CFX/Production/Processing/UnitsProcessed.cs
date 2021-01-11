@@ -795,8 +795,9 @@ namespace CFX.Production.Processing
     ///   ]
     /// }
     /// </code>
+    /// <para></para>
     /// <para>Example 5: Printer Operation Data: for each printed PCB send used Printer process parameters</para>
-    /// {
+    /// <code language="none">  
     /// {
     ///   "TransactionId": "b063df28-715d-4ba3-bd39-e9b542e4333c",
     ///   "OverallResult": "Succeeded",
@@ -833,6 +834,7 @@ namespace CFX.Production.Processing
     ///   },
     ///   "UnitProcessData": []
     /// }
+    ///</code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage

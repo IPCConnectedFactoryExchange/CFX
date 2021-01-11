@@ -62,6 +62,9 @@ namespace CFX.Materials.Management
     /// </summary>
     public class MaterialsInitialized : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsInitialized()
         {
             Materials = new List<MaterialPackageDetail>();

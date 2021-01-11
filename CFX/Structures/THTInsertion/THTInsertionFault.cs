@@ -10,6 +10,9 @@ namespace CFX.Structures.THTInsertion
     /// </summary>
     public class THTInsertionFault : Fault
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public THTInsertionFault()
         {
             InsertionFaultType = THTInsertionFaultType.InsertionError;

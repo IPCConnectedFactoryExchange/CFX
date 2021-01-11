@@ -10,6 +10,9 @@ namespace CFX.Structures
     /// </summary>
     public class ComponentDesignator
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ComponentDesignator()
         {
             UnitPosition = null;

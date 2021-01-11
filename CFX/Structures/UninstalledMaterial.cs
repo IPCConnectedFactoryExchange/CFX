@@ -11,6 +11,9 @@ namespace CFX.Structures
     /// </summary>
     public class UninstalledMaterial
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UninstalledMaterial()
         {
             UninstalledComponents = new List<InstalledComponent>();

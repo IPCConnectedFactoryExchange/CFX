@@ -11,6 +11,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class PersonalizedUnit
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PersonalizedUnit()
         {
             Characteristics = new List<Characteristic>();

@@ -25,6 +25,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class PlotData
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PlotData()
         {
             Points = new FPTDataPoint[1];
