@@ -16,33 +16,43 @@ limitations under the License.
 */
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using CFX;
+using CFX.Structures;
 using CFX.Structures.PressInsertion;
-
 
 namespace CFX.Production.Assembly.PressInsertion
 {
     /// <summary>
-    /// This message is used to request a process endpoint for permission to proceed
-    /// with the recipe based on the results of a condition sequence action
+    /// Sent by a press insertion machine when a condition has been started
+    /// A condition is a physical or logical operation - i.e. A pin insertion or connector press onto a board
+    /// is a physical condition, much like a validation of a part before a connector insertion occurs is a 
+    /// logical condition
+    /// 
     /// <code language="none">
     /// {
-    ///   "TransactionId": "7e712504-4d65-499f-9dcb-1974e20bae59",
-    ///   "ConditionStep": {}
-    ///   "Data": {}
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "ConditionName" "Condition1",
+    ///   "UnitPosition": 
+    ///     {
+    ///       "UnitIdentifier": "CARRIER5566",
+    ///       "PositionNumber": 1,
+    ///       "PositionName": "CIRCUIT1",
+    ///       "X": 0.254,
+    ///       "Y": 0.556,
+    ///       "Rotation": 0.0,
+    ///       "FlipX": false,
+    ///       "FlipY": false
+    ///     }
     /// }
     /// </code>
     /// </summary>
-    public class GetConditionPermissionRequest : CFXMessage
+    public class ConditionStarted : CFXMessage
     {
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public GetConditionPermissionRequest()
-        {
-        }
-
-
 	/// <summary>
         /// Related Transaction ID specified previously by WorkStarted Message
         /// </summary>
@@ -51,7 +61,6 @@ namespace CFX.Production.Assembly.PressInsertion
             get;
             set;
         }
-
 	/// <summary>
         /// Identifies the Condition name
         /// </summary>
@@ -59,23 +68,14 @@ namespace CFX.Production.Assembly.PressInsertion
 	{
 	    get;
 	    set;
-	}	
-
-	/// <summary>	
-    	/// Describes a individual step of a Condition sequence that must be validated
-	/// </summary>
-	public ConditionStep ConditionStep
-	{
-	   get;
-	   set;
 	}
         /// <summary>
-        /// The data to validate
+        /// Identifies the related production unit
         /// </summary>
-        public string Data
+	public UnitPosition UnitPosition
         {
             get;
             set;
-        }//Data
+        }
     }
 }
