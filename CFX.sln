@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFX", "CFX\CFX.csproj", "{A681A172-1BCA-4C46-8275-FA7990C7C825}"
 EndProject
@@ -13,6 +13,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFXcore", "CFX\CFXcore.csproj", "{BC4BCCBF-7DBC-4E90-90E0-668972E35882}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFXExampleEndpoint", "CFXExampleEndpoint\CFXExampleEndpoint.csproj", "{29975296-19AF-46C9-A58D-F99776491E4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468} = {4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFXnet46", "CFX\CFXnet46.csproj", "{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}"
 EndProject

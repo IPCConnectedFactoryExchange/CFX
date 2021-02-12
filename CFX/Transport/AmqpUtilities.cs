@@ -34,7 +34,8 @@ namespace CFX.Transport
         {
             byte[] msgData = Encode(env.ToBytes(), codec);
 
-            Message msg = new Message(msgData);
+            Message msg = new Message();
+            msg.BodySection = new Data() { Binary = msgData };
             SetHeaders(msg, env, codec, subjectFormat);
 
             return msg;
@@ -56,7 +57,8 @@ namespace CFX.Transport
             byte[] msgData = Encoding.UTF8.GetBytes(CFXJsonSerializer.SerializeObject(container));
             msgData = Encode(msgData, codec);
 
-            Message msg = new Message(msgData);
+            Message msg = new Message();
+            msg.BodySection = new Data() { Binary = msgData };
             SetHeaders(msg, env, codec, subjectFormat);
             
             return msg;
