@@ -31,33 +31,21 @@ namespace CFX.Structures.Coating
         /// </summary>
         Moniter,
         /// <summary>
-        /// The distance travelled in X-Axis direction by the coating or encapsulation nozzle, expressed in millimeter(mm)
+        /// The axis position describing the direction in which the coating or encapsulation nozzle displaced, expressed in millimeter(mm)
         /// </summary>
-        Axis_X,
-        /// <summary>
-        /// The distance travelled in Y-Axis direction by the coating or encapsulation nozzle, expressed in millimeter(mm)
-        /// </summary>
-        Axis_Y,
-        /// <summary>
-        /// The distance travelled in z-Axis direction by the coating or encapsulation nozzle, expressed in millimeter(mm)
-        /// </summary>
-        Axis_Z,
-        /// <summary>
-        /// The pressure of the coating or encapsulation nozzle in case of second pressure pump is used, expressed in kilo Pascals (kPa)
-        /// </summary>
-        FluidPressure2,
+        Axis,
         // <summary>
-        /// The total volume of fluid tested after N. no. of units processed, expressed in grams (g)
+        /// The total volume of fluid tested after n number of units processed, expressed in grams (g)
         /// </summary>
         Fluidweight,
         // <summary>
-        /// The level of fluid tested from the container, expressed in millimeter(mm)
+        /// The level of fluid tested from the container or Beaker, expressed in millimeter(mm)
         /// </summary>
-        material_1_level,
+        MaterialLevel,
         // <summary>
-        /// The level of fluid tested from the container in case of second Container is used, expressed in millimeter(mm)
+        /// The Width of adjustable Nozzle Eg. Curtain Nozzle, expressed in millimeter(mm)
         /// </summary>
-        material_2_level
+        NozzleWidth
 
     }
 }

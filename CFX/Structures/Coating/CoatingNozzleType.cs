@@ -19,20 +19,20 @@ namespace CFX.Structures.Coating
         /// </summary>
         Jetter,
         /// <summary>
-        /// The zone is a Dispensing Nozzle.
+        /// The is a Dispensing Nozzle.
         /// </summary>
         Dispensing,
         /// <summary>
-        /// The zone is a Curtain Nozzle.
+        /// The is a Type of Film Coater.
         /// </summary>
         Curtain,
         /// <summary>
-        /// The zone is a Curtain Nozzle.
+        /// The is a Type of Film Coater.
         /// </summary>
         Spray,
         /// <summary>
-        /// The zone is a Curtain Nozzle.
+        /// The is a Type of Film Coater.
         /// </summary>
-        Doaser
+        Doser
     }
 }
