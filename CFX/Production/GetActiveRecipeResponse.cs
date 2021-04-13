@@ -24,6 +24,9 @@ namespace CFX.Production
     /// </summary>
     public class GetActiveRecipeResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GetActiveRecipeResponse()
         {
             Result = new RequestResult();

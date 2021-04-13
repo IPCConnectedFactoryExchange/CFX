@@ -19,6 +19,9 @@ namespace CFX.Materials.Management
     /// </summary>
     public class UnblockMaterialsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnblockMaterialsResponse()
         {
             Result = new RequestResult();

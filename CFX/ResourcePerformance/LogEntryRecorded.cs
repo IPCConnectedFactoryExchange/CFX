@@ -24,6 +24,9 @@ namespace CFX.ResourcePerformance
     /// </summary>
     public class LogEntryRecorded : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public LogEntryRecorded()
         {
             Importance = LogImportance.Information;

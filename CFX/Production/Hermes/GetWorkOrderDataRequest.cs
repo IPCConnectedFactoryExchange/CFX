@@ -6,7 +6,7 @@ using CFX.Structures;
 namespace CFX.Production.Hermes
 {
     /// <summary>
-    /// Used by an endpoint to acquire information related to a particular work order (typically at the beginnning of a Hermes enabled line).
+    /// Used by an endpoint to acquire information related to a particular work order (typically at the beginning of a Hermes enabled line).
     /// This information would typically then be passed down the line through the Hermes protocol / mechanism.
     /// </summary>
     public class GetWorkOrderDataRequest : CFXMessage

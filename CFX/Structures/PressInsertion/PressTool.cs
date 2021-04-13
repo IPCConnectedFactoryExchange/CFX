@@ -20,6 +20,9 @@ using System.Text;
 
 namespace CFX.Structures.PressInsertion
 {
+    /// <summary>
+    /// Represents a type of tool used in press insertion operations
+    /// </summary>
     public class PressTool : Tool
     {
 

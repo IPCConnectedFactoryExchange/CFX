@@ -19,6 +19,9 @@ namespace CFX.ResourcePerformance
     /// </summary>
     public class ModifyStationParametersResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ModifyStationParametersResponse()
         {
             Result = new RequestResult();

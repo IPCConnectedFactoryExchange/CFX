@@ -9,6 +9,9 @@ namespace CFX.Structures
     /// </summary>
     public class InspectedUnit
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public InspectedUnit()
         {
             Inspections = new List<Inspection>();

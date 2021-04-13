@@ -29,6 +29,9 @@ namespace CFX.Production
     /// </summary>
     public class UnblockMaterialLocationsRequest : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnblockMaterialLocationsRequest()
         {
             Locations = new List<MaterialLocation>();

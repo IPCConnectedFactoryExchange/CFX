@@ -16,6 +16,7 @@ namespace CFX.Production.Hermes
         public GetWorkOrderDataResponse()
         {
             WorkOrderIdentifier = new WorkOrderIdentifier();
+            Surface = Surface.Unspecified;
         }
 
         /// <summary>
@@ -94,6 +95,17 @@ namespace CFX.Production.Hermes
         /// The weight of the PCB in grams (g)
         /// </summary>
         public double Weight
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// Identifies the surface of the product that is relevant to this Work Order (if any)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public Surface Surface
         {
             get;
             set;

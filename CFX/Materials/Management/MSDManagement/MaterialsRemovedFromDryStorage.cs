@@ -68,6 +68,9 @@ namespace CFX.Materials.Management.MSDManagement
     /// </summary>
     public class MaterialsRemovedFromDryStorage : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsRemovedFromDryStorage()
         {
             Materials = new List<MaterialPackageDetail>();

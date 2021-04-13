@@ -38,6 +38,9 @@ namespace CFX.Production
     /// </summary>
     public class UnitsDeparted : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnitsDeparted()
         {
             Units = new List<UnitPosition>();

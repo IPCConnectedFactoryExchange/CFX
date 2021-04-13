@@ -9,6 +9,9 @@ namespace CFX.Structures
     /// </summary>
     public class InstalledComponent
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public InstalledComponent(bool setDateTime = false)
         {
             if (setDateTime) InstallationTime = DateTime.Now;
@@ -27,6 +30,17 @@ namespace CFX.Structures
         /// The specific time when this material / part was installed on the production unit (optional, when known)
         /// </summary>
         public DateTime? InstallationTime
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// The stage name or number
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public Stage Stage
         {
             get;
             set;

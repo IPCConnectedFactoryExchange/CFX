@@ -498,5 +498,10 @@ namespace CFX.Transport
 
     }
 
+    /// <summary>
+    /// Delegate for handling inbound requests
+    /// </summary>
+    /// <param name="request">An envelope containing the request message</param>
+    /// <returns>An envelope containing the associated response message</returns>
     public delegate CFXEnvelope OnRequestHandler(CFXEnvelope request);
 }

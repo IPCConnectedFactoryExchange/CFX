@@ -56,6 +56,17 @@ namespace CFX.Structures.PCBInspection
             }
         }
 
+        /// <summary>
+        /// The internal part number of the designated component.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public string PartNumber
+        {
+            get;
+            set;
+        }
+
+
     }
 
 }

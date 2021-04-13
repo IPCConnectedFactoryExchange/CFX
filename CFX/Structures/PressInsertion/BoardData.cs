@@ -25,6 +25,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class BoardData
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public BoardData()
         {
         }

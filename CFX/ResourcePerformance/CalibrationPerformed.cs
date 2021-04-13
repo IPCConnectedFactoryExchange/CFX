@@ -16,6 +16,8 @@ namespace CFX.ResourcePerformance
     ///     "CalibrationCode": "FID1",
     ///     "CalibrationType": "UnitPosition",
     ///     "Comments": "Position Check.  Fiducial FID1."
+    ///     "Status": "Ok"
+    ///     "CalibrationTime": null
     ///   }
     /// }
     /// </code>

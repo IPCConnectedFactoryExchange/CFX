@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -45,6 +46,16 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// The stage name or number
+        /// </summary>
+        public Stage Stage
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Id of the rejection box where the component has been rejected (if applicable)
         /// </summary>
         public string RejectionBoxId
@@ -70,10 +81,11 @@ namespace CFX.Structures
             get;
             set;
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// The rejection details, depending on the rejection reason (optional)
         /// </summary>
+        [JsonProperty(TypeNameHandling = TypeNameHandling.Auto)]
         public RejectionDetails RejectionDetails
         {
             get;

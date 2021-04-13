@@ -20,6 +20,9 @@ namespace CFX.ResourcePerformance.SolderPastePrinting
     /// </summary>
     public class CleanStencilResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public CleanStencilResponse()
         {
             Result = new RequestResult();

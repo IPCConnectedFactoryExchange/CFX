@@ -75,6 +75,9 @@ namespace CFX.Production
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UpdateRecipeRequest : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UpdateRecipeRequest()
         {
             Overwrite = false;

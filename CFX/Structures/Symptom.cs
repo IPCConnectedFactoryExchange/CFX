@@ -13,6 +13,9 @@ namespace CFX.Structures
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class Symptom
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Symptom()
         {
             ComponentsOfInterest = new List<ComponentDesignator>();

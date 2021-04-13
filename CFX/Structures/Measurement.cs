@@ -10,6 +10,9 @@ namespace CFX.Structures
     /// </summary>
     abstract public class Measurement
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Measurement()
         {
             UniqueIdentifier = Guid.NewGuid().ToString();

@@ -10,6 +10,9 @@ namespace CFX.Structures
     /// </summary>
     public class MaterialPackage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialPackage()
         {
         }

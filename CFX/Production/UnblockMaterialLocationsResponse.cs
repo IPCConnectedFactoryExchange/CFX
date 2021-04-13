@@ -19,11 +19,17 @@ namespace CFX.Production
     /// </summary>
     public class UnblockMaterialLocationsResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnblockMaterialLocationsResponse()
         {
             Result = new RequestResult();
         }
 
+        /// <summary>
+        /// The result of the request
+        /// </summary>
         public RequestResult Result
         {
             get;

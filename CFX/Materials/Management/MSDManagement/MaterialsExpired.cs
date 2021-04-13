@@ -69,6 +69,9 @@ namespace CFX.Materials.Management.MSDManagement
     /// </summary>
     public class MaterialsExpired : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsExpired()
         {
             Materials = new List<MaterialPackageDetail>();

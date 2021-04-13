@@ -17,6 +17,7 @@ namespace CFX.Structures.SolderPastePrinting
     {
         /// <summary>
         /// Periodic cleaning constructor
+        /// </summary>
         public PeriodicCleaning()
         {
 

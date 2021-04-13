@@ -13,6 +13,9 @@ namespace CFX.Structures
     /// </summary>
     public class MaterialSetupRequirement
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialSetupRequirement()
         {
             ApprovedAlternateParts = new List<string>();

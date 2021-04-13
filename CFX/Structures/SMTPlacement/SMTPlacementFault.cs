@@ -10,6 +10,9 @@ namespace CFX.Structures.SMTPlacement
     /// </summary>
     public class SMTPlacementFault : Fault
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SMTPlacementFault()
         {
             PlacementFaultType = SMTPlacementFaultType.PickupError;

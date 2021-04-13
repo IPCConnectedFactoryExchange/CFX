@@ -534,9 +534,115 @@ namespace CFX.Production.TestAndInspection
     ///   ]
     /// }
     /// </code>
+    /// <para>An example of SPI measurement result using the InspectionMeasurementLean option.
+    /// This message is expected to contain an InspectionMeasurementLean object for each solder deposit
+    /// </para>
+    /// <para> </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "00000000-0000-0000-0000-000000000000",
+    ///   "InspectionMethod": "Human",
+    ///   "SamplingInformation": {
+    ///     "SamplingMethod": "NoSampling",
+    ///     "LotSize": null,
+    ///     "SampleSize": null
+    ///   },
+    ///   "Inspector": {
+    ///     "OperatorIdentifier": null,
+    ///     "ActorType": "Human",
+    ///     "LastName": null,
+    ///     "FirstName": null,
+    ///     "LoginName": null
+    ///   },
+    ///   "RecipeName": "SolderRecipeXYZ_TextBoard1",
+    ///   "RecipeRevision": "1.3.3.33",
+    ///   "InspectedUnits": [
+    ///     {
+    ///       "UnitIdentifier": "FFSHkkskamJDHS",
+    ///       "UnitPositionNumber": 1,
+    ///       "OverallResult": "Passed",
+    ///       "Inspections": [
+    ///         {
+    ///           "UniqueIdentifier": "11122344567",
+    ///           "InspectionName": null,
+    ///           "InspectionStartTime": null,
+    ///           "InspectionEndTime": null,
+    ///           "TestProcedure": null,
+    ///           "Comments": null,
+    ///           "Result": "Passed",
+    ///           "Verification": "NotVerifiedYet",
+    ///           "VerificationDetail": null,
+    ///           "Error": null,
+    ///           "DefectsFound": [],
+    ///           "Symptoms": null,
+    ///           "Measurements": [
+    ///             {
+    ///               "$type": "CFX.Structures.SolderPasteInspection.InspectionMeasurementLean, CFX",
+    ///               "X": 0.76,
+    ///               "Y": 1.53,
+    ///               "Z": 0.086,
+    ///               "DX": 0.035,
+    ///               "DY": 0.009,
+    ///               "Vol": 7.8E-05,
+    ///               "A": 1.234,
+    ///               "Image": null,
+    ///               "UniqueIdentifier": "4fb463d3-1faf-4dd8-9889-1fc49d62b011",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 1,
+    ///               "Result": "Passed",
+    ///               "CRDs": null
+    ///             }
+    ///           ],
+    ///           "RefNo": 1
+    ///         },
+    ///         {
+    ///           "UniqueIdentifier": "11122344568",
+    ///           "InspectionName": null,
+    ///           "InspectionStartTime": null,
+    ///           "InspectionEndTime": null,
+    ///           "TestProcedure": null,
+    ///           "Comments": null,
+    ///           "Result": "Passed",
+    ///           "Verification": "NotVerifiedYet",
+    ///           "VerificationDetail": null,
+    ///           "Error": null,
+    ///           "DefectsFound": [],
+    ///           "Symptoms": null,
+    ///           "Measurements": [
+    ///             {
+    ///               "$type": "CFX.Structures.SolderPasteInspection.InspectionMeasurementLean, CFX",
+    ///               "X": 0.78,
+    ///               "Y": 1.48,
+    ///               "Z": 0.092,
+    ///               "DX": 0.039,
+    ///               "DY": 0.017,
+    ///               "Vol": 7.4E-05,
+    ///               "A": 1.226,
+    ///               "Image": null,
+    ///               "UniqueIdentifier": "4a1d502c-2cb9-498a-b299-21399b83b23d",
+    ///               "MeasurementName": null,
+    ///               "TimeRecorded": null,
+    ///               "Sequence": 1,
+    ///               "Result": "Passed",
+    ///               "CRDs": null
+    ///             }
+    ///           ],
+    ///           "RefNo": 2
+    ///         }
+    ///       ],
+    ///       "Verification": "NotVerifiedYet"
+    ///     }
+    ///   ]
+    /// }
+    /// </code>    
     /// </summary>
+
     public class UnitsInspected : CFXMessage
     {
+        ///<summary>
+        /// Unit inspected default constructor, used to model all the different inspection options
+        /// </summary>
         public UnitsInspected()
         {
             InspectedUnits = new List<InspectedUnit>();

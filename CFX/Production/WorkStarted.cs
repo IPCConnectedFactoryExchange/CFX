@@ -42,6 +42,9 @@ namespace CFX.Production
     /// </summary>
     public class WorkStarted : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public WorkStarted()
         {
             TransactionID = Guid.NewGuid();

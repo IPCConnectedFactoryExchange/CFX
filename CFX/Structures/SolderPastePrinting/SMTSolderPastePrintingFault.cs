@@ -10,6 +10,9 @@ namespace CFX.Structures.SolderPastePrinting
     /// </summary>
     public class SMTSolderPastePrintingFault : Fault
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SMTSolderPastePrintingFault()
         {
             PrintingFaultType = SMTSolderPastePrintingFaultType.SqueegeeError;

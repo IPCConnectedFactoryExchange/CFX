@@ -200,9 +200,33 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// A list of the <see cref="CFX.Structures.SupportedTopic"/>s structures describing the level of support for this endpoint
+        /// A list of the <see cref="CFX.Structures.SupportedTopic"/> structures describing the level of support for this endpoint
         /// </summary>
         public List<SupportedTopic> SupportedTopics
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3  -Previously was in derived class SMTPlacementEndpoint. **</para>
+        /// The maximum and minimum dimensions that a PCB panel or fixture must conform
+        /// to in order to be processed by this SMT Placement machine.
+        /// May be overridden for each lane (see <see cref="CFX.Structures.SMTPlacement.SMTLaneInformation"/>).
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public DimensionalConstraints SupportedPCBDimensions
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// Contains information related to the Endpoint's sleep states.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public List<SleepState> SleepStates
         {
             get;
             set;

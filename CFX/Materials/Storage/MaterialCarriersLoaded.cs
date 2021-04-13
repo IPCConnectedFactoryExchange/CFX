@@ -53,6 +53,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class MaterialCarriersLoaded : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialCarriersLoaded()
         {
             Carriers = new List<MaterialCarrierLocation>();

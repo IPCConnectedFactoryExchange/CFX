@@ -27,6 +27,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class PressProfile
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PressProfile()
         {
             Steps = new ProfileStep[1];

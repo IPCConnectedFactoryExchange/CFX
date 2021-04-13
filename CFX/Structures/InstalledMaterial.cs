@@ -11,6 +11,9 @@ namespace CFX.Structures
     /// </summary>
     public class InstalledMaterial
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public InstalledMaterial()
         {
             InstalledComponents = new List<InstalledComponent>();

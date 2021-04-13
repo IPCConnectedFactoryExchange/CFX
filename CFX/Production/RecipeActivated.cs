@@ -17,6 +17,12 @@ namespace CFX.Production
     ///   "ExpectedCycleTime": 60,
     ///   "ExpectedUnitsPerWorkTransaction": 1,
     ///   "NumberOfComponentsPerUnit": 500,
+    ///   "WorkOrderIdentifier": {
+    ///     "WorkOrderId": "WO-1000-1000",
+    ///     "Batch": "WO-1000-1000-B1"
+    ///   },
+    ///   "TargetQuantity": 500.0,
+    ///   "RelevantSurface": "PrimarySurface",
     ///   "RecipeStagesInformation”: [
     ///   {
     ///     "Stage": {
@@ -42,6 +48,9 @@ namespace CFX.Production
     /// </summary>
     public class RecipeActivated : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public RecipeActivated()
         {
             RecipeStagesInformation = new List<RecipeStageInformation>();
@@ -109,6 +118,41 @@ namespace CFX.Production
         /// The number of components to install for each unit of a work.
         /// </summary>
         public double NumberOfComponentsPerUnit
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// Identifies the Work Order (or Batch) that will be executed by the newly activated recipe.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public WorkOrderIdentifier WorkOrderIdentifier
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// Identifies the target number of units to be produced by the newly activated recipe.
+        /// This property is optional, but should be specified if known by the endpoint producing this message.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public double? TargetQuantity
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.3 **</para>
+        /// For two-dimensional products, such as printed circuit assemblies, specifies the relevant
+        /// surface that will be processed by the newly activated recipe.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.3")]
+        public Surface RelevantSurface
         {
             get;
             set;

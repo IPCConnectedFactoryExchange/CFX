@@ -2558,12 +2558,25 @@ namespace CFX.Structures.Geometry
             result = ret;
         }
 
+        /// <summary>
+        /// Applies a rotational transformation to a matrix
+        /// </summary>
+        /// <param name="value">The source matrix</param>
+        /// <param name="rotation">The rotation to be applied</param>
+        /// <returns>The resultant matrix</returns>
         public static Matrix44 Transform(Matrix44 value, Quaternion rotation)
         {
             Matrix44 result;
             Transform(ref value, ref rotation, out result);
             return result;
         }
+
+        /// <summary>
+        /// Applies a rotational transformation to a matrix
+        /// </summary>
+        /// <param name="value">The source matrix</param>
+        /// <param name="rotation">The rotation to be applied</param>
+        /// <param name="result">The resultant matrix</param>
 
         public static void Transform(
           ref Matrix44 value,

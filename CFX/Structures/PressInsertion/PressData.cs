@@ -25,6 +25,9 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class PressData
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PressData()
         {
         }

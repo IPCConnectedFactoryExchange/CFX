@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// A data structure that represents a CFX message topic that is supported by a particular CFX endpoint
+    /// </summary>
     public class SupportedTopic
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SupportedTopic()
         {
             SupportedMessages = new List<string>();

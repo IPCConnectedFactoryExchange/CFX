@@ -76,6 +76,9 @@ namespace CFX.ResourcePerformance
     /// </summary>
     public class MaintenancePerformed : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaintenancePerformed()
         {
             ConsumedMaterials = new List<ConsumedMaterial>();

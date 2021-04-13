@@ -40,17 +40,6 @@ namespace CFX.Structures.SMTPlacement
         }
 
         /// <summary>
-        /// The maximum and minimum dimensions that a PCB panel or fixture must conform
-        /// to in order to be processed by this SMT Placement machine.
-        /// May be overridden for each lane (see <see cref="SMTLaneInformation"/>).
-        /// </summary>
-        public DimensionalConstraints SupportedPCBDimensions
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Information about the production lanes of this SMT placement machine.
         /// </summary>
         public List<SMTLaneInformation> Lanes

@@ -31,6 +31,9 @@ namespace CFX.Materials.Management
     /// </summary>
     public class MaterialsRetired : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialsRetired()
         {
             Materials = new List<MaterialPackage>();

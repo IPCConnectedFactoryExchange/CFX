@@ -18,6 +18,9 @@ namespace CFX.Materials.Storage
     /// </summary>
     public class MaterialCarriersUnloaded : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MaterialCarriersUnloaded()
         {
             CarrierIdentifiers = new List<string>();

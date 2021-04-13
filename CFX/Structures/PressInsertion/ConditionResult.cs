@@ -26,9 +26,12 @@ namespace CFX.Structures.PressInsertion
     /// </summary>
     public class ConditionResult
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ConditionResult()
         {
-	    TransactionID = Guid.NewGuid();	
+	        TransactionID = Guid.NewGuid();	
             Units = new List<UnitPosition>();
         
             ConditionSequence = new Condition();
