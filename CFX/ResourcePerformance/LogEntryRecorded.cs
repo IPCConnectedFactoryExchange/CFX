@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using CFX.Structures.SMTPlacement;
 
 namespace CFX.ResourcePerformance
 {
@@ -70,6 +71,15 @@ namespace CFX.ResourcePerformance
 
         /// The production stage related to the log entry (where applicable)
         public Stage Stage
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The particular Head/Nozzle related to the log entry (where applicable)
+        /// </summary>
+        public SMTHeadAndNozzle HeadAndNozzle
         {
             get;
             set;
