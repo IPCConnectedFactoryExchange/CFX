@@ -69,10 +69,6 @@ namespace CFX.Structures
         /// <summary>
         /// The component was rejected because of a bad optical test after placement
         /// </summary>
-        BadOpticalTestAfterPlacement,
-        /// <summary>
-        /// The component was rejected because of a bad vision test before pickup
-        /// </summary>
-        BadVisionTestBeforePickup,
+        BadOpticalTestAfterPlacement
     }
 }
