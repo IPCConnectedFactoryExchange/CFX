@@ -99,7 +99,7 @@ namespace CFX
 
         /// <summary>
         /// The date and time when the event associated with this CFX message took place, NOT the time when the message was
-        /// transmitted. The format must include the time zone, whether expressed in local time or UTC.
+        /// transmitted.
         /// </summary>
         [JsonProperty]
         public DateTime TimeStamp
