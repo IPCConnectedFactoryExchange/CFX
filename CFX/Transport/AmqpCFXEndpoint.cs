@@ -1003,6 +1003,69 @@ namespace CFX.Transport
             PublishMany(envelopes);
         }
 
+
+        /// <summary>
+        /// Publishes a CFX envelope to the specified channel. 
+        /// </summary>
+        /// <param name="env">The CFX envelope containing the message to publish.</param>
+        /// <param name="address">The address of the channel to which you wish to publish this message.</param>
+        public void PublishToChannel(CFXEnvelope env, AmqpChannelAddress address)
+        {
+            FillSource(env);
+
+            string key = address.Uri.ToString();
+
+            AmqpConnection channel = null;
+            if (channels.TryGetValue(key, out channel))
+            {
+                channel.PublishToChannel(env, address.Address);
+            }
+            else
+            {
+                throw new ArgumentException("There is no active publish channel that matches the specified channel address", "address");
+            }
+        }
+
+        /// <summary>
+        /// Publishes a CFX message to the specified channel.  A CFX envelope will be automatically generated for
+        /// your message.
+        /// </summary>
+        /// <param name="msg">The CFX envelope to publish.</param>
+        /// <param name="address">The address of the channel to which you wish to publish this message.</param>
+        public void PublishToChannel(CFXMessage msg, AmqpChannelAddress address)
+        {
+            CFXEnvelope env = new CFXEnvelope();
+            env.MessageBody = msg;
+            PublishToChannel(env, address);
+        }
+
+        /// <summary>
+        /// Publishes a collection of CFX envelopes to the specified channel.
+        /// </summary>
+        /// <param name="envs">An enumerable list of CFX envelopes to publish.</param>
+        /// <param name="address">The address of the channel to which you wish to publish this message.</param>
+        public void PublishManyToChannel(IEnumerable<CFXEnvelope> envs, AmqpChannelAddress address)
+        {
+            foreach (CFXEnvelope env in envs)
+            {
+                PublishToChannel(env, address);
+            }
+        }
+
+        /// <summary>
+        /// Publishes a collection of CFX messages to the specified channel.
+        /// CFX envelopes will be automatically generated for each of your messages.
+        /// </summary>
+        /// <param name="msgs">An enumerable list of the CFX messages to publish.</param>
+        /// <param name="address">The address of the channel to which you wish to publish this message.</param>
+        public void PublishManyToChannel(IEnumerable<CFXMessage> msgs, AmqpChannelAddress address)
+        {
+            foreach (CFXMessage msg in msgs)
+            {
+                PublishToChannel(msg, address);
+            }
+        }
+
         private void FillSource(CFXEnvelope env)
         {
             if (env.Source == null) env.Source = this.CFXHandle;
