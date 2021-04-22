@@ -291,6 +291,7 @@
     <Compile Include="Structures\NumericMeasurement.cs" />
     <Compile Include="Structures\NumericValue.cs" />
     <Compile Include="Structures\OperatingRequirements.cs" />
+	<Compile Include="Structures\OperationStatus.cs" />
     <Compile Include="Structures\Operator.cs" />
     <Compile Include="Structures\Parameter.cs" />
     <Compile Include="Structures\PCBInspection\NamespaceDoc.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="Structures\StatusResult.cs" />
     <Compile Include="Structures\SupportedTopic.cs" />
     <Compile Include="Structures\SupportedTopicQueryType.cs" />
+	<Compile Include="Structures\Surface.cs" />
     <Compile Include="Structures\Symptom.cs" />
     <Compile Include="Structures\Temperature.cs" />
     <Compile Include="Structures\Test.cs" />
