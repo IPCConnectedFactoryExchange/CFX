@@ -19,6 +19,7 @@ namespace CFX.Structures.Coating
         public CoatingProcessData() : base()
         {
             Readings = new List<CoatingMeasurement>();
+            Nozzle = new List<CoatingNozzleData>();
         }
 
         /// <summary>
@@ -26,6 +27,17 @@ namespace CFX.Structures.Coating
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<CoatingMeasurement> Readings
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Process data (temperatures, etc.) for each Nozzle of the Coating machine at the 
+        /// time when this transaction tool place.
+        /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
+        public List<CoatingNozzleData> Nozzle
         {
             get;
             set;

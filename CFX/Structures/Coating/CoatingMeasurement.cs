@@ -67,5 +67,34 @@ namespace CFX.Structures.Coating
             get;
             set;
         }
+
+        /// <summary>
+        /// An optional axis position describing the direction in which the coating or encapsulation nozzle displaced.
+        /// Examples:  AxisX, AxisY,AxisZ.
+        /// </summary>
+        public string Axis
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// An optional  positive integer for Fluidpressure measurement type of the coating or encapsulation nozzle in case of second pressure pump is used
+        /// /// </summary>
+        public int FluidPressure
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// An optional  NozzleWidth measurement type of the coating or encapsulation nozzle
+        /// /// </summary>
+        public int NozzleWidth
+        {
+            get;
+            set;
+        }
+
     }
 }
