@@ -17,6 +17,7 @@ namespace CFX.Production.Assembly
     ///       "UnitIdentifier": "PANEL23423432",
     ///       "UnitPositionNumber": 1,
     ///       "QuantityInstalled": 3.0,
+    ///       "QuantityNonInstalled": 0.0,
     ///       "Material": {
     ///         "UniqueIdentifier": "MAT4566556456",
     ///         "InternalPartNumber": "IPN47788",
@@ -55,6 +56,7 @@ namespace CFX.Production.Assembly
     ///       "UnitIdentifier": "PANEL23423432",
     ///       "UnitPositionNumber": 2,
     ///       "QuantityInstalled": 3.0,
+    ///       "QuantityNonInstalled": 1.0,
     ///       "Material": {
     ///         "UniqueIdentifier": "MAT4566556456",
     ///         "InternalPartNumber": "IPN47788",
