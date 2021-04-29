@@ -77,9 +77,11 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
-        /// The particular Head/Nozzle related to the log entry (where applicable)
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// Optional additional data depending on the machine type
         /// </summary>
-        public SMTHeadAndNozzle HeadAndNozzle
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public LogEntryAdditionalData AdditionalData
         {
             get;
             set;
