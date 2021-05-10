@@ -29,6 +29,10 @@ namespace CFX.Structures
         /// <summary>
         /// The test was aborted by the operator / user.
         /// </summary>
-        Aborted
+        Aborted,
+        /// <summary>
+        /// The test was skipped because of (virtual) bad mark
+        /// </summary>
+        Skipped
     }
 }

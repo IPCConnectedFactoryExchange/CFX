@@ -19,6 +19,10 @@ namespace CFX.Structures
         /// <summary>
         /// The validation has failed (not succeeded)
         /// </summary>
-        Failed
+        Failed,
+        /// <summary>
+        /// The validation has skipped because of (virtual) bad mark
+        /// </summary>
+        Skipped
     }
 }
