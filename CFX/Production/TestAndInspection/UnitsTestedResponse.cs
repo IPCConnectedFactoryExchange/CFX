@@ -44,6 +44,9 @@ namespace CFX.Production.TestAndInspection
     /// </summary>
     public class UnitsTestedResponse : CFXMessage
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UnitsTestedResponse()
         {
             Result = new RequestResult();
