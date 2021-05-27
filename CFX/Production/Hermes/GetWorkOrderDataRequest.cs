@@ -8,6 +8,15 @@ namespace CFX.Production.Hermes
     /// <summary>
     /// Used by an endpoint to acquire information related to a particular work order (typically at the beginning of a Hermes enabled line).
     /// This information would typically then be passed down the line through the Hermes protocol / mechanism.
+    /// <code language="none">
+    /// {
+    ///   "WorkOrderIdentifier": {
+    ///     "WorkOrderId": "WO0001",
+    ///     "Batch": "Batch1"
+    ///   },
+    ///   "UnitIdentifier": null
+    /// }
+    /// </code>
     /// </summary>
     public class GetWorkOrderDataRequest : CFXMessage
     {
