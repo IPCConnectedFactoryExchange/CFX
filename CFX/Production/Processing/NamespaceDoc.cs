@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX.Production.ReworkAndRepair
+namespace CFX.Production.Processing
 {
     /// <summary>
-    /// CFX Topic implemented by endpoints which are involved in the repair and rework of defective or 
-    /// otherwise problematic production units discovered at any point in the production process, or later.
+    /// CFX Topic implemented by endpoints which are involved in the processing of production units.
     /// </summary>
     internal static class NamespaceDoc
     {
     }
 }
+
