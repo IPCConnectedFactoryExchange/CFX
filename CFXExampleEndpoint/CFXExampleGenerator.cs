@@ -711,7 +711,7 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            UnitsInspected ui = msg as UnitsInspected;
+            UnitsRepaired ui = msg as UnitsRepaired;
             
             for (int i = 0; i < ui.InspectedUnits.Count; i++)
             {

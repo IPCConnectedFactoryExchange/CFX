@@ -71,7 +71,7 @@ namespace CFXUnitTests
 
             Debug.WriteLine($"Initialized at {sw.ElapsedMilliseconds} ms");
 
-            UnitsInspected un = new UnitsInspected()
+            UnitsRepaired un = new UnitsInspected()
             {
                 InspectedUnits = new List<InspectedUnit>()
                 {
