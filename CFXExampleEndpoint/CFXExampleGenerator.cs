@@ -16,6 +16,7 @@ using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.Production.Application;
 using CFX.Production.TestAndInspection;
+using CFX.Production.ReworkAndRepair;
 using CFX.InformationSystem.UnitValidation;
 using CFX.InformationSystem.WorkOrderManagement;
 using CFX.InformationSystem.ProductionScheduling;
@@ -711,7 +712,60 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
-            UnitsRepaired ui = msg as UnitsRepaired;
+            UnitsRepaired ur = new UnitsRepaired()
+            {
+                TransactionId = Guid.NewGuid(),
+                RepairOperator = op1,
+                RepairedUnits = new List<RepairedUnit>()
+                {
+                    new RepairedUnit()
+                    {
+                        UnitIdentifier = "FFSHkkskamJDHS",
+                        UnitPositionNumber = 1,
+                        Repairs = new List<Repair>()
+                        {
+                            new Repair()
+                            {
+                                RelatedDefectIdentifiers = new List<string>()
+                                {
+                                    Guid.NewGuid().ToString(),
+                                },
+                                Comments = "Repaired cold solder joint at U34, Pin 5",
+                                RepairName=  "Joint Repair",
+                                Result = RepairResult.RepairSuccessful,
+                                RepairStartTime = DateTime.Now.Subtract(TimeSpan.FromSeconds(40)),
+                                RepairEndTime = DateTime.Now,
+                                ComponentOfInterest = new ComponentDesignator()
+                                {
+                                    ReferenceDesignator = "U34.5",
+                                    PartNumber = "SN74HCS30DR"
+                                }
+                            },
+                            new Repair()
+                            {
+                                RelatedDefectIdentifiers = new List<string>()
+                                {
+                                    Guid.NewGuid().ToString(),
+                                },
+                                Comments = "Repaired solder bridge at U24, Pins 4-5",
+                                RepairName=  "Joint Repair",
+                                Result = RepairResult.RepairSuccessful,
+                                RepairStartTime = DateTime.Now.Subtract(TimeSpan.FromSeconds(40)),
+                                RepairEndTime = DateTime.Now,
+                                ComponentOfInterest = new ComponentDesignator()
+                                {
+                                    ReferenceDesignator = "U24.4-5",
+                                    PartNumber = "SN74HCS50DR"
+                                }
+                            },
+                        }
+                    }
+                }
+            };
+
+            AppendMessage(ur, ref result);
+
+            UnitsInspected ui = msg as UnitsInspected;
             
             for (int i = 0; i < ui.InspectedUnits.Count; i++)
             {

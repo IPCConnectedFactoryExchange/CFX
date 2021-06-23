@@ -73,6 +73,27 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// An optional component or specific component pins related to this repair.
+        /// </summary>
+        public ComponentDesignator ComponentOfInterest
+        {
+            get;
+            set;
+        }
+
+
+        /// <summary>
+        /// An optional location or area on the production unit where the repair is located 
+        /// (for cases where there is no specific component related, such as a scratch or 
+        /// cosmetic defect).
+        /// </summary>
+        public Region RegionOfInterest
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// A list of the unique identifiers of the previously reported defects to which
         /// this repair relates.  It is assumed that if the repair is successful, these defects
         /// may be considered repaired.

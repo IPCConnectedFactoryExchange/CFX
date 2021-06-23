@@ -638,12 +638,12 @@ namespace CFX.Production.TestAndInspection
     /// </code>    
     /// </summary>
 
-    public class UnitsRepaired : CFXMessage
+    public class UnitsInspected : CFXMessage
     {
         ///<summary>
         /// Unit inspected default constructor, used to model all the different inspection options
         /// </summary>
-        public UnitsRepaired()
+        public UnitsInspected()
         {
             InspectedUnits = new List<InspectedUnit>();
             Inspector = new Operator();

@@ -247,7 +247,7 @@ namespace CFXExampleEndpoint
                 },
             }.ToList();
                                                                                                                 
-            UnitsRepaired ui = new UnitsInspected()
+            UnitsInspected ui = new UnitsInspected()
             {
                 TransactionId = Guid.NewGuid(),
                 InspectionMethod = InspectionMethod.AOI,
