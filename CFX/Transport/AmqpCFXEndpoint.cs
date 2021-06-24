@@ -1121,6 +1121,7 @@ namespace CFX.Transport
             Exception ex = null;
             Uri targetAddress = new Uri(targetUri);
             CurrentRequestTargetUri = targetAddress;
+            string senderTarget = CFXHandle + "-" + Guid.NewGuid().ToString();
 
             try
             {
@@ -1135,7 +1136,7 @@ namespace CFX.Transport
 
                 Message req = AmqpUtilities.MessageFromEnvelope(request, Codec.Value);
                 req.Properties.MessageId = "command-request";
-                req.Properties.ReplyTo = CFXHandle;
+                req.Properties.ReplyTo = senderTarget;
                 req.ApplicationProperties = new ApplicationProperties();
                 req.ApplicationProperties["offset"] = 1;
                 
@@ -1158,12 +1159,12 @@ namespace CFX.Transport
                     Attach recvAttach = new Attach()
                     {
                         Source = new Source() { Address = request.Target },
-                        Target = new Target() { Address = CFXHandle }
+                        Target = new Target() { Address = senderTarget }
                     };
 
                     receiver = new ReceiverLink(reqSession, "request-receiver", recvAttach, null);
                     receiver.Start(300);
-                    sender = new SenderLink(reqSession, CFXHandle, request.Target);
+                    sender = new SenderLink(reqSession, senderTarget, request.Target);
 
                     sender.Send(req);
                     Message resp = receiver.Receive(RequestTimeout.Value);
