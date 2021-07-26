@@ -4661,7 +4661,7 @@ namespace CFXExampleEndpoint
                                                 EA = 1.2,
                                                 EVol = 0.0001,
                                                 AR = 1.8,
-                                                RXY = 0,
+                                                RXY = 0
                                             }
                                         }
                                     }
@@ -4681,7 +4681,7 @@ namespace CFXExampleEndpoint
                                         {
                                             Sequence = 1,
                                             Name = "PasteDeposit",
-                                            TargetValue = new InspectionMeasurementExpected
+                                            TargetValue = new InspectionMeasurementExpected()
                                             {
                                                 PX = 3000,
                                                 PY = 1200,
@@ -4700,7 +4700,7 @@ namespace CFXExampleEndpoint
                     }
                 }
             };
-
+            AppendMessage(msg, ref result);
             //Event based ResourceSetup
             msg = new CFX.Maintenance.ResourceSetupEvent()
             {
