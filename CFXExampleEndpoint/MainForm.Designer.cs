@@ -44,6 +44,7 @@
             this.txtReceiveChannels = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeserializeOfflineJson = new System.Windows.Forms.Button();
             this.reqHandle = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.reqUri = new System.Windows.Forms.TextBox();
@@ -61,26 +62,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 28);
+            this.label1.Location = new System.Drawing.Point(16, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.Size = new System.Drawing.Size(121, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Publish Channels:";
             // 
             // txtTransmitChannels
             // 
-            this.txtTransmitChannels.Location = new System.Drawing.Point(137, 30);
+            this.txtTransmitChannels.Location = new System.Drawing.Point(183, 37);
+            this.txtTransmitChannels.Margin = new System.Windows.Forms.Padding(4);
             this.txtTransmitChannels.Multiline = true;
             this.txtTransmitChannels.Name = "txtTransmitChannels";
             this.txtTransmitChannels.ReadOnly = true;
-            this.txtTransmitChannels.Size = new System.Drawing.Size(276, 53);
+            this.txtTransmitChannels.Size = new System.Drawing.Size(367, 64);
             this.txtTransmitChannels.TabIndex = 2;
             // 
             // btnAddTransmitChannel
             // 
-            this.btnAddTransmitChannel.Location = new System.Drawing.Point(419, 30);
+            this.btnAddTransmitChannel.Location = new System.Drawing.Point(559, 37);
+            this.btnAddTransmitChannel.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTransmitChannel.Name = "btnAddTransmitChannel";
-            this.btnAddTransmitChannel.Size = new System.Drawing.Size(49, 20);
+            this.btnAddTransmitChannel.Size = new System.Drawing.Size(65, 25);
             this.btnAddTransmitChannel.TabIndex = 0;
             this.btnAddTransmitChannel.Text = "+";
             this.btnAddTransmitChannel.UseVisualStyleBackColor = true;
@@ -88,9 +92,10 @@
             // 
             // btnClearTransmitChannels
             // 
-            this.btnClearTransmitChannels.Location = new System.Drawing.Point(474, 30);
+            this.btnClearTransmitChannels.Location = new System.Drawing.Point(632, 37);
+            this.btnClearTransmitChannels.Margin = new System.Windows.Forms.Padding(4);
             this.btnClearTransmitChannels.Name = "btnClearTransmitChannels";
-            this.btnClearTransmitChannels.Size = new System.Drawing.Size(49, 20);
+            this.btnClearTransmitChannels.Size = new System.Drawing.Size(65, 25);
             this.btnClearTransmitChannels.TabIndex = 1;
             this.btnClearTransmitChannels.Text = "Clear";
             this.btnClearTransmitChannels.UseVisualStyleBackColor = true;
@@ -98,27 +103,30 @@
             // 
             // txtCFXHandle
             // 
-            this.txtCFXHandle.Location = new System.Drawing.Point(114, 22);
+            this.txtCFXHandle.Location = new System.Drawing.Point(152, 27);
+            this.txtCFXHandle.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFXHandle.Name = "txtCFXHandle";
-            this.txtCFXHandle.Size = new System.Drawing.Size(153, 20);
+            this.txtCFXHandle.Size = new System.Drawing.Size(203, 22);
             this.txtCFXHandle.TabIndex = 0;
             this.txtCFXHandle.Text = "CFXEndpoint1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 25);
+            this.label2.Location = new System.Drawing.Point(15, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "CFX Handle";
             // 
             // btnClose
             // 
             this.btnClose.Enabled = false;
-            this.btnClose.Location = new System.Drawing.Point(1006, 21);
+            this.btnClose.Location = new System.Drawing.Point(1341, 26);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(63, 20);
+            this.btnClose.Size = new System.Drawing.Size(84, 25);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -126,9 +134,10 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(937, 21);
+            this.btnOpen.Location = new System.Drawing.Point(1249, 26);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(63, 20);
+            this.btnOpen.Size = new System.Drawing.Size(84, 25);
             this.btnOpen.TabIndex = 2;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
@@ -137,9 +146,10 @@
             // btnSendMsg
             // 
             this.btnSendMsg.Enabled = false;
-            this.btnSendMsg.Location = new System.Drawing.Point(137, 89);
+            this.btnSendMsg.Location = new System.Drawing.Point(183, 110);
+            this.btnSendMsg.Margin = new System.Windows.Forms.Padding(4);
             this.btnSendMsg.Name = "btnSendMsg";
-            this.btnSendMsg.Size = new System.Drawing.Size(92, 25);
+            this.btnSendMsg.Size = new System.Drawing.Size(123, 31);
             this.btnSendMsg.TabIndex = 10;
             this.btnSendMsg.Text = "Send Msg";
             this.btnSendMsg.UseVisualStyleBackColor = true;
@@ -147,25 +157,28 @@
             // 
             // txtRequestUri
             // 
-            this.txtRequestUri.Location = new System.Drawing.Point(342, 22);
+            this.txtRequestUri.Location = new System.Drawing.Point(456, 27);
+            this.txtRequestUri.Margin = new System.Windows.Forms.Padding(4);
             this.txtRequestUri.Name = "txtRequestUri";
-            this.txtRequestUri.Size = new System.Drawing.Size(151, 20);
+            this.txtRequestUri.Size = new System.Drawing.Size(200, 22);
             this.txtRequestUri.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(273, 25);
+            this.label3.Location = new System.Drawing.Point(364, 31);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(83, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Request Uri";
             // 
             // btnClearReceiveChannels
             // 
-            this.btnClearReceiveChannels.Location = new System.Drawing.Point(1020, 28);
+            this.btnClearReceiveChannels.Location = new System.Drawing.Point(1360, 34);
+            this.btnClearReceiveChannels.Margin = new System.Windows.Forms.Padding(4);
             this.btnClearReceiveChannels.Name = "btnClearReceiveChannels";
-            this.btnClearReceiveChannels.Size = new System.Drawing.Size(49, 20);
+            this.btnClearReceiveChannels.Size = new System.Drawing.Size(65, 25);
             this.btnClearReceiveChannels.TabIndex = 4;
             this.btnClearReceiveChannels.Text = "Clear";
             this.btnClearReceiveChannels.UseVisualStyleBackColor = true;
@@ -173,9 +186,10 @@
             // 
             // btnAddReceiveChannel
             // 
-            this.btnAddReceiveChannel.Location = new System.Drawing.Point(965, 28);
+            this.btnAddReceiveChannel.Location = new System.Drawing.Point(1287, 34);
+            this.btnAddReceiveChannel.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddReceiveChannel.Name = "btnAddReceiveChannel";
-            this.btnAddReceiveChannel.Size = new System.Drawing.Size(49, 20);
+            this.btnAddReceiveChannel.Size = new System.Drawing.Size(65, 25);
             this.btnAddReceiveChannel.TabIndex = 3;
             this.btnAddReceiveChannel.Text = "+";
             this.btnAddReceiveChannel.UseVisualStyleBackColor = true;
@@ -183,24 +197,27 @@
             // 
             // txtReceiveChannels
             // 
-            this.txtReceiveChannels.Location = new System.Drawing.Point(683, 29);
+            this.txtReceiveChannels.Location = new System.Drawing.Point(911, 36);
+            this.txtReceiveChannels.Margin = new System.Windows.Forms.Padding(4);
             this.txtReceiveChannels.Multiline = true;
             this.txtReceiveChannels.Name = "txtReceiveChannels";
             this.txtReceiveChannels.ReadOnly = true;
-            this.txtReceiveChannels.Size = new System.Drawing.Size(276, 53);
+            this.txtReceiveChannels.Size = new System.Drawing.Size(367, 64);
             this.txtReceiveChannels.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(555, 28);
+            this.label4.Location = new System.Drawing.Point(740, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(138, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Subscribe Channels:";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeserializeOfflineJson);
             this.groupBox1.Controls.Add(this.reqHandle);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.reqUri);
@@ -215,50 +232,68 @@
             this.groupBox1.Controls.Add(this.btnAddTransmitChannel);
             this.groupBox1.Controls.Add(this.txtTransmitChannels);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(17, 68);
+            this.groupBox1.Location = new System.Drawing.Point(23, 84);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1090, 152);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1453, 187);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Event Channels";
             // 
+            // btnDeserializeOfflineJson
+            // 
+            this.btnDeserializeOfflineJson.Location = new System.Drawing.Point(183, 145);
+            this.btnDeserializeOfflineJson.Name = "btnDeserializeOfflineJson";
+            this.btnDeserializeOfflineJson.Size = new System.Drawing.Size(123, 35);
+            this.btnDeserializeOfflineJson.TabIndex = 19;
+            this.btnDeserializeOfflineJson.Text = "Deserialize Json";
+            this.btnDeserializeOfflineJson.UseVisualStyleBackColor = true;
+            this.btnDeserializeOfflineJson.Visible = false;
+            this.btnDeserializeOfflineJson.Click += new System.EventHandler(this.btnDeserializeOfflineJson_Click);
+            // 
             // reqHandle
             // 
-            this.reqHandle.Location = new System.Drawing.Point(683, 119);
+            this.reqHandle.Location = new System.Drawing.Point(911, 146);
+            this.reqHandle.Margin = new System.Windows.Forms.Padding(4);
             this.reqHandle.Name = "reqHandle";
-            this.reqHandle.Size = new System.Drawing.Size(276, 20);
+            this.reqHandle.Size = new System.Drawing.Size(367, 22);
             this.reqHandle.TabIndex = 18;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(555, 121);
+            this.label6.Location = new System.Drawing.Point(740, 149);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(103, 17);
             this.label6.TabIndex = 17;
             this.label6.Text = "Target Handle:";
             // 
             // reqUri
             // 
-            this.reqUri.Location = new System.Drawing.Point(683, 93);
+            this.reqUri.Location = new System.Drawing.Point(911, 114);
+            this.reqUri.Margin = new System.Windows.Forms.Padding(4);
             this.reqUri.Name = "reqUri";
-            this.reqUri.Size = new System.Drawing.Size(276, 20);
+            this.reqUri.Size = new System.Drawing.Size(367, 22);
             this.reqUri.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(555, 95);
+            this.label5.Location = new System.Drawing.Point(740, 117);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.Size = new System.Drawing.Size(76, 17);
             this.label5.TabIndex = 15;
             this.label5.Text = "Target Uri:";
             // 
             // btnRequest
             // 
-            this.btnRequest.Location = new System.Drawing.Point(965, 89);
+            this.btnRequest.Location = new System.Drawing.Point(1287, 110);
+            this.btnRequest.Margin = new System.Windows.Forms.Padding(4);
             this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(93, 25);
+            this.btnRequest.Size = new System.Drawing.Size(124, 31);
             this.btnRequest.TabIndex = 14;
             this.btnRequest.Text = "Send Request";
             this.btnRequest.UseVisualStyleBackColor = true;
@@ -275,55 +310,63 @@
             this.groupBox2.Controls.Add(this.btnOpen);
             this.groupBox2.Controls.Add(this.txtCFXHandle);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(17, 6);
+            this.groupBox2.Location = new System.Drawing.Point(23, 7);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1081, 56);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1441, 69);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "This Endpoint";
             // 
             // reqPassword
             // 
-            this.reqPassword.Location = new System.Drawing.Point(784, 22);
+            this.reqPassword.Location = new System.Drawing.Point(1045, 27);
+            this.reqPassword.Margin = new System.Windows.Forms.Padding(4);
             this.reqPassword.Name = "reqPassword";
             this.reqPassword.PasswordChar = '*';
-            this.reqPassword.Size = new System.Drawing.Size(118, 20);
+            this.reqPassword.Size = new System.Drawing.Size(156, 22);
             this.reqPassword.TabIndex = 14;
             this.reqPassword.Text = "5673";
             // 
             // reqUsername
             // 
-            this.reqUsername.Location = new System.Drawing.Point(660, 22);
+            this.reqUsername.Location = new System.Drawing.Point(880, 27);
+            this.reqUsername.Margin = new System.Windows.Forms.Padding(4);
             this.reqUsername.Name = "reqUsername";
-            this.reqUsername.Size = new System.Drawing.Size(118, 20);
+            this.reqUsername.Size = new System.Drawing.Size(156, 22);
             this.reqUsername.TabIndex = 12;
             this.reqUsername.Text = "5673";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(499, 25);
+            this.label7.Location = new System.Drawing.Point(665, 31);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(155, 13);
+            this.label7.Size = new System.Drawing.Size(203, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "Request Username / Password";
             // 
             // lstResults
             // 
             this.lstResults.FormattingEnabled = true;
-            this.lstResults.Location = new System.Drawing.Point(17, 226);
+            this.lstResults.ItemHeight = 16;
+            this.lstResults.Location = new System.Drawing.Point(23, 278);
+            this.lstResults.Margin = new System.Windows.Forms.Padding(4);
             this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(1090, 381);
+            this.lstResults.Size = new System.Drawing.Size(1452, 468);
             this.lstResults.TabIndex = 19;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 616);
+            this.ClientSize = new System.Drawing.Size(1492, 758);
             this.Controls.Add(this.lstResults);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "CFX Endpoint (Example Application)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -363,6 +406,7 @@
         private System.Windows.Forms.TextBox reqPassword;
         private System.Windows.Forms.TextBox reqUsername;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnDeserializeOfflineJson;
     }
 }
 

@@ -406,5 +406,11 @@ namespace CFXExampleEndpoint
 
             if (response != null) response.ToJson().Split(new string[] { "\r\n" }, StringSplitOptions.None).Reverse().ToList().ForEach(s => lstResults.Items.Insert(0, s));
         }
+
+        private void btnDeserializeOfflineJson_Click(object sender, EventArgs e)
+        {
+            string message = System.Windows.Forms.Clipboard.GetText();
+            CFX.Production.GetRecipeResponse response = CFX.CFXMessage.FromJson<CFX.Production.GetRecipeResponse>(message);
+        }
     }
 }

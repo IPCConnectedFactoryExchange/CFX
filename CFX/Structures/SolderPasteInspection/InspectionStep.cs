@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures.SolderPasteInspection
 {
@@ -9,6 +10,7 @@ namespace CFX.Structures.SolderPasteInspection
     /// An inspection step is one step of an inspection. Each inspection step is associated with a measurements result.
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.3")]
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class InspectionStep
     {
         /// <summary>
@@ -25,6 +27,7 @@ namespace CFX.Structures.SolderPasteInspection
         /// the target values for the related measurement
         /// In case of a SPI the InspectionMeasurementTarget would be used to provide the expected values
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public Measurement TargetValue { get; set; }
     }
 }
