@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures.SolderPasteInspection
 {
     /// <summary>
     /// Describes the results of a measurement that was made on a solder paste deposition.
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class SolderPasteMeasurement : Measurement
     {
         /// <summary>
