@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace CFX.Structures.SolderPasteInspection
 {
@@ -12,6 +13,7 @@ namespace CFX.Structures.SolderPasteInspection
     /// Typical example: solder paste inspection (SPI)
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.3")]
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class InspectionMeasurementLean: Measurement
     {
         /// <summary>
