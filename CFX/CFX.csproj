@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <PackageId>CFX.CFXSDK.NetStandard</PackageId>
-    <PackageVersion>1.3.5</PackageVersion>
+    <PackageVersion>1.3.6</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
