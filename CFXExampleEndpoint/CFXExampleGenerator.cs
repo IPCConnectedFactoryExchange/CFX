@@ -4707,15 +4707,15 @@ namespace CFXExampleEndpoint
                                             Name = "PasteDeposit",
                                             TargetValue = new InspectionMeasurementExpected()
                                             {
-                                                PX = 1000,
-                                                PY = 1200,
-                                                EX = 0.8,
-                                                EY = 1.5,
-                                                EZ = 0.1,
-                                                EA = 1.2,
-                                                EVol = 0.0001,
-                                                AR = 1.8,
-                                                RXY = 0,
+                                                    PX = 1000,
+                                                    PY = 1200,
+                                                    EX = 0.8,
+                                                    EY = 1.5,
+                                                    EZ = 0.1,
+                                                    EA = 1.2,
+                                                    EVol = 0.0001,
+                                                    AR = 1.8,
+                                                    RXY = 0
                                             }
                                         }
                                     }
@@ -4735,16 +4735,18 @@ namespace CFXExampleEndpoint
                                         {
                                             Sequence = 1,
                                             Name = "PasteDeposit",
-                                            TargetValue = new InspectionMeasurementExpected
+                                            TargetValue = new InspectionMeasurementExpected()
                                             {
-                                                PX = 3000,
-                                                PY = 1200,
-                                                EX = 0.8,
-                                                EY = 1.5,
-                                                EA = 1.2,
-                                                EVol = 0.0001,
-                                                AR = 1.8,
-                                                RXY = 0
+                                               
+                                                    PX = 3000,
+                                                    PY = 1200,
+                                                    EX = 0.8,
+                                                    EY = 1.5,
+                                                    EA = 1.2,
+                                                    EVol = 0.0001,
+                                                    AR = 1.8,
+                                                    RXY = 0
+                                                
                                             }
                                         }
                                     }
@@ -4754,7 +4756,7 @@ namespace CFXExampleEndpoint
                     }
                 }
             };
-
+            AppendMessage(msg, ref result);
             //Event based ResourceSetup
             msg = new CFX.Maintenance.ResourceSetupEvent()
             {
