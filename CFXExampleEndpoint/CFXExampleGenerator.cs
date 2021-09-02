@@ -5474,6 +5474,40 @@ namespace CFXExampleEndpoint
 
             };
             AppendMessage(msg, ref result);
+            //Message already existing but not documented in previous versions, added in 1.4
+            msg = new GetWorkOrderDataRequest()
+            {
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO0001",
+                    Batch = "Batch1"
+                }
+            };
+            AppendMessage(msg, ref result);
+            msg = new GetWorkOrderDataResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "Response success"
+                },
+
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO0001",
+                    Batch = "Batch1"
+                },
+                ProductTypeId = "Control Card X4",
+                BottomClearanceHeight = 5,
+                TopClearanceHeight = 12,
+                Width = 100,
+                Length = 160,
+                Thickness = 3,
+                Weight = 200,
+                Route = 1,
+                Surface = Surface.PrimarySurface
+            };
+            AppendMessage(msg, ref result);
             return result;
         }
     }

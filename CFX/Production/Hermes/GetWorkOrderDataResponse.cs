@@ -7,6 +7,28 @@ namespace CFX.Production.Hermes
 {
     /// <summary>
     /// Reponse to a request by a Hermes enabled endpoint to acquire information related to a particular work order.
+    /// <code language="none">
+    /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": "Response success"
+    ///   },
+    ///   "WorkOrderIdentifier": {
+    ///     "WorkOrderId": "WO0001",
+    ///     "Batch": "Batch1"
+    ///   },
+    ///   "ProductTypeId": "Control Card X4",
+    ///   "Length": 160.0,
+    ///   "Width": 100.0,
+    ///   "Thickness": 3.0,
+    ///   "TopClearanceHeight": 12.0,
+    ///   "BottomClearanceHeight": 5.0,
+    ///   "Weight": 200.0,
+    ///   "Surface": "PrimarySurface",
+    ///   "Route": 1
+    /// }
+    /// </code>
     /// </summary>
     public class GetWorkOrderDataResponse : CFXMessage
     {
@@ -38,7 +60,7 @@ namespace CFX.Production.Hermes
         }
 
         /// <summary>
-        /// The Hermes product type Id of the assembly that is associated with this work order.
+        /// The Hermes ProductTypeId of the assembly that is associated with this work order.
         /// </summary>
         public string ProductTypeId
         {
@@ -106,6 +128,17 @@ namespace CFX.Production.Hermes
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.3")]
         public Surface Surface
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// A number that indicates a routing instruction that will be passed on by Hermes to downstream machines.
+        /// Each machine needs to be configured to know how to handle a certain Route number
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public uint Route
         {
             get;
             set;
