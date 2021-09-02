@@ -11,6 +11,11 @@ namespace CFX.Production
     /// The reponse lists the units and the related information (e.g., BadMark, Fiducials)
     /// <code language="none">
     /// {
+    ///   "Result": {
+    ///     "Result": "Success",
+    ///     "ResultCode": 0,
+    ///     "Message": null
+    ///   },
     ///   "PrimaryIdentifier": "SN123456789",
     ///   "HermesIdentifier": null,
     ///   "UnitCount": 2,
@@ -59,6 +64,15 @@ namespace CFX.Production
     [CFX.Utilities.CreatedVersion("1.4")]
     public class GetUnitInfoResponse : CFXMessage
     {
+        /// <summary>
+        /// The result of the request
+        /// </summary>
+        public RequestResult Result
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// The barcode, RFID, etc. of the PCB if available.
         /// </summary>
