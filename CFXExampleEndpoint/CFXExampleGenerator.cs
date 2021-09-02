@@ -5474,6 +5474,55 @@ namespace CFXExampleEndpoint
 
             };
             AppendMessage(msg, ref result);
+
+            //New V1.4
+            msg = new GetUnitInfoRequest()
+            {
+                PrimaryIdentifier = "SN123456789"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetUnitInfoResponse()
+            {
+                PrimaryIdentifier = "SN123456789",
+                Units = new List<UnitInfo>()
+                {
+                    new UnitInfo()
+                    {
+                        BadMark = 0,
+                        FiducialCount = 2,
+                        UnitIdentifier = "SN12345",
+                        PositionName = "Circuit1",
+                        PositionNumber = 1,
+                        X= 0.254,
+                        Y= 0.556,
+                        Rotation= 0.0,
+                        FlipX= false,
+                        FlipY = false,
+                        Fiducials = new List<FiducialInfo>()
+                        {
+                            new FiducialInfo()
+                            {
+                                FiducialX = 0.12,
+                                FiducialY = 0.16,
+                                FiducialRXY = 0.0
+                            },
+                            new FiducialInfo()
+                            {
+                                FiducialX = 0.12,
+                                FiducialY = 2.56,
+                                FiducialRXY = 0.0
+                            }
+                        }
+                    },
+                    new UnitInfo()
+                    {
+                        BadMark = 1,
+                        UnitIdentifier = "SN091235"
+                    }
+                }
+            };
+
             //Message already existing but not documented in previous versions, added in 1.4
             msg = new GetWorkOrderDataRequest()
             {
