@@ -15,6 +15,7 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.4")]
     public class GetUnitInfoRequest : CFXMessage
     {
         /// <summary>
