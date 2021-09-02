@@ -49,6 +49,17 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// The total quantity of parts or material non installed of this particular MaterialPackage (lot)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public double QuantityNonInstalled
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The material package that was installed
         /// </summary>
         public MaterialPackage Material
