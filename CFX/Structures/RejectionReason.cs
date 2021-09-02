@@ -71,10 +71,10 @@ namespace CFX.Structures
         /// </summary>
         BadOpticalTestAfterPlacement,
         /// <summary>
-		/// <para>** NOTE: ADDED in CFX 1.4 **</para>
+	/// <para>** NOTE: ADDED in CFX 1.4 **</para>
         /// The component was rejected because of a bad vision test before pickup
         /// </summary>
-		[CFX.Utilities.CreatedVersion("1.4")]
+	CFX.Utilities.CreatedVersion("1.4")]
         BadVisionTestBeforePickup,
     }
 }
