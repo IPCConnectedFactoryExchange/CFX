@@ -74,5 +74,16 @@ namespace CFX.ResourcePerformance
             get;
             set;
         }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// Optional additional data depending on the machine type
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public LogEntryAdditionalData AdditionalData
+        {
+            get;
+            set;
+        }
     }
 }
