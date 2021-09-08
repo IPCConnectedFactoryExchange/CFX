@@ -32,7 +32,7 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
-
+    [CFX.Utilities.CreatedVersion("1.4")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class GetAvailableRecipesResponse : CFXMessage
     {
@@ -61,7 +61,7 @@ namespace CFX.Production
             set;
         }
         /// <summary>
-        /// 
+        /// The number of recipes in the response list
         /// </summary>
         public int RecipeCount
         {
@@ -78,7 +78,7 @@ namespace CFX.Production
         /// An optional list of the identified RecipeLean (RecipeName and Revision) structures 
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
-        public List<RecipeLean> Recipes
+        public List<RecipeIdentifier> Recipes
         {
             get;
             set;

@@ -13,12 +13,13 @@ namespace CFX.Structures
     /// </summary>
 
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
-    public class RecipeLean
+    [CFX.Utilities.CreatedVersion("1.4")]
+    public class RecipeIdentifier
     {
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public RecipeLean()
+        public RecipeIdentifier()
         {
         }
 

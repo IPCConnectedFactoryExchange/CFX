@@ -2656,14 +2656,14 @@ namespace CFXExampleEndpoint
                     ResultCode = 0
                 },
                 ActualCount = 3,
-                Recipes = new List<RecipeLean>()
+                Recipes = new List<RecipeIdentifier>()
                 {
-                    new RecipeLean()
+                    new RecipeIdentifier()
                     {
                         RecipeName = "Recipe1",
                         Revision = "1.2"
                     },
-                    new RecipeLean()
+                    new RecipeIdentifier()
                     {
                         RecipeName = "Recipe2",
                         Revision = "2.7"
