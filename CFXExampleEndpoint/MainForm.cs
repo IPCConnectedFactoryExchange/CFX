@@ -42,7 +42,7 @@ namespace CFXExampleEndpoint
 
             CFXExampleGenerator gen = new CFXExampleGenerator();
             string result = gen.GenerateAll();
-            File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
+            System.IO.File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
             //return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
@@ -413,8 +413,8 @@ namespace CFXExampleEndpoint
         {
             lstResults.Items.Clear();
             string message = System.Windows.Forms.Clipboard.GetText();
-            string read = File.ReadAllText(CFX_JSON_Examples).Replace("///","");
-            string [] test = File.ReadAllLines(CFX_JSON_Examples);
+            string read = System.IO.File.ReadAllText(CFX_JSON_Examples).Replace("///","");
+            string [] test = System.IO.File.ReadAllLines(CFX_JSON_Examples);
             string msg = "";
             string strFullyQualifiedName = "";
             bool newMessage = false;

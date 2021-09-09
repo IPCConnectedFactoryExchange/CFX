@@ -20,6 +20,7 @@ using CFX.Production.ReworkAndRepair;
 using CFX.InformationSystem.UnitValidation;
 using CFX.InformationSystem.WorkOrderManagement;
 using CFX.InformationSystem.ProductionScheduling;
+using CFX.InformationSystem.DataTransfer;
 using CFX.Sensor.Identification;
 using CFX.Materials;
 using CFX.Materials.Storage;
@@ -5589,7 +5590,68 @@ namespace CFXExampleEndpoint
                 Surface = Surface.PrimarySurface
             };
             AppendMessage(msg, ref result);
+
+            //*******************************//
+            //*********New in CFX 1.4********//
+            //*******************************//
+            msg = new FileTransferRequest()
+            {
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferDirection = FileTransferDirection.Pull,
+                TransferMode = FileTransferMode.OutOfBand,
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FileTransferResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK"
+                },
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferMode = FileTransferMode.OutOfBand,
+                File = new File()
+                {
+                    FileType = FileType.DPMX,
+                    FileURL = "https://jsmith:Pa$$w0rd@designserver1.mydomain.com"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FileTransferRequest()
+            {
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferDirection = FileTransferDirection.Push,
+                TransferMode = FileTransferMode.OutOfBand,
+                File = new File()
+                {
+                    FileType = FileType.DPMX,
+                    FileURL = "https://jsmith:Pa$$w0rd@designserver1.mydomain.com"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FileTransferResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK"
+                },
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferMode = FileTransferMode.OutOfBand,
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
+
+        
+
     }
 }
