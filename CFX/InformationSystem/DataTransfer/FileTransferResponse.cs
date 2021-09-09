@@ -25,7 +25,7 @@ namespace CFX.InformationSystem.DataTransfer
     /// <para></para>
     /// <para>Out-of-Band PULL Example:</para>
     /// <para></para>
-    /// /// <code language="none">
+    /// <code language="none">
     /// {
     ///   "FileTitle": "IPC_2581_DPMX_DesignData_Example1.xml",
     ///   "FileLocation": "\\DesignDataRoot\\Folder1",
@@ -53,9 +53,9 @@ namespace CFX.InformationSystem.DataTransfer
     /// }
     /// </code>
     /// <para></para>
-    /// <para>Out-of-Band Push Example:</para>
+    /// <para>Out-of-Band PUSH Example:</para>
     /// <para></para>
-    /// /// <code language="none">
+    /// <code language="none">
     /// {
     ///   "FileTitle": "IPC_2581_DPMX_DesignData_Example1.xml",
     ///   "FileLocation": "\\DesignDataRoot\\Folder1",
