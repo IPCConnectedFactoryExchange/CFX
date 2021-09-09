@@ -2640,6 +2640,38 @@ namespace CFXExampleEndpoint
             string result = "";
             CFXMessage msg = null;
 
+            msg = new GetAvailableRecipesRequest()
+            {
+                Path = "myRecipes/CFX/A-Team*",
+                MaxCount = 5
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetAvailableRecipesResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK",
+                    ResultCode = 0
+                },
+                ActualCount = 3,
+                Recipes = new List<RecipeIdentifier>()
+                {
+                    new RecipeIdentifier()
+                    {
+                        RecipeName = "Recipe1",
+                        Revision = "1.2"
+                    },
+                    new RecipeIdentifier()
+                    {
+                        RecipeName = "Recipe2",
+                        Revision = "2.7"
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
             msg = new ActivateRecipeRequest()
             {
                 Stage = new Stage()
