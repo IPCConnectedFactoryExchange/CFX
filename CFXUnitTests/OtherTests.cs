@@ -21,7 +21,7 @@ namespace CFXUnitTests
         [TestMethod]
         public void GetChanges()
         {
-            string version = "1.3";
+            string version = "1.4";
             List<string> lines = new List<string>();
 
             Assembly assembly = Assembly.GetAssembly(typeof(CFX.CFXEnvelope));

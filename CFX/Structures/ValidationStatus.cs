@@ -21,8 +21,10 @@ namespace CFX.Structures
         /// </summary>
         Failed,
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
         /// The validation has skipped because of (virtual) bad mark
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
         Skipped
     }
 }

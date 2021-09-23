@@ -10,8 +10,8 @@ namespace CFX.InformationSystem.DataTransfer
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 1.4 **</para>
-    /// Sent by an endpoint to another endpoint to initiate a file transfer.  File transfers may proceed either from the initiater/requester
-    /// to the recipient (PUSH Mode), OR from recipient to initiater/requester (PULL Mode).  File transfers may also may also be "In-Band", 
+    /// Sent by an endpoint to another endpoint to initiate a file transfer.  File transfers may proceed either from the initiator/requester
+    /// to the recipient (PUSH Mode), OR from recipient to initiator/requester (PULL Mode).  File transfers may also be "In-Band", 
     /// meaning that the file data payload is included in the CFX message directly and transferred via the AMQP protocol.  OR, they may
     /// be "Out-of-Band", meaning that a secure link to the data file is passed via the CFX message over AMQP protocol, and a secondary
     /// protocol (such as HTTPS or SFTP) is then used to transfer the file data payload, independent of the AMQP message stream.  When in PUSH
