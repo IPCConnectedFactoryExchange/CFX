@@ -4,13 +4,14 @@ using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 
 namespace CFX.Structures
 {
     /// <summary>
     /// Endpoint state model.  Based on SEMI E10 and E58.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(StateJsonConverter))]
     public enum ResourceState
     {
         /// <summary>
@@ -57,12 +58,12 @@ namespace CFX.Structures
         /// <summary>
         /// Standby.  No Product (Resource is Blocked)
         /// </summary>
-        [EnumMember(Value = "22A0")]
+        [EnumMember(Value = "2201")]
         SBY_NoProductBlocked = 2201,
         /// <summary>
         /// Standby.  No Product (Resource is Starved)
         /// </summary>
-        [EnumMember(Value = "22B0")]
+        [EnumMember(Value = "2202")]
         SBY_NoProductStarved = 2202,
         /// <summary>
         /// Standby.  No Support Tool (A required Tool is missing.  For example, a stencil on a stencil printer.).
@@ -208,5 +209,44 @@ namespace CFX.Structures
         /// </summary>
         [EnumMember(Value = "6500")]
         NST_ShutdownAndStartup = 6500,
+    }
+
+    internal class StateJsonConverter : JsonConverter
+    {
+        private StringEnumConverter sConv = new StringEnumConverter();
+
+        public StateJsonConverter()
+        {
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            sConv.WriteJson(writer, value, serializer);
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.Value != null)
+            {
+                string v = reader.Value.ToString().Trim().ToUpper();
+                if (v == "22A0")
+                    return ResourceState.SBY_NoProductBlocked;
+                else if (v == "22B0")
+                    return ResourceState.SBY_NoProductStarved;
+            }
+
+            return sConv.ReadJson(reader, objectType, existingValue, serializer);
+        }
+
+        public override bool CanRead
+        {
+            get { return true; }
+        }
+
+        public override bool CanConvert(Type objectType)
+        {
+            if (objectType == typeof(ResourceState)) return true;
+            return false;
+        }
     }
 }

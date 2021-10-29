@@ -217,6 +217,28 @@ namespace CFXUnitTests
         }
 
         [TestMethod]
+        public void DummyTest()
+        {
+            CFX.ResourcePerformance.StationStateChanged ssc = new StationStateChanged()
+            {
+                NewState = CFX.Structures.ResourceState.SBY_NoProductStarved
+            };
+
+            string s = ssc.ToJson();
+
+            s = s.Replace("2202", "22A0");
+
+            CFX.ResourcePerformance.StationStateChanged ssc2 = CFXMessage.FromJson<StationStateChanged>(s);
+
+            int z21 = 0;
+
+
+            
+
+        }
+
+
+            [TestMethod]
         public void UpgradeTest()
         {
             // Write old SMTPlacementActivity
