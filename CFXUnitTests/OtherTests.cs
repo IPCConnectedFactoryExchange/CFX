@@ -230,8 +230,7 @@ namespace CFXUnitTests
 
             CFX.ResourcePerformance.StationStateChanged ssc2 = CFXMessage.FromJson<StationStateChanged>(s);
 
-            int z21 = 0;
-
+            
 
             
 
