@@ -373,6 +373,16 @@ namespace CFX.Transport
             }
         }
 
+        public void PublishToChannel(CFXEnvelope env, string address)
+        {
+            EnsureConnection();
+
+            AmqpSenderLink link = links.OfType<AmqpSenderLink>().Where(l => l.Address == address).FirstOrDefault();
+            if (link == null) throw new ArgumentException("There is no active publish channel that matches the specified channel address", "address");
+
+            link.Publish(new CFXEnvelope[] { env });
+        }
+
         public void PublishMany(IEnumerable<CFXEnvelope> envelopes)
         {
             EnsureConnection();

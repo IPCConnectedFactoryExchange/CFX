@@ -69,6 +69,17 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// An enumeration describing the current status of the symptom as it progresses through it's lifecycle.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public IssueStatus Status
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// A list of the components or specific component pins related to this symptom (if known)
         /// </summary>
         public List<ComponentDesignator> ComponentsOfInterest

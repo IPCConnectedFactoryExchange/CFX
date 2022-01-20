@@ -25,6 +25,12 @@ namespace CFX.Structures
         /// <summary>
         /// Work was not completed
         /// </summary>
-        Aborted
+        Aborted,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// The test was skipped because of (virtual) bad mark
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        Skipped
     }
 }

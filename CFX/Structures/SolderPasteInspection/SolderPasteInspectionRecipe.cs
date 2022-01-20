@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX.Structures.SolderPasteInspection
 {
@@ -11,6 +12,7 @@ namespace CFX.Structures.SolderPasteInspection
     /// existing UnitsInspected message
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.3")]
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class SolderPasteInspectionRecipe : Recipe
     {
         /// <summary>

@@ -45,7 +45,7 @@ namespace CFX
             Transmitted = false;
         }
 
-        public const string CFXVERSION = "1.3";
+        public const string CFXVERSION = "1.4";
         
         public CFXEnvelope(Type messageType) : this()
         {
@@ -99,7 +99,7 @@ namespace CFX
 
         /// <summary>
         /// The date and time when the event associated with this CFX message took place, NOT the time when the message was
-        /// transmitted.
+        /// transmitted. The format must include the time zone, whether expressed in local time or UTC.
         /// </summary>
         [JsonProperty]
         public DateTime TimeStamp

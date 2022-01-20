@@ -21,7 +21,7 @@ namespace CFXUnitTests
         [TestMethod]
         public void GetChanges()
         {
-            string version = "1.3";
+            string version = "1.4";
             List<string> lines = new List<string>();
 
             Assembly assembly = Assembly.GetAssembly(typeof(CFX.CFXEnvelope));
@@ -217,6 +217,27 @@ namespace CFXUnitTests
         }
 
         [TestMethod]
+        public void DummyTest()
+        {
+            CFX.ResourcePerformance.StationStateChanged ssc = new StationStateChanged()
+            {
+                NewState = CFX.Structures.ResourceState.SBY_NoProductStarved
+            };
+
+            string s = ssc.ToJson();
+
+            s = s.Replace("2202", "22A0");
+
+            CFX.ResourcePerformance.StationStateChanged ssc2 = CFXMessage.FromJson<StationStateChanged>(s);
+
+            
+
+            
+
+        }
+
+
+            [TestMethod]
         public void UpgradeTest()
         {
             // Write old SMTPlacementActivity

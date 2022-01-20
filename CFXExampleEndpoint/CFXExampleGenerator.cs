@@ -16,9 +16,11 @@ using CFX.Production;
 using CFX.Production.Assembly;
 using CFX.Production.Application;
 using CFX.Production.TestAndInspection;
+using CFX.Production.ReworkAndRepair;
 using CFX.InformationSystem.UnitValidation;
 using CFX.InformationSystem.WorkOrderManagement;
 using CFX.InformationSystem.ProductionScheduling;
+using CFX.InformationSystem.DataTransfer;
 using CFX.Sensor.Identification;
 using CFX.Materials;
 using CFX.Materials.Storage;
@@ -710,6 +712,59 @@ namespace CFXExampleEndpoint
                 })
             };
             AppendMessage(msg, ref result);
+
+            UnitsRepaired ur = new UnitsRepaired()
+            {
+                TransactionId = Guid.NewGuid(),
+                RepairOperator = op1,
+                RepairedUnits = new List<RepairedUnit>()
+                {
+                    new RepairedUnit()
+                    {
+                        UnitIdentifier = "FFSHkkskamJDHS",
+                        UnitPositionNumber = 1,
+                        Repairs = new List<Repair>()
+                        {
+                            new Repair()
+                            {
+                                RelatedDefectIdentifiers = new List<string>()
+                                {
+                                    Guid.NewGuid().ToString(),
+                                },
+                                Comments = "Repaired cold solder joint at U34, Pin 5",
+                                RepairName=  "Joint Repair",
+                                Result = RepairResult.RepairSuccessful,
+                                RepairStartTime = DateTime.Now.Subtract(TimeSpan.FromSeconds(40)),
+                                RepairEndTime = DateTime.Now,
+                                ComponentOfInterest = new ComponentDesignator()
+                                {
+                                    ReferenceDesignator = "U34.5",
+                                    PartNumber = "SN74HCS30DR"
+                                }
+                            },
+                            new Repair()
+                            {
+                                RelatedDefectIdentifiers = new List<string>()
+                                {
+                                    Guid.NewGuid().ToString(),
+                                },
+                                Comments = "Repaired solder bridge at U24, Pins 4-5",
+                                RepairName=  "Joint Repair",
+                                Result = RepairResult.RepairSuccessful,
+                                RepairStartTime = DateTime.Now.Subtract(TimeSpan.FromSeconds(40)),
+                                RepairEndTime = DateTime.Now,
+                                ComponentOfInterest = new ComponentDesignator()
+                                {
+                                    ReferenceDesignator = "U24.4-5",
+                                    PartNumber = "SN74HCS50DR"
+                                }
+                            },
+                        }
+                    }
+                }
+            };
+
+            AppendMessage(ur, ref result);
 
             UnitsInspected ui = msg as UnitsInspected;
             
@@ -2585,6 +2640,38 @@ namespace CFXExampleEndpoint
         {
             string result = "";
             CFXMessage msg = null;
+
+            msg = new GetAvailableRecipesRequest()
+            {
+                Path = "myRecipes/CFX/A-Team*",
+                MaxCount = 5
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetAvailableRecipesResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK",
+                    ResultCode = 0
+                },
+                ActualCount = 3,
+                Recipes = new List<RecipeIdentifier>()
+                {
+                    new RecipeIdentifier()
+                    {
+                        RecipeName = "Recipe1",
+                        Revision = "1.2"
+                    },
+                    new RecipeIdentifier()
+                    {
+                        RecipeName = "Recipe2",
+                        Revision = "2.7"
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
 
             msg = new ActivateRecipeRequest()
             {
@@ -4653,15 +4740,15 @@ namespace CFXExampleEndpoint
                                             Name = "PasteDeposit",
                                             TargetValue = new InspectionMeasurementExpected()
                                             {
-                                                PX = 1000,
-                                                PY = 1200,
-                                                EX = 0.8,
-                                                EY = 1.5,
-                                                EZ = 0.1,
-                                                EA = 1.2,
-                                                EVol = 0.0001,
-                                                AR = 1.8,
-                                                RXY = 0,
+                                                    PX = 1000,
+                                                    PY = 1200,
+                                                    EX = 0.8,
+                                                    EY = 1.5,
+                                                    EZ = 0.1,
+                                                    EA = 1.2,
+                                                    EVol = 0.0001,
+                                                    AR = 1.8,
+                                                    RXY = 0
                                             }
                                         }
                                     }
@@ -4681,16 +4768,18 @@ namespace CFXExampleEndpoint
                                         {
                                             Sequence = 1,
                                             Name = "PasteDeposit",
-                                            TargetValue = new InspectionMeasurementExpected
+                                            TargetValue = new InspectionMeasurementExpected()
                                             {
-                                                PX = 3000,
-                                                PY = 1200,
-                                                EX = 0.8,
-                                                EY = 1.5,
-                                                EA = 1.2,
-                                                EVol = 0.0001,
-                                                AR = 1.8,
-                                                RXY = 0
+                                               
+                                                    PX = 3000,
+                                                    PY = 1200,
+                                                    EX = 0.8,
+                                                    EY = 1.5,
+                                                    EA = 1.2,
+                                                    EVol = 0.0001,
+                                                    AR = 1.8,
+                                                    RXY = 0
+                                                
                                             }
                                         }
                                     }
@@ -4700,7 +4789,7 @@ namespace CFXExampleEndpoint
                     }
                 }
             };
-
+            AppendMessage(msg, ref result);
             //Event based ResourceSetup
             msg = new CFX.Maintenance.ResourceSetupEvent()
             {
@@ -5418,7 +5507,151 @@ namespace CFXExampleEndpoint
 
             };
             AppendMessage(msg, ref result);
+
+            //New V1.4
+            msg = new GetUnitInfoRequest()
+            {
+                PrimaryIdentifier = "SN123456789"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new GetUnitInfoResponse()
+            {
+                PrimaryIdentifier = "SN123456789",
+                Units = new List<UnitInfo>()
+                {
+                    new UnitInfo()
+                    {
+                        BadMark = 0,
+                        FiducialCount = 2,
+                        UnitIdentifier = "SN12345",
+                        PositionName = "Circuit1",
+                        PositionNumber = 1,
+                        X= 0.254,
+                        Y= 0.556,
+                        Rotation= 0.0,
+                        FlipX= false,
+                        FlipY = false,
+                        Fiducials = new List<FiducialInfo>()
+                        {
+                            new FiducialInfo()
+                            {
+                                FiducialX = 0.12,
+                                FiducialY = 0.16,
+                                FiducialRXY = 0.0
+                            },
+                            new FiducialInfo()
+                            {
+                                FiducialX = 0.12,
+                                FiducialY = 2.56,
+                                FiducialRXY = 0.0
+                            }
+                        }
+                    },
+                    new UnitInfo()
+                    {
+                        BadMark = 1,
+                        UnitIdentifier = "SN091235"
+                    }
+                }
+            };
+
+            //Message already existing but not documented in previous versions, added in 1.4
+            msg = new GetWorkOrderDataRequest()
+            {
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO0001",
+                    Batch = "Batch1"
+                }
+            };
+            AppendMessage(msg, ref result);
+            msg = new GetWorkOrderDataResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "Response success"
+                },
+
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO0001",
+                    Batch = "Batch1"
+                },
+                ProductTypeId = "Control Card X4",
+                BottomClearanceHeight = 5,
+                TopClearanceHeight = 12,
+                Width = 100,
+                Length = 160,
+                Thickness = 3,
+                Weight = 200,
+                Route = 1,
+                Surface = Surface.PrimarySurface
+            };
+            AppendMessage(msg, ref result);
+
+            //*******************************//
+            //*********New in CFX 1.4********//
+            //*******************************//
+            msg = new FileTransferRequest()
+            {
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferDirection = FileTransferDirection.Pull,
+                TransferMode = FileTransferMode.OutOfBand,
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FileTransferResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK"
+                },
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferMode = FileTransferMode.OutOfBand,
+                File = new File()
+                {
+                    FileType = FileType.DPMX,
+                    FileURL = "https://jsmith:Pa$$w0rd@designserver1.mydomain.com"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FileTransferRequest()
+            {
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferDirection = FileTransferDirection.Push,
+                TransferMode = FileTransferMode.OutOfBand,
+                File = new File()
+                {
+                    FileType = FileType.DPMX,
+                    FileURL = "https://jsmith:Pa$$w0rd@designserver1.mydomain.com"
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new FileTransferResponse()
+            {
+                Result = new RequestResult()
+                {
+                    Result = StatusResult.Success,
+                    Message = "OK"
+                },
+                FileTitle = "IPC_2581_DPMX_DesignData_Example1.xml",
+                FileLocation = "\\DesignDataRoot\\Folder1",
+                TransferMode = FileTransferMode.OutOfBand,
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
+
+        
+
     }
 }

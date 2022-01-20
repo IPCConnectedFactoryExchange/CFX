@@ -17,6 +17,8 @@ using CFX.InformationSystem.UnitValidation;
 using CFX.Sensor.Identification;
 using System.Security.Cryptography.X509Certificates;
 using System.Configuration;
+using System.Dynamic;
+using CFX.Utilities;
 
 namespace CFXExampleEndpoint
 {
@@ -40,8 +42,8 @@ namespace CFXExampleEndpoint
 
             CFXExampleGenerator gen = new CFXExampleGenerator();
             string result = gen.GenerateAll();
-            File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
-            return;
+            System.IO.File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
+            //return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
                 OpenEndpoint();
@@ -405,6 +407,49 @@ namespace CFXExampleEndpoint
             }
 
             if (response != null) response.ToJson().Split(new string[] { "\r\n" }, StringSplitOptions.None).Reverse().ToList().ForEach(s => lstResults.Items.Insert(0, s));
+        }
+
+        private void btnDeserializeOfflineJson_Click(object sender, EventArgs e)
+        {
+            lstResults.Items.Clear();
+            string message = System.Windows.Forms.Clipboard.GetText();
+            string read = System.IO.File.ReadAllText(CFX_JSON_Examples).Replace("///","");
+            string [] test = System.IO.File.ReadAllLines(CFX_JSON_Examples);
+            string msg = "";
+            string strFullyQualifiedName = "";
+            bool newMessage = false;
+            foreach (string line in test)
+            {
+                if (line.StartsWith("CFX"))
+                {
+                    strFullyQualifiedName = line;
+                }
+                if (line.Contains("/// <code language="))
+                {
+                    //Reset the string
+                    msg = "";
+                    newMessage = true;
+                }
+                if (line.Contains("/// </code>"))
+                {
+                    newMessage = false;
+                    Type type = CFXMessage.FromTypeName(strFullyQualifiedName).GetType();
+                    try
+                    {
+                        object obj = CFXJsonSerializer.DeserializeObject(msg, type);
+                        lstResults.Items.Add(obj);
+                    }
+                    catch(Exception ex)
+                    {
+                        lstResults.Items.Add(ex.Message + "; " + strFullyQualifiedName);
+                    }
+                }
+                //If it is a new message, it is required to read all the corresponding lines until the next
+                if(newMessage && !line.Contains("/// <code language="))
+                {
+                    msg += line.Replace("///", "");
+                }
+            }
         }
     }
 }

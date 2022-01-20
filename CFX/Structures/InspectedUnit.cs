@@ -63,5 +63,22 @@ namespace CFX.Structures
             set;
         }
 
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// The count of all the inspections performed.  
+        /// If The Inspections array includes both passed and failed inspections
+        /// then this parameter would just be the length of that array.  
+        /// However if only failed inspections are included in the Inspections
+        /// array then just the number of inspections performed (passing and failing) 
+        /// can be communicated here so that receiving system can calculate defect
+        /// rates. 
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public int? TotalInspectionCount
+        {
+            get;
+            set;
+        }
+
     }
 }

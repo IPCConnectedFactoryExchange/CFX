@@ -106,6 +106,17 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// An enumeration describing the current status of the defect as it progresses through it's lifecycle.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.4")]
+        public IssueStatus Status
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// An optional component or specific component pins related to this defect.
         /// </summary>
         public ComponentDesignator ComponentOfInterest
