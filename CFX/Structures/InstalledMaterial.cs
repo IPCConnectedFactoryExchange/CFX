@@ -96,5 +96,18 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        /// If the material package is used as an alternate part, this parameter indicates the original part number.
+        /// For example, if A0805-001 was supposed to be used but A0805-002 was used instead (because A0805-001 was missing for example),
+        /// the internal part number of the material package will be A0805-002, and the referecne part number will be A0805-001.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        public string ReferencePartNumber
+        {
+            get;
+            set;
+        }
     }
 }
