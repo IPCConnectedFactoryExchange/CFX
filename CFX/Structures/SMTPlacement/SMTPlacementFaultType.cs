@@ -65,6 +65,21 @@ namespace CFX.Structures.SMTPlacement
         /// <summary>
         /// Error decoding fiducial reference mark
         /// </summary>
-        FiducialError
+        FiducialError,
+        /// <summary>
+        /// Material supply partially exhausted. Can happen if a head is supposed to pickup in several locations and one of them is exhausted
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        PartsPartiallyExhaust,
+        /// <summary>
+        /// Material supply will soon be exhausted
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        LowQuantity,
+        /// <summary>
+        /// Error with placement feeder
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        FeederError,
     }
 }

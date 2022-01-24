@@ -9,7 +9,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures
 {
     /// <summary>
-    /// Possible causes of a fault that causes a stoppage in production
+    /// Possible causes of a fault that may causes a stoppage in production
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum FaultCause
@@ -84,5 +84,10 @@ namespace CFX.Structures
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.2")]
         ProcessError,
+        /// <summary>
+        /// A stop was induced because a consumable material has been rejected
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        RejectedComponent,
     }
 }
