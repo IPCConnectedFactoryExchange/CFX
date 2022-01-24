@@ -57,6 +57,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The internal package name of the material package
+        /// </summary>
+        public string InternalPackageName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The name of the manufacturer of this material
         /// </summary>
         public string Manufacturer

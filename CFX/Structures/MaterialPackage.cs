@@ -37,6 +37,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// The internal package name of the material package
+        /// </summary>
+        public string InternalPackageName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The quantity of parts or material contained within this material package.
         /// </summary>
         public double Quantity
