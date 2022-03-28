@@ -24,7 +24,7 @@ namespace CFX.Structures
     ///     "Rotation": 0.0,
     ///     "FlipX": false,
     ///     "FlipY": false,
-    ///     "Result": "Succeeded"
+    ///     "Status": "Pass"
     /// }
     /// </code>
     /// </summary>
@@ -108,7 +108,7 @@ namespace CFX.Structures
         /// The result of the work for this Unit
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
-        public ProcessingResult Result
+        public UnitStatus Status
         {
             get;
             set;
