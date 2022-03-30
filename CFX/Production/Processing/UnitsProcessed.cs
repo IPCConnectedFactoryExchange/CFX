@@ -835,6 +835,41 @@ namespace CFX.Production.Processing
     ///   "UnitProcessData": []
     /// }
     ///</code>
+    /// <para></para>
+    /// <para>Example 6: Cleaning process Data: for each printed PCB send used cleaning process parameters</para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "d6090fe7-1fce-4eee-8c3a-25ee1747795f",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": {
+    ///     "$type": "CFX.Structures.Cleaning.CleaningProcessData, CFX",
+    ///     "ConveyorSpeed": 1.4,
+    ///     "CleaningTimeSet": 200.0,
+    ///     "CleaningTimeActual": 200.0,
+    ///     "CleaningSteps": [
+    ///       {
+    ///         "CleaningStepType": "Wash",
+    ///         "CleaningStepTime": 200.0,
+    ///         "Readings": [
+    ///           {
+    ///             "ReadingType": "FlowRateAverage",
+    ///             "ReadingValue": 12.0
+    ///           },
+    ///           {
+    ///             "ReadingType": "FlowRateMax",
+    ///             "ReadingValue": 20.0
+    ///           },
+    ///           {
+    ///             "ReadingType": "FlowRateMin",
+    ///             "ReadingValue": 4.0
+    ///           }
+    ///         ]
+    ///       }
+    ///     ]
+    ///   },
+    ///   "UnitProcessData": []
+    /// }
+    /// </code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage
