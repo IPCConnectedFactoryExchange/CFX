@@ -106,6 +106,7 @@ namespace CFX.Structures
         }
         /// <summary>
         /// The result of the work for this Unit
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         public UnitStatus Status
