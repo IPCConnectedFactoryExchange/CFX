@@ -200,5 +200,152 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets the batch identifier.
+        /// <remarks>
+        /// There is material in the factory where not each material unit is identifiable. This is the case for
+        /// Trays for example. Trays are delivered as a batch of trays. But each tray does not have a unique ID, only
+        /// the batch of trays has a unique ID.
+        /// In this case, we assume that the unique Batch ID is in the property
+        /// BatchID and each tray which is been mounted will get a temporary UniqueIdentifier as long as it is been
+        /// mounted on the machine. See BatchMaterialPackage for more details.
+        /// </remarks>
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        /// <value>The batch identifier.</value>
+        public string BatchId
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the grey zone.
+        /// <remarks>
+        ///  This specifies the grey zone between 2 material packages. A grey zone is a zone
+        ///     where the placement system can not determine where the switch between 2 material packages
+        ///     has been taken place. Therefore the system tracks both material packages.
+        ///     The quality of the GreyZone is driven by the process the customer is operating and if
+        ///     the feeder are using optional splice sensor detectors or not.
+        ///     Background is, that some sensors can detect the splice plate and the splice plate has a length
+        /// which covers a number of components which hide the real end of tape. Therefore the verifcation system
+        /// will report a greyzone between the "leading package" and the "trailing" in the chain.
+        /// The greyzone will be maintained typically by the machine, based on the feeder configuration. When the feeder has a sploice sensor the
+        /// grey zone will be calculated when the sensor detects the splice, and will be adjusted when components are consumed.
+        /// When the greyzone reached zero, the "leading" package will be consumed and the chain will be modified by removing the "leading" package
+        /// from the chain, resulting in the next package in the chain becoming the new "leading" package.
+        /// </remarks>
+        ///<summary>
+        /// This sample scenarion explains the data change when consuming the material with a feeder with sensor:
+        /// <list type="table">
+        /// <listheader>
+        /// <term>Action</term>
+        /// <term>Description</term>
+        /// <term>Resulting Chain</term>
+        /// <term>Greyzone</term>
+        /// </listheader>
+        /// <item>
+        /// <term>Inital</term>
+        /// <term>Material with a defined quantity is mounted.</term>
+        /// <term>A (100)</term>
+        /// <term>0</term>
+        /// </item>
+        /// <item>
+        /// <term>Production</term>
+        /// <term>Material will be consumed during production (20 components).</term>
+        /// <term>A (80)</term>
+        /// <term>0</term>
+        /// </item>
+        /// <item>
+        /// <term>Splicing</term>
+        /// <term>New Material will be spliced to the mounted material.</term>
+        /// <term>B(200) -> A (80)</term>
+        /// <term>0</term>
+        /// </item>
+        /// <item>
+        /// <term>Production</term>
+        /// <term>Material will be consumed during production (50 components).</term>
+        /// <term>B(200) -> A (30)</term>
+        /// <term>0</term>
+        /// </item>
+        /// <item>
+        /// <term>Splice detected</term>
+        /// <term>Feeder detects the splice and calculated the grey zone (here 10) and adjust
+        /// the quantity because sensor overrules filling level information.
+        /// Event will be triggered, that a quantity correction has been performed. 
+        /// </term>
+        /// <term>B(200) -> A (0)</term>
+        /// <term>10</term>
+        /// </item>
+        /// <item>
+        /// <term>Production</term>
+        /// <term>
+        /// Material will be consumed during production (5 components).
+        /// The material in the pickup location has a quantity of zero.
+        /// The chain will be not be modified, because the greyzone is not zero.
+        /// The material B will be consumed. 
+        /// </term>
+        /// <term>B(195) -> A(0)</term>
+        /// <term>5</term>
+        /// </item>        /// <item>
+        /// <term>Production</term>
+        /// <term>
+        /// Material will be consumed during production ( components).
+        /// The material in the pickup location has a quantity of zero.
+        /// The chain will be modified, because the greyzone is zero.
+        /// The material A will be consumed. An event will be send, that the
+        /// mateiral A is been consumed. 
+        /// </term>
+        /// <term>B(190)</term>
+        /// <term>0</term>
+        /// </item>
+        /// <item>
+        /// <term>Production</term>
+        /// <term>Material will be consumed during production (50 components).</term>
+        /// <term>B(140) </term>
+        /// <term>0</term>
+        /// </item>
+        /// </list>
+        /// </summary>
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        /// <value>The grey zone.</value>
+        public double GreyZone
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The price of a part in the material package
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        public double PartPrice
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The unit of the price of a part in the material package
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        public string PartPriceUnit
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The unit of the price of a part in the material package
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        [JsonProperty(TypeNameHandling = TypeNameHandling.Auto)]
+        public PackagingInfos PackagingInfos
+        {
+            get;
+            set;
+        }
     }
 }
