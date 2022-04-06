@@ -85,7 +85,6 @@ namespace CFX.Structures
         [CFX.Utilities.CreatedVersion("1.2")]
         ProcessError,
         /// <summary>
-        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// A stop was induced because a consumable material has been rejected
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
