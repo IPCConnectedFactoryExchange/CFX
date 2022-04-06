@@ -23,7 +23,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The total amount of time that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB) for a stage of the machine, 
+        /// The total amount of time (in ms) that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB) for a stage of the machine, 
         /// assuming no blocked or starved conditions at the station. This includes both productive and non-productive time, such as transfer, 
         /// positioning, etc.
         /// </summary>
