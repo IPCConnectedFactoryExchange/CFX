@@ -68,16 +68,19 @@ namespace CFX.Structures.SMTPlacement
         FiducialError,
         /// <summary>
         /// Material supply partially exhausted. Can happen if a head is supposed to pickup in several locations and one of them is exhausted
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         PartsPartiallyExhaust,
         /// <summary>
         /// Material supply will soon be exhausted
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         LowQuantity,
         /// <summary>
         /// Error with placement feeder
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         FeederError,
