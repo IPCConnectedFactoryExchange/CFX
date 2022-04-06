@@ -86,6 +86,7 @@ namespace CFX.Structures
         ProcessError,
         /// <summary>
         /// A stop was induced because a consumable material has been rejected
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         RejectedComponent,
