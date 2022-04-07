@@ -1,9 +1,10 @@
 ﻿namespace CFX.Structures
 {
     /// <summary>
-    /// Describes the packaging infos of a material package
+    /// Describes the packaging information of a material package.
+    /// Abstract base class.
     /// </summary>
-    public class PackagingInfos
+    public class PackagingInfo
     {
     }
 }
