@@ -8,7 +8,9 @@ namespace CFX.Structures.Coating
 {
     /// <summary>
     /// A specialized type of Stage that represents a Nozzle within a Coating Machine.
+    /// <para>** NOTE: ADDED in CFX 1.5 **</para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.5")]
     public class CoatingNozzle : Stage
     {
         /// <summary>
