@@ -10,7 +10,9 @@ namespace CFX.Structures.Coating
 {
     /// <summary>
     /// An enumeration indicating the nature of a Nozzle within a Coating Machine
+    /// <para>** NOTE: ADDED in CFX 1.5 **</para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.5")]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CoatingNozzleType
     {
