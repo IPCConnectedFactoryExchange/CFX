@@ -5,39 +5,39 @@
     /// Describes the packaging infos of an SMD tape
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.5")]
-    public class SMDTapePackagingInfos : PackagingInfos
+    public class SMDTubePackagingInfo : PackagingInfo
     {
         /// <summary>
-        /// The width of the tape (in millimeters)
+        /// The width of the tube (in millimeters)
         /// </summary>
-        public double TapeWidth
+        public double TubeWidth
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The pitch (spacing between parts) of the tape (in millimeters)
+        /// The pitch (spacing between parts) of the tube (in millimeters)
         /// </summary>
-        public double TapePitch
+        public double TubePitch
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The diameter of the tape (in millimeters)
+        /// The length of the tube (in millimeters)
         /// </summary>
-        public double TapeDiameter
+        public double TubeLength
         {
             get;
             set;
         }
 
         /// <summary>
-        /// The thickness of the tape (in millimeters)
+        /// The thickness of the tube (in millimeters)
         /// </summary>
-        public double TapeThickness
+        public double TubeThickness
         {
             get;
             set;
