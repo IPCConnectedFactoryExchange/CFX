@@ -34,6 +34,12 @@ namespace CFX.Structures
         /// action for SMT process shall be initiated
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
-        DefectAccepted
+        DefectAccepted,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// The defect which was detected is repaired 
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        DefectRepaired
     }
 }
