@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace CFX.Structures.Depaneling
 {
-    public class RouterToolParameters:ProcessData
+    /// <summary>
+    /// Provides information about the processing conditions for a depaneling machine at the time when a unit was processed.
+    /// </summary>
+    public class RouterToolProcessData : ProcessData
     {
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public RouterToolParameters()
+        public RouterToolProcessData()
         {
          
         }

@@ -4,6 +4,11 @@ using System.Text;
 
 namespace CFX.Structures.Depaneling
 {
+    /// <summary>
+    /// Represents an axis on a depaneling / router type machine.
+    /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("1.5")]
     public class Axis
     {
         /// <summary>
