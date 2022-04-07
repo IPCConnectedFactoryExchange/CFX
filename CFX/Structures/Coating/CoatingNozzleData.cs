@@ -8,7 +8,9 @@ namespace CFX.Structures.Coating
 {
     /// <summary>
     /// Provides information about the conditions of a particular Nozzle of a Coating machine at a given point in time.
+    /// <para>** NOTE: ADDED in CFX 1.5 **</para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.5")]
     public class CoatingNozzleData
     {
         /// <summary>
