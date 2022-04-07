@@ -835,9 +835,8 @@ namespace CFX.Production.Processing
     ///   "UnitProcessData": []
     /// }
     ///</code>
-    ///<para></para>
-    ///<para></para>
-    ///<para>Example 6: Cleaning process Data: for each printed PCB send used cleaning process parameters</para>
+    /// <para></para>
+    /// <para>Example 6: Cleaning process Data: for each printed PCB send used cleaning process parameters</para>
     /// <code language="none">
     /// {
     ///   "TransactionId": "d6090fe7-1fce-4eee-8c3a-25ee1747795f",
