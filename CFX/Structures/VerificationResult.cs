@@ -27,6 +27,19 @@ namespace CFX.Structures
         /// <summary>
         /// The defect which was detected is rejected "FalseFail"
         /// </summary>
-        DefectRejected
+        DefectRejected,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// The defect which was detected is rejected "FalseFail", but corrective
+        /// action for SMT process shall be initiated
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        DefectAccepted,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// The defect which was detected is repaired 
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        DefectRepaired
     }
 }
