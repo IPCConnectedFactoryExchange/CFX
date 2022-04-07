@@ -24,8 +24,10 @@ namespace CFX.Structures
         /// <summary>
         /// Helper method which converts the more detailed MaterialPackageDetail structure
         /// to the simplified <see cref="MaterialPackage"/> structure.
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         /// <returns></returns>
+        [CFX.Utilities.CreatedVersion("1.5")]
         public MaterialPackage ToMaterialPackage()
         {
             MaterialPackage p = new MaterialPackage()
@@ -341,8 +343,9 @@ namespace CFX.Structures
         /// The unit of the price of a part in the material package
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
         [JsonProperty(TypeNameHandling = TypeNameHandling.Auto)]
-        public PackagingInfos PackagingInfos
+        public PackagingInfo PackagingInfo
         {
             get;
             set;
