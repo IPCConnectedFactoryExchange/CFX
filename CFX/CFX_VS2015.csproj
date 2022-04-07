@@ -276,6 +276,9 @@
     <Compile Include="Structures\MaterialCarrierLocation.cs" />
     <Compile Include="Structures\MaterialLocation.cs" />
     <Compile Include="Structures\MaterialModifyReason.cs" />
+    <Compile Include="Structures\SMTPlacement\SMDTubePackagingInfos.cs" />
+    <Compile Include="Structures\SMTPlacement\SMDTapePackagingInfos.cs" />
+    <Compile Include="Structures\PackagingInfos.cs" />
     <Compile Include="Structures\MaterialPackage.cs" />
     <Compile Include="Structures\MaterialPackageData.cs" />
     <Compile Include="Structures\MaterialPackageDetail.cs" />
