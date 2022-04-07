@@ -216,6 +216,7 @@ namespace CFX.Structures
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         /// <value>The batch identifier.</value>
+        [CFX.Utilities.CreatedVersion("1.5")]
         public string BatchId
         {
             get;
@@ -313,6 +314,7 @@ namespace CFX.Structures
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         /// <value>The grey zone.</value>
+        [CFX.Utilities.CreatedVersion("1.5")]
         public double GreyZone
         {
             get;
@@ -323,6 +325,7 @@ namespace CFX.Structures
         /// The price of a part in the material package
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
         public double PartPrice
         {
             get;
@@ -333,6 +336,7 @@ namespace CFX.Structures
         /// The unit of the price of a part in the material package
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
         public string PartPriceUnit
         {
             get;
