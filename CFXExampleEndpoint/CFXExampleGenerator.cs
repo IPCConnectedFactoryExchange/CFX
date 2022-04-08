@@ -5783,6 +5783,26 @@ namespace CFXExampleEndpoint
 
             AppendMessage(msg, ref result);
 
+            msg = new ProcessDataRecorded()
+            {
+                ProcessData = new CleaningManagementData()
+                {
+                    Readings = new List<CleaningReading>()
+                    {
+                        new CleaningReading()
+                        {
+                            ReadingType = CleaningReadingType.TemperatureAverage,
+                            ReadingValue = 25
+                        },
+                        new CleaningReading()
+                        {
+                            ReadingType = CleaningReadingType.DIWaterVolumeAdd,
+                            ReadingValue = 1.5
+                        },
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
             return result;
         }
     }
