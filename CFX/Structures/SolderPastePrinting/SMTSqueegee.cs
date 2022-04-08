@@ -14,6 +14,7 @@ namespace CFX.Structures.SolderPastePrinting
     {
         /// <summary>
         /// SMT Squeegee cleaning states
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         [JsonConverter(typeof(StringEnumConverter))]
