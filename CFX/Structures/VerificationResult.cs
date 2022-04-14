@@ -40,6 +40,12 @@ namespace CFX.Structures
         /// The defect which was detected is repaired 
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
-        DefectRepaired
+        DefectRepaired,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// The defect which was detected is repaired and successful repair confirmed
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        DefectClosed
     }
 }
