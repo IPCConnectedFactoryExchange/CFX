@@ -73,7 +73,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AMQPNetLite" Version="2.4.3" />
+    <PackageReference Include="AMQPNetLite" Version="2.4.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
