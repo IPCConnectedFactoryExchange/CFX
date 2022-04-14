@@ -5783,6 +5783,136 @@ namespace CFXExampleEndpoint
 
             AppendMessage(msg, ref result);
 
+            msg = new ProcessDataRecorded()
+            {
+                ProcessData = new CleaningManagementData()
+                {
+                    Readings = new List<CleaningReading>()
+                    {
+                        new CleaningReading()
+                        {
+                            ReadingType = CleaningReadingType.TemperatureAverage,
+                            ReadingValue = 25
+                        },
+                        new CleaningReading()
+                        {
+                            ReadingType = CleaningReadingType.DIWaterVolumeAdd,
+                            ReadingValue = 1.5
+                        },
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Production.ToolsCleaned()
+            {
+                TransactionID = cleanGuid,
+                Tools = new List<Tool>()
+                {
+                    new SMTSqueegee()
+                    {
+                        Name = "Squeegee name",
+                        UniqueIdentifier = "SQ1234567890",
+                        CleaningState = CleaningState.Cleaned
+                    },
+                    new SMTStencil()
+                    {
+                        Name = "Stencil name",
+                        UniqueIdentifier="ST1234567890",
+                        CleaningState = CleaningState.Cleaned
+                    }
+                },
+                CleaningSteps = new List<CleaningStep>()
+                {
+                    new CleaningStep()
+                    {
+                        CleaningStepType = CleaningStepType.Wash,
+                        CleaningStepTime = 200,
+                        Readings = new List<CleaningReading>()
+                        {
+                            new CleaningReading()
+                            {
+                                ReadingType = CleaningReadingType.FlowRateAverage,
+                                ReadingValue = 12
+                            },
+                            new CleaningReading()
+                            {
+                                ReadingType = CleaningReadingType.FlowRateMax,
+                                ReadingValue = 20
+                            },
+                            new CleaningReading()
+                            {
+                                ReadingType = CleaningReadingType.FlowRateMin,
+                                ReadingValue = 4
+                            }
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CFX.Production.ToolsUnloaded()
+            {
+                TransactionID = cleanGuid,
+                Tools = new List<Tool>()
+                {
+                    new SMTSqueegee()
+                    {
+                        Name = "Squeegee name",
+                        UniqueIdentifier = "SQ1234567890",
+                        CleaningState = CleaningState.Cleaned
+                    },
+                    new SMTStencil()
+                    {
+                        Name = "Stencil name",
+                        UniqueIdentifier="ST1234567890",
+                        CleaningState = CleaningState.Cleaned
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            //Cleaning Process Data example
+            msg = new UnitsProcessed()
+            {
+                TransactionId = cleanGuid,
+                CommonProcessData = new CleaningProcessData()
+                {
+                    ConveyorSpeed = 1.4,
+                    CleaningTimeActual = 200.0,
+                    CleaningTimeSet = 200.0,
+                    CleaningSteps = new List<CleaningStep>()
+                    {
+                        new CleaningStep()
+                        {
+                            CleaningStepType = CleaningStepType.Wash,
+                            CleaningStepTime = 200,
+                            Readings = new List<CleaningReading>()
+                            {
+                                new CleaningReading()
+                                {
+                                    ReadingType = CleaningReadingType.FlowRateAverage,
+                                    ReadingValue = 12
+                                },
+                                new CleaningReading()
+                                {
+                                    ReadingType = CleaningReadingType.FlowRateMax,
+                                    ReadingValue = 20
+                                },
+                                new CleaningReading()
+                                {
+                                    ReadingType = CleaningReadingType.FlowRateMin,
+                                    ReadingValue = 4
+                                }
+                            }
+                        }
+                    }
+                },
+                OverallResult = ProcessingResult.Succeeded
+            };
+
+            AppendMessage(msg, ref result);
+
             return result;
         }
     }
