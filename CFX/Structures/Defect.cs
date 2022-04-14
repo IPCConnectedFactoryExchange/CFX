@@ -105,16 +105,18 @@ namespace CFX.Structures
             set;
         }
 
-        /// <summary>
-        /// <para>** NOTE: ADDED in CFX 1.4 **</para>
-        /// An enumeration describing the current status of the defect as it progresses through it's lifecycle.
-        /// </summary>
-        [CFX.Utilities.CreatedVersion("1.4")]
-        public IssueStatus Status
-        {
-            get;
-            set;
-        }
+        // NOTE!  IssueStatus was eliminated in CFX 1.5.  It is redundant with VerificationResult.  A-Team voted to allow this to be removed
+        //        even though it is a breaking change because it only existed for 1 version, and pros outweighed the cons.
+        ///// <summary>
+        ///// <para>** NOTE: ADDED in CFX 1.4 **</para>
+        ///// An enumeration describing the current status of the defect as it progresses through it's lifecycle.
+        ///// </summary>
+        //[CFX.Utilities.CreatedVersion("1.4")]
+        //public IssueStatus Status
+        //{
+        //    get;
+        //    set;
+        //}
 
         /// <summary>
         /// An optional component or specific component pins related to this defect.
