@@ -6,7 +6,7 @@ namespace CFX.Materials.Storage
 {
     /// <summary>
     /// Sent when a material carrier (typcially containing 1 or more material packages)
-    /// is unloaded at a process endpoint.
+    /// is unloaded at an endpoint.
     /// <code language="none">
     /// {
     ///   "CarrierIdentifiers": [

@@ -23,7 +23,8 @@ namespace CFX.Structures
     ///     "Y": 0.556,
     ///     "Rotation": 0.0,
     ///     "FlipX": false,
-    ///     "FlipY": false
+    ///     "FlipY": false,
+    ///     "Status": "Pass"
     /// }
     /// </code>
     /// </summary>
@@ -99,6 +100,16 @@ namespace CFX.Structures
         /// Is production unit flipped in Y-direction
         /// </summary>
         public bool FlipY
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// The result of the work for this Unit
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        public UnitStatus Status
         {
             get;
             set;

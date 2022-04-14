@@ -835,6 +835,87 @@ namespace CFX.Production.Processing
     ///   "UnitProcessData": []
     /// }
     ///</code>
+    /// <para></para>
+    /// <para>Example 6: Cleaning process Data: for each printed PCB send used cleaning process parameters</para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "d6090fe7-1fce-4eee-8c3a-25ee1747795f",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": {
+    ///     "$type": "CFX.Structures.Cleaning.CleaningProcessData, CFX",
+    ///     "ConveyorSpeed": 1.4,
+    ///     "CleaningTimeSet": 200.0,
+    ///     "CleaningTimeActual": 200.0,
+    ///     "CleaningSteps": [
+    ///       {
+    ///         "CleaningStepType": "Wash",
+    ///         "CleaningStepTime": 200.0,
+    ///         "Readings": [
+    ///           {
+    ///             "ReadingType": "FlowRateAverage",
+    ///             "ReadingValue": 12.0
+    ///           },
+    ///           {
+    ///             "ReadingType": "FlowRateMax",
+    ///             "ReadingValue": 20.0
+    ///           },
+    ///           {
+    ///             "ReadingType": "FlowRateMin",
+    ///             "ReadingValue": 4.0
+    ///           }
+    ///         ]
+    ///       }
+    ///     ]
+    ///   },
+    ///   "UnitProcessData": []
+    /// }
+    /// </code>
+    ///<para>Example 7: RouteToolParameters Data: For each PCB send RouterToolparameters</para>
+    /// <code language="none"> 
+    /// {
+    ///   "TransactionId": "97b8ac76-670e-4cdb-9908-60220c8e939f",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": {
+    ///       "$type": "CFX.Structures.Depaneling.RouterToolParameters, CFX",
+    ///       "ToolDataVersion": 9.00000,
+    ///       "ToolDiameter_SetPoint": 2.00000,
+    ///       "ToolBitStartTime" :2021-12-20TT 10:18:42,
+    ///       "ToolBitEndTime":2021-12-20TT 10:21:52,
+    ///       "ToolBitDistanceRouted":30000.00000,
+    ///       "ToolBitChangeDistanceAlarmSet":80.00000,
+    ///       "NumberOfBoardsRouted":1,
+    ///       "FeedRate_SetPoint":0.00000,
+    ///       "VacuumDistanceRouted":0.00000,
+    ///       "VacuumFilterChangeDistanceAlarmSet":0.00000,
+    ///       "ActualVacuumLevel":100000.00000,
+    ///       "ActualIncomingPressure":7.60126,
+    ///       "ActualMachinePower":1000.00000,
+    ///       "ActualGripperForcePickAndPlace":0.00332,
+    ///       "SpindleSpeed_SetPoint" :0.00000,
+    ///       "MinSpindleRpm" : 0.00000,
+    ///       "MaxSpindleRpm" : 0.00000,
+    ///       "AxisDetails" :[
+    ///        {
+    ///             "AxisName":"X",
+    ///             "ActualAxisSpeed" :393216.00000,
+    ///             "AxisAcceleration_SetValue":8192000.00000,
+    ///             "AxisDecceleration_SetValue" :8192000.00000,
+    ///             "ActualMaxVelocity" :0.00000,
+    ///      },
+    ///      {
+    ///             "AxisName":"Y",
+    ///             "ActualAxisSpeed" :393216.00000,
+    ///             "AxisAcceleration_SetValue":8192000.00000,
+    ///             "AxisDecceleration_SetValue" :8192000.00000,
+    ///             "ActualMaxVelocity" :0.00000,
+    ///      }
+
+    ///         ],
+    ///       },
+    ///         "UnitProcessData": []
+    ///       
+    ///  }
+    /// </code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage
