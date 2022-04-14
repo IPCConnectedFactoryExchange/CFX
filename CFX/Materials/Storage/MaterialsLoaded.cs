@@ -7,7 +7,7 @@ namespace CFX.Materials.Storage
 {
     /// <summary>
     /// Sent when a material package (potentially contained within a material carrier)
-    /// is loaded at a process endpoint.
+    /// is loaded at an endpoint.
     /// <code language="none">
     /// {
     ///   "Materials": [
