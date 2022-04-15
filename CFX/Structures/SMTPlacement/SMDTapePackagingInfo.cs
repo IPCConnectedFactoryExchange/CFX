@@ -1,4 +1,4 @@
-﻿namespace CFX.Structures
+﻿namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 1.5 **</para>

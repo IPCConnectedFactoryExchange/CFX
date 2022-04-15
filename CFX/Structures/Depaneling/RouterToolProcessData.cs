@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace CFX.Structures.Depaneling
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 1.5 **</para>
     /// Provides information about the processing conditions for a depaneling machine at the time when a unit was processed.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.5")]
     public class RouterToolProcessData : ProcessData
     {
         /// <summary>
