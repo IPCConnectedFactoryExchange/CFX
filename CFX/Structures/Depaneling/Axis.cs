@@ -31,7 +31,7 @@ namespace CFX.Structures.Depaneling
         /// <summary>
         /// Max axis speed in mm/s
         /// </summary>
-        public decimal AxisSpeed
+        public decimal ActualAxisSpeed
         {
             get;
             set;
@@ -39,7 +39,7 @@ namespace CFX.Structures.Depaneling
         /// <summary>
         /// Set value in (mm/s2)
         /// /// <summary>
-        public decimal AxisAcceleration
+        public decimal AxisAcceleration_SetValue
         {
             get;
             set;
@@ -47,7 +47,7 @@ namespace CFX.Structures.Depaneling
         /// <summary>
         /// Set value in (mm/s2)
         /// </summary>
-        public decimal AxisDeceleration
+        public decimal AxisDecceleration_SetValue
         {
             get;
             set;
@@ -55,7 +55,7 @@ namespace CFX.Structures.Depaneling
         /// <summary>
         /// Operating at Maximum speed.
         /// </summary>
-        public decimal ActualPeakVelocity
+        public decimal ActualMaxVelocity
         {
             get;
             set;

@@ -22,7 +22,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Tool Data -Version
+        /// Tool Data -Version
         /// </summary>
         public decimal ToolDataVersion
         {
@@ -31,7 +31,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Machine set point Value- tool bit diameter (mm)
+        /// Machine set point Value- tool bit diameter (in mm)
         /// </summary>
         public decimal ToolDiameter_SetPoint
         {
@@ -40,7 +40,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Tool bit start used time
+        /// Tool bit start used time
         /// </summary>
         public DateTime ToolBitStartTime
         {
@@ -49,7 +49,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Last Tool bit stop used time
+        /// Last Tool bit stop used time
         /// </summary>
         public DateTime ToolBitEndTime
         {
@@ -76,7 +76,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Panel count for batch/period
+        /// Panel count for batch/period routed
         /// </summary>
         public int NumberOfBoardsRouted
         {
@@ -85,7 +85,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Machine set point - feed rate routing program (mm/s)
+        /// Machine set point - feed rate routing program (in mm/s)
         /// </summary>
         public decimal FeedRate_SetPoint
         {
@@ -94,7 +94,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Distance of ALL tabs cut since last bag/filter change in (Meter).
+        /// Distance of ALL tabs cut since last bag/filter change in (in Meter).
         /// </summary>
         public decimal VacuumDistanceRouted
         {
@@ -112,7 +112,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Information about the Vacuum or Negative pressure Level
+        /// Vacuum or Negative Pressure Level
         /// </summary>
         public decimal ActualVacuumLevel
         {
@@ -120,7 +120,7 @@ namespace CFX.Structures.Depaneling
             set;
         }
         /// <summary>
-        /// Information about the Incoming Air pressure Level
+        /// Incoming Air Pressure Level
         /// </summary>
         public decimal ActualIncomingPressure
         {
@@ -128,7 +128,7 @@ namespace CFX.Structures.Depaneling
             set;
         }
         /// <summary>
-        /// Information about the Electric Power consumption of Machine
+        /// Electric Power consumption of Machine
         /// </summary>
         public decimal ActualMachinePower
         {
@@ -136,7 +136,7 @@ namespace CFX.Structures.Depaneling
             set;
         }
         /// <summary>
-        /// Information aboout the Max gripper force applied to PCB. (N)(Optional only-Applicable for gripper hardware equipment type)
+        /// Max gripper force applied to PCB. (N)(Optional only-Applicable for gripper hardware equipment type)
         /// </summary>
         public decimal ActualGripperForcePickAndPlace
         {
@@ -144,7 +144,7 @@ namespace CFX.Structures.Depaneling
             set;
         }
         /// <summary>
-        /// Information about the Machine set point – Spindle Speed (mm/s)
+        /// Machine set point – Spindle Speed (in mm/s)
         /// </summary>
         public decimal SpindleSpeed_SetPoint
         {
@@ -153,7 +153,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Max Speed at which the Spindle operates - RPM (Revolutions per minute)
+        /// Min Speed at which the Spindle operates - RPM (Revolutions per minute)
         /// </summary>
         public decimal MinSpindleRpm
         {
@@ -162,7 +162,7 @@ namespace CFX.Structures.Depaneling
         }
 
         /// <summary>
-        /// Min Speed at which the Spindle operates - RPM (Revolutions per minute)
+        /// Max Speed at which the Spindle operates - RPM (Revolutions per minute)
         /// </summary>
         public decimal MaxSpindleRpm
         {
@@ -170,7 +170,7 @@ namespace CFX.Structures.Depaneling
             set;
         }
         /// <summary>
-        /// List of Axis for Router Tool Parameters Data
+        /// List of Axis for Router
         /// </summary>
         public List<Axis> AxisDetails
         {
