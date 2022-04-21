@@ -275,6 +275,7 @@ namespace CFX.Production.Processing
     /// </code>
     /// <para></para>
     /// <para>Example 2 (Conformal Coating Process):</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "TransactionId": "d280fd1c-e2cb-4544-be8b-78554c87a0c5",
@@ -629,6 +630,7 @@ namespace CFX.Production.Processing
     /// </code>
     /// <para></para>
     /// <para>Example 4 (Selective Soldering Process):</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "TransactionId": "a4275a83-4a6a-4656-a92d-402ddd4458d8",
@@ -797,6 +799,7 @@ namespace CFX.Production.Processing
     /// </code>
     /// <para></para>
     /// <para>Example 5: Printer Operation Data: for each printed PCB send used Printer process parameters</para>
+    /// <para></para>
     /// <code language="none">  
     /// {
     ///   "TransactionId": "b063df28-715d-4ba3-bd39-e9b542e4333c",
@@ -834,9 +837,10 @@ namespace CFX.Production.Processing
     ///   },
     ///   "UnitProcessData": []
     /// }
-    ///</code>
+    /// </code>
     /// <para></para>
     /// <para>Example 6: Cleaning process Data: for each printed PCB send used cleaning process parameters</para>
+    /// <para></para>
     /// <code language="none">
     /// {
     ///   "TransactionId": "d6090fe7-1fce-4eee-8c3a-25ee1747795f",
@@ -870,7 +874,9 @@ namespace CFX.Production.Processing
     ///   "UnitProcessData": []
     /// }
     /// </code>
-    ///<para>Example 7: RouteToolParameters Data: For each PCB send RouterToolparameters</para>
+    /// <para></para>
+    /// <para>Example 7: RouteToolParameters Data: For each PCB send RouterToolparameters</para>
+    /// <para></para>
     /// <code language="none"> 
     /// {
     ///   "TransactionId": "97b8ac76-670e-4cdb-9908-60220c8e939f",
@@ -901,20 +907,17 @@ namespace CFX.Production.Processing
     ///             "AxisAcceleration_SetValue":8192000.00000,
     ///             "AxisDecceleration_SetValue" :8192000.00000,
     ///             "ActualMaxVelocity" :0.00000,
-    ///      },
-    ///      {
+    ///       },
+    ///       {
     ///             "AxisName":"Y",
     ///             "ActualAxisSpeed" :393216.00000,
     ///             "AxisAcceleration_SetValue":8192000.00000,
     ///             "AxisDecceleration_SetValue" :8192000.00000,
     ///             "ActualMaxVelocity" :0.00000,
-    ///      }
-
-    ///         ],
-    ///       },
-    ///         "UnitProcessData": []
-    ///       
-    ///  }
+    ///       }],
+    ///    },
+    ///    "UnitProcessData": []
+    /// }
     /// </code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
