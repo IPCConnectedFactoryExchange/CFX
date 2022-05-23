@@ -39,7 +39,7 @@ namespace CFX.Structures.Depaneling
 
         /// <summary>
         /// Set value in (mm/s2)
-        /// <summary>
+        /// </summary>
         public decimal AxisAcceleration_SetValue
         {
             get;
