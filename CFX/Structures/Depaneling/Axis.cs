@@ -36,14 +36,16 @@ namespace CFX.Structures.Depaneling
             get;
             set;
         }
+
         /// <summary>
         /// Set value in (mm/s2)
-        /// /// <summary>
+        /// <summary>
         public decimal AxisAcceleration_SetValue
         {
             get;
             set;
         }
+
         /// <summary>
         /// Set value in (mm/s2)
         /// </summary>
@@ -52,6 +54,7 @@ namespace CFX.Structures.Depaneling
             get;
             set;
         }
+
         /// <summary>
         /// Operating at Maximum speed.
         /// </summary>
