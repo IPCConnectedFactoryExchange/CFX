@@ -33,7 +33,7 @@ namespace CFX.Structures.Coating
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
-        Moniter,
+        Monitor,
         /// <summary>
         /// The axis position describing the direction in which the coating or encapsulation nozzle displaced, expressed in millimeter(mm)
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>

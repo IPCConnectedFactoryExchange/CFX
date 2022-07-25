@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CFXStrongNameKey.snk</AssemblyOriginatorKeyFile>
-    <Version>1.4.4</Version>
+    <Version>1.5.3</Version>
     <PackageId>CFX.CFXSDK.NetCore</PackageId>
-	<PackageVersion>1.4.4</PackageVersion>
+	<PackageVersion>1.5.3</PackageVersion>
     <AssemblyName>CFX</AssemblyName>
     <RootNamespace>CFX</RootNamespace>
     <Product>CFXSDK</Product>
@@ -27,7 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AMQPNetLite" Version="2.4.3" />
+    <PackageReference Include="AMQPNetLite" Version="2.4.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

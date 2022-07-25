@@ -23,6 +23,10 @@ namespace CFX.Structures.Cleaning
         /// </summary>
         BottomWaterKnifePressure,
         /// <summary>
+        /// Volume of cleaning chemistry added by the system, expressed in liter (l)
+        /// </summary>
+        CleaningChemistryVolumeAdd,
+        /// <summary>
         /// min concentration reading, as a percentage from 0.0 to 100.0 (%)
         /// </summary>
         ConcentrationMin,
@@ -47,15 +51,19 @@ namespace CFX.Structures.Cleaning
         /// </summary>
         ConductivityAverage,
         /// <summary>
-        /// min flow rate reading, expressed in liter per second (l/s)
+        /// Volume of DI water added by the system, expressed in liter (l)
+        /// </summary>
+        DIWaterVolumeAdd,
+        /// <summary>
+        /// min flow rate reading, expressed in liter per minute (l/min)
         /// </summary>
         FlowRateMin,
         /// <summary>
-        /// max flow rate reading, expressed in liter per second (l/s)
+        /// max flow rate reading, expressed in liter per minute (l/min)
         /// </summary>
         FlowRateMax,
         /// <summary>
-        /// average flow rate reading, expressed in liter per second (l/s)
+        /// average flow rate reading, expressed in liter per minute (l/min)
         /// </summary>
         FlowRateAverage,
         /// <summary>
@@ -133,6 +141,10 @@ namespace CFX.Structures.Cleaning
         /// <summary>
         /// vacuum reading, expressed in Pascals (Pa)
         /// </summary>
-        Vacuum
+        Vacuum,
+        /// <summary>
+        /// frequency of Variable Frequency Drive, expressed in Hertz (Hz)
+        /// </summary>
+        VFDFrequency
     }
 }
