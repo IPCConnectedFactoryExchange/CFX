@@ -104,11 +104,22 @@ namespace CFX.Production
         }
 
         /// <summary>
-        /// The number of units that are to be processed simulataneously by this recipe.  For example, in the case of a 2 x 2 panelized PCB, this
-        /// property would be 4 because 4 units (PCBs) are procesed at one time per work transaction.  In the case that a station processes a
-        /// variable number of units per transaction, this should represent the average number of units expected to be processed per transaction.
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// The total amount of productive time (in ms) that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB),
+        /// assuming no blocked or starved conditions at the station. This does not include any non-productive time, such as transfer, positioning, etc.
         /// </summary>
-        public double ExpectedUnitsPerWorkTransaction
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public double? ExpectedWorkTime
+        {
+            get;
+            set;
+        }
+    /// <summary>
+    /// The number of units that are to be processed simulataneously by this recipe.  For example, in the case of a 2 x 2 panelized PCB, this
+    /// property would be 4 because 4 units (PCBs) are procesed at one time per work transaction.  In the case that a station processes a
+    /// variable number of units per transaction, this should represent the average number of units expected to be processed per transaction.
+    /// </summary>
+    public double ExpectedUnitsPerWorkTransaction
         {
             get;
             set;
