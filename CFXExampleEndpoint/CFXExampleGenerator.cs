@@ -3076,6 +3076,25 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            msg = new WorkCompleted()
+            {
+                TransactionID = transId,
+                Result = WorkResult.Completed,
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                   
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkCompleted()
+            {
+                TransactionID = transId,
+                Result = WorkResult.Completed,
+              
+            };
+            AppendMessage(msg, ref result);
+
             msg = new WorkStageCompleted()
             {
                 TransactionID = transId,
@@ -3089,7 +3108,11 @@ namespace CFXExampleEndpoint
                 {
                     new PerformanceImpact()
                     {
-                        Cause = PerformanceImpactCause.LowFeederSpeed,
+                        Cause = PerformanceImpactCause.LowFeederSpeed
+                    },
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.AlternativeTrackUsed
                     }
                 }
             };

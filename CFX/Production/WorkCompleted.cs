@@ -12,6 +12,8 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint when all work has been completed at a process endpoint.
+    /// <para>Generic example</para>
+    /// <para>  </para>
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
@@ -19,13 +21,43 @@ namespace CFX.Production
     ///   "PrimaryIdentifier": null,
     ///   "HermesIdentifier": null,
     ///   "UnitCount": 0,
-    ///   "Units": [],
+    ///   "Units": []
+    /// }
+    /// <para>Example with PerformanceImpact empty - no performance impact</para>
+    /// <para>  </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
+    ///   "Result": "Completed",
+    ///   "PerformanceImpacts": []
+    /// }
+    /// </code>
+    /// <para>Example with PerformanceImpact</para>
+    /// <para>  </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
+    ///   "Result": "Completed",
     ///   "PerformanceImpacts": [
     ///     {
-    ///       "Cause": "AdditionalImageAcquisition"
+    ///       "Cause": "LowFeederSpeed"
+    ///     },
+    ///     {
+    ///       "Cause": "AlternativeTrackUsed"
     ///     }
     ///   ]
     /// }
+    /// </code>
     /// </summary>
     public class WorkCompleted : CFXMessage 
     {

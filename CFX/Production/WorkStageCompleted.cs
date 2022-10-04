@@ -21,7 +21,14 @@ namespace CFX.Production
     ///     "StageType": "Work"
     ///   },
     ///   "Result": "Completed",
-    ///   "PerformanceImpacts": null
+    ///   "PerformanceImpacts": [
+    ///     {
+    ///       "Cause": "LowFeederSpeed"
+    ///     },
+    ///     {
+    ///       "Cause": "AlternativeTrackUsed"
+    ///     }
+    ///   ]
     /// }
     /// </code>
     /// </summary>
