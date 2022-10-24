@@ -4,7 +4,7 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures.UVCuring
 {
     /// <summary>
-    /// An enumeration indicating the nature of a zone within a reflow oven
+    /// An enumeration indicating the state of lamp.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum UVCuringLampState

@@ -5,7 +5,7 @@ using System.Text;
 namespace CFX.Structures.UVCuring
 {
     /// <summary>
-    /// Properties of glas plate.
+    /// Properties of glass plate.
     /// </summary>
     public class UVCuringGlassPlate
     {

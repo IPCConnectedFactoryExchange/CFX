@@ -66,9 +66,9 @@ namespace CFX.Structures.UVCuring
 
 
         /// <summary>
-        /// List of all glas plates in the UV machine.
+        /// List of all glass plates in the UV machine.
         /// </summary>
-        public List<UVCuringGlassPlate> GlasPlates
+        public List<UVCuringGlassPlate> GlassPlates
         {
             get;
             set;
