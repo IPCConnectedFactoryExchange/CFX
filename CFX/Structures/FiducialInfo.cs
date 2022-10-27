@@ -42,7 +42,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Rotational offset of Fiducial on Production Unit
+        /// Rotational offset of Fiducial on Production Unit relative to Fiducial X, Y location
         /// </summary>
         [JsonProperty]
         public double FiducialRXY
