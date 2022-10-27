@@ -342,9 +342,9 @@ namespace CFX.Structures
         Raspbian,
         /// <summary>
         /// Windows 11
-        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
         /// </summary>
-        [CFX.Utilities.CreatedVersion("1.5")]
+        [CFX.Utilities.CreatedVersion("1.6")]
         Windows11
     }
 
