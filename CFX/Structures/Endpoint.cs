@@ -339,7 +339,13 @@ namespace CFX.Structures
         /// <summary>
         /// Raspberry Pi Operating System
         /// </summary>
-        Raspbian
+        Raspbian,
+        /// <summary>
+        /// Windows 11
+        /// <para>** NOTE: ADDED in CFX 1.5 **</para>
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.5")]
+        Windows11
     }
 
     /// <summary>
