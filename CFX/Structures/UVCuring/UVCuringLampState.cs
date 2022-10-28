@@ -5,8 +5,10 @@ namespace CFX.Structures.UVCuring
 {
     /// <summary>
     /// An enumeration indicating the state of lamp.
+    /// <para>** NOTE: ADDED in CFX 1.6 **</para>
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
+    [CFX.Utilities.CreatedVersion("1.6")]
     public enum UVCuringLampState
     {
         /// <summary>
