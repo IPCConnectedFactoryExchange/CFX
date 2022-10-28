@@ -8,7 +8,9 @@ namespace CFX.Structures.UVCuring
 {
     /// <summary>
     /// UV Curing Process Data
+    /// <para>** NOTE: ADDED in CFX 1.6 **</para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.6")]
     public class UVCuringProcessData : ProcessData
     {
         /// <summary>
