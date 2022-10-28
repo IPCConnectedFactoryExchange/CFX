@@ -10,6 +10,7 @@ namespace CFX.Structures
     /// It shall be "null" or not sent at all if the machine doesn't support the PerformanceImpact attribute.
     /// An empty list indicates that the machine is running at "best-performance"
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.6")]
     public class PerformanceImpact
     {
         /// <summary>
