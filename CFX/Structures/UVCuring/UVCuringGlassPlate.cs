@@ -6,7 +6,9 @@ namespace CFX.Structures.UVCuring
 {
     /// <summary>
     /// Properties of glass plate.
+    /// <para>** NOTE: ADDED in CFX 1.6 **</para>
     /// </summary>
+    [CFX.Utilities.CreatedVersion("1.6")]
     public class UVCuringGlassPlate
     {
         /// <summary>
