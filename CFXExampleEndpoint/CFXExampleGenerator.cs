@@ -3065,7 +3065,33 @@ namespace CFXExampleEndpoint
             msg = new WorkCompleted()
             {
                 TransactionID = transId,
-                Result = WorkResult.Completed
+                Result = WorkResult.Completed,
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.AdditionalImageAcquisition,
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkCompleted()
+            {
+                TransactionID = transId,
+                Result = WorkResult.Completed,
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                   
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkCompleted()
+            {
+                TransactionID = transId,
+                Result = WorkResult.Completed,
+              
             };
             AppendMessage(msg, ref result);
 
@@ -3078,6 +3104,29 @@ namespace CFXExampleEndpoint
                     StageName = "STAGE1",
                     StageType = StageType.Work
                 },
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.LowFeederSpeed
+                    },
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.AlternativeTrackUsed
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkStageCompleted()
+            {
+                TransactionID = transId,
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                }
             };
             AppendMessage(msg, ref result);
 

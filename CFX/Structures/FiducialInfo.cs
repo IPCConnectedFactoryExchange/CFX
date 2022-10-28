@@ -50,5 +50,17 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// An unique identifier for the fiducial (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        [JsonProperty]
+        public string UniqueIdentifier
+        {
+            get;
+            set;
+        }
     }
 }

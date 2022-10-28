@@ -12,10 +12,50 @@ namespace CFX.Production
 {
     /// <summary>
     /// Sent by a process endpoint when all work has been completed at a process endpoint.
+    /// <para>Generic example</para>
+    /// <para>  </para>
     /// <code language="none">
     /// {
     ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
-    ///   "Result": "Completed"
+    ///   "Result": "Completed",
+    ///   "PrimaryIdentifier": null,
+    ///   "HermesIdentifier": null,
+    ///   "UnitCount": 0,
+    ///   "Units": []
+    /// }
+    /// <para>Example with PerformanceImpact empty - no performance impact</para>
+    /// <para>  </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
+    ///   "Result": "Completed",
+    ///   "PerformanceImpacts": []
+    /// }
+    /// </code>
+    /// <para>Example with PerformanceImpact</para>
+    /// <para>  </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionID": "2c24590d-39c5-4039-96a5-91900cecedfa",
+    ///   "Stage": {
+    ///     "StageSequence": 1,
+    ///     "StageName": "STAGE1",
+    ///     "StageType": "Work"
+    ///   },
+    ///   "Result": "Completed",
+    ///   "PerformanceImpacts": [
+    ///     {
+    ///       "Cause": "LowFeederSpeed"
+    ///     },
+    ///     {
+    ///       "Cause": "AlternativeTrackUsed"
+    ///     }
+    ///   ]
     /// }
     /// </code>
     /// </summary>
@@ -103,6 +143,18 @@ namespace CFX.Production
         /// Data that identifies each specific instance of production unit with a carrier or panel. 
         /// </summary>
         public List<UnitPosition> Units
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// The total amount of productive time (in ms) that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB),
+        /// assuming no blocked or starved conditions at the station. This does not include any non-productive time, such as transfer, positioning, etc.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public List<PerformanceImpact> PerformanceImpacts
         {
             get;
             set;
