@@ -40,19 +40,19 @@ namespace CFX.Structures.Coating
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         Axis,
-        // <summary>
+        /// <summary>
         /// The total volume of fluid tested after n number of units processed, expressed in grams (g)
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         Fluidweight,
-        // <summary>
+        /// <summary>
         /// The level of fluid tested from the container or Beaker, expressed in millimeter(mm)
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.5")]
         MaterialLevel,
-        // <summary>
+        /// <summary>
         /// The Width of adjustable Nozzle Eg. Curtain Nozzle, expressed in millimeter(mm)
         /// <para>** NOTE: ADDED in CFX 1.5 **</para>
         /// </summary>

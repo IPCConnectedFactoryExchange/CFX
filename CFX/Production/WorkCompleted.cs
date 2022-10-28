@@ -23,6 +23,7 @@ namespace CFX.Production
     ///   "UnitCount": 0,
     ///   "Units": []
     /// }
+    /// </code>
     /// <para>Example with PerformanceImpact empty - no performance impact</para>
     /// <para>  </para>
     /// <code language="none">

@@ -56,7 +56,7 @@ namespace CFX.Production
             set;
         }
 
-        // <summary>
+        /// <summary>
         /// <para>** NOTE: ADDED in CFX 1.6 **</para>
         /// Identifies the Work Order (or Batch) that is related to the deactivated recipe.
         /// </summary>
