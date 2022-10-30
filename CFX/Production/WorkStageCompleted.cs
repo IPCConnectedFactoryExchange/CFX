@@ -20,7 +20,15 @@ namespace CFX.Production
     ///     "StageName": "STAGE1",
     ///     "StageType": "Work"
     ///   },
-    ///   "Result": "Completed"
+    ///   "Result": "Completed",
+    ///   "PerformanceImpacts": [
+    ///     {
+    ///       "Cause": "LowFeederSpeed"
+    ///     },
+    ///     {
+    ///       "Cause": "AlternativeTrackUsed"
+    ///     }
+    ///   ]
     /// }
     /// </code>
     /// </summary>
@@ -48,6 +56,18 @@ namespace CFX.Production
         /// An enumeration indicating the overall result of the Work transaction
         /// </summary>
         public WorkResult Result
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// The total amount of productive time (in ms) that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB),
+        /// assuming no blocked or starved conditions at the station. This does not include any non-productive time, such as transfer, positioning, etc.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public List<PerformanceImpact> PerformanceImpacts
         {
             get;
             set;

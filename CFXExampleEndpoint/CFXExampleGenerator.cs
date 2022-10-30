@@ -3065,7 +3065,33 @@ namespace CFXExampleEndpoint
             msg = new WorkCompleted()
             {
                 TransactionID = transId,
-                Result = WorkResult.Completed
+                Result = WorkResult.Completed,
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.AdditionalImageAcquisition,
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkCompleted()
+            {
+                TransactionID = transId,
+                Result = WorkResult.Completed,
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                   
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkCompleted()
+            {
+                TransactionID = transId,
+                Result = WorkResult.Completed,
+              
             };
             AppendMessage(msg, ref result);
 
@@ -3078,6 +3104,29 @@ namespace CFXExampleEndpoint
                     StageName = "STAGE1",
                     StageType = StageType.Work
                 },
+                PerformanceImpacts = new List<PerformanceImpact>()
+                {
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.LowFeederSpeed
+                    },
+                    new PerformanceImpact()
+                    {
+                        Cause = PerformanceImpactCause.AlternativeTrackUsed
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new WorkStageCompleted()
+            {
+                TransactionID = transId,
+                Stage = new Stage()
+                {
+                    StageSequence = 1,
+                    StageName = "STAGE1",
+                    StageType = StageType.Work
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -5913,6 +5962,56 @@ namespace CFXExampleEndpoint
 
             AppendMessage(msg, ref result);
 
+            /***************************/
+            /****New in version 1.6*****/
+            /***************************/
+            msg = new UnitsInspected()
+            {
+                TransactionId = Guid.NewGuid(),
+                Inspector = op1,
+                InspectionMethod = InspectionMethod.AOI,
+                InspectedPanel = new InspectedPanel()
+                {
+                    Fiducials = new List<FiducialInfo>()
+                        {
+                            new FiducialInfo()
+                            {
+                                FiducialX = 0.12,
+                                FiducialY = 0.16,
+                                FiducialRXY = 0.0
+                            },
+                            new FiducialInfo()
+                            {
+                                FiducialX = 0.12,
+                                FiducialY = 2.56,
+                                FiducialRXY = 0.0
+                            }
+                        },
+                    UnitIdentifier = "PN123456789",
+                    OverallResult = TestResult.Passed,
+                    Inspections = new List<Inspection>(new Inspection[]
+                        {
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_F1",
+                                Result = TestResult.Passed,
+                            },
+                            new Inspection()
+                            {
+                                UniqueIdentifier = Guid.NewGuid().ToString(),
+                                InspectionName = "INSPECT_F2",
+                                Result = TestResult.Passed
+                            }
+                        }),
+                    Stretch = 1,
+                    RecognizedStrokeDirection = SolderPasteSqueegeeDirection.forward,
+                    TotalInspectionCount = 2
+                    
+                }
+                
+            };
+            AppendMessage(msg, ref result);
             return result;
         }
     }

@@ -27,6 +27,12 @@ namespace CFX.Structures
         /// <summary>
         /// The production unit has not passed the preceding operation, and has been deemed unrepairable
         /// </summary>
-        Scrap
+        Scrap,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// The production unit does not require processing
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        Skip
     }
 }

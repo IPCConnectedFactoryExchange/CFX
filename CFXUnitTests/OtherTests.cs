@@ -12,6 +12,8 @@ using System.IO;
 using CFX.ResourcePerformance;
 using CFX.Production;
 using CFX.Structures.SMTPlacement;
+using CFX.InformationSystem.UnitValidation;
+using System.Diagnostics;
 
 namespace CFXUnitTests
 {
@@ -21,7 +23,7 @@ namespace CFXUnitTests
         [TestMethod]
         public void GetChanges()
         {
-            string version = "1.5";
+            string version = "1.6";
             List<string> lines = new List<string>();
 
             Assembly assembly = Assembly.GetAssembly(typeof(CFX.CFXEnvelope));
@@ -277,6 +279,86 @@ namespace CFXUnitTests
             }
 
             string test = ae2.ToJson(true);
+        }
+
+        [TestMethod]
+        public void MemoryLeakTest()
+        {
+            Uri target = new Uri("amqp://jwalls:7050");
+            AmqpCFXEndpoint requester = new AmqpCFXEndpoint();
+            requester.Open("Aegis.Requester.001");
+
+            AmqpCFXEndpoint requestee = new AmqpCFXEndpoint();
+            requestee.Open("Aegis.Requestee.001", target);
+            requestee.OnRequestReceived += Requestee_OnRequestReceived;
+
+            Debugger.Break();
+
+            for (int i = 0; i < 1; i++)
+            {
+                var env = new CFXEnvelope(
+                    new ValidateUnitsRequest()
+                    {
+
+
+                    });
+
+                env.Target = "Aegis.Requestee.001";
+
+                var response = requester.ExecuteRequest(target.ToString(), env);
+
+                System.Threading.Thread.Sleep(10);
+            }
+
+            GC.Collect();
+            System.Threading.Thread.Sleep(1000);
+            Debugger.Break();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                var env = new CFXEnvelope(
+                    new ValidateUnitsRequest()
+                    {
+                    
+
+                    });
+
+                env.Target = "Aegis.Requestee.001";
+
+                //var response = requester.ExecuteRequest2(target.ToString(), env);
+
+                System.Threading.Thread.Sleep(10);
+            }
+
+
+            Debugger.Break();
+
+            GC.Collect();
+            System.Threading.Thread.Sleep(1000);
+
+            Debugger.Break();
+
+        }
+
+        private CFXEnvelope Requestee_OnRequestReceived(CFXEnvelope request)
+        {
+            var rspEnv = new CFXEnvelope();
+
+            if (request.MessageBody is ValidateUnitsRequest)
+            {
+                var response = new ValidateUnitsResponse()
+                {
+                    PrimaryResult = new CFX.Structures.ValidationResult()
+                    {
+                        Result = CFX.Structures.ValidationStatus.Skipped,
+                    }
+                };
+
+                rspEnv.MessageBody = response;
+            }
+
+
+            return rspEnv;
         }
     }
 }
