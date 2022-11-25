@@ -1,0 +1,42 @@
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CFX.Structures.SolderWave
+{
+    /// <summary>
+    /// A specialized type of Stage that represents a zone within a wave soldering machine.
+    /// </summary>
+    public class WaveZone : Stage
+    {
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public WaveZone()
+        {
+        }
+
+        /// <summary>
+        /// The type/purpose of this zone.
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public WaveZoneType WaveZoneType
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// A list of subzones in this zone. E.g. could be subzones of type <see cref="WaveSubZoneType.Convection"/>, <see cref="WaveSubZoneType.Pulsar"/> and <see cref="WaveSubZoneType.SolderFrameConveyor"/>
+        /// </summary>
+        public List<WaveSubZone> WaveSubZones
+        {
+            get; 
+            set;
+        }
+    }
+}
