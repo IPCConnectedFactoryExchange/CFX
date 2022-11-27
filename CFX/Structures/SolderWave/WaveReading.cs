@@ -23,15 +23,6 @@ namespace CFX.Structures.SolderWave
         }
 
         /// <summary>
-        /// An enumeration that describes a particular area within a particular zone of a reflow oven.
-        /// </summary>
-        public WaveSubZoneType SubZoneType
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// An enumeration describing the type of reading.
         /// </summary>
         /// <remarks>The reading type uses the same enum like the <seealso cref="WaveSetPoint"/></remarks>

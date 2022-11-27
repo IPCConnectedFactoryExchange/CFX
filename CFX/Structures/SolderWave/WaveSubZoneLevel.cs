@@ -10,6 +10,10 @@ namespace CFX.Structures.SolderWave
     public enum WaveSubZoneLevel
     {
         /// <summary>
+        /// Applies to the entire zone.
+        /// </summary>
+        WholeZone,
+        /// <summary>
         /// The subzone is on mid or in the same heigth as the solder frame or Pcba e.g. a conveyor.
         /// </summary>
         Middle,

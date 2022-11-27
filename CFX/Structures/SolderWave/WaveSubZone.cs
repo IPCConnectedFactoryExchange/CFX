@@ -9,6 +9,8 @@ namespace CFX.Structures.SolderWave
     /// </summary>
     public class WaveSubZone : Stage
     {
+
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -16,6 +18,7 @@ namespace CFX.Structures.SolderWave
         {
             WaveSetPoints = new List<WaveSetPoint>();
             WaveReadings = new List<WaveReading>();
+            StageType = StageType.Work;
         }
 
         /// <summary>
