@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
-    /// A data structure describing the set point for a particular area within a sub-zone of a wave soldering machine.
+    /// A data structure describing the set point for a particular area within a sub zone of a wave soldering machine.
     /// </summary>
     public class WaveSetPoint
     {

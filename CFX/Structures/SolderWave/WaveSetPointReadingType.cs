@@ -59,5 +59,9 @@ namespace CFX.Structures.SolderWave
         /// The angle of the conveyor above the soldering nozzle in degrees (°).
         /// </summary>
         SolderAngle,
+        /// <summary>
+        /// A period of time or a time itself, expressed in seconds (s).
+        /// </summary>
+        Duration,
     }
 }

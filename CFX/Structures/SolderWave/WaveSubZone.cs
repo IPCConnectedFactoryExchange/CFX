@@ -5,14 +5,14 @@ using System.Text;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
-    /// A data structure for describing a subzone of zone in a wave soldering machine.
+    /// A data structure for describing a sub zone of the soldering wave machine. Inherits from <seealso cref="Stage"/>.
     /// </summary>
     public class WaveSubZone : Stage
     {
 
 
         /// <summary>
-        /// Default constructor
+        /// Default constructor. Inherits from <see cref="Stage"/>. Set also <seealso cref="StageType"/> to <seealso cref="StageType.Work"/>.
         /// </summary>
         public WaveSubZone()
         {

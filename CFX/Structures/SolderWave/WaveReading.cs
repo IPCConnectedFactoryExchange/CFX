@@ -33,7 +33,7 @@ namespace CFX.Structures.SolderWave
         }
 
         /// <summary>
-        /// The value of the reading (expressed in the appropriate units for the <seealso cref="ReadingType"/>).
+        /// The value of the reading (expressed in the appropriate units for the <seealso cref="WaveSetPointReadingType"/>.
         /// </summary>
         public double? ReadingValue
         {

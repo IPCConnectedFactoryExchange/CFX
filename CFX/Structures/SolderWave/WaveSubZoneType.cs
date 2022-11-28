@@ -5,49 +5,49 @@ using Newtonsoft.Json.Converters;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
-    /// An enumeration that indicates what the subzone represents.
+    /// An enumeration that indicates what the sub zone represents.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum WaveSubZoneType
     {
         /// <summary>
-        /// The subzone type is unknown 
+        /// The sub zone type is unknown 
         /// </summary>
         Unknown,
         /// <summary>
-        /// The subzone is a convection heater
+        /// The sub zone is a convection heater
         /// </summary>
         Convection,
         /// <summary>
-        /// The subzone is a conveyor for solder frames
+        /// The sub zone is a conveyor for solder frames
         /// </summary>
         SolderFrameConveyor,
         /// <summary>
-        /// The subzone is a conveyor for direct proccessing of PCBAs or solder masks
+        /// The sub zone is a conveyor for direct proccessing of PCBAs or solder masks
         /// </summary>
         FingerConveyor,
         /// <summary>
-        /// The subzone is a cooling zone
+        /// The sub zone is a cooling zone
         /// </summary>
         Cool,
         /// <summary>
-        /// The subzone is fluxer zone
+        /// The sub zone is fluxer zone
         /// </summary>
         Flux,
         /// <summary>
-        /// The subzone is a infrared heater. 
+        /// The sub zone is a infrared heater. 
         /// </summary>
         Infrared,
         /// <summary>
-        /// The subzone is a residual oxygen sensor
+        /// The sub zone is a residual oxygen sensor
         /// </summary>
         ResidualOxygen,
         /// <summary>
-        /// The subzone is a nitrogen regulator
+        /// The sub zone is a nitrogen regulator
         /// </summary>
         Nitrogen,
         /// <summary>
-        /// The subzone is the solder wave
+        /// The sub zone is the solder wave
         /// </summary>
         SolderWave,
     }

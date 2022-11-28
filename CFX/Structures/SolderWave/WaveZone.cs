@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
-    /// A specialized type of Stage that represents a zone within a wave soldering machine.
+    /// A specialized type of <see cref="Stage"/> that represents a zone within a wave soldering machine.
     /// </summary>
     public class WaveZone : Stage
     {
@@ -31,7 +31,7 @@ namespace CFX.Structures.SolderWave
         }
 
         /// <summary>
-        /// A list of subzones in this zone. E.g. could be subzones of type <see cref="WaveSubZoneType.Convection"/>, <see cref="WaveSubZoneType.Pulsar"/> and <see cref="WaveSubZoneType.SolderFrameConveyor"/>
+        /// A list of subzones in this zone. E.g. could be sub zones of type <see cref="WaveSubZoneType.Convection"/>, <see cref="WaveSubZoneType.Infrared"/> and <see cref="WaveSubZoneType.SolderFrameConveyor"/>
         /// </summary>
         public List<WaveSubZone> WaveSubZones
         {
