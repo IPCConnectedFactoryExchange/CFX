@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFX.Structures.Cooling
+namespace CFX.Structures.SolderWave
 {
     /// <summary>
     /// Data structures related to solder wave equipment
