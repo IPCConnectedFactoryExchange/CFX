@@ -9,8 +9,6 @@ namespace CFX.Structures.SolderWave
     /// </summary>
     public class WaveSubZone : Stage
     {
-
-
         /// <summary>
         /// Default constructor. Inherits from <see cref="Stage"/>. Set also <seealso cref="StageType"/> to <seealso cref="StageType.Work"/>.
         /// </summary>

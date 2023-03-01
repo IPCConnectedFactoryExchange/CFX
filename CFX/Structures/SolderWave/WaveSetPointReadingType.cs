@@ -28,6 +28,14 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         AmountOfLiquid,
         /// <summary>
+        /// The Amount, expected in cubic meters per hour.
+        /// </summary>
+        AmountOfGas,
+        /// <summary>
+        /// In milliliter per dm²
+        /// </summary>
+        AmountPerArea,
+        /// <summary>
         /// The speed, expected in centimeters per minute (cm/min).
         /// </summary>
         Speed,

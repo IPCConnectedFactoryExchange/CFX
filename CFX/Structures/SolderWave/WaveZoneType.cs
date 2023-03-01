@@ -29,6 +29,14 @@ namespace CFX.Structures.SolderWave
         /// <summary>
         /// This is a cooling zone.
         /// </summary>
-        Cool
+        Cool,
+        /// <summary>
+        /// This is a zone to specify a conveyor.
+        /// </summary>
+        Transport,
+        /// <summary>
+        /// This is the exhaust of the machine most whole zone.
+        /// </summary>
+        Exhaust
     }
 }

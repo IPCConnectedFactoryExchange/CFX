@@ -18,6 +18,17 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         public WaveZone()
         {
+            IsEnabled = true;
+            WaveSubZones = new List<WaveSubZone>();
+        }
+
+        /// <summary>
+        /// Indicates that this <seealso cref="WaveZone"/> is enabled or disabled (bypassed). By default it is <see cref="true"/>.
+        /// </summary>
+        public bool IsEnabled
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -35,7 +46,7 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         public List<WaveSubZone> WaveSubZones
         {
-            get; 
+            get;
             set;
         }
     }

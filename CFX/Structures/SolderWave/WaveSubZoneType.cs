@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
@@ -11,7 +10,7 @@ namespace CFX.Structures.SolderWave
     public enum WaveSubZoneType
     {
         /// <summary>
-        /// The sub zone type is unknown 
+        /// The sub zone type is unknown
         /// </summary>
         Unknown,
         /// <summary>
@@ -35,7 +34,7 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         Flux,
         /// <summary>
-        /// The sub zone is a infrared heater. 
+        /// The sub zone is a infrared heater.
         /// </summary>
         Infrared,
         /// <summary>
