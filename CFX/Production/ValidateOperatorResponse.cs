@@ -17,7 +17,7 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
-    public class OperatorActivateResponse : CFXMessage
+    public class ValidateOperatorResponse : CFXMessage
     {
         /// <summary>
         /// The result of the request

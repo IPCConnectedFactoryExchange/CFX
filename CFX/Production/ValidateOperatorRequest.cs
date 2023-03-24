@@ -21,7 +21,7 @@ namespace CFX.Production
     /// }
     /// </code>
     /// </summary>
-    public class OperatorActivateRequest : CFXMessage
+    public class ValidateOperatorRequest : CFXMessage
     {
         /// <summary>
         /// A structure which defines the Operator.
