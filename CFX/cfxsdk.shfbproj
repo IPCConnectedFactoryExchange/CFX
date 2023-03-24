@@ -36,9 +36,8 @@
     <HelpTitle>IPC Connected Factory Exchange Reference</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <DocumentationSources>
-      <DocumentationSource sourceFile="bin\net46\CFX.dll" />
-      <DocumentationSource sourceFile="bin\net46\CFX.xml" />
-    </DocumentationSources>
+      <DocumentationSource sourceFile="bin\net462\CFX.dll" />
+<DocumentationSource sourceFile="bin\net462\CFX.xml" /></DocumentationSources>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <NamespaceSummaries>
     </NamespaceSummaries>
