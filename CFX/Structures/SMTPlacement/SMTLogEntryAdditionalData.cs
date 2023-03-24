@@ -5,7 +5,7 @@
     /// A specialized type of LogEntryRecordedData for an SMT machine
     /// </summary>
     [CFX.Utilities.CreatedVersion("1.4")]
-    class SMTLogEntryAdditionalData : LogEntryAdditionalData
+    public class SMTLogEntryAdditionalData : LogEntryAdditionalData
     {
         /// <summary>
         /// The particular Head/Nozzle related to the log entry (where applicable)
