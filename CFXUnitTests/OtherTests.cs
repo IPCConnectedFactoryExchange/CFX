@@ -14,6 +14,7 @@ using CFX.Production;
 using CFX.Structures.SMTPlacement;
 using CFX.InformationSystem.UnitValidation;
 using System.Diagnostics;
+using CFX.Structures;
 
 namespace CFXUnitTests
 {
@@ -239,7 +240,7 @@ namespace CFXUnitTests
         }
 
 
-            [TestMethod]
+        [TestMethod]
         public void UpgradeTest()
         {
             // Write old SMTPlacementActivity
@@ -280,64 +281,87 @@ namespace CFXUnitTests
 
             string test = ae2.ToJson(true);
         }
-
+        
+        
         [TestMethod]
         public void MemoryLeakTest()
         {
             Uri target = new Uri("amqp://jwalls:7050");
             AmqpCFXEndpoint requester = new AmqpCFXEndpoint();
+            //requester.HeartbeatFrequency = TimeSpan.FromSeconds(0);
             requester.Open("Aegis.Requester.001");
 
-            AmqpCFXEndpoint requestee = new AmqpCFXEndpoint();
-            requestee.Open("Aegis.Requestee.001", target);
-            requestee.OnRequestReceived += Requestee_OnRequestReceived;
+            //AmqpCFXEndpoint requestee = new AmqpCFXEndpoint();"Aegis.Requestee.001"
+            //requestee.Open("Aegis.Requestee.001", target);
+            //requestee.OnRequestReceived += Requestee_OnRequestReceived;
 
-            Debugger.Break();
+            
 
-            for (int i = 0; i < 1; i++)
-            {
-                var env = new CFXEnvelope(
+            long initBytes = 0; long finalBytes = 0;
+
+            var env = new CFXEnvelope(
                     new ValidateUnitsRequest()
                     {
 
 
                     });
 
-                env.Target = "Aegis.Requestee.001";
+            env.Target = "Aegis.Requestee.001";
 
-                var response = requester.ExecuteRequest(target.ToString(), env);
-
-                System.Threading.Thread.Sleep(10);
-            }
+            var response = new CFXEnvelope(new ValidateUnitsResponse() { });
+            var targetString = target.ToString();
 
             GC.Collect();
-            System.Threading.Thread.Sleep(1000);
-            Debugger.Break();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            initBytes = Process.GetCurrentProcess().PrivateMemorySize64;
 
-            for (int i = 0; i < 1000; i++)
+            
+            int i = 0;
+                       
+            while (true) 
             {
-                var env = new CFXEnvelope(
-                    new ValidateUnitsRequest()
-                    {
-                    
+                response = requester.ExecuteRequest(targetString, env);
 
-                    });
+                if ((++i % 100) == 0)
+                {
+                    finalBytes = Process.GetCurrentProcess().PrivateMemorySize64;
+                    Debug.WriteLine($"Initial Bytes = {initBytes.ToString("N0")}  Final Bytes = {finalBytes.ToString("N0")}  Delta = {(finalBytes - initBytes).ToString("N0")}");
 
-                env.Target = "Aegis.Requestee.001";
+                }
 
-                //var response = requester.ExecuteRequest2(target.ToString(), env);
+                //System.Threading.Thread.Sleep(1);
 
-                System.Threading.Thread.Sleep(10);
+                if (i > 3000) break;
             }
 
-
-            Debugger.Break();
+            requester.Close();
+            response = null;
+            env = null;
 
             GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+
             System.Threading.Thread.Sleep(1000);
+            finalBytes = Process.GetCurrentProcess().PrivateMemorySize64;
 
-            Debugger.Break();
+            Debug.WriteLine($"Initial Bytes = {initBytes.ToString("N0")}  Final Bytes = {finalBytes.ToString("N0")}  Delta = {(finalBytes - initBytes).ToString("N0")}");
+                        
+            //while (true)
+            //{
+            //    System.Threading.Thread.Sleep(1000);
+            //    GC.Collect();
+            //    GC.WaitForPendingFinalizers();
+            //    GC.Collect();
+                
+            //    finalBytes = Process.GetCurrentProcess().PrivateMemorySize64;
 
+            //    Debug.WriteLine($"DONE  Initial Bytes = {initBytes.ToString("N0")}  Final Bytes = {finalBytes.ToString("N0")}  Delta = {(finalBytes - initBytes).ToString("N0")}");
+            //}
+
+
+            //Debugger.Break();
         }
 
         private CFXEnvelope Requestee_OnRequestReceived(CFXEnvelope request)

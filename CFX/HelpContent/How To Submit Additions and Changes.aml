@@ -14,8 +14,14 @@
 	  </para>
 	  <para>This guide explains the process for submitting these change requests via GitHub.  In order to submit requests, you must have a GitHub account, and be
 	  a member of the GitHub CFX team.  Any member of the IPC 2-17 Connected Factory Exchange Committee is eligible to become a member of the GitHub CFX team.  
-	  To join, email Nancy Jaster of the IPC at NancyJaster@ipc.org
+	  To join, please email the IPC at:  
 	  </para>
+	  <para>
+	  <externalLink>
+      	<linkText>answers@ipc.org</linkText>
+    	<linkUri>mailto:answers@ipc.org?subject=Request%20to%20Join%20CFX%20GitHub%20Community</linkUri>
+      </externalLink>
+      </para>
     </introduction>
     <section address="Section1">
       <title>Submission Process Overview</title>
