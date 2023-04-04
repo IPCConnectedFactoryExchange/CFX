@@ -20,22 +20,22 @@ namespace CFX.Structures
         [EnumMember(Value = "1000")]
         PRD = 1000,
         /// <summary>
-        /// Pruductive Time.  Regular Work.
+        /// Productive Time.  Regular Work.
         /// </summary>
         [EnumMember(Value = "1100")]
         PRD_RegularWork = 1100,
         /// <summary>
-        /// Pruductive Time.  Work for Third Parties.
+        /// Productive Time.  Work for Third Parties.
         /// </summary>
         [EnumMember(Value = "1200")]
         PRD_WorkForThirdParties = 1200,
         /// <summary>
-        /// Pruductive Time.  Rework.
+        /// Productive Time.  Rework.
         /// </summary>
         [EnumMember(Value = "1300")]
         PRD_Rework = 1300,
         /// <summary>
-        /// Pruductive Time.  Engineering.
+        /// Productive Time.  Engineering.
         /// </summary>
         [EnumMember(Value = "1400")]
         PRD_Engineering = 1400,

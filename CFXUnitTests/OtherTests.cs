@@ -12,6 +12,9 @@ using System.IO;
 using CFX.ResourcePerformance;
 using CFX.Production;
 using CFX.Structures.SMTPlacement;
+using CFX.InformationSystem.UnitValidation;
+using System.Diagnostics;
+using CFX.Structures;
 
 namespace CFXUnitTests
 {
@@ -21,7 +24,7 @@ namespace CFXUnitTests
         [TestMethod]
         public void GetChanges()
         {
-            string version = "1.5";
+            string version = "1.6";
             List<string> lines = new List<string>();
 
             Assembly assembly = Assembly.GetAssembly(typeof(CFX.CFXEnvelope));
@@ -237,7 +240,7 @@ namespace CFXUnitTests
         }
 
 
-            [TestMethod]
+        [TestMethod]
         public void UpgradeTest()
         {
             // Write old SMTPlacementActivity
@@ -277,6 +280,109 @@ namespace CFXUnitTests
             }
 
             string test = ae2.ToJson(true);
+        }
+        
+        
+        [TestMethod]
+        public void MemoryLeakTest()
+        {
+            Uri target = new Uri("amqp://jwalls:7050");
+            AmqpCFXEndpoint requester = new AmqpCFXEndpoint();
+            //requester.HeartbeatFrequency = TimeSpan.FromSeconds(0);
+            requester.Open("Aegis.Requester.001");
+
+            //AmqpCFXEndpoint requestee = new AmqpCFXEndpoint();"Aegis.Requestee.001"
+            //requestee.Open("Aegis.Requestee.001", target);
+            //requestee.OnRequestReceived += Requestee_OnRequestReceived;
+
+            
+
+            long initBytes = 0; long finalBytes = 0;
+
+            var env = new CFXEnvelope(
+                    new ValidateUnitsRequest()
+                    {
+
+
+                    });
+
+            env.Target = "Aegis.Requestee.001";
+
+            var response = new CFXEnvelope(new ValidateUnitsResponse() { });
+            var targetString = target.ToString();
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            initBytes = Process.GetCurrentProcess().PrivateMemorySize64;
+
+            
+            int i = 0;
+                       
+            while (true) 
+            {
+                response = requester.ExecuteRequest(targetString, env);
+
+                if ((++i % 100) == 0)
+                {
+                    finalBytes = Process.GetCurrentProcess().PrivateMemorySize64;
+                    Debug.WriteLine($"Initial Bytes = {initBytes.ToString("N0")}  Final Bytes = {finalBytes.ToString("N0")}  Delta = {(finalBytes - initBytes).ToString("N0")}");
+
+                }
+
+                //System.Threading.Thread.Sleep(1);
+
+                if (i > 3000) break;
+            }
+
+            requester.Close();
+            response = null;
+            env = null;
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+
+            System.Threading.Thread.Sleep(1000);
+            finalBytes = Process.GetCurrentProcess().PrivateMemorySize64;
+
+            Debug.WriteLine($"Initial Bytes = {initBytes.ToString("N0")}  Final Bytes = {finalBytes.ToString("N0")}  Delta = {(finalBytes - initBytes).ToString("N0")}");
+                        
+            //while (true)
+            //{
+            //    System.Threading.Thread.Sleep(1000);
+            //    GC.Collect();
+            //    GC.WaitForPendingFinalizers();
+            //    GC.Collect();
+                
+            //    finalBytes = Process.GetCurrentProcess().PrivateMemorySize64;
+
+            //    Debug.WriteLine($"DONE  Initial Bytes = {initBytes.ToString("N0")}  Final Bytes = {finalBytes.ToString("N0")}  Delta = {(finalBytes - initBytes).ToString("N0")}");
+            //}
+
+
+            //Debugger.Break();
+        }
+
+        private CFXEnvelope Requestee_OnRequestReceived(CFXEnvelope request)
+        {
+            var rspEnv = new CFXEnvelope();
+
+            if (request.MessageBody is ValidateUnitsRequest)
+            {
+                var response = new ValidateUnitsResponse()
+                {
+                    PrimaryResult = new CFX.Structures.ValidationResult()
+                    {
+                        Result = CFX.Structures.ValidationStatus.Skipped,
+                    }
+                };
+
+                rspEnv.MessageBody = response;
+            }
+
+
+            return rspEnv;
         }
     }
 }

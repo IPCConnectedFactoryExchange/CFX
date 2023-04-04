@@ -32,6 +32,17 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// An upper level carrier in which this carrier is loaded (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public MaterialCarrier ParentCarrier
+        {
+            get;
+            set;
+        }
     }
 
 }

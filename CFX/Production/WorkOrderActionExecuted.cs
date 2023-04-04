@@ -89,5 +89,40 @@ namespace CFX.Production
             get;
             set;
         }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// For two-dimensional products, such as printed circuit assemblies,
+        /// specifies the relevant surface that is concerned by the action. (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public Surface RelevantSurface
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// The name of the recipe, when a particular surface and a particular machine
+        /// are involved in the action (may include full path, if applicable) (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public string RecipeName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// Recipe version number, when a recipe name is defined (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public string RecipeRevision
+        {
+            get;
+            set;
+        }
     }
 }
