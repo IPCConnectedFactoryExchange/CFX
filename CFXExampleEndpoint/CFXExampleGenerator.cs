@@ -6077,6 +6077,7 @@ namespace CFXExampleEndpoint
                               UniqueIdentifier = "INS000001",
                               InspectionStartTime = DateTime.Now,
                               InspectionEndTime = DateTime.Now.AddMinutes(1.3),
+                              Result = TestResult.Failed,
                               Measurements = new List<Measurement>()
                               {
                                   new SolderPasteMeasurement ()
@@ -6111,6 +6112,7 @@ namespace CFXExampleEndpoint
                               UniqueIdentifier = "INS000002",
                               InspectionStartTime = DateTime.Now,
                               InspectionEndTime = DateTime.Now.AddMinutes(1.1),
+                              Result = TestResult.Failed,
                               Measurements = new List<Measurement>()
                               {
                                   new SolderPasteMeasurement ()
