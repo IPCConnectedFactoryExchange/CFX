@@ -40,6 +40,7 @@ namespace CFX
         }
 
         /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 1.7 **</para>
         /// Any faults currently active on this endpoint.  Faults should be repeated here until cleared. 
         /// Leaving this parameter as null means that active faults are not known.  Setting it to an
         /// empty List implies positive knowledge that there are no active faults.
@@ -51,6 +52,7 @@ namespace CFX
         }
 
         /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 1.7 **</para>
         /// Any recipes currently active on this endpoint.  Recipes may be specified either using
         /// their identifiers or by including recipe details such as expected cycle times depending
         /// on what information the endpoing is able to communicate.
