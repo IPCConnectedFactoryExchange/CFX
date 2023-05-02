@@ -45,6 +45,7 @@ namespace CFX
         /// Leaving this parameter as null means that active faults are not known.  Setting it to an
         /// empty List implies positive knowledge that there are no active faults.
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
         public List<Fault> ActiveFaults
         {
             get;
@@ -62,6 +63,7 @@ namespace CFX
         ///
         /// Multiple recipes may be active at once on a given endpoint.
         /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
         public List<ActiveRecipe> ActiveRecipes
         {
             get;
