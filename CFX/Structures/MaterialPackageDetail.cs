@@ -365,5 +365,17 @@ namespace CFX.Structures
             get;
             set;
         }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.7 **</para>
+        /// The ResourceLocation on which the material is located (optional)
+        /// If null, it is assumed that the Resource is the one associated to the source Endpoint
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
+        public ResourceLocation ResourceLocation
+        {
+            get;
+            set;
+        }
     }
 }

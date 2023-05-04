@@ -56,6 +56,18 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.7 **</para>
+        /// The type of resource (machine, shelf...). 
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
+        [JsonProperty(Order = -2)]
+        public ResourceType Type
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The name of the vendor of the machine / resource (optional)
         /// </summary>
         [JsonProperty(Order = -2)]
