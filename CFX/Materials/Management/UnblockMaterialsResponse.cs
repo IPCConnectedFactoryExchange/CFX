@@ -30,7 +30,7 @@ namespace CFX.Materials.Management
         /// <summary>
         /// The result of the request
         /// </summary>
-        RequestResult Result
+        public RequestResult Result
         {
             get;
             set;
