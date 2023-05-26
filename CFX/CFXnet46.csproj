@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net462</TargetFramework>
     <PackageId>CFX.CFXSDK</PackageId>
     <PackageVersion>1.6.1</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
