@@ -6011,7 +6011,134 @@ namespace CFXExampleEndpoint
                 }
                 
             };
+            /****New in version 1.7*****/
+            /***************************/
+
+            msg = new GetInspectionInfoRequest()
+            {
+                PrimaryIdentifier = Guid.NewGuid().ToString(),
+                HermesIdentifier = "",
+                Units = new List<UnitInfo>
+                {
+                    new UnitInfo()
+                    {
+                        UnitIdentifier = "SN123456",
+                        CRDs = new List<string>
+                        {
+                           "R1",
+                           "R2",
+                           "R3.1"
+                        },
+                        PositionNumber = 1,
+                        Status = UnitStatus.Fail
+                    },
+                    new UnitInfo()
+                    {
+                        UnitIdentifier = "SN9012345",
+                        CRDs = new List<string>
+                        {
+                           "R5",
+                           "R6",
+                           "R7.1"
+                        },
+                        PositionNumber = 2,
+                        Status = UnitStatus.Fail
+                        
+                    },
+                     new UnitInfo()
+                    {
+                        UnitIdentifier = "SN0012347",
+                        CRDs = new List<string>
+                        {
+                           "R9",
+                           "R10",
+                           "R11.1"
+                        },
+                        PositionNumber = 3,
+                        Status = UnitStatus.Skip
+
+                    }
+                }
+            };
             AppendMessage(msg, ref result);
+
+            msg = new GetInspectionInfoResponse()
+            {
+               InspectedUnits = new List<InspectedUnit>()
+               { 
+                   new InspectedUnit() 
+                   {
+                       UnitIdentifier = "SN123456",
+                       UnitPositionNumber = 1,
+                       Inspections = new List<Inspection>()
+                       {
+                          new Inspection()
+                          {
+                              UniqueIdentifier = "INS000001",
+                              InspectionStartTime = DateTime.Now,
+                              InspectionEndTime = DateTime.Now.AddMinutes(1.3),
+                              Result = TestResult.Failed,
+                              Measurements = new List<Measurement>()
+                              {
+                                  new SolderPasteMeasurement ()
+                                  {
+                                      UniqueIdentifier = "MS00001",
+                                      CRDs = "R1,R2,R3.1",
+                                      EX= 0.8,
+                                      EY= 1.5,
+                                      EZ= 0.0,
+                                      PX= 3000.0,
+                                      PY= 1200.0,
+                                      EA= 1.2,
+                                      EVol= 0.0001,
+                                      AR= 1.8,
+                                      RXY= 0.0,
+                                      Result = TestResult.Failed
+                                  }
+                              }
+                              
+                          }
+                       },
+                       TotalInspectionCount = 1
+                   },
+                   new InspectedUnit()
+                   {
+                       UnitIdentifier = "SN9012345",
+                       UnitPositionNumber = 2,
+                       Inspections = new List<Inspection>()
+                       {
+                          new Inspection()
+                          {
+                              UniqueIdentifier = "INS000002",
+                              InspectionStartTime = DateTime.Now,
+                              InspectionEndTime = DateTime.Now.AddMinutes(1.1),
+                              Result = TestResult.Failed,
+                              Measurements = new List<Measurement>()
+                              {
+                                  new SolderPasteMeasurement ()
+                                  {
+                                      UniqueIdentifier = "MS00002",
+                                      CRDs = "R5,R6,R7.1",
+                                      EX= 0.8,
+                                      EY= 1.5,
+                                      EZ= 0.0,
+                                      PX= 3000.0,
+                                      PY= 1200.0,
+                                      EA= 1.2,
+                                      EVol= 0.0001,
+                                      AR= 1.8,
+                                      RXY= 0.0,
+                                      Result = TestResult.Failed
+                                  }
+                              }
+                          }
+                       },
+                       TotalInspectionCount = 1
+                   }                   
+               }
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
     }

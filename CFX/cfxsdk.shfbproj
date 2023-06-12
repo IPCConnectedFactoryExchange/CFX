@@ -37,7 +37,8 @@
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <DocumentationSources>
       <DocumentationSource sourceFile="bin\net462\CFX.dll" />
-<DocumentationSource sourceFile="bin\net462\CFX.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="bin\net462\CFX.xml" />
+    </DocumentationSources>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <NamespaceSummaries>
     </NamespaceSummaries>

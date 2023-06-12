@@ -14,9 +14,21 @@ namespace CFX.Structures
     public class MaterialLocation
     {
         /// <summary>
-        /// The unique identifier (barcode) of the location on the Endpoint where the MaterialPackage is to be loaded.
+        /// <para>** NOTE: ADDED in CFX 1.7 **</para>
+        /// The ResourceLocation on which the material is located (optional)
+        /// If null, it is assumed that the Resource is the one associated to the source Endpoint
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
+        public ResourceLocation ResourceLocation
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The unique identifier (barcode) of the location on the Endpoint / Resource where the MaterialPackage is to be loaded.
         /// If this property is left empty, the MaterialPackage will only be loaded to the carrier specified
-        /// by the CarrierInformation property, and not to an Endpoint.
+        /// by the CarrierInformation property, and not to an Endpoint / Resource.
         /// </summary>
         public string LocationIdentifier
         {
