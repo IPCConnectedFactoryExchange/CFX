@@ -56,7 +56,16 @@ namespace CFX.Production.Assembly.PressInsertion
             set;
         }
 
-        /// <summary>	
+	/// <summary>
+        /// Identifies the Condition name
+        /// </summary>
+	public string ConditionName
+	{
+	    get;
+	    set;
+	}
+
+	/// <summary>	
         /// Describes a individual step of a Condition sequence that must be validated
         /// </summary>
         public ConditionStep ConditionStep
