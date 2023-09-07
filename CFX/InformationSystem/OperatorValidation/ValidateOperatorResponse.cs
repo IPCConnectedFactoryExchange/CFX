@@ -1,32 +1,25 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
 
-namespace CFX.Materials.Management
+namespace CFX.InformationSystem.OperatorValidation
 {
     /// <summary>
-    /// Response to a request to unblock one or more particular lots or instances of material from use in production.
+    /// Response to a request that the operator's login was successful or not.
     /// <code language="none">
     /// {
     ///   "Result": {
     ///     "Result": "Success",
     ///     "ResultCode": 0,
-    ///     "Message": "BLOCKED OK"
+    ///     "Message": "OK"
     ///   }
     /// }
     /// </code>
     /// </summary>
-    public class UnblockMaterialsResponse : CFXMessage
+    [Utilities.CreatedVersion("1.7")]
+    public class ValidateOperatorResponse : CFXMessage
     {
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public UnblockMaterialsResponse()
-        {
-            Result = new RequestResult();
-        }
-
         /// <summary>
         /// The result of the request
         /// </summary>

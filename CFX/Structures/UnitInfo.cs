@@ -31,14 +31,15 @@ namespace CFX.Structures
     ///     {
     ///       "FiducialX": "10.2",
     ///       "FiducialY": 1.3,
-    ///       "FiducialRXY": "0.5",
+    ///       "FiducialRXY": "0.5"
     ///     },
     ///     {
     ///       "FiducialX": "20.8",
     ///       "FiducialY": 7.3,
-    ///       "FiducialRXY": "0.0",
+    ///       "FiducialRXY": "0.0"
     ///     }
-    ///   ]
+    ///   ],
+    ///    "CRDs" : []
     /// }
     /// </code>
     /// </summary>
@@ -74,6 +75,18 @@ namespace CFX.Structures
         /// </summary>
         [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<FiducialInfo> Fiducials
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.7 **</para>
+        /// An optional list of component designators (instances of a part) on a production unit(s) to be associated with this measurement.
+        /// May include sub-components in "." notation.  Examples:  R1, R2, R3 or  R2.3 (R2, pin 3)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
+        public List<string> CRDs
         {
             get;
             set;
