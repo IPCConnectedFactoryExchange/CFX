@@ -104,6 +104,16 @@ namespace CFX.Structures
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Optional: Name of the manufacturer of the PCB.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public string PCBManufacturer
+        { 
+            get; 
+            set;
+        }
     }
 }
 
