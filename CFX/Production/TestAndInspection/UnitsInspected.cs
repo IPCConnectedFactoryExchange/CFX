@@ -661,7 +661,7 @@ namespace CFX.Production.TestAndInspection
     ///   "InspectedPanel": {
     ///     "UnitIdentifier": "PN123456789",
     ///     "OverallResult": "Passed",
-    ///     "PCBVendor": "Vendor 1",
+    ///     "PCBVariant": "Variant 1",
     ///     "Inspections": [
     ///       {
     ///         "UniqueIdentifier": "29436eed-f82f-435a-b19c-7b66aa5cf6f6",

@@ -5989,7 +5989,7 @@ namespace CFXExampleEndpoint
                         },
                     UnitIdentifier = "PN123456789",
                     OverallResult = TestResult.Passed,
-                    PCBVendor = "Vendor 1",
+                    PCBVariant = "Variant 1",
                     Inspections = new List<Inspection>(new Inspection[]
                         {
                             new Inspection()
@@ -6012,6 +6012,7 @@ namespace CFXExampleEndpoint
                 }
                 
             };
+            AppendMessage(msg, ref result);
             /****New in version 1.7*****/
             /***************************/
 

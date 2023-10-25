@@ -28,7 +28,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The expected value for thie measurement
+        /// The expected value for this measurement
         /// </summary>
         public double? ExpectedValue
         {
@@ -64,7 +64,7 @@ namespace CFX.Structures
             set;
         }
         /// <summary>
-        /// The minimum acceptable value
+        /// The maximum acceptable value
         /// </summary>
         public double? MaximumAcceptableValue
         {

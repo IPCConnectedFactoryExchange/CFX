@@ -106,10 +106,10 @@ namespace CFX.Structures
         }
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-        /// Optional: Name of the PCB vendor.
+        /// Optional: Identification of the PCB Variant.
         /// </summary>
         [CFX.Utilities.CreatedVersion("2.0")]
-        public string PCBVendor
+        public string PCBVariant
         { 
             get; 
             set;
