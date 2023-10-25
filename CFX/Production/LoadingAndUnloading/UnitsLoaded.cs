@@ -13,6 +13,7 @@ namespace CFX.Production.LoadingAndUnloading
     /// <code language="none">
     /// {
     ///   "UniqueIdentifier": "PALLET123",
+    ///   "UnitCount": 2,
     ///   "Units": [
     ///     {
     ///       "UnitIdentifier": "MODULE1",
@@ -57,7 +58,22 @@ namespace CFX.Production.LoadingAndUnloading
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// The number of individual production units
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public int UnitCount
+        {
+            get
+            {
+                return Units.Count;
 
+            }
+            private set
+            {
+            }
+        }
         /// <summary>
         /// A list of the specific units that were loaded along with positions they were loaded from.
         /// </summary>

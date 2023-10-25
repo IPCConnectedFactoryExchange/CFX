@@ -35,5 +35,16 @@ namespace CFX.ResourcePerformance
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Optional: The id of the work transaction with which this calibration is associated.
+        /// Empty if calibration not associated with a work transaction.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public Guid? TransactionID
+        {
+            get;
+            set;
+        }
     }
 }
