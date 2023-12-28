@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
 
-namespace CFX.InformationSystem
+namespace CFX.InformationSystem.OperatorValidation
 {
     /// <summary>
     /// Request that an operator take action now or be responsible for a process endpoint.
@@ -21,7 +21,7 @@ namespace CFX.InformationSystem
     /// }
     /// </code>
     /// </summary>
-    [CFX.Utilities.CreatedVersion("1.7")]
+    [Utilities.CreatedVersion("1.7")]
     public class ValidateOperatorRequest : CFXMessage
     {
         /// <summary>
