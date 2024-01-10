@@ -1,6 +1,6 @@
 namespace CFX.Structures.HandSoldering
 {
-    public enum HandSolderResult
+    public enum HandSolderingResult
     {
         Undefined = 0,
         Success = 1,
