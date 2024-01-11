@@ -6,7 +6,7 @@
         /// <summary>
         /// The temperature unit.
         /// </summary>
-        public TemperatureUnit Type { get; set; }
+        public TemperatureUnit TemperatureUnit { get; set; }
 
         /// <summary>
         /// The set target temperature.
