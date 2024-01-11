@@ -20,6 +20,11 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// Name of the file.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// An enumeration that descibes the type of file to be transferred.  This may be a generic, well-known file format
         /// (MIME content types), or a specialized format defined specifically by the CFX standard, such as an IPC-2581 DPMX
         /// design file.
