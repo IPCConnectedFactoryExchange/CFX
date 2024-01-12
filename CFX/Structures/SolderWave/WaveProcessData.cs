@@ -10,20 +10,15 @@ namespace CFX.Structures.SolderWave
     public class WaveProcessData : ProcessData
     {
         /// <summary>
-        /// Default Constructor
+        /// List of conveyor data (as seen while the processed unit was processed)
         /// </summary>
-        public WaveProcessData()
-        {
-            WaveZones = new List<WaveZone>();
-        }
+        public List<Conveyor> Conveyors { get; set; }
+
+        public N2O2 N2O2 { get; set; }
 
         /// <summary>
-        /// Process data (flux, preheating, etc.) for each zone of the wave soldering machine
+        /// Gets or sets the unit process data.
         /// </summary>
-        public List<WaveZone> WaveZones
-        {
-            get;
-            set;
-        }
+        public WaveUnitProcessData UnitProcessData { get; set; }
     }
 }
