@@ -14,6 +14,16 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         public List<Conveyor> Conveyors { get; set; }
 
+        /// <summary>
+        /// Measured length [mm] of the unit.
+        /// </summary>
+        public double UnitLength { get; set; }
+
+        /// <summary>
+        /// Setpoint of the length [mm] of the unit.
+        /// </summary>
+        public double UnitLengthSetpoint { get; set; }
+
         public N2O2 N2O2 { get; set; }
 
         /// <summary>
