@@ -79,6 +79,15 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// Z coordinate of Production unit origin, as it is known to the endpoint, expressed in millimeters (mm)
+        /// </summary>
+        public double Z
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Original rotation of Production unit, as it is known to the endpoint, expressed in degrees
         /// </summary>
         public double Rotation
