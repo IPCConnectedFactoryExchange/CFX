@@ -31,6 +31,9 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         public AggregateType Type { get; set; }
 
+        /// <summary>
+        /// An enumeration indicating the location of the aggregate.
+        /// </summary>
         public AggregateLocation Location { get; set; }
     }
 }
