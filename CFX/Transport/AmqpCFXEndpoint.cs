@@ -1175,7 +1175,7 @@ namespace CFX.Transport
                     }
                     else
                     {
-                        throw new TimeoutException("A response was not received from target CFX endpoint in the alloted time.");
+                        throw new TimeoutException("A response was not received from target CFX endpoint in the allotted time.");
                     }
                 }
                 catch (Exception ex3)
