@@ -4,8 +4,10 @@ using System.Collections.Generic;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
     /// Provides information about the conditions within a wave soldering machine.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class WaveProcessData : ProcessData
     {

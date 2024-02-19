@@ -4,6 +4,11 @@ using System.Text;
 
 namespace CFX.Structures.SolderWave
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// N2O2 representation. 
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class N2O2
     {
         public N2O2Mode Mode { get; set; }

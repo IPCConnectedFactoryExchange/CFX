@@ -5,8 +5,10 @@ using System.Text;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
     /// An enumeration indicating different types of stages that might exist at an endpoint. 
     /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public enum AggregateLocation
     {
         /// <summary>

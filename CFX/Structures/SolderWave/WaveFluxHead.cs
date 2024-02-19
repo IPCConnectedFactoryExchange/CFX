@@ -5,8 +5,10 @@ using System.Text;
 namespace CFX.Structures.SolderWave
 {
     /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
     /// Flux head information.
     /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class WaveFluxHead
     {
         /// <summary>

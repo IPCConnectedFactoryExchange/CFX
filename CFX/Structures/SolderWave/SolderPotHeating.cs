@@ -4,6 +4,11 @@ using System.Text;
 
 namespace CFX.Structures.SolderWave
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Holds information about the solder pot heating.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class SolderPotHeating
     {
         /// <summary>

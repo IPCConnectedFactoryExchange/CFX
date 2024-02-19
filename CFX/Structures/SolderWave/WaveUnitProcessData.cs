@@ -4,6 +4,11 @@ using System.Text;
 
 namespace CFX.Structures.SolderWave
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Wave unit process data information.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class WaveUnitProcessData
     {
         /// <summary>
