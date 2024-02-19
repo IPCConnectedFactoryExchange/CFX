@@ -2,6 +2,11 @@
 
 namespace CFX.Structures.HandSoldering
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Telemetry data.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class TelemetryData
     {
         /// <summary>

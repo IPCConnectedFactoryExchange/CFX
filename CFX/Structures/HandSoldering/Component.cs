@@ -1,5 +1,10 @@
 ﻿namespace CFX.Structures.HandSoldering
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Component information.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class Component
     {
         /// <summary>

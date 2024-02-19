@@ -1,8 +1,12 @@
 ﻿namespace CFX.Structures.HandSoldering
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Temperature process information.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class TemperatureProcess
     {
-     
         /// <summary>
         /// The temperature unit.
         /// </summary>

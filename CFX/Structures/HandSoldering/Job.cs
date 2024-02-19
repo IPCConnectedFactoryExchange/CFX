@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace CFX.Structures.HandSoldering
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Holds hand soldering job information.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class Job
     {
         /// <summary>

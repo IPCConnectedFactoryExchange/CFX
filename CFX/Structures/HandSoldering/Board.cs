@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace CFX.Structures.HandSoldering
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Holds information of the board for the hand soldering process.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class Board
     {
         /// <summary>

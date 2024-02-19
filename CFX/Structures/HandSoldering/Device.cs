@@ -2,6 +2,11 @@
 
 namespace CFX.Structures.HandSoldering
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// Device information.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.0")]
     public class Device
     {
         /// <summary>
