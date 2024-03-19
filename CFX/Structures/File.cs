@@ -20,8 +20,10 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
         /// Name of the file.
         /// </summary>
+        /// [CFX.Utilities.CreatedVersion("2.0")]
         public string Name { get; set; }
 
         /// <summary>
