@@ -8,12 +8,17 @@ namespace CFX.Structures.HandSoldering
     /// Holds information of the board for the hand soldering process.
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public class Board
+    public class HandSolderingBoardProcessData : ProcessData
     {
+        /// <summary>
+        /// The board id.
+        /// </summary>
+        public Guid BoardId { get; set; }
+
         /// <summary>
         /// The board name.
         /// </summary>
-        public string Name { get; set; }
+        public string BoardName { get; set; }
 
         /// <summary>
         /// The start of work time stamp.
@@ -24,11 +29,6 @@ namespace CFX.Structures.HandSoldering
         /// The end of work time stamp.
         /// </summary>
         public DateTime FinishedAt { get; set; }
-
-        /// <summary>
-        /// The duration of work in seconds.
-        /// </summary>
-        public int Duration { get; set; }
 
         /// <summary>
         /// List of soldered points.

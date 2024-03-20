@@ -22,6 +22,6 @@ namespace CFX.Structures.HandSoldering
         /// <summary>
         /// A list of processed boards.
         /// </summary>
-        public List<Board> Boards { get; set; }
+        public List<HandSolderingBoardProcessData> HandSolderingBoardProcessData { get; set; }
     }
 }
