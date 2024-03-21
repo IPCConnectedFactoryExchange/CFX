@@ -38,6 +38,7 @@ using CFX.Structures.ReflowProfiling;
 using CFX.Production.Hermes;
 using CFX.Structures.Maintenance;
 using CFX.Structures.Cleaning;
+using CFX.Structures.HandSoldering;
 
 namespace CFXExampleEndpoint
 {
@@ -6137,6 +6138,93 @@ namespace CFXExampleEndpoint
                    }                   
                }
             };
+            AppendMessage(msg, ref result);
+
+            /***************************/
+            /****New in version 2.0*****/
+            /***************************/
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                OverallResult = ProcessingResult.Succeeded,
+                CommonProcessData = new HandSolderingBoardProcessData()
+                {
+                    BoardId = Guid.NewGuid(),
+                    BoardName = "PCB-A-123",
+                    File = new File()
+                    {
+                        Name = "HandSolderingBoardProcessDataFile",
+                        FileType = FileType.GenericMimeType,
+                        FileURL = "FileURL",
+                        MimeType = "application/json"
+                    },
+                    StartedAt = DateTime.Now.Subtract(new TimeSpan(0, 0, 2, 0)),
+                    FinishedAt = DateTime.Now,
+                    Result = HandSolderingResult.Success,
+                    TelemetryData = new TelemetryData()
+                    {
+                        ActualPower = 85,
+                        CreatedAt = DateTime.Now,
+                        TemperatureProcess = new TemperatureProcess()
+                        {
+                            CurrentTemperature = 315, 
+                            TargetTemperature = 340,
+                            TemperatureUnit = TemperatureUnit.Celsius,
+                        }
+                    },
+                    SolderPoints = new List<SolderPoint>()
+                    {
+                        new SolderPoint()
+                        {
+                            Name = "Solder point 1",
+                            Component = new CFX.Structures.HandSoldering.Component()
+                            {
+                                Name = "Carbon resistor 1/4 W, 5%, 1.0 Ohm",
+                                ComponentType = "Resistor",
+                                MaxTemperature = 155,
+                                MaxTime = 1
+                            },
+                            StartedAt = DateTime.Now.Subtract(new TimeSpan(0,0,2,0)),
+                            FinishedAt = DateTime.Now,
+                            Materials = new List<Material>()
+                            {
+                                new Material()
+                                {
+                                    Name = "Soldering tin",
+                                    CustomMaterial = "0.75 mm, Sn99 Cu7, role 250g",
+                                    Type = MaterialType.Wire,
+                                },
+                                new Material()
+                                {
+                                    Name = "Soldering tip",
+                                    CustomMaterial = "pencil-shaped, straight, width 1.0 mm",
+                                    Type = MaterialType.Tip,
+                                }
+                            },
+                            ReadSolderingPosition = new SolderPointPosition()
+                            {
+                                X = 2,
+                                Y = 3,
+                                Z = 0
+                            },
+                            SetSolderingPosition = new SolderPointPosition()
+                            {
+                                X = 2,
+                                Y = 3,
+                                Z = 0
+                            },
+                            Result = HandSolderingResult.Success,
+                            ResultPicture = new File()
+                            {
+                                Name = "Test Result Picture 1",
+                                FileType = FileType.GenericMimeType,
+                                MimeType = "image/jpeg",
+                            },
+                        }
+                    }
+                },
+            };
+
             AppendMessage(msg, ref result);
 
             return result;
