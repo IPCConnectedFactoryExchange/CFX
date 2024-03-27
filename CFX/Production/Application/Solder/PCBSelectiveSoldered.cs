@@ -170,7 +170,7 @@ namespace CFX.Production.Application.Solder
     /// This was an early message; the standard has since moved to the
     /// <see cref="UnitsProcessed"/> with 
     /// <see cref="SelectiveSolderPCBProcessData"/> as the data being sent. You
-    /// should prefer using these over the <c>PCBSelectiveSoldered</v>.
+    /// should prefer using these over the <c>PCBSelectiveSoldered</c>.
     /// </remaks>
     /// </summary>
     public class PCBSelectiveSoldered : CFXMessage
