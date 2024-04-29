@@ -6139,6 +6139,47 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            //Added in 2.0
+            msg = new MaterialsApplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                AppliedMaterials = new List<InstalledMaterial>()
+                {
+                    new AppliedMaterial() 
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityApplied = new NumericValue()
+                        {
+                            ExpectedValue = 3.6,
+                            ExpectedValueUnits = "g",
+                            MaximumAcceptableValue = 3.8,
+                            MinimumAcceptableValue = 3.4,
+                            Value = 3.57,
+                            ValueUnits =  "gramm"
+                        }
+                    },
+                    new AppliedMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityApplied = new NumericValue()
+                        {
+                            ExpectedValue = 3.6,
+                            ExpectedValueUnits = "g",
+                            MaximumAcceptableValue = 3.8,
+                            MinimumAcceptableValue = 3.4,
+                            Value = 3.45,
+                            ValueUnits =  "gramm"
+                        }
+                    }
+                }
+
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
     }
