@@ -18,7 +18,7 @@ namespace CFX.InformationSystem.OperatorValidation
     /// </code>
     /// </summary>
     [Utilities.CreatedVersion("1.7")]
-    public class ValidateOperatorResponse : CFXMessage
+    public class ValidateTopicResponse : CFXMessage
     {
         /// <summary>
         /// The result of the request

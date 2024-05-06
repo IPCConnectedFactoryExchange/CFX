@@ -22,7 +22,7 @@ namespace CFX.InformationSystem.OperatorValidation
     /// </code>
     /// </summary>
     [Utilities.CreatedVersion("1.7")]
-    public class ValidateOperatorRequest : CFXMessage
+    public class ValidateTopicRequest : CFXMessage
     {
         /// <summary>
         /// A structure which defines the Operator.
