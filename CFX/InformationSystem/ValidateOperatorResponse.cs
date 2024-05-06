@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
 
-namespace CFX.InformationSystem.OperatorValidation
+namespace CFX.InformationSystem
 {
     /// <summary>
     /// Response to a request that the operator's login was successful or not.
@@ -17,8 +17,8 @@ namespace CFX.InformationSystem.OperatorValidation
     /// }
     /// </code>
     /// </summary>
-    [Utilities.CreatedVersion("1.7")]
-    public class ValidateTopicResponse : CFXMessage
+    [CFX.Utilities.CreatedVersion("1.7")]
+    public class ValidateOperatorResponse : CFXMessage
     {
         /// <summary>
         /// The result of the request
