@@ -16,6 +16,10 @@ namespace CFX.Structures
         /// </summary>
         UnitSkip,
         /// <summary>
+        /// Item removal or restoration (ItemRemovalProductionChange).
+        /// </summary>
+        ItemRemoval,
+        /// <summary>
         /// Component removal or restoration (ComponentRemovalProductionChange).
         /// </summary>
         ComponentRemoval,
