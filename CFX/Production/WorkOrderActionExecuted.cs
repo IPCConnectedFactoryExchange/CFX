@@ -124,5 +124,15 @@ namespace CFX.Production
             get;
             set;
         }
+
+        /// <summary>
+        /// The theorical number of units that are supposed to be processed simulataneously by this recipe.
+        /// For example, in the case of a 2 x 2 panelized PCB, this property would be 4 because 4 units (PCBs) are procesed at one time.
+        /// </summary>
+        public double ExpectedUnitsPerBoard
+        {
+            get;
+            set;
+        }
     }
 }
