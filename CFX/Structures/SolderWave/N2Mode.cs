@@ -6,10 +6,10 @@ namespace CFX.Structures.SolderWave
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-    /// An enumeration of N2O2 modes.
+    /// An enumeration of N2 modes.
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public enum N2O2Mode
+    public enum N2Mode
     {
         /// <summary>
         /// Disable N202.

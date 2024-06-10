@@ -6,12 +6,12 @@ namespace CFX.Structures.SolderWave
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-    /// N2O2 measurement information.
+    /// N2 measurement information.
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public class N2O2Measurement
+    public class N2Measurement
     {
-        public N2O2Location Location { get; set; }
+        public N2Location Location { get; set; }
 
         /// <summary>
         /// Gets or sets the o2 reading value in ppm.

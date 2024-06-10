@@ -6,21 +6,21 @@ namespace CFX.Structures.SolderWave
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-    /// An enumeration of N2O2 locations.
+    /// An enumeration of N2 locations.
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public enum N2O2Location
+    public enum N2Location
     {
         /// <summary>
-        /// N2O2 location preheating.
+        /// N2 location preheating.
         /// </summary>
         Preheating,
         /// <summary>
-        /// N2O2 location solder pot 1.
+        /// N2 location solder pot 1.
         /// </summary>
         SolderPot1,
         /// <summary>
-        /// N2O2 location solder pot 2.
+        /// N2 location solder pot 2.
         /// </summary>
         SolderPot2
     }

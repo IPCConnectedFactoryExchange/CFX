@@ -6,12 +6,12 @@ namespace CFX.Structures.SolderWave
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-    /// N2O2 representation. 
+    /// N2 representation. 
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public class N2O2
+    public class N2
     {
-        public N2O2Mode Mode { get; set; }
+        public N2Mode Mode { get; set; }
 
         /// <summary>
         /// Gets or sets the nitrogen supply reading value in mbar.
@@ -23,6 +23,6 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         public double FlowVolumeReadingValue { get; set; }
 
-        public List<N2O2Measurement> Measurements { get; set; }
+        public List<N2Measurement> Measurements { get; set; }
     }
 }
