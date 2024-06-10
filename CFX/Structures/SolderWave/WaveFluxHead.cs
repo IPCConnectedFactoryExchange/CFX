@@ -50,5 +50,35 @@ namespace CFX.Structures.SolderWave
         /// Gets or sets the flux head1 axis1 consumption reading point in ml.
         /// </summary>
         public double ConsumptionReadingPoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the active flux tank set value. 1 based (1, 2, ...)
+        /// </summary>
+        public int ActiveFluxTankSetValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the active flux tank reading point. 1 based (1, 2, ...)
+        /// </summary>
+        public int ActiveFluxTankReadingPoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the flux tank pressure set value in mbar.
+        /// </summary>
+        public int FluxTankPressureSetValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the flux tank pressure reading point in mbar.
+        /// </summary>
+        public int FluxTankPressureReadingPoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the flux traverse speed set value in mm/sec.
+        /// </summary>
+        public int FluxTraverseSpeedSetValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the flux traverse speed reading point in mm/sec.
+        /// </summary>
+        public int FluxTraverseSpeedReadingPoint { get; set; }
     }
 }
