@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6162,16 +6162,16 @@ namespace CFXExampleEndpoint
                             IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent,
                         }
                     },
-                    N2O2 = new N2O2()
+                    N2 = new N2()
                     {
-                        Mode = N2O2Mode.N2O2On,
+                        Mode = N2Mode.N2On,
                         FlowVolumeReadingValue = 22.2,
                         NitrogenSupplyReadingValue = 5999.0,
-                        Measurements = new List<N2O2Measurement>
+                        Measurements = new List<N2Measurement>
                         { 
-                            new N2O2Measurement()
+                            new N2Measurement()
                             {
-                                Location = N2O2Location.SolderPot1,
+                                Location = N2Location.SolderPot1,
                                 O2ReadingValue = 500.0,
                                 O2Setpoint = 0.0,
                                 N2ReadingValue = 0.0,

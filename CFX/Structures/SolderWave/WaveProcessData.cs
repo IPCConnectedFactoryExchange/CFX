@@ -26,7 +26,7 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         public double UnitLengthSetpoint { get; set; }
 
-        public N2O2 N2O2 { get; set; }
+        public N2 N2 { get; set; }
 
         /// <summary>
         /// Gets or sets the unit process data.
