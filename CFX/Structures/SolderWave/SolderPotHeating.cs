@@ -12,12 +12,12 @@ namespace CFX.Structures.SolderWave
     public class SolderPotHeating
     {
         /// <summary>
-        /// Gets or sets the set point of the temperature.
+        /// Gets or sets the set point of the temperature [°C].
         /// </summary>
         public double TemperatureSetpoint { get; set; }
 
         /// <summary>
-        /// Gets or sets the temperature reading value.
+        /// Gets or sets the temperature [°C] reading value.
         /// </summary>
         public double TemperatureReadingValue { get; set; }
     }

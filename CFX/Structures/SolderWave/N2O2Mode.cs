@@ -20,16 +20,12 @@ namespace CFX.Structures.SolderWave
         /// </summary>
         N2On,
         /// <summary>
-        /// Enable N202.
+        /// Enable N2 for Pot1.
         /// </summary>
-        N2O2On,
+        N2Pot1,
         /// <summary>
-        /// Enable 02 for Pot1.
+        /// Enable N2 for Pot2.
         /// </summary>
-        O2Pot1,
-        /// <summary>
-        /// Enable 02 for Pot2.
-        /// </summary>
-        O2Pot2
+        N2Pot2
     }
 }

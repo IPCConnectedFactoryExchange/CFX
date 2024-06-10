@@ -26,6 +26,10 @@ namespace CFX.Structures.SolderWave
         /// <summary>
         /// The heating process is based on an infrared emitter.
         /// </summary>
-        IrEmitter
+        IrEmitter,
+        /// <summary>
+        /// The heating process is based on a radiant heater.
+        /// </summary>
+        Radiant
     }
 }

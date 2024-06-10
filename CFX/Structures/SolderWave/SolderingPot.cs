@@ -12,12 +12,12 @@ namespace CFX.Structures.SolderWave
     public class SolderingPot
     {
         /// <summary>
-        /// Gets or sets the z axis setpoint.
+        /// Gets or sets the z axis setpoint in mm.
         /// </summary>
         public double ZAxisSetpoint { get; set; }
 
         /// <summary>
-        /// Gets or sets the z axis setpoint.
+        /// Gets or sets the z axis reading value in mm.
         /// </summary>
         public double ZAxisReadingValue { get; set; }
 
