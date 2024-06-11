@@ -14,6 +14,6 @@ namespace CFX.Structures.SolderWave
         /// <summary>
         /// An enumeration indicating the cooling type.
         /// </summary>
-        public CoolingType Type { get; set; }
+        public CoolingType CoolingType { get; set; }
     }
 }

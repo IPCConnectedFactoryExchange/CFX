@@ -6211,7 +6211,7 @@ namespace CFXExampleEndpoint
                         {
                             new HeatingAggregate()
                             {
-                                Type = HeatingAggregateType.Convection,
+                                HeatingType = HeatingAggregateType.Convection,
                                 TemperatureSetpoint = 200.0,
                                 TemperatureReadingValue= 200.0,
                                 ConvectionActiveSetpoint = false,
@@ -6234,7 +6234,7 @@ namespace CFXExampleEndpoint
                                 Name = "Lower heating 4",
                                 ProcessTimeReadingValue = new TimeSpan(0, 0, 2, 30),
                                 Sequence = 4,
-                                Type = HeatingAggregateType.IrEmitter,
+                                HeatingType = HeatingAggregateType.IrEmitter,
                                 ConvectionActiveReadingValue = false,
                                 ConvectionActiveSetpoint = false,
                                 ConvectionIncreaseActiveReadingValue = false,
@@ -6312,7 +6312,7 @@ namespace CFXExampleEndpoint
                                 Name = "Cooling after soldering 1",
                                 ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 0),
                                 Sequence = 1,
-                                Type = CoolingType.BlowpipeCooling,
+                                CoolingType = CoolingType.BlowpipeCooling,
                             },
                             new CoolingAggregate()
                             {
@@ -6321,7 +6321,7 @@ namespace CFXExampleEndpoint
                                 Name = "Cooling in descent",
                                 ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 33),
                                 Sequence = 3,
-                                Type = CoolingType.BlowpipeCooling,
+                                CoolingType = CoolingType.BlowpipeCooling,
                             }
                         },
                     }

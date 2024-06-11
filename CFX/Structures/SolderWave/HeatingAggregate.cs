@@ -14,7 +14,7 @@ namespace CFX.Structures.SolderWave
         /// <summary>
         /// An enumeration indicating the heating aggregate type.
         /// </summary>
-        public HeatingAggregateType Type { get; set; }
+        public HeatingAggregateType HeatingType { get; set; }
 
         /// <summary>
         /// Gets or sets the setpoint of the temperature.
