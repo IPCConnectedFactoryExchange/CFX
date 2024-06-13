@@ -9,12 +9,12 @@ namespace CFX.Structures.SolderWave
     /// Heating aggregate representation. 
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public class HeatingAggregate : Aggregate
+    public class PreheatingAggregate : Aggregate
     {
         /// <summary>
         /// An enumeration indicating the heating aggregate type.
         /// </summary>
-        public HeatingAggregateType HeatingType { get; set; }
+        public PreheatingAggregateType PreheatingType { get; set; }
 
         /// <summary>
         /// Gets or sets the setpoint of the temperature.
@@ -45,6 +45,21 @@ namespace CFX.Structures.SolderWave
         /// Gets or sets the convection increase active reading value.
         /// </summary>
         public bool ConvectionIncreaseActiveReadingValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the convection speed set point.
+        /// </summary>
+        public int ConvectionSpeedSetpoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the convection speed reading value.
+        /// </summary>
+        public int ConvectionSpeedReadingValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the convection speed value unit.
+        /// </summary>
+        public ConvectionSpeedValueUnit ConvectionSpeedValueUnit { get; set; }
 
         /// <summary>
         /// Gets or sets the power set point.

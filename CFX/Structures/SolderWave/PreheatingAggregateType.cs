@@ -9,7 +9,7 @@ namespace CFX.Structures.SolderWave
     /// An enumeration of heating aggregate types. 
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
-    public enum HeatingAggregateType
+    public enum PreheatingAggregateType
     {
         /// <summary>
         /// The heating process is based on a medium wave.

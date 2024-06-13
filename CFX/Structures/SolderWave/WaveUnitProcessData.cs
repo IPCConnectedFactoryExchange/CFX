@@ -19,7 +19,7 @@ namespace CFX.Structures.SolderWave
         /// <summary>
         /// Gets or sets the preheating stages.
         /// </summary>
-        public List<HeatingAggregate> HeatingAggregates { get; set; }
+        public List<PreheatingAggregate> PreheatingAggregates { get; set; }
 
         /// <summary>
         /// Gets or sets the soldering stages.
