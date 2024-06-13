@@ -6273,12 +6273,12 @@ namespace CFXExampleEndpoint
                                         {
                                             new WavePreheatingSection()
                                             {
-                                                PowerReadingValue = 31.0,
+                                                PowerReadingPoint = 31.0,
                                                 TemperatureReadingValue = 162.0,
                                             },
                                             new WavePreheatingSection()
                                             {
-                                                PowerReadingValue = 36.0,
+                                                PowerReadingPoint = 36.0,
                                                 TemperatureReadingValue = 119,
                                             }
                                         }
