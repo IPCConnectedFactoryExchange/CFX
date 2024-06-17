@@ -1367,21 +1367,40 @@ namespace CFXExampleEndpoint
 
             msg = new CalibrationPerformed()
             {
+                TransactionID = Guid.NewGuid(),
                 Calibration = new Calibration()
                 {
                     CalibrationCode = "FID1",
                     CalibrationType = CalibrationType.UnitPosition,
                     Comments = "Position Check.  Fiducial FID1.",
                     Status = OperationStatus.Ok,
-                    CalibrationTime = null
+                    CalibrationTime = null,
+                    Measurements = new List<CalibrationMeasurement>()
+                    {
+                        new CalibrationMeasurement()
+                        {
+                            MeasurementName = "Measure1",
+                            MeasurementValue = new NumericValue()
+                            {
+                                ExpectedValue=1,
+                                ExpectedValueUnits= "mm",
+                                MaximumAcceptableValue=1.2,
+                                MinimumAcceptableValue=0.9,
+                                MaximumAcceptableValueUnits="mm",
+                                MinimumAcceptableValueUnits="mm",
+                                Value=0.97,
+                                ValueUnits="mm"
+                            }
+                        }
+                    }
                 }
             };
             AppendMessage(msg, ref result);
 
             Fault flt = new Fault()
             {
-                Cause = FaultCause.MechanicalFailure,
                 Severity = FaultSeverity.Error,
+                Cause = FaultCause.MechanicalFailure,
                 FaultCode = "ERROR 3943480",
             };
 
