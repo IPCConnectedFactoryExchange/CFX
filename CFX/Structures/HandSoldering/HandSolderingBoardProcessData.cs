@@ -49,5 +49,10 @@ namespace CFX.Structures.HandSoldering
         /// The board result.
         /// </summary>
         public HandSolderingResult Result { get; set; }
+
+        /// <summary>
+        /// The number of the order.
+        /// </summary>
+        public string OrderNumber { get; set; }
     }
 }
