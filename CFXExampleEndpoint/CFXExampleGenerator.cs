@@ -6151,6 +6151,7 @@ namespace CFXExampleEndpoint
                 {
                     BoardId = Guid.NewGuid(),
                     BoardName = "PCB-A-123",
+                    OrderNumber = "OrderNumber-121",
                     File = new File()
                     {
                         Name = "HandSolderingBoardProcessDataFile",
