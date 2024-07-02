@@ -266,7 +266,7 @@ namespace CFX
             writer.Write(Transmitted);
             byte[] data = this.ToBytes();
             writer.Write((Int32)data.Length);
-            writer.Write(this.ToBytes());
+            writer.Write(data);
         }
 
         internal void SetRecordTransmitted(BinaryWriter writer)
