@@ -49,10 +49,5 @@ namespace CFX.Structures.HandSoldering
         /// The result picture of the solder point.
         /// </summary>
         public File ResultPicture { get; set; }
-
-        /// <summary>
-        /// The solder point result.
-        /// </summary>
-        public HandSolderingResult Result { get; set; }
     }
 }

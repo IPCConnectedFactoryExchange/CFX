@@ -6161,7 +6161,6 @@ namespace CFXExampleEndpoint
                     },
                     StartedAt = DateTime.Now.Subtract(new TimeSpan(0, 0, 2, 0)),
                     FinishedAt = DateTime.Now,
-                    Result = HandSolderingResult.Success,
                     TelemetryData = new TelemetryData()
                     {
                         ActualPower = 85,
@@ -6214,7 +6213,6 @@ namespace CFXExampleEndpoint
                                 Y = 3,
                                 Z = 0
                             },
-                            Result = HandSolderingResult.Success,
                             ResultPicture = new File()
                             {
                                 Name = "Test Result Picture 1",
