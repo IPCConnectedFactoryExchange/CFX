@@ -665,6 +665,10 @@ namespace CFX.Transport
             {
                 channel = channels[key];
                 channel.RemoveChannel(address);
+                if (channel.ChannelsEmpty())
+                {
+                    while (!channels.TryRemove(key, out channel)) Task.Yield();
+                }
             }
             else
             {
@@ -742,6 +746,10 @@ namespace CFX.Transport
             {
                 channel = channels[key];
                 channel.RemoveChannel(address);
+                if (channel.ChannelsEmpty())
+                {
+                    while (!channels.TryRemove(key, out channel)) Task.Yield();
+                }
             }
             else
             {
