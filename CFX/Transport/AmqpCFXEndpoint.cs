@@ -658,12 +658,12 @@ namespace CFX.Transport
         public void ClosePublishChannel(Uri networkAddress, string address)
         {
             if (!IsOpen) throw new Exception("The Endpoint must be open before adding or removing channels.");
-            string key = networkAddress.ToString();
+            string key = networkAddress.ToString()
 
             AmqpConnection channel = null;
             if (channels.ContainsKey(key))
             {
-                while (!channels.TryRemove(key, out channel)) Task.Yield();
+                channel = channels[key];
                 channel.RemoveChannel(address);
             }
             else
@@ -740,7 +740,7 @@ namespace CFX.Transport
             AmqpConnection channel = null;
             if (channels.ContainsKey(key))
             {
-                while (!channels.TryRemove(key, out channel)) Task.Yield();
+                channel = channels[key];
                 channel.RemoveChannel(address);
             }
             else
