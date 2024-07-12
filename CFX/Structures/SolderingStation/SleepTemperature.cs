@@ -15,7 +15,7 @@ namespace CFX.Structures.SolderingStation.Sensor
         SleepTemperature()
         {
             this.UnitOfMeasure = SensorUnitOfMeasure.DegreeCelsius;
-            this.Value = 0;
+            this.Value = 180.0d;
         }
     }
 }

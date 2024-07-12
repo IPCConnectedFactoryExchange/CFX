@@ -16,7 +16,6 @@ namespace CFX.Structures.SolderingStation
         {
             this.UnitOfMeasure = SensorUnitOfMeasure.DegreeCelsius;
             this.Value = 0;
-            this.SampleTime = System.DateTime.Now;
         }
     }
 }
