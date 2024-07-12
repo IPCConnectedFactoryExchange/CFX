@@ -127,7 +127,12 @@ namespace CFX.Structures.Maintenance
         ///<summary>
         /// Frequency unit
         /// </summary>
-        Hz
+        Hz,
+        /// <summary>
+        /// Percent (%)
+        /// </summary>
+        Percentage
+
     }
 
 }
