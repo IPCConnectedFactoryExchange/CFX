@@ -12,6 +12,7 @@ namespace CFX.Production
     /// {
     ///   "Reason": "DefectiveRepairNotPossible",
     ///   "Comments": "The units were accidentally dropped, and irrepairably damaged",
+    ///   "UnitCount": 2,
     ///   "Units": [
     ///     {
     ///       "UnitIdentifier": "CARRIER5566",
@@ -94,7 +95,22 @@ namespace CFX.Production
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// The number of individual production units
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public int UnitCount
+        {
+            get
+            {
+                return Units.Count;
 
+            }
+            private set
+            {
+            }
+        }
         /// <summary>
         /// List of structures that identify each specific instance of production unit to be disqualified (could be within a carrier or panel). 
         /// </summary>
