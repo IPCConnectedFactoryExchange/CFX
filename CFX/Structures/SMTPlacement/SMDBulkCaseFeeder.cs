@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace CFX.Structures.SMTPlacement
+﻿namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 1.5 **</para>
@@ -62,6 +56,30 @@ namespace CFX.Structures.SMTPlacement
         /// The y offset between adjacent cells in this Bulk Case feeder
         /// </summary>
         public double CellPitchY
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Position in X of the material within the bulk case feeder
+        /// </summary>
+        /// <summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public double CellNumberX
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Position in Y of the material within the bulk case feeder
+        /// </summary>
+        /// <summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public double CellNumberY
         {
             get;
             set;
