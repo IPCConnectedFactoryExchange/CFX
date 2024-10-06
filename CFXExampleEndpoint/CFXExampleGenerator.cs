@@ -38,6 +38,8 @@ using CFX.Structures.ReflowProfiling;
 using CFX.Production.Hermes;
 using CFX.Structures.Maintenance;
 using CFX.Structures.Cleaning;
+using CFX.Structures.Validation;
+using CFX.InformationSystem.TopicValidation;
 
 namespace CFXExampleEndpoint
 {
@@ -6136,6 +6138,186 @@ namespace CFXExampleEndpoint
                        TotalInspectionCount = 1
                    }                   
                }
+            };
+            AppendMessage(msg, ref result);
+            /***** New in 2.0 ******/
+            //Validation Tool request
+            msg = new ValidateTopicRequest()
+            {
+               ValidationTopic = ValidationTopic.Tools,
+               ValidationTopicData = new ToolValidationTopicData()
+               {
+                   ValidationTopicData = new List<Tool>
+                   {
+                       new Tool()
+                       {
+                           Name = "Tool 1",
+                           UniqueIdentifier = "T00001"
+                       },
+                       new Tool()
+                       {
+                           Name = "Tool 2",
+                           UniqueIdentifier = "T00002"
+                       }
+                   }
+               }
+            };
+            AppendMessage(msg,ref result);
+            //Validation Materials request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.Materials,
+                ValidationTopicData = new MaterialValidationTopicData()
+                {
+                    ValidationTopicData = new List<MaterialLocation>
+                    {
+                        new MaterialLocation()
+                        {
+                            LocationIdentifier = "5555646454",
+                            LocationName = "SLOT44",
+                            CarrierInformation = c2,
+                            MaterialPackage = m2.ToMaterialPackage()
+                        },
+                        new MaterialLocation()
+                        {
+                            LocationIdentifier = "5555646455",
+                            LocationName = "SLOT45",
+                            CarrierInformation = new SMDTapeFeeder()
+                            {
+                                UniqueIdentifier = "1233335A",
+                                BaseUniqueIdentifier = "123335",
+                                Name = "TAPEFEEDER8mm1233335A",
+                                BaseName = "MULTILANEFEEDER123335",
+                                TapeWidth = 8,
+                                TapePitch = 4
+                            },
+                            MaterialPackage = m3.ToMaterialPackage()
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation MaterialCarrierLocation request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.MaterialCarrier,
+                ValidationTopicData = new MaterialCarrierValidationTopicData()
+                {
+                    ValidationTopicData = new List<MaterialCarrierLocation>
+                    { 
+                        new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234893",
+                            LocationName = "SLOT45",
+                            CarrierInformation = c2
+                        },
+                        new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234000",
+                            LocationName = "SLOT44",
+                            CarrierInformation = c1
+                        }
+                    }
+                  
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            //Validation Recipe request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.Recipe,
+                ValidationTopicData = new RecipeValidationTopicData()
+                {
+                    RecipeName = "Recipe 1",
+                    Lane = 1,
+                    Revision= "2.0",
+                    Stage = new Stage()
+                    { 
+                        StageName = "Stage1",
+                        StageSequence = 1,
+                        StageType = StageType.Work
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Tools
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Tools,
+                Result = new List<RequestResult> 
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 99
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Materials
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Materials,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 99
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for MaterialCarrier
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.MaterialCarrier,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 301
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Check the material carrier",
+                        Result = StatusResult.Warning,
+                        ResultCode = 10
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Recipe
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Recipe,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    }
+                }
+
             };
             AppendMessage(msg, ref result);
 
