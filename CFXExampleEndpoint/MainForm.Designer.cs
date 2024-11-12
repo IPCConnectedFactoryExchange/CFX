@@ -55,6 +55,7 @@
             this.reqUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lstResults = new System.Windows.Forms.ListBox();
+            this.btnSerialize = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -202,6 +203,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSerialize);
             this.groupBox1.Controls.Add(this.btnDeserializeOfflineJson);
             this.groupBox1.Controls.Add(this.reqHandle);
             this.groupBox1.Controls.Add(this.label6);
@@ -226,8 +228,8 @@
             // 
             // btnDeserializeOfflineJson
             // 
-            this.btnDeserializeOfflineJson.Location = new System.Drawing.Point(137, 118);
-            this.btnDeserializeOfflineJson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeserializeOfflineJson.Location = new System.Drawing.Point(244, 121);
+            this.btnDeserializeOfflineJson.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeserializeOfflineJson.Name = "btnDeserializeOfflineJson";
             this.btnDeserializeOfflineJson.Size = new System.Drawing.Size(92, 28);
             this.btnDeserializeOfflineJson.TabIndex = 19;
@@ -329,6 +331,17 @@
             this.lstResults.Size = new System.Drawing.Size(1090, 381);
             this.lstResults.TabIndex = 19;
             // 
+            // btnSerialize
+            // 
+            this.btnSerialize.Location = new System.Drawing.Point(137, 121);
+            this.btnSerialize.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSerialize.Name = "btnSerialize";
+            this.btnSerialize.Size = new System.Drawing.Size(92, 28);
+            this.btnSerialize.TabIndex = 20;
+            this.btnSerialize.Text = "Serialize Json";
+            this.btnSerialize.UseVisualStyleBackColor = true;
+            this.btnSerialize.Click += new System.EventHandler(this.btnSerialize_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +390,7 @@
         private System.Windows.Forms.TextBox reqUsername;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnDeserializeOfflineJson;
+        private System.Windows.Forms.Button btnSerialize;
     }
 }
 
