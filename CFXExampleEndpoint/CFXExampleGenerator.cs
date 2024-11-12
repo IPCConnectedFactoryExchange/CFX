@@ -6139,6 +6139,125 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            /* Additions in version 2.0*/
+
+            msg = new CreateTransportOrderRequest()
+            {
+                TransportOrderId = "T123456",
+                RelatedWorkOrderId = "WO000123",
+                Materials = new TransportedMaterial()
+                {
+                    TransportedTools = new List<Tool>()
+                    {
+                        new Tool()
+                        {
+                            Name = "Tool 1",
+                            UniqueIdentifier= "ID000234"
+                        },
+                        new Tool()
+                        {
+                            Name = "Tool 2",
+                            UniqueIdentifier= "ID000567"
+                        }
+
+                    },
+                    TransportedMaterialPackages = new List<MaterialPackage>()
+                    {
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0AB123C",
+                            BatchId="B123",
+                            Quantity = 100000,
+                            InternalPartNumber = "PN12345",
+                            InternalPackageName = "Package components type 1"
+                        },
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0ZW234X",
+                            BatchId="B567",
+                            Quantity = 120000,
+                            InternalPartNumber = "PN67890",
+                            InternalPackageName = "Package components type 2"
+                        }
+                    }
+                },
+                Priority = TransportPriority.High,
+                Source = "Location 1",
+                FinalDestination = "Location 2",
+                StartedBy = "MaterialTower1",
+                TargetDeliveryTime = DateTime.Now
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CreateTransportOrderResponse()
+            {
+                TransportOrderId = "T123456",
+                FleetManagerTransportOrderId = "FL12345",
+                Result = new RequestResult()
+                {
+                    Message = "Ok",
+                    ResultCode = 0,
+                    Result = StatusResult.Success
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StartTransferRequest()
+            {
+                TransportOrderId = "T789012",
+                RelatedWorkOrderId = "WO000567",
+                Materials = new TransportedMaterial()
+                {
+                    TransportedTools = new List<Tool>()
+                    {
+                        new Tool()
+                        {
+                            Name = "Tool 1",
+                            UniqueIdentifier= "ID000234"
+                        },
+                        new Tool()
+                        {
+                            Name = "Tool 2",
+                            UniqueIdentifier= "ID000567"
+                        }
+
+                    },
+                    TransportedMaterialPackages = new List<MaterialPackage>()
+                    {
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0AB123C",
+                            BatchId="B123",
+                            Quantity = 100000,
+                            InternalPartNumber = "PN12345",
+                            InternalPackageName = "Package components type 1"
+                        },
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0ZW234X",
+                            BatchId="B567",
+                            Quantity = 120000,
+                            InternalPartNumber = "PN67890",
+                            InternalPackageName = "Package components type 2"
+                        }
+                    }
+                },
+                StartedBy = "Jon Doe"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StartTransferResponse()
+            {
+                TransportOrderId = "T789012",
+                Result = new RequestResult()
+                {
+                    Message = "Failed to transfer - operation error",
+                    ResultCode = 99,
+                    Result = StatusResult.Failed
+                }
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
     }
