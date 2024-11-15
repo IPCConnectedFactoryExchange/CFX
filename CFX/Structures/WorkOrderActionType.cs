@@ -48,6 +48,14 @@ namespace CFX.Structures
         /// </summary>
         PreProductionOperations_QualityChecks = 404,
         /// <summary>
+        /// The action is a pre production operation, related to the material selection, like selectiing and reserving the materials necessary for the production
+        /// </summary>
+        PreProductionOperations_MaterialSelection = 405,
+        /// <summary>
+        /// The action is a pre production operation, related to the material kitting, like picking the materials necessary for the production
+        /// </summary>
+        PreProductionOperations_MaterialKitting = 406,
+        /// <summary>
         /// The action is a post production operation. Includes breakdown, and other post-production activities.
         /// </summary>
         PostProductionOperations = 500,
