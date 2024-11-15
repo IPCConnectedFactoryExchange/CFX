@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX.Production.Application
 {
@@ -40,6 +41,73 @@ namespace CFX.Production.Application
     ///   ]
     /// }
     /// </code>
+    /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// <para>Example 2: Applied Material structure</para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "8c4560cc-c6ed-479c-ae7b-66271d4c9afc",
+    ///   "AppliedMaterials": [
+    ///     {
+    ///       "$type": "CFX.Structures.AppliedMaterial, CFX",
+    ///       "UnitIdentifier": "PANEL23423432",
+    ///       "UnitPositionNumber": 1,
+    ///       "QuantityInstalled": 0.0,
+    ///       "QuantityNonInstalled": 0.0,
+    ///       "Material": {
+    ///         "UniqueIdentifier": "MAT4566556456",
+    ///         "InternalPartNumber": "IPN47788",
+    ///         "InternalPackageName": null,
+    ///         "Quantity": 887.0,
+    ///         "LeadingMaterialPackage": null,
+    ///         "BatchId": null,
+    ///         "BatchMaterialPackage": null,
+    ///         "GreyZone": 0.0
+    ///       },
+    ///       "CarrierLocation": null,
+    ///       "InstalledComponents": [],
+    ///       "NonInstalledComponents": [],
+    ///       "ReferencePartNumber": null,
+    ///       "QuantityApplied": {
+    ///         "Value": 3.57,
+    ///         "ValueUnits": "gramm",
+    ///         "ExpectedValue": 3.6,
+    ///         "ExpectedValueUnits": "g",
+    ///         "MinimumAcceptableValue": 3.4,
+    ///         "MaximumAcceptableValue": 3.8
+    ///       }
+    ///     },
+    ///     {
+    ///       "$type": "CFX.Structures.AppliedMaterial, CFX",
+    ///       "UnitIdentifier": "PANEL23423432",
+    ///       "UnitPositionNumber": 2,
+    ///       "QuantityInstalled": 0.0,
+    ///       "QuantityNonInstalled": 0.0,
+    ///       "Material": {
+    ///         "UniqueIdentifier": "MAT4566556456",
+    ///         "InternalPartNumber": "IPN47788",
+    ///         "InternalPackageName": null,
+    ///         "Quantity": 887.0,
+    ///         "LeadingMaterialPackage": null,
+    ///         "BatchId": null,
+    ///         "BatchMaterialPackage": null,
+    ///         "GreyZone": 0.0
+    ///       },
+    ///       "CarrierLocation": null,
+    ///       "InstalledComponents": [],
+    ///       "NonInstalledComponents": [],
+    ///       "ReferencePartNumber": null,
+    ///       "QuantityApplied": {
+    ///         "Value": 3.45,
+    ///         "ValueUnits": "gramm",
+    ///         "ExpectedValue": 3.6,
+    ///         "ExpectedValueUnits": "g",
+    ///         "MinimumAcceptableValue": 3.4,
+    ///         "MaximumAcceptableValue": 3.8
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// </code>
     /// </summary>
     public class MaterialsApplied : CFXMessage
     {
@@ -63,6 +131,7 @@ namespace CFX.Production.Application
         /// <summary>
         /// A list of the specific materials which were applied.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<InstalledMaterial> AppliedMaterials
         {
             get;
