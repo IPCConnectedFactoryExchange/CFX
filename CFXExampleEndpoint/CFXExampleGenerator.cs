@@ -38,6 +38,7 @@ using CFX.Structures.ReflowProfiling;
 using CFX.Production.Hermes;
 using CFX.Structures.Maintenance;
 using CFX.Structures.Cleaning;
+using CFX.Structures.SolderWave;
 
 namespace CFXExampleEndpoint
 {
@@ -768,7 +769,7 @@ namespace CFXExampleEndpoint
             AppendMessage(ur, ref result);
 
             UnitsInspected ui = msg as UnitsInspected;
-            
+
             for (int i = 0; i < ui.InspectedUnits.Count; i++)
             {
                 for (int j = 0; j < 5000; ++j)
@@ -1315,7 +1316,7 @@ namespace CFXExampleEndpoint
                             {
                                 HeadId = "HD212343",
                                 HeadName = "HEAD1",
-                                HeadSequence = 1                                
+                                HeadSequence = 1
                             },
                             PlacementAccuracy = 0.001,
                             NumberOfNozzleLocations = 6,
@@ -2901,7 +2902,7 @@ namespace CFXExampleEndpoint
                 },
                 RelevantSurface = Surface.PrimarySurface,
                 TargetQuantity = 500
-                               
+
             };
             AppendMessage(msg, ref result);
 
@@ -3082,7 +3083,7 @@ namespace CFXExampleEndpoint
                 Result = WorkResult.Completed,
                 PerformanceImpacts = new List<PerformanceImpact>()
                 {
-                   
+
                 }
             };
             AppendMessage(msg, ref result);
@@ -3091,7 +3092,7 @@ namespace CFXExampleEndpoint
             {
                 TransactionID = transId,
                 Result = WorkResult.Completed,
-              
+
             };
             AppendMessage(msg, ref result);
 
@@ -3704,7 +3705,7 @@ namespace CFXExampleEndpoint
             AppendMessage(msg, ref result);
 
             List<ReflowZoneData> zoneData = (((msg as UnitsProcessed).CommonProcessData) as ReflowProcessData).ZoneData;
-            
+
             msg = new UnitsProcessed()
             {
                 TransactionId = Guid.NewGuid(),
@@ -3809,7 +3810,7 @@ namespace CFXExampleEndpoint
                         new Stroke() {PrintPressure = 1, PrintSpeed = 12},
                         new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
                         }),
-                    
+
                     Separation = new Separation() { SeparationDistance = 1.2, SeparationSpeed = 1.6 },
 
                     PeriodicCleanings = new List<PeriodicCleaning>(
@@ -4201,7 +4202,7 @@ namespace CFXExampleEndpoint
 
             msg = new GetActiveFaultsRequest()
             {
-                
+
             };
             AppendMessage(msg, ref result);
 
@@ -4820,7 +4821,7 @@ namespace CFXExampleEndpoint
                                             Name = "PasteDeposit",
                                             TargetValue = new InspectionMeasurementExpected()
                                             {
-                                               
+
                                                     PX = 3000,
                                                     PY = 1200,
                                                     EX = 0.8,
@@ -4829,7 +4830,7 @@ namespace CFXExampleEndpoint
                                                     EVol = 0.0001,
                                                     AR = 1.8,
                                                     RXY = 0
-                                                
+
                                             }
                                         }
                                     }
@@ -5255,12 +5256,12 @@ namespace CFXExampleEndpoint
 
             msg = new CFX.Maintenance.GetResourceMaintenanceStatusRequest()
             {
-               Machine = new Resource()
-               {
-                   UniqueIdentifier = "10000000",
-                   Name = "SIPLACE SX4",
-               },
-              ResourceMaintenanceDetails = new List<ResourceInformation>()
+                Machine = new Resource()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                },
+                ResourceMaintenanceDetails = new List<ResourceInformation>()
               {
                   new SMTTapeFeederInformation()
                   {
@@ -5381,14 +5382,14 @@ namespace CFXExampleEndpoint
 
             msg = new GetMagazineDataResponse()
             {
-               Result = new RequestResult()
-               {
-                   
-               },
-               MagazineData = new Magazine()
-               {
-                   MagazineId = "ID12345",
-                   HermesUnits = new List<HermesUnit>()
+                Result = new RequestResult()
+                {
+
+                },
+                MagazineData = new Magazine()
+                {
+                    MagazineId = "ID12345",
+                    HermesUnits = new List<HermesUnit>()
                    {
                        new HermesUnit()
                        {
@@ -5437,7 +5438,7 @@ namespace CFXExampleEndpoint
                            }
                        }
                    }
-               }
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -5498,7 +5499,7 @@ namespace CFXExampleEndpoint
                 }
             };
             AppendMessage(msg, ref result);
-            
+
             msg = new MagazineDeparted()
             {
                 MagazineData = new Magazine()
@@ -6007,9 +6008,9 @@ namespace CFXExampleEndpoint
                     Stretch = 1,
                     RecognizedStrokeDirection = SolderPasteSqueegeeDirection.forward,
                     TotalInspectionCount = 2
-                    
+
                 }
-                
+
             };
             /****New in version 1.7*****/
             /***************************/
@@ -6043,7 +6044,7 @@ namespace CFXExampleEndpoint
                         },
                         PositionNumber = 2,
                         Status = UnitStatus.Fail
-                        
+
                     },
                      new UnitInfo()
                     {
@@ -6064,9 +6065,9 @@ namespace CFXExampleEndpoint
 
             msg = new GetInspectionInfoResponse()
             {
-               InspectedUnits = new List<InspectedUnit>()
-               { 
-                   new InspectedUnit() 
+                InspectedUnits = new List<InspectedUnit>()
+               {
+                   new InspectedUnit()
                    {
                        UnitIdentifier = "SN123456",
                        UnitPositionNumber = 1,
@@ -6096,7 +6097,7 @@ namespace CFXExampleEndpoint
                                       Result = TestResult.Failed
                                   }
                               }
-                              
+
                           }
                        },
                        TotalInspectionCount = 1
@@ -6134,9 +6135,223 @@ namespace CFXExampleEndpoint
                           }
                        },
                        TotalInspectionCount = 1
-                   }                   
+                   }
                }
             };
+            AppendMessage(msg, ref result);
+
+            /***************************/
+            /****New in version 2.0*****/
+            /***************************/
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                OverallResult = ProcessingResult.Succeeded,
+                CommonProcessData = new WaveProcessData()
+                {
+                    UnitLength = 40,
+                    UnitLengthSetpoint = 0,
+                    Conveyors = new List<Conveyor>()
+                    {
+                        new Conveyor()
+                        {
+                            ResourceName = "WT113",
+                            ResourceType = "WT-U",
+                            ResourceIdentifier = "WT34-001-A",
+                            ResourcePosition = "4",
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent,
+                        }
+                    },
+                    N2 = new N2()
+                    {
+                        Mode = N2Mode.N2On,
+                        FlowVolumeReadingValue = 22.2,
+                        NitrogenSupplyReadingValue = 5999.0,
+                        Measurements = new List<N2Measurement>
+                        {
+                            new N2Measurement()
+                            {
+                                Location = N2Location.SolderPot1,
+                                O2ReadingValue = 500.0,
+                                O2Setpoint = 0.0,
+                                N2ReadingValue = 0.0,
+                                N2Setpoint = 0.0,
+                            }
+                        }
+                    },
+                    UnitProcessData = new WaveUnitProcessData()
+                    {
+                        FluxAggregates = new List<FluxAggregate>()
+                        {
+                            new FluxAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Flux unit 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 14),
+                                Sequence = 1,
+                                Type = AggregateType.Work,
+                                FluxHeads = new List<WaveFluxHead>()
+                                {
+                                    new WaveFluxHead()
+                                    {
+                                        Active = true,
+                                        ConsumptionMeasurementActive = false,
+                                        ConsumptionReadingPoint = 10.0,
+                                        ConsumptionSetValue = 10.0,
+                                        DoseReadingPoint = 30.0,
+                                        DoseSetValue = 30.0,
+                                        ProcessTimeReadingValue = new TimeSpan(0,0,0,14),
+                                        Sequence = 1,
+                                    }
+                                }
+                            }
+                        },
+                        PreheatingAggregates = new List<PreheatingAggregate>()
+                        {
+                            new PreheatingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Lower heating 3",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 35),
+                                Sequence = 3,
+                                PreheatingType = PreheatingAggregateType.Convection,
+                                ConvectionActiveReadingValue = false,
+                                ConvectionActiveSetpoint = true,
+                                ConvectionIncreaseActiveReadingValue = false,
+                                ConvectionIncreaseActiveSetpoint = false,
+                                ConvectionSpeedValueUnit = ConvectionSpeedValueUnit.Percentage,
+                                ConvectionSpeedSetpoint = 70,
+                                TemperatureReadingValue = 0.0,
+                                TemperatureSetpoint = 200.0,
+                                PowerReadingValue = 0.0,
+                                PowerSetpoint = 0.0,
+                                PreheatingSections = null
+                            },
+                            new PreheatingAggregate()
+                            {
+                                PreheatingType = PreheatingAggregateType.MediumWave,
+                                TemperatureSetpoint = 200.0,
+                                TemperatureReadingValue= 200.0,
+                                ConvectionActiveSetpoint = false,
+                                ConvectionActiveReadingValue = false,
+                                ConvectionIncreaseActiveSetpoint = false,
+                                ConvectionIncreaseActiveReadingValue = false,
+                                PowerSetpoint = 0.0,
+                                PowerReadingValue = 0.0,
+                                PreheatingSections = null,
+                                Active = true,
+                                ProcessTimeReadingValue = new TimeSpan(0,0,0,32),
+                                Name = "Lower heating 2",
+                                Sequence = 2,
+                                Location = AggregateLocation.Bottom,
+                            },
+                            new PreheatingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Lower heating 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 2, 30),
+                                Sequence = 1,
+                                PreheatingType = PreheatingAggregateType.IrEmitter,
+                                ConvectionActiveReadingValue = false,
+                                ConvectionActiveSetpoint = false,
+                                ConvectionIncreaseActiveReadingValue = false,
+                                ConvectionIncreaseActiveSetpoint = false,
+                                TemperatureReadingValue = 0.0,
+                                TemperatureSetpoint = 0.0,
+                                PowerReadingValue = 0.0,
+                                PowerSetpoint = 0.0,
+                                PreheatingSections = new List<DynamicWavePreheatingSection>()
+                                {
+                                    new DynamicWavePreheatingSection()
+                                    {
+                                        Active = true,
+                                        Sequence = 1,
+                                        PreheatingSections = new List<WavePreheatingSection>()
+                                        {
+                                            new WavePreheatingSection()
+                                            {
+                                                PowerReadingPoint = 31.0,
+                                                TemperatureReadingValue = 162.0,
+                                            },
+                                            new WavePreheatingSection()
+                                            {
+                                                PowerReadingPoint = 36.0,
+                                                TemperatureReadingValue = 119,
+                                            }
+                                        }
+                                    },
+                                }
+                            },
+                        },
+                        SolderingAggregates = new List<SolderingAggregate>()
+                        {
+                            new SolderingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Soldering unit 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 30),
+                                Sequence = 1,
+                                Type = AggregateType.Work,
+                                Pot = new SolderingPot()
+                                {
+                                    ZAxisReadingValue = 7.0,
+                                    ZAxisSetpoint = 7.0,
+                                    Heating = new SolderPotHeating()
+                                    {
+                                        TemperatureReadingValue = 260.0,
+                                        TemperatureSetpoint = 260.0,
+                                    },
+                                    SolderingWaves = new List<SolderingWave>()
+                                    {
+                                        new SolderingWave()
+                                        {
+                                            Active = true,
+                                            NumberOfRevolutionsReadingValue = 350.0,
+                                            NumberOfRevolutionsSetpoint = 350.0,
+                                            ProcessTimeReadingValue = new TimeSpan(0,0,0,15),
+                                            Sequence = 1,
+                                        },
+                                        new SolderingWave()
+                                        {
+                                            Active = true,
+                                            Sequence = 2,
+                                            ProcessTimeReadingValue = new TimeSpan(0,0,0,17),
+                                            NumberOfRevolutionsSetpoint = 350.0,
+                                            NumberOfRevolutionsReadingValue = 350.0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        CoolingAggregates = new List<CoolingAggregate>()
+                        {
+                            new CoolingAggregate()
+                            {
+                                Active = false,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Cooling after soldering 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 0),
+                                Sequence = 1,
+                                CoolingType = CoolingType.BlowpipeCooling,
+                            },
+                            new CoolingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Cooling in descent",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 33),
+                                Sequence = 3,
+                                CoolingType = CoolingType.BlowpipeCooling,
+                            }
+                        },
+                    }
+                }
+            };
+
             AppendMessage(msg, ref result);
 
             return result;
