@@ -68,6 +68,7 @@
     <Compile Include="MessageDBWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchemaGenerator.cs" />
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="AddChannelForm.resx">
       <DependentUpon>AddChannelForm.cs</DependentUpon>
@@ -104,6 +105,9 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="NJsonSchema">
+      <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
