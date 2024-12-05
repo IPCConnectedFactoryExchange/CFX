@@ -32,7 +32,17 @@ namespace CFX.Structures
             get;
             set;
         }
-
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// The total amount of productive time (in ms) that is expected to process one unit or group of units (as in the case of a carrier or panelized PCB),
+        /// assuming no blocked or starved conditions at the station. This does not include any non-productive time, such as transfer, positioning, etc.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public double? ExpectedWorkTime
+        {
+            get;
+            set;
+        }
         /// <summary>
         /// The number of components to install for each unit of a work for a stage of the machine.
         /// </summary>

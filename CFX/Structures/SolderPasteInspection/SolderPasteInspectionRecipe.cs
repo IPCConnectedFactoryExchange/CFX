@@ -32,5 +32,17 @@ namespace CFX.Structures.SolderPasteInspection
         /// </summary>
         [Newtonsoft.Json.JsonProperty(Order = 1)]
         public InspectionMethod InspectionMethod { get; set; }
+
+        /// <summary>
+        /// This structure represents a Fiducial element. It is used to enrich the panel
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(Order = 2)]
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public List<FiducialInfo> Fiducials
+        {
+            get;
+            set;
+        }
     }
 }

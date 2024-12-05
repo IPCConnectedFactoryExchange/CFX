@@ -19,7 +19,7 @@ namespace CFX
     /// <code language="none">
     /// {
     ///    "MessageName": "CFX.EndpointConnected",
-    ///    "Version": "1.3",
+    ///    "Version": "1.7",
     ///    "TimeStamp": "2018-03-26T16:52:25.3769532-04:00",
     ///    "UniqueID": "f3b2c8ec-50b7-4c63-9cb3-2ed57c01880f",
     ///    "Source": null,
@@ -45,7 +45,7 @@ namespace CFX
             Transmitted = false;
         }
 
-        public const string CFXVERSION = "1.4";
+        public const string CFXVERSION = "1.7";
         
         public CFXEnvelope(Type messageType) : this()
         {

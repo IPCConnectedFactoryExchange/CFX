@@ -663,8 +663,12 @@ namespace CFX.Transport
             AmqpConnection channel = null;
             if (channels.ContainsKey(key))
             {
-                while (!channels.TryRemove(key, out channel)) Task.Yield();
+                channel = channels[key];
                 channel.RemoveChannel(address);
+                if (channel.ChannelsEmpty())
+                {
+                    while (!channels.TryRemove(key, out channel)) Task.Yield();
+                }
             }
             else
             {
@@ -740,8 +744,12 @@ namespace CFX.Transport
             AmqpConnection channel = null;
             if (channels.ContainsKey(key))
             {
-                while (!channels.TryRemove(key, out channel)) Task.Yield();
+                channel = channels[key];
                 channel.RemoveChannel(address);
+                if (channel.ChannelsEmpty())
+                {
+                    while (!channels.TryRemove(key, out channel)) Task.Yield();
+                }
             }
             else
             {

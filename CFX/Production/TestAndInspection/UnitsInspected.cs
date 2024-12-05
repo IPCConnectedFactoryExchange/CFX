@@ -636,6 +636,84 @@ namespace CFX.Production.TestAndInspection
     ///   ]
     /// }
     /// </code>    
+    /// <para>An example of AOI inspection on a Panel
+    /// </para>
+    /// <para> </para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "436a38e9-fd94-447e-a4d2-db5cc3a4a902",
+    ///   "InspectionMethod": "AOI",
+    ///   "SamplingInformation": {
+    ///     "SamplingMethod": "NoSampling",
+    ///     "LotSize": null,
+    ///     "SampleSize": null
+    ///   },
+    ///   "Inspector": {
+    ///     "OperatorIdentifier": "BADGE489435",
+    ///     "ActorType": "Human",
+    ///     "LastName": "Smith",
+    ///     "FirstName": "Joseph",
+    ///     "LoginName": "joseph.smith@abcdrepairs.com"
+    ///   },
+    ///   "RecipeName": null,
+    ///   "RecipeRevision": null,
+    ///   "InspectedUnits": [],
+    ///   "InspectedPanel": {
+    ///     "UnitIdentifier": "PN123456789",
+    ///     "OverallResult": "Passed",
+    ///     "Inspections": [
+    ///       {
+    ///         "UniqueIdentifier": "29436eed-f82f-435a-b19c-7b66aa5cf6f6",
+    ///         "InspectionName": "INSPECT_F1",
+    ///         "InspectionStartTime": null,
+    ///         "InspectionEndTime": null,
+    ///         "TestProcedure": null,
+    ///         "Comments": null,
+    ///         "Result": "Passed",
+    ///         "Verification": "NotVerifiedYet",
+    ///         "VerificationDetail": null,
+    ///         "Error": null,
+    ///         "DefectsFound": [],
+    ///         "Symptoms": [],
+    ///         "Measurements": [],
+    ///         "RefNo": null
+    ///       },
+    ///       {
+    ///         "UniqueIdentifier": "5fda7d22-1775-4bee-a540-992394f3eccb",
+    ///         "InspectionName": "INSPECT_F2",
+    ///         "InspectionStartTime": null,
+    ///         "InspectionEndTime": null,
+    ///         "TestProcedure": null,
+    ///         "Comments": null,
+    ///         "Result": "Passed",
+    ///         "Verification": "NotVerifiedYet",
+    ///         "VerificationDetail": null,
+    ///         "Error": null,
+    ///         "DefectsFound": [],
+    ///         "Symptoms": [],
+    ///         "Measurements": [],
+    ///         "RefNo": null
+    ///       }
+    ///     ],
+    ///     "Verification": "NotVerifiedYet",
+    ///     "TotalInspectionCount": 2,
+    ///     "Stretch": 1.0,
+    ///     "RecognizedStrokeDirection": "forward",
+    ///     "Fiducials": [
+    ///       {
+    ///         "FiducialX": 0.12,
+    ///         "FiducialY": 0.16,
+    ///         "FiducialRXY": 0.0
+    ///       },
+    ///       {
+    ///         "FiducialX": 0.12,
+    ///         "FiducialY": 2.56,
+    ///         "FiducialRXY": 0.0
+    ///       }
+    ///     ]
+    ///   }
+    /// }
+    /// </code>
     /// </summary>
 
     public class UnitsInspected : CFXMessage
@@ -710,6 +788,16 @@ namespace CFX.Production.TestAndInspection
         /// and inspection results.
         /// </summary>
         public List<InspectedUnit> InspectedUnits
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 1.6 **</para>
+        /// Optional: this would represent the entire PCB panel that is undergoing the inspection process
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.6")]
+        public InspectedPanel InspectedPanel
         {
             get;
             set;

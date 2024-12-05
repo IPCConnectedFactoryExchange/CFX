@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CFX.Structures;
 
 namespace CFX
 {
@@ -33,6 +34,37 @@ namespace CFX
         /// The amount of time to expect between Heartbeast messasges for this endpoint
         /// </summary>
         public TimeSpan HeartbeatFrequency
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 1.7 **</para>
+        /// Any faults currently active on this endpoint.  Faults should be repeated here until cleared. 
+        /// Leaving this parameter as null means that active faults are not known.  Setting it to an
+        /// empty List implies positive knowledge that there are no active faults.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
+        public List<Fault> ActiveFaults
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 1.7 **</para>
+        /// Any recipes currently active on this endpoint.  Recipes may be specified either using
+        /// their identifiers or by including recipe details such as expected cycle times depending
+        /// on what information the endpoing is able to communicate.
+        ///
+        /// Leaving this parameter as null means that active recipes are not known.  Setting it to an
+        /// empty List implies positive knowledge that there are no active recipes.
+        ///
+        /// Multiple recipes may be active at once on a given endpoint.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("1.7")]
+        public List<ActiveRecipe> ActiveRecipes
         {
             get;
             set;
