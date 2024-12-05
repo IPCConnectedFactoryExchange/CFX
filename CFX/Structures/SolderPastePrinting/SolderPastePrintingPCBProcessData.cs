@@ -4,6 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using CFX;
 using CFX.Structures;
+using static CFX.Structures.PCBInspection.Feature;
 
 namespace CFX.Structures.SolderPastePrinting
 {
@@ -57,6 +58,24 @@ namespace CFX.Structures.SolderPastePrinting
         /// Cycle time for the Printing process, in the format hh:mm:ss.fffffff
         /// </summary>
         public TimeSpan CycleTime { get; set; }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Relative stretch ratio of the panel before printing:
+        /// value = 1  no stretch / no shrinkage
+        /// value between 0 and 1: shrinkage
+        /// value above 1: stretch
+        /// value null: not possible to send this information
+        /// </summary>
+        public double? PrePrintStretch { get; set; }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Relative stretch ratio of the panel after printing:
+        /// value = 1  no stretch / no shrinkage
+        /// value between 0 and 1: shrinkage
+        /// value above 1: stretch
+        /// value null: not possible to send this information
+        /// </summary>
+        public double? PostPrintStretch { get; set; }
 
     }
 }

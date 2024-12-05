@@ -833,7 +833,9 @@ namespace CFX.Production.Processing
     ///     "OffsetY": 0.5,
     ///     "OffsetTheta": 2.5,
     ///     "FirstPrintDirection": "FrontToRear",
-    ///     "CycleTime": "00:00:00"
+    ///     "CycleTime": "00:00:00",
+    ///     "PrePrintStretch":1,
+    ///     "PostPrintStretch":1
     ///   },
     ///   "UnitProcessData": []
     /// }
