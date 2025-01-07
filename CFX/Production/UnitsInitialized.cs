@@ -15,6 +15,7 @@ namespace CFX.Production
     ///     "Batch": "BATCH45648798-1"
     ///   },
     ///   "TransactionID": null,
+    ///   "UnitCount": 2,
     ///   "Units": [
     ///     {
     ///       "UnitIdentifier": "UNIT5566687",
@@ -98,7 +99,22 @@ namespace CFX.Production
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// The number of individual production units
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public int UnitCount
+        {
+            get
+            {
+                return Units.Count;
 
+            }
+            private set
+            {
+            }
+        }
         /// <summary>
         /// A list of structures that identify each specific instance of production unit that have been initialized.
         /// Could be individual units, or within a carrier, panel, etc. 

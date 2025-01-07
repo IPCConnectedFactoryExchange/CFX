@@ -40,9 +40,12 @@ namespace CFXExampleEndpoint
             reqUsername.Text = Properties.Settings.Default.RequestUsername;
             reqPassword.Text = Properties.Settings.Default.RequestPassword;
 
-            CFXExampleGenerator gen = new CFXExampleGenerator();
-            string result = gen.GenerateAll();
-            System.IO.File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
+            //SchemaGenerator schemaGenerator = new SchemaGenerator();
+            //schemaGenerator.GenerateSchemas(@"e:\Stuff\CFXSchemas\");
+
+            //CFXExampleGenerator gen = new CFXExampleGenerator();
+            //string result = gen.GenerateAll();
+            //System.IO.File.WriteAllText(CFX_JSON_Examples, result, Encoding.UTF8);
             //return;
 
             if (!string.IsNullOrWhiteSpace(CFXHandle))
