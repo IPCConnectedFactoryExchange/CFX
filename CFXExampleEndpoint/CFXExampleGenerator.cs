@@ -3844,7 +3844,9 @@ namespace CFXExampleEndpoint
                     FirstPrintDirection = "FrontToRear",
                     OffsetX= 1.5,
                     OffsetY= 0.5,
-                    OffsetTheta= 2.5
+                    OffsetTheta= 2.5,
+                    PrePrintStretch = 1,
+                    PostPrintStretch = 1
                 },
             };
 
