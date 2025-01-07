@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <PackageId>CFX.CFXSDK</PackageId>
-    <PackageVersion>1.7.3</PackageVersion>
+    <PackageVersion>2.0.0</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,9 +17,9 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
     <PackageIconUrl>https://ipcconnectedfactoryexchange.github.io/CFX/CFX_Logo.PNG</PackageIconUrl>
-    <Version>1.7.3</Version>
-    <AssemblyVersion>1.7.3.0</AssemblyVersion>
-    <FileVersion>1.7.3.0</FileVersion>
+    <Version>2.0.0</Version>
+    <AssemblyVersion>2.7.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
     <RootNamespace>CFX</RootNamespace>
     <AssemblyName>CFX</AssemblyName>
     <SignAssembly>true</SignAssembly>
