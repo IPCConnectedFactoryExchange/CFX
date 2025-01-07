@@ -66,7 +66,9 @@ namespace CFX.Structures.SolderPastePrinting
         /// value above 1: stretch
         /// value null: not possible to send this information
         /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
         public double? PrePrintStretch { get; set; }
+
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 2.0 **</para>
         /// Relative stretch ratio of the panel after printing:
@@ -75,6 +77,7 @@ namespace CFX.Structures.SolderPastePrinting
         /// value above 1: stretch
         /// value null: not possible to send this information
         /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
         public double? PostPrintStretch { get; set; }
 
     }
