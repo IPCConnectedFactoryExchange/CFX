@@ -104,6 +104,16 @@ namespace CFX.Structures
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Optional: Identification of the PCB Variant.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public string PCBVariant
+        { 
+            get; 
+            set;
+        }
     }
 }
 

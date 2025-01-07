@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CFX.Structures.SMTPlacement
+﻿namespace CFX.Structures.SMTPlacement
 {
     /// <summary>
     /// Describes an SMT Tray carrier
@@ -57,7 +53,31 @@ namespace CFX.Structures.SMTPlacement
         /// <summary>
         /// The y offset between adjacent cells in the tray carrier
         /// </summary>
-        public double CellPitchY
+        public double CellPitchY 
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Position in X of the material within the tray
+        /// </summary>
+        /// <summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public double CellNumberX
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// Position in Y of the material within the tray
+        /// </summary>
+        /// <summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public double CellNumberY
         {
             get;
             set;

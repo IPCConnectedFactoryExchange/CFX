@@ -357,6 +357,13 @@ namespace CFX.Transport
             channel.CloseLink();
         }
 
+        public bool ChannelsEmpty()
+        {
+            if (links == null) return true;
+
+            return links.Count == 0;
+        }
+        
         public void Close()
         {
             StopKeepAliveTimer();
