@@ -58,6 +58,7 @@ namespace CFX.Structures.SolderPastePrinting
         /// Cycle time for the Printing process, in the format hh:mm:ss.fffffff
         /// </summary>
         public TimeSpan CycleTime { get; set; }
+
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 2.0 **</para>
         /// Relative stretch ratio of the panel before printing:
