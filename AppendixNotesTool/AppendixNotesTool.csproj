@@ -80,9 +80,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CFX\CFXnet46.csproj">
-      <Project>{4C0A3E7C-FEF6-4AF4-BA1B-D3F94540B468}</Project>
-      <Name>CFXnet46</Name>
+    <ProjectReference Include="..\CFX\CFX.csproj">
+      <Project>{A681A172-1BCA-4C46-8275-FA7990C7C825}</Project>
+      <Name>CFX</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
