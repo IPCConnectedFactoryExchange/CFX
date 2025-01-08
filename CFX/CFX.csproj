@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net8.0;netcoreapp3.1;net462</TargetFrameworks>
     <PackageId>CFX.CFXSDK</PackageId>
-    <RuntimeIdentifiers>any;win</RuntimeIdentifiers>
     <PackageVersion>2.0.0-beta</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
