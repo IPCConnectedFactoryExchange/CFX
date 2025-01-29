@@ -38,6 +38,8 @@ using CFX.Structures.ReflowProfiling;
 using CFX.Production.Hermes;
 using CFX.Structures.Maintenance;
 using CFX.Structures.Cleaning;
+using CFX.Structures.Validation;
+using CFX.InformationSystem.TopicValidation;
 using CFX.Structures.HandSoldering;
 using CFX.Structures.SolderWave;
 
@@ -1369,21 +1371,40 @@ namespace CFXExampleEndpoint
 
             msg = new CalibrationPerformed()
             {
+                TransactionID = Guid.NewGuid(),
                 Calibration = new Calibration()
                 {
                     CalibrationCode = "FID1",
                     CalibrationType = CalibrationType.UnitPosition,
                     Comments = "Position Check.  Fiducial FID1.",
                     Status = OperationStatus.Ok,
-                    CalibrationTime = null
+                    CalibrationTime = null,
+                    Measurements = new List<CalibrationMeasurement>()
+                    {
+                        new CalibrationMeasurement()
+                        {
+                            MeasurementName = "Measure1",
+                            MeasurementValue = new NumericValue()
+                            {
+                                ExpectedValue=1,
+                                ExpectedValueUnits= "mm",
+                                MaximumAcceptableValue=1.2,
+                                MinimumAcceptableValue=0.9,
+                                MaximumAcceptableValueUnits="mm",
+                                MinimumAcceptableValueUnits="mm",
+                                Value=0.97,
+                                ValueUnits="mm"
+                            }
+                        }
+                    }
                 }
             };
             AppendMessage(msg, ref result);
 
             Fault flt = new Fault()
             {
-                Cause = FaultCause.MechanicalFailure,
                 Severity = FaultSeverity.Error,
+                Cause = FaultCause.MechanicalFailure,
                 FaultCode = "ERROR 3943480",
             };
 
@@ -3823,7 +3844,9 @@ namespace CFXExampleEndpoint
                     FirstPrintDirection = "FrontToRear",
                     OffsetX= 1.5,
                     OffsetY= 0.5,
-                    OffsetTheta= 2.5
+                    OffsetTheta= 2.5,
+                    PrePrintStretch = 1,
+                    PostPrintStretch = 1
                 },
             };
 
@@ -5991,6 +6014,7 @@ namespace CFXExampleEndpoint
                         },
                     UnitIdentifier = "PN123456789",
                     OverallResult = TestResult.Passed,
+                    PCBVariant = "Variant 1",
                     Inspections = new List<Inspection>(new Inspection[]
                         {
                             new Inspection()
@@ -6013,6 +6037,7 @@ namespace CFXExampleEndpoint
                 }
 
             };
+            AppendMessage(msg, ref result);
             /****New in version 1.7*****/
             /***************************/
 
@@ -6139,6 +6164,228 @@ namespace CFXExampleEndpoint
                    }
                }
             };
+            AppendMessage(msg, ref result);
+            /***** New in 2.0 ******/
+            //Validation Tool request
+            msg = new ValidateTopicRequest()
+            {
+               ValidationTopic = ValidationTopic.Tools,
+               ValidationTopicData = new ToolValidationTopicData()
+               {
+                   ValidationTopicData = new List<Tool>
+                   {
+                       new Tool()
+                       {
+                           Name = "Tool 1",
+                           UniqueIdentifier = "T00001"
+                       },
+                       new Tool()
+                       {
+                           Name = "Tool 2",
+                           UniqueIdentifier = "T00002"
+                       }
+                   }
+               }
+            };
+            AppendMessage(msg,ref result);
+            //Validation Materials request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.Materials,
+                ValidationTopicData = new MaterialValidationTopicData()
+                {
+                    ValidationTopicData = new List<MaterialLocation>
+                    {
+                        new MaterialLocation()
+                        {
+                            LocationIdentifier = "5555646454",
+                            LocationName = "SLOT44",
+                            CarrierInformation = c2,
+                            MaterialPackage = m2.ToMaterialPackage()
+                        },
+                        new MaterialLocation()
+                        {
+                            LocationIdentifier = "5555646455",
+                            LocationName = "SLOT45",
+                            CarrierInformation = new SMDTapeFeeder()
+                            {
+                                UniqueIdentifier = "1233335A",
+                                BaseUniqueIdentifier = "123335",
+                                Name = "TAPEFEEDER8mm1233335A",
+                                BaseName = "MULTILANEFEEDER123335",
+                                TapeWidth = 8,
+                                TapePitch = 4
+                            },
+                            MaterialPackage = m3.ToMaterialPackage()
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation MaterialCarrierLocation request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.MaterialCarrier,
+                ValidationTopicData = new MaterialCarrierValidationTopicData()
+                {
+                    ValidationTopicData = new List<MaterialCarrierLocation>
+                    { 
+                        new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234893",
+                            LocationName = "SLOT45",
+                            CarrierInformation = c2
+                        },
+                        new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234000",
+                            LocationName = "SLOT44",
+                            CarrierInformation = c1
+                        }
+                    }
+                  
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            //Validation Recipe request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.Recipe,
+                ValidationTopicData = new RecipeValidationTopicData()
+                {
+                    RecipeName = "Recipe 1",
+                    Lane = 1,
+                    Revision= "2.0",
+                    Stage = new Stage()
+                    { 
+                        StageName = "Stage1",
+                        StageSequence = 1,
+                        StageType = StageType.Work
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Tools
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Tools,
+                Result = new List<RequestResult> 
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 99
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Materials
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Materials,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 99
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for MaterialCarrier
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.MaterialCarrier,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 301
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Check the material carrier",
+                        Result = StatusResult.Warning,
+                        ResultCode = 10
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Recipe
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Recipe,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    }
+                }
+
+            };
+            AppendMessage(msg, ref result);
+
+            //Added in 2.0
+            msg = new MaterialsApplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                AppliedMaterials = new List<InstalledMaterial>()
+                {
+                    new AppliedMaterial() 
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityApplied = new NumericValue()
+                        {
+                            ExpectedValue = 3.6,
+                            ExpectedValueUnits = "g",
+                            MaximumAcceptableValue = 3.8,
+                            MinimumAcceptableValue = 3.4,
+                            Value = 3.57,
+                            ValueUnits =  "gramm"
+                        }
+                    },
+                    new AppliedMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityApplied = new NumericValue()
+                        {
+                            ExpectedValue = 3.6,
+                            ExpectedValueUnits = "g",
+                            MaximumAcceptableValue = 3.8,
+                            MinimumAcceptableValue = 3.4,
+                            Value = 3.45,
+                            ValueUnits =  "gramm"
+                        }
+                    }
+                }
+
+            };
+          
             AppendMessage(msg, ref result);
 
             /***************************/
@@ -6436,6 +6683,125 @@ namespace CFXExampleEndpoint
                 },
             };
 
+            AppendMessage(msg, ref result);
+
+            /* Additions in version 2.0*/
+
+            msg = new CreateTransportOrderRequest()
+            {
+                TransportOrderId = "T123456",
+                RelatedWorkOrderId = "WO000123",
+                Materials = new TransportedMaterial()
+                {
+                    TransportedTools = new List<Tool>()
+                    {
+                        new Tool()
+                        {
+                            Name = "Tool 1",
+                            UniqueIdentifier= "ID000234"
+                        },
+                        new Tool()
+                        {
+                            Name = "Tool 2",
+                            UniqueIdentifier= "ID000567"
+                        }
+
+                    },
+                    TransportedMaterialPackages = new List<MaterialPackage>()
+                    {
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0AB123C",
+                            BatchId="B123",
+                            Quantity = 100000,
+                            InternalPartNumber = "PN12345",
+                            InternalPackageName = "Package components type 1"
+                        },
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0ZW234X",
+                            BatchId="B567",
+                            Quantity = 120000,
+                            InternalPartNumber = "PN67890",
+                            InternalPackageName = "Package components type 2"
+                        }
+                    }
+                },
+                Priority = TransportPriority.High,
+                Source = "Location 1",
+                FinalDestination = "Location 2",
+                StartedBy = "MaterialTower1",
+                TargetDeliveryTime = DateTime.Now
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CreateTransportOrderResponse()
+            {
+                TransportOrderId = "T123456",
+                FleetManagerTransportOrderId = "FL12345",
+                Result = new RequestResult()
+                {
+                    Message = "Ok",
+                    ResultCode = 0,
+                    Result = StatusResult.Success
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StartTransferRequest()
+            {
+                TransportOrderId = "T789012",
+                RelatedWorkOrderId = "WO000567",
+                Materials = new TransportedMaterial()
+                {
+                    TransportedTools = new List<Tool>()
+                    {
+                        new Tool()
+                        {
+                            Name = "Tool 1",
+                            UniqueIdentifier= "ID000234"
+                        },
+                        new Tool()
+                        {
+                            Name = "Tool 2",
+                            UniqueIdentifier= "ID000567"
+                        }
+
+                    },
+                    TransportedMaterialPackages = new List<MaterialPackage>()
+                    {
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0AB123C",
+                            BatchId="B123",
+                            Quantity = 100000,
+                            InternalPartNumber = "PN12345",
+                            InternalPackageName = "Package components type 1"
+                        },
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0ZW234X",
+                            BatchId="B567",
+                            Quantity = 120000,
+                            InternalPartNumber = "PN67890",
+                            InternalPackageName = "Package components type 2"
+                        }
+                    }
+                },
+                StartedBy = "Jon Doe"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StartTransferResponse()
+            {
+                TransportOrderId = "T789012",
+                Result = new RequestResult()
+                {
+                    Message = "Failed to transfer - operation error",
+                    ResultCode = 99,
+                    Result = StatusResult.Failed
+                }
+            };
             AppendMessage(msg, ref result);
 
             return result;

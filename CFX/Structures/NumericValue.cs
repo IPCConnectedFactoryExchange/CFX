@@ -28,7 +28,7 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The expected value for thie measurement
+        /// The expected value for this measurement
         /// </summary>
         public double? ExpectedValue
         {
@@ -53,11 +53,30 @@ namespace CFX.Structures
             get;
             set;
         }
-
         /// <summary>
-        /// The minimum acceptable value
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// The units of the minimum acceptable value (must be a valid SI unit)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public string MinimumAcceptableValueUnits
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// The maximum acceptable value
         /// </summary>
         public double? MaximumAcceptableValue
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// The units of the maximum acceptable value (must be a valid SI unit)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.0")]
+        public string MaximumAcceptableValueUnits
         {
             get;
             set;

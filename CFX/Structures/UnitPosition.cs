@@ -80,10 +80,10 @@ namespace CFX.Structures
 
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-        /// Z coordinate of Production unit origin, as it is known to the endpoint, expressed in millimeters (mm)
+        /// (OPTIONAL) Z coordinate of Production unit origin, as it is known to the endpoint, expressed in millimeters (mm)
         /// </summary>
         [CFX.Utilities.CreatedVersion("2.0")]
-        public double Z
+        public double? Z
         {
             get;
             set;
