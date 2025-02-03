@@ -17,13 +17,13 @@ namespace CFX.Structures.VaporPhaseSoldering
             set; 
         }
 
-        public string StepName //4,3,1,2,
+        public string StepName //4,3,1,2, //??? TODO
         { 
             get; 
             set; 
         }
 
-        public VaporPhaseSolderingProcessStepType StepType 
+        public VaporPhaseSolderingProcessStepType StepType //Alle typen korrekt //??? TODO 
         {
             get;
             set;

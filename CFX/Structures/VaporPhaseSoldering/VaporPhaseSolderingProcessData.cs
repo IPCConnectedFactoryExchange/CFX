@@ -6,8 +6,51 @@ using System.Threading.Tasks;
 
 namespace CFX.Structures.VaporPhaseSoldering
 {
-    /// <summary>
+    /// Top View:
+    ///  
+    ///                                      HeaterSideBack 
+    ///                                            |
+    ///                                            v  
+    ///                     _________________________________________________
+    ///                    |                                                 |
+    ///                    |                                                 |    
+    ///                    |                                                 |
+    /// HeaterSideInlet -> |                                                 | <- HeaterSideOutlet
+    ///                    |                                                 |
+    ///                    |                                                 |
+    ///                    |_________________________________________________|  
+    ///                                            ^
+    ///                                            |
+    ///                                     HeaterSideFront    
+    ///                                            
+    ///                                            O  
+    ///                                           /|\  (user view)
+    ///                                           / \
+    /// 
+    /// 
+    /// Front View:
+    ///  
+    ///                                      HeaterChamberTop 
+    ///                                            |
+    ///                                            v  
+    ///                     _________________________________________________
+    ///                    |                                                 |
+    ///                    |                                                 |    
+    ///                    |                       O                         |
+    /// HeaterSideInlet -> |                      /|\  (user view)           | <- HeaterSideOutlet
+    ///                    |                      / \                        |
+    ///                    |                                                 |
+    ///                    |_________________________________________________|  
+    ///                              ^          ^         ^          ^
+    ///                              |          |         |          |
+    ///                                       Heaters Bottom    
+    ///                                            
+    ///                                              
+    ///                                           
+    ///                                           
+    /// 
     /// Vapor Phase Soldering Process Data
+    /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.0")]
@@ -67,9 +110,9 @@ namespace CFX.Structures.VaporPhaseSoldering
         }
 
         /// <summary>
-        /// Temperature left inlet
+        /// Temperature left outlet
         /// </summary>
-        public NumericMeasurement HeaterSideLeft
+        public NumericMeasurement HeaterSideOutlet
         {
             get;
             set;
@@ -78,12 +121,21 @@ namespace CFX.Structures.VaporPhaseSoldering
         /// <summary>
         /// Temperature right inlet
         /// </summary>
-        public NumericMeasurement HeaterSideRight
+        public NumericMeasurement HeaterSideInlet
         {
             get;
             set;
         }
 
+
+        /// <summary>
+        /// Temperature front
+        /// </summary>
+        public NumericMeasurement HeaterSideFront
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Temperature back
