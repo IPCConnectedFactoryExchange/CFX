@@ -9,7 +9,7 @@
     public enum VaporPhaseSolderingProcessStepType
     {
         Vacuum,
-        Vente,
+        Vent,
         Inject,
         Exhaust
     }
