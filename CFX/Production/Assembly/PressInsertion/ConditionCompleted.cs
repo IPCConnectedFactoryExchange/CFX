@@ -46,7 +46,25 @@ namespace CFX.Production.Assembly.PressInsertion
             get;
             set;
         }
-        
+	
+ 	/// <summary>
+        /// Identifies the Condition name
+        /// </summary>
+	public string ConditionName
+	{
+	    get;
+	    set;
+	}
+
+        /// <summary>
+        /// Identifies the related production unit
+        /// </summary>
+	public UnitPosition UnitPosition
+        {
+            get;
+            set;
+        }
+       
         /// <summary>
         /// An enumeration indicating the result of the condition
         /// </summary>
