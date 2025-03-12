@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
-    <PackageId>CFX.CFXSDK.NetStandard</PackageId>
+    <TargetFrameworks>netstandard1.6;net8.0;netcoreapp3.1;net462</TargetFrameworks>
+    <PackageId>CFX.CFXSDK</PackageId>
     <PackageVersion>2.0.0-beta</PackageVersion>
     <Authors>IPC CFX Committee</Authors>
     <Description>IPC Connected Factory Exchange Open Source Software Development Kit</Description>
@@ -14,26 +14,22 @@
     <Product>Connected Factory Exchange Software Development Kit</Product>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/IPCConnectedFactoryExchange/CFX</PackageProjectUrl>
-    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/IPCConnectedFactoryExchange/CFX.git</RepositoryUrl>
-    <PackageIconUrl>https://ipcconnectedfactoryexchange.github.io/CFX/CFX_Logo.PNG</PackageIconUrl>
+    <PackageIcon>images/CFX_Logo.png</PackageIcon>
     <Version>2.0.0</Version>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <FileVersion>2.0.0.0</FileVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>CFXStrongNameKey.snk</AssemblyOriginatorKeyFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>bin\</OutputPath>
-    <DocumentationFile>bin\netstandard1.6\CFX.xml</DocumentationFile>
     <WarningLevel>3</WarningLevel>
     <NoWarn>1701;1702;1570</NoWarn>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>bin\</OutputPath>
-    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -62,19 +58,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="CFXnet46.csproj.bak" />
-    <None Remove="CFX_JSON_Examples.txt" />
-    <None Remove="CFX_Logo.PNG" />
-    <None Remove="Content Layout.content" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="CFX_VS2015.csproj" />
+    <None Include="CFX_Logo.png" Pack="true" PackagePath="images/" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AMQPNetLite" Version="2.4.5" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

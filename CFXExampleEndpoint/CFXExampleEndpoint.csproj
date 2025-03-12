@@ -9,6 +9,7 @@
     <RootNamespace>CFXExampleEndpoint</RootNamespace>
     <AssemblyName>CFXExampleEndpoint</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RuntimeIdentifier>win</RuntimeIdentifier>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
@@ -101,19 +102,19 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AMQPNetLite">
-      <Version>2.4.4</Version>
+      <Version>2.4.5</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
+      <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="NJsonSchema">
       <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CFX\CFXnet46.csproj">
-      <Project>{4c0a3e7c-fef6-4af4-ba1b-d3f94540b468}</Project>
-      <Name>CFXnet46</Name>
+    <ProjectReference Include="..\CFX\CFX.csproj">
+      <Project>{a681a172-1bca-4c46-8275-fa7990c7c825}</Project>
+      <Name>CFX</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
