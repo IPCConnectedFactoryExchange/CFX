@@ -8,7 +8,7 @@ namespace CFX.InformationSystem.TopicValidation
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
-    /// Response to a request that a specific topic (e.g., tool, material carrier, recipe, material) was successfull validated or not.
+    /// <para>Response to a request that a specific topic (e.g., tool, material carrier, recipe, material) was successfull validated or not.</para>
     ///Example 1: Tools
     /// <code language="none">
     /// {

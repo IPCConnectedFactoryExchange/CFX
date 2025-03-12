@@ -8,6 +8,7 @@ namespace CFX.InformationSystem.TopicValidation
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+    /// <para>Request that a specific topic needs to be validated before continuing the process / operations.</para>
     /// Example 1: Tools
     /// <code language="none">
     /// {
@@ -140,8 +141,6 @@ namespace CFX.InformationSystem.TopicValidation
     ///   }
     /// }
     /// </code>
-    /// Request that a specific topic needs to be validated before continuing the process / operations.
-
     /// </summary>
     [Utilities.CreatedVersion("2.0")]
     public class ValidateTopicRequest : CFXMessage
