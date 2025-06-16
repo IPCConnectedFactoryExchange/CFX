@@ -156,18 +156,10 @@ namespace CFX.Structures.VaporPhaseSoldering
         }
 
         /// <summary>
-        /// PWI
+        /// Process Window Index (PWI) (0-100%) - a value of 100 means that the process is perfect, a value of 0 means that the process is not acceptable.
+        /// The PWI is calculated based on the process chamber monitoring of the temperature.
         /// </summary>
         public NumericMeasurement ProcessWindowIndex
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// injection quantity evaluation
-        /// </summary>
-        public NumericMeasurement GaldenInjectionQuantity
         {
             get;
             set;
@@ -183,7 +175,7 @@ namespace CFX.Structures.VaporPhaseSoldering
         }
 
         /// <summary>
-        /// Maximum temperature
+        /// Maximum temperature of the chamber.
         /// </summary>
         public NumericValue MaximumTemperature
         {
@@ -192,9 +184,63 @@ namespace CFX.Structures.VaporPhaseSoldering
         }
 
         /// <summary>
-        /// Smallest air-pressure of the chamber
+        /// Smallest air-pressure of the chamber.
         /// </summary>
         public NumericValue SmallestChamberPressure
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Cooling duration of the first step in seconds.
+        /// </summary>
+        public NumericValue CoolingDurationStep1
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Cooling frequency of the first step in hz.
+        /// </summary>
+        public NumericValue CoolingFrequencyStep1Top
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Cooling frequency of the second step in hz.
+        /// </summary>
+        public NumericValue CoolingFrequencyStep1Bottom
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Cooling duration of the second step in seconds.
+        /// </summary>
+        public NumericValue CoolingDurationStep2
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Cooling frequency of the first step in hz.
+        /// </summary>
+        public NumericValue CoolingFrequencyStep2Top
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Cooling frequency of the second step in hz.
+        /// </summary>
+        public NumericValue CoolingFrequencyStep2Bottom
         {
             get;
             set;

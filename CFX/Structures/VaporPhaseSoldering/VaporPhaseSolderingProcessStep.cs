@@ -48,5 +48,50 @@ namespace CFX.Structures.VaporPhaseSoldering
             get;
             set;
         }
+
+        /// <summary>
+        /// Pressure in the vapor phase soldering machine during this step (mbar).
+        /// </summary>
+        public NumericMeasurement Pressure 
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Amount of galden to be injected during this step (ml).
+        /// </summary>
+        public NumericMeasurement InjectionAmount 
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Temperature at the end of this step (celsius).
+        /// </summary>
+        public NumericMeasurement EndTempertaur
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Vacuum buildup time.
+        /// </summary>
+        public NumericMeasurement VacuumTime
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Holding time after step is comleted.
+        /// </summary>
+        public NumericMeasurement HoldingTime
+        {
+            get;
+            set;
+        }
     }
 }
