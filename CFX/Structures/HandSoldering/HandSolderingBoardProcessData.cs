@@ -36,9 +36,9 @@ namespace CFX.Structures.HandSoldering
         public List<SolderPoint> SolderPoints { get; set; }
 
         /// <summary>
-        /// Board telemetry data.
+        /// List of telemetry data.
         /// </summary>
-        public TelemetryData TelemetryData { get; set; }
+        public List<TelemetryData> TelemetryData { get; set; }
 
         /// <summary>
         /// Result file – optional Information.
