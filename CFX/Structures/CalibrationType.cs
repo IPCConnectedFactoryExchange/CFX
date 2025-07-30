@@ -116,10 +116,7 @@ namespace CFX.Structures
         /// <para>** NOTE: ADDED in CFX 1.3 **</para>
         /// Vacuum tool
         /// </summary>
-        VacuumTooling,
-        /// <summary>
-        /// Dispensing valve
-        /// </summary>
-        DispensingValve
+        VacuumTooling
+
     }
 }
