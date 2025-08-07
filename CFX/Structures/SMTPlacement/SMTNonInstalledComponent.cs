@@ -38,5 +38,16 @@ namespace CFX.Structures.SMTPlacement
             get;
             set;
         }
+
+        /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 2.1 **</para>
+        /// The cycle sequence. May be unique for a placement cycle for a head of a machine (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public int? CycleSequence
+        {
+            get;
+            set;
+        }
     }
 }
