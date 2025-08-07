@@ -26,6 +26,17 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// The type of the vision test
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public ComponentVisionTestType Type
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Vision expected value
         /// </summary>
         public double ExpectedValue
@@ -74,6 +85,50 @@ namespace CFX.Structures
         /// Result of the vision test (true if OK)
         /// </summary>
         public Boolean Result
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// List of images that has been captured during the vision test (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public List<Image> Images
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Camera resources used for the vision test (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public List<Camera> Cameras
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Name of the algorithm used to perform the vision test (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string Algorithm
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Human readable comments describing the nature of the vision test (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string Comments
         {
             get;
             set;
