@@ -76,5 +76,25 @@ namespace CFX.Structures
         /// </summary>
 	    [CFX.Utilities.CreatedVersion("1.4")]
         BadVisionTestBeforePickup,
+        /// <summary>
+        /// The component was rejected because of a generic error detected after electrical test
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        ErrorAfterElectricalTest,
+        /// <summary>
+        /// The component was rejected because of a bad vision test after electrical test
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        BadVisionTestAfterElectricalTest,
+        /// <summary>
+        /// The component was rejected because of a bad pressure test after electrical test
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        BadPressureTestAfterElectricalTest,
+        /// <summary>
+        /// The component was rejected because of a bad optical test after electrical test
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        BadOpticalTestAfterElectricalTest,
     }
 }
