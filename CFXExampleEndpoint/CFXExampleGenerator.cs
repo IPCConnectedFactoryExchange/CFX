@@ -6620,7 +6620,18 @@ namespace CFXExampleEndpoint
                     },
                     StartedAt = DateTime.Now.Subtract(new TimeSpan(0, 0, 2, 0)),
                     FinishedAt = DateTime.Now,
-                    TelemetryData = new List<TelemetryData>()
+                    TelemetryData = new TelemetryData()
+                    {
+                        ActualPower = 79,
+                        CreatedAt = DateTime.Now,
+                        TemperatureProcess = new TemperatureProcess()
+                        {
+                            CurrentTemperature = 322, 
+                            TargetTemperature = 344,
+                            TemperatureUnit = TemperatureUnit.Celsius,
+                        }
+                    },
+                    TelemetryDataList = new List<TelemetryData>()
                     {
                         new TelemetryData()
                         {
