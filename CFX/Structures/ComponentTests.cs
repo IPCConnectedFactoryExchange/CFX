@@ -38,9 +38,9 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// The vision tests results of this component (optional)
+        /// The vision analysis tests results of this component (optional)
         /// </summary>
-        List<ComponentVisionTest> VisionTests
+        List<ComponentVisionAnalysisTest> VisionAnalysisTests
         {
             get;
             set;

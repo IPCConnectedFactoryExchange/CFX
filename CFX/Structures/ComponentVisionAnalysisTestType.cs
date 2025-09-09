@@ -5,11 +5,11 @@ namespace CFX.Structures
 {
     /// <summary>
     /// <para>** NOTE: ADDED in CFX 2.1 **</para>
-    /// Describe the type of a vision test
+    /// Describe the type of a vision analysis test
     /// </summary>
     [CFX.Utilities.CreatedVersion("2.1")]
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum ComponentVisionTestType
+    public enum ComponentVisionAnalysisTestType
     {
         /// <summary>
         /// Unknown vision test type
