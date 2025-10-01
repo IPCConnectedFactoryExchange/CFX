@@ -38,6 +38,10 @@ using CFX.Structures.ReflowProfiling;
 using CFX.Production.Hermes;
 using CFX.Structures.Maintenance;
 using CFX.Structures.Cleaning;
+using CFX.Structures.Validation;
+using CFX.InformationSystem.TopicValidation;
+using CFX.Structures.HandSoldering;
+using CFX.Structures.SolderWave;
 
 namespace CFXExampleEndpoint
 {
@@ -768,7 +772,7 @@ namespace CFXExampleEndpoint
             AppendMessage(ur, ref result);
 
             UnitsInspected ui = msg as UnitsInspected;
-            
+
             for (int i = 0; i < ui.InspectedUnits.Count; i++)
             {
                 for (int j = 0; j < 5000; ++j)
@@ -1315,7 +1319,7 @@ namespace CFXExampleEndpoint
                             {
                                 HeadId = "HD212343",
                                 HeadName = "HEAD1",
-                                HeadSequence = 1                                
+                                HeadSequence = 1
                             },
                             PlacementAccuracy = 0.001,
                             NumberOfNozzleLocations = 6,
@@ -1367,21 +1371,40 @@ namespace CFXExampleEndpoint
 
             msg = new CalibrationPerformed()
             {
+                TransactionID = Guid.NewGuid(),
                 Calibration = new Calibration()
                 {
                     CalibrationCode = "FID1",
                     CalibrationType = CalibrationType.UnitPosition,
                     Comments = "Position Check.  Fiducial FID1.",
                     Status = OperationStatus.Ok,
-                    CalibrationTime = null
+                    CalibrationTime = null,
+                    Measurements = new List<CalibrationMeasurement>()
+                    {
+                        new CalibrationMeasurement()
+                        {
+                            MeasurementName = "Measure1",
+                            MeasurementValue = new NumericValue()
+                            {
+                                ExpectedValue=1,
+                                ExpectedValueUnits= "mm",
+                                MaximumAcceptableValue=1.2,
+                                MinimumAcceptableValue=0.9,
+                                MaximumAcceptableValueUnits="mm",
+                                MinimumAcceptableValueUnits="mm",
+                                Value=0.97,
+                                ValueUnits="mm"
+                            }
+                        }
+                    }
                 }
             };
             AppendMessage(msg, ref result);
 
             Fault flt = new Fault()
             {
-                Cause = FaultCause.MechanicalFailure,
                 Severity = FaultSeverity.Error,
+                Cause = FaultCause.MechanicalFailure,
                 FaultCode = "ERROR 3943480",
             };
 
@@ -2901,7 +2924,7 @@ namespace CFXExampleEndpoint
                 },
                 RelevantSurface = Surface.PrimarySurface,
                 TargetQuantity = 500
-                               
+
             };
             AppendMessage(msg, ref result);
 
@@ -3082,7 +3105,7 @@ namespace CFXExampleEndpoint
                 Result = WorkResult.Completed,
                 PerformanceImpacts = new List<PerformanceImpact>()
                 {
-                   
+
                 }
             };
             AppendMessage(msg, ref result);
@@ -3091,7 +3114,7 @@ namespace CFXExampleEndpoint
             {
                 TransactionID = transId,
                 Result = WorkResult.Completed,
-              
+
             };
             AppendMessage(msg, ref result);
 
@@ -3704,7 +3727,7 @@ namespace CFXExampleEndpoint
             AppendMessage(msg, ref result);
 
             List<ReflowZoneData> zoneData = (((msg as UnitsProcessed).CommonProcessData) as ReflowProcessData).ZoneData;
-            
+
             msg = new UnitsProcessed()
             {
                 TransactionId = Guid.NewGuid(),
@@ -3809,7 +3832,7 @@ namespace CFXExampleEndpoint
                         new Stroke() {PrintPressure = 1, PrintSpeed = 12},
                         new Stroke() { PrintPressure = 2, PrintSpeed = 9 }
                         }),
-                    
+
                     Separation = new Separation() { SeparationDistance = 1.2, SeparationSpeed = 1.6 },
 
                     PeriodicCleanings = new List<PeriodicCleaning>(
@@ -3821,7 +3844,9 @@ namespace CFXExampleEndpoint
                     FirstPrintDirection = "FrontToRear",
                     OffsetX= 1.5,
                     OffsetY= 0.5,
-                    OffsetTheta= 2.5
+                    OffsetTheta= 2.5,
+                    PrePrintStretch = 1,
+                    PostPrintStretch = 1
                 },
             };
 
@@ -4201,7 +4226,7 @@ namespace CFXExampleEndpoint
 
             msg = new GetActiveFaultsRequest()
             {
-                
+
             };
             AppendMessage(msg, ref result);
 
@@ -4820,7 +4845,7 @@ namespace CFXExampleEndpoint
                                             Name = "PasteDeposit",
                                             TargetValue = new InspectionMeasurementExpected()
                                             {
-                                               
+
                                                     PX = 3000,
                                                     PY = 1200,
                                                     EX = 0.8,
@@ -4829,7 +4854,7 @@ namespace CFXExampleEndpoint
                                                     EVol = 0.0001,
                                                     AR = 1.8,
                                                     RXY = 0
-                                                
+
                                             }
                                         }
                                     }
@@ -5255,12 +5280,12 @@ namespace CFXExampleEndpoint
 
             msg = new CFX.Maintenance.GetResourceMaintenanceStatusRequest()
             {
-               Machine = new Resource()
-               {
-                   UniqueIdentifier = "10000000",
-                   Name = "SIPLACE SX4",
-               },
-              ResourceMaintenanceDetails = new List<ResourceInformation>()
+                Machine = new Resource()
+                {
+                    UniqueIdentifier = "10000000",
+                    Name = "SIPLACE SX4",
+                },
+                ResourceMaintenanceDetails = new List<ResourceInformation>()
               {
                   new SMTTapeFeederInformation()
                   {
@@ -5381,14 +5406,14 @@ namespace CFXExampleEndpoint
 
             msg = new GetMagazineDataResponse()
             {
-               Result = new RequestResult()
-               {
-                   
-               },
-               MagazineData = new Magazine()
-               {
-                   MagazineId = "ID12345",
-                   HermesUnits = new List<HermesUnit>()
+                Result = new RequestResult()
+                {
+
+                },
+                MagazineData = new Magazine()
+                {
+                    MagazineId = "ID12345",
+                    HermesUnits = new List<HermesUnit>()
                    {
                        new HermesUnit()
                        {
@@ -5437,7 +5462,7 @@ namespace CFXExampleEndpoint
                            }
                        }
                    }
-               }
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -5498,7 +5523,7 @@ namespace CFXExampleEndpoint
                 }
             };
             AppendMessage(msg, ref result);
-            
+
             msg = new MagazineDeparted()
             {
                 MagazineData = new Magazine()
@@ -5989,6 +6014,7 @@ namespace CFXExampleEndpoint
                         },
                     UnitIdentifier = "PN123456789",
                     OverallResult = TestResult.Passed,
+                    PCBVariant = "Variant 1",
                     Inspections = new List<Inspection>(new Inspection[]
                         {
                             new Inspection()
@@ -6007,10 +6033,11 @@ namespace CFXExampleEndpoint
                     Stretch = 1,
                     RecognizedStrokeDirection = SolderPasteSqueegeeDirection.forward,
                     TotalInspectionCount = 2
-                    
+
                 }
-                
+
             };
+            AppendMessage(msg, ref result);
             /****New in version 1.7*****/
             /***************************/
 
@@ -6043,7 +6070,7 @@ namespace CFXExampleEndpoint
                         },
                         PositionNumber = 2,
                         Status = UnitStatus.Fail
-                        
+
                     },
                      new UnitInfo()
                     {
@@ -6064,9 +6091,9 @@ namespace CFXExampleEndpoint
 
             msg = new GetInspectionInfoResponse()
             {
-               InspectedUnits = new List<InspectedUnit>()
-               { 
-                   new InspectedUnit() 
+                InspectedUnits = new List<InspectedUnit>()
+               {
+                   new InspectedUnit()
                    {
                        UnitIdentifier = "SN123456",
                        UnitPositionNumber = 1,
@@ -6096,7 +6123,7 @@ namespace CFXExampleEndpoint
                                       Result = TestResult.Failed
                                   }
                               }
-                              
+
                           }
                        },
                        TotalInspectionCount = 1
@@ -6134,8 +6161,646 @@ namespace CFXExampleEndpoint
                           }
                        },
                        TotalInspectionCount = 1
-                   }                   
+                   }
                }
+            };
+            AppendMessage(msg, ref result);
+            /***** New in 2.0 ******/
+            //Validation Tool request
+            msg = new ValidateTopicRequest()
+            {
+               ValidationTopic = ValidationTopic.Tools,
+               ValidationTopicData = new ToolValidationTopicData()
+               {
+                   ValidationTopicData = new List<Tool>
+                   {
+                       new Tool()
+                       {
+                           Name = "Tool 1",
+                           UniqueIdentifier = "T00001"
+                       },
+                       new Tool()
+                       {
+                           Name = "Tool 2",
+                           UniqueIdentifier = "T00002"
+                       }
+                   }
+               }
+            };
+            AppendMessage(msg,ref result);
+            //Validation Materials request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.Materials,
+                ValidationTopicData = new MaterialValidationTopicData()
+                {
+                    ValidationTopicData = new List<MaterialLocation>
+                    {
+                        new MaterialLocation()
+                        {
+                            LocationIdentifier = "5555646454",
+                            LocationName = "SLOT44",
+                            CarrierInformation = c2,
+                            MaterialPackage = m2.ToMaterialPackage()
+                        },
+                        new MaterialLocation()
+                        {
+                            LocationIdentifier = "5555646455",
+                            LocationName = "SLOT45",
+                            CarrierInformation = new SMDTapeFeeder()
+                            {
+                                UniqueIdentifier = "1233335A",
+                                BaseUniqueIdentifier = "123335",
+                                Name = "TAPEFEEDER8mm1233335A",
+                                BaseName = "MULTILANEFEEDER123335",
+                                TapeWidth = 8,
+                                TapePitch = 4
+                            },
+                            MaterialPackage = m3.ToMaterialPackage()
+                        }
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation MaterialCarrierLocation request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.MaterialCarrier,
+                ValidationTopicData = new MaterialCarrierValidationTopicData()
+                {
+                    ValidationTopicData = new List<MaterialCarrierLocation>
+                    { 
+                        new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234893",
+                            LocationName = "SLOT45",
+                            CarrierInformation = c2
+                        },
+                        new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234000",
+                            LocationName = "SLOT44",
+                            CarrierInformation = c1
+                        }
+                    }
+                  
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            //Validation Recipe request
+            msg = new ValidateTopicRequest()
+            {
+                ValidationTopic = ValidationTopic.Recipe,
+                ValidationTopicData = new RecipeValidationTopicData()
+                {
+                    RecipeName = "Recipe 1",
+                    Lane = 1,
+                    Revision= "2.0",
+                    Stage = new Stage()
+                    { 
+                        StageName = "Stage1",
+                        StageSequence = 1,
+                        StageType = StageType.Work
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Tools
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Tools,
+                Result = new List<RequestResult> 
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 99
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Materials
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Materials,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 99
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for MaterialCarrier
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.MaterialCarrier,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Not Ok",
+                        Result = StatusResult.Failed,
+                        ResultCode = 301
+                    },
+                    new RequestResult()
+                    {
+                        Message = "Check the material carrier",
+                        Result = StatusResult.Warning,
+                        ResultCode = 10
+                    }
+                }
+            };
+            AppendMessage(msg, ref result);
+            //Validation response example for Recipe
+            msg = new ValidateTopicResponse()
+            {
+                ValidationTopic = ValidationTopic.Recipe,
+                Result = new List<RequestResult>
+                {
+                    new RequestResult()
+                    {
+                        Message = "Ok",
+                        Result = StatusResult.Success,
+                        ResultCode = 0
+                    }
+                }
+
+            };
+            AppendMessage(msg, ref result);
+
+            //Added in 2.0
+            msg = new MaterialsApplied()
+            {
+                TransactionId = Guid.NewGuid(),
+                AppliedMaterials = new List<InstalledMaterial>()
+                {
+                    new AppliedMaterial() 
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 1,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityApplied = new NumericValue()
+                        {
+                            ExpectedValue = 3.6,
+                            ExpectedValueUnits = "g",
+                            MaximumAcceptableValue = 3.8,
+                            MinimumAcceptableValue = 3.4,
+                            Value = 3.57,
+                            ValueUnits =  "gramm"
+                        }
+                    },
+                    new AppliedMaterial()
+                    {
+                        UnitIdentifier = "PANEL23423432",
+                        UnitPositionNumber = 2,
+                        Material = m1.ToMaterialPackage(),
+                        QuantityApplied = new NumericValue()
+                        {
+                            ExpectedValue = 3.6,
+                            ExpectedValueUnits = "g",
+                            MaximumAcceptableValue = 3.8,
+                            MinimumAcceptableValue = 3.4,
+                            Value = 3.45,
+                            ValueUnits =  "gramm"
+                        }
+                    }
+                }
+
+            };
+          
+            AppendMessage(msg, ref result);
+
+            /***************************/
+            /****New in version 2.0*****/
+            /***************************/
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                OverallResult = ProcessingResult.Succeeded,
+                CommonProcessData = new WaveProcessData()
+                {
+                    UnitLength = 40,
+                    UnitLengthSetpoint = 0,
+                    Conveyors = new List<Conveyor>()
+                    {
+                        new Conveyor()
+                        {
+                            ResourceName = "WT113",
+                            ResourceType = "WT-U",
+                            ResourceIdentifier = "WT34-001-A",
+                            ResourcePosition = "4",
+                            IdentiferUniqueness = IdentiferUniquenessType.LocallyPersistent,
+                        }
+                    },
+                    N2 = new N2()
+                    {
+                        Mode = N2Mode.N2On,
+                        FlowVolumeReadingValue = 22.2,
+                        NitrogenSupplyReadingValue = 5999.0,
+                        Measurements = new List<N2Measurement>
+                        {
+                            new N2Measurement()
+                            {
+                                Location = N2Location.SolderPot1,
+                                O2ReadingValue = 500.0,
+                                O2Setpoint = 0.0,
+                                N2ReadingValue = 0.0,
+                                N2Setpoint = 0.0,
+                            }
+                        }
+                    },
+                    UnitProcessData = new WaveUnitProcessData()
+                    {
+                        FluxAggregates = new List<FluxAggregate>()
+                        {
+                            new FluxAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Flux unit 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 14),
+                                Sequence = 1,
+                                Type = AggregateType.Work,
+                                FluxHeads = new List<WaveFluxHead>()
+                                {
+                                    new WaveFluxHead()
+                                    {
+                                        Active = true,
+                                        ConsumptionMeasurementActive = false,
+                                        ConsumptionReadingPoint = 10.0,
+                                        ConsumptionSetValue = 10.0,
+                                        DoseReadingPoint = 30.0,
+                                        DoseSetValue = 30.0,
+                                        ProcessTimeReadingValue = new TimeSpan(0,0,0,14),
+                                        Sequence = 1,
+                                    }
+                                }
+                            }
+                        },
+                        PreheatingAggregates = new List<PreheatingAggregate>()
+                        {
+                            new PreheatingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Lower heating 3",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 35),
+                                Sequence = 3,
+                                PreheatingType = PreheatingAggregateType.Convection,
+                                ConvectionActiveReadingValue = false,
+                                ConvectionActiveSetpoint = true,
+                                ConvectionIncreaseActiveReadingValue = false,
+                                ConvectionIncreaseActiveSetpoint = false,
+                                ConvectionSpeedValueUnit = ConvectionSpeedValueUnit.Percentage,
+                                ConvectionSpeedSetpoint = 70,
+                                TemperatureReadingValue = 0.0,
+                                TemperatureSetpoint = 200.0,
+                                PowerReadingValue = 0.0,
+                                PowerSetpoint = 0.0,
+                                PreheatingSections = null
+                            },
+                            new PreheatingAggregate()
+                            {
+                                PreheatingType = PreheatingAggregateType.MediumWave,
+                                TemperatureSetpoint = 200.0,
+                                TemperatureReadingValue= 200.0,
+                                ConvectionActiveSetpoint = false,
+                                ConvectionActiveReadingValue = false,
+                                ConvectionIncreaseActiveSetpoint = false,
+                                ConvectionIncreaseActiveReadingValue = false,
+                                PowerSetpoint = 0.0,
+                                PowerReadingValue = 0.0,
+                                PreheatingSections = null,
+                                Active = true,
+                                ProcessTimeReadingValue = new TimeSpan(0,0,0,32),
+                                Name = "Lower heating 2",
+                                Sequence = 2,
+                                Location = AggregateLocation.Bottom,
+                            },
+                            new PreheatingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Lower heating 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 2, 30),
+                                Sequence = 1,
+                                PreheatingType = PreheatingAggregateType.IrEmitter,
+                                ConvectionActiveReadingValue = false,
+                                ConvectionActiveSetpoint = false,
+                                ConvectionIncreaseActiveReadingValue = false,
+                                ConvectionIncreaseActiveSetpoint = false,
+                                TemperatureReadingValue = 0.0,
+                                TemperatureSetpoint = 0.0,
+                                PowerReadingValue = 0.0,
+                                PowerSetpoint = 0.0,
+                                PreheatingSections = new List<DynamicWavePreheatingSection>()
+                                {
+                                    new DynamicWavePreheatingSection()
+                                    {
+                                        Active = true,
+                                        Sequence = 1,
+                                        PreheatingSections = new List<WavePreheatingSection>()
+                                        {
+                                            new WavePreheatingSection()
+                                            {
+                                                PowerReadingPoint = 31.0,
+                                                TemperatureReadingValue = 162.0,
+                                            },
+                                            new WavePreheatingSection()
+                                            {
+                                                PowerReadingPoint = 36.0,
+                                                TemperatureReadingValue = 119,
+                                            }
+                                        }
+                                    },
+                                }
+                            },
+                        },
+                        SolderingAggregates = new List<SolderingAggregate>()
+                        {
+                            new SolderingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Soldering unit 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 30),
+                                Sequence = 1,
+                                Type = AggregateType.Work,
+                                Pot = new SolderingPot()
+                                {
+                                    ZAxisReadingValue = 7.0,
+                                    ZAxisSetpoint = 7.0,
+                                    Heating = new SolderPotHeating()
+                                    {
+                                        TemperatureReadingValue = 260.0,
+                                        TemperatureSetpoint = 260.0,
+                                    },
+                                    SolderingWaves = new List<SolderingWave>()
+                                    {
+                                        new SolderingWave()
+                                        {
+                                            Active = true,
+                                            NumberOfRevolutionsReadingValue = 350.0,
+                                            NumberOfRevolutionsSetpoint = 350.0,
+                                            ProcessTimeReadingValue = new TimeSpan(0,0,0,15),
+                                            Sequence = 1,
+                                        },
+                                        new SolderingWave()
+                                        {
+                                            Active = true,
+                                            Sequence = 2,
+                                            ProcessTimeReadingValue = new TimeSpan(0,0,0,17),
+                                            NumberOfRevolutionsSetpoint = 350.0,
+                                            NumberOfRevolutionsReadingValue = 350.0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        CoolingAggregates = new List<CoolingAggregate>()
+                        {
+                            new CoolingAggregate()
+                            {
+                                Active = false,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Cooling after soldering 1",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 0),
+                                Sequence = 1,
+                                CoolingType = CoolingType.BlowpipeCooling,
+                            },
+                            new CoolingAggregate()
+                            {
+                                Active = true,
+                                Location = AggregateLocation.Bottom,
+                                Name = "Cooling in descent",
+                                ProcessTimeReadingValue = new TimeSpan(0, 0, 0, 33),
+                                Sequence = 3,
+                                CoolingType = CoolingType.BlowpipeCooling,
+                            }
+                        },
+                    }
+                }
+            };
+
+            AppendMessage(msg, ref result);
+          
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                OverallResult = ProcessingResult.Succeeded,
+                CommonProcessData = new HandSolderingBoardProcessData()
+                {
+                    BoardId = Guid.NewGuid(),
+                    BoardName = "PCB-A-123",
+                    OrderNumber = "OrderNumber-121",
+                    File = new File()
+                    {
+                        Name = "HandSolderingBoardProcessDataFile",
+                        FileType = FileType.GenericMimeType,
+                        FileURL = "FileURL",
+                        MimeType = "application/json"
+                    },
+                    StartedAt = DateTime.Now.Subtract(new TimeSpan(0, 0, 2, 0)),
+                    FinishedAt = DateTime.Now,
+                    TelemetryData = new TelemetryData()
+                    {
+                        ActualPower = 85,
+                        CreatedAt = DateTime.Now,
+                        TemperatureProcess = new TemperatureProcess()
+                        {
+                            CurrentTemperature = 315, 
+                            TargetTemperature = 340,
+                            TemperatureUnit = TemperatureUnit.Celsius,
+                        }
+                    },
+                    SolderPoints = new List<SolderPoint>()
+                    {
+                        new SolderPoint()
+                        {
+                            Name = "Solder point 1",
+                            Component = new CFX.Structures.HandSoldering.Component()
+                            {
+                                Name = "Carbon resistor 1/4 W, 5%, 1.0 Ohm",
+                                ComponentType = "Resistor",
+                                MaxTemperature = 155,
+                                MaxTime = 1
+                            },
+                            StartedAt = DateTime.Now.Subtract(new TimeSpan(0,0,2,0)),
+                            FinishedAt = DateTime.Now,
+                            Materials = new List<Material>()
+                            {
+                                new Material()
+                                {
+                                    Name = "Soldering tin",
+                                    CustomMaterial = "0.75 mm, Sn99 Cu7, role 250g",
+                                    Type = MaterialType.Wire,
+                                },
+                                new Material()
+                                {
+                                    Name = "Soldering tip",
+                                    CustomMaterial = "pencil-shaped, straight, width 1.0 mm",
+                                    Type = MaterialType.Tip,
+                                }
+                            },
+                            ReadSolderingPosition = new SolderPointPosition()
+                            {
+                                X = 2,
+                                Y = 3,
+                                Z = 0
+                            },
+                            SetSolderingPosition = new SolderPointPosition()
+                            {
+                                X = 2,
+                                Y = 3,
+                                Z = 0
+                            },
+                            ResultPicture = new File()
+                            {
+                                Name = "Test Result Picture 1",
+                                FileType = FileType.GenericMimeType,
+                                MimeType = "image/jpeg",
+                            },
+                        }
+                    }
+                },
+            };
+
+            AppendMessage(msg, ref result);
+
+            /* Additions in version 2.0*/
+
+            msg = new CreateTransportOrderRequest()
+            {
+                TransportOrderId = "T123456",
+                RelatedWorkOrderId = "WO000123",
+                Materials = new TransportedMaterial()
+                {
+                    TransportedTools = new List<Tool>()
+                    {
+                        new Tool()
+                        {
+                            Name = "Tool 1",
+                            UniqueIdentifier= "ID000234"
+                        },
+                        new Tool()
+                        {
+                            Name = "Tool 2",
+                            UniqueIdentifier= "ID000567"
+                        }
+
+                    },
+                    TransportedMaterialPackages = new List<MaterialPackage>()
+                    {
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0AB123C",
+                            BatchId="B123",
+                            Quantity = 100000,
+                            InternalPartNumber = "PN12345",
+                            InternalPackageName = "Package components type 1"
+                        },
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0ZW234X",
+                            BatchId="B567",
+                            Quantity = 120000,
+                            InternalPartNumber = "PN67890",
+                            InternalPackageName = "Package components type 2"
+                        }
+                    }
+                },
+                Priority = TransportPriority.High,
+                Source = "Location 1",
+                FinalDestination = "Location 2",
+                StartedBy = "MaterialTower1",
+                TargetDeliveryTime = DateTime.Now
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new CreateTransportOrderResponse()
+            {
+                TransportOrderId = "T123456",
+                FleetManagerTransportOrderId = "FL12345",
+                Result = new RequestResult()
+                {
+                    Message = "Ok",
+                    ResultCode = 0,
+                    Result = StatusResult.Success
+                }
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StartTransferRequest()
+            {
+                TransportOrderId = "T789012",
+                RelatedWorkOrderId = "WO000567",
+                Materials = new TransportedMaterial()
+                {
+                    TransportedTools = new List<Tool>()
+                    {
+                        new Tool()
+                        {
+                            Name = "Tool 1",
+                            UniqueIdentifier= "ID000234"
+                        },
+                        new Tool()
+                        {
+                            Name = "Tool 2",
+                            UniqueIdentifier= "ID000567"
+                        }
+
+                    },
+                    TransportedMaterialPackages = new List<MaterialPackage>()
+                    {
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0AB123C",
+                            BatchId="B123",
+                            Quantity = 100000,
+                            InternalPartNumber = "PN12345",
+                            InternalPackageName = "Package components type 1"
+                        },
+                        new MaterialPackage()
+                        {
+                            UniqueIdentifier = "ID0ZW234X",
+                            BatchId="B567",
+                            Quantity = 120000,
+                            InternalPartNumber = "PN67890",
+                            InternalPackageName = "Package components type 2"
+                        }
+                    }
+                },
+                StartedBy = "Jon Doe"
+            };
+            AppendMessage(msg, ref result);
+
+            msg = new StartTransferResponse()
+            {
+                TransportOrderId = "T789012",
+                Result = new RequestResult()
+                {
+                    Message = "Failed to transfer - operation error",
+                    ResultCode = 99,
+                    Result = StatusResult.Failed
+                }
             };
             AppendMessage(msg, ref result);
 

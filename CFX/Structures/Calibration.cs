@@ -57,5 +57,14 @@ namespace CFX.Structures
             get;
             set;
         }
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// A list of measurements taken during calibration
+        /// </summary>
+        public List<CalibrationMeasurement> Measurements
+        {
+            get;
+            set;
+        }
     }
 }
