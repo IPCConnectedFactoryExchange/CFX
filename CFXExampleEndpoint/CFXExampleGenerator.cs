@@ -6804,6 +6804,29 @@ namespace CFXExampleEndpoint
             };
             AppendMessage(msg, ref result);
 
+            /* Additions in version 2.1*/
+
+            msg = new WorkStarted()
+            {
+                TransactionID = Guid.Parse("{2C24590D-39C5-4039-96A5-91900CECEDFA}"),
+                Lane = 1,
+                Units = new List<UnitPosition>(
+                    new UnitPosition[]
+                    {
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 70.45, Y = 80.66, Rotation = 90.0},
+                    }),
+                RecipeName = "Recipe1",
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO-1000-1000",
+                    Batch = "WO-1000-1000-B1"
+                },
+                RelevantSurface = Surface.PrimarySurface,
+                Revision = "2.0"
+            };
+            AppendMessage(msg, ref result);
+
             return result;
         }
     }
