@@ -194,7 +194,7 @@ namespace CFX.Production
 
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 2.1 **</para>
-        /// For two-dimensional products, such as printed circuit assemblies, specifies the relevant surface that will be processed by the newly activated recipe..
+        /// For two-dimensional products, such as printed circuit assemblies, specifies the relevant surface that will be processed by the newly activated recipe.
         /// </summary>
         [CFX.Utilities.CreatedVersion("2.1")]
         public Surface RelevantSurface
