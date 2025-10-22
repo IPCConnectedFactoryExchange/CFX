@@ -123,7 +123,7 @@ namespace CFXExampleEndpoint
                         {
                             new InstalledComponent(setDateTime:true)
                             {
-                                ReferenceDesignator = "R1"
+                                ReferenceDesignator = "R1"                                
                             },
                             new InstalledComponent(setDateTime:true)
                             {
@@ -138,6 +138,8 @@ namespace CFXExampleEndpoint
                 })
             };
             AppendMessage(msg, ref result);
+
+
 
             msg = new MaterialsUninstalled()
             {
