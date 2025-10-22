@@ -134,12 +134,36 @@ namespace CFXExampleEndpoint
                                 ReferenceDesignator = "R3"
                             }
                         })
+                    },
+                    new InstalledMaterial() {
+                         UnitIdentifier = "PANEL23423436",
+                        UnitPositionNumber = 3,
+                        Material = m1.ToMaterialPackage(),
+                        CarrierLocation = new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234800",
+                            LocationName = "SLOT48",
+                            CarrierInformation = c3
+                        },
+                        QuantityInstalled = 1,
+                        InstalledComponents = new List<InstalledComponent>()
+                        {
+                            new AppliedComponent()
+                            {
+                                QuantityApplied = new NumericValue()
+                                {
+                                    Value = 3,
+                                    ExpectedValue = 3.3,
+                                    ExpectedValueUnits = "mm",
+                                    MaximumAcceptableValue = 3.5,
+                                    MinimumAcceptableValue = 0.5
+                                }
+                            }
+                        }
                     }
                 })
             };
             AppendMessage(msg, ref result);
-
-
 
             msg = new MaterialsUninstalled()
             {

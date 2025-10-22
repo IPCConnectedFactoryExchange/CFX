@@ -56,14 +56,5 @@ namespace CFX.Structures
             get;
             set;
         }
-        /// <summary>
-        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
-        /// The quantiy of applied material (if applicable)
-        /// </summary>
-        public NumericValue QuantityApplied
-        {
-            get;
-            set;
-        }
     }
 }
