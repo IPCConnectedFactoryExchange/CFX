@@ -5663,16 +5663,13 @@ namespace CFXExampleEndpoint
                 Weight = 200,
                 Route = 1,
                 Surface = Surface.PrimarySurface,
-                HermesUnits = new List<HermesUnit>()
+                HermesUnit = new HermesUnit()
                    {
-                       new HermesUnit()
-                       {
+                       
                            BoardId =Guid.NewGuid().ToString(),
                            BoardIdCreatedBy = "Printer12345",
                            BottomBarcode = "B_M20206500001",
-                           TopBarcode = "BT_M20206500001",
-                           
-                       } 
+                           TopBarcode = "BT_M20206500001"
                 }
             };
             AppendMessage(msg, ref result);
