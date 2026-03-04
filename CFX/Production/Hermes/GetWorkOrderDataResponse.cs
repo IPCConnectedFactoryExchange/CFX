@@ -26,7 +26,25 @@ namespace CFX.Production.Hermes
     ///   "BottomClearanceHeight": 5.0,
     ///   "Weight": 200.0,
     ///   "Surface": "PrimarySurface",
-    ///   "Route": 1
+    ///   "Route": 1,
+    ///   "HermesUnit": {
+    ///     "SlotId": 0,
+    ///     "BoardId": "4cfadd5d-dded-4ba3-ad93-e7c1352cc471",
+    ///     "BoardIdCreatedBy": "Printer12345",
+    ///     "FailedBoard": 0,
+    ///     "ProductTypeId": null,
+    ///     "FlippedBoard": 0,
+    ///     "TopBarcode": "BT_M20206500001",
+    ///     "BottomBarcode": "B_M20206500001",
+    ///     "Lenght": null,
+    ///     "Width": null,
+    ///     "Thickness": null,
+    ///     "ConveyorSpeed": null,
+    ///     "TopClearanceHeight": null,
+    ///     "BottomClearanceHeight": null,
+    ///     "Weight": null,
+    ///     "WorkOrderIdentifier": null
+    ///   }
     /// }
     /// </code>
     /// </summary>
@@ -139,6 +157,19 @@ namespace CFX.Production.Hermes
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.4")]
         public uint Route
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// The Hermes unit (i.e. Board) contained in the magazine.
+        ///Note: For compatibility reasons with previous CFX versions the existing properties 
+        ///in the GetWorkOrderDataResponse shall be filled in as well.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public HermesUnit HermesUnit
         {
             get;
             set;

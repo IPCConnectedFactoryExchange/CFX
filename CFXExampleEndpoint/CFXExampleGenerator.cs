@@ -5688,7 +5688,15 @@ namespace CFXExampleEndpoint
                 Thickness = 3,
                 Weight = 200,
                 Route = 1,
-                Surface = Surface.PrimarySurface
+                Surface = Surface.PrimarySurface,
+                HermesUnit = new HermesUnit()
+                   {
+                       
+                           BoardId =Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500001",
+                           TopBarcode = "BT_M20206500001"
+                }
             };
             AppendMessage(msg, ref result);
 
