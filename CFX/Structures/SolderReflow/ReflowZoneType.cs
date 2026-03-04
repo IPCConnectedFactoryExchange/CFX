@@ -29,6 +29,18 @@ namespace CFX.Structures.SolderReflow
         /// <summary>
         /// This is a cooling zone.
         /// </summary>
-        Cool
+        Cool,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// This is a prepare zone.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        Prepare,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// This is a vacuum zone.
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        Vacuum
     }
 }
