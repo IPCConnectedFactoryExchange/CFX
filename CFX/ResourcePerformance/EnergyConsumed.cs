@@ -483,21 +483,21 @@ namespace CFX.ResourcePerformance
         }
 
         /// <summary>
-        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
         /// The sub-device granularity reports energy data 
         /// </summary>
-        [CFX.Utilities.CreatedVersion("2.0")]
+        [CFX.Utilities.CreatedVersion("2.1")]
         public List<ConsumptionDetail> ConsumptionDetails { get; set; }
     }
 
-    
+    [CFX.Utilities.CreatedVersion("2.1")]
     public class ConsumptionDetail : EnergyConsumed
     {
         /// <summary>
-        /// <para>** NOTE: ADDED in CFX 2.0 **</para>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
         /// Sub-device name, like zones/modules within a device
         /// </summary>
-        [CFX.Utilities.CreatedVersion("2.0")]
+        [CFX.Utilities.CreatedVersion("2.1")]
         public string SubsystemName { get; set; }
     }
 }
