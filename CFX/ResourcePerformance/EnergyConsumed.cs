@@ -495,4 +495,15 @@ namespace CFX.ResourcePerformance
         }
     }
 
+    [CFX.Utilities.CreatedVersion("2.1")]
+    public class ConsumptionDetail : EnergyConsumed
+    {
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Sub-device name, like zones/modules within a device
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string SubsystemName { get; set; }
+    }
+
 }
