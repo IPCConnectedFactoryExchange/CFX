@@ -4,6 +4,11 @@ using System.Text;
 
 namespace CFX.Structures
 {
+    /// <summary>
+    /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+    /// Strucutre that provides detailed information about energyl consumption.
+    /// </summary>
+    [CFX.Utilities.CreatedVersion("2.1")]
     public class ConsumptionDetail
     {
         /// <summary>
