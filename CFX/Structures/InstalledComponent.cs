@@ -18,7 +18,8 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Location on production unit where material / parts were installed
+        /// <para>** NOTE: UPDATED in CFX 2.1 **</para>
+        /// Location on production unit where material / parts / unit (the latter for version >= 2.1) were installed
         /// </summary>
         public string ReferenceDesignator
         {
