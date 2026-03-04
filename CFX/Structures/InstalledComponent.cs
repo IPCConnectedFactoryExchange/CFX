@@ -58,10 +58,10 @@ namespace CFX.Structures
 
         /// <summary>
         /// <para>** NOTE: ADDED in CFX 2.1 **</para>
-        /// Unique ID of the Unit that was installed on the Production Unit
+        /// All the tests that were performed to consider the component as valid or not (optional)
         /// </summary>
         [CFX.Utilities.CreatedVersion("2.1")]
-        public string UnitIdentifier
+        public ComponentTests Tests
         {
             get;
             set;

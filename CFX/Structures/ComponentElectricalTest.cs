@@ -17,9 +17,42 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 2.1 **</para>
+        /// Vendor of the electrical tester
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string TesterVendor
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 2.1 **</para>
+        /// Model number of the electrical tester
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string TesterModelNumber
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Serial number of the electrical tester
         /// </summary>
         public string TesterSerialNumber
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para> ** NOTE: ADDED in CFX 2.1 **</para>
+        /// Firmware version of the electrical tester
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string TesterFirmwareVersion
         {
             get;
             set;
