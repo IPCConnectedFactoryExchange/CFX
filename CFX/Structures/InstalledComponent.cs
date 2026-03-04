@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace CFX.Structures
     /// <summary>
     /// Describes a particular location on a production unit where materials / parts were installed.
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class InstalledComponent
     {
         /// <summary>
