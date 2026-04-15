@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CFX.Structures;
+using Newtonsoft.Json;
 
 namespace CFX.ResourcePerformance
 {
@@ -80,6 +81,7 @@ namespace CFX.ResourcePerformance
         /// Optional additional data depending on the machine type
         /// </summary>
         [CFX.Utilities.CreatedVersion("1.4")]
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public LogEntryAdditionalData AdditionalData
         {
             get;
