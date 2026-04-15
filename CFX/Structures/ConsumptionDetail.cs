@@ -1,92 +1,27 @@
-﻿using CFX.Structures;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CFX.ResourcePerformance
+namespace CFX.Structures
 {
     /// <summary>
-    /// Sent by a process endpoint on a sampled interval of between 1 minute and 1 hour
-    /// to indicate the energy usage and power consumption.
-    /// <code language="none">
-    /// {
-    ///   "StartTime": "2018-04-05T09:33:06.1358356-04:00",
-    ///   "EndTime": "2018-04-05T09:38:06.1358356-04:00",
-    ///   "EnergyUsed": 0.012,
-    ///   "PeakPower": 125.6,
-    ///   "MinimumPower": 120.3,
-    ///   "MeanPower": 124.6,
-    ///   "PowerNow": 121.1,         
-	///   "PowerFactorNow": 0.95,
-	///   "PeakCurrent": 0.82,       
-	///   "MinimumCurrent": 0.00,    
-	///   "MeanCurrent": 0.68,       
-	///   "CurrentNow": 0.69,       
-	///   "PeakVoltage": 239.1,      
-	///   "MinimumVoltage": 231.6,   
-	///   "MeanVoltage": 232.9,      
-	///   "VoltageNow": 212.1,       
-	///   "PeakFrequency": 52,
-	///   "MinimumFrequency": 50.5,
-	///   "MeanFrequency": 50.6,
-	///   "FrequencyNow": 50.6,
-	///   "PeakPowerRYB": [ 125.6, 77.4, 10.2 ],
-	///   "MinimumPowerRYB": [ 120.3, 68.5, 8.5 ],    
-	///   "MeanPowerRYB": [ 124.6, 70.2, 9.8 ], 
-	///   "PowerNowRYB": [ 121.1, 68.9, 10.1 ], 
-	///   "PowerFactorNowRYB": [ 0.95, 0.92, 0.80 ],
-	///   "PeakCurrentRYB": [ 0.82, 0.65, 0.33 ], 
-	///   "MinimumCurrentRYB": [ 0.00, 0.01, 0.32 ], 
-	///   "MeanCurrentRYB": [ 0.68, 0.58, 0.32 ],
-	///   "CurrentNowRYB": [ 0.69, 0.57, 0.32 ], 
-	///   "PeakVoltageRYB": [ 420.1, 413.7, 404.6 ], 
-	///   "MinimumVoltageRYB": [ 393.6, 399.8, 397.4 ],
-	///   "MeanVoltageRYB": [ 402.9, 400.1, 402.3 ],
-	///   "VoltageNowRYB": [ 401.1, 401.5, 402.3 ], 
-	///   "ThreePhaseNeutralCurrentNow": 0.06,
-    ///   "ConsumptionDetails": [{
-    ///         "SubsystemName": "EquipmentSubArea",
-    ///         "StartTime": "2018-04-05T09:33:06.1358356-04:00",
-    ///         "EndTime": "2018-04-05T09:38:06.1358356-04:00",
-    ///         "EnergyUsed": 0.010,
-    ///         "PeakPower": 125.6,
-    ///         "MinimumPower": 120.3,
-    ///         "MeanPower": 124.6,
-    ///         "PowerNow": 121.1,         
-	///         "PowerFactorNow": 0.95,
-	///         "PeakCurrent": 0.82,       
-	///         "MinimumCurrent": 0.00,    
-	///         "MeanCurrent": 0.68,       
-	///         "CurrentNow": 0.69,       
-	///         "PeakVoltage": 239.1,      
-	///         "MinimumVoltage": 231.6,   
-	///         "MeanVoltage": 232.9,      
-	///         "VoltageNow": 212.1,       
-	///         "PeakFrequency": 52,
-	///         "MinimumFrequency": 50.5,
-	///         "MeanFrequency": 50.6,
-	///         "FrequencyNow": 50.6,
-	///         "PeakPowerRYB": [ 125.6, 77.4, 10.2 ],
-	///         "MinimumPowerRYB": [ 120.3, 68.5, 8.5 ],    
-	///         "MeanPowerRYB": [ 124.6, 70.2, 9.8 ], 
-	///         "PowerNowRYB": [ 121.1, 68.9, 10.1 ], 
-	///         "PowerFactorNowRYB": [ 0.95, 0.92, 0.80 ],
-	///         "PeakCurrentRYB": [ 0.82, 0.65, 0.33 ], 
-	///         "MinimumCurrentRYB": [ 0.00, 0.01, 0.32 ], 
-	///         "MeanCurrentRYB": [ 0.68, 0.58, 0.32 ],
-	///         "CurrentNowRYB": [ 0.69, 0.57, 0.32 ], 
-	///         "PeakVoltageRYB": [ 420.1, 413.7, 404.6 ], 
-	///         "MinimumVoltageRYB": [ 393.6, 399.8, 397.4 ],
-	///         "MeanVoltageRYB": [ 402.9, 400.1, 402.3 ],
-	///         "VoltageNowRYB": [ 401.1, 401.5, 402.3 ], 
-	///         "ThreePhaseNeutralCurrentNow": 0.06
-    ///     }
-    ///   ],
-    /// }
-    /// </code>
+    /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+    /// Strucutre that provides detailed information about energyl consumption.
     /// </summary>
-    public class EnergyConsumed : CFXMessage
+    [CFX.Utilities.CreatedVersion("2.1")]
+    public class ConsumptionDetail
     {
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Sub-device name, like zones/modules within a device
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string SubsystemName 
+        { 
+            get; 
+            set; 
+        }
+
         /// <summary>
         /// The start time of the sample period
         /// </summary>
@@ -483,27 +418,5 @@ namespace CFX.ResourcePerformance
             set;
         }
 
-        /// <summary>
-        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
-        /// The sub-device granularity reports energy data 
-        /// </summary>
-        [CFX.Utilities.CreatedVersion("2.1")]
-        public List<ConsumptionDetail> ConsumptionDetails 
-        { 
-            get; 
-            set; 
-        }
     }
-
-    [CFX.Utilities.CreatedVersion("2.1")]
-    public class ConsumptionDetail : EnergyConsumed
-    {
-        /// <summary>
-        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
-        /// Sub-device name, like zones/modules within a device
-        /// </summary>
-        [CFX.Utilities.CreatedVersion("2.1")]
-        public string SubsystemName { get; set; }
-    }
-
 }

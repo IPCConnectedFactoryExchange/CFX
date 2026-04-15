@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace CFX.Structures
     /// <summary>
     /// Describes a particular location on a production unit where materials / parts were installed.
     /// </summary>
+    [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class InstalledComponent
     {
         /// <summary>
@@ -18,7 +20,8 @@ namespace CFX.Structures
         }
 
         /// <summary>
-        /// Location on production unit where material / parts were installed
+        /// <para>** NOTE: UPDATED in CFX 2.1 **</para>
+        /// Location on production unit where material / parts / unit (the latter for version >= 2.1) were installed
         /// </summary>
         public string ReferenceDesignator
         {
@@ -50,6 +53,17 @@ namespace CFX.Structures
         /// The electrical test result of this component (optional)
         /// </summary>
         public ComponentElectricalTest ElectricalTest
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// All the tests that were performed to consider the component as valid or not (optional)
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public ComponentTests Tests
         {
             get;
             set;

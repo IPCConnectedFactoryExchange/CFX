@@ -197,6 +197,7 @@ namespace CFX.Transport
             foreach (CFXEnvelope env in messages)
             {
                 p.MessageQueue.Enqueue(env);
+                p.SignalMessageAvailable();
             }
         }
 
@@ -267,6 +268,12 @@ namespace CFX.Transport
 
         class InternalSourceProcessor : IMessageSource
         {
+            /// <summary>
+            /// A semaphore for waiting for new messages.
+            /// This can fix the issue that GetMessageAsync leads to high CPU consumption.
+            /// </summary>
+            private SemaphoreSlim messageAvailable = new SemaphoreSlim(0);
+
             public InternalSourceProcessor(AmqpRequestProcessor parentProcessor, string sourceAddress)
             {
                 this.parentProcessor = parentProcessor;
@@ -296,29 +303,30 @@ namespace CFX.Transport
             public async Task<ReceiveContext> GetMessageAsync(ListenerLink link)
             {
                 ReceiveContext ctx = null;
-
-                await Task.Run(() =>
+                await messageAvailable.WaitAsync();
+                try
                 {
-                    try
+                    if (MessageQueue.Count > 0)
                     {
-                        if (MessageQueue.Count > 0)
+                        Message m;
+                        CFXEnvelope[] envs = MessageQueue.Dequeue();
+                        if (envs != null && envs.Length > 0)
                         {
-                            Message m;
-                            CFXEnvelope[] envs = MessageQueue.Dequeue();
-                            if (envs != null && envs.Length > 0)
-                            {
-                                m = AmqpUtilities.MessageFromEnvelope(envs[0], AmqpCFXEndpoint.Codec.Value, parentProcessor.Endpoint.SubjectFormat);
-                                ctx = new ReceiveContext(link, m);
-                            }
+                            m = AmqpUtilities.MessageFromEnvelope(envs[0], AmqpCFXEndpoint.Codec.Value, parentProcessor.Endpoint.SubjectFormat);
+                            ctx = new ReceiveContext(link, m);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        AppLog.Error(ex);
-                    }
-                });
-
+                }
+                catch (Exception ex)
+                {
+                    AppLog.Error(ex);
+                }
                 return ctx;
+            }
+
+            public void SignalMessageAvailable()
+            {
+                messageAvailable.Release();
             }
         }
 
@@ -489,6 +497,8 @@ namespace CFX.Transport
 
             public override void OnFlow(FlowContext flowContext)
             {
+
+
             }
 
             public override void OnDisposition(DispositionContext dispositionContext)

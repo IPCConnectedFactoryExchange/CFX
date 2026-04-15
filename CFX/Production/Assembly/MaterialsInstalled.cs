@@ -1,7 +1,8 @@
-﻿using System;
+﻿using CFX.Structures;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using CFX.Structures;
 
 namespace CFX.Production.Assembly
 {
@@ -138,6 +139,7 @@ namespace CFX.Production.Assembly
         /// <summary>
         /// A list of the specific materials which were installed.
         /// </summary>
+        [JsonProperty(ItemTypeNameHandling = TypeNameHandling.Auto)]
         public List<InstalledMaterial> InstalledMaterials
         {
             get;

@@ -123,7 +123,7 @@ namespace CFXExampleEndpoint
                         {
                             new InstalledComponent(setDateTime:true)
                             {
-                                ReferenceDesignator = "R1"
+                                ReferenceDesignator = "R1"                                
                             },
                             new InstalledComponent(setDateTime:true)
                             {
@@ -134,6 +134,32 @@ namespace CFXExampleEndpoint
                                 ReferenceDesignator = "R3"
                             }
                         })
+                    },
+                    new InstalledMaterial() {
+                         UnitIdentifier = "PANEL23423436",
+                        UnitPositionNumber = 3,
+                        Material = m1.ToMaterialPackage(),
+                        CarrierLocation = new MaterialCarrierLocation()
+                        {
+                            LocationIdentifier = "UID384234800",
+                            LocationName = "SLOT48",
+                            CarrierInformation = c3
+                        },
+                        QuantityInstalled = 1,
+                        InstalledComponents = new List<InstalledComponent>()
+                        {
+                            new AppliedComponent()
+                            {
+                                QuantityApplied = new NumericValue()
+                                {
+                                    Value = 3,
+                                    ExpectedValue = 3.3,
+                                    ExpectedValueUnits = "mm",
+                                    MaximumAcceptableValue = 3.5,
+                                    MinimumAcceptableValue = 0.5
+                                }
+                            }
+                        }
                     }
                 })
             };
@@ -5662,7 +5688,15 @@ namespace CFXExampleEndpoint
                 Thickness = 3,
                 Weight = 200,
                 Route = 1,
-                Surface = Surface.PrimarySurface
+                Surface = Surface.PrimarySurface,
+                HermesUnit = new HermesUnit()
+                   {
+                       
+                           BoardId =Guid.NewGuid().ToString(),
+                           BoardIdCreatedBy = "Printer12345",
+                           BottomBarcode = "B_M20206500001",
+                           TopBarcode = "BT_M20206500001"
+                }
             };
             AppendMessage(msg, ref result);
 
@@ -6620,16 +6654,30 @@ namespace CFXExampleEndpoint
                     },
                     StartedAt = DateTime.Now.Subtract(new TimeSpan(0, 0, 2, 0)),
                     FinishedAt = DateTime.Now,
-                    TelemetryData = new TelemetryData()
+                    TelemetryData = new List<TelemetryData>()
                     {
-                        ActualPower = 85,
-                        CreatedAt = DateTime.Now,
-                        TemperatureProcess = new TemperatureProcess()
+                        new TelemetryData()
                         {
-                            CurrentTemperature = 315, 
-                            TargetTemperature = 340,
-                            TemperatureUnit = TemperatureUnit.Celsius,
-                        }
+                            ActualPower = 85,
+                            CreatedAt = DateTime.Now,
+                            TemperatureProcess = new TemperatureProcess()
+                            {
+                                CurrentTemperature = 315, 
+                                TargetTemperature = 340,
+                                TemperatureUnit = TemperatureUnit.Celsius,
+                            }
+                        },
+                        new TelemetryData()
+                        {
+                            ActualPower = 87,
+                            CreatedAt = DateTime.Now.AddSeconds(10),
+                            TemperatureProcess = new TemperatureProcess()
+                            {
+                                CurrentTemperature = 317, 
+                                TargetTemperature = 343,
+                                TemperatureUnit = TemperatureUnit.Celsius,
+                            }
+                        },
                     },
                     SolderPoints = new List<SolderPoint>()
                     {
@@ -6801,6 +6849,29 @@ namespace CFXExampleEndpoint
                     ResultCode = 99,
                     Result = StatusResult.Failed
                 }
+            };
+            AppendMessage(msg, ref result);
+
+            /* Additions in version 2.1*/
+
+            msg = new WorkStarted()
+            {
+                TransactionID = Guid.Parse("{2C24590D-39C5-4039-96A5-91900CECEDFA}"),
+                Lane = 1,
+                Units = new List<UnitPosition>(
+                    new UnitPosition[]
+                    {
+                        new UnitPosition() { PositionNumber = 1, PositionName = "CIRCUIT1", UnitIdentifier = "CARRIER5566", X = 50.45, Y = 80.66, Rotation = 0},
+                        new UnitPosition() { PositionNumber = 2, PositionName = "CIRCUIT2", UnitIdentifier = "CARRIER5566", X = 70.45, Y = 80.66, Rotation = 90.0},
+                    }),
+                RecipeName = "Recipe1",
+                WorkOrderIdentifier = new WorkOrderIdentifier()
+                {
+                    WorkOrderId = "WO-1000-1000",
+                    Batch = "WO-1000-1000-B1"
+                },
+                RelevantSurface = Surface.PrimarySurface,
+                Revision = "2.0"
             };
             AppendMessage(msg, ref result);
 

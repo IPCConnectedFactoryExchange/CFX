@@ -15,15 +15,15 @@ namespace CFX.Structures.SolderReflow
     public enum ReflowReadingType
     {
         /// <summary>
-        /// The reading a temperature reading, expressed in degrees celcius (C).
+        /// The reading a temperature reading, expressed in degrees Celcius (C).
         /// </summary>
         Temperature,
         /// <summary>
-        /// The reading is an oxygen reading, expressed in parts per million (PPM).
+        /// The reading is an oxygen reading, expressed in parts per million (ppm).
         /// </summary>
         O2,
         /// <summary>
-        /// The reading is an power reading, expressed in watts (w).
+        /// The reading is an power reading, expressed in watts (W).
         /// </summary>
         Power,
         /// <summary>
@@ -42,5 +42,12 @@ namespace CFX.Structures.SolderReflow
         /// A measure of the amount of relative convection, expressed in Pascals (Pa).
         /// </summary>
         ConvectionRate,
+        /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Hold Time, expressed in seconds (s).
+        /// </summary>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        HoldTime
+
     }
 }
