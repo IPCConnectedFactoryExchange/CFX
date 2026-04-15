@@ -18,11 +18,11 @@ namespace CFX.Structures
             get;
             set;
         }
-        
+
         /// <summary>
         /// The optical tests results of this component (optional)
         /// </summary>
-        List<ComponentOpticalTest> OpticalTests
+        public List<ComponentOpticalTest> OpticalTests
         {
             get;
             set;
@@ -31,7 +31,7 @@ namespace CFX.Structures
         /// <summary>
         /// The pressure tests results of this component (optional)
         /// </summary>
-        List<ComponentPressureTest> PressureTests
+        public List<ComponentPressureTest> PressureTests
         {
             get;
             set;
@@ -40,7 +40,7 @@ namespace CFX.Structures
         /// <summary>
         /// The vision analysis tests results of this component (optional)
         /// </summary>
-        List<ComponentVisionAnalysisTest> VisionAnalysisTests
+        public List<ComponentVisionAnalysisTest> VisionAnalysisTests
         {
             get;
             set;
@@ -49,7 +49,7 @@ namespace CFX.Structures
         /// <summary>
         /// The electrical tests results of this component (optional)
         /// </summary>
-        List<ComponentElectricalTest> ElectricalTests
+        public List<ComponentElectricalTest> ElectricalTests
         {
             get;
             set;
