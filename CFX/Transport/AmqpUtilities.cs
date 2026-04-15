@@ -153,9 +153,13 @@ namespace CFX.Transport
 
         internal static string StringFromEnvelopes(Message msg)
         {
-            if (msg?.Body is byte[])
+            if (msg?.Body is byte[] array)
             {
-                return Encoding.UTF8.GetString(msg.Body as byte[]);
+                if (string.Equals(msg.Properties.ContentEncoding, "gzip", StringComparison.OrdinalIgnoreCase))
+                {
+                    array = Decode(array, CFXCodec.gzip);
+                }
+                return Encoding.UTF8.GetString(array);
             }
             else if (msg?.Body is string)
             {
@@ -257,6 +261,10 @@ namespace CFX.Transport
                 string result = "";
                 try
                 {
+                    if (string.Equals(message.Properties.ContentEncoding, "gzip", StringComparison.OrdinalIgnoreCase))
+                    {
+                        bt = Decode(bt, CFXCodec.gzip); ;
+                    }
                     result = Encoding.UTF8.GetString(bt);
                     if (result.Length > count) result = result.Substring(0, count);
                 }
