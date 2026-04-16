@@ -45,7 +45,7 @@ namespace CFX
             Transmitted = false;
         }
 
-        public const string CFXVERSION = "2.0";
+        public const string CFXVERSION = "2.1";
         
         public CFXEnvelope(Type messageType) : this()
         {
