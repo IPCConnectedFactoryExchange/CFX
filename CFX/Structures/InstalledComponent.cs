@@ -30,6 +30,17 @@ namespace CFX.Structures
         }
 
         /// <summary>
+        /// <para>** NOTE: ADDED in CFX 2.1 **</para>
+        /// Unique ID of the sub-assembly / Unit that was installed on the Production Unit
+        /// </summary>
+        public string InstalledUnitIdentifier
+        {
+            get;
+            set;
+        }
+
+
+        /// <summary>
         /// The specific time when this material / part was installed on the production unit (optional, when known)
         /// </summary>
         public DateTime? InstallationTime
