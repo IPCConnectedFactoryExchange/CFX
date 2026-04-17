@@ -42,6 +42,7 @@ using CFX.Structures.Validation;
 using CFX.InformationSystem.TopicValidation;
 using CFX.Structures.HandSoldering;
 using CFX.Structures.SolderWave;
+using CFX.Structures.Generic;
 
 namespace CFXExampleEndpoint
 {
@@ -3873,6 +3874,96 @@ namespace CFXExampleEndpoint
                     OffsetTheta= 2.5,
                     PrePrintStretch = 1,
                     PostPrintStretch = 1
+                },
+            };
+
+            AppendMessage(msg, ref result);
+
+            //New UnitsProcessed showing GenericProcessData usage
+            msg = new UnitsProcessed()
+            {
+                TransactionId = Guid.NewGuid(),
+                OverallResult = ProcessingResult.Succeeded,
+                CommonProcessData = new GenericProcessData()
+                {
+                    Setpoints = new List<GenericValue>(new GenericValue[]
+                    {
+                        new GenericValue()
+                        {
+                            Name = "ConveyorSpeed",
+                            Value = new NumericValue() { Value = 1.4, ValueUnits = "m/min" }
+                        },
+                        new GenericValue()
+                        {
+                            Name = "CycleTime",
+                            Value = new NumericValue() { Value = 45.0, ValueUnits = "s" }
+                        }
+                    }),
+                    Readings = new List<GenericValue>(new GenericValue[]
+                    {
+                        new GenericValue()
+                        {
+                            Name = "ActualCycleTime",
+                            Value = new NumericValue()
+                            {
+                                Value = 45.6,
+                                ValueUnits = "s",
+                                ExpectedValue = 45.0,
+                                ExpectedValueUnits = "s",
+                                MinimumAcceptableValue = 43.0,
+                                MinimumAcceptableValueUnits = "s",
+                                MaximumAcceptableValue = 47.0,
+                                MaximumAcceptableValueUnits = "s"
+                            }
+                        }
+                    }),
+                    Parameters = new List<GenericParameter>(new GenericParameter[]
+                    {
+                        new GenericParameter() { Name = "RecipeName", Value = "RECIPE_42" },
+                        new GenericParameter() { Name = "OperatorId", Value = "BADGE489435" }
+                    }),
+                    StageData = new List<GenericStageData>(new GenericStageData[]
+                    {
+                        new GenericStageData()
+                        {
+                            Stage = new Stage()
+                            {
+                                StageSequence = 1,
+                                StageName = "Stage1",
+                                StageType = StageType.Work
+                            },
+                            Setpoints = new List<GenericValue>(new GenericValue[]
+                            {
+                                new GenericValue()
+                                {
+                                    Name = "HeaterTemperature",
+                                    Value = new NumericValue() { Value = 220.0, ValueUnits = "Cel" }
+                                }
+                            }),
+                            Readings = new List<GenericValue>(new GenericValue[]
+                            {
+                                new GenericValue()
+                                {
+                                    Name = "ActualHeaterTemperature",
+                                    Value = new NumericValue()
+                                    {
+                                        Value = 221.3,
+                                        ValueUnits = "Cel",
+                                        ExpectedValue = 220.0,
+                                        ExpectedValueUnits = "Cel",
+                                        MinimumAcceptableValue = 215.0,
+                                        MinimumAcceptableValueUnits = "Cel",
+                                        MaximumAcceptableValue = 225.0,
+                                        MaximumAcceptableValueUnits = "Cel"
+                                    }
+                                }
+                            }),
+                            Parameters = new List<GenericParameter>(new GenericParameter[]
+                            {
+                                new GenericParameter() { Name = "GasType", Value = "Nitrogen" }
+                            })
+                        }
+                    })
                 },
             };
 
