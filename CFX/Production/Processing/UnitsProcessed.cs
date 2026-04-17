@@ -921,6 +921,110 @@ namespace CFX.Production.Processing
     ///    "UnitProcessData": []
     /// }
     /// </code>
+    /// <para></para>
+    /// <para>Example 8 (Generic Process Data - available in CFX 2.1 and later): suitable for
+    /// any equipment that does not have a dedicated ProcessData variant.  Reports setpoints,
+    /// readings, parameters, and optional per-stage data.</para>
+    /// <para></para>
+    /// <code language="none">
+    /// {
+    ///   "TransactionId": "c9a2b93b-1f0a-4d1a-9a9c-8b5f3e2d1c4b",
+    ///   "OverallResult": "Succeeded",
+    ///   "CommonProcessData": {
+    ///     "$type": "CFX.Structures.Generic.GenericProcessData, CFX",
+    ///     "Setpoints": [
+    ///       {
+    ///         "Name": "ConveyorSpeed",
+    ///         "Value": {
+    ///           "Value": 1.4,
+    ///           "ValueUnits": "m/min",
+    ///           "ExpectedValue": null,
+    ///           "ExpectedValueUnits": null,
+    ///           "MinimumAcceptableValue": null,
+    ///           "MinimumAcceptableValueUnits": null,
+    ///           "MaximumAcceptableValue": null,
+    ///           "MaximumAcceptableValueUnits": null
+    ///         }
+    ///       },
+    ///       {
+    ///         "Name": "CycleTime",
+    ///         "Value": {
+    ///           "Value": 45.0,
+    ///           "ValueUnits": "s",
+    ///           "ExpectedValue": null,
+    ///           "ExpectedValueUnits": null,
+    ///           "MinimumAcceptableValue": null,
+    ///           "MinimumAcceptableValueUnits": null,
+    ///           "MaximumAcceptableValue": null,
+    ///           "MaximumAcceptableValueUnits": null
+    ///         }
+    ///       }
+    ///     ],
+    ///     "Readings": [
+    ///       {
+    ///         "Name": "ActualCycleTime",
+    ///         "Value": {
+    ///           "Value": 45.6,
+    ///           "ValueUnits": "s",
+    ///           "ExpectedValue": 45.0,
+    ///           "ExpectedValueUnits": "s",
+    ///           "MinimumAcceptableValue": 43.0,
+    ///           "MinimumAcceptableValueUnits": "s",
+    ///           "MaximumAcceptableValue": 47.0,
+    ///           "MaximumAcceptableValueUnits": "s"
+    ///         }
+    ///       }
+    ///     ],
+    ///     "Parameters": [
+    ///       { "Name": "RecipeName", "Value": "RECIPE_42" },
+    ///       { "Name": "OperatorId", "Value": "BADGE489435" }
+    ///     ],
+    ///     "StageData": [
+    ///       {
+    ///         "Stage": {
+    ///           "StageSequence": 1,
+    ///           "StageName": "Stage1",
+    ///           "StageType": "Work"
+    ///         },
+    ///         "Setpoints": [
+    ///           {
+    ///             "Name": "HeaterTemperature",
+    ///             "Value": {
+    ///               "Value": 220.0,
+    ///               "ValueUnits": "Cel",
+    ///               "ExpectedValue": null,
+    ///               "ExpectedValueUnits": null,
+    ///               "MinimumAcceptableValue": null,
+    ///               "MinimumAcceptableValueUnits": null,
+    ///               "MaximumAcceptableValue": null,
+    ///               "MaximumAcceptableValueUnits": null
+    ///             }
+    ///           }
+    ///         ],
+    ///         "Readings": [
+    ///           {
+    ///             "Name": "ActualHeaterTemperature",
+    ///             "Value": {
+    ///               "Value": 221.3,
+    ///               "ValueUnits": "Cel",
+    ///               "ExpectedValue": 220.0,
+    ///               "ExpectedValueUnits": "Cel",
+    ///               "MinimumAcceptableValue": 215.0,
+    ///               "MinimumAcceptableValueUnits": "Cel",
+    ///               "MaximumAcceptableValue": 225.0,
+    ///               "MaximumAcceptableValueUnits": "Cel"
+    ///             }
+    ///           }
+    ///         ],
+    ///         "Parameters": [
+    ///           { "Name": "GasType", "Value": "Nitrogen" }
+    ///         ]
+    ///       }
+    ///     ]
+    ///   },
+    ///   "UnitProcessData": []
+    /// }
+    /// </code>
     /// </summary>
     [JsonObject(ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class UnitsProcessed : CFXMessage
