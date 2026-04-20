@@ -117,5 +117,18 @@ namespace CFX.InformationSystem.UnitValidation
             get;
             set;
         }
+
+        /// <summary>
+        /// Currently loaded recipe name. Null if no specific recipe is currently loaded.
+        /// </summary>
+        /// <remarks>
+        /// Send the currently loaded recipe name as part of the request, so that the validation can be performed in the context of the current recipe.
+        /// </remarks>
+        [CFX.Utilities.CreatedVersion("2.1")]
+        public string RecipeName
+        {
+            get;
+            set;
+        }
     }
 }
