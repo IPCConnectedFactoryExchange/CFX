@@ -36,6 +36,8 @@ namespace CFX
     [JsonObject(MemberSerialization.OptIn, ItemTypeNameHandling = TypeNameHandling.Auto)]
     public class CFXEnvelope
     {
+        private const int maxLength = 32_000_000;//maximum message size ~32MB
+
         public CFXEnvelope()
         {
             UniqueID = Guid.NewGuid();
@@ -239,6 +241,11 @@ namespace CFX
                 long filePosition = reader.BaseStream.Position;
                 bool transmitted = reader.ReadBoolean();
                 Int32 len = reader.ReadInt32();
+                if (len > maxLength)
+                {
+                    reader.BaseStream.Seek(0, SeekOrigin.End);
+                    throw new IOException("Input message is bigger than maximum allowed");
+                }
                 byte[] data = reader.ReadBytes(len);
                 CFXEnvelope result = FromBytes(data);
                 result.QueueFilePosition = filePosition;
@@ -259,7 +266,7 @@ namespace CFX
             writer.Write(Transmitted);
             byte[] data = this.ToBytes();
             writer.Write((Int32)data.Length);
-            writer.Write(this.ToBytes());
+            writer.Write(data);
         }
 
         internal void SetRecordTransmitted(BinaryWriter writer)
