@@ -1,0 +1,12 @@
+# Docker build context is the repo root (see IntegrationTests/docker-compose.yml). Keep host build
+# artifacts and VCS/IDE cruft out of the image so the container build restores/publishes cleanly.
+**/bin/
+**/obj/
+.git/
+.github/
+.vs/
+.idea/
+.vscode/
+docs/
+**/*.user
+**/*.suo

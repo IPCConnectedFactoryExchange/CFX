@@ -1,0 +1,29 @@
+name: Integration Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  rabbitmq-roundtrip:
+    name: RabbitMQ round-trip
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: IntegrationTests
+    steps:
+      - uses: actions/checkout@v4
+
+      # Builds the test image, stands up RabbitMQ + declares topology, runs the SDK round-trip test.
+      # The runner's exit code (0 = message received, 1 = timeout/error) becomes the step result.
+      - name: Run RabbitMQ round-trip integration test
+        run: docker compose run --build --rm rabbitmq-roundtrip
+
+      - name: Broker logs (on failure)
+        if: failure()
+        run: docker compose logs broker broker-init
+
+      - name: Tear down
+        if: always()
+        run: docker compose down -v

@@ -1,0 +1,75 @@
+# Multicontainer integration-test stack for the CFX SDK.
+#
+# Shared infrastructure (broker, broker-init) plus one runner service per scenario. Run a scenario
+# from this directory with, e.g.:
+#
+#   docker compose run --build --rm rabbitmq-roundtrip   # exit code == test result
+#   docker compose down -v                                # cleanup
+#
+# `compose run` brings up the runner's depends_on graph (broker healthy + broker-init completed),
+# runs the runner in the foreground, and returns its exit code. We deliberately do NOT use
+# `up --exit-code-from`, because the one-shot broker-init exiting would tear the stack down early.
+
+services:
+  # ---- shared infrastructure ----
+  broker:
+    image: rabbitmq:4-management
+    hostname: cfx-broker
+    environment:
+      RABBITMQ_DEFAULT_USER: cfxtest
+      RABBITMQ_DEFAULT_PASS: cfxtest
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    ports:
+      - "5672:5672"    # AMQP (1.0 supported natively in 4.x)
+      - "15672:15672"  # management UI / HTTP API
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+
+  # Declares the CFX topology via the management HTTP API: a durable fanout exchange bound to a
+  # durable queue. Fanout => the SDK's default (empty) routing key still reaches the queue.
+  # Uses curlimages/curl so it does not depend on tooling inside the rabbitmq image.
+  broker-init:
+    image: curlimages/curl:8.11.1
+    depends_on:
+      broker:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        API=http://broker:15672/api
+        AUTH="cfxtest:cfxtest"
+        echo "waiting for management API..."
+        until curl -sf -u "$$AUTH" "$$API/overview" > /dev/null; do sleep 2; done
+        echo "declaring exchange CFXTestExchange (fanout, durable)"
+        curl -sf -u "$$AUTH" -X PUT "$$API/exchanges/%2F/CFXTestExchange" \
+          -H "content-type: application/json" -d '{"type":"fanout","durable":true}'
+        echo "declaring queue CFXTestQueue (durable)"
+        curl -sf -u "$$AUTH" -X PUT "$$API/queues/%2F/CFXTestQueue" \
+          -H "content-type: application/json" -d '{"durable":true}'
+        echo "binding CFXTestExchange -> CFXTestQueue"
+        curl -sf -u "$$AUTH" -X POST "$$API/bindings/%2F/e/CFXTestExchange/q/CFXTestQueue" \
+          -H "content-type: application/json" -d '{"routing_key":""}'
+        echo "topology declared"
+
+  # ---- scenario runners (one per integration test) ----
+  rabbitmq-roundtrip:
+    build:
+      context: ..                                        # repo root, so the SDK is reachable
+      dockerfile: IntegrationTests/RabbitMqRoundTrip/Dockerfile
+    depends_on:
+      broker-init:
+        condition: service_completed_successfully
+    environment:
+      BROKER_HOST: broker
+      BROKER_PORT: "5672"
+      BROKER_USER: cfxtest
+      BROKER_PASS: cfxtest
+      CFX_EXCHANGE: /exchange/CFXTestExchange
+      CFX_QUEUE: /queue/CFXTestQueue
+      CFX_TIMEOUT_MS: "30000"

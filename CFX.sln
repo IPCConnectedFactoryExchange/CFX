@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppendixNotesTool", "Append
 		{A681A172-1BCA-4C46-8275-FA7990C7C825} = {A681A172-1BCA-4C46-8275-FA7990C7C825}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{C5FB0A34-9A25-4773-852F-101A947D1619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqRoundTrip", "IntegrationTests\RabbitMqRoundTrip\RabbitMqRoundTrip.csproj", "{7B828984-D878-4DDD-B4AF-BBA7045809FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,11 +46,18 @@ Global
 		{90EDA995-4A07-489F-B7EE-74786E765329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90EDA995-4A07-489F-B7EE-74786E765329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90EDA995-4A07-489F-B7EE-74786E765329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B828984-D878-4DDD-B4AF-BBA7045809FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B828984-D878-4DDD-B4AF-BBA7045809FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B828984-D878-4DDD-B4AF-BBA7045809FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B828984-D878-4DDD-B4AF-BBA7045809FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F84406F2-9002-4D0F-BE14-969D11D4ED19}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B828984-D878-4DDD-B4AF-BBA7045809FC} = {C5FB0A34-9A25-4773-852F-101A947D1619}
 	EndGlobalSection
 EndGlobal
