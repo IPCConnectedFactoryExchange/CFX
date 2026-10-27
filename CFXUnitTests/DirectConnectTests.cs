@@ -46,6 +46,43 @@ namespace CFXUnitTests
             await DoTests(true, true);
         }
 
+        [TestMethod]
+        public void MessageSourceDoesNotSpinWhileIdle()
+        {
+            InitializeTest(false, false);
+            FireAndWaitForSource(new WhoIsThereRequest());
+
+            // An idle message source with an attached subscriber used to burn several cores by polling
+            System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess();
+            TimeSpan cpuBefore = process.TotalProcessorTime;
+            System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
+            System.Threading.Thread.Sleep(3000);
+            process.Refresh();
+            double cpuLoad = (process.TotalProcessorTime - cpuBefore).TotalMilliseconds / sw.Elapsed.TotalMilliseconds;
+
+            Assert.IsTrue(cpuLoad < 0.5, $"Idle message source used {cpuLoad:P0} of a CPU core");
+            FireAndWaitForSource(new WhoIsThereRequest());
+        }
+
+        [TestMethod]
+        public void MessageSourceDeliversAfterResubscribe()
+        {
+            InitializeTest(false, false);
+            FireAndWaitForSource(new WhoIsThereRequest());
+
+            // The receive loop of the detached link must not take messages meant for the new subscription
+            Uri uri = TestSettings.GetListenerUri(false, false);
+            endpoint.CloseSubscribeChannel(uri, TestSettings.ListenerMessageSourceAddress);
+            System.Threading.Thread.Sleep(500);
+            endpoint.AddSubscribeChannel(uri, TestSettings.ListenerMessageSourceAddress);
+            System.Threading.Thread.Sleep(500);
+
+            for (int i = 0; i < 5; i++)
+            {
+                FireAndWaitForSource(new WhoIsThereRequest(), TimeSpan.FromSeconds(10));
+            }
+        }
+
         private async Task DoTests(bool auth, bool sec)
         {
             InitializeTest(auth, sec);
@@ -162,10 +199,15 @@ namespace CFXUnitTests
 
         private void FireAndWaitForSource(CFXMessage msg)
         {
+            FireAndWaitForSource(msg, TimeSpan.FromSeconds(60));
+        }
+
+        private void FireAndWaitForSource(CFXMessage msg, TimeSpan timeout)
+        {
             using (evt = new System.Threading.AutoResetEvent(false))
             {
                 listener.PublishToMessageSource(TestSettings.ListenerMessageSourceAddress, new CFXEnvelope(msg));
-                if (!evt.WaitOne(60000))
+                if (!evt.WaitOne(timeout))
                 {
                     throw new TimeoutException("The message was not received from the message source.  Timeout");
                 }

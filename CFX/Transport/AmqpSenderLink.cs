@@ -106,12 +106,31 @@ namespace CFX.Transport
                 {
                     isProcessing = true;
                     LogDebug("Triggering Processing...");
-                    Task.Run((Action)Process);
+                    Task.Run(Process);
                 }
             }
         }
 
-        private async void Process()
+        private async Task Process()
+        {
+            try
+            {
+                await ProcessQueue().ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+            }
+            finally
+            {
+                lock (this)
+                {
+                    isProcessing = false;
+                }
+            }
+        }
+
+        private async Task ProcessQueue()
         {
             while (!Queue.IsEmpty)
             {
@@ -126,7 +145,8 @@ namespace CFX.Transport
                         try
                         {
                             Message msg = AmqpUtilities.MessageFromEnvelopes(messages, AmqpCFXEndpoint.Codec.Value, Connection.Endpoint.SubjectFormat);
-                            SenderLink.Send(msg);
+                            // Do not block a thread pool thread while waiting for the peer to settle the delivery
+                            await SenderLink.SendAsync(msg).ConfigureAwait(false);
                             success = true;
                         }
                         catch (Exception ex)
@@ -156,13 +176,6 @@ namespace CFX.Transport
                     await Task.Delay(Convert.ToInt32(AmqpCFXEndpoint.ReconnectInterval.Value.TotalMilliseconds));
                 }
             }
-
-            lock (this)
-            {
-                isProcessing = false;
-            }
-
-            await Task.Yield();
         }
 
         public override bool CreateLink(Session session)

@@ -197,8 +197,8 @@ namespace CFX.Transport
             foreach (CFXEnvelope env in messages)
             {
                 p.MessageQueue.Enqueue(env);
-                p.SignalMessageAvailable();
             }
+            p.SignalMessageAvailable();
         }
 
         public void PurgeSource(string sourceAddress)
@@ -269,10 +269,23 @@ namespace CFX.Transport
         class InternalSourceProcessor : IMessageSource
         {
             /// <summary>
-            /// A semaphore for waiting for new messages.
-            /// This can fix the issue that GetMessageAsync leads to high CPU consumption.
+            /// How long GetMessageAsync waits for a new message before re-checking the link state.
+            /// AMQPNetLite only stops calling GetMessageAsync once the link is detaching, and only completes a
+            /// drain when GetMessageAsync returns null, so a waiter must not block indefinitely.
             /// </summary>
-            private SemaphoreSlim messageAvailable = new SemaphoreSlim(0);
+            private static readonly TimeSpan IdleRecheckInterval = TimeSpan.FromSeconds(1);
+
+            /// <summary>
+            /// Completed (and replaced) whenever new messages are enqueued.  Every waiting link is woken up and
+            /// re-checks the queue, so a waiter of a link that is already gone cannot swallow a wake-up meant
+            /// for an active link (as a counting semaphore would).
+            /// </summary>
+            private TaskCompletionSource<bool> messageAvailable = NewMessageSignal();
+
+            private static TaskCompletionSource<bool> NewMessageSignal()
+            {
+                return new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+            }
 
             public InternalSourceProcessor(AmqpRequestProcessor parentProcessor, string sourceAddress)
             {
@@ -302,31 +315,47 @@ namespace CFX.Transport
 
             public async Task<ReceiveContext> GetMessageAsync(ListenerLink link)
             {
-                ReceiveContext ctx = null;
-                await messageAvailable.WaitAsync();
-                try
+                while (!link.IsClosed)
                 {
-                    if (MessageQueue.Count > 0)
+                    // Capture the signal before looking at the queue, so a message enqueued in between is not missed
+                    Task signal = Volatile.Read(ref messageAvailable).Task;
+
+                    try
                     {
-                        Message m;
-                        CFXEnvelope[] envs = MessageQueue.Dequeue();
-                        if (envs != null && envs.Length > 0)
+                        if (MessageQueue.Count > 0)
                         {
-                            m = AmqpUtilities.MessageFromEnvelope(envs[0], AmqpCFXEndpoint.Codec.Value, parentProcessor.Endpoint.SubjectFormat);
-                            ctx = new ReceiveContext(link, m);
+                            CFXEnvelope[] envs = MessageQueue.Dequeue();
+                            if (envs != null && envs.Length > 0)
+                            {
+                                Message m = AmqpUtilities.MessageFromEnvelope(envs[0], AmqpCFXEndpoint.Codec.Value, parentProcessor.Endpoint.SubjectFormat);
+                                return new ReceiveContext(link, m);
+                            }
+
+                            // Another link took the message, check again
+                            continue;
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        AppLog.Error(ex);
+                        return null;
+                    }
+
+                    if (link.IsDraining) break;
+
+                    using (CancellationTokenSource cts = new CancellationTokenSource())
+                    {
+                        await Task.WhenAny(signal, Task.Delay(IdleRecheckInterval, cts.Token)).ConfigureAwait(false);
+                        cts.Cancel();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    AppLog.Error(ex);
-                }
-                return ctx;
+
+                return null;
             }
 
             public void SignalMessageAvailable()
             {
-                messageAvailable.Release();
+                Interlocked.Exchange(ref messageAvailable, NewMessageSignal()).TrySetResult(true);
             }
         }
 
